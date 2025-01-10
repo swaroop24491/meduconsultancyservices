@@ -27,6 +27,155 @@ body {
 
 /* Header */
 
+#menuToggle {
+    display: block;
+    position: fixed;
+    top: 30px;
+    right: 20px;
+    
+    z-index: 1;
+    
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  
+  #menuToggle input {
+    display: block;
+    width: 40px;
+    height: 32px;
+    position: absolute;
+    top: -6px;
+    left: -4px;
+    
+    cursor: pointer;
+    
+    opacity: 0; /* hide this */
+    z-index: 2; /* and place it over the hamburger */
+    
+    -webkit-touch-callout: none;
+  }
+  
+  /*
+   * Just a quick hamburger
+   */
+  #menuToggle > span {
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+    
+    background: #666;
+    border-radius: 3px;
+    
+    z-index: 1;
+    
+    transform-origin: 4px 0px;
+    
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                opacity 0.55s ease;
+  }
+  
+  #menuToggle span:first-child {
+    transform-origin: 0% 0%;
+  }
+  
+  #menuToggle span:nth-last-child(2) {
+    transform-origin: 0% 100%;
+  }
+  
+  /* 
+   * Transform all the slices of hamburger
+   * into a crossmark.
+   */
+  #menuToggle input:checked ~ span {
+    opacity: 1;
+    transform: rotate(45deg) translate(-2px, -1px);
+    background: #666;
+  }
+  
+  /*
+   * But let's hide the middle one.
+   */
+  #menuToggle input:checked ~ span:nth-last-child(3) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+  }
+  
+  /*
+   * Ohyeah and the last one should go the other direction
+   */
+  #menuToggle input:checked ~ span:nth-last-child(2) {
+    opacity: 1;
+    transform: rotate(-45deg) translate(0, -1px);
+  }
+  
+  /*
+   * Make this absolute positioned
+   * at the top left of the screen
+   */
+  #menu {
+    position: absolute;
+    max-width: 360px;
+    width: 100vw;
+    height: 100vh;
+    max-height: 100vh;
+    margin: -58px 0 0 0;
+    padding: 24px;
+    padding-top: 90px;
+    right: -20px;
+    box-shadow: 0 1px 20px rgba(0, 0, 0, 0.25);
+    box-sizing: border-box;
+    overflow-y: auto;
+    background: #ededed;
+    list-style-type: none;
+    
+    -webkit-font-smoothing: antialiased;
+    /* to stop flickering of text in safari */
+    
+    transform-origin: 0% 0%;
+    transform: translate(100%, 0);
+    
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+  }
+
+  #menu a {
+    font-size: 16px;
+    color: rgb(24, 24, 24);
+    text-decoration: none;
+  }
+
+  #menu .contact-us p {
+    margin-bottom: 16px;
+    padding: 10px 0;
+  }
+  
+  #menu li
+  {
+    padding: 10px 0;
+    margin-bottom: 16px;
+    font-size: 16px;
+  }
+  
+  #menu li label
+  {
+    cursor: pointer;
+  }
+  
+  /*
+   * And let's fade it in from the right
+   */
+  #menuToggle input:checked ~ ul {
+    transform: none;
+    opacity: 1;
+  }
+
+
+
+
+
+
 .header-space {
     height: 100px;
 }
@@ -103,6 +252,7 @@ header .header-links a {
     font-size: 14px;
     color: rgb(24, 24, 24);
     text-decoration: none;
+    width: fit-content;
 }
 
 .whatsapp {
@@ -112,6 +262,7 @@ header .header-links a {
     color: rgb(24, 24, 24);
     text-decoration: none;
     gap: 5px;
+    width: fit-content;
  }
 
 .email {
@@ -121,6 +272,7 @@ header .header-links a {
     color: rgb(24, 24, 24);
     text-decoration: none;
     gap: 5px;
+    width: fit-content;
  }
 
  .phone:hover, .whatsapp:hover, .email:hover {
@@ -136,48 +288,6 @@ header .header-links a {
     display: none;
     font-size: 2em;
     cursor: pointer;
-}
-
-/* Mobile Menu (Initially hidden) */
-nav.mobile-menu {
-    display: none;
-    position: absolute;
-    top: 60px;
-    right: 0;
-    background-color: #2e3a59;
-    width: 200px;
-    text-align: right;
-    padding: 10px;
-}
-
-nav.mobile-menu a {
-    display: block;
-    padding: 10px;
-    color: white;
-    text-decoration: none;
-}
-
-nav.mobile-menu a:hover {
-    background-color: #1d2c47;
-}
-
-/* Responsive Design: Show Hamburger Icon and Mobile Menu */
-@media (max-width: 768px) {
-    header .header-links {
-        display: none; /* Hide desktop menu on mobile */
-    }
-
-    .hamburger {
-        display: block; /* Show hamburger icon */
-    }
-
-    nav.mobile-menu {
-        display: none; /* Hide mobile menu by default */
-    }
-
-    nav.mobile-menu.active {
-        display: block; /* Show mobile menu when active */
-    }
 }
 
 /* Home Section */
@@ -207,14 +317,13 @@ nav.mobile-menu a:hover {
 }
 
 .contact.cta-btns p {
-    margin-bottom: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .contact.cta-btns p a {
-  background: #0276FF;
+  background: #448aff;
   color: #fff;
   border-radius: 50px;
   -webkit-transition: all 0.3s;
@@ -359,8 +468,6 @@ nav.mobile-menu a:hover {
 }
 
 .why-choose-us ul li {
-    font-size: 1.2em;
-    margin-bottom: 10px;
     box-shadow: rgba(0, 0, 0, 0.05) 0px 4px 20px 7px;
     padding: 20px;
     width: 400px;
@@ -392,11 +499,11 @@ nav.mobile-menu a:hover {
     margin: 0 auto;
     font-size: 2em;
     margin-bottom: 40px;
+    font-weight: 600;
 }
 
 .cta .contact p {
     font-size: 20px;
-    margin-bottom: 20px;
     display: flex;
     justify-content: center;
 }
@@ -411,6 +518,7 @@ footer {
     background-color: #fff;
     color: rgb(24, 24, 24);
     padding: 100px 0;
+    padding-bottom: 50px;
 }
 
 footer .footer-content {
@@ -449,6 +557,10 @@ footer .link-list ul li {
     margin-bottom: 10px;
 }
 
+footer .link-list ul li:last-child {
+    margin-bottom: 0;
+}
+
 footer .link-list ul li a {
     color: rgb(24, 24, 24);
     text-decoration: none;
@@ -475,19 +587,102 @@ footer .rights {
     font-weight: 500;
 }
 
-.office-address p {
+footer .office-address p {
     font-size: 14px;
+    margin-bottom: 0;
 }
 
 /* Responsive Design for Footer */
 @media (max-width: 768px) {
+    header .header-links, .header-nav {
+        display: none; /* Hide desktop menu on mobile */
+    }
+
+    header .logo img {
+        height: 36px;
+    }
+
+    .hamburger {
+        display: block; /* Show hamburger icon */
+    }
+
+    #home, .services, .industries, .clients, .why-choose-us, .cta {
+        padding: 60px 0;
+    }
+
+    .services .service h3 {
+        font-size: 16px;
+    }
+
+    #home h1 {
+        font-size: 24px;
+    }
+
+    .contact.cta-btns {
+        flex-direction: column;
+    }
+
+    .contact.cta-btns p a {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .services h2 {
+        font-size: 24px;
+    }
+
+    .services-cntr {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .services .service {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .why-choose-us ul {
+        gap: 20px;
+        flex-direction: column;
+    }
+
+    .why-choose-us ul li {
+        width: 100%;
+    }
+
+    .industries h2, .clients h2,  .why-choose-us h2, .cta h2 {
+        font-size: 24px;
+        margin-bottom: 40px;
+    }
+
+    .services .service ul li {
+        font-size: 16px;
+    }
+
+    .industries ul li {
+        margin: 0;
+        margin-bottom: 40px;
+        flex: 0 0 50%;
+    }
+
+    .why-choose-us ul li p {
+        font-size: 16px;
+    }
+
+    footer {
+        padding: 60px 0;
+    }
+
     footer .footer-content {
         flex-direction: column;
         align-items: center;
     }
 
-    footer .about-us, footer .quick-links, footer .contact-us {
+    footer .about-us, footer .quick-links, footer .contact-us, footer .services-offered {
         margin-right: 0;
         margin-bottom: 20px;
+        width: 100%;
+        max-width: 100%;
     }
 }
