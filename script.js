@@ -1,8 +1,18 @@
-// Get the hamburger icon and mobile menu
-const hamburgerIcon = document.getElementById('hamburger-icon');
-const mobileMenu = document.getElementById('mobile-menu');
+const items = document.querySelectorAll('.accordion button');
 
-// Toggle the mobile menu when the hamburger icon is clicked
-hamburgerIcon.addEventListener('click', () => {
-    mobileMenu.classList.toggle('active');
-});
+function toggleAccordion() {
+  const itemToggle = this.getAttribute('aria-expanded');
+
+  for (i = 0; i < items.length; i++) {
+    items[i].setAttribute('aria-expanded', 'false');
+  }
+
+  if (itemToggle == 'false') {
+    this.setAttribute('aria-expanded', 'true');
+  }
+}
+
+items.forEach((item) => item.addEventListener('click', toggleAccordion));
+
+
+

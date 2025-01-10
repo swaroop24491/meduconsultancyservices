@@ -6,6 +6,131 @@
     box-sizing: border-box;
 }
 
+
+
+/* Accordion Styles */
+
+.accordion {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.accordion .accordion-item {
+    border-bottom: 1px solid #e5e5e5;
+  }
+  
+  .accordion .accordion-item button[aria-expanded='true'] {
+    border-bottom: 1px solid #448aff;
+  }
+  
+  .accordion button {
+    position: relative;
+    display: block;
+    text-align: left;
+    width: 100%;
+    padding: 1em 0;
+    color: rgb(24, 24, 24);
+    font-size: 1.15rem;
+    font-weight: 400;
+    border: none;
+    background: none;
+    outline: none;
+  }
+  
+  .accordion button:hover,
+  .accordion button:focus {
+    cursor: pointer;
+    color: #448aff;
+  }
+  
+  .accordion button:hover::after,
+  .accordion button:focus::after {
+    cursor: pointer;
+    color: #448aff;
+    border: 1px solid #448aff;
+  }
+  
+  .accordion button .accordion-title {
+    padding: 1em 1.5em 1em 0;
+  }
+  
+  .accordion button .icon {
+    display: inline-block;
+    position: absolute;
+    top: 18px;
+    right: 0;
+    width: 22px;
+    height: 22px;
+    border: 1px solid;
+    border-radius: 22px;
+  }
+  
+  .accordion button .icon::before {
+    display: block;
+    position: absolute;
+    content: '';
+    top: 9px;
+    left: 5px;
+    width: 10px;
+    height: 2px;
+    background: currentColor;
+  }
+  .accordion button .icon::after {
+    display: block;
+    position: absolute;
+    content: '';
+    top: 5px;
+    left: 9px;
+    width: 2px;
+    height: 10px;
+    background: currentColor;
+  }
+  
+  .accordion button[aria-expanded='true'] {
+    color: #448aff;
+  }
+  .accordion button[aria-expanded='true'] .icon::after {
+    width: 0;
+  }
+  .accordion button[aria-expanded='true'] + .accordion-content {
+    opacity: 1;
+    max-height: 9em;
+    transition: all 200ms linear;
+    will-change: opacity, max-height;
+  }
+  .accordion .accordion-content {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 200ms linear, max-height 200ms linear;
+    will-change: opacity, max-height;
+  }
+  .accordion .accordion-content p {
+    font-size: 1rem;
+    font-weight: 300;
+    margin: 2em 0;
+    text-align: left;
+  }
+  
+
+/* Accordion Styles - END */
+
+.outlined-btn {
+    display: inline-block;
+    border: 2px solid #448aff;
+    color: #448aff;
+    border-radius: 50px;
+    padding: 10px 40px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.outlined-btn:hover {
+    background-color: #448aff;
+    color: #fff;
+}
+
 address {
     font-style: normal;
 }
@@ -187,6 +312,7 @@ header {
     position: fixed;
     width: 100%;
     background-color: rgb(248, 244, 240);
+    z-index: 1;
 }
 
 header .header-content {
@@ -247,12 +373,16 @@ header .header-links a {
 .phone {
     display: flex;
     align-items: center;
-    letter-spacing: 2px;
     gap: 5px;
     font-size: 14px;
     color: rgb(24, 24, 24);
     text-decoration: none;
     width: fit-content;
+}
+
+header .header-links a.phone {
+    color: rgb(255, 51, 51);
+    letter-spacing: 2px;
 }
 
 .whatsapp {
@@ -298,9 +428,9 @@ header .header-links a {
 
 #home h1 {
     font-size: 32px;
-    max-width: 900px;
+    max-width: 800px;
     margin: 0 auto;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
 #home p.subhead {
@@ -353,13 +483,35 @@ header .header-links a {
 .services h2 {
     font-size: 2em;
     text-align: center;
+    margin-bottom: 20px;
+}
+
+.services p.subhead {
+    font-size: 16px;
+    max-width: 900px;
+    margin: 0 auto;
     margin-bottom: 40px;
+    text-align: center;
+}
+
+.clients p.subhead {
+    font-size: 16px;
+    max-width: 900px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+    text-align: center;
 }
 
 .services .service {
     box-shadow: rgba(0, 0, 0, 0.05) 0px 4px 20px 7px;
     padding: 40px;
     width: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.mtopauto {
+    margin-top: auto;
 }
 
 .services .service h3 {
@@ -370,14 +522,15 @@ header .header-links a {
 
 .services .service ul {
     list-style: none;
+    margin-bottom: 20px;
 }
 
 .services .service ul li {
-    font-size: 14px;
+    font-size: 16px;
     margin-bottom: 10px;
     display: flex;
-        align-items: center;
-        gap: 8px;
+    align-items: center;
+    gap: 8px;
 }
 
 /* Industries Section */
@@ -396,6 +549,8 @@ header .header-links a {
     text-align: center;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 10px;
 }
 
 .industries ul li {
@@ -404,7 +559,7 @@ header .header-links a {
     display: flex;
     flex-direction: column;
     margin: 20px;
-    flex: 1;
+    flex: 0 0 17%;
     align-items: center;
 }
 
@@ -425,10 +580,10 @@ header .header-links a {
     padding: 100px 0;
 }
 
-.clients h2 {
+.clients h2, .faqs h2 {
     font-size: 2em;
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
 .clients ul {
@@ -489,7 +644,7 @@ header .header-links a {
 }
 
 /* Call to Action Section */
-.cta {
+.cta, .faqs {
     padding: 100px 0;
     text-align: center;
 }
@@ -594,6 +749,9 @@ footer .office-address p {
 
 /* Responsive Design for Footer */
 @media (max-width: 768px) {
+    .accordion button[aria-expanded='true'] + .accordion-content {
+        max-height: 15em;
+      }
     header .header-links, .header-nav {
         display: none; /* Hide desktop menu on mobile */
     }
@@ -651,7 +809,7 @@ footer .office-address p {
         width: 100%;
     }
 
-    .industries h2, .clients h2,  .why-choose-us h2, .cta h2 {
+    .industries h2, .clients h2,  .why-choose-us h2, .cta h2, .faqs h2 {
         font-size: 24px;
         margin-bottom: 40px;
     }
