@@ -1,0 +1,36 @@
+.service-page #home {
+    text-align: left;
+}
+
+.service-page #home h1 {
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+.service-page #home p.subhead {
+    margin: 0;
+    margin-bottom: 40px;
+}
+
+.service-page #home .contact.cta-btns {
+    justify-content: flex-start;
+}
+
+.service-page .services h2 {
+    text-align: left;
+}
+
+.service-page .services p.subhead {
+    margin-left: 0;
+    text-align: left;
+}
+
+.service-page .services-cntr {
+    justify-content: flex-start;
+}
+
+.service-page .services .service {
+    box-shadow: none;
+    padding: 0;
+    width: auto;
+}

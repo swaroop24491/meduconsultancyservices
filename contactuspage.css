@@ -7,6 +7,10 @@
     margin-bottom: 40px;
 }
 
+.contact-us-page .subhead {
+    margin-bottom: 40px;
+}
+
 .contact-us-page p {
     margin-bottom: 16px;
 }
@@ -31,7 +35,7 @@
 
 @media (max-width: 768px) {
     .contact-us-page {
-        padding: 60px 0;
+        padding: 40px 0;
      }
      .contact-us-page h1 {
         font-size: 24px;
