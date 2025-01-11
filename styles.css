@@ -535,6 +535,10 @@ header .header-links a.phone {
     gap: 8px;
 }
 
+.services .service ul li img {
+    user-select: none;
+}
+
 /* Industries Section */
 .industries {
     padding: 100px 0;

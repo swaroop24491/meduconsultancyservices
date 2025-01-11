@@ -18,6 +18,9 @@
 
 .service-page .services h2 {
     text-align: left;
+    font-size: 24px;
+    font-weight: 600;
+    max-width: 900px;
 }
 
 .service-page .services p.subhead {
@@ -33,4 +36,10 @@
     box-shadow: none;
     padding: 0;
     width: auto;
+}
+
+@media (max-width: 768px) {
+    .service-page .services h2 {
+        font-size: 20px;
+    }
 }
