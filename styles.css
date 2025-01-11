@@ -356,10 +356,6 @@ header .header-content {
     color: rgb(248, 244, 240);
 }
 
-header .logo img {
-    width: 300px;
-}
-
 header .header-links {
     display: flex;
     column-gap: 20px;
@@ -762,10 +758,6 @@ footer .office-address p {
       }
     header .header-links, .header-nav {
         display: none; /* Hide desktop menu on mobile */
-    }
-
-    header .logo img {
-        width: 220px;
     }
 
     .hamburger {
