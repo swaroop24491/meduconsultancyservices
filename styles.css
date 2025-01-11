@@ -357,7 +357,7 @@ header .header-content {
 }
 
 header .logo img {
-    height: 50px; /* Adjust based on logo size */
+    width: 300px;
 }
 
 header .header-links {
@@ -765,7 +765,7 @@ footer .office-address p {
     }
 
     header .logo img {
-        height: 36px;
+        width: 220px;
     }
 
     .hamburger {
