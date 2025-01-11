@@ -6,6 +6,10 @@
     box-sizing: border-box;
 }
 
+.material-symbols-outlined {
+    width: 24px;
+    height: 24px;
+}
 
 
 /* Accordion Styles */
@@ -20,7 +24,7 @@
   }
   
   .accordion .accordion-item button[aria-expanded='true'] {
-    border-bottom: 1px solid #448aff;
+    border-bottom: 1px solid #305cde;
   }
   
   .accordion button {
@@ -40,14 +44,14 @@
   .accordion button:hover,
   .accordion button:focus {
     cursor: pointer;
-    color: #448aff;
+    color: #305cde;
   }
   
   .accordion button:hover::after,
   .accordion button:focus::after {
     cursor: pointer;
-    color: #448aff;
-    border: 1px solid #448aff;
+    color: #305cde;
+    border: 1px solid #305cde;
   }
   
   .accordion button .accordion-title {
@@ -88,7 +92,7 @@
   }
   
   .accordion button[aria-expanded='true'] {
-    color: #448aff;
+    color: #305cde;
   }
   .accordion button[aria-expanded='true'] .icon::after {
     width: 0;
@@ -118,8 +122,8 @@
 
 .outlined-btn {
     display: inline-block;
-    border: 2px solid #448aff;
-    color: #448aff;
+    border: 2px solid #305cde;
+    color: #305cde;
     border-radius: 50px;
     padding: 10px 40px;
     font-size: 14px;
@@ -128,7 +132,7 @@
 }
 
 .outlined-btn:hover {
-    background-color: #448aff;
+    background-color: #305cde;
     color: #fff;
 }
 
@@ -450,7 +454,7 @@ header .header-links a.phone {
 }
 
 .contact.cta-btns p a {
-  background: #448aff;
+  background: #305cde;
   color: #fff;
   border-radius: 50px;
   -webkit-transition: all 0.3s;
@@ -739,7 +743,7 @@ footer .rights {
     font-size: 14px;
 }
 
-.office-address h6 {
+.office-address h4 {
     font-size: 16px;
     margin-top: 30px;
     margin-bottom: 10px;
