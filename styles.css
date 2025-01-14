@@ -611,6 +611,28 @@ header .header-links a.phone {
     border-top: 3px solid #ddd;
 }
 
+.importance-sec {
+    padding: 20px 0;
+    padding-bottom: 60px;
+}
+
+.importance-sec h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.importance-sec p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.why-choose-us h2 {
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
 /* Why Choose Us Section */
 .why-choose-us {
     padding: 100px 0;
