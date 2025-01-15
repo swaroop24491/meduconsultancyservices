@@ -57,6 +57,7 @@
   .accordion button .accordion-title {
     padding: 1em 1.5em 1em 0;
     margin-right: 1.5em;
+    font-size: 1rem;
   }
   
   .accordion button .icon {
@@ -739,7 +740,7 @@ footer .link-list ul {
 
 footer .link-list ul li {
     font-size: 14px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 footer .link-list ul li:last-child {
