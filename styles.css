@@ -645,6 +645,10 @@ header .header-links a.phone {
 
 .converter-cntr h1 {
     font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.converter-cntr p {
     margin-bottom: 40px;
 }
 
@@ -692,6 +696,7 @@ input[type="file"]::file-selector-button:active {
 .converter-step h4 {
     margin-bottom: 20px;
     font-weight: 500;
+    text-decoration: underline;
 }
 
 .why-choose-us h2 {
@@ -783,7 +788,7 @@ footer .about-us {
 
 footer .about-us h3, footer .quick-links h3, footer .contact-us h3, footer .services-offered h3 {
     font-size: 16px;
-    margin-bottom: 16px;
+    margin-bottom: 20px;
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: 600;
@@ -795,7 +800,7 @@ footer .link-list ul {
 
 footer .link-list ul li {
     font-size: 14px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 footer .link-list ul li:last-child {
@@ -812,7 +817,7 @@ footer .link-list ul li a:hover {
 }
 
 footer .contact-us p {
-    margin-bottom: 16px;
+    margin-bottom: 20px;
 }
 
 footer .rights {
@@ -824,7 +829,7 @@ footer .rights {
 .office-address h4 {
     font-size: 16px;
     margin-top: 30px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     font-weight: 500;
 }
 
