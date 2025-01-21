@@ -199,40 +199,54 @@
 
             <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
             <script>
-                function convertEPF() {
-                    const input = document.getElementById('fileInput').files[0];
-                    if (!input) {
-                        alert('Please upload an EPF Excel file.');
-                        return;
-                    }
+               function convertEPF() {
+                  const input = document.getElementById('fileInput').files[0];
+                  if (!input) {
+                      alert('Please upload an EPF Excel file.');
+                      return;
+                  }
 
-                    const reader = new FileReader();
-                    reader.onload = function(event) {
-                        const data = new Uint8Array(event.target.result);
-                        const workbook = XLSX.read(data, { type: 'array' });
+                  // document.getElementById('convertBtn').disabled = true;  // Disable button during processing
 
-                        // Process first sheet of Excel file
-                        const sheetName = workbook.SheetNames[0];
-                        const sheet = workbook.Sheets[sheetName];
-                        let csvData = XLSX.utils.sheet_to_csv(sheet, { header: 1 });
+                  const reader = new FileReader();
+                  reader.onload = function(event) {
+                      try {
+                          const data = new Uint8Array(event.target.result);
+                          const workbook = XLSX.read(data, { type: 'array' });
 
-                        // Remove headers and blank lines
-                        let rows = csvData.split('\n').slice(1);  // Remove header row
-                        rows = rows.filter(row => row.trim() !== "");  // Remove empty rows
+                          // Process first sheet of Excel file
+                          const sheetName = workbook.SheetNames[0];
+                          const sheet = workbook.Sheets[sheetName];
+                          let csvData = XLSX.utils.sheet_to_csv(sheet, { header: 1 });
 
-                        // Replace commas with #~#
-                        let formattedText = rows.map(row => row.replace(/,/g, '#~#')).join('\n');
+                          // Remove headers and blank lines
+                          let rows = csvData.split('\n').slice(1);  // Remove header row
+                          
+                          rows = rows
+                              .map(row => row.trim().replace(/,/g, '#~#')) // Replace commas and trim whitespace
+                              .filter(row => row.replace(/#~#/g, '').trim() !== "");  // Remove empty rows
 
-                        // Save the formatted text file
-                        const blob = new Blob([formattedText], { type: 'text/plain' });
-                        const filename = input.name.replace(/\s+/g, '') + '.txt';  // Remove spaces in filename
-                        const link = document.createElement('a');
-                        link.href = URL.createObjectURL(blob);
-                        link.download = filename;
-                        link.click();
-                    };
-                    reader.readAsArrayBuffer(input);
-                }
+                          // Join formatted rows
+                          let formattedText = rows.join('\n');
+
+                          // Save the formatted text file
+                          const blob = new Blob([formattedText], { type: 'text/plain' });
+                          const filename = input.name.replace(/\s+/g, '').replace(/\.[^/.]+$/, '') + '.txt';  // Remove spaces in filename
+                          const link = document.createElement('a');
+                          link.href = URL.createObjectURL(blob);
+                          link.download = filename;
+                          link.click();
+
+                          alert('File converted successfully! Please check the downloads folder');
+                      } catch (error) {
+                          alert('Error processing the file. Please check the format.');
+                      } finally {
+                          // document.getElementById('convertBtn').disabled = false;  // Re-enable button
+                      }
+                  };
+
+                  reader.readAsArrayBuffer(input);
+              }
             </script>
         </div>
     </section>
