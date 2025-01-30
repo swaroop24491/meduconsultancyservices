@@ -121,6 +121,31 @@
     <changefreq>daily</changefreq>
   </url>
   <url>
+    <loc>https://www.meduconsultancy.com/epf-esi-consultancy-sirsi</loc>
+    <priority>0.9</priority>
+    <changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>https://www.meduconsultancy.com/epf-esi-consultancy-vitla</loc>
+    <priority>0.9</priority>
+    <changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>https://www.meduconsultancy.com/epf-esi-consultancy-kalladka</loc>
+    <priority>0.9</priority>
+    <changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>https://www.meduconsultancy.com/epf-esi-consultancy-sullia</loc>
+    <priority>0.9</priority>
+    <changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>https://www.meduconsultancy.com/epf-esi-consultancy-karwar</loc>
+    <priority>0.9</priority>
+    <changefreq>daily</changefreq>
+  </url>
+  <url>
     <loc>https://www.meduconsultancy.com/about-us</loc>
     <priority>0.6</priority>
     <changefreq>weekly</changefreq>
