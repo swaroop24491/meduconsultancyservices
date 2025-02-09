@@ -794,6 +794,20 @@ footer .about-us h3, footer .quick-links h3, footer .contact-us h3, footer .serv
     font-weight: 600;
 }
 
+
+.location-list  {
+    margin-top: 20px;
+}
+
+.location-list ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.location-list ul li {
+    flex-basis: 20%;
+}
+
 footer .link-list ul {
     list-style: none;
 }
@@ -929,5 +943,9 @@ footer .office-address p {
         margin-bottom: 20px;
         width: 100%;
         max-width: 100%;
+    }
+    
+    .location-list ul li {
+        flex-basis: 50%;
     }
 }
