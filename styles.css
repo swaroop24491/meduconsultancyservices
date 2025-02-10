@@ -121,6 +121,10 @@
 
 /* Accordion Styles - END */
 
+.bold {
+    font-weight: bold;
+}
+
 .outlined-btn {
     display: inline-block;
     border: 2px solid #305cde;
@@ -850,6 +854,42 @@ footer .rights {
 footer .office-address p {
     font-size: 14px;
     margin-bottom: 0;
+}
+
+.manual-steps {
+    padding: 60px 0;
+}
+
+.manual-steps p {
+    margin-top: 20px;
+}
+
+.manual-steps h4 {
+    margin-top: 20px;
+}
+
+.manual-steps h6 {
+    font-size: 16px;
+    margin-top: 40px;
+}
+
+.main-list {
+    list-style: number;
+    padding-left: 40px;
+}
+
+.main-list > li {
+    margin-top: 15px;
+}
+
+.sub-list {
+    list-style: disc;
+    padding-left: 40px;
+}
+
+.sub-list > li {
+    font-size: 14px;
+    margin-top: 5px;
 }
 
 /* Responsive Design for Footer */
