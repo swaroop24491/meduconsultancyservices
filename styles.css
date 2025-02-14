@@ -799,8 +799,10 @@ footer .about-us h3, footer .quick-links h3, footer .contact-us h3, footer .serv
 }
 
 
-.location-list  {
+.location-list {
     margin-top: 40px;
+    padding-top: 40px;
+    border-top: 1px solid #e5e5e5;
 }
 
 .location-list ul {
@@ -983,6 +985,10 @@ footer .office-address p {
         margin-bottom: 20px;
         width: 100%;
         max-width: 100%;
+    }
+
+    .location-list {
+        margin-top: 20px;
     }
     
     .location-list ul li {
