@@ -74,4 +74,9 @@
         padding-top: 20px;
         padding-bottom: 20px;
     }
+
+    .privacy-section {
+        padding: 20px 0;
+    }
+    
 }
