@@ -31,6 +31,44 @@
     font-size: 16px;
 }
 
+
+.privacy-section {
+    padding: 80px 0;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.privacy-section h1{
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.privacy-section h2{
+    font-size: 20px;
+    margin-bottom: 10px;
+    margin-top: 40px;
+    font-weight: 600;
+}
+
+.privacy-section > p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.privacy-section ul {
+    list-style: numeric;
+    margin-bottom: 20px;
+    padding-left: 40px;
+}
+
+.privacy-section strong {
+    font-weight: 600;
+}
+
+.privacy-section li {
+    margin-top: 5px;
+}
+
 @media (max-width: 768px) {
     .aboutus-section {
         padding-top: 20px;
