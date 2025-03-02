@@ -160,6 +160,12 @@ body {
     padding: 0 20px;
 }
 
+.link {
+    color: rgb(255, 51, 51);
+    text-decoration: none;
+    font-weight: 400;
+}
+
 /* Header */
 
 #menuToggle {
@@ -695,6 +701,11 @@ input[type="file"]::file-selector-button:active {
 
 .converter-step {
     margin-bottom: 40px;
+}
+
+.step_link_cntr {
+    display: flex;
+    gap: 10px;
 }
 
 .converter-step h4 {
