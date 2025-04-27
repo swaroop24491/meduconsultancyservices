@@ -225,4 +225,14 @@
     <priority>0.8</priority>
     <changefreq>weekly</changefreq>
   </url>
+  <url>
+    <loc>https://www.meduconsultancy.com/blogs/epf-esi-compliance-boosts-employee-morale-retention-productivity</loc>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.meduconsultancy.com/blogs/epf-esi-contributions-strengthen-employer-brand</loc>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+  </url>
 </urlset>
