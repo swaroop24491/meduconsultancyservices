@@ -15,8 +15,10 @@
     margin-bottom: 16px;
 }
 
+.contact-us-page .office-address h2,
 .contact-us-page .office-address h4 {
     font-size: 24px;
+    font-weight: 500;
 }
 
 .contact-us-page .office-address p {
@@ -40,6 +42,7 @@
      .contact-us-page h1 {
         font-size: 24px;
     }
+    .contact-us-page .office-address h2,
     .contact-us-page .office-address h4 {
         font-size: 20px;
     }

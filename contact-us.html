@@ -104,6 +104,7 @@
 </script>
 </head>
 <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
 
     <!-- Header with Logo, Phone, WhatsApp, and Navigation -->
     <header>
@@ -111,10 +112,10 @@
             <div class="logo">
                 <a href="/"><img src="/images/logo.png" width="200" alt="Medu Consultancy Logo"></a>
             </div>
-            <nav class="header-nav">
+            <nav class="header-nav" aria-label="Primary">
                 <ul>
                     <li>
-                        <a class="active" href="/contact-us">Contact</a>
+                        <a class="active" aria-current="page" href="/contact-us">Contact</a>
                     </li>
                     <li>
                         <a href="/epf-consultancy-service">EPF Consultancy</a>
@@ -128,20 +129,20 @@
                 </ul>
             </nav>
             <div class="header-links">
-                <a href="tel:+918217542975" class="phone"><span class="material-symbols-outlined">
+                <a href="tel:+918217542975" class="phone"><span class="material-symbols-outlined" aria-hidden="true">
                     call
                     </span> 8217542975</a>
-                <a href="https://wa.me/919448622674" target="_blank" class="whatsapp"><img src="/images/whatsapp.svg" width="36" height="36" alt="whatsapp icon" /> WhatsApp</a>
+                <a href="https://wa.me/919448622674" target="_blank" rel="noopener noreferrer" class="whatsapp"><img src="/images/whatsapp.svg" width="36" height="36" alt="" /> WhatsApp</a>
             </div>
 
             <!-- Hamburger Icon -->
             <div class="hamburger" id="hamburger-icon">
                 <div id="menuToggle">
-                    <input type="checkbox" id="menuCheckbox" aria-label="Main menu" />
+                    <input type="checkbox" id="menuCheckbox" aria-label="Open menu" />
                     <span></span>
                     <span></span>
                     <span></span>
-                    <ul id="menu">
+                    <nav class="mobile-nav" aria-label="Menu"><ul id="menu">
                       <li>
                         <a href="/" class="nav-link">Home</a>
                       </li>
@@ -172,16 +173,16 @@
                             <address>
                                 <p>
                                     <a href="tel:+918217542975" class="phone">
-                                        <span class="material-symbols-outlined">
+                                        <span class="material-symbols-outlined" aria-hidden="true">
                                         call
                                         </span>
                                         8217542975</a>
                                 </p>
                                 <p>
-                                    <a href="https://wa.me/919448622674" target="_blank" class="whatsapp"><img src="/images/whatsapp.svg" width="36" height="36" alt="whatsapp icon" /> WhatsApp</a>
+                                    <a href="https://wa.me/919448622674" target="_blank" rel="noopener noreferrer" class="whatsapp"><img src="/images/whatsapp.svg" width="36" height="36" alt="" /> WhatsApp</a>
                                 </p>
                                 <p><a href="mailto:hello.meduconsultancy@gmail.com" class="email">
-                                    <span class="material-symbols-outlined">
+                                    <span class="material-symbols-outlined" aria-hidden="true">
                                         mail
                                         </span>
                                         hello.meduconsultancy@gmail.com</a></p>
@@ -196,13 +197,14 @@
                             </address>
                         </div>
                       </li>
-                    </ul>
+                    </ul></nav>
                   </div>
             </div>
         </div>
     </header>
 
     <div class="header-space"></div>
+    <main id="main-content" tabindex="-1">
     <section>
         <div class="container">
             <section class="contact-us contact-us-page">
@@ -213,22 +215,22 @@
                         <address>
                             <p>
                                 <a href="tel:+918217542975" class="phone">
-                                    <span class="material-symbols-outlined">
+                                    <span class="material-symbols-outlined" aria-hidden="true">
                                     call
                                     </span>
                                     8217542975</a>
                             </p>
                             <p>
-                                <a href="https://wa.me/919448622674" target="_blank" class="whatsapp"><img src="/images/whatsapp.svg" width="36" height="36" alt="whatsapp icon" /> WhatsApp</a>
+                                <a href="https://wa.me/919448622674" target="_blank" rel="noopener noreferrer" class="whatsapp"><img src="/images/whatsapp.svg" width="36" height="36" alt="" /> WhatsApp</a>
                             </p>
                             <p><a href="mailto:hello.meduconsultancy@gmail.com" class="email">
-                                <span class="material-symbols-outlined">
+                                <span class="material-symbols-outlined" aria-hidden="true">
                                     mail
                                     </span>
                                     hello.meduconsultancy@gmail.com</a></p>
                         </address>
                         <address class="office-address">
-                            <h4>Our Office Address</h4>
+                            <h2>Our Office Address</h2>
                             <p>
                                 3rd Floor, Padil Gate Building,<br>
                                 Padil, Mangaluru,<br>
@@ -237,7 +239,7 @@
                         </address>
                     </div>
                     <div>
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.5728298337367!2d74.8834522!3d12.870844!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba3594f3d91e041%3A0xdd0789a0263e2bf9!2sMedu%20Consultancy%20Services(PF%20%26%20ESI%20Consultants)!5e0!3m2!1sen!2sin!4v1736442481401!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.5728298337367!2d74.8834522!3d12.870844!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba3594f3d91e041%3A0xdd0789a0263e2bf9!2sMedu%20Consultancy%20Services(PF%20%26%20ESI%20Consultants)!5e0!3m2!1sen!2sin!4v1736442481401!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Google Map showing the Medu Consultancy office at Padil Gate Building, Padil, Mangaluru"></iframe>
                     </div>
                 </div>
             </section>
@@ -246,6 +248,7 @@
 
 
     <!-- Footer Section -->
+    </main>
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -278,16 +281,16 @@
                     <address>
                         <p>
                             <a href="tel:+918217542975" class="phone">
-                                <span class="material-symbols-outlined">
+                                <span class="material-symbols-outlined" aria-hidden="true">
                                 call
                                 </span>
                                 8217542975</a>
                         </p>
                         <p>
-                            <a href="https://wa.me/919448622674" target="_blank" class="whatsapp"><img src="/images/whatsapp.svg" width="36" height="36" alt="whatsapp icon" /> WhatsApp</a>
+                            <a href="https://wa.me/919448622674" target="_blank" rel="noopener noreferrer" class="whatsapp"><img src="/images/whatsapp.svg" width="36" height="36" alt="" /> WhatsApp</a>
                         </p>
                         <p><a href="mailto:hello.meduconsultancy@gmail.com" class="email">
-                            <span class="material-symbols-outlined">
+                            <span class="material-symbols-outlined" aria-hidden="true">
                                 mail
                                 </span>
                                 hello.meduconsultancy@gmail.com</a></p>
@@ -379,5 +382,6 @@
         </div>
     </footer>
 
+    <script src="/script.js" defer></script>
 </body>
 </html>

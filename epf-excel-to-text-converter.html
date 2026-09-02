@@ -113,6 +113,7 @@
 </script>
 </head>
 <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
 
     <!-- Header with Logo, Phone, WhatsApp, and Navigation -->
     <header>
@@ -120,7 +121,7 @@
             <div class="logo">
                 <a href="/"><img src="/images/logo.png" width="200" alt="Medu Consultancy Logo"></a>
             </div>
-            <nav class="header-nav">
+            <nav class="header-nav" aria-label="Primary">
                 <ul>
                     <li>
                         <a href="/contact-us">Contact</a>
@@ -137,20 +138,20 @@
                 </ul>
             </nav>
             <div class="header-links">
-                <a href="tel:+918217542975" class="phone"><span class="material-symbols-outlined">
+                <a href="tel:+918217542975" class="phone"><span class="material-symbols-outlined" aria-hidden="true">
                     call
                     </span> 8217542975</a>
-                <a href="https://wa.me/919448622674" target="_blank" class="whatsapp"><img src="/images/whatsapp.svg" width="36" height="36" alt="whatsapp icon" /> WhatsApp</a>
+                <a href="https://wa.me/919448622674" target="_blank" rel="noopener noreferrer" class="whatsapp"><img src="/images/whatsapp.svg" width="36" height="36" alt="" /> WhatsApp</a>
             </div>
 
             <!-- Hamburger Icon -->
             <div class="hamburger" id="hamburger-icon">
                 <div id="menuToggle">
-                    <input type="checkbox" id="menuCheckbox" aria-label="Main menu" />
+                    <input type="checkbox" id="menuCheckbox" aria-label="Open menu" />
                     <span></span>
                     <span></span>
                     <span></span>
-                    <ul id="menu">
+                    <nav class="mobile-nav" aria-label="Menu"><ul id="menu">
                       <li>
                         <a href="/" class="nav-link">Home</a>
                       </li>
@@ -181,16 +182,16 @@
                             <address>
                                 <p>
                                     <a href="tel:+918217542975" class="phone">
-                                        <span class="material-symbols-outlined">
+                                        <span class="material-symbols-outlined" aria-hidden="true">
                                         call
                                         </span>
                                         8217542975</a>
                                 </p>
                                 <p>
-                                    <a href="https://wa.me/919448622674" target="_blank" class="whatsapp"><img src="/images/whatsapp.svg" width="36" height="36" alt="whatsapp icon" /> WhatsApp</a>
+                                    <a href="https://wa.me/919448622674" target="_blank" rel="noopener noreferrer" class="whatsapp"><img src="/images/whatsapp.svg" width="36" height="36" alt="" /> WhatsApp</a>
                                 </p>
                                 <p><a href="mailto:hello.meduconsultancy@gmail.com" class="email">
-                                    <span class="material-symbols-outlined">
+                                    <span class="material-symbols-outlined" aria-hidden="true">
                                         mail
                                         </span>
                                         hello.meduconsultancy@gmail.com</a></p>
@@ -205,26 +206,28 @@
                             </address>
                         </div>
                       </li>
-                    </ul>
+                    </ul></nav>
                   </div>
             </div>
         </div>
     </header>
 
     <div class="header-space"></div>
+    <main id="main-content" tabindex="-1">
     <section class="converter-cntr">
         <div class="container">
             <h1>EPF Excel to Text ECR File Converter - Free Online Tool</h1>
             <p>With the EPF Excel to Text ECR File Converter, businesses can easily convert their Employee Provident Fund (EPF) Excel sheets into the standard ECR format for EPFO submission. This free online tool streamlines the EPF filing process by converting your files into the correct format.</p>
             <div class="converter-step">
                 <div class="step_link_cntr">
-                  <h4>Step 1: Upload EPF excel file</h4>
+                  <h2>Step 1: Upload EPF excel file</h2>
                   <span>(<a class="link" href="EPF_ECR_FORMAT.xlsx" download="EPF_ECR_FORMAT.xlsx">Download EPF ECR format in Excel</a>)</span>
                 </div>
+                <label for="fileInput">Choose an EPF Excel file (.xls or .xlsx)</label>
                 <input type="file" id="fileInput" accept=".xls,.xlsx" />
             </div>
             <div class="converter-step">
-                <h4>Step 2: Thats it! Download the converted Text ECR file</h4>
+                <h2>Step 2: Thats it! Download the converted Text ECR file</h2>
                 <button onclick="convertEPF()">Download EPFO Text file</button>
             </div>
 
@@ -286,7 +289,7 @@
       <div class="container">
         <h2>How to Manually Convert an Excel File to a Text File for EPF</h2>
         <p>If you prefer to convert an Excel file to a text file manually for EPF uploading, follow these steps:</p>
-        <h4>Steps to Convert Manually:</h4>
+        <h3>Steps to Convert Manually:</h3>
         <ul class="main-list">
           <li>Prepare the Excel Sheet: Ensure the sheet contains all required details.</li>
           <li>Save as CSV:
@@ -324,7 +327,7 @@
             </ul>
           </li>
         </ul>
-        <h6 class="bold">Easier Alternative: Use Our Free Online Tool</h6>
+        <h3 class="bold">Easier Alternative: Use Our Free Online Tool</h3>
         <p>Instead of manually converting your file, try our EPF Excel to Text File Converter. It automates the process, saving you time and effort!</p>
         <p><a class="link" href="EPF_ECR_FORMAT.xlsx" download="EPF_ECR_FORMAT.xlsx">Click here</a> to download EPF ECR format in Excel for free.</p>
       </div>
@@ -424,13 +427,14 @@
 
     <section class="importance-sec">
       <div class="container">
-        <h3>Free Online EPF ECR Text File Generator</h3>
+        <h2>Free Online EPF ECR Text File Generator</h2>
         <p>Use our free online tool to automatically convert your EPF Excel file to a Text (TXT) file for easy uploading to the EPFO system. This ECR utility simplifies the process of creating a Text file for EPF by converting Excel data into the required format for EPF submissions.</p>
         <p>This tool will help save a lot of time for your company by automating manual work, making EPF filing faster and more efficient. Save valuable time by converting your Excel files to Text format for EPF uploading in just a few clicks.</p>
       </div>
     </section>
 
     <!-- Footer Section -->
+    </main>
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -463,16 +467,16 @@
                     <address>
                         <p>
                             <a href="tel:+918217542975" class="phone">
-                                <span class="material-symbols-outlined">
+                                <span class="material-symbols-outlined" aria-hidden="true">
                                 call
                                 </span>
                                 8217542975</a>
                         </p>
                         <p>
-                            <a href="https://wa.me/919448622674" target="_blank" class="whatsapp"><img src="/images/whatsapp.svg" width="36" height="36" alt="whatsapp icon" /> WhatsApp</a>
+                            <a href="https://wa.me/919448622674" target="_blank" rel="noopener noreferrer" class="whatsapp"><img src="/images/whatsapp.svg" width="36" height="36" alt="" /> WhatsApp</a>
                         </p>
                         <p><a href="mailto:hello.meduconsultancy@gmail.com" class="email">
-                            <span class="material-symbols-outlined">
+                            <span class="material-symbols-outlined" aria-hidden="true">
                                 mail
                                 </span>
                                 hello.meduconsultancy@gmail.com</a></p>

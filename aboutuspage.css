@@ -27,7 +27,7 @@
 }
 
 .aboutus-section .services-links-cntr a {
-    color: rgb(255, 51, 51);
+    color: #c1121f;
     font-size: 16px;
 }
 
@@ -163,7 +163,7 @@
 }
 
 .privacy-section a, .terms-section a, .blog-section a {
-    color: rgb(255, 51, 51);
+    color: #c1121f;
 }
 
 @media (max-width: 768px) {

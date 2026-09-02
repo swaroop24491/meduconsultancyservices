@@ -195,6 +195,7 @@
 </script>
 </head>
 <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
 
     <!-- Header with Logo, Phone, WhatsApp, and Navigation -->
     <header>
@@ -202,7 +203,7 @@
             <div class="logo">
                 <a href="/"><img src="/images/logo.png" width="200" alt="Medu Consultancy Logo"></a>
             </div>
-            <nav class="header-nav">
+            <nav class="header-nav" aria-label="Primary">
                 <ul>
                     <li>
                         <a href="/contact-us">Contact</a>
@@ -219,20 +220,20 @@
                 </ul>
             </nav>
             <div class="header-links">
-                <a href="tel:+918217542975" class="phone"><span class="material-symbols-outlined">
+                <a href="tel:+918217542975" class="phone"><span class="material-symbols-outlined" aria-hidden="true">
                     call
                     </span> 8217542975</a>
-                <a href="https://wa.me/919448622674" target="_blank" class="whatsapp"><img src="/images/whatsapp.svg" width="36" height="36" alt="whatsapp icon" /> WhatsApp</a>
+                <a href="https://wa.me/919448622674" target="_blank" rel="noopener noreferrer" class="whatsapp"><img src="/images/whatsapp.svg" width="36" height="36" alt="" /> WhatsApp</a>
             </div>
 
             <!-- Hamburger Icon -->
             <div class="hamburger" id="hamburger-icon">
                 <div id="menuToggle">
-                    <input type="checkbox" id="menuCheckbox" aria-label="Main menu" />
+                    <input type="checkbox" id="menuCheckbox" aria-label="Open menu" />
                     <span></span>
                     <span></span>
                     <span></span>
-                    <ul id="menu">
+                    <nav class="mobile-nav" aria-label="Menu"><ul id="menu">
                       <li>
                         <a href="/" class="nav-link">Home</a>
                       </li>
@@ -263,16 +264,16 @@
                             <address>
                                 <p>
                                     <a href="tel:+918217542975" class="phone">
-                                        <span class="material-symbols-outlined">
+                                        <span class="material-symbols-outlined" aria-hidden="true">
                                         call
                                         </span>
                                         8217542975</a>
                                 </p>
                                 <p>
-                                    <a href="https://wa.me/919448622674" target="_blank" target="_blank" class="whatsapp"><img src="/images/whatsapp.svg" width="36" height="36" alt="whatsapp icon" /> WhatsApp</a>
+                                    <a href="https://wa.me/919448622674" target="_blank" rel="noopener noreferrer" class="whatsapp"><img src="/images/whatsapp.svg" width="36" height="36" alt="" /> WhatsApp</a>
                                 </p>
                                 <p><a href="mailto:hello.meduconsultancy@gmail.com" class="email">
-                                    <span class="material-symbols-outlined">
+                                    <span class="material-symbols-outlined" aria-hidden="true">
                                         mail
                                         </span>
                                         hello.meduconsultancy@gmail.com</a></p>
@@ -287,13 +288,14 @@
                             </address>
                         </div>
                       </li>
-                    </ul>
+                    </ul></nav>
                   </div>
             </div>
         </div>
     </header>
 
     <div class="header-space"></div>
+    <main id="main-content" tabindex="-1">
     <!-- Home Section -->
     <section id="home">
         <div class="container">
@@ -302,11 +304,11 @@
             <div class="contact cta-btns">
                 <p><a href="tel:+918217542975" class="phone">
                     Call us now: 
-                    <span class="material-symbols-outlined">
+                    <span class="material-symbols-outlined" aria-hidden="true">
                     call
                     </span>
                     8217542975</a></p>
-                <p> <a href="https://wa.me/919448622674" target="_blank" target="_blank" class="whatsapp">Contact us via<img src="/images/whatsapp.svg" width="36" height="36" alt="whatsapp icon" /> WhatsApp</a></p>
+                <p> <a href="https://wa.me/919448622674" target="_blank" rel="noopener noreferrer" class="whatsapp">Contact us via<img src="/images/whatsapp.svg" width="36" height="36" alt="" /> WhatsApp</a></p>
             </div>
         </div>
     </section>
@@ -321,31 +323,31 @@
                 <div class="service">
                     <h3>EPF Compliance</h3>
                     <ul>
-                        <li><img src="/images/check.svg" width="24" height="24" alt="check icon" />PF Registration</li>
-                        <li><img src="/images/check.svg" width="24" height="24" alt="check icon" />Employee registration and UAN generation</li>
-                        <li><img src="/images/check.svg" width="24" height="24" alt="check icon" />Monthly updates and filings</li>
-                        <li><img src="/images/check.svg" width="24" height="24" alt="check icon" />Support in Transfer of employee PF account / Withdrawal of PF amount</li>
-                        <li><img src="/images/check.svg" width="24" height="24" alt="check icon" />Support in Updation / Correction of employee KYC details</li>
-                        <li><img src="/images/check.svg" width="24" height="24" alt="check icon" />Records maintenance and audits</li>
-                        <!-- <li><img src="/images/check.svg" width="24" height="24" alt="check icon" />Liaison with the PF department</li> -->
-                        <li><img src="/images/check.svg" width="24" height="24" alt="check icon" />Assist Client in handling of PF inspections</li>
-                        <li><img src="/images/check.svg" width="24" height="24" alt="check icon" />Preparation and Submission of PF related correspondence</li>
-                        <li><img src="/images/check.svg" width="24" height="24" alt="check icon" />Information relating to legislative changes, if any</li>
+                        <li><img src="/images/check.svg" width="24" height="24" alt="" />PF Registration</li>
+                        <li><img src="/images/check.svg" width="24" height="24" alt="" />Employee registration and UAN generation</li>
+                        <li><img src="/images/check.svg" width="24" height="24" alt="" />Monthly updates and filings</li>
+                        <li><img src="/images/check.svg" width="24" height="24" alt="" />Support in Transfer of employee PF account / Withdrawal of PF amount</li>
+                        <li><img src="/images/check.svg" width="24" height="24" alt="" />Support in Updation / Correction of employee KYC details</li>
+                        <li><img src="/images/check.svg" width="24" height="24" alt="" />Records maintenance and audits</li>
+                        <!-- <li><img src="/images/check.svg" width="24" height="24" alt="" />Liaison with the PF department</li> -->
+                        <li><img src="/images/check.svg" width="24" height="24" alt="" />Assist Client in handling of PF inspections</li>
+                        <li><img src="/images/check.svg" width="24" height="24" alt="" />Preparation and Submission of PF related correspondence</li>
+                        <li><img src="/images/check.svg" width="24" height="24" alt="" />Information relating to legislative changes, if any</li>
                     </ul>
                     <div class="mtopauto"><a href="/epf-consultancy-service" class="outlined-btn">Know More</a></div>
                 </div>
                 <div class="service">
                     <h3>ESI Compliance</h3>
                     <ul>
-                        <li><img src="/images/check.svg" width="24" height="24" alt="check icon" />ESI Registration</li>
-                        <li><img src="/images/check.svg" width="24" height="24" alt="check icon" />Employee registration and IP number generation</li>
-                        <li><img src="/images/check.svg" width="24" height="24" alt="check icon" />Monthly updates and filings</li>
-                        <li><img src="/images/check.svg" width="24" height="24" alt="check icon" />Support in Updation / Correction of employee KYC details</li>
-                        <li><img src="/images/check.svg" width="24" height="24" alt="check icon" />Claims support</li>
-                        <li><img src="/images/check.svg" width="24" height="24" alt="check icon" />Assist Client in handling of ESI inspections</li>
-                        <li><img src="/images/check.svg" width="24" height="24" alt="check icon" />Preparation and Submission of ESI related correspondence</li>
-                        <!-- <li><img src="/images/check.svg" width="24" height="24" alt="check icon" />Liaison with the ESI department</li> -->
-                        <li><img src="/images/check.svg" width="24" height="24" alt="check icon" />Information relating to legislative changes, if any</li>
+                        <li><img src="/images/check.svg" width="24" height="24" alt="" />ESI Registration</li>
+                        <li><img src="/images/check.svg" width="24" height="24" alt="" />Employee registration and IP number generation</li>
+                        <li><img src="/images/check.svg" width="24" height="24" alt="" />Monthly updates and filings</li>
+                        <li><img src="/images/check.svg" width="24" height="24" alt="" />Support in Updation / Correction of employee KYC details</li>
+                        <li><img src="/images/check.svg" width="24" height="24" alt="" />Claims support</li>
+                        <li><img src="/images/check.svg" width="24" height="24" alt="" />Assist Client in handling of ESI inspections</li>
+                        <li><img src="/images/check.svg" width="24" height="24" alt="" />Preparation and Submission of ESI related correspondence</li>
+                        <!-- <li><img src="/images/check.svg" width="24" height="24" alt="" />Liaison with the ESI department</li> -->
+                        <li><img src="/images/check.svg" width="24" height="24" alt="" />Information relating to legislative changes, if any</li>
                     </ul>
                     <div class="mtopauto"><a href="/esi-consultancy-service" class="outlined-btn">Know More</a></div>
                 </div>
@@ -359,56 +361,56 @@
             <h2>Industries We Serve in Kumta</h2>
             <ul>
                 <li>
-                    <img src="/images/hotel.png" alt="Hotel" />
+                    <img src="/images/hotel.png" alt="" />
                     <span>Hotels</span>
                 </li>
 
                 <li>
-                    <img src="/images/restaurant.png" alt="Restaurant" />
+                    <img src="/images/restaurant.png" alt="" />
                     <span>Restaurants</span>
                 </li>
                 <li>
-                    <img src="/images/hospital.png" alt="Hospital" />
+                    <img src="/images/hospital.png" alt="" />
                     <span>Hospitals</span>
                 </li>
                 <li>
-                    <img src="/images/factory.png"  alt="Factory" />
+                    <img src="/images/factory.png"  alt="" />
                     <span>Factories</span>
                 </li>
                 <li>
-                    <img src="/images/supermarket.png"  alt="Supermarket" />
+                    <img src="/images/supermarket.png"  alt="" />
                     <span>Supermarkets</span>
                 </li>
                 <li>
-                    <img src="/images/school.png" alt="School" style="margin-top: 30px" />
+                    <img src="/images/school.png" alt="" style="margin-top: 30px" />
                     <span>Schools</span>
                 </li>
                 <li>
-                    <img src="/images/estate.png"  alt="Estate" />
+                    <img src="/images/estate.png"  alt="" />
                     <span>Estates</span>
                 </li>
                 <li>
-                    <img src="/images/security-agency.png"  alt="Security Agency" />
+                    <img src="/images/security-agency.png"  alt="" />
                     <span>Security Agencies</span>
                 </li>
                 <li>
-                    <img src="/images/housekeeping-agency.png"  alt="Housekeeping Agency" />
+                    <img src="/images/housekeeping-agency.png"  alt="" />
                     <span>Housekeeping Agencies</span>
                 </li>
                 <li>
-                    <img src="/images/IT-company.png"  alt="IT company" />
+                    <img src="/images/IT-company.png"  alt="" />
                     <span>IT companies</span>
                 </li>
                 <li>
-                    <img src="/images/engineers-contractors.png"  alt="Engineer" />
+                    <img src="/images/engineers-contractors.png"  alt="" />
                     <span>Engineers & Contractors</span>
                 </li>
                 <li>
-                    <img src="/images/suppliers.png"  alt="Truck" style="margin-top: 40px" />
+                    <img src="/images/suppliers.png"  alt="" style="margin-top: 40px" />
                     <span>Distributors & Suppliers</span>
                 </li>
                 <li>
-                    <img src="/images/local-shop.png"  alt="Local Shop" />
+                    <img src="/images/local-shop.png"  alt="" />
                     <span>Local Shops</span>
                 </li>
             </ul>
@@ -450,17 +452,17 @@
             <h2>Why Choose Us?</h2>
             <ul>
                 <li>
-                    <img src="/images/experience.svg" width="100" height="100" alt="20+ years of Expertise" />
+                    <img src="/images/experience.svg" width="100" height="100" alt="" />
                     <h3>20+ years of Expertise</h3>
                     <p>With 20+ years of experience as trusted PF consultants and ESI consultants, we ensure your business stays compliant with EPF and ESI regulations.</p>
                 </li>
                 <li>
-                    <img src="/images/handshake.svg" width="100" height="100" alt="Trusted by Businesses" />
+                    <img src="/images/handshake.svg" width="100" height="100" alt="" />
                     <h3>Trusted by Businesses</h3>
                     <p>We have earned the trust of  small and medium businesses across various industries through reliable and efficient services.</p>
                 </li>
                 <li>
-                    <img src="/images/bolt.svg" width="100" height="100" alt="Quick and Responsive Support" />
+                    <img src="/images/bolt.svg" width="100" height="100" alt="" />
                     <h3>Quick and Responsive Support</h3>
                     <p>Whether it’s a query, urgent filing, or claims assistance, our team is always ready to assist you promptly.</p>
                 </li>
@@ -475,11 +477,11 @@
             <div class="contact cta-btns">
                 <p><a href="tel:+918217542975" class="phone">
                     Call us now: 
-                    <span class="material-symbols-outlined">
+                    <span class="material-symbols-outlined" aria-hidden="true">
                     call
                     </span>
                     8217542975</a></p>
-                <p> <a href="https://wa.me/919448622674" target="_blank" target="_blank" class="whatsapp">Contact us via<img src="/images/whatsapp.svg" width="36" height="36" alt="whatsapp icon" /> WhatsApp</a></p>
+                <p> <a href="https://wa.me/919448622674" target="_blank" rel="noopener noreferrer" class="whatsapp">Contact us via<img src="/images/whatsapp.svg" width="36" height="36" alt="" /> WhatsApp</a></p>
             </div>
         </div>
     </section>
@@ -629,6 +631,7 @@
     </section>
 
     <!-- Footer Section -->
+    </main>
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -661,16 +664,16 @@
                     <address>
                         <p>
                             <a href="tel:+918217542975" class="phone">
-                                <span class="material-symbols-outlined">
+                                <span class="material-symbols-outlined" aria-hidden="true">
                                 call
                                 </span>
                                 8217542975</a>
                         </p>
                         <p>
-                            <a href="https://wa.me/919448622674" target="_blank" target="_blank" class="whatsapp"><img src="/images/whatsapp.svg" width="36" height="36" alt="whatsapp icon" /> WhatsApp</a>
+                            <a href="https://wa.me/919448622674" target="_blank" rel="noopener noreferrer" class="whatsapp"><img src="/images/whatsapp.svg" width="36" height="36" alt="" /> WhatsApp</a>
                         </p>
                         <p><a href="mailto:hello.meduconsultancy@gmail.com" class="email">
-                            <span class="material-symbols-outlined">
+                            <span class="material-symbols-outlined" aria-hidden="true">
                                 mail
                                 </span>
                                 hello.meduconsultancy@gmail.com</a></p>

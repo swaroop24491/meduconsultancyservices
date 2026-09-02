@@ -144,6 +144,7 @@
 </script>
 </head>
 <body class="service-page">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
 
     <!-- Header with Logo, Phone, WhatsApp, and Navigation -->
     <header>
@@ -151,7 +152,7 @@
             <div class="logo">
                 <a href="/"><img src="/images/logo.png" width="200" alt="Medu Consultancy Logo"></a>
             </div>
-            <nav class="header-nav">
+            <nav class="header-nav" aria-label="Primary">
                 <ul>
                     <li>
                         <a href="/contact-us">Contact</a>
@@ -163,25 +164,25 @@
                         <a href="/esi-consultancy-service">ESI Consultancy</a>
                     </li>
                     <li>
-                        <a class="active" href="/google-business-profile-service">Google Listing</a>
+                        <a class="active" aria-current="page" href="/google-business-profile-service">Google Listing</a>
                     </li>
                 </ul>
             </nav>
             <div class="header-links">
-                <a href="tel:+918217542975" class="phone"><span class="material-symbols-outlined">
+                <a href="tel:+918217542975" class="phone"><span class="material-symbols-outlined" aria-hidden="true">
                     call
                     </span> 8217542975</a>
-                <a href="https://wa.me/919448622674" target="_blank" class="whatsapp"><img src="/images/whatsapp.svg" width="36" height="36" alt="whatsapp icon" /> WhatsApp</a>
+                <a href="https://wa.me/919448622674" target="_blank" rel="noopener noreferrer" class="whatsapp"><img src="/images/whatsapp.svg" width="36" height="36" alt="" /> WhatsApp</a>
             </div>
 
             <!-- Hamburger Icon -->
             <div class="hamburger" id="hamburger-icon">
                 <div id="menuToggle">
-                    <input type="checkbox" id="menuCheckbox" aria-label="Main menu" />
+                    <input type="checkbox" id="menuCheckbox" aria-label="Open menu" />
                     <span></span>
                     <span></span>
                     <span></span>
-                    <ul id="menu">
+                    <nav class="mobile-nav" aria-label="Menu"><ul id="menu">
                       <li>
                         <a href="/" class="nav-link">Home</a>
                       </li>
@@ -212,16 +213,16 @@
                             <address>
                                 <p>
                                     <a href="tel:+918217542975" class="phone">
-                                        <span class="material-symbols-outlined">
+                                        <span class="material-symbols-outlined" aria-hidden="true">
                                         call
                                         </span>
                                         8217542975</a>
                                 </p>
                                 <p>
-                                    <a href="https://wa.me/919448622674" target="_blank" class="whatsapp"><img src="/images/whatsapp.svg" width="36" height="36" alt="whatsapp icon" /> WhatsApp</a>
+                                    <a href="https://wa.me/919448622674" target="_blank" rel="noopener noreferrer" class="whatsapp"><img src="/images/whatsapp.svg" width="36" height="36" alt="" /> WhatsApp</a>
                                 </p>
                                 <p><a href="mailto:hello.meduconsultancy@gmail.com" class="email">
-                                    <span class="material-symbols-outlined">
+                                    <span class="material-symbols-outlined" aria-hidden="true">
                                         mail
                                         </span>
                                         hello.meduconsultancy@gmail.com</a></p>
@@ -236,13 +237,14 @@
                             </address>
                         </div>
                       </li>
-                    </ul>
+                    </ul></nav>
                   </div>
             </div>
         </div>
     </header>
 
     <div class="header-space"></div>
+    <main id="main-content" tabindex="-1">
     <section id="home">
         <div class="container">
             <h1>Get Your Business Found on Google</h1>
@@ -250,11 +252,11 @@
             <div class="contact cta-btns">
                 <p><a href="tel:+918217542975" class="phone">
                     Call us now:
-                    <span class="material-symbols-outlined">
+                    <span class="material-symbols-outlined" aria-hidden="true">
                     call
                     </span>
                     8217542975</a></p>
-                <p> <a href="https://wa.me/919448622674" target="_blank" class="whatsapp">Contact us via<img src="/images/whatsapp.svg" width="36" height="36" alt="whatsapp icon" /> WhatsApp</a></p>
+                <p> <a href="https://wa.me/919448622674" target="_blank" rel="noopener noreferrer" class="whatsapp">Contact us via<img src="/images/whatsapp.svg" width="36" height="36" alt="" /> WhatsApp</a></p>
             </div>
         </div>
     </section>
@@ -355,14 +357,14 @@
                 <div class="service">
                     <h3>Google Business Profile Listing Service</h3>
                     <ul>
-                        <li><img src="/images/check.svg" width="24" height="24" alt="check icon" />Create a new Google listing, or claim one that already exists</li>
-                        <li><img src="/images/check.svg" width="24" height="24" alt="check icon" />Get your listing verified with Google</li>
-                        <li><img src="/images/check.svg" width="24" height="24" alt="check icon" />Put your business on Google Maps with the correct location and address</li>
-                        <li><img src="/images/check.svg" width="24" height="24" alt="check icon" />Add your phone number, working hours, and the areas you serve</li>
-                        <li><img src="/images/check.svg" width="24" height="24" alt="check icon" />Choose the right business category so the right customers find you</li>
-                        <li><img src="/images/check.svg" width="24" height="24" alt="check icon" />Write a clear description of what your business does</li>
-                        <li><img src="/images/check.svg" width="24" height="24" alt="check icon" />Add your logo and photos of your shop, work, or products</li>
-                        <li><img src="/images/check.svg" width="24" height="24" alt="check icon" />One round of corrections after verification, plus a simple walkthrough of your listing</li>
+                        <li><img src="/images/check.svg" width="24" height="24" alt="" />Create a new Google listing, or claim one that already exists</li>
+                        <li><img src="/images/check.svg" width="24" height="24" alt="" />Get your listing verified with Google</li>
+                        <li><img src="/images/check.svg" width="24" height="24" alt="" />Put your business on Google Maps with the correct location and address</li>
+                        <li><img src="/images/check.svg" width="24" height="24" alt="" />Add your phone number, working hours, and the areas you serve</li>
+                        <li><img src="/images/check.svg" width="24" height="24" alt="" />Choose the right business category so the right customers find you</li>
+                        <li><img src="/images/check.svg" width="24" height="24" alt="" />Write a clear description of what your business does</li>
+                        <li><img src="/images/check.svg" width="24" height="24" alt="" />Add your logo and photos of your shop, work, or products</li>
+                        <li><img src="/images/check.svg" width="24" height="24" alt="" />One round of corrections after verification, plus a simple walkthrough of your listing</li>
                     </ul>
                 </div>
             </div>
@@ -375,56 +377,56 @@
             <h2>Industries We Serve</h2>
             <ul>
                 <li>
-                    <img src="/images/hotel.png" alt="Hotel" />
+                    <img src="/images/hotel.png" alt="" />
                     <span>Hotels</span>
                 </li>
 
                 <li>
-                    <img src="/images/restaurant.png" alt="Restaurant" />
+                    <img src="/images/restaurant.png" alt="" />
                     <span>Restaurants</span>
                 </li>
                 <li>
-                    <img src="/images/hospital.png" alt="Hospital" />
+                    <img src="/images/hospital.png" alt="" />
                     <span>Hospitals</span>
                 </li>
                 <li>
-                    <img src="/images/factory.png"  alt="Factory" />
+                    <img src="/images/factory.png"  alt="" />
                     <span>Factories</span>
                 </li>
                 <li>
-                    <img src="/images/supermarket.png"  alt="Supermarket" />
+                    <img src="/images/supermarket.png"  alt="" />
                     <span>Supermarkets</span>
                 </li>
                 <li>
-                    <img src="/images/school.png" alt="School" style="margin-top: 30px" />
+                    <img src="/images/school.png" alt="" style="margin-top: 30px" />
                     <span>Schools</span>
                 </li>
                 <li>
-                    <img src="/images/estate.png"  alt="Estate" />
+                    <img src="/images/estate.png"  alt="" />
                     <span>Estates</span>
                 </li>
                 <li>
-                    <img src="/images/security-agency.png"  alt="Security Agency" />
+                    <img src="/images/security-agency.png"  alt="" />
                     <span>Security Agencies</span>
                 </li>
                 <li>
-                    <img src="/images/housekeeping-agency.png"  alt="Housekeeping Agency" />
+                    <img src="/images/housekeeping-agency.png"  alt="" />
                     <span>Housekeeping Agencies</span>
                 </li>
                 <li>
-                    <img src="/images/IT-company.png"  alt="IT company" />
+                    <img src="/images/IT-company.png"  alt="" />
                     <span>IT companies</span>
                 </li>
                 <li>
-                    <img src="/images/engineers-contractors.png"  alt="Engineer" />
+                    <img src="/images/engineers-contractors.png"  alt="" />
                     <span>Engineers & Contractors</span>
                 </li>
                 <li>
-                    <img src="/images/suppliers.png"  alt="Truck" style="margin-top: 40px" />
+                    <img src="/images/suppliers.png"  alt="" style="margin-top: 40px" />
                     <span>Distributors & Suppliers</span>
                 </li>
                 <li>
-                    <img src="/images/local-shop.png"  alt="Local Shop" />
+                    <img src="/images/local-shop.png"  alt="" />
                     <span>Local Shops</span>
                 </li>
             </ul>
@@ -437,17 +439,17 @@
             <h2>Why Choose Us?</h2>
             <ul>
                 <li>
-                    <img src="/images/experience.svg" width="100" height="100" alt="20+ years of Expertise" />
+                    <img src="/images/experience.svg" width="100" height="100" alt="" />
                     <h3>20+ years of Expertise</h3>
                     <p>With 20+ years of experience helping small and medium businesses, we know how to get your details right so your listing stays live and correct.</p>
                 </li>
                 <li>
-                    <img src="/images/handshake.svg" width="100" height="100" alt="Trusted by Businesses" />
+                    <img src="/images/handshake.svg" width="100" height="100" alt="" />
                     <h3>Trusted by Businesses</h3>
                     <p>We have earned the trust of  small and medium businesses across various industries through reliable and efficient services.</p>
                 </li>
                 <li>
-                    <img src="/images/bolt.svg" width="100" height="100" alt="Quick and Responsive Support" />
+                    <img src="/images/bolt.svg" width="100" height="100" alt="" />
                     <h3>Quick and Responsive Support</h3>
                     <p>Have a question or need a small change after setup? Our team is easy to reach and quick to respond.</p>
                 </li>
@@ -462,11 +464,11 @@
             <div class="contact cta-btns">
                 <p><a href="tel:+918217542975" class="phone">
                     Call us now:
-                    <span class="material-symbols-outlined">
+                    <span class="material-symbols-outlined" aria-hidden="true">
                     call
                     </span>
                     8217542975</a></p>
-                <p> <a href="https://wa.me/919448622674" target="_blank" class="whatsapp">Contact us via<img src="/images/whatsapp.svg" width="36" height="36" alt="whatsapp icon" /> WhatsApp</a></p>
+                <p> <a href="https://wa.me/919448622674" target="_blank" rel="noopener noreferrer" class="whatsapp">Contact us via<img src="/images/whatsapp.svg" width="36" height="36" alt="" /> WhatsApp</a></p>
             </div>
         </div>
     </section>
@@ -577,6 +579,7 @@
 
 
     <!-- Footer Section -->
+    </main>
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -609,16 +612,16 @@
                     <address>
                         <p>
                             <a href="tel:+918217542975" class="phone">
-                                <span class="material-symbols-outlined">
+                                <span class="material-symbols-outlined" aria-hidden="true">
                                 call
                                 </span>
                                 8217542975</a>
                         </p>
                         <p>
-                            <a href="https://wa.me/919448622674" target="_blank" class="whatsapp"><img src="/images/whatsapp.svg" width="36" height="36" alt="whatsapp icon" /> WhatsApp</a>
+                            <a href="https://wa.me/919448622674" target="_blank" rel="noopener noreferrer" class="whatsapp"><img src="/images/whatsapp.svg" width="36" height="36" alt="" /> WhatsApp</a>
                         </p>
                         <p><a href="mailto:hello.meduconsultancy@gmail.com" class="email">
-                            <span class="material-symbols-outlined">
+                            <span class="material-symbols-outlined" aria-hidden="true">
                                 mail
                                 </span>
                                 hello.meduconsultancy@gmail.com</a></p>

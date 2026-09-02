@@ -102,6 +102,7 @@
 </script>
 </head>
 <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
 
     <!-- Header with Logo, Phone, WhatsApp, and Navigation -->
     <header>
@@ -109,7 +110,7 @@
             <div class="logo">
                 <a href="/"><img src="/images/logo.png" width="200" alt="Medu Consultancy Logo"></a>
             </div>
-            <nav class="header-nav">
+            <nav class="header-nav" aria-label="Primary">
                 <ul>
                     <li>
                         <a href="/contact-us">Contact</a>
@@ -126,25 +127,25 @@
                 </ul>
             </nav>
             <div class="header-links">
-                <a href="tel:+918217542975" class="phone"><span class="material-symbols-outlined">
+                <a href="tel:+918217542975" class="phone"><span class="material-symbols-outlined" aria-hidden="true">
                     call
                     </span> 8217542975</a>
-                <a href="https://wa.me/919448622674" target="_blank" class="whatsapp"><img src="/images/whatsapp.svg" width="36" height="36" alt="whatsapp icon" /> WhatsApp</a>
+                <a href="https://wa.me/919448622674" target="_blank" rel="noopener noreferrer" class="whatsapp"><img src="/images/whatsapp.svg" width="36" height="36" alt="" /> WhatsApp</a>
             </div>
 
             <!-- Hamburger Icon -->
             <div class="hamburger" id="hamburger-icon">
                 <div id="menuToggle">
-                    <input type="checkbox" id="menuCheckbox" aria-label="Main menu" />
+                    <input type="checkbox" id="menuCheckbox" aria-label="Open menu" />
                     <span></span>
                     <span></span>
                     <span></span>
-                    <ul id="menu">
+                    <nav class="mobile-nav" aria-label="Menu"><ul id="menu">
                         <li>
                             <a href="/" class="nav-link">Home</a>
                         </li>
                       <li>
-                        <a href="#about-us" class="nav-link">About Us</a>
+                        <a href="/about-us" class="nav-link">About Us</a>
                       </li>
                       <li>
                         <a href="/contact-us" class="nav-link">Contact Us</a>
@@ -170,16 +171,16 @@
                             <address>
                                 <p>
                                     <a href="tel:+918217542975" class="phone">
-                                        <span class="material-symbols-outlined">
+                                        <span class="material-symbols-outlined" aria-hidden="true">
                                         call
                                         </span>
                                         8217542975</a>
                                 </p>
                                 <p>
-                                    <a href="https://wa.me/919448622674" target="_blank" class="whatsapp"><img src="/images/whatsapp.svg" width="36" height="36" alt="whatsapp icon" /> WhatsApp</a>
+                                    <a href="https://wa.me/919448622674" target="_blank" rel="noopener noreferrer" class="whatsapp"><img src="/images/whatsapp.svg" width="36" height="36" alt="" /> WhatsApp</a>
                                 </p>
                                 <p><a href="mailto:hello.meduconsultancy@gmail.com" class="email">
-                                    <span class="material-symbols-outlined">
+                                    <span class="material-symbols-outlined" aria-hidden="true">
                                         mail
                                         </span>
                                         hello.meduconsultancy@gmail.com</a></p>
@@ -194,13 +195,14 @@
                             </address>
                         </div>
                       </li>
-                    </ul>
+                    </ul></nav>
                   </div>
             </div>
         </div>
     </header>
 
     <div class="header-space"></div>
+    <main id="main-content" tabindex="-1">
     <section>
         <div class="container">
             <article class="blog-section">
@@ -223,17 +225,18 @@
             <div class="contact cta-btns">
                 <p><a href="tel:+918217542975" class="phone">
                     Call us now: 
-                    <span class="material-symbols-outlined">
+                    <span class="material-symbols-outlined" aria-hidden="true">
                     call
                     </span>
                     8217542975</a></p>
-                <p> <a href="https://wa.me/919448622674" target="_blank" target="_blank" class="whatsapp">Contact us via<img src="/images/whatsapp.svg" width="36" height="36" alt="whatsapp icon" /> WhatsApp</a></p>
+                <p> <a href="https://wa.me/919448622674" target="_blank" rel="noopener noreferrer" class="whatsapp">Contact us via<img src="/images/whatsapp.svg" width="36" height="36" alt="" /> WhatsApp</a></p>
             </div>
         </div>
     </section>
 
 
     <!-- Footer Section -->
+    </main>
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -245,7 +248,7 @@
                     <h3>Quick Links</h3>
                     <ul>
                         <li><a href="/">Home</a></li>
-                        <li><a href="#">About Us</a></li>
+                        <li><a href="/about-us">About Us</a></li>
                         <li><a href="/contact-us">Contact Us</a></li>
 <li><a href="/blogs">Blogs</a></li>
 <li><a href="/privacy-policy">Privacy Policy</a></li>
@@ -266,16 +269,16 @@
                     <address>
                         <p>
                             <a href="tel:+918217542975" class="phone">
-                                <span class="material-symbols-outlined">
+                                <span class="material-symbols-outlined" aria-hidden="true">
                                 call
                                 </span>
                                 8217542975</a>
                         </p>
                         <p>
-                            <a href="https://wa.me/919448622674" target="_blank" class="whatsapp"><img src="/images/whatsapp.svg" width="36" height="36" alt="whatsapp icon" /> WhatsApp</a>
+                            <a href="https://wa.me/919448622674" target="_blank" rel="noopener noreferrer" class="whatsapp"><img src="/images/whatsapp.svg" width="36" height="36" alt="" /> WhatsApp</a>
                         </p>
                         <p><a href="mailto:hello.meduconsultancy@gmail.com" class="email">
-                            <span class="material-symbols-outlined">
+                            <span class="material-symbols-outlined" aria-hidden="true">
                                 mail
                                 </span>
                                 hello.meduconsultancy@gmail.com</a></p>
@@ -367,5 +370,6 @@
         </div>
     </footer>
 
+    <script src="/script.js" defer></script>
 </body>
 </html>
