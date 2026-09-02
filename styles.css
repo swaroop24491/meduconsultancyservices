@@ -1143,3 +1143,41 @@ footer .office-address p {
         flex-basis: 50%;
     }
 }
+
+/* ---------------------------------------------------------------------------
+   Multi-language support
+   - Kannada pages carry <html lang="kn">; give them a Kannada-capable font.
+   - .lang-switch is the English <-> Kannada toggle in the header / menu.
+   --------------------------------------------------------------------------- */
+html[lang="kn"],
+html[lang="kn"] button,
+html[lang="kn"] input,
+html[lang="kn"] h1, html[lang="kn"] h2, html[lang="kn"] h3,
+html[lang="kn"] h4, html[lang="kn"] h5, html[lang="kn"] h6 {
+    font-family: "Noto Sans Kannada", "Poppins", sans-serif;
+}
+
+.lang-switch {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+    color: rgb(24, 24, 24);
+    text-decoration: none;
+    padding: 6px 12px;
+    border: 1px solid rgb(24, 24, 24);
+    border-radius: 50px;
+    white-space: nowrap;
+    transition: background-color 0.1s, color 0.1s;
+}
+
+.lang-switch:hover,
+.lang-switch:focus-visible {
+    background-color: rgb(24, 24, 24);
+    color: rgb(248, 244, 240);
+}
+
+#menu .lang-switch {
+    display: inline-block;
+    margin-bottom: 10px;
+}
