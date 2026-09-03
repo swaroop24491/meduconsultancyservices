@@ -642,32 +642,6 @@ header .header-links a.phone {
     user-select: none;
 }
 
-/* Listing preview illustration (Google Business Profile page) */
-.listing-preview {
-    padding: 80px 0 0;
-}
-
-.listing-preview h2 {
-    font-size: 24px;
-    font-weight: 600;
-    margin-bottom: 16px;
-    max-width: 900px;
-}
-
-.listing-preview p {
-    font-size: 16px;
-    max-width: 760px;
-    margin-bottom: 32px;
-}
-
-.listing-preview-img {
-    display: block;
-    width: 100%;
-    max-width: 600px;
-    height: auto;
-    margin: 0 auto;
-}
-
 /* Industries Section */
 .industries {
     padding: 100px 0;
@@ -1049,14 +1023,6 @@ footer .office-address p {
 
     #home, .services, .industries, .clients, .why-choose-us, .cta, .converter-cntr {
         padding: 60px 0;
-    }
-
-    .listing-preview {
-        padding: 40px 0 0;
-    }
-
-    .listing-preview-img {
-        max-width: 460px;
     }
 
     .services .service h3 {
