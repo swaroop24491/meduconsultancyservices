@@ -44,6 +44,26 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
+    <loc>https://www.meduconsultancy.com/epf-eligibility-checker</loc>
+    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.meduconsultancy.com/esi-eligibility-checker</loc>
+    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.meduconsultancy.com/epf-contribution-calculator</loc>
+    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.meduconsultancy.com/esi-contribution-calculator</loc>
+    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
     <loc>https://www.meduconsultancy.com/kn/</loc>
     <priority>1.0</priority>
     <changefreq>daily</changefreq>
