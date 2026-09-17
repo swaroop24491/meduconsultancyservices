@@ -167,6 +167,27 @@
     color: #c1121f;
 }
 
+.policy-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 16px;
+    margin-bottom: 20px;
+}
+
+.policy-contact-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 16px;
+}
+
+.policy-contact-row .material-symbols-outlined {
+    font-size: 22px;
+    color: #305cde;
+    flex-shrink: 0;
+}
+
 .blog-section table {
     width: 100%;
     border-collapse: collapse;
