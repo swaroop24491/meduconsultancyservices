@@ -166,6 +166,66 @@
     color: #c1121f;
 }
 
+.blog-section table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0 24px;
+    font-size: 15px;
+}
+
+.blog-section caption {
+    text-align: left;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.blog-section th,
+.blog-section td {
+    text-align: left;
+    padding: 10px 14px;
+    border: 1px solid #ddd;
+}
+
+.blog-section th {
+    background: rgb(248,244,240);
+    color: rgb(24,24,24);
+    font-weight: 600;
+}
+
+.blog-section .table-scroll {
+    overflow-x: auto;
+    margin-bottom: 24px;
+}
+
+.blog-section .table-scroll table {
+    margin-bottom: 0;
+}
+
+.blog-section .fact-note {
+    border-left: 4px solid #305cde;
+    background: #fff;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 4px 20px 7px;
+    padding: 18px 22px;
+    margin: 24px 0;
+}
+
+.blog-section .fact-note p {
+    font-size: 15px;
+    margin-bottom: 0;
+}
+
+.blog-section .fact-note-label {
+    display: block;
+    font-weight: 600;
+    color: #305cde;
+    margin-bottom: 6px;
+}
+
+.blog-section .prep-list {
+    list-style: disc;
+}
+
 @media (max-width: 768px) {
     .aboutus-section {
         padding-top: 20px;

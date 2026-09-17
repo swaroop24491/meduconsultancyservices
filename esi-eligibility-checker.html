@@ -291,20 +291,20 @@
         <h2>How ESI Eligibility Works</h2>
 
         <h3>Establishment-level coverage</h3>
-        <p>ESI registration is mandatory for factories and notified categories of establishments — shops, hotels, restaurants, cinemas, road transport, newspaper establishments, and educational or medical institutions among others — once the headcount threshold is met. That threshold is <strong>10 employees</strong> in most states, including Karnataka, and <strong>20 employees</strong> in a handful of states that haven't lowered it. Like EPF, coverage is permanent once triggered — dropping below the threshold later does not remove it.</p>
+        <p>ESI registration is mandatory for factories and notified categories of establishments - shops, hotels, restaurants, cinemas, road transport, newspaper establishments, and educational or medical institutions among others - once the headcount threshold is met. That threshold is <strong>10 employees</strong> in most states, including Karnataka, and <strong>20 employees</strong> in a handful of states that haven't lowered it. Like EPF, coverage is permanent once triggered - dropping below the threshold later does not remove it.</p>
 
         <h3>Employee-level coverage</h3>
         <p>An employee is covered if their gross monthly wages are <strong>₹21,000 or less</strong> (₹25,000 or less for a person with disability). Gross wages here means basic + DA + HRA + overtime + most allowances, excluding reimbursements billed separately. If wages cross the ceiling partway through a contribution period (April–September or October–March), coverage continues until that period ends.</p>
 
         <h3>Low-wage exemption</h3>
-        <p>If an employee's average daily wage is ₹176 or less, their own 0.75% share is exempted — the employer must still pay their 3.25% share.</p>
+        <p>If an employee's average daily wage is ₹176 or less, their own 0.75% share is exempted - the employer must still pay their 3.25% share.</p>
       </div>
     </section>
 
     <section class="elig-checker" aria-labelledby="checker-heading">
       <div class="container">
         <h2 id="checker-heading">Check Your ESI Eligibility</h2>
-        <p class="subhead">These are two independent tools — fill in either one on its own, or both, in any order.</p>
+        <p class="subhead">These are two independent tools - fill in either one on its own, or both, in any order.</p>
 
         <div class="elig-columns">
           <section id="business-eligibility" class="elig-card" aria-labelledby="business-eligibility-heading">
@@ -331,7 +331,7 @@
     <section class="penalty-rules">
       <div class="container">
         <div class="calc-disclaimer">
-          <span class="calc-disclaimer-label">Important — read before you rely on this result</span>
+          <span class="calc-disclaimer-label">Important - read before you rely on this result</span>
           <p>This tool gives guidance based on general ESI rules, not a compliance certificate. Multi-state operations, contract workers, and borderline establishment categories need individual review.</p>
           <p>For a definitive answer for your business, <a class="link" href="/contact-us">contact Medu Consultancy</a>.</p>
         </div>
@@ -408,7 +408,7 @@
               </button>
               <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
                 <p itemprop="text">
-                  No. It's guidance based on general rules. Multi-state operations, contract workers, and borderline establishment categories need individual review — speak with Medu Consultancy for a definitive answer.
+                  No. It's guidance based on general rules. Multi-state operations, contract workers, and borderline establishment categories need individual review - speak with Medu Consultancy for a definitive answer.
                 </p>
               </div>
             </div>
@@ -565,7 +565,7 @@
         // generally confirmed to have lowered the threshold to 10 employees
         // for notified non-factory establishments; unlisted states default
         // to the older 20-employee threshold until confirmed. Verify against
-        // current ESIC state notifications before relying on this — last
+        // current ESIC state notifications before relying on this - last
         // checked 2026-09-16.
         var TEN_EMPLOYEE_STATES = [
           'Andhra Pradesh', 'Assam', 'Bihar', 'Chandigarh', 'Chhattisgarh',
@@ -635,7 +635,7 @@
             if (a['establishment-type'] === 'unsure') {
               return {
                 kind: 'uncertain',
-                headline: 'Uncertain — establishment category needs confirmation',
+                headline: 'Uncertain - establishment category needs confirmation',
                 reason: "ESI coverage depends on whether your establishment falls into a notified category (factory, shop, hotel, restaurant, cinema, road transport, newspaper, or educational/medical institution). Confirm your category before relying on the headcount test alone.",
                 crosslink: '<a class="link" href="/contact-us">Talk to Medu Consultancy</a> to confirm your establishment category.'
               };
@@ -644,7 +644,7 @@
             if (a['current-employees'] >= threshold) {
               return {
                 kind: 'positive',
-                headline: 'Mandatory — registration required',
+                headline: 'Mandatory - registration required',
                 reason: 'With ' + a['current-employees'] + ' employees in ' + a.state + ', your headcount has reached the applicable threshold of ' + threshold + ', so ESI registration is mandatory.',
                 note: 'Threshold used: ' + threshold + ' employees (' + a.state + ').',
                 crosslink: 'Get help registering: <a class="link" href="/esi-consultancy-service">ESI Consultancy Service</a>.'
@@ -654,7 +654,7 @@
               kind: 'neutral',
               headline: 'Not mandatory at current headcount',
               reason: 'With ' + a['current-employees'] + ' employees in ' + a.state + ', you are below the applicable threshold of ' + threshold + ', so ESI registration is not currently mandatory.',
-              note: 'Threshold used: ' + threshold + ' employees (' + a.state + '). This is a point-in-time test — once reached, coverage is permanent even if headcount later drops.',
+              note: 'Threshold used: ' + threshold + ' employees (' + a.state + '). This is a point-in-time test - once reached, coverage is permanent even if headcount later drops.',
               crosslink: 'Planning to grow the team? <a class="link" href="/esi-consultancy-service">Talk to Medu Consultancy</a> about staying ahead of registration.'
             };
           }
@@ -686,7 +686,7 @@
               id: 'avg-daily-wage',
               type: 'number',
               label: 'Average daily wage (₹)?',
-              help: 'Optional — only needed to check the low-wage exemption.',
+              help: 'Optional - only needed to check the low-wage exemption.',
               advanced: true,
               required: false,
               min: 0

@@ -1,15 +1,15 @@
 /*
- * EPF / ESI contribution calculator — shared form-and-breakdown-table
+ * EPF / ESI contribution calculator - shared form-and-breakdown-table
  * component used by /epf-contribution-calculator and
  * /esi-contribution-calculator.
  *
  * Legal sources (verify these are still current before relying on this for
- * an actual payroll run — rules last checked 2026-09-16):
+ * an actual payroll run - rules last checked 2026-09-16):
  *   - EPF: Employees' Provident Funds & Miscellaneous Provisions Act, 1952;
  *     Employees' Provident Funds Scheme, 2026 (notified 29 June 2026),
  *     ₹15,000/month basic+DA wage ceiling and voluntary continuation above
  *     it; Employees' Pension Scheme, 1995 (8.33% EPS share, capped at
- *     ₹15,000 basic — max ₹1,250/month); Employees' Deposit Linked
+ *     ₹15,000 basic - max ₹1,250/month); Employees' Deposit Linked
  *     Insurance Scheme, 1976 (0.5% EDLI share, capped at ₹15,000); EPFO
  *     administrative-charges notification (0.5% of actual basic+DA,
  *     uncapped, ₹75/month minimum).
@@ -21,7 +21,7 @@
  * config) renders a config-driven form and recalculates a breakdown table
  * live as the user types. Each page (epf-contribution-calculator.html /
  * esi-contribution-calculator.html) supplies its own fields, rates and
- * compute() logic as config/data — no markup or wiring is duplicated
+ * compute() logic as config/data - no markup or wiring is duplicated
  * between the two schemes.
  */
 (function (window) {

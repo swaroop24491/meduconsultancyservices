@@ -19,7 +19,7 @@ alternate tags and a header `lang-switch` link.
 
 ## Working in this repo
 
-There is no build/lint/test tooling — just edit the HTML/CSS/JS files directly and
+There is no build/lint/test tooling - just edit the HTML/CSS/JS files directly and
 open them in a browser (or a static file server) to check changes.
 
 - **Sitemap edits**: after changing `sitemap.xml`, validate it's well-formed XML:
@@ -40,7 +40,7 @@ open them in a browser (or a static file server) to check changes.
 Every page follows the same skeleton and shares `styles.css` (global stylesheet,
 no CSS variables/custom properties, no dark mode) and `script.js` (loaded via
 `defer` on every page; progressively enhances the FAQ accordion and the mobile
-hamburger menu — see its own comments for exact behavior).
+hamburger menu - see its own comments for exact behavior).
 
 Body flow: `#home` hero → `.services` → `.industries` → `.why-choose-us` →
 `.cta` → `.faqs` → footer. Service detail pages (`epf-consultancy-service.html`,
@@ -68,7 +68,7 @@ page:
 - Two nav landmarks: desktop `<nav class="header-nav" aria-label="Primary">` and
   the off-canvas hamburger menu wrapped in
   `<nav class="mobile-nav" aria-label="Menu">` around `<ul id="menu">`.
-  `.mobile-nav` must stay in the same sibling slot the bare `<ul>` used to occupy —
+  `.mobile-nav` must stay in the same sibling slot the bare `<ul>` used to occupy -
   the hamburger-bar CSS uses `:nth-last-child` selectors that break if it moves.
 - Link red is `#c1121f` (AA-compliant; do not revert to the old
   `rgb(255,51,51)`). Global `:focus-visible` outline is `3px solid #1a3fb0`.
@@ -76,7 +76,7 @@ page:
   use `alt=""`; Material Symbols icon spans get `aria-hidden="true"`.
 - External links use `target="_blank" rel="noopener noreferrer"` (no duplicate
   `target` attributes).
-- `script.js` must be included (with `defer`) on every page — it wires up
+- `script.js` must be included (with `defer`) on every page - it wires up
   `aria-controls`/`role=region`/`aria-hidden`+`inert` for the FAQ accordion and
   the Open/Close menu label + Escape-to-close behavior for the hamburger menu.
 
@@ -93,6 +93,6 @@ CSS block.
 
 ## Writing style / audience
 
-Copy targets small-business owners in tier-2/tier-3 Karnataka towns — not HR
+Copy targets small-business owners in tier-2/tier-3 Karnataka towns - not HR
 specialists or marketers. Use short sentences and everyday words, avoid jargon,
 and lead with the plain benefit rather than the mechanism.

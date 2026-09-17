@@ -104,7 +104,7 @@
             "name": "What if my salary is above the ESI ceiling?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "No ESI contribution applies — the employee is not covered at that wage level. The ceiling is ₹21,000/month gross wages, or ₹25,000 for a person with disability. If wages crossed the ceiling partway through a contribution period, coverage continues until the end of that period."
+              "text": "No ESI contribution applies - the employee is not covered at that wage level. The ceiling is ₹21,000/month gross wages, or ₹25,000 for a person with disability. If wages crossed the ceiling partway through a contribution period, coverage continues until the end of that period."
             }
           },
           {
@@ -128,7 +128,7 @@
             "name": "How much does ESI actually cost in total?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "4% of gross wages in total — 3.25% from the employer and 0.75% from the employee — as long as gross wages are at or below the applicable ceiling."
+              "text": "4% of gross wages in total - 3.25% from the employer and 0.75% from the employee - as long as gross wages are at or below the applicable ceiling."
             }
           }
         ]
@@ -300,13 +300,13 @@
     <section class="penalty-rules">
       <div class="container">
         <h2>How the ESI Split Works</h2>
-        <p>Total ESI contribution is 4% of gross wages — <strong>3.25% from the employer</strong> and <strong>0.75% from the employee</strong>. It applies only if gross wages are ≤ ₹21,000/month (≤ ₹25,000 for a person with disability).</p>
+        <p>Total ESI contribution is 4% of gross wages - <strong>3.25% from the employer</strong> and <strong>0.75% from the employee</strong>. It applies only if gross wages are ≤ ₹21,000/month (≤ ₹25,000 for a person with disability).</p>
 
         <h3>Low-wage exemption</h3>
-        <p>If the employee's average daily wage is ₹176 or less, their own 0.75% share is exempted — the employer must still pay the 3.25% share.</p>
+        <p>If the employee's average daily wage is ₹176 or less, their own 0.75% share is exempted - the employer must still pay the 3.25% share.</p>
 
         <div class="calc-disclaimer">
-          <span class="calc-disclaimer-label">Important — read before you rely on this figure</span>
+          <span class="calc-disclaimer-label">Important - read before you rely on this figure</span>
           <p>This is an illustrative estimate. Actual figures may differ slightly due to per-employee rounding conventions ESIC applies.</p>
           <p>For payroll set up correctly the first time, <a class="link" href="/contact-us">talk to Medu Consultancy</a>.</p>
         </div>
@@ -334,7 +334,7 @@
               </button>
               <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
                 <p itemprop="text">
-                  No ESI contribution applies — the employee is not covered at that wage level. The ceiling is ₹21,000/month gross wages, or ₹25,000 for a person with disability. If wages crossed the ceiling partway through a contribution period, coverage continues until the end of that period.
+                  No ESI contribution applies - the employee is not covered at that wage level. The ceiling is ₹21,000/month gross wages, or ₹25,000 for a person with disability. If wages crossed the ceiling partway through a contribution period, coverage continues until the end of that period.
                 </p>
               </div>
             </div>
@@ -370,7 +370,7 @@
               </button>
               <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
                 <p itemprop="text">
-                  4% of gross wages in total — 3.25% from the employer and 0.75% from the employee — as long as gross wages are at or below the applicable ceiling.
+                  4% of gross wages in total - 3.25% from the employer and 0.75% from the employee - as long as gross wages are at or below the applicable ceiling.
                 </p>
               </div>
             </div>
@@ -523,7 +523,7 @@
       document.addEventListener('DOMContentLoaded', function () {
         // ESI Act 1948; ESI (Central) Rules 1950, Rule 50 (contribution
         // rates, wage ceiling, low-wage exemption). Verify rates are still
-        // current — last checked 2026-09-16.
+        // current - last checked 2026-09-16.
         var CEILING = 21000;
         var CEILING_PWD = 25000;
         var EMPLOYEE_RATE = 0.0075;
@@ -559,7 +559,7 @@
               id: 'avg-daily-wage',
               type: 'number',
               label: 'Average daily wage (₹)',
-              help: 'Optional — only needed to check the low-wage exemption.',
+              help: 'Optional - only needed to check the low-wage exemption.',
               advanced: true,
               required: false,
               min: 0
@@ -571,7 +571,7 @@
             if (a['gross-wages'] > ceiling) {
               return {
                 applicable: false,
-                headline: 'Not applicable — wages exceed the ESI ceiling of ₹' + ceiling.toLocaleString('en-IN'),
+                headline: 'Not applicable - wages exceed the ESI ceiling of ₹' + ceiling.toLocaleString('en-IN'),
                 message: 'Gross monthly wages of ₹' + a['gross-wages'].toLocaleString('en-IN') + ' are above the ₹' + ceiling.toLocaleString('en-IN') + ' ceiling' + (a['is-pwd'] === 'yes' ? ' for a person with disability' : '') + ', so no ESI contribution applies.',
                 note: 'If wages crossed this ceiling only just now, coverage continues until the end of the current contribution period (Apr–Sep or Oct–Mar).'
               };

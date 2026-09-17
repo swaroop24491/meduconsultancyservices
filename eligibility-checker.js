@@ -1,9 +1,9 @@
 /*
- * EPF / ESI eligibility checkers — shared standalone-question-and-verdict
+ * EPF / ESI eligibility checkers - shared standalone-question-and-verdict
  * component used by /epf-eligibility-checker and /esi-eligibility-checker.
  *
  * Legal sources (verify these are still current before relying on this for
- * an actual EPFO/ESIC registration decision — rules last checked 2026-09-16):
+ * an actual EPFO/ESIC registration decision - rules last checked 2026-09-16):
  *   - EPF: Employees' Provident Funds & Miscellaneous Provisions Act, 1952,
  *     Section 1(4) (voluntary coverage), Section 1(5) (continued coverage),
  *     Section 17(1) (permanent coverage once triggered); Employees'
@@ -16,13 +16,13 @@
  *     state and change from time to time.
  *
  * This file is the reusable "component": initEligibilityCalculator(id,
- * config) renders ONE config-driven, self-contained calculator — its own
- * fields, its own submit action, its own single-card verdict — scoped
+ * config) renders ONE config-driven, self-contained calculator - its own
+ * fields, its own submit action, its own single-card verdict - scoped
  * entirely under the DOM id passed as `id` (e.g. "business-eligibility" or
  * "employee-eligibility"). Each eligibility-checker page calls this twice,
  * once per calculator, so the two are fully independent: neither depends on
  * the other's inputs, submission order, or state. Each page supplies its
- * own questions, thresholds and evaluate() logic as config/data — no
+ * own questions, thresholds and evaluate() logic as config/data - no
  * markup or wiring logic is duplicated between the two schemes or the two
  * calculators on a page.
  */

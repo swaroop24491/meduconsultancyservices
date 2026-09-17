@@ -2,7 +2,7 @@
  * EPF / ESI late-payment penalty calculator.
  *
  * Legal sources (verify these are still current before relying on this for
- * an actual EPFO/ESIC matter — rates last checked 2026-09-15):
+ * an actual EPFO/ESIC matter - rates last checked 2026-09-15):
  *   - EPF: Employees' Provident Funds & Miscellaneous Provisions Act, 1952,
  *     Section 7Q (interest) & Section 14B (damages); EPF Scheme 1952,
  *     Para 32A, as amended by EPFO circular effective 14 June 2024.
@@ -11,9 +11,9 @@
  *     Regulation 31C (damages).
  *
  * Both EPF and ESI charge two separate amounts on a late contribution:
- *   1. Interest — 12% p.a. simple interest on the arrears, for every day
+ *   1. Interest - 12% p.a. simple interest on the arrears, for every day
  *      of delay. Fixed for both schemes, not discretionary.
- *   2. Damages — a separate, punitive charge. For ESI, and for EPF defaults
+ *   2. Damages - a separate, punitive charge. For ESI, and for EPF defaults
  *      before 14 June 2024, this is a slab rate (5/10/15/25% p.a.) based on
  *      how long the delay is. For EPF defaults on or after 14 June 2024,
  *      it is a flat 1% per month (or part month), capped at 100% of the
@@ -22,7 +22,7 @@
  * This file has two parts: pure calculation (PenaltyCalculator, reusable
  * and unit-testable on its own) and DOM wiring (initPenaltyCalculator,
  * which both /epf-penalty-calculator and /esi-penalty-calculator call with
- * their own scheme name and copy — the shared "component" the two pages
+ * their own scheme name and copy - the shared "component" the two pages
  * are built from).
  */
 (function (window) {
@@ -256,7 +256,7 @@
       if (result.onTime) {
         container.innerHTML =
           '<div class="calc-ontime">' +
-          '<p><strong>No penalty — you’re on time.</strong></p>' +
+          '<p><strong>No penalty - you’re on time.</strong></p>' +
           '<p>The payment date you entered is on or before the due date (' +
           formatDateLong(result.dueDate) + '). No interest or damages apply.</p>' +
           '</div>';
@@ -283,7 +283,7 @@
       html += '</tbody></table>';
 
       html += '<p class="calc-rule-note">' + result.damages.ruleLabel +
-        ' — ' + result.damages.bracketLabel + '.</p>';
+        ' - ' + result.damages.bracketLabel + '.</p>';
 
       if (result.damages.capped) {
         html += '<p class="calc-cap-note">Damages have been capped at 100% of the arrears amount (statutory ceiling).</p>';
