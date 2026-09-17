@@ -72,7 +72,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=call,mail" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=call,mail,calculate,fact_check,arrow_forward" />
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-4MEQF5W0XX"></script>
@@ -209,102 +209,175 @@
 
     <div class="header-space"></div>
     <main id="main-content" tabindex="-1">
-    <section>
+    <section class="blog-hero">
         <div class="container">
-          <section class="blog-section">
             <h1>Our Blog</h1>
-            <p>Welcome to the Medu Consultancy blog! Here, you'll find informative articles on EPF, ESI, and other relevant topics to help you navigate employee benefits, compliance, and business practices.</p>
-            
-            <div class="blog-posts">
-                <article class="blog-post">
-                    <h2><a href="/epf-penalty-calculator" class="blog-head-link">Free Tool: EPF Late Payment Penalty &amp; Interest Calculator</a></h2>
-                    <p>Missed an EPF due date? Estimate the Section 7Q interest and Section 14B damages EPFO may charge on your arrears. <a href="/epf-penalty-calculator">Try the calculator</a></p>
+            <p class="subhead">Plain-language guides on EPF and ESI rules, penalties, and inspections &mdash; plus free tools to check eligibility and work out contributions and penalties yourself.</p>
+        </div>
+    </section>
+
+    <section class="blog-articles">
+        <div class="container">
+            <div class="articles-grid">
+                <article class="article-card">
+                    <span class="category-badge epf">EPF</span>
+                    <h3><a href="/blogs/epf-late-payment-penalty">Penalties for Late EPF Payment &mdash; Interest and Damages Explained</a></h3>
+                    <p>How Section 7Q interest and Section 14B damages are calculated on late EPF payments, with a worked &#8377;50,000 example and EPFO's VISHWAS 2026 settlement scheme.</p>
+                    <div class="card-footer mtopauto">
+                        <span class="post-date">Sep 17, 2026</span>
+                        <a href="/blogs/epf-late-payment-penalty" class="card-cta">Read article <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
+                    </div>
                 </article>
-                <article class="blog-post">
-                    <h2><a href="/esi-penalty-calculator" class="blog-head-link">Free Tool: ESI Late Payment Penalty &amp; Interest Calculator</a></h2>
-                    <p>Missed an ESI due date? Estimate the Regulation 31-A interest and Regulation 31C damages ESIC may charge on your arrears. <a href="/esi-penalty-calculator">Try the calculator</a></p>
+                <article class="article-card">
+                    <span class="category-badge esi">ESI</span>
+                    <h3><a href="/blogs/esi-late-payment-penalty">Penalties for Late ESI Payment &mdash; Interest and Damages Explained</a></h3>
+                    <p>How Regulation 31-A interest and Regulation 31C damages are calculated on late ESI payments, with a worked example showing the actual rupee cost.</p>
+                    <div class="card-footer mtopauto">
+                        <span class="post-date">Sep 17, 2026</span>
+                        <a href="/blogs/esi-late-payment-penalty" class="card-cta">Read article <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
+                    </div>
                 </article>
-                <article class="blog-post">
-                    <h2><a href="/epf-eligibility-checker" class="blog-head-link">Free Tool: EPF Eligibility Checker</a></h2>
-                    <p>Not sure if EPF applies to your business or a specific employee? Answer a few quick questions to find out. <a href="/epf-eligibility-checker">Try the checker</a></p>
+                <article class="article-card">
+                    <span class="category-badge epf">EPF</span>
+                    <h3><a href="/blogs/pf-inspection-guide">What Happens During a PF Inspection &mdash; How to Prepare</a></h3>
+                    <p>Who conducts EPFO inspections, what triggers one, which records get checked, and a practical checklist to prepare your business in advance.</p>
+                    <div class="card-footer mtopauto">
+                        <span class="post-date">Sep 17, 2026</span>
+                        <a href="/blogs/pf-inspection-guide" class="card-cta">Read article <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
+                    </div>
                 </article>
-                <article class="blog-post">
-                    <h2><a href="/esi-eligibility-checker" class="blog-head-link">Free Tool: ESI Eligibility Checker</a></h2>
-                    <p>Not sure if ESI applies to your business or a specific employee? Answer a few quick questions to find out. <a href="/esi-eligibility-checker">Try the checker</a></p>
+                <article class="article-card">
+                    <span class="category-badge esi">ESI</span>
+                    <h3><a href="/blogs/esi-inspection-guide">What Happens During an ESI Inspection &mdash; How to Prepare</a></h3>
+                    <p>Who conducts ESIC inspections, what triggers one, which records get checked, and a practical checklist to prepare your business in advance.</p>
+                    <div class="card-footer mtopauto">
+                        <span class="post-date">Sep 17, 2026</span>
+                        <a href="/blogs/esi-inspection-guide" class="card-cta">Read article <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
+                    </div>
                 </article>
-                <article class="blog-post">
-                    <h2><a href="/epf-contribution-calculator" class="blog-head-link">Free Tool: PF Contribution Calculator</a></h2>
-                    <p>Enter a salary and see the exact employer/employee PF split, including EPS, EDLI, and admin charges. <a href="/epf-contribution-calculator">Try the calculator</a></p>
+                <article class="article-card">
+                    <span class="category-badge epf">EPF</span>
+                    <h3><a href="/blogs/epf-applicability-threshold">EPF Applicability Threshold: Do You Really Need to Register?</a></h3>
+                    <p>The 20-employee and &#8377;15,000 wage rules explained, including what happens with exactly 20 employees or a seasonal headcount spike.</p>
+                    <div class="card-footer mtopauto">
+                        <span class="post-date">Sep 17, 2026</span>
+                        <a href="/blogs/epf-applicability-threshold" class="card-cta">Read article <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
+                    </div>
                 </article>
-                <article class="blog-post">
-                    <h2><a href="/esi-contribution-calculator" class="blog-head-link">Free Tool: ESI Contribution Calculator</a></h2>
-                    <p>Enter gross wages and see the exact employer/employee ESI contribution split. <a href="/esi-contribution-calculator">Try the calculator</a></p>
+                <article class="article-card">
+                    <span class="category-badge esi">ESI</span>
+                    <h3><a href="/blogs/esi-applicability-threshold">ESI Applicability Threshold: Do You Really Need to Register?</a></h3>
+                    <p>Karnataka's 10-employee threshold and the &#8377;21,000 wage ceiling explained, including what counts toward your headcount.</p>
+                    <div class="card-footer mtopauto">
+                        <span class="post-date">Sep 17, 2026</span>
+                        <a href="/blogs/esi-applicability-threshold" class="card-cta">Read article <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
+                    </div>
                 </article>
-                <article class="blog-post">
-                    <h2><a href="/blogs/esi-benefits-small-medium-businesses" class="blog-head-link">What is ESI and What are the Benefits for Small and Medium Businesses?</a></h2>
-                    <p>Learn about the Employees' State Insurance (ESI) scheme and how it benefits both businesses and employees, especially in small and medium-sized enterprises. <a href="/blogs/esi-benefits-small-medium-businesses">Read</a></p>
-                    <span class="post-date">Published on April 27, 2025</span>
+                <article class="article-card">
+                    <span class="category-badge epf">EPF</span>
+                    <h3><a href="/blogs/common-epf-compliance-mistakes">Common EPF Compliance Mistakes Small Businesses Make</a></h3>
+                    <p>Eight common EPF mistakes small businesses make &mdash; from misjudging headcount drops to missing ECR deadlines &mdash; and how to fix each one.</p>
+                    <div class="card-footer mtopauto">
+                        <span class="post-date">Sep 17, 2026</span>
+                        <a href="/blogs/common-epf-compliance-mistakes" class="card-cta">Read article <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
+                    </div>
                 </article>
-                <article class="blog-post">
-                  <h2><a href="/blogs/epf-benefits-small-medium-businesses" class="blog-head-link">What is EPF and What are the Benefits for Small and Medium Businesses?</a></h2>
-                  <p>Learn about the Employees' Provident Fund (EPF) scheme and discover how small and medium businesses can benefit from EPF registration, ensuring compliance, boosting employee welfare, and promoting long-term growth. <a href="/blogs/epf-benefits-small-medium-businesses">Read</a></p>
-                  <span class="post-date">Published on April 27, 2025</span>
+                <article class="article-card">
+                    <span class="category-badge esi">ESI</span>
+                    <h3><a href="/blogs/common-esi-compliance-mistakes">Common ESI Compliance Mistakes Small Businesses Make</a></h3>
+                    <p>Eight common ESI mistakes small businesses make &mdash; from state-threshold confusion to missed half-yearly returns &mdash; and how to fix each one.</p>
+                    <div class="card-footer mtopauto">
+                        <span class="post-date">Sep 17, 2026</span>
+                        <a href="/blogs/common-esi-compliance-mistakes" class="card-cta">Read article <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
+                    </div>
                 </article>
-                <article class="blog-post">
-                  <h2><a href="/blogs/epf-esi-compliance-boosts-employee-morale-retention-productivity" class="blog-head-link">How EPF and ESI Compliance Boosts Employee Morale, Retention, and Productivity</a></h2>
-                  <p>Learn how EPF and ESI compliance can positively impact employee morale, retention, and productivity, ultimately leading to business growth. <a href="/blogs/epf-esi-compliance-boosts-employee-morale-retention-productivity">Read</a></p>
-                  <span class="post-date">Published on April 27, 2025</span>
+                <article class="article-card">
+                    <span class="category-badge esi">ESI</span>
+                    <h3><a href="/blogs/esi-benefits-small-medium-businesses">What is ESI and What are the Benefits for Small and Medium Businesses?</a></h3>
+                    <p>Learn about the Employees' State Insurance (ESI) scheme and how it benefits both businesses and employees, especially in small and medium-sized enterprises.</p>
+                    <div class="card-footer mtopauto">
+                        <span class="post-date">Apr 27, 2025</span>
+                        <a href="/blogs/esi-benefits-small-medium-businesses" class="card-cta">Read article <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
+                    </div>
                 </article>
-                <article class="blog-post">
-                  <h2><a href="/blogs/epf-esi-contributions-strengthen-employer-brand" class="blog-head-link">How EPF and ESI Contributions Strengthen Your Employer Brand</a></h2>
-                  <p>Discover how offering EPF and ESI benefits can significantly enhance your employer brand. By prioritizing employee welfare through these essential contributions, you not only comply with legal requirements but also foster a positive reputation as an employer of choice. <a href="/blogs/epf-esi-contributions-strengthen-employer-brand">Read</a></p>
-                  <span class="post-date">Published on April 27, 2025</span>
+                <article class="article-card">
+                    <span class="category-badge epf">EPF</span>
+                    <h3><a href="/blogs/epf-benefits-small-medium-businesses">What is EPF and What are the Benefits for Small and Medium Businesses?</a></h3>
+                    <p>Learn about the Employees' Provident Fund (EPF) scheme and discover how small and medium businesses can benefit from EPF registration, ensuring compliance, boosting employee welfare, and promoting long-term growth.</p>
+                    <div class="card-footer mtopauto">
+                        <span class="post-date">Apr 27, 2025</span>
+                        <a href="/blogs/epf-benefits-small-medium-businesses" class="card-cta">Read article <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
+                    </div>
                 </article>
-                <article class="blog-post">
-                  <h2><a href="/blogs/epf-late-payment-penalty" class="blog-head-link">Penalties for Late EPF Payment &mdash; Interest and Damages Explained</a></h2>
-                  <p>How Section 7Q interest and Section 14B damages are calculated on late EPF payments, with a worked &#8377;50,000 example and EPFO's VISHWAS 2026 settlement scheme. <a href="/blogs/epf-late-payment-penalty">Read</a></p>
-                  <span class="post-date">Published on September 17, 2026</span>
+                <article class="article-card">
+                    <span class="category-badge both">EPF &amp; ESI</span>
+                    <h3><a href="/blogs/epf-esi-compliance-boosts-employee-morale-retention-productivity">How EPF and ESI Compliance Boosts Employee Morale, Retention, and Productivity</a></h3>
+                    <p>Learn how EPF and ESI compliance can positively impact employee morale, retention, and productivity, ultimately leading to business growth.</p>
+                    <div class="card-footer mtopauto">
+                        <span class="post-date">Apr 27, 2025</span>
+                        <a href="/blogs/epf-esi-compliance-boosts-employee-morale-retention-productivity" class="card-cta">Read article <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
+                    </div>
                 </article>
-                <article class="blog-post">
-                  <h2><a href="/blogs/esi-late-payment-penalty" class="blog-head-link">Penalties for Late ESI Payment &mdash; Interest and Damages Explained</a></h2>
-                  <p>How Regulation 31-A interest and Regulation 31C damages are calculated on late ESI payments, with a worked example showing the actual rupee cost. <a href="/blogs/esi-late-payment-penalty">Read</a></p>
-                  <span class="post-date">Published on September 17, 2026</span>
-                </article>
-                <article class="blog-post">
-                  <h2><a href="/blogs/pf-inspection-guide" class="blog-head-link">What Happens During a PF Inspection &mdash; How to Prepare</a></h2>
-                  <p>Who conducts EPFO inspections, what triggers one, which records get checked, and a practical checklist to prepare your business in advance. <a href="/blogs/pf-inspection-guide">Read</a></p>
-                  <span class="post-date">Published on September 17, 2026</span>
-                </article>
-                <article class="blog-post">
-                  <h2><a href="/blogs/esi-inspection-guide" class="blog-head-link">What Happens During an ESI Inspection &mdash; How to Prepare</a></h2>
-                  <p>Who conducts ESIC inspections, what triggers one, which records get checked, and a practical checklist to prepare your business in advance. <a href="/blogs/esi-inspection-guide">Read</a></p>
-                  <span class="post-date">Published on September 17, 2026</span>
-                </article>
-                <article class="blog-post">
-                  <h2><a href="/blogs/epf-applicability-threshold" class="blog-head-link">EPF Applicability Threshold: Do You Really Need to Register?</a></h2>
-                  <p>The 20-employee and &#8377;15,000 wage rules explained, including what happens with exactly 20 employees or a seasonal headcount spike. <a href="/blogs/epf-applicability-threshold">Read</a></p>
-                  <span class="post-date">Published on September 17, 2026</span>
-                </article>
-                <article class="blog-post">
-                  <h2><a href="/blogs/esi-applicability-threshold" class="blog-head-link">ESI Applicability Threshold: Do You Really Need to Register?</a></h2>
-                  <p>Karnataka's 10-employee threshold and the &#8377;21,000 wage ceiling explained, including what counts toward your headcount. <a href="/blogs/esi-applicability-threshold">Read</a></p>
-                  <span class="post-date">Published on September 17, 2026</span>
-                </article>
-                <article class="blog-post">
-                  <h2><a href="/blogs/common-epf-compliance-mistakes" class="blog-head-link">Common EPF Compliance Mistakes Small Businesses Make</a></h2>
-                  <p>Eight common EPF mistakes small businesses make &mdash; from misjudging headcount drops to missing ECR deadlines &mdash; and how to fix each one. <a href="/blogs/common-epf-compliance-mistakes">Read</a></p>
-                  <span class="post-date">Published on September 17, 2026</span>
-                </article>
-                <article class="blog-post">
-                  <h2><a href="/blogs/common-esi-compliance-mistakes" class="blog-head-link">Common ESI Compliance Mistakes Small Businesses Make</a></h2>
-                  <p>Eight common ESI mistakes small businesses make &mdash; from state-threshold confusion to missed half-yearly returns &mdash; and how to fix each one. <a href="/blogs/common-esi-compliance-mistakes">Read</a></p>
-                  <span class="post-date">Published on September 17, 2026</span>
+                <article class="article-card">
+                    <span class="category-badge both">EPF &amp; ESI</span>
+                    <h3><a href="/blogs/epf-esi-contributions-strengthen-employer-brand">How EPF and ESI Contributions Strengthen Your Employer Brand</a></h3>
+                    <p>Discover how offering EPF and ESI benefits can significantly enhance your employer brand and foster a positive reputation as an employer of choice.</p>
+                    <div class="card-footer mtopauto">
+                        <span class="post-date">Apr 27, 2025</span>
+                        <a href="/blogs/epf-esi-contributions-strengthen-employer-brand" class="card-cta">Read article <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
+                    </div>
                 </article>
 
                 <!-- Add more articles here as you create more blogs -->
 
             </div>
-          </section>
+        </div>
+    </section>
+
+    <section class="blog-tools">
+        <div class="container">
+            <div class="section-head">
+                <h2>Free Tools &amp; Calculators</h2>
+                <p>No sign-up &mdash; get a straight answer in a few clicks.</p>
+            </div>
+            <div class="tools-grid">
+                <article class="tool-card">
+                    <span class="tool-icon material-symbols-outlined" aria-hidden="true">calculate</span>
+                    <h3><a href="/epf-penalty-calculator">EPF Late Payment Penalty &amp; Interest Calculator</a></h3>
+                    <p>Missed an EPF due date? Estimate the Section 7Q interest and Section 14B damages EPFO may charge on your arrears.</p>
+                    <a href="/epf-penalty-calculator" class="card-cta mtopauto">Try the calculator <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
+                </article>
+                <article class="tool-card">
+                    <span class="tool-icon material-symbols-outlined" aria-hidden="true">calculate</span>
+                    <h3><a href="/esi-penalty-calculator">ESI Late Payment Penalty &amp; Interest Calculator</a></h3>
+                    <p>Missed an ESI due date? Estimate the Regulation 31-A interest and Regulation 31C damages ESIC may charge on your arrears.</p>
+                    <a href="/esi-penalty-calculator" class="card-cta mtopauto">Try the calculator <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
+                </article>
+                <article class="tool-card">
+                    <span class="tool-icon material-symbols-outlined" aria-hidden="true">fact_check</span>
+                    <h3><a href="/epf-eligibility-checker">EPF Eligibility Checker</a></h3>
+                    <p>Not sure if EPF applies to your business or a specific employee? Answer a few quick questions to find out.</p>
+                    <a href="/epf-eligibility-checker" class="card-cta mtopauto">Try the checker <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
+                </article>
+                <article class="tool-card">
+                    <span class="tool-icon material-symbols-outlined" aria-hidden="true">fact_check</span>
+                    <h3><a href="/esi-eligibility-checker">ESI Eligibility Checker</a></h3>
+                    <p>Not sure if ESI applies to your business or a specific employee? Answer a few quick questions to find out.</p>
+                    <a href="/esi-eligibility-checker" class="card-cta mtopauto">Try the checker <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
+                </article>
+                <article class="tool-card">
+                    <span class="tool-icon material-symbols-outlined" aria-hidden="true">calculate</span>
+                    <h3><a href="/epf-contribution-calculator">PF Contribution Calculator</a></h3>
+                    <p>Enter a salary and see the exact employer/employee PF split, including EPS, EDLI, and admin charges.</p>
+                    <a href="/epf-contribution-calculator" class="card-cta mtopauto">Try the calculator <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
+                </article>
+                <article class="tool-card">
+                    <span class="tool-icon material-symbols-outlined" aria-hidden="true">calculate</span>
+                    <h3><a href="/esi-contribution-calculator">ESI Contribution Calculator</a></h3>
+                    <p>Enter gross wages and see the exact employer/employee ESI contribution split.</p>
+                    <a href="/esi-contribution-calculator" class="card-cta mtopauto">Try the calculator <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
+                </article>
+            </div>
         </div>
     </section>
 
