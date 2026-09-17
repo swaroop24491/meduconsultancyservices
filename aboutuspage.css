@@ -1,11 +1,11 @@
 .aboutus-section {
-    padding-top: 80px;
+    padding: 90px 0;
     max-width: 900px;
     margin: 0 auto;
 }
 
 .aboutus-section h1{
-    font-size: 32px;
+    font-size: 40px;
     margin-bottom: 20px;
 }
 
@@ -29,6 +29,7 @@
 .aboutus-section .services-links-cntr a {
     color: #c1121f;
     font-size: 16px;
+    text-decoration: none;
 }
 
 
@@ -228,21 +229,20 @@
 
 @media (max-width: 768px) {
     .aboutus-section {
-        padding-top: 20px;
-        padding-bottom: 20px;
+        padding-top: 60px;
+        padding-bottom: 60px;
     }
 
     .privacy-section {
-        padding: 20px 0;
+        padding: 60px 0;
     }
 
     .terms-section {
-        padding: 20px 0;
+        padding: 60px 0;
     }
 
     .blog-section {
-        padding: 20px 0;
-        padding-bottom: 60px;
+        padding: 60px 0;
     }
 
     .blog-section h1 {

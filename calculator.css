@@ -83,7 +83,7 @@
 }
 
 .penalty-calc h1 {
-    font-size: 2em;
+    font-size: 40px;
     margin-bottom: 40px;
     font-weight: 600;
 }
@@ -186,7 +186,7 @@
 }
 
 .calc-results:empty::before {
-    content: "Fill in the form and select “Calculate penalty” to see your estimate here.";
+    content: "Fill in the form and submit to see your estimate here.";
     color: #666;
     font-size: 14px;
 }
@@ -284,7 +284,7 @@
 @media (max-width: 768px) {
     .penalty-rules,
     .penalty-calc {
-        padding: 40px 0;
+        padding: 60px 0;
     }
 
     .calc-form,

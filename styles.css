@@ -237,6 +237,10 @@ body {
     background-color: rgb(248, 244, 240);
 }
 
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.25;
+}
+
 /* Container */
 .container {
     width: 100%;
@@ -267,11 +271,11 @@ body {
   
   #menuToggle input {
     display: block;
-    width: 40px;
-    height: 32px;
+    width: 44px;
+    height: 44px;
     position: absolute;
-    top: -6px;
-    left: -4px;
+    top: -11px;
+    left: -6px;
     
     cursor: pointer;
     
@@ -525,12 +529,12 @@ header .header-links a.phone {
 
 /* Home Section */
 #home {
-    padding: 100px 0;
+    padding: 90px 0;
     text-align: center;
 }
 
 #home h1 {
-    font-size: 32px;
+    font-size: 40px;
     max-width: 1000px;
     margin: 0 auto;
     margin-bottom: 20px;
@@ -574,8 +578,7 @@ header .header-links a.phone {
 
 /* Services Section */
 .services {
-    padding: 100px 0;
-    padding-bottom: 0;
+    padding: 90px 0;
 }
 
 .services-cntr {
@@ -634,18 +637,18 @@ header .header-links a.phone {
     font-size: 16px;
     margin-bottom: 10px;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 8px;
 }
 
 .services .service ul li img {
+    margin-top: 3px;
     user-select: none;
 }
 
 /* Industries Section */
 .industries {
-    padding: 100px 0;
-    padding-bottom: 0;
+    padding: 90px 0;
 }
 
 .industries h2 {
@@ -715,13 +718,12 @@ header .header-links a.phone {
 }
 
 .importance-sec {
-    padding: 20px 0;
-    padding-bottom: 60px;
+    padding: 90px 0;
 }
 
 .importance-sec h2,
 .importance-sec h3 {
-    font-size: 24px;
+    font-size: 28px;
     margin-bottom: 20px;
     font-weight: 600;
 }
@@ -739,7 +741,7 @@ header .header-links a.phone {
 
 /* Why Choose Us Section */
 .why-choose-us {
-    padding: 100px 0;
+    padding: 90px 0;
 }
 
 .converter-cntr {
@@ -747,7 +749,7 @@ header .header-links a.phone {
 }
 
 .converter-cntr h1 {
-    font-size: 2em;
+    font-size: 40px;
     margin-bottom: 10px;
 }
 
@@ -811,8 +813,7 @@ input[type="file"]::file-selector-button:active {
 .converter-step h2 {
     font-size: 18px;
     margin-bottom: 20px;
-    font-weight: 500;
-    text-decoration: underline;
+    font-weight: 600;
 }
 
 .why-choose-us h2 {
@@ -847,12 +848,12 @@ input[type="file"]::file-selector-button:active {
 }
 
 .why-choose-us ul li p {
-    font-size: 14px;
+    font-size: 16px;
 }
 
 /* Call to Action Section */
 .cta, .faqs {
-    padding: 100px 0;
+    padding: 90px 0;
     text-align: center;
 }
 
@@ -1021,7 +1022,7 @@ footer .office-address p {
         display: block; /* Show hamburger icon */
     }
 
-    #home, .services, .industries, .clients, .why-choose-us, .cta, .converter-cntr {
+    #home, .services, .industries, .clients, .why-choose-us, .cta, .faqs, .importance-sec, .converter-cntr {
         padding: 60px 0;
     }
 
@@ -1030,7 +1031,7 @@ footer .office-address p {
     }
 
     #home h1 {
-        font-size: 24px;
+        font-size: 28px;
     }
 
     .contact.cta-btns {

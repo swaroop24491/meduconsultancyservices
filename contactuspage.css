@@ -3,7 +3,7 @@
  }
 
 .contact-us-page h1 {
-    font-size: 32px;
+    font-size: 40px;
     margin-bottom: 40px;
 }
 
@@ -37,10 +37,10 @@
 
 @media (max-width: 768px) {
     .contact-us-page {
-        padding: 40px 0;
+        padding: 60px 0;
      }
      .contact-us-page h1 {
-        font-size: 24px;
+        font-size: 28px;
     }
     .contact-us-page .office-address h2,
     .contact-us-page .office-address h4 {
