@@ -1,58 +1,113 @@
 .contact-us-page {
     padding: 80px 0;
- }
+    text-align: center;
+}
 
 .contact-us-page h1 {
     font-size: 40px;
-    margin-bottom: 40px;
-}
-
-.contact-us-page .subhead {
-    margin-bottom: 40px;
-}
-
-.contact-us-page p {
     margin-bottom: 16px;
 }
 
-.contact-us-page .office-address h2,
-.contact-us-page .office-address h4 {
-    font-size: 24px;
-    font-weight: 500;
-}
-
-.contact-us-page .office-address p {
-    font-size: 16px;
-}
-
-.contact-us-page .phone, .contact-us-page .whatsapp, .contact-us-page .email {
+.contact-us-page .subhead {
+    max-width: 700px;
+    margin: 0 auto 60px;
     font-size: 16px;
 }
 
 .contact-us-pane {
     display: flex;
-    gap: 100px;
+    align-items: stretch;
+    gap: 40px;
+    text-align: left;
 }
 
+.contact-us-pane > * {
+    flex: 1;
+    min-width: 0;
+}
+
+.contact-info {
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 4px 20px 7px;
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.info-row {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.info-row .material-symbols-outlined {
+    font-size: 28px;
+    color: #305cde;
+    flex-shrink: 0;
+}
+
+.info-row h3 {
+    font-size: 14px;
+    font-weight: 500;
+    color: #666;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.info-row address p {
+    font-size: 16px;
+}
+
+.contact-value {
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 600;
+    color: rgb(24, 24, 24);
+    text-decoration: none;
+    word-break: break-word;
+}
+
+.contact-value:hover {
+    color: #305cde;
+    text-decoration: underline;
+}
+
+.map-embed {
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 4px 20px 7px;
+    line-height: 0;
+    overflow: hidden;
+}
+
+.map-embed iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 380px;
+}
 
 @media (max-width: 768px) {
     .contact-us-page {
         padding: 60px 0;
-     }
-     .contact-us-page h1 {
+    }
+
+    .contact-us-page h1 {
         font-size: 28px;
     }
-    .contact-us-page .office-address h2,
-    .contact-us-page .office-address h4 {
-        font-size: 20px;
+
+    .contact-us-page .subhead {
+        margin-bottom: 40px;
     }
 
     .contact-us-pane {
         flex-direction: column;
-        gap: 40px;
+        gap: 30px;
     }
 
-    .contact-us-page iframe {
+    .contact-info {
+        padding: 30px;
+    }
+
+    .map-embed iframe {
         width: 100%;
     }
 }
