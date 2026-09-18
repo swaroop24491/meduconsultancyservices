@@ -837,3 +837,31 @@
     height: 16px;
     font-size: 16px;
 }
+
+/* 404 page - scoped under body.not-found-page */
+.not-found-page .not-found-section {
+    text-align: center;
+    padding: 80px 0;
+}
+
+.not-found-page .not-found-section h1 {
+    font-size: 6rem;
+    margin-bottom: 0;
+    color: #305cde;
+}
+
+.not-found-page .not-found-section p {
+    max-width: 480px;
+    margin: 16px auto 32px;
+}
+
+.not-found-page .not-found-section .contact.cta-btns {
+    margin-top: 24px;
+}
+
+.not-found-page .not-found-section .contact.cta-btns p a.home-link {
+    background: transparent;
+    color: #305cde;
+    border: 2px solid #305cde;
+    box-shadow: none;
+}
