@@ -15,18 +15,18 @@
 <meta name="theme-color" content="rgb(248,244,240)">
 
     <title>PF Contribution Calculator | Medu Consultancy</title>
-    <meta name="description" content="Free EPF contribution calculator: enter a salary and see the exact employer/employee PF split, including EPS, EDLI, and admin charges most payslips don't show.">
+    <meta name="description" content="Free EPF contribution calculator: enter a salary and see the exact employer/employee PF split, including the EPS carve-out most payslips don't show.">
     <link rel="canonical" href="https://www.meduconsultancy.com/epf-contribution-calculator" />
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Medu Consultancy">
     <meta property="og:title" content="PF Contribution Calculator – Employer & Employee Split">
-    <meta property="og:description" content="Enter a salary and see the exact employer/employee EPF split, including EPS, EDLI, and admin charges. Free online calculator by Medu Consultancy.">
+    <meta property="og:description" content="Enter a salary and see the exact employer/employee EPF split, including the EPS carve-out. Free online calculator by Medu Consultancy.">
     <meta property="og:url" content="https://www.meduconsultancy.com/epf-contribution-calculator">
     <meta property="og:image" content="https://www.meduconsultancy.com/android-chrome-512x512.png">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="PF Contribution Calculator – Employer & Employee Split">
-    <meta name="twitter:description" content="Enter a salary and see the exact employer/employee EPF split, including EPS, EDLI, and admin charges. Free online calculator by Medu Consultancy.">
+    <meta name="twitter:description" content="Enter a salary and see the exact employer/employee EPF split, including the EPS carve-out. Free online calculator by Medu Consultancy.">
     <meta name="twitter:image" content="https://www.meduconsultancy.com/android-chrome-512x512.png">
 
     <script type="application/ld+json">
@@ -35,7 +35,7 @@
         "@type": "WebPage",
         "url": "https://www.meduconsultancy.com/epf-contribution-calculator",
         "name": "PF Contribution Calculator",
-        "description": "Calculate the exact employer/employee EPF contribution split, including EPS, EDLI and admin charges.",
+        "description": "Calculate the exact employer/employee EPF contribution split, including the EPS carve-out.",
         "breadcrumb": {
           "@type": "BreadcrumbList",
           "itemListElement": [
@@ -83,7 +83,7 @@
         "@context": "https://schema.org",
         "@type": "WebApplication",
         "name": "PF (EPF) Contribution Calculator",
-        "description": "Free online tool to calculate the employer and employee EPF contribution split, including EPS, EDLI and admin charges.",
+        "description": "Free online tool to calculate the employer and employee EPF contribution split, including the EPS carve-out.",
         "url": "https://www.meduconsultancy.com/epf-contribution-calculator",
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "Web",
@@ -99,14 +99,6 @@
         "@context": "https://schema.org",
         "@type": "FAQPage",
         "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Why is my employer's PF cost more than 12%?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Because the employer's 12% (or 10%) isn't the whole cost - on top of it, the employer also pays 0.5% EDLI and 0.5% admin charges (minimum ₹75/month). The 12%/10% itself is split between EPS (pension, capped at ₹1,250/month) and the employee's EPF account."
-            }
-          },
           {
             "@type": "Question",
             "name": "What is EPS and why does it reduce the EPF credit?",
@@ -284,7 +276,7 @@
     <section class="penalty-calc" aria-labelledby="calc-heading">
       <div class="container">
         <h1 id="calc-heading">PF (EPF) Contribution Calculator</h1>
-        <p class="subhead">Enter a salary and see the exact employer/employee PF split - including the EPS, EDLI, and admin-charge sub-accounts most payslips don't show.</p>
+        <p class="subhead">Enter a salary and see the exact employer/employee PF split - including the EPS sub-account most payslips don't show.</p>
 
         <div class="calc-layout">
           <form id="contribution-form" class="calc-form" novalidate>
@@ -304,7 +296,7 @@
     <section class="penalty-rules">
       <div class="container">
         <h2>How the EPF Split Works</h2>
-        <p>The employee contributes 12% (or 10% for reduced-rate establishments) of basic+DA, entirely credited to their own EPF account. The employer also contributes 12%/10%, but it's split: <strong>8.33% goes to EPS</strong> (capped at ₹15,000 basic - max ₹1,250/month), the <strong>remainder goes to the employee's EPF account</strong>, plus a separate <strong>0.5% to EDLI</strong> (capped at ₹15,000) and <strong>0.5% admin charges</strong> (minimum ₹75/month, calculated on actual basic+DA, uncapped).</p>
+        <p>The employee contributes 12% (or 10% for reduced-rate establishments) of basic+DA, entirely credited to their own EPF account. The employer also contributes 12%/10%, but it's split: <strong>8.33% goes to EPS</strong> (capped at ₹15,000 basic - max ₹1,250/month), and the <strong>remainder goes to the employee's EPF account</strong>.</p>
 
         <p>The 10% reduced rate applies to establishments with under 20 employees, sick industrial companies, or specific industries (jute, beedi, brick, coir, guar gum).</p>
 
@@ -332,18 +324,6 @@
       <div class="container" itemscope itemtype="https://schema.org/FAQPage">
           <h2>Frequently Asked Questions</h2>
           <div class="accordion">
-            <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <button id="epf-contrib-faq-1" aria-expanded="false">
-                <span class="accordion-title" itemprop="name">Why is my employer's PF cost more than 12%?</span>
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">
-                  Because the employer's 12% (or 10%) isn't the whole cost - on top of it, the employer also pays 0.5% EDLI and 0.5% admin charges (minimum ₹75/month). The 12%/10% itself is split between EPS (pension, capped at ₹1,250/month) and the employee's EPF account.
-                </p>
-              </div>
-            </div>
-
             <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
               <button id="epf-contrib-faq-2" aria-expanded="false">
                 <span class="accordion-title" itemprop="name">What is EPS and why does it reduce the EPF credit?</span>
@@ -537,15 +517,13 @@
     <script>
       document.addEventListener('DOMContentLoaded', function () {
         // EPF Scheme 2026 (₹15,000 ceiling); EPS 1995 (8.33%, capped
-        // ₹1,250/month); EDLI Scheme 1976 (0.5%, capped ₹15,000); EPFO
-        // admin-charges notification (0.5% of actual basic+DA, min
-        // ₹75/month, uncapped). Verify rates are still current - last
-        // checked 2026-09-16.
+        // ₹1,250/month). Verify rates are still current - last
+        // checked 2026-09-16. EDLI (0.5%, capped ₹15,000) and EPFO
+        // admin charges (0.5% of basic+DA, min ₹75/month) are separate
+        // employer costs, not part of the PF contribution - deliberately
+        // excluded from this calculator.
         var WAGE_CEILING = 15000;
         var EPS_RATE = 0.0833;
-        var EDLI_RATE = 0.005;
-        var ADMIN_RATE = 0.005;
-        var ADMIN_MIN = 75;
 
         function roundRupee(n) {
           return Math.round(n);
@@ -595,9 +573,7 @@
             var employeeContribution = roundRupee(contributionBase * rate);
             var employerEps = roundRupee(capBase * EPS_RATE);
             var employerEpf = roundRupee(contributionBase * rate) - employerEps;
-            var employerEdli = roundRupee(capBase * EDLI_RATE);
-            var employerAdmin = Math.max(roundRupee(basicDa * ADMIN_RATE), ADMIN_MIN);
-            var employerTotal = employerEps + employerEpf + employerEdli + employerAdmin;
+            var employerTotal = employerEps + employerEpf;
             var totalMonthly = employeeContribution + employerTotal;
             var totalToEpfAccount = employeeContribution + employerEpf;
 
@@ -621,14 +597,12 @@
                 { label: "Employee's contribution (→ your EPF account)", amount: employeeContribution },
                 { label: "Employer's EPF share", amount: employerEpf },
                 { label: "Employer's EPS share (pension)", amount: employerEps },
-                { label: "Employer's EDLI share (insurance)", amount: employerEdli },
-                { label: "Employer's admin charges", amount: employerAdmin },
-                { label: 'Total employer cost', amount: employerTotal, subtotal: true },
+                { label: 'Total employer contribution', amount: employerTotal, subtotal: true },
                 { label: 'Total monthly contribution', amount: totalMonthly, emphasis: true }
               ],
               notes: [
                 'Of the ' + window.ContributionCalculator.formatINR(totalMonthly) + ' total monthly contribution, ' +
-                window.ContributionCalculator.formatINR(totalToEpfAccount) + ' is credited to the employee\'s withdrawable EPF account (this excludes the EPS, EDLI, and admin-charge portions).'
+                window.ContributionCalculator.formatINR(totalToEpfAccount) + ' is credited to the employee\'s withdrawable EPF account (this excludes the EPS portion). EDLI and admin charges are separate employer costs on top of this and aren\'t part of the PF contribution.'
               ]
             };
           }
