@@ -297,7 +297,6 @@
     }
     .post-date {
         font-size: 14px;
-        margin-top: 10px;
         display: block;
     }
 }
@@ -425,6 +424,84 @@
     list-style: disc;
 }
 
+/* Individual blog post pages: same closing-CTA and meta-chip language as the
+   homepage/about page. Scoped under body.blog-post-page so it never affects
+   the blog index, which already has its own card-grid design. */
+.blog-post-page .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(24, 24, 24, 0.55);
+    text-decoration: none;
+    margin-bottom: 24px;
+}
+
+.blog-post-page .back-link:hover,
+.blog-post-page .back-link:focus-visible {
+    color: #305cde;
+}
+
+.blog-post-page .post-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 16px;
+}
+
+.blog-post-page .post-meta .category-badge {
+    margin-bottom: 0;
+}
+
+.blog-post-page .post-meta .post-date {
+    font-size: 13px;
+    color: #666;
+}
+
+/* Slim closing call-to-action, same pattern as the homepage/about/service pages */
+.blog-post-page .cta {
+    padding: 0 0 72px;
+    text-align: left;
+}
+
+.blog-post-page .cta-slim {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    max-width: 680px;
+    margin: 0 auto;
+    background: #fff;
+    border: 1px solid rgba(24, 24, 24, 0.1);
+    border-radius: 12px;
+    padding: 16px 24px;
+}
+
+.blog-post-page .cta-slim-text {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.blog-post-page .cta-slim-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 44px;
+    padding: 0 24px;
+    background: #305cde;
+    color: #fff;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.blog-post-page .cta-slim-btn:hover {
+    background: #1a3fb0;
+}
+
 @media (max-width: 768px) {
     .privacy-section {
         padding: 60px 0;
@@ -436,6 +513,15 @@
 
     .blog-section {
         padding: 60px 0;
+    }
+
+    .blog-post-page .cta {
+        padding: 0 0 48px;
+    }
+
+    .blog-post-page .cta-slim {
+        flex-direction: column;
+        align-items: flex-start;
     }
 
     .blog-section h1 {
