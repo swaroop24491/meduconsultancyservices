@@ -723,7 +723,7 @@ header .header-links a.phone {
 }
 
 .converter-cntr {
-    padding: 80px 0;
+    padding: 64px 0 56px;
 }
 
 .converter-cntr h1 {
@@ -735,6 +735,14 @@ header .header-links a.phone {
     margin-bottom: 40px;
 }
 
+.converter-step {
+    background: #fff;
+    border: 1px solid rgba(24, 24, 24, 0.07);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    padding: 24px 28px;
+}
+
 .converter-step label {
     display: block;
     margin-bottom: 12px;
@@ -743,7 +751,7 @@ header .header-links a.phone {
 }
 
 input[type="file"]::file-selector-button {
-    border-radius: 4px;
+    border-radius: 8px;
     padding: 0 16px;
     height: 40px;
     cursor: pointer;

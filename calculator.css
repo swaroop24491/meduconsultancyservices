@@ -55,9 +55,11 @@
 }
 
 .calc-disclaimer {
+    border: 1px solid rgba(193, 18, 31, 0.15);
     border-left: 4px solid #c1121f;
+    border-radius: 12px;
     background: #fff;
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 4px 20px 7px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
     padding: 20px 24px;
     margin: 30px 0;
 }
@@ -79,7 +81,7 @@
 }
 
 .penalty-calc {
-    padding: 100px 0 80px;
+    padding: 64px 0 56px;
 }
 
 .penalty-calc h1 {
@@ -103,12 +105,14 @@
 
 .calc-form {
     background: #fff;
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 4px 20px 7px;
+    border: 1px solid rgba(24, 24, 24, 0.07);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
     padding: 32px;
 }
 
 .calc-field {
-    margin-bottom: 24px;
+    margin-bottom: 20px;
 }
 
 .calc-field label {
@@ -125,7 +129,7 @@
     font-family: inherit;
     color: #333;
     border: 1px solid rgba(0, 0, 0, 0.16);
-    border-radius: 4px;
+    border-radius: 8px;
     background: #fff;
 }
 
@@ -173,7 +177,9 @@
 
 .calc-results {
     background: #fff;
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 4px 20px 7px;
+    border: 1px solid rgba(24, 24, 24, 0.07);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
     padding: 32px;
     min-height: 220px;
 }
@@ -304,9 +310,11 @@
    ------------------------------------------------------------------- */
 
 .tool-crosslinks {
+    border: 1px solid rgba(48, 92, 222, 0.15);
     border-left: 4px solid #305cde;
+    border-radius: 12px;
     background: #fff;
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 4px 20px 7px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
     padding: 20px 24px;
     margin: 30px 0;
 }
@@ -336,7 +344,7 @@
    ------------------------------------------------------------------- */
 
 .elig-checker {
-    padding: 100px 0 40px;
+    padding: 64px 0 40px;
 }
 
 .elig-checker h1 {
@@ -354,7 +362,9 @@
 
 .elig-card {
     background: #fff;
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 4px 20px 7px;
+    border: 1px solid rgba(24, 24, 24, 0.07);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
     padding: 32px;
     /* Offsets the anchor scroll target so a deep link (e.g.
        #employee-eligibility) doesn't land under the fixed 100px header. */
@@ -395,7 +405,7 @@
     font-family: inherit;
     color: #333;
     border: 1px solid rgba(0, 0, 0, 0.16);
-    border-radius: 4px;
+    border-radius: 8px;
     background: #fff;
 }
 
@@ -488,7 +498,9 @@
 
 .verdict-card {
     background: #fff;
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 4px 20px 7px;
+    border: 1px solid rgba(24, 24, 24, 0.07);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
     padding: 24px;
     border-top: 4px solid #666;
 }
@@ -588,5 +600,53 @@
 
     .elig-card {
         padding: 20px;
+    }
+}
+
+/* ---------------------------------------------------------------------
+   FAQ: one cohesive white card instead of a bare list of rows, matching
+   the card language used on the homepage / service / city pages
+   ------------------------------------------------------------------- */
+
+.tool-page .faqs {
+    padding: 72px 0 96px;
+}
+
+.tool-page .accordion {
+    background: #fff;
+    border: 1px solid rgba(24, 24, 24, 0.07);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    padding: 8px 32px;
+}
+
+.tool-page .accordion .accordion-item {
+    border-bottom: 1px solid rgba(24, 24, 24, 0.08);
+}
+
+.tool-page .accordion .accordion-item:last-child {
+    border-bottom: none;
+}
+
+.tool-page .accordion button .accordion-title {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.tool-page .importance-sec {
+    padding: 8px 0 64px;
+}
+
+@media (max-width: 768px) {
+    .tool-page .faqs {
+        padding: 48px 0 56px;
+    }
+
+    .tool-page .accordion {
+        padding: 4px 18px;
+    }
+
+    .tool-page .importance-sec {
+        padding: 0 0 40px;
     }
 }
