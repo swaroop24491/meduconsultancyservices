@@ -390,6 +390,7 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: -24px 0 60px rgba(15, 17, 24, 0.22);
     box-sizing: border-box;
     overflow-y: auto;
+    overflow-x: hidden;
     overscroll-behavior: contain;
     background: rgb(248, 244, 240);
     list-style-type: none;
@@ -575,6 +576,7 @@ header .header-links a {
     color: rgb(24, 24, 24);
     text-decoration: none;
     width: fit-content;
+    overflow-wrap: anywhere;
 }
 
 header .header-links a.phone {
@@ -590,6 +592,7 @@ header .header-links a.phone {
     text-decoration: none;
     gap: 5px;
     width: fit-content;
+    overflow-wrap: anywhere;
  }
 
  .phone:hover, .email:hover {
