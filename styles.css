@@ -423,6 +423,7 @@ header {
     position: fixed;
     width: 100%;
     background-color: rgb(248, 244, 240);
+    border-bottom: 1px solid rgba(24, 24, 24, 0.08);
     z-index: 1;
 }
 
@@ -468,7 +469,8 @@ header .header-content {
 
 header .header-links {
     display: flex;
-    column-gap: 20px;
+    align-items: center;
+    column-gap: 28px;
 }
 
 header .header-links a {
@@ -489,18 +491,8 @@ header .header-links a {
 
 header .header-links a.phone {
     color: #c1121f;
-    letter-spacing: 2px;
+    font-weight: 500;
 }
-
-.whatsapp {
-    display: flex;
-    align-items: center;
-    font-size: 14px;
-    color: rgb(24, 24, 24);
-    text-decoration: none;
-    gap: 5px;
-    width: fit-content;
- }
 
 .email {
     display: flex;
@@ -512,12 +504,8 @@ header .header-links a.phone {
     width: fit-content;
  }
 
- .phone:hover, .whatsapp:hover, .email:hover {
+ .phone:hover, .email:hover {
     color: #c1121f;
- }
-
- .whatsapp img {
-    height: 36px;
  }
 
 /* Hamburger Icon */

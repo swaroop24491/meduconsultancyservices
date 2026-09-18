@@ -1,0 +1,193 @@
+/* City landing page overrides (epf-esi-consultancy-<city>.html and their kn/
+   counterparts). Scoped under .city-page so nothing here affects the other
+   pages that share styles.css's .services/.industries/.why-choose-us/.faqs/
+   .importance-sec rules. No CSS custom properties, per CLAUDE.md's site-wide
+   convention. Mirrors the card language established on the homepage and the
+   EPF/ESI service pages. */
+
+.city-page #home {
+    padding: 64px 0 56px;
+}
+
+.city-page .services,
+.city-page .industries,
+.city-page .why-choose-us {
+    padding: 72px 0;
+}
+
+.city-page .faqs {
+    padding: 96px 0;
+}
+
+/* Flatter card surface: white/hairline border instead of shadow-on-cream */
+.city-page .services .service,
+.city-page .why-choose-us ul li {
+    background: #fff;
+    border: 1px solid rgba(24, 24, 24, 0.07);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.city-page .why-choose-us ul li {
+    padding: 28px;
+}
+
+.city-page .why-choose-us ul li img {
+    height: 48px;
+}
+
+.city-page .why-choose-us ul li h3 {
+    margin-top: 12px;
+    margin-bottom: 8px;
+    font-size: 18px;
+}
+
+.city-page .services .service h3 {
+    font-size: 18px;
+}
+
+/* Industries: even grid of card tiles, replacing the ragged 17%-flex row of
+   bare icons that read as flat/monotone against the page background */
+.city-page .industries ul {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 14px;
+    row-gap: 20px;
+}
+
+.city-page .industries ul li {
+    margin: 0;
+    background: #fff;
+    border: 1px solid rgba(24, 24, 24, 0.07);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    padding: 22px 10px 18px;
+}
+
+.city-page .industry-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: rgba(2, 137, 64, 0.08);
+    margin-bottom: 10px;
+}
+
+.city-page .industries ul li img {
+    max-width: 26px;
+    max-height: 26px;
+}
+
+.city-page .industries ul li span:last-child {
+    font-size: 13px;
+    line-height: 1.3;
+}
+
+/* FAQ: one cohesive white card instead of a bare list of rows */
+.city-page .accordion {
+    background: #fff;
+    border: 1px solid rgba(24, 24, 24, 0.07);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    padding: 8px 32px;
+}
+
+.city-page .accordion .accordion-item {
+    border-bottom: 1px solid rgba(24, 24, 24, 0.08);
+}
+
+.city-page .accordion .accordion-item:last-child {
+    border-bottom: none;
+}
+
+.city-page .accordion button .accordion-title {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/* Slim closing call-to-action, replacing the old two-button duplicate CTA.
+   It now sits between the FAQ and the importance-sec (SEO copy block), which
+   keeps its original plain, uncarded styles.css treatment, so this needs
+   breathing room on both sides instead of just the bottom. */
+.city-page .cta {
+    padding: 40px 0;
+    text-align: left;
+}
+
+.city-page .cta-slim {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    max-width: 680px;
+    margin: 0 auto;
+    background: #fff;
+    border: 1px solid rgba(24, 24, 24, 0.1);
+    border-radius: 12px;
+    padding: 16px 24px;
+}
+
+.city-page .cta-slim-text {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.city-page .cta-slim-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 44px;
+    padding: 0 24px;
+    background: #305cde;
+    color: #fff;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.city-page .cta-slim-btn:hover {
+    background: #1a3fb0;
+}
+
+@media (max-width: 768px) {
+    .city-page #home {
+        padding: 48px 0 40px;
+    }
+
+    .city-page .services,
+    .city-page .industries,
+    .city-page .why-choose-us {
+        padding: 48px 0;
+    }
+
+    .city-page .faqs {
+        padding: 56px 0;
+    }
+
+    .city-page .cta {
+        padding: 24px 0;
+    }
+
+    .city-page .cta-slim {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .city-page .accordion {
+        padding: 4px 18px;
+    }
+
+    .city-page .industries ul {
+        grid-template-columns: repeat(3, 1fr);
+        row-gap: 14px;
+        column-gap: 10px;
+    }
+
+    .city-page .industries ul li {
+        padding: 18px 8px 14px;
+    }
+}

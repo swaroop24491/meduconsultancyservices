@@ -1,0 +1,265 @@
+/* Homepage-only overrides. Scoped under body.home so nothing here affects
+   the other pages that share styles.css's .services/.industries/.why-choose-us/
+   .faqs/.outlined-btn/.contact.cta-btns rules. No CSS custom properties, per
+   CLAUDE.md's site-wide convention. */
+
+/* Section rhythm: a touch tighter/varied than the flat 90px used everywhere else */
+body.home #home {
+    padding: 64px 0 56px;
+}
+
+body.home #home h1 {
+    max-width: 760px;
+}
+
+body.home #home p.subhead {
+    max-width: 700px;
+}
+
+body.home .contact.cta-btns {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+body.home .call-label {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(24, 24, 24, 0.55);
+}
+
+body.home .contact.cta-btns p a.phone-highlight {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    gap: 12px;
+}
+
+body.home .services,
+body.home .industries,
+body.home .why-choose-us {
+    padding: 72px 0;
+}
+
+body.home .faqs {
+    padding: 96px 0;
+}
+
+/* Flatter card surface: white/hairline border instead of shadow-on-cream */
+body.home .services .service,
+body.home .why-choose-us ul li {
+    background: #fff;
+    border: 1px solid rgba(24, 24, 24, 0.07);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+body.home .services .service h3,
+body.home .why-choose-us ul li h3 {
+    font-size: 18px;
+}
+
+body.home .why-choose-us ul li {
+    padding: 28px;
+}
+
+body.home .why-choose-us ul li img {
+    height: 48px;
+}
+
+body.home .why-choose-us ul li h3 {
+    margin-top: 12px;
+    margin-bottom: 8px;
+}
+
+/* Trimmed services list: a muted "+N more" link instead of every bullet */
+body.home .services .service ul li {
+    margin-bottom: 8px;
+}
+
+body.home .more-count {
+    margin: 4px 0 0;
+    font-size: 13px;
+}
+
+body.home .more-count a {
+    color: rgba(24, 24, 24, 0.5);
+    text-decoration: none;
+}
+
+body.home .more-count a:hover {
+    color: #305cde;
+}
+
+/* Calculator/tool links as small chips instead of red inline text links */
+body.home .tools-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 14px;
+}
+
+body.home .tool-chip {
+    display: inline-flex;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 500;
+    color: #305cde;
+    background: rgba(48, 92, 222, 0.06);
+    border: 1px solid rgba(48, 92, 222, 0.2);
+    border-radius: 20px;
+    padding: 6px 14px;
+    text-decoration: none;
+}
+
+body.home .tool-chip:hover {
+    background: rgba(48, 92, 222, 0.14);
+}
+
+/* Industries: even grid of card tiles, replacing the ragged 17%-flex row of
+   bare icons that read as flat/monotone against the page background */
+body.home .industries ul {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 14px;
+    row-gap: 20px;
+}
+
+body.home .industries ul li {
+    margin: 0;
+    background: #fff;
+    border: 1px solid rgba(24, 24, 24, 0.07);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    padding: 22px 10px 18px;
+}
+
+body.home .industry-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: rgba(2, 137, 64, 0.08);
+    margin-bottom: 10px;
+}
+
+body.home .industries ul li img {
+    max-width: 26px;
+    max-height: 26px;
+}
+
+body.home .industries ul li span:last-child {
+    font-size: 13px;
+    line-height: 1.3;
+}
+
+/* FAQ: one cohesive white card instead of a bare list of rows on the cream
+   page background, matching the card language used everywhere else */
+body.home .accordion {
+    background: #fff;
+    border: 1px solid rgba(24, 24, 24, 0.07);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    padding: 8px 32px;
+}
+
+body.home .accordion .accordion-item {
+    border-bottom: 1px solid rgba(24, 24, 24, 0.08);
+}
+
+body.home .accordion .accordion-item:last-child {
+    border-bottom: none;
+}
+
+body.home .accordion button .accordion-title {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/* Slim closing call-to-action, replacing the old two-button duplicate CTA */
+body.home .cta {
+    padding: 0 0 72px;
+    text-align: left;
+}
+
+body.home .cta-slim {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    max-width: 680px;
+    margin: 0 auto;
+    background: #fff;
+    border: 1px solid rgba(24, 24, 24, 0.1);
+    border-radius: 12px;
+    padding: 16px 24px;
+}
+
+body.home .cta-slim-text {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+body.home .cta-slim-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 44px;
+    padding: 0 24px;
+    background: #305cde;
+    color: #fff;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+body.home .cta-slim-btn:hover {
+    background: #1a3fb0;
+}
+
+@media (max-width: 768px) {
+    body.home #home {
+        padding: 48px 0 40px;
+    }
+
+    body.home .cta {
+        padding: 0 0 48px;
+    }
+
+    body.home .cta-slim {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    body.home .services,
+    body.home .industries,
+    body.home .why-choose-us {
+        padding: 48px 0;
+    }
+
+    body.home .faqs {
+        padding: 56px 0;
+    }
+
+    body.home .accordion {
+        padding: 4px 18px;
+    }
+
+    body.home .industries ul {
+        grid-template-columns: repeat(3, 1fr);
+        row-gap: 14px;
+        column-gap: 10px;
+    }
+
+    body.home .industries ul li {
+        margin: 0;
+        padding: 18px 8px 14px;
+    }
+}
