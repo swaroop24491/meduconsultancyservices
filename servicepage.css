@@ -183,7 +183,7 @@
 
 /* Why Choose Us: flatter card surface, tighter icon-to-heading spacing */
 .service-page .why-choose-us ul {
-    justify-content: flex-start;
+    justify-content: center;
 }
 
 .service-page .why-choose-us ul li {

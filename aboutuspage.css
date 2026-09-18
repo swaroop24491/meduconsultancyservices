@@ -209,6 +209,117 @@
     }
 }
 
+/* Tools & Calculators page: same design language as the homepage/about page -
+   white/hairline-border cards, a boxed FAQ accordion, slim closing CTA. */
+
+.tools-page .why-choose-us {
+    padding: 72px 0;
+}
+
+.tools-page .why-choose-us ul li {
+    background: #fff;
+    border: 1px solid rgba(24, 24, 24, 0.07);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    padding: 28px;
+}
+
+.tools-page .why-choose-us ul li h3 {
+    font-size: 18px;
+    margin-top: 12px;
+    margin-bottom: 8px;
+}
+
+.tools-page .why-choose-us ul li img {
+    height: 48px;
+}
+
+.tools-page .accordion {
+    background: #fff;
+    border: 1px solid rgba(24, 24, 24, 0.07);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    padding: 8px 32px;
+}
+
+.tools-page .accordion .accordion-item {
+    border-bottom: 1px solid rgba(24, 24, 24, 0.08);
+}
+
+.tools-page .accordion .accordion-item:last-child {
+    border-bottom: none;
+}
+
+.tools-page .accordion button .accordion-title {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.tools-page .cta {
+    padding: 0 0 72px;
+    text-align: left;
+}
+
+.tools-page .cta-slim {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    max-width: 680px;
+    margin: 0 auto;
+    background: #fff;
+    border: 1px solid rgba(24, 24, 24, 0.1);
+    border-radius: 12px;
+    padding: 16px 24px;
+}
+
+.tools-page .cta-slim-text {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.tools-page .cta-slim-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 44px;
+    padding: 0 24px;
+    background: #305cde;
+    color: #fff;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.tools-page .cta-slim-btn:hover {
+    background: #1a3fb0;
+}
+
+@media (max-width: 768px) {
+    .tools-page .why-choose-us {
+        padding: 48px 0;
+    }
+
+    .tools-page .faqs {
+        padding: 56px 0;
+    }
+
+    .tools-page .accordion {
+        padding: 4px 18px;
+    }
+
+    .tools-page .cta {
+        padding: 0 0 48px;
+    }
+
+    .tools-page .cta-slim {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
 
 .privacy-section {
     padding: 80px 0;
