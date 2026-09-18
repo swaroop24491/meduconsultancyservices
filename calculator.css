@@ -3,6 +3,18 @@
    focus outline #1a3fb0, heading rgb(24,24,24), body text #333, page
    background rgb(248,244,240), card shadow rgba(0,0,0,0.05) 0px 4px 20px 7px. */
 
+.calc-crosslinks {
+    margin: 20px 0 8px;
+}
+
+.calc-crosslinks p {
+    margin-bottom: 10px;
+}
+
+.calc-crosslinks p:last-child {
+    margin-bottom: 0;
+}
+
 .calc-crosslink {
     display: inline-flex;
     align-items: center;
@@ -11,7 +23,6 @@
     font-weight: 500;
     color: #305cde;
     text-decoration: none;
-    margin: 10px 0 32px;
 }
 
 .calc-crosslink:hover,
@@ -124,6 +135,7 @@
 
 .calc-field input {
     width: 100%;
+    height: 46px;
     padding: 10px 14px;
     font-size: 16px;
     font-family: inherit;
@@ -140,6 +152,29 @@
 
 .calc-field input[aria-invalid="true"] {
     border-color: #c1121f;
+}
+
+.calc-field input[type="date"],
+.calc-field input[type="month"] {
+    cursor: pointer;
+}
+
+.calc-field input[type="date"]::-webkit-calendar-picker-indicator,
+.calc-field input[type="month"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    padding: 4px;
+    margin-right: -4px;
+    border-radius: 6px;
+    opacity: 0.6;
+    transition: opacity 0.15s, background-color 0.15s;
+}
+
+.calc-field input[type="date"]:hover::-webkit-calendar-picker-indicator,
+.calc-field input[type="month"]:hover::-webkit-calendar-picker-indicator,
+.calc-field input[type="date"]:focus::-webkit-calendar-picker-indicator,
+.calc-field input[type="month"]:focus::-webkit-calendar-picker-indicator {
+    opacity: 1;
+    background-color: rgba(48, 92, 222, 0.12);
 }
 
 .calc-help {

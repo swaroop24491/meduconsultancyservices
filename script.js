@@ -107,4 +107,23 @@
 
     syncMenu();
   }
+
+  /* -------------------------------------------------------------------------
+     Date/month inputs
+     - native browsers only open the calendar popup when the tiny icon is
+       clicked; clicking the rest of the field just places a text caret.
+       Make the whole field open the picker, since that's what people expect.
+     ------------------------------------------------------------------------- */
+  document.querySelectorAll('input[type="date"], input[type="month"]').forEach(function (input) {
+    if (!input.showPicker) {
+      return;
+    }
+    input.addEventListener('click', function () {
+      try {
+        input.showPicker();
+      } catch (err) {
+        /* showPicker() throws if the input is disabled/readonly - ignore. */
+      }
+    });
+  });
 })();
