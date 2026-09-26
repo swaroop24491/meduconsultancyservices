@@ -123,3 +123,13 @@ Copy targets small-business owners and HR/accounts staff in Mangalore, Udupi and
 Bangalore, many with only basic English. Use short sentences and everyday words,
 avoid jargon, and lead with the plain benefit rather than the mechanism. Full
 rules are in section 9 of `docs/business-brief.md`.
+
+### Reviews
+Six reviewer subagents live in `.claude/agents/` (marketing, service,
+business owner, compliance, design, SEO/Kannada). They are read-only and
+report findings; fixes happen in the main session after approval.
+- Run all six for the site audit, when a page type is finished, and before
+  launch.
+- Run the compliance reviewer on any change that touches legal facts,
+  numbers or tool logic.
+- Don't run reviewers for small edits like typo fixes.
