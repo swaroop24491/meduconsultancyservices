@@ -111,9 +111,7 @@ legal facts. If a request conflicts with it, ask before acting.
 - Commit one page, or one small group of pages, at a time.
 
 ### Planned site changes (from the brief)
-- City pages reduce to 3: Mangalore, Udupi and Bangalore. The other 19 city pages
-  (English and Kannada) are removed, along with their links in the footer,
-  sitemap and anywhere else on the site.
+- City pages are now 3 (Mangalore, Udupi, Bangalore); the other 19 were removed.
 - New pages: an "Industries we serve" hub and one page each for hospitals,
   contractors, factories, schools and IT companies, in English and Kannada.
 
