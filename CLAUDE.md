@@ -54,8 +54,8 @@ moves.
 Head boilerplate on every page: favicons, `canonical` + `hreflang` (en/kn/x-default)
 links, `application/ld+json` structured data (`LocalBusiness`, `BreadcrumbList`,
 and on service pages `OfferCatalog`/`FAQPage`), Google Fonts (Inter, Poppins,
-Noto Sans Kannada for `kn/` pages, Material Symbols Outlined), Google Analytics
-(`G-4MEQF5W0XX`) and Hotjar (`5287852`) snippets.
+Noto Sans Kannada for `kn/` pages, Material Symbols Outlined), and Google Analytics
+(`G-4MEQF5W0XX`).
 
 There are **no contact forms** and no WhatsApp. Every call-to-action is
 `tel:+918217542975`.
