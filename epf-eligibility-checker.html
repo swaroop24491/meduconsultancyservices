@@ -125,7 +125,7 @@
           },
           {
             "@type": "Question",
-            "name": "Does an employee earning above ₹15,000 basic+DA ever need EPF coverage?",
+            "name": "Does an employee earning above ₹25,000 basic+DA ever need EPF coverage?",
             "acceptedAnswer": {
               "@type": "Answer",
               "text": "Only if they choose to opt in via a joint declaration with the employer (they become an 'excluded employee' otherwise), or if they were already an active EPF member from a previous job, in which case coverage continues regardless of current salary."
@@ -331,9 +331,9 @@
         <p>EPF registration becomes mandatory once an establishment employs <strong>20 or more people at any point</strong> - this is a point-in-time test, not an average across the year. Reaching 20 even briefly triggers permanent coverage under Section 17(1) of the EPF Act, and dropping back below 20 later does <strong>not</strong> remove the obligation to stay registered. Below 20 employees, registration is voluntary via a joint declaration under Section 1(4).</p>
 
         <h3>Employee-level coverage</h3>
-        <p>Mandatory coverage applies to employees whose basic salary + DA is <strong>₹15,000/month or less</strong> at the time of joining. Employees above this threshold who aren't already EPF members are called "excluded employees" - coverage is optional for them, available via a joint declaration with the employer. Employees who are already EPF members (with an active UAN) continue as members regardless of their current salary. International workers are covered with no wage ceiling at all.</p>
+        <p>Mandatory coverage applies to employees whose basic salary + DA is <strong>₹25,000/month or less</strong> at the time of joining. This ceiling has been ₹25,000 since 17 September 2026; it was ₹15,000 before that. Employees above this threshold who aren't already EPF members are called "excluded employees" - coverage is optional for them, available via a joint declaration with the employer. Employees who are already EPF members (with an active UAN) continue as members regardless of their current salary. International workers are covered with no wage ceiling at all.</p>
 
-        <p>The Employees' Provident Funds Scheme, 2026 (notified 29 June 2026) reconfirmed the ₹15,000 wage ceiling, and made it explicit that either the employer or the employee can unilaterally reduce or discontinue voluntary contributions made above that ceiling.</p>
+        <p>The Employees' Provident Funds Scheme, 2026 (notified 29 June 2026) set the ₹15,000 wage ceiling, and made it explicit that either the employer or the employee can unilaterally reduce or discontinue voluntary contributions made above that ceiling. A Gazette notification (S.O. 5109(E), under the Code on Social Security, 2020) raised the ceiling to ₹25,000 with effect from 17 September 2026.</p>
 
         <div class="calc-disclaimer">
           <span class="calc-disclaimer-label">Important - read before you rely on this result</span>
@@ -396,7 +396,7 @@
 
             <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
               <button id="epf-elig-faq-4" aria-expanded="false">
-                <span class="accordion-title" itemprop="name">Does an employee earning above ₹15,000 basic+DA ever need EPF coverage?</span>
+                <span class="accordion-title" itemprop="name">Does an employee earning above ₹25,000 basic+DA ever need EPF coverage?</span>
                 <span class="icon" aria-hidden="true"></span>
               </button>
               <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
@@ -575,9 +575,11 @@
     <script>
       document.addEventListener('DOMContentLoaded', function () {
         // EPF Act 1952 Section 1(4), 17(1); Employees' Provident Funds Scheme
-        // 2026 (notified 29 June 2026). Verify thresholds are still current -
-        // last checked 2026-09-16.
-        var EPF_WAGE_CEILING = 15000;
+        // 2026 (notified 29 June 2026). Wage ceiling raised to ₹25,000
+        // effective 17 September 2026 (Gazette S.O. 5109(E), Code on Social
+        // Security, 2020) - it was ₹15,000 before that. Verify thresholds
+        // are still current - last checked 2026-09-16.
+        var EPF_WAGE_CEILING = 25000;
         var EPF_HEADCOUNT_THRESHOLD = 20;
 
         initEligibilityCalculator('business-eligibility', {
@@ -698,6 +700,7 @@
                 kind: 'positive',
                 headline: 'Mandatorily covered',
                 reason: 'Basic salary + DA of ₹' + a['basic-da'].toLocaleString('en-IN') + ' is at or below the ₹' + EPF_WAGE_CEILING.toLocaleString('en-IN') + ' ceiling, so EPF coverage is mandatory for this employee.',
+                note: 'The EPF wage ceiling is ₹25,000 from 17 September 2026. It was ₹15,000 before that.',
                 crosslink: 'See the exact split: <a class="link" href="/epf-contribution-calculator">PF Contribution Calculator</a>.'
               };
             }
@@ -705,6 +708,7 @@
               kind: 'neutral',
               headline: 'Excluded employee - coverage optional',
               reason: 'Basic salary + DA of ₹' + a['basic-da'].toLocaleString('en-IN') + ' is above the ₹' + EPF_WAGE_CEILING.toLocaleString('en-IN') + ' ceiling, and this employee has no existing EPF membership. They are an "excluded employee" - coverage is optional via a joint declaration with the employer.',
+              note: 'The EPF wage ceiling is ₹25,000 from 17 September 2026. It was ₹15,000 before that.',
               crosslink: 'Considering voluntary coverage? <a class="link" href="/epf-contribution-calculator">See what the contribution would look like</a>.'
             };
           }

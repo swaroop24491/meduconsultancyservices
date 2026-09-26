@@ -7,10 +7,12 @@
  * an actual payroll run - rules last checked 2026-09-16):
  *   - EPF: Employees' Provident Funds & Miscellaneous Provisions Act, 1952;
  *     Employees' Provident Funds Scheme, 2026 (notified 29 June 2026),
- *     ₹15,000/month basic+DA wage ceiling and voluntary continuation above
- *     it; Employees' Pension Scheme, 1995 (8.33% EPS share, capped at
- *     ₹15,000 basic - max ₹1,250/month); Employees' Deposit Linked
- *     Insurance Scheme, 1976 (0.5% EDLI share, capped at ₹15,000); EPFO
+ *     ₹25,000/month basic+DA wage ceiling and voluntary continuation above
+ *     it, effective 17 September 2026 (Gazette S.O. 5109(E), Code on Social
+ *     Security, 2020) - it was ₹15,000 before that; Employees' Pension
+ *     Scheme, 1995 (8.33% EPS share, capped at ₹25,000 basic - max
+ *     ₹2,083/month); Employees' Deposit Linked Insurance Scheme, 1976
+ *     (0.5% EDLI share, capped at ₹25,000); EPFO
  *     administrative-charges notification (0.5% of actual basic+DA,
  *     uncapped, ₹75/month minimum).
  *   - ESI: Employees' State Insurance Act, 1948; ESI (Central) Rules, 1950,

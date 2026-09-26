@@ -104,15 +104,15 @@
             "name": "What is EPS and why does it reduce the EPF credit?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "EPS (Employees' Pension Scheme) is a mandatory 8.33% carve-out from the employer's contribution, capped at ₹1,250/month (8.33% of the ₹15,000 wage ceiling). It goes toward the employee's future pension, not their withdrawable EPF balance, so the amount actually credited to the EPF account is lower than the full 12%/10%."
+              "text": "EPS (Employees' Pension Scheme) is a mandatory 8.33% carve-out from the employer's contribution, capped at ₹2,083/month (8.33% of the ₹25,000 wage ceiling, effective 17 September 2026; it was ₹1,250/month, 8.33% of ₹15,000, before that). It goes toward the employee's future pension, not their withdrawable EPF balance, so the amount actually credited to the EPF account is lower than the full 12%/10%."
             }
           },
           {
             "@type": "Question",
-            "name": "Can I contribute on my full salary if it's above ₹15,000?",
+            "name": "Can I contribute on my full salary if it's above ₹25,000?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes, voluntarily. If both employer and employee agree, contributions can continue on the full basic+DA instead of being capped at ₹15,000. Either side can also unilaterally reduce or discontinue that voluntary portion later."
+              "text": "Yes, voluntarily. If both employer and employee agree, contributions can continue on the full basic+DA instead of being capped at ₹25,000 (the wage ceiling from 17 September 2026; it was ₹15,000 before that). Either side can also unilaterally reduce or discontinue that voluntary portion later."
             }
           },
           {
@@ -296,11 +296,11 @@
     <section class="penalty-rules">
       <div class="container">
         <h2>How the EPF Split Works</h2>
-        <p>The employee contributes 12% (or 10% for reduced-rate establishments) of basic+DA, entirely credited to their own EPF account. The employer also contributes 12%/10%, but it's split: <strong>8.33% goes to EPS</strong> (capped at ₹15,000 basic - max ₹1,250/month), and the <strong>remainder goes to the employee's EPF account</strong>.</p>
+        <p>The employee contributes 12% (or 10% for reduced-rate establishments) of basic+DA, entirely credited to their own EPF account. The employer also contributes 12%/10%, but it's split: <strong>8.33% goes to EPS</strong> (capped at ₹25,000 basic - max ₹2,083/month), and the <strong>remainder goes to the employee's EPF account</strong>.</p>
 
         <p>The 10% reduced rate applies to establishments with under 20 employees, sick industrial companies, or specific industries (jute, beedi, brick, coir, guar gum).</p>
 
-        <p>Under the Employees' Provident Funds Scheme, 2026: for basic+DA above ₹15,000, contribution can be capped at the ₹15,000 ceiling (the mandatory minimum) or voluntarily continued on the full basic+DA if both employer and employee agree.</p>
+        <p>The EPF wage ceiling is ₹25,000 from 17 September 2026 (it was ₹15,000 before that). Under the Employees' Provident Funds Scheme, 2026: for basic+DA above ₹25,000, contribution can be capped at the ₹25,000 ceiling (the mandatory minimum) or voluntarily continued on the full basic+DA if both employer and employee agree.</p>
 
         <div class="calc-disclaimer">
           <span class="calc-disclaimer-label">Important - read before you rely on this figure</span>
@@ -331,19 +331,19 @@
               </button>
               <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
                 <p itemprop="text">
-                  EPS (Employees' Pension Scheme) is a mandatory 8.33% carve-out from the employer's contribution, capped at ₹1,250/month. It goes toward the employee's future pension, not their withdrawable EPF balance, so the amount actually credited to the EPF account is lower than the full 12%/10%.
+                  EPS (Employees' Pension Scheme) is a mandatory 8.33% carve-out from the employer's contribution, capped at ₹2,083/month (it was ₹1,250/month before 17 September 2026). It goes toward the employee's future pension, not their withdrawable EPF balance, so the amount actually credited to the EPF account is lower than the full 12%/10%.
                 </p>
               </div>
             </div>
 
             <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
               <button id="epf-contrib-faq-3" aria-expanded="false">
-                <span class="accordion-title" itemprop="name">Can I contribute on my full salary if it's above ₹15,000?</span>
+                <span class="accordion-title" itemprop="name">Can I contribute on my full salary if it's above ₹25,000?</span>
                 <span class="icon" aria-hidden="true"></span>
               </button>
               <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
                 <p itemprop="text">
-                  Yes, voluntarily. If both employer and employee agree, contributions can continue on the full basic+DA instead of being capped at ₹15,000. Either side can also unilaterally reduce or discontinue that voluntary portion later.
+                  Yes, voluntarily. If both employer and employee agree, contributions can continue on the full basic+DA instead of being capped at ₹25,000 (the wage ceiling from 17 September 2026; it was ₹15,000 before that). Either side can also unilaterally reduce or discontinue that voluntary portion later.
                 </p>
               </div>
             </div>
@@ -516,13 +516,15 @@
     <script src="/contribution-calculator.js" defer></script>
     <script>
       document.addEventListener('DOMContentLoaded', function () {
-        // EPF Scheme 2026 (₹15,000 ceiling); EPS 1995 (8.33%, capped
-        // ₹1,250/month). Verify rates are still current - last
-        // checked 2026-09-16. EDLI (0.5%, capped ₹15,000) and EPFO
+        // EPF wage ceiling raised to ₹25,000 effective 17 September 2026
+        // (Gazette S.O. 5109(E), Code on Social Security, 2020); it was
+        // ₹15,000 before that. EPS 1995 (8.33%, capped ₹2,083/month at the
+        // new ceiling). Verify rates are still current - last checked
+        // 2026-09-16. EDLI (0.5%, capped at the wage ceiling) and EPFO
         // admin charges (0.5% of basic+DA, min ₹75/month) are separate
         // employer costs, not part of the PF contribution - deliberately
         // excluded from this calculator.
-        var WAGE_CEILING = 15000;
+        var WAGE_CEILING = 25000;
         var EPS_RATE = 0.0833;
 
         function roundRupee(n) {
@@ -554,9 +556,9 @@
             {
               id: 'ceiling-toggle',
               type: 'radio',
-              legend: 'Contribution base above ₹15,000',
+              legend: 'Contribution base above ₹25,000',
               options: [
-                { value: 'cap', label: 'Cap contribution at ₹15,000 ceiling (mandatory minimum)' },
+                { value: 'cap', label: 'Cap contribution at ₹25,000 ceiling (mandatory minimum)' },
                 { value: 'full', label: 'Contribute on full basic+DA (voluntary)' }
               ],
               default: 'cap',
@@ -584,7 +586,7 @@
             function formatBase(base, capped, full) {
               var text = '₹' + base.toLocaleString('en-IN');
               if (basicDa > WAGE_CEILING) {
-                text += capped ? ' (capped at the ₹15,000 ceiling)' : ' (full basic+DA, voluntary)';
+                text += capped ? ' (capped at the ₹25,000 ceiling)' : ' (full basic+DA, voluntary)';
               }
               return text;
             }
@@ -602,7 +604,8 @@
               ],
               notes: [
                 'Of the ' + window.ContributionCalculator.formatINR(totalMonthly) + ' total monthly contribution, ' +
-                window.ContributionCalculator.formatINR(totalToEpfAccount) + ' is credited to the employee\'s withdrawable EPF account (this excludes the EPS portion). EDLI and admin charges are separate employer costs on top of this and aren\'t part of the PF contribution.'
+                window.ContributionCalculator.formatINR(totalToEpfAccount) + ' is credited to the employee\'s withdrawable EPF account (this excludes the EPS portion). EDLI and admin charges are separate employer costs on top of this and aren\'t part of the PF contribution.',
+                'The EPF wage ceiling is ₹25,000 from 17 September 2026. It was ₹15,000 before that.'
               ]
             };
           }
