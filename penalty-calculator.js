@@ -14,8 +14,10 @@
  *   1. Interest - 12% p.a. simple interest on the arrears, for every day
  *      of delay. Fixed for both schemes, not discretionary.
  *   2. Damages - a separate, punitive charge. For ESI, and for EPF defaults
- *      before 14 June 2024, this is a slab rate (5/10/15/25% p.a.) based on
- *      how long the delay is. For EPF defaults on or after 14 June 2024,
+ *      before 14 June 2024, this is a slab rate based on how long the delay
+ *      is, counting a month as 30 days: under 2 months (under 60 days) 5%
+ *      p.a.; 2 to under 4 months (60-119 days) 10%; 4 to under 6 months
+ *      (120-179 days) 15%; 6 months or more (180+ days) 25%. For EPF defaults on or after 14 June 2024,
  *      it is a flat 1% per month (or part month), capped at 100% of the
  *      arrears.
  *
@@ -54,10 +56,13 @@
     return Math.ceil(delayDays / 30);
   }
 
-  function slabFor(delayMonths) {
-    if (delayMonths < 2) return { rate: 0.05, label: 'delay under 2 months' };
-    if (delayMonths <= 4) return { rate: 0.10, label: 'delay bracket 2-4 months' };
-    if (delayMonths <= 6) return { rate: 0.15, label: 'delay bracket 4-6 months' };
+  function slabFor(delayDays) {
+    // Slabs use the actual delay in 30-day months, not rounded up: a delay
+    // of exactly 60 days is 2 months and falls in the 10% slab.
+    var months = delayDays / 30;
+    if (months < 2) return { rate: 0.05, label: 'delay under 2 months' };
+    if (months < 4) return { rate: 0.10, label: 'delay bracket 2-4 months' };
+    if (months < 6) return { rate: 0.15, label: 'delay bracket 4-6 months' };
     return { rate: 0.25, label: 'delay bracket 6+ months' };
   }
 
@@ -65,24 +70,26 @@
     return round2(amount * INTEREST_RATE_ANNUAL * (delayDays / 365));
   }
 
-  function calculateEsiDamages(amount, delayDays, delayMonths) {
-    var slab = slabFor(delayMonths);
+  function calculateEsiDamages(amount, delayDays) {
+    var slab = slabFor(delayDays);
     return {
       amount: round2(amount * slab.rate * (delayDays / 365)),
       ruleLabel: 'Slab rate (Regulation 31C): ' + (slab.rate * 100) + '% p.a.',
       bracketLabel: slab.label,
-      capped: false
+      capped: false,
+      usesRoundedMonths: false
     };
   }
 
   function calculateEpfDamages(amount, delayDays, delayMonths, dueDate) {
     if (dueDate < EPF_RATE_CHANGE_DATE) {
-      var slab = slabFor(delayMonths);
+      var slab = slabFor(delayDays);
       return {
         amount: round2(amount * slab.rate * (delayDays / 365)),
         ruleLabel: 'Pre-June 2024 slab rate (Section 14B): ' + (slab.rate * 100) + '% p.a.',
         bracketLabel: slab.label,
-        capped: false
+        capped: false,
+        usesRoundedMonths: false
       };
     }
     var raw = amount * EPF_POST_CHANGE_MONTHLY_RATE * delayMonths;
@@ -92,7 +99,8 @@
       amount: round2(Math.min(raw, cap)),
       ruleLabel: 'Post-June 2024 flat rate (EPF Scheme Para 32A, as amended): 1% per month',
       bracketLabel: delayMonths + ' month' + (delayMonths === 1 ? '' : 's') + ' of delay',
-      capped: capped
+      capped: capped,
+      usesRoundedMonths: true
     };
   }
 
@@ -109,7 +117,7 @@
     var interest = calculateInterest(input.amount, delayDays);
     var damages = scheme === 'epf'
       ? calculateEpfDamages(input.amount, delayDays, delayMonths, dueDate)
-      : calculateEsiDamages(input.amount, delayDays, delayMonths);
+      : calculateEsiDamages(input.amount, delayDays);
     var total = round2(input.amount + interest + damages.amount);
 
     return {
@@ -267,9 +275,13 @@
       html += '<div class="calc-result-summary">';
       html += '<p><strong>Due date:</strong> ' + formatDateLong(result.dueDate) + '</p>';
       html += '<p><strong>Delay:</strong> ' + result.delayDays +
-        ' day' + (result.delayDays === 1 ? '' : 's') + ' (' + result.delayMonths +
-        ' month' + (result.delayMonths === 1 ? '' : 's') +
-        ' for damages calculation, rounded up)</p>';
+        ' day' + (result.delayDays === 1 ? '' : 's');
+      if (result.damages.usesRoundedMonths) {
+        html += ' (' + result.delayMonths +
+          ' month' + (result.delayMonths === 1 ? '' : 's') +
+          ' for damages calculation, rounded up)';
+      }
+      html += '</p>';
       html += '</div>';
 
       html += '<table class="calc-table">';

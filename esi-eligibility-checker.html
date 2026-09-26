@@ -104,7 +104,7 @@
             "name": "Does the ESI headcount threshold change by state?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes. Most states, including Karnataka, have lowered the threshold to 10 employees for notified categories such as shops, hotels, restaurants and cinemas. A handful of states and union territories have not lowered it and still use 20. This checker uses the threshold for the state you select."
+              "text": "No. Under the Code on Social Security, 2020, the rule is the same in every state: ESI applies once your business has 10 or more employees. Seasonal factories are the only exception."
             }
           },
           {
@@ -309,7 +309,7 @@
         <h2>How ESI Eligibility Works</h2>
 
         <h3>Establishment-level coverage</h3>
-        <p>ESI registration is mandatory for factories and notified categories of establishments - shops, hotels, restaurants, cinemas, road transport, newspaper establishments, and educational or medical institutions among others - once the headcount threshold is met. That threshold is <strong>10 employees</strong> in most states, including Karnataka, and <strong>20 employees</strong> in a handful of states that haven't lowered it. Like EPF, coverage is permanent once triggered - dropping below the threshold later does not remove it.</p>
+        <p>ESI registration is mandatory for factories and notified categories of establishments - shops, hotels, restaurants, cinemas, road transport, newspaper establishments, and educational or medical institutions among others - once the headcount threshold is met. That threshold is <strong>10 employees</strong> in every state, under the Code on Social Security, 2020 (seasonal factories are not covered). Like EPF, coverage is permanent once triggered - dropping below the threshold later does not remove it.</p>
 
         <h3>Employee-level coverage</h3>
         <p>An employee is covered if their gross monthly wages are <strong>₹21,000 or less</strong> (₹25,000 or less for a person with disability). Gross wages here means basic + DA + HRA + overtime + most allowances, excluding reimbursements billed separately. If wages cross the ceiling partway through a contribution period (April–September or October–March), coverage continues until that period ends.</p>
@@ -347,7 +347,7 @@
               </button>
               <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
                 <p itemprop="text">
-                  Yes. Most states, including Karnataka, have lowered the threshold to 10 employees for notified categories such as shops, hotels, restaurants and cinemas. A handful of states and union territories have not lowered it and still use 20. This checker uses the threshold for the state you select.
+                  No. Under the Code on Social Security, 2020, the rule is the same in every state: ESI applies once your business has 10 or more employees. Seasonal factories are the only exception.
                 </p>
               </div>
             </div>
@@ -488,38 +488,12 @@
     <script>
       document.addEventListener('DOMContentLoaded', function () {
         // ESI Act 1948; ESI (Central) Rules 1950, Rule 50; ESI (General)
-        // Regulations 1950; state government coverage-threshold
-        // notifications. The state->threshold list below reflects states
-        // generally confirmed to have lowered the threshold to 10 employees
-        // for notified non-factory establishments; unlisted states default
-        // to the older 20-employee threshold until confirmed. Verify against
-        // current ESIC state notifications before relying on this - last
-        // checked 2026-09-16.
-        var TEN_EMPLOYEE_STATES = [
-          'Andhra Pradesh', 'Assam', 'Bihar', 'Chandigarh', 'Chhattisgarh',
-          'Delhi', 'Goa', 'Gujarat', 'Haryana', 'Himachal Pradesh',
-          'Jammu and Kashmir', 'Jharkhand', 'Karnataka', 'Kerala',
-          'Madhya Pradesh', 'Maharashtra', 'Odisha', 'Puducherry', 'Punjab',
-          'Rajasthan', 'Tamil Nadu', 'Telangana', 'Uttar Pradesh',
-          'Uttarakhand', 'West Bengal'
-        ];
-        var ALL_STATES = [
-          'Andaman and Nicobar Islands', 'Andhra Pradesh', 'Arunachal Pradesh',
-          'Assam', 'Bihar', 'Chandigarh', 'Chhattisgarh',
-          'Dadra and Nagar Haveli and Daman and Diu', 'Delhi', 'Goa',
-          'Gujarat', 'Haryana', 'Himachal Pradesh', 'Jammu and Kashmir',
-          'Jharkhand', 'Karnataka', 'Kerala', 'Ladakh', 'Lakshadweep',
-          'Madhya Pradesh', 'Maharashtra', 'Manipur', 'Meghalaya', 'Mizoram',
-          'Nagaland', 'Odisha', 'Puducherry', 'Punjab', 'Rajasthan',
-          'Sikkim', 'Tamil Nadu', 'Telangana', 'Tripura', 'Uttar Pradesh',
-          'Uttarakhand', 'West Bengal'
-        ];
-        var TEN_SET = {};
-        TEN_EMPLOYEE_STATES.forEach(function (s) { TEN_SET[s] = true; });
-
-        function thresholdForState(state) {
-          return TEN_SET[state] ? 10 : 20;
-        }
+        // Regulations 1950. Under the Code on Social Security, 2020 (in
+        // force from 21 November 2025), ESI applies to establishments with
+        // 10 or more employees in every state (except seasonal factories),
+        // so the threshold no longer depends on the state - last checked
+        // 2026-09-26.
+        var ESI_EMPLOYEE_THRESHOLD = 10;
 
         var ESI_CEILING = 21000;
         var ESI_CEILING_PWD = 25000;
@@ -542,15 +516,6 @@
               errorRequired: 'Select the establishment type.'
             },
             {
-              id: 'state',
-              type: 'select',
-              label: 'Which state is the establishment in?',
-              options: ALL_STATES.map(function (s) {
-                return { value: s, label: s, selected: s === 'Karnataka' };
-              }),
-              errorRequired: 'Select a state.'
-            },
-            {
               id: 'current-employees',
               type: 'number',
               label: 'How many employees does the business currently employ?',
@@ -568,21 +533,21 @@
                 crosslink: '<a class="link" href="/contact-us">Talk to Medu Consultancy</a> to confirm your establishment category.'
               };
             }
-            var threshold = thresholdForState(a.state);
+            var threshold = ESI_EMPLOYEE_THRESHOLD;
             if (a['current-employees'] >= threshold) {
               return {
                 kind: 'positive',
                 headline: 'Mandatory - registration required',
-                reason: 'With ' + a['current-employees'] + ' employees in ' + a.state + ', your headcount has reached the applicable threshold of ' + threshold + ', so ESI registration is mandatory.',
-                note: 'Threshold used: ' + threshold + ' employees (' + a.state + ').',
+                reason: 'With ' + a['current-employees'] + ' employees, your headcount has reached the threshold of ' + threshold + ', so ESI registration is mandatory.',
+                note: 'Threshold used: ' + threshold + ' employees (the same in every state).',
                 crosslink: 'Get help registering: <a class="link" href="/esi-consultancy-service">ESI Consultancy Service</a>.'
               };
             }
             return {
               kind: 'neutral',
               headline: 'Not mandatory at current headcount',
-              reason: 'With ' + a['current-employees'] + ' employees in ' + a.state + ', you are below the applicable threshold of ' + threshold + ', so ESI registration is not currently mandatory.',
-              note: 'Threshold used: ' + threshold + ' employees (' + a.state + '). This is a point-in-time test - once reached, coverage is permanent even if headcount later drops.',
+              reason: 'With ' + a['current-employees'] + ' employees, you are below the threshold of ' + threshold + ', so ESI registration is not currently mandatory.',
+              note: 'Threshold used: ' + threshold + ' employees (the same in every state). This is a point-in-time test - once reached, coverage is permanent even if headcount later drops.',
               crosslink: 'Planning to grow the team? <a class="link" href="/esi-consultancy-service">Talk to Medu Consultancy</a> about staying ahead of registration.'
             };
           }

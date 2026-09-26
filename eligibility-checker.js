@@ -13,9 +13,9 @@
  *     ₹25,000/month effective 17 September 2026.
  *   - ESI: Employees' State Insurance Act, 1948; ESI (Central) Rules, 1950,
  *     Rule 50 (wage ceiling and low-wage exemption); ESI (General)
- *     Regulations, 1950; state government notifications on the
- *     coverage-threshold headcount (10 vs 20 employees), which vary by
- *     state and change from time to time.
+ *     Regulations, 1950; Code on Social Security, 2020, under which the
+ *     coverage threshold is 10 employees in every state (except seasonal
+ *     factories).
  *
  * This file is the reusable "component": initEligibilityCalculator(id,
  * config) renders ONE config-driven, self-contained calculator - its own
