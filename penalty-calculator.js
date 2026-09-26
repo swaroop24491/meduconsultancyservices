@@ -74,7 +74,7 @@
     var slab = slabFor(delayDays);
     return {
       amount: round2(amount * slab.rate * (delayDays / 365)),
-      ruleLabel: 'Slab rate (Regulation 31C): ' + (slab.rate * 100) + '% p.a.',
+      ruleLabel: 'Slab rate: ' + (slab.rate * 100) + '% p.a.',
       bracketLabel: slab.label,
       capped: false,
       usesRoundedMonths: false
@@ -86,7 +86,7 @@
       var slab = slabFor(delayDays);
       return {
         amount: round2(amount * slab.rate * (delayDays / 365)),
-        ruleLabel: 'Pre-June 2024 slab rate (Section 14B): ' + (slab.rate * 100) + '% p.a.',
+        ruleLabel: 'Pre-June 2024 slab rate: ' + (slab.rate * 100) + '% p.a.',
         bracketLabel: slab.label,
         capped: false,
         usesRoundedMonths: false
@@ -97,7 +97,7 @@
     var capped = raw > cap;
     return {
       amount: round2(Math.min(raw, cap)),
-      ruleLabel: 'Post-June 2024 flat rate (EPF Scheme Para 32A, as amended): 1% per month',
+      ruleLabel: 'Post-June 2024 flat rate: 1% per month',
       bracketLabel: delayMonths + ' month' + (delayMonths === 1 ? '' : 's') + ' of delay',
       capped: capped,
       usesRoundedMonths: true
