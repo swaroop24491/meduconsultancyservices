@@ -4,7 +4,7 @@ lang: en
 page_type: service
 last_modified: 2026-09-27
 title: "PF Consultant: Monthly PF Filing | Medu Consultancy"
-description: "We file your PF on time every month. While with us, no client has paid a late fine or interest. Call +91 82175 42975."
+description: "We file your PF on time every month for businesses in Mangalore, Udupi and Bangalore. While with us, no client has paid a late fine or interest. Call +91 82175 42975."
 breadcrumb:
   - { name: PF services }
 service:
@@ -21,17 +21,19 @@ service:
     - Letters to the PF office
 faq:
   - q: What do you need from us each month?
-    a: "The salary details for each employee: days worked, the full pay breakup (basic, DA and allowances), and anyone who joined or left. We tell you the exact format when we start."
+    a: "For each employee, send us: days worked, their pay (basic, DA and other allowances), and anyone who joined or left. We tell you the exact format when we start."
   - q: What do you send us after filing?
     a: An email with the filing confirmation and the challan (the PF payment slip), so your records are complete.
   - q: Do you pay the PF amount for us?
     a: We can. Either you pay it yourself using the challan we send, or you send us the amount and we pay it for you. Choose what suits you.
   - q: When is PF due each month?
-    a: By the 15th of the next month. For example, PF on March salaries is due by 15 April. We file before the due date every month.
+    a: By the 15th of the next month. For example, PF on March salaries is due by 15 April. Send us the salary details as early as you can, and we file before the due date.
   - q: Can you register us and then file every month?
-    a: 'Yes. We register your business with EPFO and your staff for UAN. Then we move you straight on to monthly filing. <a href="/pf-registration">PF registration for employers</a>'
+    a: 'Yes. We register your business with EPFO and create UANs for your staff. Then we file for you every month. See <a href="/pf-registration">PF registration for employers</a>.'
   - q: We file PF ourselves now. Can you take over?
     a: 'Yes. <a href="tel:+918217542975" data-call-location="faq">Call us</a> and we''ll explain how we take over your monthly filing from the next due date.'
+  - q: We have missed some PF due dates. Can you help?
+    a: 'Yes. <a href="tel:+918217542975" data-call-location="faq">Call us</a>. We take over your monthly filing, so you don''t miss a due date again.'
   - q: Do you help our staff with PF transfers, withdrawals and KYC?
     a: "Yes. We help your staff with these, so your HR team doesn't have to."
   - q: What if we have a PF inspection?
@@ -40,16 +42,16 @@ faq:
     a: 'It depends on how many employees you have and what you need. <a href="tel:+918217542975" data-call-location="faq">Call us</a> for a quote.'
 ---
 {%- assign epf = site.data.facts.epf -%}
-{% include hero.html heading="PF consultant: we file your PF every month" lead="We prepare and file your PF (Provident Fund) before the due date, every month. You send us salary details. We do the rest." %}
+{% include hero.html heading="PF consultant: we file your PF every month" lead="We prepare and file your PF (Provident Fund, also called EPF) before the due date, every month. You send us salary details. We do the filing." %}
 
 <section class="section section--surface" aria-labelledby="applies-heading">
   <div class="container">
     <div class="prose">
       <h2 id="applies-heading">Does PF apply to your business?</h2>
       <p>PF applies if your business has <strong>{{ epf.min_employees }} or more employees</strong>, in any industry.</p>
-      <p>Every employee whose PF wages are <strong>{{ epf.wage_ceiling_text }} a month or less</strong> must be in PF. This limit went up from {{ epf.wage_ceiling_old_text }} to {{ epf.wage_ceiling_text }} on {{ epf.wage_ceiling_from }}. For September 2026 salaries, the rule is not yet clear. <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us.</a></p>
-      <p>PF wages are basic pay, DA (dearness allowance) and retaining allowance. They are not total salary. Other allowances usually don't count. But if they are more than half of total pay, the extra part is added to PF wages.</p>
-      <p>If an employee's PF wages are more than {{ epf.wage_ceiling_text }}, the rules are different. Someone who has never been in PF may join by choice. Anyone who is already a PF member stays a member.</p>
+      <p>Every employee whose PF wages are <strong>{{ epf.wage_ceiling_text }} a month or less</strong> must be in PF. This limit went up from {{ epf.wage_ceiling_old_text }} to {{ epf.wage_ceiling_text }} on {{ epf.wage_ceiling_from }}. For September 2026 salaries, the PF office has not yet said which limit to use. <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a> and we'll tell you what to do.</p>
+      <p>PF wages are basic pay plus DA (dearness allowance). It is not the full salary. If other allowances are more than half the salary, part of them also counts. We work this out for you.</p>
+      <p>Staff with PF wages above {{ epf.wage_ceiling_text }}: if they were never in PF, they can choose to join. If they are already in PF, they stay in PF.</p>
       <p>Not sure? <a class="link-arrow" href="/epf-eligibility-checker">Check with our PF eligibility checker&#8288;{% include icon.html name="arrow" size="18" %}</a></p>
     </div>
   </div>
@@ -60,7 +62,7 @@ faq:
     <h2 id="services-heading">What we do for you</h2>
     <div class="card-grid card-grid--3 card-grid--top">
       <div class="card">
-        <h3>Setting up</h3>
+        <h3>Setting up (one-time)</h3>
         <ul class="check-list">
           <li>Register your business with EPFO (the PF office).</li>
           <li>Register your employees and create their UAN (each employee's PF account number).</li>
@@ -96,7 +98,7 @@ faq:
 <section class="section" aria-labelledby="behind-heading">
   <div class="container stack">
     <h2 id="behind-heading">Who's behind it</h2>
-    <p class="prose">Medu Consultancy was founded in 2000 by Medu Thirumaleshwara Bhat, who worked at EPFO for 35 years. We know how PF works in practice, and we use that to keep your filing right and on time. <a class="link-arrow" href="/about-us">About us&#8288;{% include icon.html name="arrow" size="18" %}</a></p>
+    <p class="prose">Medu Thirumaleshwara Bhat started Medu Consultancy in 2000. He worked at EPFO (the PF office) for 35 years. We know how the PF office works from the inside. That is why our filing is right and on time. <a class="link-arrow" href="/about-us">About us&#8288;{% include icon.html name="arrow" size="18" %}</a></p>
     <h2 id="work-with-heading">Who we work with</h2>
     {% include industry-links.html compact=true %}
     {% include city-links.html %}
@@ -124,4 +126,4 @@ faq:
 
 {% include faq.html items=page.faq schema=true %}
 
-{% include closing-call.html line="Hand over your monthly PF filing." %}
+{% include closing-call.html line="Let us do your PF filing every month." %}

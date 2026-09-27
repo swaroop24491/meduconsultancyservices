@@ -41,7 +41,7 @@ proof:
   aria: About Medu Consultancy
   items:
     - 25+ years in practice
-    - Founded by a 35-year EPFO veteran
+    - Founder worked 35 years at EPFO
     - 100+ clients
     - 3,500+ employees covered
 
@@ -57,24 +57,29 @@ two_paths:
       - { label: ESI registration, path: esi-registration }
   monthly:
     title: We file every month
-    text: Ongoing. Each month you send salary details and we do the filing.
+    text: Ongoing. Each month you send salary details and we do the filing. Already registered? We take over from your next due date.
     links:
       - { label: PF monthly filing, path: epf-consultancy-service }
       - { label: ESI monthly filing, path: esi-consultancy-service }
-  bridge: Registered with us? We can move you straight on to monthly filing.
+  bridge: After we register you, we can also file for you every month.
+  bridge_call: Not sure which you need?
 
 how_we_work:
   heading: How we work
   steps:
     - { title: Call us., text: We check what applies to your business. }
-    - { title: Share your documents., text: We tell you exactly what's needed. }
-    - { title: We register and set up, text: your establishment and employees. }
+    - { title: We tell you which documents we need., text: You send them. }
+    - { title: We set up your business and staff., text: New to PF or ESI? We register you first. }
     - { title: "Each month, you send salary details", text: and we file. }
     - { title: We email you the confirmation and challans, text: (the payment slips). }
 
 no_office: No office visits needed. We handle everything over phone and email.
 
 cities_label: "We work with businesses in:"
+cities:
+  - { anchor: PF and ESI in Mangalore, path: epf-esi-consultancy-mangalore }
+  - { anchor: PF and ESI in Udupi, path: epf-esi-consultancy-udupi }
+  - { anchor: PF and ESI in Bangalore, path: epf-esi-consultancy-bangalore }
 
 situations:
   heading: Which one sounds like you?
@@ -99,11 +104,11 @@ industries:
   compact_label: "Industries:"
   also_heading: We also work with
   primary:
-    - { key: hospitals, name: Hospitals, icon: hospital, text: "Nurses, support staff and agency workers." }
-    - { key: contractors, name: Contractors, icon: contractor, text: "Staff who join and leave often, across sites." }
-    - { key: factories, name: Factories, icon: factory, text: "Contract workers, overtime and inspections." }
-    - { key: schools, name: Schools, icon: school, text: "Teaching and non-teaching staff, and CBSE checks." }
-    - { key: it-companies, name: IT companies, icon: it, text: "The new ₹25,000 PF limit and salary structures." }
+    - { key: hospitals, name: Hospitals, anchor: PF and ESI for hospitals, icon: hospital, text: "Nurses, support staff and agency workers." }
+    - { key: contractors, name: Contractors, anchor: PF and ESI for contractors, icon: contractor, text: "Staff who join and leave often, across sites." }
+    - { key: factories, name: Factories, anchor: PF and ESI for factories, icon: factory, text: "Contract workers, overtime and inspections." }
+    - { key: schools, name: Schools, anchor: PF and ESI for schools, icon: school, text: "Teaching and non-teaching staff, and CBSE checks." }
+    - { key: it-companies, name: IT companies, anchor: PF and ESI for IT companies, icon: it, text: "The new ₹25,000 PF limit and salary structures." }
   also: Estates, security agencies, housekeeping agencies, distributors and suppliers, local shops, hotels and restaurants.
 
 tools:
