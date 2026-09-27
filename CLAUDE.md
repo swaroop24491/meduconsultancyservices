@@ -144,8 +144,11 @@ legal facts. If a request conflicts with it, ask before acting.
 - The phone call (+91 82175 42975) is the only call-to-action.
 - Write in simple, basic English: short sentences, everyday words, and every
   compliance term explained the first time it appears.
-- Every page exists in English and Kannada (`kn/`). Change both together. Mark new
-  or changed Kannada text for review by a fluent speaker.
+- Every page will exist in English and Kannada (`kn/`). **Kannada pages are built last**
+  (owner decision 2026-09-27): build every English page first, then all Kannada pages
+  together from the final English text, before launch. Until then, leave the old `kn/`
+  pages alone (urgent fact fixes only). Mark all Kannada text for review by a fluent
+  speaker.
 - Design clean, clutter-free and light. When in doubt, remove it.
 - Build with the shared design system: colours, spacing and type sizes come from
   CSS variables in `site.css`, and components use the exact includes shown on the
@@ -194,6 +197,9 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
 - `pilot-epf-service-copy.md` - the approved EPF service page copy (old vs new): the model
   for how page copy is proposed.
 - `pilot-review-findings.md` - the six-reviewer findings on the pilot and what was done.
+- `esi-service-copy.md`, `pf-registration-copy.md`, `esi-registration-copy.md` - approved
+  phase 2 copy; `phase2-review-findings.md` - six-reviewer findings on phase 2, the owner's
+  decisions and the changes made after the copy docs (the built pages are the final text).
 
 ### Done
 - Phase 0: Jekyll scaffold; tool logic/text update (converter fix, EPF text, ESI checker,
@@ -207,15 +213,22 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
   `docs/esi-registration-copy.md` (each compliance-reviewed and owner-approved). Six-reviewer
   review applied (`docs/phase2-review-findings.md`); later copy changes are recorded there.
 
-### Next (strategy section 9.3)
-1. Phase 2 is done in English (six-reviewer review applied: `docs/phase2-review-findings.md`).
-2. Kannada EPF service page, after the glossary and `kannada-review.md` are reviewed
-   (pages that have Kannada today launch only as reviewed EN + KN pairs, D9).
-3. Then home, tools hub + tools, the 3 city pages, industry hub + 5 pages, blog, about,
-   contact, legal, 404, and the launch check (strategy 9.3 phases 3-9).
-4. Before launch: compliance review of every linked blog post; verify strategy 9.4
-   items; owner input still needed (registration document lists and timing, local
-   industry mix per city, Google Business Profile URL, photos if any).
+### Next (strategy section 9.3, English first; Kannada last)
+1. **Phase 3: home page** (English). Start here in the next session.
+2. English only, in this order: tools hub + 7 tools (phase 4; also fix the tool text in
+   strategy 9.4 #23 and check the calculators' EPS cap and ₹176 figures, #4 and #8), the
+   3 city pages, industry hub + 5 industry pages, blog index + posts (rewrite the ESI
+   posts first, then restore their links, #22), about, contact, legal, bilingual 404.
+3. **Kannada phase (last, before launch):** first a fluent speaker reviews
+   `docs/kannada-glossary.md` and `docs/kannada-review.md`; then every Kannada page is
+   built from the final English page (EN + KN pairs, D9), including the EPF/ESI service
+   and registration pages. The old `kn/` pages are replaced then (e.g. the old Kannada
+   ESI page still says "gross salary"). Run the SEO/Kannada reviewer on each.
+4. Launch check (phase 9): internal-link crawl of `_site` (the industry pages are
+   already linked from rebuilt pages), all six reviewers, strategy 9.4 verified by the
+   compliance reviewer (incl. #10: remove the ESI "stay to the end of the period" line
+   if not confirmed). Owner input still needed: local industry mix per city, Google
+   Business Profile URL, photos if any.
 
 ### Workflow for each page
 1. Read the brief, strategy section 4 for the page type, and the old page.
@@ -228,7 +241,10 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
 5. Check at 320, 390, 768, 1024 and 1440px: no horizontal scroll, axe (WCAG 2.1 A/AA)
    clean, keyboard (menu, FAQ, focus not under the sticky bar), JSON-LD parses, sitemap
    valid. Review 390px and 1440px screenshots (saved in `audit/screenshots/`).
-6. Commit the page on its own. Log any Kannada text in `docs/kannada-review.md`.
+   `node audit/check/check-page.mjs audit/screenshots <path> <name>` does the width, axe,
+   keyboard and screenshot part (git-ignored; setup steps at the top of the file).
+6. Commit the page on its own. (Kannada comes in the final phase; log Kannada text in
+   `docs/kannada-review.md` then.)
 7. When a page type is finished, run all six reviewers and bring the merged findings
    to the owner before fixing.
 
@@ -266,6 +282,13 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
   them"); IP numbers we create ourselves on the ESIC portal.
 - ESI uses "ESI wages" (the Code definition: HRA, overtime etc. left out, 50% add-back),
   never "gross wages" or "total pay".
+- Who counts towards 20/10: all staff incl. casual, contractor-sent and high-salary staff;
+  not apprentices, the owner (proprietor) or partners; directors: "call us to check".
+  "Once PF/ESI applies, it stays" (not "once registered").
+- Registration pages: one "What we do" section (intro line + 2 content cards), no
+  How we work block; call button and filing promise in "After registration".
+- Facts in front matter (FAQ answers, meta descriptions) are typed by hand; the list of
+  places to grep is at the top of `_data/facts.yml`.
 
 ### Local preview
 The Docker command above runs the preview. If Docker Desktop isn't running, start it
