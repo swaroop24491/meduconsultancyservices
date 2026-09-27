@@ -309,10 +309,10 @@
         <h2>How ESI Eligibility Works</h2>
 
         <h3>Establishment-level coverage</h3>
-        <p>ESI registration is mandatory for factories and notified categories of establishments - shops, hotels, restaurants, cinemas, road transport, newspaper establishments, and educational or medical institutions among others - once the headcount threshold is met. That threshold is <strong>10 employees</strong> in every state, under the Code on Social Security, 2020 (seasonal factories are not covered). Like EPF, coverage is permanent once triggered - dropping below the threshold later does not remove it.</p>
+        <p>ESI registration is mandatory for every establishment with <strong>10 or more employees</strong>, in every state, under the Code on Social Security, 2020. Seasonal factories are not covered. Some hazardous work must register even with 1 employee. Like EPF, coverage is permanent once triggered - dropping below 10 employees later does not remove it.</p>
 
         <h3>Employee-level coverage</h3>
-        <p>An employee is covered if their gross monthly wages are <strong>₹21,000 or less</strong> (₹25,000 or less for a person with disability). Gross wages here means basic + DA + HRA + overtime + most allowances, excluding reimbursements billed separately. If wages cross the ceiling partway through a contribution period (April–September or October–March), coverage continues until that period ends.</p>
+        <p>An employee is covered if their gross monthly wages are <strong>₹21,000 or less</strong> (₹25,000 or less for a person with disability). Wages here means all pay for the month, leaving out HRA, overtime, bonus, commission and travel allowance. If those left-out items are more than half of total pay, the part above half is added back. If wages cross the ceiling partway through a contribution period (April–September or October–March), coverage continues until that period ends.</p>
 
         <h3>Low-wage exemption</h3>
         <p>If an employee's average daily wage is ₹176 or less, their own 0.75% share is exempted - the employer must still pay their 3.25% share.</p>
@@ -503,17 +503,15 @@
           cardTitle: 'Business registration status',
           fields: [
             {
-              id: 'establishment-type',
-              type: 'select',
-              label: 'What type of establishment is this?',
+              id: 'seasonal-factory',
+              type: 'radio',
+              legend: 'Is this a seasonal factory?',
               options: [
-                { value: 'factory', label: 'Factory' },
-                { value: 'shop-hotel-cinema', label: 'Shop, hotel, restaurant, or cinema' },
-                { value: 'transport-media-institution', label: 'Road transport, newspaper, or educational/medical institution' },
-                { value: 'other', label: 'Other' },
-                { value: 'unsure', label: 'Not sure' }
+                { value: 'no', label: 'No' },
+                { value: 'yes', label: 'Yes' }
               ],
-              errorRequired: 'Select the establishment type.'
+              help: 'A seasonal factory works only part of the year, for example only during a crop season.',
+              errorRequired: 'Choose Yes or No.'
             },
             {
               id: 'current-employees',
@@ -525,12 +523,14 @@
             }
           ],
           evaluate: function (a) {
-            if (a['establishment-type'] === 'unsure') {
+            // Under the Code, ESI covers every establishment with 10+ employees
+            // except seasonal factories.
+            if (a['seasonal-factory'] === 'yes') {
               return {
-                kind: 'uncertain',
-                headline: 'Uncertain - establishment category needs confirmation',
-                reason: "ESI coverage depends on whether your establishment falls into a notified category (factory, shop, hotel, restaurant, cinema, road transport, newspaper, or educational/medical institution). Confirm your category before relying on the headcount test alone.",
-                crosslink: '<a class="link" href="/contact-us">Talk to Medu Consultancy</a> to confirm your establishment category.'
+                kind: 'neutral',
+                headline: 'Not covered - seasonal factory',
+                reason: 'ESI does not cover seasonal factories.',
+                crosslink: 'Not sure your factory counts as seasonal? <a class="link" href="tel:+918217542975">Call us</a> and we will check.'
               };
             }
             var threshold = ESI_EMPLOYEE_THRESHOLD;
@@ -547,7 +547,7 @@
               kind: 'neutral',
               headline: 'Not mandatory at current headcount',
               reason: 'With ' + a['current-employees'] + ' employees, you are below the threshold of ' + threshold + ', so ESI registration is not currently mandatory.',
-              note: 'Threshold used: ' + threshold + ' employees (the same in every state). This is a point-in-time test - once reached, coverage is permanent even if headcount later drops.',
+              note: 'Threshold used: ' + threshold + ' employees (the same in every state). This is a point-in-time test - once reached, coverage is permanent even if headcount later drops. Some hazardous work must register even with 1 employee. You can also register by choice with fewer than 10 employees.',
               crosslink: 'Planning to grow the team? <a class="link" href="/esi-consultancy-service">Talk to Medu Consultancy</a> about staying ahead of registration.'
             };
           }
@@ -560,7 +560,7 @@
               id: 'gross-wages',
               type: 'number',
               label: "What are this employee's gross monthly wages (₹)?",
-              help: 'Gross wages = basic + DA + HRA + overtime + most allowances, excluding billed reimbursements.',
+              help: 'All pay for the month, leaving out HRA, overtime, bonus, commission and travel allowance. If those left-out items are more than half of total pay, add the part above half.',
               min: 1,
               errorRequired: 'Enter the gross monthly wages.',
               errorMin: 'Enter a number greater than 0.'

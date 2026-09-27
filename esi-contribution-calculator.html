@@ -112,7 +112,7 @@
             "name": "What counts as gross wages for ESI?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Basic pay, dearness allowance, HRA, overtime, and most other allowances. Reimbursements billed separately (like travel bills) are usually excluded."
+              "text": "All pay for the month, leaving out HRA, overtime, bonus, commission and travel allowance. If those left-out items are more than half of total pay, the part above half is added back. This follows the wages rule in the Code on Social Security, 2020."
             }
           },
           {
@@ -339,7 +339,7 @@
               </button>
               <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
                 <p itemprop="text">
-                  Basic pay, dearness allowance, HRA, overtime, and most other allowances. Reimbursements billed separately (like travel bills) are usually excluded.
+                  All pay for the month, leaving out HRA, overtime, bonus, commission and travel allowance. If those left-out items are more than half of total pay, the part above half is added back. This follows the wages rule in the Code on Social Security, 2020.
                 </p>
               </div>
             </div>
@@ -474,7 +474,7 @@
               id: 'gross-wages',
               type: 'number',
               label: 'Gross monthly wages (₹)',
-              help: 'Basic + DA + HRA + overtime + most allowances, excluding billed reimbursements.',
+              help: 'All pay for the month, leaving out HRA, overtime, bonus, commission and travel allowance. If those left-out items are more than half of total pay, add the part above half.',
               min: 1,
               errorRequired: 'Enter the gross monthly wages.',
               errorMin: 'Enter a number greater than 0.'
