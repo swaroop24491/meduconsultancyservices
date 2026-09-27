@@ -4,7 +4,7 @@ lang: en
 page_type: registration
 last_modified: 2026-09-27
 title: "ESI Registration for Employers in Mangalore | Medu Consultancy"
-description: "10 or more staff? We register your business for ESI and create IP numbers for your staff. Registration takes just a few hours once we have your documents. Call +91 82175 42975."
+description: "10 or more staff? We register your business for ESI in Mangalore, Udupi and Bangalore, and create IP numbers for staff. Call +91 82175 42975."
 breadcrumb:
   - { name: ESI registration }
 service:
@@ -19,40 +19,45 @@ faq:
   - q: What documents do you need?
     a: 'It depends on your type of business. <a href="tel:+918217542975" data-call-location="faq">Call us</a> and we''ll tell you exactly what to send.'
   - q: Do contract and casual workers count towards 10?
-    a: Yes. Count all your staff, including casual workers and workers a contractor sends to work for you. Staff on high salaries count too. Apprentices, owners and partners are not counted.
+    a: Yes. Count all your staff, including casual workers and workers a contractor sends to work for you. Staff on high salaries count too. Apprentices are not counted. The owner and partners are not counted either. If your business is a company, call us to check how to count directors.
   - q: Our new employee already has an IP number. Do they need a new one?
     a: No. An IP number stays the same for life. We add them to your business using their existing number.
   - q: Do we need PF registration too?
-    a: 'PF applies when you have 20 or more employees. So if you have 20 or more staff, you almost always need both PF and ESI. We can register you for both. See <a href="/pf-registration">PF registration for employers</a>.'
+    a: 'Only if you have 20 or more employees. Then you need PF as well as ESI. We can register you for both. See <a href="/pf-registration">PF registration for employers</a>.'
   - q: What happens after registration?
     a: 'ESI must be paid every month, by the 15th of the next month. We can file it for you. See <a href="/esi-consultancy-service">ESI monthly filing</a>.'
   - q: How much does it cost?
     a: 'It depends on your business and what you need. <a href="tel:+918217542975" data-call-location="faq">Call us</a> for a quote.'
 ---
 {%- assign esi = site.data.facts.esi -%}
-{% include hero.html heading="ESI registration for employers" lead="We register your business for ESI (Employees' State Insurance: medical care and sick pay for your staff) and set up your staff. Call us and we'll check what applies to your business." %}
+{% include hero.html heading="ESI registration for employers" lead="We register your business for ESI (Employees' State Insurance: medical care and sick pay for your staff) and set up your staff. Once we have your documents, it takes just a few hours. Call us and we'll check what applies to your business." %}
 
 <section class="section section--surface" aria-labelledby="applies-heading">
   <div class="container">
     <div class="prose">
       <h2 id="applies-heading">Does your business need ESI registration?</h2>
-      <p>Your business must register for ESI when it has <strong>{{ esi.min_employees }} or more employees</strong>. This is the same in every state. Seasonal factories are not covered.</p>
-      <p>Count all your staff. This includes temporary and casual staff, and workers a contractor sends to work for you. Count staff on high salaries too. Apprentices (trainees under the Apprentices Act) are not counted. Owners and partners are not counted either.</p>
-      <p><strong>Once registered, ESI stays.</strong> It does not stop if your staff later drop below {{ esi.min_employees }}.</p>
+      <p>Your business must register for ESI when it has <strong>{{ esi.min_employees }} or more employees</strong>. This is the same in every state. ESI does not apply to seasonal factories.</p>
+      <p>Count all your staff:</p>
+      <ul class="check-list">
+        <li>temporary and casual staff</li>
+        <li>workers a contractor sends to work for you</li>
+        <li>staff on high salaries</li>
+      </ul>
+      <p>Don't count: apprentices (trainees under the Apprentices Act), the owner of the business, or its partners. Is your business a company? <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a> to check how to count directors.</p>
+      <p><strong>Once ESI applies, it stays.</strong> It does not stop if your staff later drop below {{ esi.min_employees }}.</p>
       <p>For some risky kinds of work, ESI can apply even with 1 employee. <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a> to check.</p>
       <p>Every employee whose ESI wages are <strong>{{ esi.wage_ceiling_text }} a month or less</strong> must then be in ESI. For a person with a disability, the limit is {{ esi.wage_ceiling_pwd_text }}.</p>
-      <p>ESI wages are the month's pay, but some items are left out, like HRA (house rent allowance) and overtime. If these left-out items are more than half the pay, part of them counts again. We work this out for you.</p>
+      <p>ESI wages are the month's pay without some items, like HRA (house rent allowance) and overtime. If those items are more than half the pay, part of them is added back. We work this out for you.</p>
       <p>Not sure? <a class="link-arrow" href="/esi-eligibility-checker">Check with our ESI eligibility checker&#8288;{% include icon.html name="arrow" size="18" %}</a></p>
     </div>
   </div>
 </section>
 
-<section class="section" aria-labelledby="need-heading">
-  <div class="container stack">
-    <h2 id="need-heading">What we need from you</h2>
-    <p class="prose">We tell you which documents we need when you call. The list depends on your type of business. You send them to us by email. No office visits needed.</p>
+<section class="section section--tint" aria-labelledby="do-heading">
+  <div class="container">
     <h2 id="do-heading">What we do</h2>
-    <div class="card-grid card-grid--2 card-grid--top">
+    <p class="section-lead">We tell you which documents we need <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">when you call</a>. The list depends on your type of business. You send them to us by email. No office visits needed. We register businesses in Mangalore (Mangaluru), Udupi and Bangalore.</p>
+    <div class="card-grid card-grid--2">
       <div class="card">
         <h3>Register your business with ESIC (the ESI office)</h3>
         <p>Your business gets an ESI code number (17 digits). This is your business's ESI account number. Once we have all your documents, this takes just a few hours.</p>
@@ -65,16 +70,18 @@ faq:
   </div>
 </section>
 
-{% include how-we-work.html limit=3 bg="tint" %}
-
 <section class="section section--surface" aria-labelledby="after-heading">
   <div class="container">
     <div class="prose">
       <h2 id="after-heading">After registration</h2>
-      <p>After registration, ESI must be paid every month, by the {{ esi.due_day }}th of the next month.</p>
-      <p>We can do this for you. Each month, you send salary details and we file. We email you the confirmation and the challan (the ESI payment slip).</p>
+      <p>ESI must be paid every month, by the {{ esi.due_day }}th of the next month.</p>
+      <p>Each month, the employee pays 0.75% of their ESI wages, and you pay 3.25%. That is 4% in total. You take the employee's part from their salary. Staff on very low daily pay don't pay their part, but you still pay yours.</p>
+      <p>Your staff use their IP number to get ESI medical care, and to claim cash help, for example when they are too sick to work. We help them with claims.</p>
+      <p>Each month, you send us salary details. We file, and email you the confirmation and the challan (the ESI payment slip).</p>
+      <p><a class="link-arrow" href="/esi-contribution-calculator">Work out the amounts with our ESI contribution calculator&#8288;{% include icon.html name="arrow" size="18" %}</a></p>
     </div>
     {% include two-paths.html compact=true %}
+    {% include call-block.html location="after-registration" %}
   </div>
 </section>
 
