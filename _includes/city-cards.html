@@ -1,0 +1,19 @@
+{%- comment -%}
+  City cards: the 3 city pages as linked cards, one line each (home "Where we work").
+  include city-cards.html
+  The whole card is the link (like the industry cards). The visible name is the city;
+  the link text reads "PF and ESI consultant in <city>" (decision D7).
+{%- endcomment -%}
+{%- include i18n.html -%}
+<ul class="card-grid card-grid--3 city-cards">
+  {%- for l in t.cities %}
+  <li>
+    {% include resolve-link.html path=l.path %}<a class="card card--link city-card" href="{{ href }}"{% if link_en %} hreflang="en"{% endif %}>
+      <span class="city-card__name"><span class="visually-hidden">{{ t.city_card_prefix }} </span>{{ l.name }}{% if link_en %}<span class="link-lang"> {{ t.english_marker }}</span>{% endif %}&#8288;{% include icon.html name="arrow" size="18" %}</span>
+      {%- if l.line %}
+      <span class="city-card__text">{{ l.line }}</span>
+      {%- endif %}
+    </a>
+  </li>
+  {%- endfor %}
+</ul>

@@ -2,6 +2,8 @@
   Testimonial slot. Renders nothing until site.testimonials_on is true and
   _data/testimonials.yml has real quotes. include testimonials.html
   (demo=true with items=... only on the style guide)
+  When switching testimonials on, check the page's background rhythm: pass bg= here or
+  to the next section (e.g. the FAQ) so two cream sections don't touch.
 {%- endcomment -%}
 {%- include i18n.html -%}
 {%- assign items = include.items | default: site.data.testimonials -%}

@@ -29,7 +29,7 @@ faq:
 <section class="section section--surface" aria-labelledby="why-heading">
   <div class="container">
     <h2 id="why-heading">Why businesses choose us</h2>
-    <div class="card-grid card-grid--3 card-grid--top">
+    <div class="card-grid card-grid--3">
       <div class="card">
         <h3>Our founder worked 35 years at EPFO</h3>
         <p>Medu Thirumaleshwara Bhat started Medu Consultancy in 2000. He worked at EPFO (the PF office) for 35 years. We know how the PF office works from the inside. That is why our filing is right and on time.</p>
@@ -55,20 +55,7 @@ faq:
 <section class="section section--surface" aria-labelledby="where-heading">
   <div class="container stack">
     <h2 id="where-heading">Where we work</h2>
-    <div class="card-grid card-grid--3 card-grid--top">
-      <div class="card">
-        <h3><a class="link-arrow" href="/epf-esi-consultancy-mangalore">PF and ESI consultant in Mangalore&#8288;{% include icon.html name="arrow" size="18" %}</a></h3>
-        <p>Our office and main team are in Mangaluru.</p>
-      </div>
-      <div class="card">
-        <h3><a class="link-arrow" href="/epf-esi-consultancy-udupi">PF and ESI consultant in Udupi&#8288;{% include icon.html name="arrow" size="18" %}</a></h3>
-        <p>We work with Udupi businesses from our Mangaluru office. We can visit you if needed.</p>
-      </div>
-      <div class="card">
-        <h3><a class="link-arrow" href="/epf-esi-consultancy-bangalore">PF and ESI consultant in Bangalore&#8288;{% include icon.html name="arrow" size="18" %}</a></h3>
-        <p>Local support in Bangalore, backed by our Mangaluru team.</p>
-      </div>
-    </div>
+    {% include city-cards.html %}
     {% include no-office.html %}
   </div>
 </section>

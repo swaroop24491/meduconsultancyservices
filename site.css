@@ -523,6 +523,12 @@ html { scroll-padding-bottom: calc(var(--tap-min) + var(--space-5) + env(safe-ar
 }
 .industry-card__name { font-weight: var(--weight-semibold); color: var(--color-brand); font-size: var(--text-lg); }
 .industry-card__text { font-size: var(--text-sm); }
+/* ---------- City cards ---------- */
+.city-card { display: flex; flex-direction: column; gap: var(--space-2); height: 100%; }
+.city-card > * + * { margin-top: 0; }
+.city-card__name { font-weight: var(--weight-semibold); color: var(--color-brand); font-size: var(--text-lg); }
+.city-card__name .icon { display: inline-block; vertical-align: -0.2em; margin-left: 0.2em; }
+
 .industry-also { margin-top: var(--space-5); max-width: var(--container-text); }
 
 /* ---------- Tool card ---------- */

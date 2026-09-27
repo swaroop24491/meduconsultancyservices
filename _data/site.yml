@@ -15,6 +15,8 @@ address:
   country: IN
 # From the Google Maps listing (contact page map)
 geo: { lat: 12.870844, lng: 74.8834522 }
+# Google Business Profile (owner, 2026-09-27); schema sameAs
+gbp_url: "https://share.google/qQhAjjQsb4Db5PmFQ"
 map_url: "https://maps.google.com/?cid=15926849928148429817"
 founder: Medu Thirumaleshwara Bhat
 # Languages we speak on the phone (owner, 2026-09-27)

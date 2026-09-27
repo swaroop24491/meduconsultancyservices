@@ -32,6 +32,9 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="{{ site.data.site.name }}">
     <meta property="og:locale" content="{% if lang == 'kn' %}kn_IN{% else %}en_IN{% endif %}">
+{%- if has_alt %}
+    <meta property="og:locale:alternate" content="{% if lang == 'kn' %}en_IN{% else %}kn_IN{% endif %}">
+{%- endif %}
     <meta property="og:title" content="{{ page.title }}">
     <meta property="og:description" content="{{ page.description }}">
     <meta property="og:url" content="{{ self_url }}">

@@ -77,9 +77,11 @@ no_office: No office visits needed. We handle everything over phone and email.
 
 cities_label: "We work with businesses in:"
 cities:
-  - { name: Mangalore, anchor: PF and ESI in Mangalore, path: epf-esi-consultancy-mangalore }
-  - { name: Udupi, anchor: PF and ESI in Udupi, path: epf-esi-consultancy-udupi }
-  - { name: Bangalore, anchor: PF and ESI in Bangalore, path: epf-esi-consultancy-bangalore }
+  - { name: Mangalore, anchor: PF and ESI in Mangalore, path: epf-esi-consultancy-mangalore, line: Our office and main team are in Mangaluru. }
+  - { name: Udupi, anchor: PF and ESI in Udupi, path: epf-esi-consultancy-udupi, line: We work with Udupi businesses from our Mangaluru office. We can visit you if needed. }
+  - { name: Bangalore, anchor: PF and ESI in Bangalore, path: epf-esi-consultancy-bangalore, line: "Local support in Bangalore, backed by our Mangaluru team." }
+# Hidden start of each city card's link text (decision D7)
+city_card_prefix: PF and ESI consultant in
 
 situations:
   heading: Which one sounds like you?

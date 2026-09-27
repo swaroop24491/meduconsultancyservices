@@ -188,13 +188,15 @@
   <pre class="sg-code"><code>{% raw %}{% include industry-links.html %}
 {% include industry-links.html compact=true except="schools" %}
 {% include city-links.html %}
-{% include city-links.html descriptive=true %}   (link text "PF and ESI in Mangalore", where links stand alone){% endraw %}</code></pre></div>
+{% include city-links.html descriptive=true %}   (link text "PF and ESI in Mangalore", where links stand alone)
+{% include city-cards.html %}   (home "Where we work": linked cards, one line each; link text "PF and ESI consultant in Mangalore"){% endraw %}</code></pre></div>
 </div>
 <div lang="{{ lang }}">
 {% include industry-links.html %}
 <div class="container sg-demo-plain">{% include industry-links.html compact=true except="schools" %}
 {% include city-links.html %}
 {% include city-links.html descriptive=true %}</div>
+<div class="container sg-demo-plain">{% include city-cards.html %}</div>
 </div>
 
 <div id="sg-tools" class="sg-component">
