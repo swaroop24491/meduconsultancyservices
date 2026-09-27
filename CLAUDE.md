@@ -202,9 +202,13 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
 - Pilot (phase 1): English EPF service page rebuilt (`epf-consultancy-service.html`),
   reviewed by all six reviewers, fixes applied. Components are now locked: new pages
   reuse them; changing a component is a deliberate, style-guide-first change.
+- Phase 2 (English, 2026-09-27): ESI service page rebuilt; new PF registration and ESI
+  registration pages. Copy in `docs/esi-service-copy.md`, `docs/pf-registration-copy.md`,
+  `docs/esi-registration-copy.md` (each compliance-reviewed and owner-approved). Six-reviewer
+  review of the phase 2 pages is the next step.
 
 ### Next (strategy section 9.3)
-1. Phase 2: ESI service page, then the new PF registration and ESI registration pages.
+1. Six-reviewer review of the phase 2 pages; bring merged findings to the owner.
 2. Kannada EPF service page, after the glossary and `kannada-review.md` are reviewed
    (pages that have Kannada today launch only as reviewed EN + KN pairs, D9).
 3. Then home, tools hub + tools, the 3 city pages, industry hub + 5 pages, blog, about,
@@ -256,6 +260,12 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
   DA, HRA…), decision D12. No "ಅನುಸರಣೆ"; say what is done instead.
 - "EPF" appears once in each PF page (e.g. "PF (Provident Fund, also called EPF)");
   titles use "PF".
+- Registration pages: no public document list ("We tell you which documents we need when
+  you call"); registration "takes just a few hours" only with "once we have all your
+  documents". New UANs come from the employee's face scan on the UMANG app ("We guide
+  them"); IP numbers we create ourselves on the ESIC portal.
+- ESI uses "ESI wages" (the Code definition: HRA, overtime etc. left out, 50% add-back),
+  never "gross wages" or "total pay".
 
 ### Local preview
 The Docker command above runs the preview. If Docker Desktop isn't running, start it
