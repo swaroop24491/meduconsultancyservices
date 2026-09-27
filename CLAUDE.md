@@ -215,7 +215,8 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
 - Phase 3 (English, 2026-09-27): home page rebuilt (`docs/home-copy.md`); six-reviewer review
   applied (`docs/phase3-review-findings.md`). New `city-cards.html` include; full business
   entity (with the Google Business Profile as `sameAs`) on home and contact via `schema.html`.
-  Owner: no share image (og:image).
+  Owner: no share image (og:image). Later owner change (language card wording) is in section F
+  of the findings; the built page is the final text.
 
 ### Next (strategy section 9.3, English first; Kannada last)
 1. **Phase 4: tools hub + 7 tools** (English). Start here in the next session. Also fix the
@@ -295,6 +296,22 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
   How we work block; call button and filing promise in "After registration".
 - Facts in front matter (FAQ answers, meta descriptions) are typed by hand; the list of
   places to grep is at the top of `_data/facts.yml`.
+
+### Conventions settled during phase 3 (home)
+- Languages: "You can talk to us in English or Kannada, and we can help you in Hindi too."
+  Never single out one language (no "we speak Kannada" headings): owner, it can put off
+  speakers of other languages. The website is in English and Kannada.
+- Udupi: served from the Mangaluru office; "We can visit you if needed." Clients never need
+  to visit us. Bangalore keeps "Local support in Bangalore, backed by our Mangaluru team."
+- The filing promise sits next to call buttons (hero, How we work, closing). Don't repeat it
+  word for word as body text; say something new instead (e.g. the due-date card on home).
+- City links as cards: `city-cards.html` (whole card is the link; visible name is the city,
+  link text "PF and ESI consultant in <city>" via a hidden prefix, D7).
+- Business details for the JSON-LD live in `_data/site.yml` (geo, map, founder, languages,
+  `gbp_url` for `sameAs`, `founder_photo`); the full entity prints on `page_type` home and contact.
+- No share image (og:image), owner decision.
+- New or changed English strings in `_data/i18n/en.yml` without Kannada yet are logged in
+  `docs/kannada-review.md` for the Kannada phase.
 
 ### Local preview
 The Docker command above runs the preview. If Docker Desktop isn't running, start it
