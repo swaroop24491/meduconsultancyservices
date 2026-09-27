@@ -18,6 +18,8 @@ esi:
   min_employees: 10
   wage_ceiling: 21000
   wage_ceiling_pwd: 25000   # persons with disabilities
+  wage_ceiling_text: "₹21,000"
+  wage_ceiling_pwd_text: "₹25,000"
   employee_rate_pct: 0.75
   employer_rate_pct: 3.25
   total_rate_pct: 4

@@ -1,752 +1,130 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+---
+layout: base
+lang: en
+page_type: service
+last_modified: 2026-09-27
+title: "ESI Consultant: Monthly ESI Filing | Medu Consultancy"
+description: "We file your ESI on time every month for businesses in Mangalore, Udupi and Bangalore. While with us, no client has paid a late fine or interest. Call +91 82175 42975."
+breadcrumb:
+  - { name: ESI services }
+service:
+  type: ESI compliance and monthly filing
+  name: ESI monthly filing
+  offers:
+    - ESI registration for your business
+    - Employee registration and IP number
+    - Monthly ESI filing
+    - ESI payment on your behalf
+    - ESI claims and details for your staff
+    - ESI records and audit readiness
+    - Support during ESI inspections
+    - Letters to the ESI office
+faq:
+  - q: What do you need from us each month?
+    a: "For each employee, send us: the days they were paid for, and their pay with the break-up (basic, DA, HRA, overtime and other allowances). Tell us as soon as someone joins or leaves, so we can register them on time. We tell you the exact format when we start."
+  - q: What do you send us after filing?
+    a: An email with the filing confirmation and the challan (the ESI payment slip), so your records are complete.
+  - q: Do you pay the ESI amount for us?
+    a: We can. Either you pay it yourself using the challan we send, or you send us the amount and we pay it for you. Choose what suits you.
+  - q: When is ESI due each month?
+    a: By the 15th of the next month. For example, ESI on March salaries is due by 15 April. Send us the salary details as early as you can, and we file before the due date.
+  - q: Can you register us and then file every month?
+    a: 'Yes. We register your business with ESIC and create IP numbers for your staff. Then we file for you every month. See <a href="/esi-registration">ESI registration for employers</a>.'
+  - q: We file ESI ourselves now. Can you take over?
+    a: 'Yes. <a href="tel:+918217542975" data-call-location="faq">Call us</a> and we''ll explain how we take over your monthly filing from the next due date.'
+  - q: We have been late with ESI before. Can you help us stay on time?
+    a: 'Yes. <a href="tel:+918217542975" data-call-location="faq">Call us</a>. We take over your monthly filing from the next due date. Send us salary details on time, and we file before the due date.'
+  - q: Do you help our staff with ESI claims and their ESI details?
+    a: "Yes. We help your staff with these, so your HR team doesn't have to."
+  - q: What if we have an ESI inspection?
+    a: We keep your ESI records ready and support you during the inspection.
+  - q: How much does it cost?
+    a: 'It depends on how many employees you have and what you need. <a href="tel:+918217542975" data-call-location="faq">Call us</a> for a quote.'
+---
+{%- assign esi = site.data.facts.esi -%}
+{% include hero.html heading="ESI consultant: we file your ESI every month" lead="We prepare and file your ESI (Employees' State Insurance: medical care and sick pay for your staff) before the due date, every month. You send us salary details. We do the filing." %}
 
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-<meta name="author" content="Medu Consultancy">
-<meta name="robots" content="index, follow">
-<meta name="googlebot" content="index, follow">
-<meta name="theme-color" content="rgb(248,244,240)">
+<section class="section section--surface" aria-labelledby="applies-heading">
+  <div class="container">
+    <div class="prose">
+      <h2 id="applies-heading">Does ESI apply to your business?</h2>
+      <p>ESI applies if your business has <strong>{{ esi.min_employees }} or more employees</strong>. This is the same in every state. Seasonal factories are not covered.</p>
+      <p>Every employee whose ESI wages are <strong>{{ esi.wage_ceiling_text }} a month or less</strong> must be in ESI. For a person with a disability, the limit is {{ esi.wage_ceiling_pwd_text }}.</p>
+      <p>ESI wages are the month's pay, but some items are left out, like HRA (house rent allowance) and overtime. If these left-out items are more than half the pay, part of them counts again. We work this out for you.</p>
+      <p>If an employee's pay goes above the limit during a period, they stay in ESI until that period ends. The periods are April to September and October to March. ESI is still paid for them until then.</p>
+      <p>Not sure? <a class="link-arrow" href="/esi-eligibility-checker">Check with our ESI eligibility checker&#8288;{% include icon.html name="arrow" size="18" %}</a></p>
+    </div>
+  </div>
+</section>
 
-    <title>Expert ESI Compliance Consultant</title>
-    <meta name="description" content="Medu Consultancy offers expert ESI compliance consulting in Karnataka. With 25+ years of experience, we handle ESI registration, filings, and claims.">
-    <link rel="canonical" href="https://www.meduconsultancy.com/esi-consultancy-service" />
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Medu Consultancy">
-    <meta property="og:title" content="Expert ESI Compliance Consultant">
-    <meta property="og:description" content="Medu Consultancy offers expert ESI compliance consulting in Karnataka. With 25+ years of experience, we handle ESI registration, filings, and claims.">
-    <meta property="og:url" content="https://www.meduconsultancy.com/esi-consultancy-service">
-    <meta property="og:image" content="https://www.meduconsultancy.com/android-chrome-512x512.png">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Expert ESI Compliance Consultant">
-    <meta name="twitter:description" content="Medu Consultancy offers expert ESI compliance consulting in Karnataka. With 25+ years of experience, we handle ESI registration, filings, and claims.">
-    <meta name="twitter:image" content="https://www.meduconsultancy.com/android-chrome-512x512.png">
+<section class="section" aria-labelledby="services-heading">
+  <div class="container">
+    <h2 id="services-heading">What we do for you</h2>
+    <div class="card-grid card-grid--3 card-grid--top">
+      <div class="card">
+        <h3>Setting up (one-time)</h3>
+        <ul class="check-list">
+          <li>Register your business with ESIC (the ESI office).</li>
+          <li>Register your employees and create their IP number (each employee's ESI number; IP means "insured person").</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Every month</h3>
+        <ul class="check-list">
+          <li>Each month, file your ESI details on the ESIC website by the {{ esi.due_day }}th of the next month.</li>
+          <li>Register new staff when they join, and mark staff who have left.</li>
+          <li>Pay the ESI amount for you, if you prefer. Or you pay it yourself using the challan (the ESI payment slip) we send.</li>
+          <li>Email you the filing confirmation and the challan.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>When something comes up</h3>
+        <ul class="check-list">
+          <li>Help your staff with ESI claims, like sickness or maternity benefit.</li>
+          <li>Help your staff keep their ESI details right (Aadhaar, bank account, name and date of birth).</li>
+          <li>Keep your ESI records in order and ready for audits.</li>
+          <li>Support you during ESI inspections.</li>
+          <li>Prepare and send letters to the ESI office for you.</li>
+          <li>Tell you when ESI rules change.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <link rel="alternate" hreflang="en" href="https://www.meduconsultancy.com/esi-consultancy-service" />
-    <link rel="alternate" hreflang="kn" href="https://www.meduconsultancy.com/kn/esi-consultancy-service" />
-    <link rel="alternate" hreflang="x-default" href="https://www.meduconsultancy.com/esi-consultancy-service" />
+{% include two-paths.html bg="surface" %}
 
-    <script type="application/ld+json">
-      {
-        "@context": "http://schema.org",
-        "@type": "WebPage",
-        "url": "https://www.meduconsultancy.com/esi-consultancy-service",
-        "name": "ESI Consultancy Services",
-        "description": "Comprehensive ESI compliance services, including registration, monthly filings, claims support, audits, and more. Over 25 years of expertise in ESI management.",
-        "breadcrumb": {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Home",
-              "item": "https://www.meduconsultancy.com/"
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "ESI Consultancy Service",
-              "item": "https://www.meduconsultancy.com/esi-consultancy-service"
-            }
-          ]
-        },
-        "mainEntity": {
-          "@type": "LocalBusiness",
-          "name": "Medu Consultancy",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "3rd Floor, Padil Gate Building, Padil",
-            "addressLocality": "Mangalore",
-            "addressRegion": "Karnataka",
-            "postalCode": "575007",
-            "addressCountry": "IN"
-          },
-          "telephone": "+91-8217542975",
-          "contactPoint": {
-            "@type": "ContactPoint",
-            "contactType": "Customer Service",
-            "telephone": "+91-8217542975",
-            "availableLanguage": "en"
-          },
-          "serviceArea": {
-            "@type": "Place",
-            "name": "Karnataka"
-          }
-        },
-        "offerCatalog": {
-          "@type": "OfferCatalog",
-          "name": "ESI Compliance Services",
-          "itemListElement": [
-            {
-              "@type": "Service",
-              "name": "ESI Registration",
-              "description": "Complete support for ESI registration, ensuring compliance with ESI regulations for all employees."
-            },
-            {
-              "@type": "Service",
-              "name": "Employee Registration and IP Number Generation",
-              "description": "Assistance with employee registration and IP number generation for ESI coverage."
-            },
-            {
-              "@type": "Service",
-              "name": "Monthly Updates and Filings",
-              "description": "Accurate monthly filings for ESI, ensuring timely updates in compliance with ESI guidelines."
-            },
-            {
-              "@type": "Service",
-              "name": "Support in Updation / Correction of Employee KYC Details",
-              "description": "Help in updating employee KYC details in accordance with ESI rules and regulations."
-            },
-            {
-              "@type": "Service",
-              "name": "Claims Support",
-              "description": "Expert assistance for employees in making claims under ESI, from medical benefits to maternity benefits."
-            },
-            {
-              "@type": "Service",
-              "name": "Assist in Handling ESI Inspections",
-              "description": "Guidance and support during ESI inspections, ensuring compliance with regulations."
-            },
-            {
-              "@type": "Service",
-              "name": "Preparation and Submission of ESI Related Correspondence",
-              "description": "Handling all ESI-related correspondence, from submissions to responses and follow-ups."
-            },
-            {
-              "@type": "Service",
-              "name": "Information Relating to Legislative Changes",
-              "description": "Keeping businesses updated on legislative changes regarding ESI compliance and regulations."
-            }
-          ]
-        }
-      }
-    </script>
+{% include how-we-work.html bg="tint" %}
 
-    <link rel="stylesheet" href="/styles.css">
-    <link rel="stylesheet" href="/servicepage.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<section class="section" aria-labelledby="behind-heading">
+  <div class="container stack">
+    <h2 id="behind-heading">Who's behind it</h2>
+    <p class="prose">Medu Thirumaleshwara Bhat started Medu Consultancy in 2000. He worked at EPFO (the PF office) for 35 years. Since 2000, our team has handled both PF and ESI for our clients, every month. <a class="link-arrow" href="/about-us">About us&#8288;{% include icon.html name="arrow" size="18" %}</a></p>
+    <h2 id="work-with-heading">Who we work with</h2>
+    {% include industry-links.html compact=true %}
+    {% include city-links.html %}
+    {% include no-office.html %}
+  </div>
+</section>
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap&icon_names=call,mail" />
+<section class="section section--surface" aria-labelledby="tools-heading">
+  <div class="container">
+    <h2 id="tools-heading">Free ESI tools and guides</h2>
+    <div class="card-grid card-grid--3">
+      {% include tool-card.html key="esi-eligibility" %}
+      {% include tool-card.html key="esi-contribution" %}
+      {% include tool-card.html key="esi-penalty" %}
+    </div>
+    <ul class="link-list">
+      <li><a class="link-arrow" href="/blogs/esi-applicability-threshold">Does ESI apply to you? The 10-employee rule&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+      <li><a class="link-arrow" href="/blogs/common-esi-compliance-mistakes">Common ESI mistakes and how to avoid them&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+      <li><a class="link-arrow" href="/blogs/esi-late-payment-penalty">What paying ESI late costs&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+    </ul>
+  </div>
+</section>
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4MEQF5W0XX"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+{% include testimonials.html %}
 
-      gtag('config', 'G-4MEQF5W0XX');
-    </script>
-</head>
-<body class="service-page">
-    <a class="skip-link" href="#main-content">Skip to main content</a>
+{% include faq.html items=page.faq schema=true %}
 
-    <!-- Header with Logo, Phone, and Navigation -->
-    <header>
-        <div class="container header-content">
-            <div class="logo">
-                <a href="/"><img src="/images/logo-new.svg" width="200" height="45" alt="Medu Consultancy Logo"></a>
-            </div>
-            <nav class="header-nav" aria-label="Primary">
-                <ul>
-                    <li>
-                        <a href="/contact-us">Contact</a>
-                    </li>
-                    <li>
-                        <a href="/epf-consultancy-service">EPF Consultancy</a>
-                    </li>
-                    <li>
-                        <a class="active" aria-current="page" href="/esi-consultancy-service">ESI Consultancy</a>
-                    </li>
-                    <li>
-                        <a href="/epf-esi-tools-calculators">Tools</a>
-                    </li>
-                </ul>
-            </nav>
-            <div class="header-links">
-                <a href="tel:+918217542975" class="phone"><span class="material-symbols-outlined" aria-hidden="true">
-                    call
-                    </span> 8217542975</a>
-                <a class="lang-switch" href="/kn/esi-consultancy-service" hreflang="kn" lang="kn" aria-label="View this page in Kannada">ಕನ್ನಡ</a>
-            </div>
-
-            <!-- Hamburger Icon -->
-            <div class="hamburger" id="hamburger-icon">
-                <div id="menuToggle">
-                    <input type="checkbox" id="menuCheckbox" aria-label="Open menu" />
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <nav class="mobile-nav" aria-label="Menu"><ul id="menu">
-                      <li>
-                        <a href="/" class="nav-link">Home</a>
-                      </li>
-                      <li>
-                        <a href="/about-us" class="nav-link">About Us</a>
-                      </li>
-                      <li>
-                        <a href="/contact-us" class="nav-link">Contact Us</a>
-                      </li>
-
-                      <li>
-                        <a href="/blogs" class="nav-link">Blogs</a>
-                      </li>
-                      <li>
-                        <a href="/epf-consultancy-service" class="nav-link">EPF Consultancy</a>
-                      </li>
-                      <li>
-                        <a href="/esi-consultancy-service" class="nav-link">ESI Consultancy</a>
-                      </li>
-                      <li>
-                        <a href="/epf-esi-tools-calculators" class="nav-link">Tools &amp; Calculators</a>
-                      </li>
-
-                      <li>
-                        <a href="/epf-excel-to-text-converter" class="nav-link">EPF Excel to Text Converter</a>
-                      </li>
-                      <li>
-                        <a href="/epf-penalty-calculator" class="nav-link">EPF Penalty Calculator</a>
-                      </li>
-                      <li>
-                        <a href="/esi-penalty-calculator" class="nav-link">ESI Penalty Calculator</a>
-                      </li>
-                      <li>
-                        <a href="/epf-eligibility-checker" class="nav-link">EPF Eligibility Checker</a>
-                      </li>
-                      <li>
-                        <a href="/esi-eligibility-checker" class="nav-link">ESI Eligibility Checker</a>
-                      </li>
-                      <li>
-                        <a href="/epf-contribution-calculator" class="nav-link">PF Contribution Calculator</a>
-                      </li>
-                      <li>
-                        <a href="/esi-contribution-calculator" class="nav-link">ESI Contribution Calculator</a>
-                      </li>
-                      <li>
-                        <a href="/kn/esi-consultancy-service" class="nav-link lang-switch" hreflang="kn" lang="kn" aria-label="View this page in Kannada">ಕನ್ನಡ</a>
-                      </li>
-                      <li>
-                        <div class="contact-us">
-                            <address>
-                                <p>
-                                    <a href="tel:+918217542975" class="phone">
-                                        <span class="material-symbols-outlined" aria-hidden="true">
-                                        call
-                                        </span>
-                                        8217542975</a>
-                                </p>
-                                <p><a href="mailto:hello.meduconsultancy@gmail.com" class="email">
-                                    <span class="material-symbols-outlined" aria-hidden="true">
-                                        mail
-                                        </span>
-                                        hello.meduconsultancy@gmail.com</a></p>
-                            </address>
-                            <address class="office-address">
-                                <h4>Our Office Address</h4>
-                                <p>
-                                    3rd Floor, Padil Gate Building,<br>
-                                    Padil, Mangaluru,<br>
-                                    Karnataka 575007
-                                </p>
-                            </address>
-                        </div>
-                      </li>
-                    </ul></nav>
-                  </div>
-            </div>
-        </div>
-    </header>
-
-    <div class="header-space"></div>
-    <main id="main-content" tabindex="-1">
-    <section id="home">
-        <div class="container">
-            <h1>Expert ESI Consultancy Services for Hassle-Free Compliance</h1>
-            <p class="subhead">Our team helps small businesses handle everything related to ESI (Employees’ State Insurance) so you can focus on running your business.</p>
-            <div class="contact cta-btns">
-                <p><a href="tel:+918217542975" class="phone">
-                    Call us now: 
-                    <span class="material-symbols-outlined" aria-hidden="true">
-                    call
-                    </span>
-                    8217542975</a></p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="services">
-        <div class="container">
-            <h2>ESI Compliance Services</h2>
-            <p class="subhead">
-              We handle everything related to ESI &mdash; registration, monthly filings, claims support, and inspections &mdash; so your business stays fully compliant. Backed by 25+ years of experience serving businesses across Karnataka.
-            </p>
-            <div class="services-cntr">
-                <div class="service">
-                    <ul>
-                        <li><img src="/images/check.svg" width="24" height="24" alt="" />ESI Registration</li>
-                        <li><img src="/images/check.svg" width="24" height="24" alt="" />Employee registration and IP number generation</li>
-                        <li><img src="/images/check.svg" width="24" height="24" alt="" />Monthly updates and filings</li>
-                        <li><img src="/images/check.svg" width="24" height="24" alt="" />Support in Updation / Correction of employee KYC details</li>
-                        <li><img src="/images/check.svg" width="24" height="24" alt="" />Claims support</li>
-                        <li><img src="/images/check.svg" width="24" height="24" alt="" />Assist Client in handling of ESI inspections</li>
-                        <li><img src="/images/check.svg" width="24" height="24" alt="" />Preparation and Submission of ESI related correspondence</li>
-                        <li><img src="/images/check.svg" width="24" height="24" alt="" />Information relating to legislative changes, if any</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Free Tools Section -->
-    <section class="tools-feature">
-        <div class="container">
-            <h2>Free ESI Tools</h2>
-            <p class="subhead">Quick, no-signup tools to check where your business stands.</p>
-            <div class="tools-feature-cntr">
-                <a class="tool-card" href="/esi-penalty-calculator">
-                    <span class="tool-card-icon"><img src="/images/tool-calculator.svg" width="26" height="26" alt="" /></span>
-                    <h3>Penalty Calculator</h3>
-                    <p>Already behind on ESI? Estimate what you owe in minutes.</p>
-                    <span class="tool-card-cta">Open tool &rarr;</span>
-                </a>
-                <a class="tool-card" href="/esi-eligibility-checker">
-                    <span class="tool-card-icon"><img src="/images/tool-eligibility.svg" width="26" height="26" alt="" /></span>
-                    <h3>Eligibility Checker</h3>
-                    <p>Not sure if ESI applies to your business? Find out here.</p>
-                    <span class="tool-card-cta">Open tool &rarr;</span>
-                </a>
-                <a class="tool-card" href="/esi-contribution-calculator">
-                    <span class="tool-card-icon"><img src="/images/tool-split.svg" width="26" height="26" alt="" /></span>
-                    <h3>Contribution Calculator</h3>
-                    <p>See the exact employer/employee ESI split.</p>
-                    <span class="tool-card-cta">Open tool &rarr;</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Industries We Serve Section -->
-    <section class="industries">
-        <div class="container">
-            <h2>Industries We Serve</h2>
-            <ul>
-                <li>
-                    <span class="industry-icon"><img src="/images/industry-hospital.svg" width="26" height="26" alt="" /></span>
-                    <span>Hospitals</span>
-                </li>
-                <li>
-                    <span class="industry-icon"><img src="/images/industry-factory.svg" width="26" height="26" alt="" /></span>
-                    <span>Factories</span>
-                </li>
-                <li>
-                    <span class="industry-icon"><img src="/images/industry-school.svg" width="26" height="26" alt="" /></span>
-                    <span>Schools</span>
-                </li>
-                <li>
-                    <span class="industry-icon"><img src="/images/industry-estate.svg" width="26" height="26" alt="" /></span>
-                    <span>Estates</span>
-                </li>
-                <li>
-                    <span class="industry-icon"><img src="/images/industry-security.svg" width="26" height="26" alt="" /></span>
-                    <span>Security Agencies</span>
-                </li>
-                <li>
-                    <span class="industry-icon"><img src="/images/industry-housekeeping.svg" width="26" height="26" alt="" /></span>
-                    <span>Housekeeping Agencies</span>
-                </li>
-                <li>
-                    <span class="industry-icon"><img src="/images/industry-it.svg" width="26" height="26" alt="" /></span>
-                    <span>IT companies</span>
-                </li>
-                <li>
-                    <span class="industry-icon"><img src="/images/industry-engineers.svg" width="26" height="26" alt="" /></span>
-                    <span>Engineers & Contractors</span>
-                </li>
-                <li>
-                    <span class="industry-icon"><img src="/images/industry-suppliers.svg" width="26" height="26" alt="" /></span>
-                    <span>Distributors & Suppliers</span>
-                </li>
-                <li>
-                    <span class="industry-icon"><img src="/images/industry-local-shop.svg" width="26" height="26" alt="" /></span>
-                    <span>Local Shops</span>
-                </li>
-                <li>
-                    <span class="industry-icon"><img src="/images/industry-hotel.svg" width="26" height="26" alt="" /></span>
-                    <span>Hotels</span>
-                </li>
-                <li>
-                    <span class="industry-icon"><img src="/images/industry-restaurant.svg" width="26" height="26" alt="" /></span>
-                    <span>Restaurants</span>
-                </li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- Why Choose Us Section -->
-    <section class="why-choose-us">
-        <div class="container">
-            <h2>Why Choose Us?</h2>
-            <ul>
-                <li>
-                    <img src="/images/experience.svg" width="100" height="100" alt="" />
-                    <h3>25+ years of Expertise</h3>
-                    <p>With 25+ years of experience as trusted PF consultants and ESI consultants, we ensure your business stays compliant with EPF and ESI regulations.</p>
-                </li>
-                <li>
-                    <img src="/images/handshake.svg" width="100" height="100" alt="" />
-                    <h3>Trusted by Businesses</h3>
-                    <p>We have earned the trust of  small and medium businesses across various industries through reliable and efficient services.</p>
-                </li>
-                <li>
-                    <img src="/images/bolt.svg" width="100" height="100" alt="" />
-                    <h3>Quick and Responsive Support</h3>
-                    <p>Whether it’s a query, urgent filing, or claims assistance, our team is always ready to assist you promptly.</p>
-                </li>
-            </ul>
-        </div>
-    </section>
-
-
-    <section class="faqs">
-      <div class="container" itemscope itemtype="https://schema.org/FAQPage">
-          <h2>Frequently Asked Questions</h2>
-          <div class="accordion">
-            <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <button id="accordion-button-1" aria-expanded="false">
-                <span class="accordion-title" itemprop="name">What is ESI, and why is it important for my business?</span>
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">
-                  ESI (Employee State Insurance) is a government scheme that provides medical, sickness, maternity, and other benefits to employees. As a business, complying with ESI regulations ensures your employees' well-being and keeps your business legally compliant.
-                </p>
-              </div>
-            </div>
-          
-            <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <button id="accordion-button-2" aria-expanded="false">
-                <span class="accordion-title" itemprop="name">How can Medu Consultancy help my business with ESI compliance?</span>
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">
-                  We provide end-to-end ESI compliance services, including business and employee registration, monthly filings, claims support, and liaising with the ESI department. We simplify the entire process for you.
-                </p>
-              </div>
-            </div>
-          
-            <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <button id="accordion-button-3" aria-expanded="false">
-                <span class="accordion-title" itemprop="name">Is my business required to register for ESI?</span>
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">
-                  Yes, if your business has 10 or more employees, ESI registration is mandatory. This rule is the same in every state. ESI then covers each employee who earns ₹21,000 or less a month (gross wages). We’ll guide you through the eligibility criteria and registration process.
-                </p>
-              </div>
-            </div>
-          
-            <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <button id="accordion-button-4" aria-expanded="false">
-                <span class="accordion-title" itemprop="name">What are the contributions for ESI, and who pays them?</span>
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">
-                  Employers contribute 3.25% of an employee's gross salary, and employees contribute 0.75%. We ensure accurate calculations and timely submissions to keep you compliant.
-                </p>
-              </div>
-            </div>
-          
-            <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <button id="accordion-button-5" aria-expanded="false">
-                <span class="accordion-title" itemprop="name">What is an IP Number, and how do I get one for my employees?</span>
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">
-                  An IP (Insured Person) Number is a unique identification number for employees under the ESI scheme. Medu Consultancy will handle the generation and registration process for all eligible employees.
-                </p>
-              </div>
-            </div>
-          
-            <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <button id="accordion-button-6" aria-expanded="false">
-                <span class="accordion-title" itemprop="name">What happens if my business fails to comply with ESI regulations?</span>
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">
-                  Non-compliance can result in penalties, interest, and legal consequences. Our team ensures that your filings, updates, and compliance requirements are handled promptly to avoid such issues.
-                </p>
-              </div>
-            </div>
-          
-            <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <button id="accordion-button-7" aria-expanded="false">
-                <span class="accordion-title" itemprop="name">What are the benefits of ESI for employees?</span>
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">
-                  ESI provides a range of benefits to employees, including medical care, disability benefits, maternity benefits, and unemployment allowance. We ensure your employees can access these benefits seamlessly.
-                </p>
-              </div>
-            </div>
-          
-            <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <button id="accordion-button-8" aria-expanded="false">
-                <span class="accordion-title" itemprop="name">How often do I need to file ESI returns?</span>
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">
-                  ESI returns need to be filed bi-annually, and contributions must be submitted monthly. Medu Consultancy manages all filings and ensures accuracy to keep your business compliant.
-                </p>
-              </div>
-            </div>
-          
-            <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <button id="accordion-button-9" aria-expanded="false">
-                <span class="accordion-title" itemprop="name">Can you help with employee claims under the ESI scheme?</span>
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">
-                  Yes, we assist employees with filing claims for medical, sickness, maternity, or other benefits under the ESI scheme, ensuring a smooth and hassle-free process.
-                </p>
-              </div>
-            </div>
-
-            <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <button id="accordion-button-10" aria-expanded="false">
-                <span class="accordion-title" itemprop="name">What documents are required for ESI registration?</span>
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">
-                  Documents like your business registration certificate, employee details (Aadhaar, PAN, bank account information), and salary details are required. We help collect, verify, and submit all necessary documents.
-                </p>
-              </div>
-            </div>
-          
-            <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <button id="accordion-button-11" aria-expanded="false">
-                <span class="accordion-title" itemprop="name">How do I update employee KYC details under ESI?</span>
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">
-                  We assist in updating employee KYC details, such as Aadhaar, PAN, and bank account information, ensuring compliance with ESI requirements.
-                </p>
-              </div>
-            </div>
-          
-            <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <button id="accordion-button-12" aria-expanded="false">
-                <span class="accordion-title" itemprop="name">What should I do if my business is selected for an ESI inspection?</span>
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">
-                  We prepare your records, assist in managing inspections, and liaise with the ESI department to ensure a smooth inspection process, reducing stress and administrative burden.
-                </p>
-              </div>
-            </div>
-          
-            <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <button id="accordion-button-13" aria-expanded="false">
-                <span class="accordion-title" itemprop="name">Does Medu Consultancy offer ongoing ESI compliance support?</span>
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">
-                  Yes, we provide continuous support, including filings, updates, and claim assistance, so you can focus on your business while we handle ESI compliance.
-                </p>
-              </div>
-            </div>
-          
-            <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <button id="accordion-button-14" aria-expanded="false">
-                <span class="accordion-title" itemprop="name">Can you manage ESI compliance for businesses with multiple locations?</span>
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">
-                  Absolutely! We offer tailored solutions to ensure compliance for businesses operating in multiple locations across Karnataka.
-                </p>
-              </div>
-            </div>
-          
-            <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <button id="accordion-button-15" aria-expanded="false">
-                <span class="accordion-title" itemprop="name">How much experience does Medu Consultancy have in ESI compliance?</span>
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">
-                  With over 25 years of experience, we’ve helped small businesses across Karnataka navigate the complexities of ESI compliance with ease and confidence.
-                </p>
-              </div>
-            </div>
-          
-            <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <button id="accordion-button-16" aria-expanded="false">
-                <span class="accordion-title" itemprop="name">Why should I outsource ESI compliance to Medu Consultancy?</span>
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">
-                  Outsourcing to us saves time and resources while ensuring full compliance. Our expert team provides personalized support, from registrations to claims, making the process stress-free for you.
-                </p>
-              </div>
-            </div>
-          
-            <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <button id="accordion-button-17" aria-expanded="false">
-                <span class="accordion-title" itemprop="name">What makes Medu Consultancy different from other ESI consultants?</span>
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">
-                  We focus on simplifying ESI compliance for small businesses with personalized support and expert guidance. Our proven track record and attention to detail set us apart.
-                </p>
-              </div>
-            </div>
-
-            <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <button id="accordion-button-18" aria-expanded="false">
-                <span class="accordion-title" itemprop="name">Which cities do you serve for EPF and ESI compliance?</span>
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">
-                  We mainly serve businesses in Mangalore, Udupi and Bangalore, and in nearby areas.
-                </p>
-              </div>
-            </div>
-          
-            <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <button id="accordion-button-19" aria-expanded="false">
-                <span class="accordion-title" itemprop="name">How do I get started with ESI compliance through Medu Consultancy?</span>
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">
-                  Contact us today, and our team will guide you through the registration process and take care of all your ESI compliance needs.
-                </p>
-              </div>
-            </div>
-            
-          </div>
-        </div>
-  </section>
-
-    <!-- Closing Call to Action -->
-    <section class="cta">
-        <div class="container">
-            <div class="cta-slim">
-                <span class="cta-slim-text">Ready when you are &mdash; give us a call anytime.</span>
-                <a href="tel:+918217542975" class="phone cta-slim-btn">
-                    <span class="material-symbols-outlined" aria-hidden="true">
-                    call
-                    </span>
-                    +91 82175 42975
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer Section -->
-    </main>
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="about-us">
-                    <p>We are Medu Consultancy, a trusted PF consultant and ESI consultant helping small and medium businesses with EPF and ESI compliance. Our team provides personalized services, including PF registration, ESI registration, monthly PF filing, and monthly ESI filings, ensuring your business stays compliant while you focus on growth.</p>
-                </div>
-    
-                <div class="quick-links link-list">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/about-us">About Us</a></li>
-                        <li><a href="/contact-us">Contact Us</a></li>
-<li><a href="/blogs">Blogs</a></li>
-<li><a href="/privacy-policy">Privacy Policy</a></li>
-<li><a href="/terms-and-conditions">Terms and Conditions</a></li>
-                    </ul>
-                </div>
-                <div class="services-offered link-list">
-                    <h3>Our Services</h3>
-                    <ul>
-                        <li><a href="/epf-consultancy-service">EPF Compliance</a></li>
-                       <li><a href="/esi-consultancy-service">ESI Compliance</a></li>
-    <li><a href="/epf-esi-tools-calculators">Tools &amp; Calculators</a></li>
-    <li><a href="/epf-excel-to-text-converter">EPF Excel to Text Converter</a></li>
-    <li><a href="/epf-penalty-calculator">EPF Penalty Calculator</a></li>
-    <li><a href="/esi-penalty-calculator">ESI Penalty Calculator</a></li>
-    <li><a href="/epf-eligibility-checker">EPF Eligibility Checker</a></li>
-    <li><a href="/esi-eligibility-checker">ESI Eligibility Checker</a></li>
-    <li><a href="/epf-contribution-calculator">PF Contribution Calculator</a></li>
-    <li><a href="/esi-contribution-calculator">ESI Contribution Calculator</a></li>
-                    </ul>
-                </div>
-                <div class="contact-us">
-                    <h3>Contact Us</h3>
-                    <address>
-                        <p>
-                            <a href="tel:+918217542975" class="phone">
-                                <span class="material-symbols-outlined" aria-hidden="true">
-                                call
-                                </span>
-                                8217542975</a>
-                        </p>
-                        <p><a href="mailto:hello.meduconsultancy@gmail.com" class="email">
-                            <span class="material-symbols-outlined" aria-hidden="true">
-                                mail
-                                </span>
-                                hello.meduconsultancy@gmail.com</a></p>
-                    </address>
-                    <address class="office-address">
-                        <h4>Our Office Address</h4>
-                        <p>
-                            3rd Floor, Padil Gate Building,<br>
-                            Padil, Mangaluru,<br>
-                            Karnataka 575007
-                        </p>
-                    </address>
-                </div>
-            </div>
-            <section class="quick-links link-list location-list">
-              <h3>Locations</h3>
-              <ul>
-                <li>
-                  <a href="/epf-esi-consultancy-mangalore">Mangalore</a>
-                </li>
-                <li>
-                  <a href="/epf-esi-consultancy-udupi">Udupi</a>
-                </li>
-                <li>
-                  <a href="/epf-esi-consultancy-bangalore">Bangalore</a>
-                </li>
-              </ul>
-            </section>
-<div class="rights">
-                <p>&#169; 2026 Medu Consultancy. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
-    <script src="/script.js" defer></script>
-</body>
-</html>
+{% include closing-call.html line="Let us do your ESI filing every month." %}
