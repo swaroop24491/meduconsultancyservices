@@ -1,0 +1,22 @@
+{%- comment -%}
+  Testimonial slot. Renders nothing until site.testimonials_on is true and
+  _data/testimonials.yml has real quotes. include testimonials.html
+  (demo=true with items=... only on the style guide)
+{%- endcomment -%}
+{%- include i18n.html -%}
+{%- assign items = include.items | default: site.data.testimonials -%}
+{%- if include.demo or site.data.site.testimonials_on -%}{%- if items.size > 0 -%}
+<section class="section" aria-labelledby="testimonials-heading">
+  <div class="container">
+    <h2 id="testimonials-heading">{{ t.testimonials.heading }}</h2>
+    <div class="card-grid card-grid--3">
+      {%- for q in items %}
+      <figure class="card testimonial">
+        <blockquote><p>{{ q.quote }}</p></blockquote>
+        <figcaption>{{ q.role }}, {{ q.industry }}</figcaption>
+      </figure>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+{%- endif -%}{%- endif -%}

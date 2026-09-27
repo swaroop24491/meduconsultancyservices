@@ -1,0 +1,7 @@
+{%- comment -%} Proof line: 4 facts. include proof-line.html compact=true {%- endcomment -%}
+{%- include i18n.html -%}
+<ul class="proof-line{% if include.compact %} proof-line--compact{% endif %}" aria-label="{{ t.proof.aria }}">
+  {%- for item in t.proof.items %}
+  <li>{{ item }}</li>
+  {%- endfor %}
+</ul>

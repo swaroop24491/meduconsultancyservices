@@ -18,3 +18,5 @@ proof:
   years: "25+"
   clients: "100+"
   employees_covered: "3,500+"
+# Switch on when real testimonials are in _data/testimonials.yml (brief section 7).
+testimonials_on: false

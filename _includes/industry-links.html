@@ -1,0 +1,33 @@
+{%- comment -%}
+  Industry links.
+  include industry-links.html                 full: 5 linked cards + "we also work with" (own section)
+  include industry-links.html compact=true    one row of 5 text links
+  include industry-links.html compact=true except="schools"   leave out the current industry
+{%- endcomment -%}
+{%- include i18n.html -%}
+{%- assign ind = t.industries -%}
+{%- if include.compact -%}
+<p class="industry-compact"><span>{{ ind.compact_label }}</span>
+  {%- for i in ind.primary %}{% unless i.key == include.except %}
+  <a href="{{ base }}industries/{{ i.key }}">{{ i.name }}</a>
+  {%- endunless %}{% endfor %}
+</p>
+{%- else -%}
+<section class="section" aria-labelledby="industries-heading">
+  <div class="container">
+    <h2 id="industries-heading">{{ ind.heading }}</h2>
+    <ul class="card-grid card-grid--5 industry-cards">
+      {%- for i in ind.primary %}
+      <li>
+        <a class="card card--link industry-card" href="{{ base }}industries/{{ i.key }}">
+          <span class="icon-badge">{% include icon.html name=i.icon size="28" %}</span>
+          <span class="industry-card__name">{{ i.name }}</span>
+          <span class="industry-card__text">{{ i.text }}</span>
+        </a>
+      </li>
+      {%- endfor %}
+    </ul>
+    <p class="industry-also"><strong>{{ ind.also_heading }}:</strong> {{ ind.also }}</p>
+  </div>
+</section>
+{%- endif -%}

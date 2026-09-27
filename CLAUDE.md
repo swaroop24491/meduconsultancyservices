@@ -10,9 +10,14 @@ Mangaluru, Karnataka. Deployed on GitHub Pages at the custom domain
 every push; there is no other build step, bundler or package manager.
 
 The site is moving to Jekyll page by page (redesign, see below):
-- **Rebuilt pages** have front matter and use `_layouts/base.html`. Shared parts live
-  once in `_includes/`; business details in `_data/site.yml`; legal facts in
-  `_data/facts.yml`; shared English/Kannada strings in `_data/i18n/`.
+- **Rebuilt pages** have front matter (`layout: base`, `lang`, `title`, `description`,
+  `page_type`) and get the head, header, sticky call bar and footer from
+  `_layouts/base.html`. They use `site.css` only (not `styles.css`). Components are
+  includes in `_includes/`, shown with their exact usage on `/style-guide` and
+  `/kn/style-guide` (noindex). Business details are in `_data/site.yml`, legal facts
+  in `_data/facts.yml`, icons in `_data/icons.yml`, and all component text in
+  `_data/i18n/en.yml` + `kn.yml` (same keys). Links are built from the page
+  language, so the same include works on English and Kannada pages.
 - **Pages not yet rebuilt** have no front matter. Jekyll copies them unchanged, so each
   is still a complete `.html` file with the header/nav and footer copy-pasted into it.
 
@@ -62,15 +67,18 @@ committed).
 
 ## Page structure
 
-Every page shares `styles.css` (global stylesheet) and `script.js` (loaded via
-`defer` on every page; it powers the FAQ accordion and the mobile hamburger menu,
-including their accessibility behaviour). `script.js` must be included on every
-page. Service detail pages use `<body class="service-page">` with
+Pages not yet rebuilt share `styles.css`; rebuilt pages use `site.css`. Every page
+loads `script.js` (via `defer`; it powers the FAQ accordion, the mobile menu with
+their accessibility behaviour, and the `phone_call_click` Google Analytics event on
+`tel:` links). `script.js` supports both the old checkbox menu and the rebuilt
+pages' `<button data-menu-toggle>`, and both old and heading-wrapped FAQ buttons, so
+changes to it must be tested on an old page and a rebuilt page. Service detail pages use `<body class="service-page">` with
 `servicepage.css`; `contactuspage.css` styles `contact-us.html`.
 
-The mobile menu's `<nav class="mobile-nav">` must stay in its current position in
-the header: the hamburger CSS uses `:nth-last-child` selectors that break if it
-moves. Revisit this when the header is rebuilt as an include.
+On pages not yet rebuilt, the mobile menu's `<nav class="mobile-nav">` must stay in
+its current position in the header: the hamburger CSS uses `:nth-last-child`
+selectors that break if it moves. The rebuilt header (`_includes/header.html`) has
+no such constraint.
 
 Head boilerplate on every page: favicons, `canonical` + `hreflang` (en/kn/x-default)
 links, `application/ld+json` structured data (`LocalBusiness`, `BreadcrumbList`;
@@ -96,7 +104,7 @@ green and mustard. Pages not yet rebuilt keep this palette; don't change their
 colours outside the redesign.
 
 Rebuilt pages use the redesign tokens in the `:root` block at the top of
-`styles.css`: logo green `#006d3c` for links, headings accents and the call button;
+`site.css`: logo green `#006d3c` for links, headings accents and the call button;
 mustard `#fede00` for small highlights only (never text on cream); cream and white
 backgrounds with a soft green tint; red only for genuine warnings. Contrast ratios
 are noted there. Use the variables, never raw values.
@@ -131,8 +139,8 @@ legal facts. If a request conflicts with it, ask before acting.
   or changed Kannada text for review by a fluent speaker.
 - Design clean, clutter-free and light. When in doubt, remove it.
 - Build with the shared design system: colours, spacing and type sizes come from
-  CSS variables in `styles.css`, and components use the exact markup shown on the
-  style guide page. No one-off styles on individual pages.
+  CSS variables in `site.css`, and components use the exact includes shown on the
+  style guide page (`/style-guide`). No one-off styles on individual pages.
 - After any page change, take screenshots at 390px and 1440px width with Playwright
   and review them before saying the work is done.
 - Commit one page, or one small group of pages, at a time.

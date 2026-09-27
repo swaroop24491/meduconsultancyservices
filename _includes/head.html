@@ -1,6 +1,6 @@
-{%- assign lang = page.lang | default: "en" -%}
-{%- assign en_url = site.data.site.url | append: "/" | append: page.path -%}
-{%- assign kn_url = site.data.site.url | append: "/kn/" | append: page.path -%}
+{%- include i18n.html -%}
+{%- assign en_url = site.data.site.url | append: en_path -%}
+{%- assign kn_url = site.data.site.url | append: kn_path -%}
 {%- if lang == "kn" %}{% assign self_url = kn_url %}{% else %}{% assign self_url = en_url %}{% endif -%}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +11,10 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
     <meta name="author" content="{{ site.data.site.name }}">
-    <meta name="theme-color" content="rgb(248,244,240)">
+    <meta name="theme-color" content="#f8f4f0">
+{%- if page.noindex %}
+    <meta name="robots" content="noindex, nofollow">
+{%- endif %}
 
     <title>{{ page.title }}</title>
     <meta name="description" content="{{ page.description }}">
@@ -27,16 +30,17 @@
     <meta property="og:description" content="{{ page.description }}">
     <meta property="og:url" content="{{ self_url }}">
 
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+{%- if lang == "kn" %}
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Kannada:wght@400;500;600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+{%- else %}
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+{%- endif %}
+    <link rel="stylesheet" href="/site.css">
 {%- for css in page.css %}
     <link rel="stylesheet" href="{{ css }}">
 {%- endfor %}
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-{%- if lang == "kn" %}
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Kannada:wght@400;500;600;700&display=swap" rel="stylesheet">
-{%- endif %}
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.data.site.ga_id }}"></script>

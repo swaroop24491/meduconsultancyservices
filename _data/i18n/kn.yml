@@ -1,4 +1,154 @@
 # Shared Kannada strings. Same keys as en.yml.
 # Log every new or changed string in docs/kannada-review.md for a fluent speaker.
+# PF, ESI and EPF are written in English letters (decision D12).
+# STATUS: all strings below except the language switch, the menu labels already
+# on the live site, the legal page names and the address are DRAFTS awaiting review.
 lang_switch_label: English
 lang_switch_aria: View this page in English
+skip_link: ಮುಖ್ಯ ವಿಷಯಕ್ಕೆ ಹೋಗಿ
+home_aria: ಮೆದು ಕನ್ಸಲ್ಟೆನ್ಸಿ ಮುಖಪುಟ
+
+nav:
+  primary_aria: ಮುಖ್ಯ
+  menu_aria: ಮೆನು
+  menu_open: ಮೆನು ತೆರೆಯಿರಿ
+  menu_close: ಮೆನು ಮುಚ್ಚಿರಿ
+  links:
+    - { label: PF ಸೇವೆ, path: epf-consultancy-service }
+    - { label: ESI ಸೇವೆ, path: esi-consultancy-service }
+    - { label: ಉದ್ಯಮಗಳು, path: industries/ }
+    - { label: ಉಚಿತ ಸಾಧನಗಳು, path: epf-esi-tools-calculators }
+    - { label: ಮಾರ್ಗದರ್ಶಿಗಳು, path: blogs/ }
+    - { label: ನಮ್ಮ ಬಗ್ಗೆ, path: about-us }
+  menu_links:
+    - { label: ಮುಖಪುಟ, path: "" }
+    - { label: PF ಸೇವೆ, path: epf-consultancy-service }
+    - { label: ESI ಸೇವೆ, path: esi-consultancy-service }
+    - { label: PF ನೋಂದಣಿ, path: pf-registration }
+    - { label: ESI ನೋಂದಣಿ, path: esi-registration }
+    - { label: ಉದ್ಯಮಗಳು, path: industries/ }
+    - { label: ಉಚಿತ ಸಾಧನಗಳು, path: epf-esi-tools-calculators }
+    - { label: ಮಾರ್ಗದರ್ಶಿಗಳು, path: blogs/ }
+    - { label: ನಮ್ಮ ಬಗ್ಗೆ, path: about-us }
+    - { label: ಸಂಪರ್ಕಿಸಿ, path: contact-us }
+
+call:
+  short: ಕರೆ ಮಾಡಿ
+  sticky_aria: ನಮಗೆ ಕರೆ ಮಾಡಿ
+
+proof:
+  aria: ಮೆದು ಕನ್ಸಲ್ಟೆನ್ಸಿ ಬಗ್ಗೆ
+  items:
+    - 25+ ವರ್ಷಗಳ ಅನುಭವ
+    - EPFOನಲ್ಲಿ 35 ವರ್ಷ ಕೆಲಸ ಮಾಡಿದವರು ಸ್ಥಾಪಿಸಿದ ಸಂಸ್ಥೆ
+    - 100+ ಗ್ರಾಹಕರು
+    - 3,500+ ಉದ್ಯೋಗಿಗಳ PF ಮತ್ತು ESI ನಿರ್ವಹಣೆ
+
+filing_promise: ಪ್ರತಿ ಗಡುವಿನೊಳಗೆ ನಾವು ಫೈಲ್ ಮಾಡುತ್ತೇವೆ. ನಮ್ಮ ಯಾವ ಗ್ರಾಹಕರೂ ತಡವಾದ ಫೈಲಿಂಗ್‌ಗೆ ದಂಡ ಕಟ್ಟಿಲ್ಲ.
+
+two_paths:
+  heading: ನಮ್ಮೊಂದಿಗೆ ಕೆಲಸ ಮಾಡಲು ಎರಡು ದಾರಿಗಳು
+  register:
+    title: ನೋಂದಣಿ ಮಾಡಿಸಿ
+    text: ಒಂದು ಸಲದ ಕೆಲಸ. ನಿಮ್ಮ ವ್ಯಾಪಾರವನ್ನು PF, ESI ಅಥವಾ ಎರಡಕ್ಕೂ ನಾವು ನೋಂದಣಿ ಮಾಡುತ್ತೇವೆ.
+    links:
+      - { label: PF ನೋಂದಣಿ, path: pf-registration }
+      - { label: ESI ನೋಂದಣಿ, path: esi-registration }
+  monthly:
+    title: ಪ್ರತಿ ತಿಂಗಳು ನಾವು ಫೈಲ್ ಮಾಡುತ್ತೇವೆ
+    text: ನಿರಂತರ ಸೇವೆ. ಪ್ರತಿ ತಿಂಗಳು ನೀವು ಸಂಬಳದ ವಿವರ ಕಳುಹಿಸಿ, ಫೈಲಿಂಗ್ ನಾವು ಮಾಡುತ್ತೇವೆ.
+    links:
+      - { label: PF ಮಾಸಿಕ ಫೈಲಿಂಗ್, path: epf-consultancy-service }
+      - { label: ESI ಮಾಸಿಕ ಫೈಲಿಂಗ್, path: esi-consultancy-service }
+  bridge: ನಮ್ಮ ಮೂಲಕ ನೋಂದಣಿ ಆಯಿತೇ? ನೇರವಾಗಿ ಮಾಸಿಕ ಫೈಲಿಂಗ್‌ಗೆ ಮುಂದುವರಿಯಬಹುದು.
+
+how_we_work:
+  heading: ನಾವು ಕೆಲಸ ಮಾಡುವ ರೀತಿ
+  steps:
+    - { title: ನಮಗೆ ಕರೆ ಮಾಡಿ., text: ನಿಮ್ಮ ವ್ಯಾಪಾರಕ್ಕೆ ಏನು ಅನ್ವಯಿಸುತ್ತದೆ ಎಂದು ನಾವು ನೋಡುತ್ತೇವೆ. }
+    - { title: ನಿಮ್ಮ ದಾಖಲೆಗಳನ್ನು ಕೊಡಿ., text: ಏನೇನು ಬೇಕು ಎಂದು ನಾವು ಸ್ಪಷ್ಟವಾಗಿ ಹೇಳುತ್ತೇವೆ. }
+    - { title: ನಾವು ನೋಂದಣಿ ಮಾಡಿ ಸಿದ್ಧಪಡಿಸುತ್ತೇವೆ, text: ನಿಮ್ಮ ಸಂಸ್ಥೆ ಮತ್ತು ಉದ್ಯೋಗಿಗಳನ್ನು. }
+    - { title: ಪ್ರತಿ ತಿಂಗಳು ನೀವು ಸಂಬಳದ ವಿವರ ಕಳುಹಿಸಿ, text: ನಾವು ಫೈಲ್ ಮಾಡುತ್ತೇವೆ. }
+    - { title: ದೃಢೀಕರಣ ಮತ್ತು ಚಲನ್‌ಗಳನ್ನು ನಿಮಗೆ ಇಮೇಲ್ ಮಾಡುತ್ತೇವೆ, text: (ಚಲನ್ ಎಂದರೆ ಪಾವತಿ ರಸೀದಿ). }
+
+no_office: ಕಚೇರಿಗೆ ಬರುವ ಅಗತ್ಯವಿಲ್ಲ. ಎಲ್ಲವನ್ನೂ ಫೋನ್ ಮತ್ತು ಇಮೇಲ್ ಮೂಲಕ ನಾವು ನೋಡಿಕೊಳ್ಳುತ್ತೇವೆ.
+
+situations:
+  heading: ನಿಮ್ಮ ಪರಿಸ್ಥಿತಿ ಯಾವುದು?
+  new:
+    title: ಈಗಷ್ಟೇ 10 ಅಥವಾ 20 ಸಿಬ್ಬಂದಿ ದಾಟಿದ್ದೀರಾ?
+    text: PF ಅಥವಾ ESI ಈಗ ನಿಮಗೆ ಅನ್ವಯಿಸುತ್ತದೆಯೇ ಎಂದು ನೋಡಿ.
+    links:
+      - { label: PF ಪರಿಶೀಲಿಸಿ, path: epf-eligibility-checker }
+      - { label: ESI ಪರಿಶೀಲಿಸಿ, path: esi-eligibility-checker }
+  behind:
+    title: ಫೈಲಿಂಗ್ ಬಾಕಿ ಇದೆಯೇ?
+    text: ತಡವಾಗಿ ಕಟ್ಟಿದರೆ ಎಷ್ಟು ಆಗುತ್ತದೆ ಎಂದು ನೋಡಿ. ಇನ್ನು ಮುಂದೆ ಸಮಯಕ್ಕೆ ಸರಿಯಾಗಿ ನಾವು ಫೈಲ್ ಮಾಡುತ್ತೇವೆ.
+    links:
+      - { label: PF ದಂಡ ಲೆಕ್ಕಾಚಾರ, path: epf-penalty-calculator }
+      - { label: ESI ದಂಡ ಲೆಕ್ಕಾಚಾರ, path: esi-penalty-calculator }
+  handle:
+    title: ಇದನ್ನೆಲ್ಲ ಯಾರಾದರೂ ನೋಡಿಕೊಳ್ಳಬೇಕೆ?
+    text: ನಮಗೆ ಕರೆ ಮಾಡಿ. ನಿಮ್ಮ PF ಮತ್ತು ESI ಕೆಲಸ ನಾವು ನೋಡಿಕೊಳ್ಳುತ್ತೇವೆ.
+
+industries:
+  heading: ನಾವು ಸೇವೆ ನೀಡುವ ಉದ್ಯಮಗಳು
+  compact_label: "ನಾವು ಕೆಲಸ ಮಾಡುವ ಉದ್ಯಮಗಳು:"
+  also_heading: ಇವರೊಂದಿಗೂ ಕೆಲಸ ಮಾಡುತ್ತೇವೆ
+  primary:
+    - { key: hospitals, name: ಆಸ್ಪತ್ರೆಗಳು, icon: hospital, text: "ನರ್ಸ್‌ಗಳು, ಸಹಾಯಕ ಸಿಬ್ಬಂದಿ ಮತ್ತು ಏಜೆನ್ಸಿ ಕೆಲಸಗಾರರು." }
+    - { key: contractors, name: ಗುತ್ತಿಗೆದಾರರು, icon: contractor, text: "ಆಗಾಗ ಸೇರುವ ಮತ್ತು ಬಿಡುವ ಕೆಲಸಗಾರರು, ಬೇರೆ ಬೇರೆ ಸೈಟ್‌ಗಳಲ್ಲಿ." }
+    - { key: factories, name: ಕಾರ್ಖಾನೆಗಳು, icon: factory, text: "ಗುತ್ತಿಗೆ ಕೆಲಸಗಾರರು, ಓವರ್‌ಟೈಮ್ ಮತ್ತು ತಪಾಸಣೆಗಳು." }
+    - { key: schools, name: ಶಾಲೆಗಳು, icon: school, text: "ಶಿಕ್ಷಕರು, ಶಿಕ್ಷಕೇತರ ಸಿಬ್ಬಂದಿ ಮತ್ತು CBSE ಪರಿಶೀಲನೆ." }
+    - { key: it-companies, name: IT ಕಂಪನಿಗಳು, icon: it, text: "ಹೊಸ ₹25,000 PF ಮಿತಿ ಮತ್ತು ಸಂಬಳ ರಚನೆ." }
+  also: ಎಸ್ಟೇಟ್‌ಗಳು, ಭದ್ರತಾ ಏಜೆನ್ಸಿಗಳು, ಹೌಸ್‌ಕೀಪಿಂಗ್ ಏಜೆನ್ಸಿಗಳು, ವಿತರಕರು ಮತ್ತು ಸರಬರಾಜುದಾರರು, ಸ್ಥಳೀಯ ಅಂಗಡಿಗಳು, ಹೋಟೆಲ್‌ಗಳು ಮತ್ತು ರೆಸ್ಟೋರೆಂಟ್‌ಗಳು.
+
+tools:
+  - { key: epf-eligibility, path: epf-eligibility-checker, icon: check, name: PF ಅರ್ಹತೆ ಪರಿಶೀಲನೆ, text: ನಿಮ್ಮ ವ್ಯಾಪಾರಕ್ಕೆ ಅಥವಾ ಉದ್ಯೋಗಿಗೆ PF ಅನ್ವಯಿಸುತ್ತದೆಯೇ? }
+  - { key: esi-eligibility, path: esi-eligibility-checker, icon: check, name: ESI ಅರ್ಹತೆ ಪರಿಶೀಲನೆ, text: ನಿಮ್ಮ ವ್ಯಾಪಾರಕ್ಕೆ ಅಥವಾ ಉದ್ಯೋಗಿಗೆ ESI ಅನ್ವಯಿಸುತ್ತದೆಯೇ? }
+  - { key: epf-penalty, path: epf-penalty-calculator, icon: calculator, name: PF ದಂಡ ಲೆಕ್ಕಾಚಾರ, text: PF ತಡವಾಗಿ ಕಟ್ಟಿದರೆ ಎಷ್ಟು ಆಗುತ್ತದೆ? }
+  - { key: esi-penalty, path: esi-penalty-calculator, icon: calculator, name: ESI ದಂಡ ಲೆಕ್ಕಾಚಾರ, text: ESI ತಡವಾಗಿ ಕಟ್ಟಿದರೆ ಎಷ್ಟು ಆಗುತ್ತದೆ? }
+  - { key: epf-contribution, path: epf-contribution-calculator, icon: split, name: PF ಕೊಡುಗೆ ಲೆಕ್ಕಾಚಾರ, text: ಪ್ರತಿ ತಿಂಗಳು ನೀವು ಮತ್ತು ನಿಮ್ಮ ಉದ್ಯೋಗಿ ಎಷ್ಟು PF ಕಟ್ಟಬೇಕು? }
+  - { key: esi-contribution, path: esi-contribution-calculator, icon: split, name: ESI ಕೊಡುಗೆ ಲೆಕ್ಕಾಚಾರ, text: ಪ್ರತಿ ತಿಂಗಳು ನೀವು ಮತ್ತು ನಿಮ್ಮ ಉದ್ಯೋಗಿ ಎಷ್ಟು ESI ಕಟ್ಟಬೇಕು? }
+  - { key: converter, path: epf-excel-to-text-converter, icon: file, name: EPF ಎಕ್ಸೆಲ್‌ನಿಂದ ಟೆಕ್ಸ್ಟ್ ಪರಿವರ್ತಕ, text: "ನಿಮ್ಮ ECR (ಮಾಸಿಕ PF ರಿಟರ್ನ್) ಎಕ್ಸೆಲ್ ಶೀಟ್ ಅನ್ನು EPFOಗೆ ಬೇಕಾದ ಟೆಕ್ಸ್ಟ್ ಫೈಲ್ ಆಗಿ ಬದಲಿಸಿ." }
+
+faq_heading: ಸಾಮಾನ್ಯ ಪ್ರಶ್ನೆಗಳು
+
+testimonials:
+  heading: ಗ್ರಾಹಕರು ಹೇಳುವುದು
+
+result_call:
+  eligibility: ಇದು ನಿಮಗೆ ಅನ್ವಯಿಸುತ್ತದೆಯೇ? ನಾವು ನೋಂದಣಿ ಮಾಡಿ, ನಂತರ ಪ್ರತಿ ತಿಂಗಳು ಫೈಲ್ ಮಾಡುತ್ತೇವೆ.
+  penalty: ಇನ್ನು ಮುಂದೆ ಎಲ್ಲವೂ ಸಮಯಕ್ಕೆ ಸರಿಯಾಗಿ ನಡೆಯಲು ನಮ್ಮೊಂದಿಗೆ ಮಾತನಾಡಿ.
+  contribution: ಇದನ್ನು ಪ್ರತಿ ತಿಂಗಳು ಲೆಕ್ಕ ಹಾಕಿ ನಾವೇ ಫೈಲ್ ಮಾಡಬೇಕೆ?
+  converter: ಪ್ರತಿ ತಿಂಗಳು ನೀವೇ ಫೈಲ್ ಮಾಡುತ್ತಿದ್ದೀರಾ? ಅದನ್ನು ನಾವು ನಿಮಗಾಗಿ ಮಾಡಬಹುದು.
+
+closing_call:
+  default: ನಿಮ್ಮ ವ್ಯಾಪಾರದ ಬಗ್ಗೆ ತಿಳಿಸಿ. ನಿಮಗೆ ಏನು ಅನ್ವಯಿಸುತ್ತದೆ ಎಂದು ನಾವು ಹೇಳುತ್ತೇವೆ.
+
+footer:
+  services: ಸೇವೆಗಳು
+  services_links:
+    - { label: PF ಮಾಸಿಕ ಫೈಲಿಂಗ್, path: epf-consultancy-service }
+    - { label: ESI ಮಾಸಿಕ ಫೈಲಿಂಗ್, path: esi-consultancy-service }
+    - { label: PF ನೋಂದಣಿ, path: pf-registration }
+    - { label: ESI ನೋಂದಣಿ, path: esi-registration }
+  places: ನಾವು ಕೆಲಸ ಮಾಡುವ ಊರುಗಳು
+  places_links:
+    - { label: ಮಂಗಳೂರು, path: epf-esi-consultancy-mangalore }
+    - { label: ಉಡುಪಿ, path: epf-esi-consultancy-udupi }
+    - { label: ಬೆಂಗಳೂರು, path: epf-esi-consultancy-bangalore }
+  more: ಸಹಾಯ ಮತ್ತು ಮಾರ್ಗದರ್ಶಿಗಳು
+  more_links:
+    - { label: ನಾವು ಸೇವೆ ನೀಡುವ ಉದ್ಯಮಗಳು, path: industries/ }
+    - { label: ಉಚಿತ ಸಾಧನಗಳು, path: epf-esi-tools-calculators }
+    - { label: ಮಾರ್ಗದರ್ಶಿಗಳು, path: blogs/ }
+  company: ಮೆದು ಕನ್ಸಲ್ಟೆನ್ಸಿ
+  company_links:
+    - { label: ನಮ್ಮ ಬಗ್ಗೆ, path: about-us }
+    - { label: ಸಂಪರ್ಕಿಸಿ, path: contact-us }
+    - { label: ಗೌಪ್ಯತಾ ನೀತಿ, path: privacy-policy }
+    - { label: ನಿಯಮಗಳು ಮತ್ತು ಷರತ್ತುಗಳು, path: terms-and-conditions }
+  contact: ಸಂಪರ್ಕಿಸಿ
+  address: "3ನೇ ಮಹಡಿ, ಪಡೀಲ್ ಗೇಟ್ ಬಿಲ್ಡಿಂಗ್, ಪಡೀಲ್, ಮಂಗಳೂರು, ಕರ್ನಾಟಕ 575007"
+  rights: "ಮೆದು ಕನ್ಸಲ್ಟೆನ್ಸಿ. ಎಲ್ಲ ಹಕ್ಕುಗಳನ್ನು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ."

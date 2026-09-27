@@ -1,3 +1,151 @@
 # Shared English strings. Kannada versions are in kn.yml under the same keys.
+# Text comes from docs/business-brief.md and docs/strategy.md section 4.1.
 lang_switch_label: ಕನ್ನಡ
 lang_switch_aria: View this page in Kannada
+skip_link: Skip to main content
+home_aria: Medu Consultancy home
+
+nav:
+  primary_aria: Main
+  menu_aria: Menu
+  menu_open: Open menu
+  menu_close: Close menu
+  links:
+    - { label: PF services, path: epf-consultancy-service }
+    - { label: ESI services, path: esi-consultancy-service }
+    - { label: Industries, path: industries/ }
+    - { label: Free tools, path: epf-esi-tools-calculators }
+    - { label: Guides, path: blogs/ }
+    - { label: About, path: about-us }
+  menu_links:
+    - { label: Home, path: "" }
+    - { label: PF services, path: epf-consultancy-service }
+    - { label: ESI services, path: esi-consultancy-service }
+    - { label: PF registration, path: pf-registration }
+    - { label: ESI registration, path: esi-registration }
+    - { label: Industries, path: industries/ }
+    - { label: Free tools, path: epf-esi-tools-calculators }
+    - { label: Guides, path: blogs/ }
+    - { label: About, path: about-us }
+    - { label: Contact, path: contact-us }
+
+call:
+  short: Call
+  sticky_aria: Call us
+
+proof:
+  aria: About Medu Consultancy
+  items:
+    - 25+ years in practice
+    - Founded by a 35-year EPFO veteran
+    - 100+ clients
+    - 3,500+ employees covered
+
+filing_promise: We file every deadline on time. None of our clients has paid a late-filing penalty.
+
+two_paths:
+  heading: Two ways to work with us
+  register:
+    title: Get registered
+    text: One-time. We register your business for PF, ESI or both.
+    links:
+      - { label: PF registration, path: pf-registration }
+      - { label: ESI registration, path: esi-registration }
+  monthly:
+    title: We file every month
+    text: Ongoing. Each month you send salary details and we do the filing.
+    links:
+      - { label: PF monthly filing, path: epf-consultancy-service }
+      - { label: ESI monthly filing, path: esi-consultancy-service }
+  bridge: Registered with us? We can move you straight on to monthly filing.
+
+how_we_work:
+  heading: How we work
+  steps:
+    - { title: Call us., text: We check what applies to your business. }
+    - { title: Share your documents., text: We tell you exactly what's needed. }
+    - { title: We register and set up, text: your establishment and employees. }
+    - { title: "Each month, you send salary details", text: and we file. }
+    - { title: We email you the confirmation and challans, text: (the payment receipts). }
+
+no_office: No office visits needed. We handle everything over phone and email.
+
+situations:
+  heading: Which one sounds like you?
+  new:
+    title: Just crossed 10 or 20 staff
+    text: Check if PF or ESI now applies to you.
+    links:
+      - { label: Check PF, path: epf-eligibility-checker }
+      - { label: Check ESI, path: esi-eligibility-checker }
+  behind:
+    title: Behind on filings
+    text: See what paying late costs. Then let us file on time from now on.
+    links:
+      - { label: PF penalty calculator, path: epf-penalty-calculator }
+      - { label: ESI penalty calculator, path: esi-penalty-calculator }
+  handle:
+    title: Want someone to handle it
+    text: Call us. We take care of PF and ESI for you.
+
+industries:
+  heading: Industries we serve
+  compact_label: "We work with:"
+  also_heading: We also work with
+  primary:
+    - { key: hospitals, name: Hospitals, icon: hospital, text: "Nurses, support staff and agency workers." }
+    - { key: contractors, name: Contractors, icon: contractor, text: "Staff who join and leave often, across sites." }
+    - { key: factories, name: Factories, icon: factory, text: "Contract workers, overtime and inspections." }
+    - { key: schools, name: Schools, icon: school, text: "Teaching and non-teaching staff, and CBSE checks." }
+    - { key: it-companies, name: IT companies, icon: it, text: "The new ₹25,000 PF limit and salary structures." }
+  also: Estates, security agencies, housekeeping agencies, distributors and suppliers, local shops, hotels and restaurants.
+
+tools:
+  - { key: epf-eligibility, path: epf-eligibility-checker, icon: check, name: PF eligibility checker, text: Does PF apply to your business or an employee? }
+  - { key: esi-eligibility, path: esi-eligibility-checker, icon: check, name: ESI eligibility checker, text: Does ESI apply to your business or an employee? }
+  - { key: epf-penalty, path: epf-penalty-calculator, icon: calculator, name: PF penalty calculator, text: What will paying PF late cost? }
+  - { key: esi-penalty, path: esi-penalty-calculator, icon: calculator, name: ESI penalty calculator, text: What will paying ESI late cost? }
+  - { key: epf-contribution, path: epf-contribution-calculator, icon: split, name: PF contribution calculator, text: How much PF do you and your employee pay each month? }
+  - { key: esi-contribution, path: esi-contribution-calculator, icon: split, name: ESI contribution calculator, text: How much ESI do you and your employee pay each month? }
+  - { key: converter, path: epf-excel-to-text-converter, icon: file, name: EPF Excel to Text converter, text: "Turn your ECR (monthly PF return) Excel sheet into the text file EPFO needs." }
+
+faq_heading: Common questions
+
+testimonials:
+  heading: What clients say
+
+result_call:
+  eligibility: Does this apply to you? We can register you and then file every month.
+  penalty: Talk to us about staying compliant from here on.
+  contribution: Want us to work this out and file it every month?
+  converter: Filing every month yourself? We can do it for you.
+
+closing_call:
+  default: Tell us about your business. We'll tell you what applies.
+
+footer:
+  services: Services
+  services_links:
+    - { label: PF monthly filing, path: epf-consultancy-service }
+    - { label: ESI monthly filing, path: esi-consultancy-service }
+    - { label: PF registration, path: pf-registration }
+    - { label: ESI registration, path: esi-registration }
+  places: Where we work
+  places_links:
+    - { label: Mangalore, path: epf-esi-consultancy-mangalore }
+    - { label: Udupi, path: epf-esi-consultancy-udupi }
+    - { label: Bangalore, path: epf-esi-consultancy-bangalore }
+  more: Help and guides
+  more_links:
+    - { label: Industries we serve, path: industries/ }
+    - { label: Free tools, path: epf-esi-tools-calculators }
+    - { label: Guides, path: blogs/ }
+  company: Medu Consultancy
+  company_links:
+    - { label: About us, path: about-us }
+    - { label: Contact, path: contact-us }
+    - { label: Privacy policy, path: privacy-policy }
+    - { label: Terms and conditions, path: terms-and-conditions }
+  contact: Contact
+  address: "3rd Floor, Padil Gate Building, Padil, Mangaluru, Karnataka 575007"
+  rights: "Medu Consultancy. All rights reserved."

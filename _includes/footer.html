@@ -1,0 +1,28 @@
+{%- include i18n.html -%}
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      {%- assign groups = "services,places,more,company" | split: "," %}
+      {%- for g in groups %}
+      {%- assign links_key = g | append: "_links" %}
+      <div class="site-footer__group">
+        <p class="site-footer__title">{{ t.footer[g] }}</p>
+        <ul>
+          {%- for l in t.footer[links_key] %}
+          <li><a href="{{ base }}{{ l.path }}">{{ l.label }}</a></li>
+          {%- endfor %}
+        </ul>
+      </div>
+      {%- endfor %}
+      <div class="site-footer__group site-footer__contact">
+        <p class="site-footer__title">{{ t.footer.contact }}</p>
+        <address>
+          <p><a href="tel:{{ site.data.site.phone_tel }}" data-call-location="footer">{{ site.data.site.phone_display }}</a></p>
+          <p><a href="mailto:{{ site.data.site.email }}">{{ site.data.site.email }}</a></p>
+          <p>{{ t.footer.address }}</p>
+        </address>
+      </div>
+    </div>
+    <p class="site-footer__rights">&copy; {{ site.time | date: "%Y" }} {{ t.footer.rights }}</p>
+  </div>
+</footer>

@@ -1,0 +1,19 @@
+{%- comment -%}
+  Sets shared variables for the current page. Included by every component.
+  lang  : "en" or "kn" (page front matter `lang`, default "en")
+  t     : the strings for that language (_data/i18n/<lang>.yml)
+  base  : link prefix, "/" or "/kn/"
+  en_path / kn_path : this page's path in each language, without .html
+  alt_path : the same page in the other language (for the language switch)
+{%- endcomment -%}
+{%- assign lang = page.lang | default: "en" -%}
+{%- assign t = site.data.i18n[lang] -%}
+{%- if lang == "kn" -%}{%- assign base = "/kn/" -%}{%- else -%}{%- assign base = "/" -%}{%- endif -%}
+{%- assign _p = page.url | remove: ".html" -%}
+{%- assign _last = _p | split: "/" | last -%}
+{%- if _last == "index" -%}{%- assign _p = _p | remove: "index" -%}{%- endif -%}
+{%- if _p == "/kn" -%}{%- assign _p = "/kn/" -%}{%- endif -%}
+{%- assign en_path = _p | remove_first: "/kn" -%}
+{%- if en_path == "" -%}{%- assign en_path = "/" -%}{%- endif -%}
+{%- assign kn_path = "/kn" | append: en_path -%}
+{%- if lang == "kn" -%}{%- assign alt_path = en_path -%}{%- else -%}{%- assign alt_path = kn_path -%}{%- endif -%}

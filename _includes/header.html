@@ -1,0 +1,38 @@
+{%- include i18n.html -%}
+{%- assign here = page.url | remove: ".html" | remove: "index" -%}
+<a class="skip-link" href="#main-content">{{ t.skip_link }}</a>
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="site-header__logo" href="{{ base }}"><img src="/images/logo-new.svg" width="200" height="45" alt="{{ t.home_aria }}"></a>
+    <nav class="site-nav" aria-label="{{ t.nav.primary_aria }}">
+      <ul>
+        {%- for l in t.nav.links %}
+        {%- assign href = base | append: l.path %}
+        <li><a href="{{ href }}"{% if href == here %} aria-current="page"{% endif %}>{{ l.label }}</a></li>
+        {%- endfor %}
+      </ul>
+    </nav>
+    <a class="lang-switch" href="{{ alt_path }}" hreflang="{% if lang == 'kn' %}en{% else %}kn{% endif %}" lang="{% if lang == 'kn' %}en{% else %}kn{% endif %}" aria-label="{{ t.lang_switch_aria }}">{{ t.lang_switch_label }}</a>
+    <a class="btn site-header__call" href="tel:{{ site.data.site.phone_tel }}" data-call-location="header">
+      {%- include icon.html name="call" size="20" -%}
+      <span class="site-header__call-full">{{ site.data.site.phone_display }}</span>
+      <span class="site-header__call-short">{{ t.call.short }}</span>
+    </a>
+    <button class="menu-toggle" type="button" data-menu-toggle aria-controls="menu" aria-expanded="false" aria-label="{{ t.nav.menu_open }}" data-label-open="{{ t.nav.menu_open }}" data-label-close="{{ t.nav.menu_close }}">
+      <span class="menu-toggle__open">{% include icon.html name="menu" size="28" %}</span>
+      <span class="menu-toggle__close">{% include icon.html name="close" size="28" %}</span>
+    </button>
+  </div>
+  <nav class="mobile-nav" aria-label="{{ t.nav.menu_aria }}">
+    <div id="menu" class="mobile-nav__panel">
+      {% include call-button.html location="menu" block=true %}
+      <ul>
+        {%- for l in t.nav.menu_links %}
+        {%- assign href = base | append: l.path %}
+        <li><a href="{{ href }}"{% if href == here %} aria-current="page"{% endif %}>{{ l.label }}</a></li>
+        {%- endfor %}
+      </ul>
+      <a class="lang-switch" href="{{ alt_path }}" hreflang="{% if lang == 'kn' %}en{% else %}kn{% endif %}" lang="{% if lang == 'kn' %}en{% else %}kn{% endif %}" aria-label="{{ t.lang_switch_aria }}">{{ t.lang_switch_label }}</a>
+    </div>
+  </nav>
+</header>

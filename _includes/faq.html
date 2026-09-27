@@ -1,0 +1,29 @@
+{%- comment -%}
+  FAQ accordion (script.js). include faq.html items=page.faq schema=true
+  items: list of { q: "...", a: "..." } (a may contain simple HTML)
+  schema: also output FAQPage JSON-LD (the only structured data for FAQs)
+  Each question lives on one page only (strategy section 4.12).
+{%- endcomment -%}
+{%- include i18n.html -%}
+<section class="section" aria-labelledby="faq-heading">
+  <div class="container container--text">
+    <h2 id="faq-heading">{{ include.heading | default: t.faq_heading }}</h2>
+    <div class="accordion faq" id="faq">
+      {%- for item in include.items %}
+      <div class="accordion-item">
+        <h3 class="accordion-heading">
+          <button id="faq-q{{ forloop.index }}" aria-expanded="false">
+            <span>{{ item.q }}</span>{% include icon.html name="expand" size="24" %}
+          </button>
+        </h3>
+        <div class="accordion-content"><p>{{ item.a }}</p></div>
+      </div>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+{%- if include.schema %}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{% for item in include.items %}{"@type":"Question","name":{{ item.q | jsonify }},"acceptedAnswer":{"@type":"Answer","text":{{ item.a | strip_html | jsonify }}}}{% unless forloop.last %},{% endunless %}{% endfor %}]}
+</script>
+{%- endif %}

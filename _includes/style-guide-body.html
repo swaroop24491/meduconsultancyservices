@@ -1,0 +1,197 @@
+{%- comment -%}
+  Style guide body, shared by /style-guide and /kn/style-guide.
+  Guide text is English (lang="en"); the components render in the page language.
+{%- endcomment -%}
+{%- include i18n.html -%}
+<div lang="en">
+<section class="section sg-intro">
+  <div class="container container--text">
+    <p class="sg-eyebrow">Internal page · not indexed</p>
+    <h1>Style guide</h1>
+    <p>Every shared part of the redesigned site, built once. Pages use these parts with the exact include shown under each one. Colours, spacing and type sizes come only from the tokens in <code>site.css</code>. No one-off styles on individual pages.</p>
+    <p>Text comes from <code>_data/i18n/en.yml</code> and <code>kn.yml</code>. This page is also at <a href="{{ alt_path }}">{% if lang == "kn" %}English{% else %}Kannada{% endif %}</a>, which shows every component in that language.</p>
+    <nav aria-label="Style guide contents" class="sg-toc">
+      <ul>
+        <li><a href="#sg-colours">Colours</a></li>
+        <li><a href="#sg-type">Type</a></li>
+        <li><a href="#sg-call">Call button</a></li>
+        <li><a href="#sg-proof">Proof line and filing promise</a></li>
+        <li><a href="#sg-paths">Two paths</a></li>
+        <li><a href="#sg-how">How we work</a></li>
+        <li><a href="#sg-office">No office visits</a></li>
+        <li><a href="#sg-situations">Situation cards</a></li>
+        <li><a href="#sg-industries">Industry links</a></li>
+        <li><a href="#sg-tools">Tool cards</a></li>
+        <li><a href="#sg-result">Result call box</a></li>
+        <li><a href="#sg-faq">FAQ</a></li>
+        <li><a href="#sg-testimonials">Testimonial slot</a></li>
+        <li><a href="#sg-photo">Photo slot</a></li>
+        <li><a href="#sg-closing">Closing call</a></li>
+        <li><a href="#sg-chrome">Header, menu, sticky bar and footer</a></li>
+      </ul>
+    </nav>
+  </div>
+</section>
+
+<section class="section section--surface" aria-labelledby="sg-colours">
+  <div class="container">
+    <h2 id="sg-colours">Colours</h2>
+    <p class="sg-note">From the logo (brief section 9). Every text colour passes WCAG AA on the backgrounds it is used on. Mustard is never a text colour.</p>
+    <ul class="sg-swatches">
+      <li><span class="sg-swatch" aria-hidden="true" style="background: var(--color-bg)"></span><span><code>--color-bg</code> #f8f4f0 · page background (cream)</span></li>
+      <li><span class="sg-swatch" aria-hidden="true" style="background: var(--color-surface)"></span><span><code>--color-surface</code> #ffffff · cards, alternate sections</span></li>
+      <li><span class="sg-swatch" aria-hidden="true" style="background: var(--color-tint)"></span><span><code>--color-tint</code> #edf5ef · soft green sections</span></li>
+      <li><span class="sg-swatch" aria-hidden="true" style="background: var(--color-brand)"></span><span><code>--color-brand</code> #006d3c · links, call button, accents · 5.9:1 on cream, 6.5:1 on white</span></li>
+      <li><span class="sg-swatch" aria-hidden="true" style="background: var(--color-brand-dark)"></span><span><code>--color-brand-dark</code> #00552f · hover</span></li>
+      <li><span class="sg-swatch" aria-hidden="true" style="background: var(--color-accent)"></span><span><code>--color-accent</code> #fede00 · small highlights only (proof line dots)</span></li>
+      <li><span class="sg-swatch" aria-hidden="true" style="background: var(--color-heading)"></span><span><code>--color-heading</code> #1f1f1f · headings, focus ring</span></li>
+      <li><span class="sg-swatch" aria-hidden="true" style="background: var(--color-text)"></span><span><code>--color-text</code> #333333 · body text · 11.5:1 on cream</span></li>
+      <li><span class="sg-swatch" aria-hidden="true" style="background: var(--color-text-muted)"></span><span><code>--color-text-muted</code> #5c5c5c · secondary text · 6.1:1 on cream</span></li>
+      <li><span class="sg-swatch" aria-hidden="true" style="background: var(--color-warning)"></span><span><code>--color-warning</code> #c1121f · genuine warnings only</span></li>
+      <li><span class="sg-swatch" aria-hidden="true" style="background: var(--color-border-strong)"></span><span><code>--color-border-strong</code> #8a8278 · input and control borders · 3.5:1</span></li>
+      <li><span class="sg-swatch" aria-hidden="true" style="background: var(--color-border)"></span><span><code>--color-border</code> #e6dfd6 · dividers (decorative)</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="sg-type">
+  <div class="container">
+    <h2 id="sg-type">Type</h2>
+    <p class="sg-note">Poppins for English, Noto Sans Kannada for Kannada, weights 400, 500 and 600 only. Heading sizes grow smoothly with the screen. Kannada gets more line height.</p>
+    <div class="sg-type" lang="{{ lang }}">
+      <p class="sg-label" lang="en">h1 · --text-h1</p>
+      <p style="font-size: var(--text-h1); font-weight: var(--weight-semibold); color: var(--color-heading); line-height: var(--leading-heading)">{{ t.two_paths.monthly.title }}</p>
+      <p class="sg-label" lang="en">h2 · --text-h2</p>
+      <p style="font-size: var(--text-h2); font-weight: var(--weight-semibold); color: var(--color-heading); line-height: var(--leading-heading)">{{ t.how_we_work.heading }}</p>
+      <p class="sg-label" lang="en">h3 · --text-h3</p>
+      <p style="font-size: var(--text-h3); font-weight: var(--weight-semibold); color: var(--color-heading); line-height: var(--leading-heading)">{{ t.two_paths.register.title }}</p>
+      <p class="sg-label" lang="en">Body · --text-base</p>
+      <p>{{ t.two_paths.monthly.text }} {{ t.no_office }}</p>
+      <p class="sg-label" lang="en">Small · --text-sm</p>
+      <p style="font-size: var(--text-sm)">{{ t.footer.address }}</p>
+      <p class="sg-label" lang="en">Link</p>
+      <p><a href="{{ base }}epf-consultancy-service">{{ t.two_paths.monthly.links[0].label }}</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--surface" aria-labelledby="sg-call">
+  <div class="container">
+    <h2 id="sg-call">Call button</h2>
+    <p class="sg-note">The only call to action on the site. Always shows the full number and links to <code>tel:+918217542975</code>. <code>location</code> is sent to Google Analytics with each click. <code>block=true</code> makes it full width (menu, sticky bar, cards).</p>
+    <pre class="sg-code"><code>{% raw %}{% include call-button.html location="hero" %}{% endraw %}</code></pre>
+    <div class="sg-demo" lang="{{ lang }}">{% include call-button.html location="style-guide" %}</div>
+    <p class="sg-note">Links to other pages use an arrow link:</p>
+    <div class="sg-demo" lang="{{ lang }}"><a class="link-arrow" href="{{ base }}pf-registration">{{ t.two_paths.register.links[0].label }}{% include icon.html name="arrow" size="18" %}</a></div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="sg-proof">
+  <div class="container">
+    <h2 id="sg-proof">Proof line and filing promise</h2>
+    <p class="sg-note">Proof line: 4 facts from brief section 7, used in heroes. <code>compact=true</code> is the small version (result call box, end of posts). The filing promise always sits next to a call button, so it is used through the call block.</p>
+    <pre class="sg-code"><code>{% raw %}{% include proof-line.html %}
+{% include proof-line.html compact=true %}
+{% include call-block.html location="hero" %}{% endraw %}</code></pre>
+    <div class="sg-demo" lang="{{ lang }}">
+      {% include proof-line.html %}
+      <div class="sg-gap"></div>
+      {% include proof-line.html compact=true %}
+      {% include call-block.html location="style-guide" %}
+    </div>
+  </div>
+</section>
+
+<div id="sg-paths" class="sg-component">
+  <div class="container"><p class="sg-component__name">Two paths</p><p class="sg-note">The two ways to buy (brief section 3). Full version on home and service pages; <code>compact=true</code> on registration and city pages.</p>
+  <pre class="sg-code"><code>{% raw %}{% include two-paths.html %}
+{% include two-paths.html compact=true %}{% endraw %}</code></pre></div>
+</div>
+<div lang="{{ lang }}">
+{% include two-paths.html %}
+<div class="container sg-demo-plain">{% include two-paths.html compact=true %}</div>
+</div>
+
+<div id="sg-how" class="sg-component">
+  <div class="container"><p class="sg-component__name">How we work</p><p class="sg-note">The 5 steps from brief section 3, with the call block. <code>limit=3</code> shows only the first steps (registration pages).</p>
+  <pre class="sg-code"><code>{% raw %}{% include how-we-work.html %}{% endraw %}</code></pre></div>
+</div>
+<div lang="{{ lang }}">{% include how-we-work.html %}</div>
+
+<div id="sg-office" class="sg-component">
+  <div class="container"><p class="sg-component__name">No office visits</p><p class="sg-note">One line (brief section 8). Home "Where we work", city pages and contact.</p>
+  <pre class="sg-code"><code>{% raw %}{% include no-office.html %}{% endraw %}</code></pre>
+  <div class="sg-demo" lang="{{ lang }}">{% include no-office.html %}</div></div>
+</div>
+
+<div id="sg-situations" class="sg-component">
+  <div class="container"><p class="sg-component__name">Situation cards</p><p class="sg-note">Routes the "newly liable" and "behind on filings" visitors (home page).</p>
+  <pre class="sg-code"><code>{% raw %}{% include situation-cards.html %}{% endraw %}</code></pre></div>
+</div>
+<div lang="{{ lang }}">{% include situation-cards.html %}</div>
+
+<div id="sg-industries" class="sg-component">
+  <div class="container"><p class="sg-component__name">Industry links</p><p class="sg-note">Full on home and the industries hub. <code>compact=true</code> on service and industry pages (<code>except</code> leaves out the current industry).</p>
+  <pre class="sg-code"><code>{% raw %}{% include industry-links.html %}
+{% include industry-links.html compact=true except="schools" %}{% endraw %}</code></pre></div>
+</div>
+<div lang="{{ lang }}">
+{% include industry-links.html %}
+<div class="container sg-demo-plain">{% include industry-links.html compact=true except="schools" %}</div>
+</div>
+
+<div id="sg-tools" class="sg-component">
+  <div class="container"><p class="sg-component__name">Tool cards</p><p class="sg-note">One design for every tool link (the audit found two). Keys are in the i18n files under <code>tools</code>.</p>
+  <pre class="sg-code"><code>{% raw %}<div class="card-grid card-grid--3">
+  {% include tool-card.html key="epf-eligibility" %}
+  ...
+</div>{% endraw %}</code></pre>
+  <div class="card-grid card-grid--3 sg-demo" lang="{{ lang }}">
+    {% for tool in t.tools %}{% include tool-card.html key=tool.key %}{% endfor %}
+  </div></div>
+</div>
+
+<div id="sg-result" class="sg-component">
+  <div class="container"><p class="sg-component__name">Result call box</p><p class="sg-note">Static HTML placed right after a tool's result container (decision D4). One line per tool: <code>eligibility</code>, <code>penalty</code>, <code>contribution</code>, <code>converter</code>.</p>
+  <pre class="sg-code"><code>{% raw %}{% include result-call.html tool="contribution" %}{% endraw %}</code></pre>
+  <div class="sg-demo" lang="{{ lang }}">{% include result-call.html tool="contribution" %}</div></div>
+</div>
+
+<div id="sg-faq" class="sg-component">
+  <div class="container"><p class="sg-component__name">FAQ</p><p class="sg-note">Accessible accordion (script.js): questions are buttons inside headings, one open at a time. <code>schema=true</code> also outputs FAQPage JSON-LD. Each question lives on one page only. Sample questions below.</p>
+  <pre class="sg-code"><code>{% raw %}{% include faq.html items=page.faq schema=true %}{% endraw %}</code></pre></div>
+</div>
+<div lang="{{ lang }}">{% include faq.html items=page.faq %}</div>
+
+<div id="sg-testimonials" class="sg-component">
+  <div class="container"><p class="sg-component__name">Testimonial slot</p><p class="sg-note">Off by default: renders nothing until <code>testimonials_on: true</code> in <code>_data/site.yml</code> and real quotes are in <code>_data/testimonials.yml</code>. Quote, role and industry only, never client names. The cards below are placeholders shown only on this page.</p>
+  <pre class="sg-code"><code>{% raw %}{% include testimonials.html %}{% endraw %}</code></pre></div>
+</div>
+<div lang="{{ lang }}">{% include testimonials.html demo=true items=page.sample_testimonials %}</div>
+
+<div id="sg-photo" class="sg-component">
+  <div class="container"><p class="sg-component__name">Photo slot</p><p class="sg-note">Fixed ratio. Renders nothing when <code>src</code> is empty, so the page looks complete without photos. Founder and office photos only; no stock photos of people. The dashed box shows the slot's shape on this page only.</p>
+  <pre class="sg-code"><code>{% raw %}{% include photo-slot.html src="/images/founder.jpg" alt="..." ratio="4/3" %}{% endraw %}</code></pre>
+  <div class="sg-demo"><div class="sg-photo-placeholder">4 : 3 photo slot (empty = hidden)</div></div></div>
+</div>
+
+<div id="sg-closing" class="sg-component">
+  <div class="container"><p class="sg-component__name">Closing call</p><p class="sg-note">Last section before the footer on every page except legal pages and the 404. Give each page its own <code>line</code>.</p>
+  <pre class="sg-code"><code>{% raw %}{% include closing-call.html line="Hand over your monthly PF filing." %}{% endraw %}</code></pre></div>
+</div>
+<div lang="{{ lang }}">{% include closing-call.html %}</div>
+
+<section class="section section--surface" aria-labelledby="sg-chrome">
+  <div class="container container--text">
+    <h2 id="sg-chrome">Header, menu, sticky bar and footer</h2>
+    <p>These are on this page, added by the layout (<code>_layouts/base.html</code>), so every rebuilt page gets them without extra markup.</p>
+    <ul class="sg-list">
+      <li><strong>Header:</strong> logo, main links, language switch and call button with the full number on desktop. On phones: logo, language switch, a short "Call" button and the menu button. Not sticky on desktop (decision D6).</li>
+      <li><strong>Menu (phones):</strong> call button first, then links, then the language switch. No email. Focus stays inside while open; Escape closes it.</li>
+      <li><strong>Sticky call bar (phones only):</strong> full-width call button fixed to the bottom, hidden while the menu is open. The page has bottom padding so it never hides content.</li>
+      <li><strong>Footer:</strong> services, places, tools and guides, company links, address, phone and email. The footer is the only place the email appears. No headings in the header or footer.</li>
+    </ul>
+    <p>Every <code>tel:</code> link sends a <code>phone_call_click</code> event to Google Analytics with <code>call_location</code> and <code>page_type</code> (decision D5).</p>
+  </div>
+</section>
+</div>

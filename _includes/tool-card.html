@@ -1,0 +1,11 @@
+{%- comment -%} One tool card. include tool-card.html key="epf-eligibility" (keys in _data/i18n tools) {%- endcomment -%}
+{%- include i18n.html -%}
+{%- assign tool = t.tools | where: "key", include.key | first -%}
+<a class="card card--link tool-card" href="{{ base }}{{ tool.path }}">
+  <span class="icon-badge">{% include icon.html name=tool.icon size="24" %}</span>
+  <span class="tool-card__body">
+    <span class="tool-card__name">{{ tool.name }}</span>
+    <span class="tool-card__text">{{ tool.text }}</span>
+  </span>
+  {% include icon.html name="arrow" size="20" %}
+</a>

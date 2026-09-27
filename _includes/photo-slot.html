@@ -1,0 +1,11 @@
+{%- comment -%}
+  Photo slot: fixed ratio, renders nothing when there is no photo.
+  include photo-slot.html src="/images/founder.jpg" alt="..." ratio="4/3"
+  No stock photos of people (brief section 7).
+{%- endcomment -%}
+{%- if include.src and include.src != "" -%}
+<figure class="photo-slot" style="--ratio: {{ include.ratio | default: '4/3' }}">
+  <img src="{{ include.src }}" alt="{{ include.alt }}" loading="lazy">
+  {%- if include.caption %}<figcaption>{{ include.caption }}</figcaption>{% endif %}
+</figure>
+{%- endif -%}

@@ -1,0 +1,28 @@
+{%- comment -%} Situation cards: route visitors by situation (home page). {%- endcomment -%}
+{%- include i18n.html -%}
+{%- assign s = t.situations -%}
+<section class="section" aria-labelledby="situations-heading">
+  <div class="container">
+    <h2 id="situations-heading">{{ s.heading }}</h2>
+    <div class="card-grid card-grid--3">
+      {%- assign keys = "new,behind" | split: "," %}
+      {%- for k in keys %}
+      {%- assign c = s[k] %}
+      <article class="card">
+        <h3>{{ c.title }}</h3>
+        <p>{{ c.text }}</p>
+        <ul class="link-list">
+          {%- for l in c.links %}
+          <li><a class="link-arrow" href="{{ base }}{{ l.path }}">{{ l.label }}{% include icon.html name="arrow" size="18" %}</a></li>
+          {%- endfor %}
+        </ul>
+      </article>
+      {%- endfor %}
+      <article class="card card--brand">
+        <h3>{{ s.handle.title }}</h3>
+        <p>{{ s.handle.text }}</p>
+        {% include call-button.html location="situation" block=true %}
+      </article>
+    </div>
+  </div>
+</section>

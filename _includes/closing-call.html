@@ -1,0 +1,11 @@
+{%- comment -%}
+  Closing call section: last section before the footer (not on legal pages or 404).
+  include closing-call.html line="Hand over your monthly PF filing."
+{%- endcomment -%}
+{%- include i18n.html -%}
+<section class="section section--tint closing-call" aria-labelledby="closing-heading">
+  <div class="container container--text">
+    <h2 id="closing-heading">{{ include.line | default: t.closing_call.default }}</h2>
+    {% include call-block.html location="closing" %}
+  </div>
+</section>
