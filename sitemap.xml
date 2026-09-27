@@ -1,280 +1,58 @@
+---
+layout: null
+sitemap_exclude: true
+---
+{%- comment -%}
+  Generated sitemap: every published page except the 404 and noindex pages.
+  hreflang pairs only where both languages exist. lastmod from front matter
+  `last_modified` (rebuilt pages); pages not yet rebuilt have none.
+{%- endcomment -%}
+{%- assign base_url = site.data.site.url -%}
+{%- assign entries = "" | split: "" -%}
+{%- for p in site.html_pages -%}
+  {%- unless p.noindex or p.sitemap_exclude or p.redirect_to or p.url contains "404" -%}
+    {%- assign u = p.url | replace: "/index.html", "/" | remove: ".html" -%}
+    {%- assign e = u | append: "#" | append: p.last_modified -%}
+    {%- assign entries = entries | push: e -%}
+  {%- endunless -%}
+{%- endfor -%}
+{%- for f in site.static_files -%}
+  {%- if f.extname == ".html" -%}
+    {%- unless f.path contains "404" -%}
+      {%- assign u = f.path | replace: "/index.html", "/" | remove: ".html" -%}
+      {%- assign entries = entries | push: u -%}
+    {%- endunless -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- assign all_urls = "|" -%}
+{%- for e in entries -%}{%- assign u = e | split: "#" | first -%}{%- assign all_urls = all_urls | append: u | append: "|" -%}{%- endfor -%}
+{%- assign entries = entries | sort -%}
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
+{%- for e in entries %}
+{%- assign parts = e | split: "#" -%}
+{%- assign u = parts[0] -%}
+{%- assign lm = parts[1] -%}
+{%- if u contains "/kn/" or u == "/kn" -%}
+  {%- assign en_u = u | remove_first: "/kn" -%}{%- if en_u == "" %}{% assign en_u = "/" %}{% endif -%}
+  {%- assign kn_u = u -%}
+{%- else -%}
+  {%- assign en_u = u -%}
+  {%- assign kn_u = "/kn" | append: u -%}
+{%- endif -%}
+{%- assign en_key = "|" | append: en_u | append: "|" -%}
+{%- assign kn_key = "|" | append: kn_u | append: "|" -%}
   <url>
-    <loc>https://www.meduconsultancy.com/</loc>
-    <priority>1.0</priority>
-    <changefreq>daily</changefreq>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.meduconsultancy.com/" />
-    <xhtml:link rel="alternate" hreflang="kn" href="https://www.meduconsultancy.com/kn/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.meduconsultancy.com/" />
+    <loc>{{ base_url }}{{ u }}</loc>
+{%- if lm and lm != "" %}
+    <lastmod>{{ lm | date: "%Y-%m-%d" }}</lastmod>
+{%- endif %}
+{%- if all_urls contains en_key and all_urls contains kn_key %}
+    <xhtml:link rel="alternate" hreflang="en" href="{{ base_url }}{{ en_u }}" />
+    <xhtml:link rel="alternate" hreflang="kn" href="{{ base_url }}{{ kn_u }}" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="{{ base_url }}{{ en_u }}" />
+{%- endif %}
   </url>
-  <url>
-    <loc>https://www.meduconsultancy.com/esi-consultancy-service</loc>
-    <priority>0.8</priority>
-    <changefreq>daily</changefreq>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.meduconsultancy.com/esi-consultancy-service" />
-    <xhtml:link rel="alternate" hreflang="kn" href="https://www.meduconsultancy.com/kn/esi-consultancy-service" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.meduconsultancy.com/esi-consultancy-service" />
-  </url>
-  <url>
-    <loc>https://www.meduconsultancy.com/epf-consultancy-service</loc>
-    <priority>0.8</priority>
-    <changefreq>daily</changefreq>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.meduconsultancy.com/epf-consultancy-service" />
-    <xhtml:link rel="alternate" hreflang="kn" href="https://www.meduconsultancy.com/kn/epf-consultancy-service" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.meduconsultancy.com/epf-consultancy-service" />
-  </url>
-  <url>
-    <loc>https://www.meduconsultancy.com/epf-excel-to-text-converter</loc>
-    <priority>1.0</priority>
-    <changefreq>daily</changefreq>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.meduconsultancy.com/epf-excel-to-text-converter" />
-    <xhtml:link rel="alternate" hreflang="kn" href="https://www.meduconsultancy.com/kn/epf-excel-to-text-converter" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.meduconsultancy.com/epf-excel-to-text-converter" />
-  </url>
-  <url>
-    <loc>https://www.meduconsultancy.com/epf-esi-tools-calculators</loc>
-    <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.meduconsultancy.com/epf-penalty-calculator</loc>
-    <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.meduconsultancy.com/esi-penalty-calculator</loc>
-    <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.meduconsultancy.com/epf-eligibility-checker</loc>
-    <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.meduconsultancy.com/esi-eligibility-checker</loc>
-    <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.meduconsultancy.com/epf-contribution-calculator</loc>
-    <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.meduconsultancy.com/esi-contribution-calculator</loc>
-    <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.meduconsultancy.com/kn/</loc>
-    <priority>1.0</priority>
-    <changefreq>daily</changefreq>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.meduconsultancy.com/" />
-    <xhtml:link rel="alternate" hreflang="kn" href="https://www.meduconsultancy.com/kn/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.meduconsultancy.com/" />
-  </url>
-  <url>
-    <loc>https://www.meduconsultancy.com/kn/esi-consultancy-service</loc>
-    <priority>0.8</priority>
-    <changefreq>daily</changefreq>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.meduconsultancy.com/esi-consultancy-service" />
-    <xhtml:link rel="alternate" hreflang="kn" href="https://www.meduconsultancy.com/kn/esi-consultancy-service" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.meduconsultancy.com/esi-consultancy-service" />
-  </url>
-  <url>
-    <loc>https://www.meduconsultancy.com/kn/epf-consultancy-service</loc>
-    <priority>0.8</priority>
-    <changefreq>daily</changefreq>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.meduconsultancy.com/epf-consultancy-service" />
-    <xhtml:link rel="alternate" hreflang="kn" href="https://www.meduconsultancy.com/kn/epf-consultancy-service" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.meduconsultancy.com/epf-consultancy-service" />
-  </url>
-  <url>
-    <loc>https://www.meduconsultancy.com/kn/epf-excel-to-text-converter</loc>
-    <priority>1.0</priority>
-    <changefreq>daily</changefreq>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.meduconsultancy.com/epf-excel-to-text-converter" />
-    <xhtml:link rel="alternate" hreflang="kn" href="https://www.meduconsultancy.com/kn/epf-excel-to-text-converter" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.meduconsultancy.com/epf-excel-to-text-converter" />
-  </url>
-  <url>
-    <loc>https://www.meduconsultancy.com/epf-esi-consultancy-mangalore</loc>
-    <priority>0.9</priority>
-    <changefreq>daily</changefreq>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.meduconsultancy.com/epf-esi-consultancy-mangalore" />
-    <xhtml:link rel="alternate" hreflang="kn" href="https://www.meduconsultancy.com/kn/epf-esi-consultancy-mangalore" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.meduconsultancy.com/epf-esi-consultancy-mangalore" />
-  </url>
-  <url>
-    <loc>https://www.meduconsultancy.com/epf-esi-consultancy-udupi</loc>
-    <priority>0.9</priority>
-    <changefreq>daily</changefreq>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.meduconsultancy.com/epf-esi-consultancy-udupi" />
-    <xhtml:link rel="alternate" hreflang="kn" href="https://www.meduconsultancy.com/kn/epf-esi-consultancy-udupi" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.meduconsultancy.com/epf-esi-consultancy-udupi" />
-  </url>
-  <url>
-    <loc>https://www.meduconsultancy.com/epf-esi-consultancy-bangalore</loc>
-    <priority>0.9</priority>
-    <changefreq>daily</changefreq>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.meduconsultancy.com/epf-esi-consultancy-bangalore" />
-    <xhtml:link rel="alternate" hreflang="kn" href="https://www.meduconsultancy.com/kn/epf-esi-consultancy-bangalore" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.meduconsultancy.com/epf-esi-consultancy-bangalore" />
-  </url>
-  <url>
-    <loc>https://www.meduconsultancy.com/about-us</loc>
-    <priority>0.6</priority>
-    <changefreq>weekly</changefreq>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.meduconsultancy.com/about-us" />
-    <xhtml:link rel="alternate" hreflang="kn" href="https://www.meduconsultancy.com/kn/about-us" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.meduconsultancy.com/about-us" />
-  </url>
-  <url>
-    <loc>https://www.meduconsultancy.com/kn/about-us</loc>
-    <priority>0.6</priority>
-    <changefreq>weekly</changefreq>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.meduconsultancy.com/about-us" />
-    <xhtml:link rel="alternate" hreflang="kn" href="https://www.meduconsultancy.com/kn/about-us" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.meduconsultancy.com/about-us" />
-  </url>
-  <url>
-    <loc>https://www.meduconsultancy.com/contact-us</loc>
-    <priority>0.7</priority>
-    <changefreq>weekly</changefreq>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.meduconsultancy.com/contact-us" />
-    <xhtml:link rel="alternate" hreflang="kn" href="https://www.meduconsultancy.com/kn/contact-us" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.meduconsultancy.com/contact-us" />
-  </url>
-  <url>
-    <loc>https://www.meduconsultancy.com/kn/contact-us</loc>
-    <priority>0.7</priority>
-    <changefreq>weekly</changefreq>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.meduconsultancy.com/contact-us" />
-    <xhtml:link rel="alternate" hreflang="kn" href="https://www.meduconsultancy.com/kn/contact-us" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.meduconsultancy.com/contact-us" />
-  </url>
-  <url>
-    <loc>https://www.meduconsultancy.com/privacy-policy</loc>
-    <priority>0.7</priority>
-    <changefreq>weekly</changefreq>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.meduconsultancy.com/privacy-policy" />
-    <xhtml:link rel="alternate" hreflang="kn" href="https://www.meduconsultancy.com/kn/privacy-policy" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.meduconsultancy.com/privacy-policy" />
-  </url>
-  <url>
-    <loc>https://www.meduconsultancy.com/kn/privacy-policy</loc>
-    <priority>0.7</priority>
-    <changefreq>weekly</changefreq>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.meduconsultancy.com/privacy-policy" />
-    <xhtml:link rel="alternate" hreflang="kn" href="https://www.meduconsultancy.com/kn/privacy-policy" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.meduconsultancy.com/privacy-policy" />
-  </url>
-  <url>
-    <loc>https://www.meduconsultancy.com/terms-and-conditions</loc>
-    <priority>0.7</priority>
-    <changefreq>weekly</changefreq>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.meduconsultancy.com/terms-and-conditions" />
-    <xhtml:link rel="alternate" hreflang="kn" href="https://www.meduconsultancy.com/kn/terms-and-conditions" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.meduconsultancy.com/terms-and-conditions" />
-  </url>
-  <url>
-    <loc>https://www.meduconsultancy.com/kn/terms-and-conditions</loc>
-    <priority>0.7</priority>
-    <changefreq>weekly</changefreq>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.meduconsultancy.com/terms-and-conditions" />
-    <xhtml:link rel="alternate" hreflang="kn" href="https://www.meduconsultancy.com/kn/terms-and-conditions" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.meduconsultancy.com/terms-and-conditions" />
-  </url>
-  <url>
-    <loc>https://www.meduconsultancy.com/blogs</loc>
-    <priority>0.8</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.meduconsultancy.com/blogs/esi-benefits-small-medium-businesses</loc>
-    <priority>0.8</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.meduconsultancy.com/blogs/epf-benefits-small-medium-businesses</loc>
-    <priority>0.8</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.meduconsultancy.com/blogs/epf-esi-compliance-boosts-employee-morale-retention-productivity</loc>
-    <priority>0.8</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.meduconsultancy.com/blogs/epf-esi-contributions-strengthen-employer-brand</loc>
-    <priority>0.8</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.meduconsultancy.com/blogs/epf-late-payment-penalty</loc>
-    <priority>0.8</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.meduconsultancy.com/blogs/esi-late-payment-penalty</loc>
-    <priority>0.8</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.meduconsultancy.com/blogs/pf-inspection-guide</loc>
-    <priority>0.8</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.meduconsultancy.com/blogs/esi-inspection-guide</loc>
-    <priority>0.8</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.meduconsultancy.com/blogs/epf-applicability-threshold</loc>
-    <priority>0.8</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.meduconsultancy.com/blogs/esi-applicability-threshold</loc>
-    <priority>0.8</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.meduconsultancy.com/blogs/common-epf-compliance-mistakes</loc>
-    <priority>0.8</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.meduconsultancy.com/blogs/common-esi-compliance-mistakes</loc>
-    <priority>0.8</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.meduconsultancy.com/kn/epf-esi-consultancy-mangalore</loc>
-    <priority>0.9</priority>
-    <changefreq>daily</changefreq>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.meduconsultancy.com/epf-esi-consultancy-mangalore" />
-    <xhtml:link rel="alternate" hreflang="kn" href="https://www.meduconsultancy.com/kn/epf-esi-consultancy-mangalore" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.meduconsultancy.com/epf-esi-consultancy-mangalore" />
-  </url>
-  <url>
-    <loc>https://www.meduconsultancy.com/kn/epf-esi-consultancy-udupi</loc>
-    <priority>0.9</priority>
-    <changefreq>daily</changefreq>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.meduconsultancy.com/epf-esi-consultancy-udupi" />
-    <xhtml:link rel="alternate" hreflang="kn" href="https://www.meduconsultancy.com/kn/epf-esi-consultancy-udupi" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.meduconsultancy.com/epf-esi-consultancy-udupi" />
-  </url>
-  <url>
-    <loc>https://www.meduconsultancy.com/kn/epf-esi-consultancy-bangalore</loc>
-    <priority>0.9</priority>
-    <changefreq>daily</changefreq>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.meduconsultancy.com/epf-esi-consultancy-bangalore" />
-    <xhtml:link rel="alternate" hreflang="kn" href="https://www.meduconsultancy.com/kn/epf-esi-consultancy-bangalore" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.meduconsultancy.com/epf-esi-consultancy-bangalore" />
-  </url>
+{%- endfor %}
 </urlset>
