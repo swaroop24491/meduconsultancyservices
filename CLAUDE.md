@@ -84,11 +84,16 @@ its current position in the header: the hamburger CSS uses `:nth-last-child`
 selectors that break if it moves. The rebuilt header (`_includes/header.html`) has
 no such constraint.
 
-Head boilerplate on every page: favicons, `canonical` + `hreflang` (en/kn/x-default)
-links, `application/ld+json` structured data (`LocalBusiness`, `BreadcrumbList`;
-city pages also have `OfferCatalog`; FAQs use microdata), Google Fonts (Poppins,
-Noto Sans Kannada for `kn/` pages, Material Symbols Outlined), and Google Analytics
-(`G-4MEQF5W0XX`).
+Head on rebuilt pages (`_includes/head.html`): favicons, canonical, `hreflang`
+(en/kn/x-default, only where the other-language page exists), og tags, Google Fonts
+(Poppins 400/500/600; Noto Sans Kannada on `kn/` only), `site.css`, and Google
+Analytics (`G-4MEQF5W0XX`). JSON-LD comes from `_includes/schema.html` (WebSite,
+WebPage, short business entity under `https://www.meduconsultancy.com/#business`,
+BreadcrumbList and Service from front matter) plus FAQPage from `faq.html schema=true`.
+No microdata. Icons are inline SVG (`_includes/icon.html`), not the Material Symbols font.
+
+Pages not yet rebuilt still have their own copy-pasted head (LocalBusiness JSON-LD,
+microdata FAQs, Material Symbols font).
 
 There are **no contact forms** and no WhatsApp. Every call-to-action is
 `tel:+918217542975`.
@@ -149,10 +154,13 @@ legal facts. If a request conflicts with it, ask before acting.
   and review them before saying the work is done.
 - Commit one page, or one small group of pages, at a time.
 
-### Planned site changes (from the brief)
+### Planned site changes (from the brief and `docs/strategy.md`)
 - City pages are now 3 (Mangalore, Udupi, Bangalore); the other 19 were removed.
-- New pages: an "Industries we serve" hub and one page each for hospitals,
-  contractors, factories, schools and IT companies, in English and Kannada.
+- New pages: PF registration and ESI registration; an "Industries we serve" hub
+  (`/industries/`) and one page each for hospitals, contractors, factories, schools
+  and IT companies; "EPF benefits for employees", "ESI benefits for employees" and
+  "PF and ESI benefits for employers" posts (replacing the 4 old benefits posts, with
+  redirects). All in English and Kannada. Full page list: strategy section 1.4.
 
 ## Writing style / audience
 
@@ -170,3 +178,85 @@ report findings; fixes happen in the main session after approval.
 - Run the compliance reviewer on any change that touches legal facts,
   numbers or tool logic.
 - Don't run reviewers for small edits like typo fixes.
+## Redesign status and how to continue
+
+Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
+(decision D11). Only urgent fact fixes go to `main` before that.
+
+### Planning documents (all in `docs/`, git-ignored)
+- `business-brief.md` - source of truth (business, services, tone, legal facts in section 11).
+- `strategy.md` - the plan: site map, section plan per page type (section 4), mobile call
+  pattern (5), SEO (6), Kannada (7), build approach (8), order of work (9), facts to
+  verify before launch (9.4), and decisions D1-D14 (section 10, **all decided**).
+- `audit.md` - the site audit the strategy is based on.
+- `kannada-glossary.md` - Kannada terms (draft, waiting for fluent-speaker review).
+- `kannada-review.md` - log of every new or changed Kannada string, with English meaning.
+- `pilot-epf-service-copy.md` - the approved EPF service page copy (old vs new): the model
+  for how page copy is proposed.
+- `pilot-review-findings.md` - the six-reviewer findings on the pilot and what was done.
+
+### Done
+- Phase 0: Jekyll scaffold; tool logic/text update (converter fix, EPF text, ESI checker,
+  September 2026 note); design tokens; design system and style guide (EN + KN);
+  Kannada glossary drafted (not yet reviewed).
+- Pilot (phase 1): English EPF service page rebuilt (`epf-consultancy-service.html`),
+  reviewed by all six reviewers, fixes applied. Components are now locked: new pages
+  reuse them; changing a component is a deliberate, style-guide-first change.
+
+### Next (strategy section 9.3)
+1. Phase 2: ESI service page, then the new PF registration and ESI registration pages.
+2. Kannada EPF service page, after the glossary and `kannada-review.md` are reviewed
+   (pages that have Kannada today launch only as reviewed EN + KN pairs, D9).
+3. Then home, tools hub + tools, the 3 city pages, industry hub + 5 pages, blog, about,
+   contact, legal, 404, and the launch check (strategy 9.3 phases 3-9).
+4. Before launch: compliance review of every linked blog post; verify strategy 9.4
+   items; owner input still needed (registration document lists and timing, local
+   industry mix per city, Google Business Profile URL, photos if any).
+
+### Workflow for each page
+1. Read the brief, strategy section 4 for the page type, and the old page.
+2. Write the new copy in `docs/<page>-copy.md`: old vs new per section, facts only from
+   brief section 11, every term explained on first use, questions for the owner.
+3. Run the compliance reviewer on the draft; apply its wording; then get owner approval.
+4. Build the page from components. Page-specific text goes in the page; facts come from
+   `_data/facts.yml`; shared text from `_data/i18n/`. Anything new that pages would reuse
+   goes into `site.css` + an include + the style guide, never as a one-off style.
+5. Check at 320, 390, 768, 1024 and 1440px: no horizontal scroll, axe (WCAG 2.1 A/AA)
+   clean, keyboard (menu, FAQ, focus not under the sticky bar), JSON-LD parses, sitemap
+   valid. Review 390px and 1440px screenshots (saved in `audit/screenshots/`).
+6. Commit the page on its own. Log any Kannada text in `docs/kannada-review.md`.
+7. When a page type is finished, run all six reviewers and bring the merged findings
+   to the owner before fixing.
+
+### Conventions settled during the pilot
+- Front matter for rebuilt pages: `layout: base`, `lang`, `page_type`, `title`,
+  `description`, `last_modified`, `breadcrumb: [{ name: ... }]`, optional
+  `service: { type, name, offers: [...] }` and `faq: [{ q, a }]` (answers may contain
+  simple links; the JSON-LD strips HTML).
+- Links in includes go through `_includes/resolve-link.html`: on Kannada pages a
+  missing Kannada page falls back to the English one, marked "(ಇಂಗ್ಲಿಷ್‌ನಲ್ಲಿ)".
+  The language switch and hreflang appear only when the other-language page exists.
+- Section components take `bg="surface"` or `bg="tint"`; backgrounds alternate cream,
+  white and soft green. Text sections use `.prose`; service lists use `.check-list`;
+  `card-grid--top` for cards of very different lengths.
+- `industry-links.html compact=true` and `city-links.html` use short names; add
+  `descriptive=true` ("PF and ESI in Mangalore") only where the links stand alone.
+- The two paths link to the current page shows as "(this page)", not a link.
+- Header on phones (up to 768px): logo, language switch, menu. No header call button:
+  the sticky call bar is the call button there. From 769px the header shows the call
+  button with the full number.
+- Filing promise (shared, brief section 6): "We never miss a PF or ESI due date. While
+  with us, no client has paid a late fine or interest." Never say "late-filing penalty".
+- Proof line (brief section 7): "25+ years in practice · Founder worked 35 years at
+  EPFO · 100+ clients · 3,500+ employees covered".
+- Challan is explained as "the PF payment slip" (or ESI) on first use; the shared
+  How we work step says "(the payment slips)".
+- We can pay PF and ESI on the client's behalf, or the client pays using our challan.
+- Kannada: all acronyms in English letters (PF, ESI, EPF, UAN, ECR, KYC, EPFO, ESIC,
+  DA, HRA…), decision D12. No "ಅನುಸರಣೆ"; say what is done instead.
+- "EPF" appears once in each PF page (e.g. "PF (Provident Fund, also called EPF)");
+  titles use "PF".
+
+### Local preview
+The Docker command above runs the preview. If Docker Desktop isn't running, start it
+first (`open -a Docker`). The `medu-gems` volume caches the gems between runs.
