@@ -212,11 +212,17 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
   registration pages. Copy in `docs/esi-service-copy.md`, `docs/pf-registration-copy.md`,
   `docs/esi-registration-copy.md` (each compliance-reviewed and owner-approved). Six-reviewer
   review applied (`docs/phase2-review-findings.md`); later copy changes are recorded there.
+- Phase 3 (English, 2026-09-27): home page rebuilt (`docs/home-copy.md`); six-reviewer review
+  applied (`docs/phase3-review-findings.md`). New `city-cards.html` include; full business
+  entity (with the Google Business Profile as `sameAs`) on home and contact via `schema.html`.
+  Owner: no share image (og:image).
 
 ### Next (strategy section 9.3, English first; Kannada last)
-1. **Phase 3: home page** (English). Start here in the next session.
-2. English only, in this order: tools hub + 7 tools (phase 4; also fix the tool text in
-   strategy 9.4 #23 and check the calculators' EPS cap and ₹176 figures, #4 and #8), the
+1. **Phase 4: tools hub + 7 tools** (English). Start here in the next session. Also fix the
+   tool text in strategy 9.4 #23, check the calculators' EPS cap and ₹176 figures (#4, #8),
+   replace the VISHWAS call to action on the EPF penalty calculator (brief section 3), and
+   verify the EPF checker's "EPF Scheme, 2026 (notified 29 June 2026)" line (phase 3 review E).
+2. Then English only, in this order: the
    3 city pages, industry hub + 5 industry pages, blog index + posts (rewrite the ESI
    posts first, then restore their links, #22), about, contact, legal, bilingual 404.
 3. **Kannada phase (last, before launch):** first a fluent speaker reviews
