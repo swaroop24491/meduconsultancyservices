@@ -6,6 +6,73 @@
     box-sizing: border-box;
 }
 
+/* ---------- Design tokens (redesign) ----------
+   Colours, type, spacing and shapes for rebuilt pages. Use these variables,
+   never raw values, in components. Pages not yet rebuilt don't use them.
+   Contrast (WCAG): text #333 on cream 11.5:1; green on cream 5.9:1, on white
+   6.5:1; white on green 6.5:1; text #333 on mustard 9.4:1. Mustard on cream
+   is 1.2:1, so mustard is never a text colour - highlights and accents only.
+   Border-strong on cream 3.5:1 (enough for input borders). */
+:root {
+    /* Colours */
+    --color-bg: #f8f4f0;             /* cream page background, rgb(248,244,240) */
+    --color-surface: #ffffff;        /* cards, alternate sections */
+    --color-tint: #edf5ef;           /* soft green section background */
+    --color-text: #333333;
+    --color-heading: #1f1f1f;
+    --color-text-muted: #5c5c5c;     /* 6.1:1 on cream */
+    --color-brand: #006d3c;          /* logo green: links, headings accents, call button */
+    --color-brand-dark: #00552f;     /* hover and pressed */
+    --color-on-brand: #ffffff;       /* text on green */
+    --color-accent: #fede00;         /* logo mustard: small highlights only */
+    --color-warning: #c1121f;        /* genuine warnings only */
+    --color-border: #e6dfd6;         /* decorative dividers */
+    --color-border-strong: #8a8278;  /* input and control borders */
+    --color-focus: #1f1f1f;          /* focus ring, visible on cream, white and green */
+
+    /* Type */
+    --font-body: "Poppins", sans-serif;
+    --font-kn: "Noto Sans Kannada", "Poppins", sans-serif;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-h3: 1.25rem;
+    --text-h2: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
+    --text-h1: clamp(1.75rem, 1.3rem + 2vw, 2.5rem);
+    --weight-regular: 400;
+    --weight-medium: 500;
+    --weight-semibold: 600;
+    --leading-body: 1.6;
+    --leading-heading: 1.25;
+
+    /* Spacing (4px steps) */
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.5rem;
+    --space-6: 2rem;
+    --space-7: 3rem;
+    --space-8: 4rem;
+    --section-gap: clamp(3rem, 2rem + 4vw, 6rem);
+    --gutter: clamp(1rem, 4vw, 2rem);  /* 16px side gutter on phones */
+
+    /* Layout and shape */
+    --container: 72rem;
+    --container-text: 42rem;         /* comfortable reading width */
+    --radius-sm: 6px;
+    --radius: 12px;
+    --radius-pill: 999px;
+    --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+    --tap-min: 48px;                 /* minimum touch target */
+}
+
+/* Kannada script needs more line height */
+html[lang="kn"] {
+    --leading-body: 1.8;
+    --leading-heading: 1.4;
+}
+
 /* ---------- Accessibility ---------- */
 
 /* Skip link: hidden until focused, then pinned to the top-left */

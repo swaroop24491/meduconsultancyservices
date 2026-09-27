@@ -92,8 +92,14 @@ Keep existing accessibility features working on every edit and new page.
 Current palette: page background `rgb(248,244,240)` (cream), green `#028940`,
 blue `#305cde` for primary CTA buttons, red `#c1121f` for warnings and the
 header phone number, body text and headings `#333`. The logo uses
-green and mustard. The palette will be reviewed as part of the redesign
-(see below); don't change colours outside that work.
+green and mustard. Pages not yet rebuilt keep this palette; don't change their
+colours outside the redesign.
+
+Rebuilt pages use the redesign tokens in the `:root` block at the top of
+`styles.css`: logo green `#006d3c` for links, headings accents and the call button;
+mustard `#fede00` for small highlights only (never text on cream); cream and white
+backgrounds with a soft green tint; red only for genuine warnings. Contrast ratios
+are noted there. Use the variables, never raw values.
 
 Infographics are hand-authored inline `<svg>` (not external image files), flat
 Material-Symbols style (`viewBox="0 -960 960 960"`, single `<path>`, fill only),
