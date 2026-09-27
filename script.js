@@ -24,16 +24,23 @@
     }
   }
 
+  /* The panel follows the button, or follows the heading that wraps the
+     button (rebuilt pages: <h3 class="accordion-heading"><button>). */
+  function getPanel(button) {
+    var parent = button.parentElement;
+    var panel = parent && parent.classList.contains('accordion-heading')
+      ? parent.nextElementSibling
+      : button.nextElementSibling;
+    return panel && panel.classList.contains('accordion-content') ? panel : null;
+  }
+
   document.querySelectorAll('.accordion').forEach(function (accordion) {
     var buttons = Array.prototype.slice.call(
-      accordion.querySelectorAll('.accordion-item > button')
+      accordion.querySelectorAll('.accordion-item > button, .accordion-item > .accordion-heading > button')
     );
 
     buttons.forEach(function (button, index) {
-      var panel = button.nextElementSibling;
-      if (!panel || !panel.classList.contains('accordion-content')) {
-        panel = null;
-      }
+      var panel = getPanel(button);
 
       button.setAttribute('type', 'button');
 
@@ -54,11 +61,7 @@
         var willOpen = button.getAttribute('aria-expanded') !== 'true';
 
         buttons.forEach(function (other) {
-          var otherPanel = other.nextElementSibling;
-          if (!otherPanel || !otherPanel.classList.contains('accordion-content')) {
-            otherPanel = null;
-          }
-          setPanelState(other, otherPanel, false);
+          setPanelState(other, getPanel(other), false);
         });
 
         if (willOpen) {
@@ -77,15 +80,32 @@
        choice, and returns focus to the toggle on close
      - locks background scrolling while open
      ------------------------------------------------------------------------- */
+  /* Old pages use a checkbox (#menuCheckbox); rebuilt pages use a real
+     <button data-menu-toggle>. Both share the behaviour below. */
   var toggle = document.getElementById('menuCheckbox');
+  var toggleButton = toggle ? null : document.querySelector('[data-menu-toggle]');
+  var control = toggle || toggleButton;
   var menu = document.getElementById('menu');
   var mobileNav = document.querySelector('.mobile-nav');
   var mainContent = document.getElementById('main-content');
   var footer = document.querySelector('footer');
+  var stickyCall = document.querySelector('.sticky-call');
 
-  if (toggle && menu) {
-    toggle.setAttribute('aria-controls', 'menu');
-    toggle.setAttribute('aria-expanded', 'false');
+  var isMenuOpen = function () {
+    return toggle ? toggle.checked : toggleButton.getAttribute('aria-expanded') === 'true';
+  };
+
+  var setMenuOpen = function (open) {
+    if (toggle) {
+      toggle.checked = open;
+    } else {
+      toggleButton.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+  };
+
+  if (control && menu) {
+    control.setAttribute('aria-controls', 'menu');
+    control.setAttribute('aria-expanded', 'false');
 
     if (mobileNav) {
       mobileNav.setAttribute('role', 'dialog');
@@ -97,18 +117,23 @@
     document.body.insertBefore(backdrop, document.body.firstChild);
 
     var getFocusable = function () {
-      return Array.prototype.slice
+      var items = Array.prototype.slice
         .call(menu.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])'))
         .filter(function (el) {
           return el.offsetParent !== null;
         });
+      /* The close button stays reachable inside the focus trap */
+      return toggleButton ? [toggleButton].concat(items) : items;
     };
 
     var syncMenu = function () {
-      var open = toggle.checked;
-      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-      toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      var open = isMenuOpen();
+      control.setAttribute('aria-expanded', open ? 'true' : 'false');
+      control.setAttribute('aria-label', open
+        ? (control.getAttribute('data-label-close') || 'Close menu')
+        : (control.getAttribute('data-label-open') || 'Open menu'));
       document.body.style.overflow = open ? 'hidden' : '';
+      document.body.classList.toggle('menu-open', open);
       backdrop.classList.toggle('is-visible', open);
 
       if (mobileNav) {
@@ -119,7 +144,7 @@
         }
       }
 
-      [mainContent, footer].forEach(function (el) {
+      [mainContent, footer, stickyCall].forEach(function (el) {
         if (!el) {
           return;
         }
@@ -132,19 +157,19 @@
     };
 
     var closeMenu = function (returnFocus) {
-      if (!toggle.checked) {
+      if (!isMenuOpen()) {
         return;
       }
-      toggle.checked = false;
+      setMenuOpen(false);
       syncMenu();
       if (returnFocus) {
-        toggle.focus();
+        control.focus();
       }
     };
 
-    toggle.addEventListener('change', function () {
+    var onMenuToggled = function () {
       syncMenu();
-      if (toggle.checked) {
+      if (isMenuOpen()) {
         /* Deferred two frames: the browser both (a) keeps focus on the
            checkbox as the last step of handling the click that triggered
            this 'change', and (b) hasn't necessarily laid out the
@@ -153,24 +178,35 @@
            genuinely focusable before we move focus into it. */
         window.requestAnimationFrame(function () {
           window.requestAnimationFrame(function () {
-            if (!toggle.checked) {
+            if (!isMenuOpen()) {
               return;
             }
             var focusables = getFocusable();
-            if (focusables.length) {
-              focusables[0].focus();
+            /* Skip the close button: focus the first item in the menu */
+            var first = toggleButton ? focusables[1] : focusables[0];
+            if (first) {
+              first.focus();
             }
           });
         });
       }
-    });
+    };
+
+    if (toggle) {
+      toggle.addEventListener('change', onMenuToggled);
+    } else {
+      toggleButton.addEventListener('click', function () {
+        setMenuOpen(!isMenuOpen());
+        onMenuToggled();
+      });
+    }
 
     backdrop.addEventListener('click', function () {
       closeMenu(true);
     });
 
     document.addEventListener('keydown', function (event) {
-      if (!toggle.checked) {
+      if (!isMenuOpen()) {
         return;
       }
 
@@ -198,7 +234,7 @@
     });
 
     menu.addEventListener('click', function (event) {
-      if (toggle.checked && event.target.closest('a')) {
+      if (isMenuOpen() && event.target.closest('a')) {
         closeMenu(false);
       }
     });
@@ -233,6 +269,22 @@
 
     syncHeaderScrolled();
   }
+
+  /* -------------------------------------------------------------------------
+     Call tracking (decision D5)
+     - every tel: link click sends a Google Analytics event, with where the
+       button sits (data-call-location) and the page type (body data-page-type)
+     ------------------------------------------------------------------------- */
+  document.addEventListener('click', function (event) {
+    var link = event.target.closest && event.target.closest('a[href^="tel:"]');
+    if (!link || typeof window.gtag !== 'function') {
+      return;
+    }
+    window.gtag('event', 'phone_call_click', {
+      call_location: link.getAttribute('data-call-location') || 'other',
+      page_type: document.body.getAttribute('data-page-type') || 'other'
+    });
+  });
 
   /* -------------------------------------------------------------------------
      Date/month inputs
