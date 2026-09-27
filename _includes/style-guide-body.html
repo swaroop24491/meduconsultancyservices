@@ -141,11 +141,11 @@
 </div>
 
 <div id="sg-tools" class="sg-component">
-  <div class="container"><p class="sg-component__name">Tool cards</p><p class="sg-note">One design for every tool link (the audit found two). Keys are in the i18n files under <code>tools</code>.</p>
-  <pre class="sg-code"><code>{% raw %}<div class="card-grid card-grid--3">
-  {% include tool-card.html key="epf-eligibility" %}
+  <div class="container"><p class="sg-component__name">Tool cards</p><p class="sg-note">One design for every tool link (the audit found two). Keys are in the i18n files under <code>tools</code>. All cards are white on cream sections and turn cream automatically on white (<code>section--surface</code>) sections.</p>
+  <pre class="sg-code"><code>&lt;div class="card-grid card-grid--3"&gt;
+  {% raw %}{% include tool-card.html key="epf-eligibility" %}{% endraw %}
   ...
-</div>{% endraw %}</code></pre>
+&lt;/div&gt;</code></pre>
   <div class="card-grid card-grid--3 sg-demo" lang="{{ lang }}">
     {% for tool in t.tools %}{% include tool-card.html key=tool.key %}{% endfor %}
   </div></div>

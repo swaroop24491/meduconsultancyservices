@@ -4,6 +4,6 @@
 {%- endcomment -%}
 {%- include i18n.html -%}
 <a class="btn btn--call{% if include.block %} btn--block{% endif %}" href="tel:{{ site.data.site.phone_tel }}" data-call-location="{{ include.location | default: 'other' }}">
-  {%- include icon.html name="call" size="20" -%}
-  <span>{{ t.call.short }} <span class="nowrap">{{ site.data.site.phone_display }}</span></span>
+  <span class="btn__label">{% include icon.html name="call" size="20" %}{{ t.call.short }}</span>
+  <span class="nowrap">{{ site.data.site.phone_display }}</span>
 </a>
