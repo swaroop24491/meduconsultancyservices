@@ -274,17 +274,15 @@
                           // Process first sheet of Excel file
                           const sheetName = workbook.SheetNames[0];
                           const sheet = workbook.Sheets[sheetName];
-                          let csvData = XLSX.utils.sheet_to_csv(sheet, { header: 1 });
+                          // Read the cell values, not the text Excel shows, so UANs stay
+                          // whole (not 1.00123E+11) and commas in names or numbers are kept.
+                          const rows = XLSX.utils.sheet_to_json(sheet, { header: 1, raw: true, defval: '', blankrows: false })
+                              .slice(1)  // Remove header row
+                              .map(row => row.map(cell => String(cell).replace(/[\r\n\t]+/g, ' ').trim()))
+                              .filter(row => row.some(cell => cell !== ''));  // Remove empty rows
 
-                          // Remove headers and blank lines
-                          let rows = csvData.split('\n').slice(1);  // Remove header row
-                          
-                          rows = rows
-                              .map(row => row.trim().replace(/,/g, '#~#')) // Replace commas and trim whitespace
-                              .filter(row => row.replace(/#~#/g, '').trim() !== "");  // Remove empty rows
-
-                          // Join formatted rows
-                          let formattedText = rows.join('\n');
+                          // Join fields with #~# and rows with new lines
+                          let formattedText = rows.map(row => row.join('#~#')).join('\n');
 
                           // Save the formatted text file
                           const blob = new Blob([formattedText], { type: 'text/plain' });
