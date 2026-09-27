@@ -4,20 +4,18 @@
  * /esi-contribution-calculator.
  *
  * Legal sources (verify these are still current before relying on this for
- * an actual payroll run - rules last checked 2026-09-16):
- *   - EPF: Employees' Provident Funds & Miscellaneous Provisions Act, 1952;
- *     Employees' Provident Funds Scheme, 2026 (notified 29 June 2026),
- *     ₹25,000/month basic+DA wage ceiling and voluntary continuation above
- *     it, effective 17 September 2026 (Gazette S.O. 5109(E), Code on Social
- *     Security, 2020) - it was ₹15,000 before that; Employees' Pension
- *     Scheme, 1995 (8.33% EPS share, capped at ₹25,000 basic - max
- *     ₹2,083/month); Employees' Deposit Linked Insurance Scheme, 1976
- *     (0.5% EDLI share, capped at ₹25,000); EPFO
- *     administrative-charges notification (0.5% of actual basic+DA,
- *     uncapped, ₹75/month minimum).
- *   - ESI: Employees' State Insurance Act, 1948; ESI (Central) Rules, 1950,
- *     Rule 50 (contribution rates and low-wage exemption); ESI (General)
- *     Regulations, 1950.
+ * an actual payroll run - rules last checked 2026-09-27):
+ *   Code on Social Security, 2020 (in force from 21 November 2025). It
+ *   replaced the EPF Act, 1952 and the ESI Act, 1948; section numbers that
+ *   replace the old Act sections are still being verified.
+ *   - EPF: Employees' Provident Funds Scheme, 2026; ₹25,000/month wage
+ *     ceiling and voluntary continuation above it, effective 17 September
+ *     2026 (Gazette S.O. 5109(E)) - it was ₹15,000 before that; Employees'
+ *     Pension Scheme, 1995 (8.33% EPS share, capped at ₹25,000 - max
+ *     ₹2,083/month); EDLI (0.5%, capped at ₹25,000) and EPFO admin charges
+ *     (0.5% of basic+DA) are separate employer costs, not calculated here.
+ *   - ESI: 0.75% employee + 3.25% employer; ₹21,000 wage ceiling (₹25,000
+ *     for a person with disability); low-wage exemption up to ₹176/day.
  *
  * This file is the reusable "component": initContributionCalculator(scheme,
  * config) renders a config-driven form and recalculates a breakdown table

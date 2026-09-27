@@ -2,13 +2,14 @@
  * EPF / ESI late-payment penalty calculator.
  *
  * Legal sources (verify these are still current before relying on this for
- * an actual EPFO/ESIC matter - rates last checked 2026-09-15):
- *   - EPF: Employees' Provident Funds & Miscellaneous Provisions Act, 1952,
- *     Section 7Q (interest) & Section 14B (damages); EPF Scheme 1952,
- *     Para 32A, as amended by EPFO circular effective 14 June 2024.
- *   - ESI: Employees' State Insurance Act, 1948, Section 85B (damages);
- *     ESI (General) Regulations, 1950, Regulation 31-A (interest) &
- *     Regulation 31C (damages).
+ * an actual EPFO/ESIC matter - rates last checked 2026-09-27):
+ *   Code on Social Security, 2020 (in force from 21 November 2025). It
+ *   replaced the EPF Act, 1952 and the ESI Act, 1948; section numbers that
+ *   replace the old Act sections are still being verified.
+ *   Interest and damages on late contributions (formerly EPF Act s.7Q/14B
+ *   and ESI Act s.85B). EPF damages rates as changed from 14 June 2024;
+ *   ESI slabs as in the ESI (General) Regulations (Reg. 31-A/31C), which
+ *   secondary sources say still apply under the Code.
  *
  * Both EPF and ESI charge two separate amounts on a late contribution:
  *   1. Interest - 12% p.a. simple interest on the arrears, for every day

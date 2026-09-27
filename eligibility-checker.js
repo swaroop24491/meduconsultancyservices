@@ -3,19 +3,17 @@
  * component used by /epf-eligibility-checker and /esi-eligibility-checker.
  *
  * Legal sources (verify these are still current before relying on this for
- * an actual EPFO/ESIC registration decision - rules last checked 2026-09-16):
- *   - EPF: Employees' Provident Funds & Miscellaneous Provisions Act, 1952,
- *     Section 1(4) (voluntary coverage), Section 1(5) (continued coverage),
- *     Section 17(1) (permanent coverage once triggered); Employees'
- *     Provident Funds Scheme, 2026 (notified 29 June 2026), which set the
- *     ₹15,000/month basic+DA wage ceiling; Gazette notification S.O.
- *     5109(E) (Code on Social Security, 2020) raised the ceiling to
- *     ₹25,000/month effective 17 September 2026.
- *   - ESI: Employees' State Insurance Act, 1948; ESI (Central) Rules, 1950,
- *     Rule 50 (wage ceiling and low-wage exemption); ESI (General)
- *     Regulations, 1950; Code on Social Security, 2020, under which the
- *     coverage threshold is 10 employees in every state (except seasonal
- *     factories).
+ * an actual EPFO/ESIC registration decision - rules last checked 2026-09-27):
+ *   Code on Social Security, 2020 (in force from 21 November 2025). It
+ *   replaced the EPF Act, 1952 and the ESI Act, 1948; section numbers that
+ *   replace the old Act sections are still being verified.
+ *   - EPF: 20 or more employees; voluntary and continued coverage;
+ *     coverage stays once triggered. Employees' Provident Funds Scheme,
+ *     2026; wage ceiling ₹25,000/month from 17 September 2026 (Gazette
+ *     S.O. 5109(E)) - it was ₹15,000 before that.
+ *   - ESI: 10 or more employees in every state, except seasonal factories;
+ *     ₹21,000 wage ceiling (₹25,000 for a person with disability);
+ *     low-wage exemption up to ₹176/day.
  *
  * This file is the reusable "component": initEligibilityCalculator(id,
  * config) renders ONE config-driven, self-contained calculator - its own
