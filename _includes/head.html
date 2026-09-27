@@ -1,0 +1,48 @@
+{%- assign lang = page.lang | default: "en" -%}
+{%- assign en_url = site.data.site.url | append: "/" | append: page.path -%}
+{%- assign kn_url = site.data.site.url | append: "/kn/" | append: page.path -%}
+{%- if lang == "kn" %}{% assign self_url = kn_url %}{% else %}{% assign self_url = en_url %}{% endif -%}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="author" content="{{ site.data.site.name }}">
+    <meta name="theme-color" content="rgb(248,244,240)">
+
+    <title>{{ page.title }}</title>
+    <meta name="description" content="{{ page.description }}">
+    <link rel="canonical" href="{{ self_url }}">
+    <link rel="alternate" hreflang="en" href="{{ en_url }}">
+    <link rel="alternate" hreflang="kn" href="{{ kn_url }}">
+    <link rel="alternate" hreflang="x-default" href="{{ en_url }}">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="{{ site.data.site.name }}">
+    <meta property="og:locale" content="{% if lang == 'kn' %}kn_IN{% else %}en_IN{% endif %}">
+    <meta property="og:title" content="{{ page.title }}">
+    <meta property="og:description" content="{{ page.description }}">
+    <meta property="og:url" content="{{ self_url }}">
+
+    <link rel="stylesheet" href="/styles.css">
+{%- for css in page.css %}
+    <link rel="stylesheet" href="{{ css }}">
+{%- endfor %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+{%- if lang == "kn" %}
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Kannada:wght@400;500;600;700&display=swap" rel="stylesheet">
+{%- endif %}
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.data.site.ga_id }}"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '{{ site.data.site.ga_id }}');
+    </script>

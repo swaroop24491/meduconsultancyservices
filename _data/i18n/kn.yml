@@ -1,0 +1,4 @@
+# Shared Kannada strings. Same keys as en.yml.
+# Log every new or changed string in docs/kannada-review.md for a fluent speaker.
+lang_switch_label: English
+lang_switch_aria: View this page in English

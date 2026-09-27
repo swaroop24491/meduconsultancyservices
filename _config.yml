@@ -1,0 +1,20 @@
+# Jekyll config. GitHub Pages builds the site with Jekyll on every push.
+# Pages without front matter are copied as they are.
+title: Medu Consultancy
+url: "https://www.meduconsultancy.com"
+repository: swaroop24491/meduconsultancyservices
+
+plugins:
+  - jekyll-redirect-from
+
+# Nothing internal is published. GitHub Pages turns Markdown files into pages,
+# so repo notes like CLAUDE.md and README.md must be listed here.
+exclude:
+  - CLAUDE.md
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - docs/
+  - audit/
+  - vendor/
+  - node_modules/

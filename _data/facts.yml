@@ -1,0 +1,22 @@
+# Legal facts from docs/business-brief.md section 11 (checked 26 September 2026).
+# Every page reads them from here. Change a fact only when section 11 changes,
+# and run the compliance reviewer on the change.
+law: "Code on Social Security, 2020"
+law_in_force: "21 November 2025"
+epf:
+  min_employees: 20
+  wage_ceiling: 25000
+  wage_ceiling_from: "17 September 2026"
+  wage_ceiling_old: 15000
+  employee_rate_pct: 12
+  employer_rate_pct: 12
+  due_day: 15            # of the following month
+esi:
+  min_employees: 10
+  wage_ceiling: 21000
+  wage_ceiling_pwd: 25000   # persons with disabilities
+  employee_rate_pct: 0.75
+  employer_rate_pct: 3.25
+  total_rate_pct: 4
+  due_day: 15            # of the following month
+  contribution_periods: ["April–September", "October–March"]

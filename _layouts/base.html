@@ -1,0 +1,18 @@
+---
+# Base layout for rebuilt pages. Front matter each page sets:
+#   lang: en | kn          title, description
+#   path: URL path without /kn/ and without .html, e.g. "epf-consultancy-service" ("" for home)
+#   css: [extra stylesheets]   (optional)
+# Header, footer and call components are added to _includes/ with the style guide (step 0.5).
+---
+{%- assign lang = page.lang | default: "en" -%}
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+{% include head.html %}
+</head>
+<body{% if page.body_class %} class="{{ page.body_class }}"{% endif %}>
+{{ content }}
+    <script src="/script.js" defer></script>
+</body>
+</html>

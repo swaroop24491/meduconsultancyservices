@@ -1,0 +1,20 @@
+# Business details used across the site. Change them here, not in pages.
+name: Medu Consultancy
+alternate_name: Medu Consultancy Services
+url: "https://www.meduconsultancy.com"
+phone_display: "+91 82175 42975"
+phone_tel: "+918217542975"
+email: hello.meduconsultancy@gmail.com   # footer only
+ga_id: G-4MEQF5W0XX
+founded: 2000
+address:
+  street: "3rd Floor, Padil Gate Building, Padil"
+  locality: Mangaluru
+  region: Karnataka
+  postal_code: "575007"
+  country: IN
+cities: [Mangalore, Udupi, Bangalore]
+proof:
+  years: "25+"
+  clients: "100+"
+  employees_covered: "3,500+"

@@ -4,12 +4,17 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-Hand-authored static HTML site for Medu Consultancy, a PF (EPF) & ESI compliance
-consultancy based in Mangaluru, Karnataka. Deployed on GitHub Pages at the custom
-domain `www.meduconsultancy.com` (see `CNAME`). **No build step, no bundler, no
-package manager, no templating engine, no shared partials/includes.** Every page is
-a complete, standalone `.html` file with the header/nav and footer copy-pasted
-verbatim into it.
+Static site for Medu Consultancy, a PF (EPF) & ESI compliance consultancy based in
+Mangaluru, Karnataka. Deployed on GitHub Pages at the custom domain
+`www.meduconsultancy.com` (see `CNAME`). **GitHub Pages builds it with Jekyll** on
+every push; there is no other build step, bundler or package manager.
+
+The site is moving to Jekyll page by page (redesign, see below):
+- **Rebuilt pages** have front matter and use `_layouts/base.html`. Shared parts live
+  once in `_includes/`; business details in `_data/site.yml`; legal facts in
+  `_data/facts.yml`; shared English/Kannada strings in `_data/i18n/`.
+- **Pages not yet rebuilt** have no front matter. Jekyll copies them unchanged, so each
+  is still a complete `.html` file with the header/nav and footer copy-pasted into it.
 
 Pages: core pages (home, about, contact, EPF and ESI service pages), free tools and
 calculators (tools hub plus EPF/ESI penalty calculators, eligibility checkers,
@@ -18,19 +23,35 @@ contribution calculators and the EPF Excel to Text converter), city landing page
 Kannada tree under `kn/` mirrors the English pages. English and Kannada counterparts
 are linked via `hreflang` alternate tags and a header `lang-switch` link.
 
-GitHub Pages publishes everything committed to this repo. Never commit internal
-documents, notes or screenshots. They live in `docs/` and `audit/`, which are
-git-ignored.
+GitHub Pages publishes everything committed to this repo, and turns Markdown files
+into pages. Never commit internal documents, notes or screenshots. They live in
+`docs/` and `audit/`, which are git-ignored. Any other internal file (like this one
+and `README.md`) must be listed under `exclude:` in `_config.yml`.
 
 ## Working in this repo
 
-There is no build/lint/test tooling - just edit the HTML/CSS/JS files directly and
-open them in a browser (or a static file server) to check changes.
+There is no lint/test tooling. Preview with Jekyll in Docker (the same versions
+GitHub Pages uses, from `Gemfile`), then open http://localhost:4000:
+
+```sh
+docker run --rm -p 4000:4000 -v "$PWD":/srv -v medu-gems:/usr/local/bundle -w /srv \
+  -e PAGES_REPO_NWO=swaroop24491/meduconsultancyservices ruby:3.3.4 \
+  sh -c "bundle install --quiet && bundle exec jekyll serve --host 0.0.0.0"
+```
+
+Extensionless URLs (`/about-us`) work in the preview as on GitHub Pages. Use this
+preview for the Playwright screenshots. The build output goes to `_site/` (not
+committed).
+
+- **Liquid in inline JS**: Jekyll processes every file with front matter. Wrap any
+  inline script containing `{{`, `}}`, `{%` or `%}` in `{% raw %}...{% endraw %}`.
+- **Redirects** for removed URLs use `jekyll-redirect-from` (`redirect_from:` in the
+  new page's front matter).
 
 - **Sitemap edits**: after changing `sitemap.xml`, validate it's well-formed XML:
   `python3 -c "import xml.dom.minidom; xml.dom.minidom.parse('sitemap.xml'); print('OK')"`
-- **Site-wide nav/footer changes**: since the header and footer are duplicated
-  in every file, a nav/footer/service-list/locations-list change must be applied
+- **Site-wide nav/footer changes**: on rebuilt pages, edit the include once. On pages
+  not yet rebuilt the header and footer are duplicated in every file, so a nav/footer/service-list/locations-list change must be applied
   identically across all pages, English and Kannada. Prefer a scripted
   find-and-replace (e.g. `perl -0pi -e 's/.../.../s'` slurp mode) over hand-editing
   each file, and verify the replacement count matches the expected file count
@@ -49,11 +70,11 @@ page. Service detail pages use `<body class="service-page">` with
 
 The mobile menu's `<nav class="mobile-nav">` must stay in its current position in
 the header: the hamburger CSS uses `:nth-last-child` selectors that break if it
-moves.
+moves. Revisit this when the header is rebuilt as an include.
 
 Head boilerplate on every page: favicons, `canonical` + `hreflang` (en/kn/x-default)
-links, `application/ld+json` structured data (`LocalBusiness`, `BreadcrumbList`,
-and on service pages `OfferCatalog`/`FAQPage`), Google Fonts (Inter, Poppins,
+links, `application/ld+json` structured data (`LocalBusiness`, `BreadcrumbList`;
+city pages also have `OfferCatalog`; FAQs use microdata), Google Fonts (Poppins,
 Noto Sans Kannada for `kn/` pages, Material Symbols Outlined), and Google Analytics
 (`G-4MEQF5W0XX`).
 
@@ -70,7 +91,7 @@ Keep existing accessibility features working on every edit and new page.
 
 Current palette: page background `rgb(248,244,240)` (cream), green `#028940`,
 blue `#305cde` for primary CTA buttons, red `#c1121f` for warnings and the
-header phone number, body text `#333`, headings `rgb(24,24,24)`. The logo uses
+header phone number, body text and headings `#333`. The logo uses
 green and mustard. The palette will be reviewed as part of the redesign
 (see below); don't change colours outside that work.
 
