@@ -247,8 +247,9 @@ address { font-style: normal; }
 .lang-switch:hover { border-color: var(--color-brand); color: var(--color-brand); }
 .lang-switch[lang="kn"] { font-family: var(--font-kn); }
 
-.site-header__call { padding-inline: var(--space-4); white-space: nowrap; flex-shrink: 0; }
-.site-header__call-full { display: none; }
+/* Header call button: desktop and tablet only. On phones (up to 768px) the
+   sticky call bar shows the full number, so the header has no call button. */
+.site-header__call { display: none; padding-inline: var(--space-4); white-space: nowrap; flex-shrink: 0; }
 
 .menu-toggle {
     display: inline-flex;
@@ -302,22 +303,6 @@ body.menu-open .site-header__call,
 body.menu-open .site-header__inner > .lang-switch { visibility: hidden; }
 .menu-backdrop { display: none; }
 
-/* Narrow phones: header call button shows the icon only (the label stays
-   for screen readers); the sticky bar right below shows the full number.
-   Kannada needs this earlier because "ಕರೆ ಮಾಡಿ" is wider than "Call". */
-@media (max-width: 379px) {
-    .site-header__logo img { width: 104px; }
-    .site-header__inner { gap: var(--space-1); }
-}
-@media (max-width: 379px) {
-    .site-header__call { width: var(--tap-min); padding: 0; }
-    .site-header__call-short { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-}
-@media (max-width: 479px) {
-    html[lang="kn"] .site-header__call { width: var(--tap-min); padding: 0; }
-    html[lang="kn"] .site-header__call-short { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-}
-
 @media (min-width: 400px) {
     .site-header__logo img { width: 150px; }
     .site-header__inner { gap: var(--space-3); }
@@ -325,8 +310,7 @@ body.menu-open .site-header__inner > .lang-switch { visibility: hidden; }
 
 /* From 769px the sticky bar is gone, so the header shows the full number */
 @media (min-width: 769px) {
-    .site-header__call-full { display: inline; }
-    .site-header__call-short { display: none; }
+    .site-header__call { display: inline-flex; }
 }
 
 @media (min-width: 1200px) {

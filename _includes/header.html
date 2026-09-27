@@ -15,8 +15,7 @@
     <a class="lang-switch" href="{{ alt_path }}" hreflang="{% if lang == 'kn' %}en{% else %}kn{% endif %}" lang="{% if lang == 'kn' %}en{% else %}kn{% endif %}" aria-label="{{ t.lang_switch_aria }}">{{ t.lang_switch_label }}</a>
     <a class="btn site-header__call" href="tel:{{ site.data.site.phone_tel }}" data-call-location="header">
       {%- include icon.html name="call" size="20" -%}
-      <span class="site-header__call-full">{{ site.data.site.phone_display }}</span>
-      <span class="site-header__call-short">{{ t.call.short }}</span>
+      <span>{{ site.data.site.phone_display }}</span>
     </a>
     <button class="menu-toggle" type="button" data-menu-toggle aria-controls="menu" aria-expanded="false" aria-label="{{ t.nav.menu_open }}" data-label-open="{{ t.nav.menu_open }}" data-label-close="{{ t.nav.menu_close }}">
       <span class="menu-toggle__open">{% include icon.html name="menu" size="28" %}</span>

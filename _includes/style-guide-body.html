@@ -213,7 +213,7 @@
     <h2 id="sg-chrome">Header, menu, sticky bar and footer</h2>
     <p>These are on this page, added by the layout (<code>_layouts/base.html</code>), so every rebuilt page gets them without extra markup.</p>
     <ul class="sg-list">
-      <li><strong>Header:</strong> logo, main links, language switch and call button with the full number on desktop. On phones: logo, language switch, a short "Call" button and the menu button. Not sticky on desktop (decision D6).</li>
+      <li><strong>Header:</strong> logo, main links, language switch and call button with the full number on desktop. From 769px to 1199px: logo, language switch, call button with the full number and the menu button. On phones (up to 768px): logo, language switch and the menu button only; the sticky call bar is the call button there. Not sticky on desktop (decision D6).</li>
       <li><strong>Menu (phones):</strong> call button first, then links, then the language switch. No email. Focus stays inside while open; Escape closes it.</li>
       <li><strong>Sticky call bar (phones only):</strong> full-width call button fixed to the bottom, hidden while the menu is open. The page has bottom padding so it never hides content.</li>
       <li><strong>Footer:</strong> services, places, tools and guides, company links, address, phone and email. The footer is the only place the email appears. No headings in the header or footer.</li>
