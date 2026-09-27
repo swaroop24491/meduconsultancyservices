@@ -1,0 +1,82 @@
+---
+layout: base
+lang: en
+page_type: registration
+last_modified: 2026-09-27
+title: "PF Registration for Employers in Mangalore | Medu Consultancy"
+description: "20 or more staff? We register your business for PF and set up your staff. Registration takes just a few hours once we have your documents. Call +91 82175 42975."
+breadcrumb:
+  - { name: PF registration }
+service:
+  type: PF registration
+  name: PF registration for employers
+  offers:
+    - PF registration for your business
+    - UAN setup for your staff
+faq:
+  - q: How long does PF registration take?
+    a: Just a few hours, once we have all your documents. Your staff then get their UANs (see the next questions).
+  - q: What documents do you need?
+    a: 'It depends on your type of business. <a href="tel:+918217542975" data-call-location="faq">Call us</a> and we''ll tell you exactly what to send.'
+  - q: Do contract and casual workers count towards 20?
+    a: Yes. Count all your staff, including casual workers and workers a contractor sends to work for you. Staff on high salaries count too. Only apprentices are not counted.
+  - q: Our new employee already has a UAN. Do they need a new one?
+    a: No. A UAN stays the same for life. We add them to your business using their existing UAN.
+  - q: Do we need ESI registration too?
+    a: 'Almost always, yes. ESI applies from 10 employees, so a business with 20 or more staff meets the ESI limit too. ESI covers staff whose ESI wages are ₹21,000 a month or less. We can register you for both. See <a href="/esi-registration">ESI registration for employers</a>.'
+  - q: What happens after registration?
+    a: 'PF must be paid every month, by the 15th of the next month. We can file it for you. See <a href="/epf-consultancy-service">PF monthly filing</a>.'
+  - q: How much does it cost?
+    a: 'It depends on your business and what you need. <a href="tel:+918217542975" data-call-location="faq">Call us</a> for a quote.'
+---
+{%- assign epf = site.data.facts.epf -%}
+{% include hero.html heading="PF registration for employers" lead="We register your business for PF (Provident Fund, also called EPF) and set up your staff. Call us and we'll check what applies to your business." %}
+
+<section class="section section--surface" aria-labelledby="applies-heading">
+  <div class="container">
+    <div class="prose">
+      <h2 id="applies-heading">Does your business need PF registration?</h2>
+      <p>Your business must register for PF when it has <strong>{{ epf.min_employees }} or more employees</strong>, in any industry.</p>
+      <p>Count all your staff. This includes temporary and casual staff, and workers a contractor sends to work for you. Count staff on high salaries too. Only apprentices (trainees under the Apprentices Act) are not counted.</p>
+      <p><strong>Once registered, PF stays.</strong> It does not stop if your staff later drop below {{ epf.min_employees }}.</p>
+      <p>Every employee whose PF wages are <strong>{{ epf.wage_ceiling_text }} a month or less</strong> must then be in PF. For September 2026 salaries, the PF office has not yet said which limit to use. <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a> and we'll tell you what to do.</p>
+      <p>PF wages are mainly basic pay plus DA (dearness allowance). It is not the full salary. If other allowances are more than half the salary, part of them also counts. We work this out for you.</p>
+      <p>Not sure? <a class="link-arrow" href="/epf-eligibility-checker">Check with our PF eligibility checker&#8288;{% include icon.html name="arrow" size="18" %}</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="need-heading">
+  <div class="container stack">
+    <h2 id="need-heading">What we need from you</h2>
+    <p class="prose">We tell you which documents we need when you call. The list depends on your type of business. You send them to us by email. No office visits needed.</p>
+    <h2 id="do-heading">What we do</h2>
+    <div class="card-grid card-grid--2 card-grid--top">
+      <div class="card">
+        <h3>Register your business with EPFO (the PF office)</h3>
+        <p>Your business gets a PF code number (the PF office calls it the establishment code). This is your business's PF account number. Once we have all your documents, this takes just a few hours.</p>
+      </div>
+      <div class="card">
+        <h3>Register your staff</h3>
+        <p>Each employee needs a UAN (their PF account number for life). New staff get it with a quick face scan on the UMANG app. We guide them. If someone already has a UAN from an old job, we use that one.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% include how-we-work.html limit=3 bg="tint" %}
+
+<section class="section section--surface" aria-labelledby="after-heading">
+  <div class="container">
+    <div class="prose">
+      <h2 id="after-heading">After registration</h2>
+      <p>Once you are registered, PF must be paid every month, by the {{ epf.due_day }}th of the next month.</p>
+      <p>We can do this for you. Each month, you send salary details and we file. We email you the confirmation and the challan (the PF payment slip).</p>
+    </div>
+    {% include two-paths.html compact=true %}
+  </div>
+</section>
+
+{% include faq.html items=page.faq schema=true %}
+
+{% include closing-call.html line="Let us register your business for PF." %}
