@@ -20,6 +20,7 @@
         <li><a href="#sg-proof">Proof line and filing promise</a></li>
         <li><a href="#sg-paths">Two paths</a></li>
         <li><a href="#sg-how">How we work</a></li>
+        <li><a href="#sg-cards">Content cards</a></li>
         <li><a href="#sg-office">No office visits</a></li>
         <li><a href="#sg-situations">Situation cards</a></li>
         <li><a href="#sg-industries">Industry and city links</a></li>
@@ -138,10 +139,37 @@
 </div>
 
 <div id="sg-how" class="sg-component">
-  <div class="container"><p class="sg-component__name">How we work</p><p class="sg-note">The 5 steps from brief section 3, with the call block. <code>limit=3</code> shows only the first steps (registration pages).</p>
+  <div class="container"><p class="sg-component__name">How we work</p><p class="sg-note">The 5 steps from brief section 3, with the call block. Service pages and home. Registration pages describe their own steps in "What we do" instead.</p>
   <pre class="sg-code"><code>{% raw %}{% include how-we-work.html %}{% endraw %}</code></pre></div>
 </div>
 <div lang="{{ lang }}">{% include how-we-work.html %}</div>
+
+<div id="sg-cards" class="sg-component">
+  <div class="container"><p class="sg-component__name">Content cards</p><p class="sg-note">Plain <code>.card</code>s in <code>.card-grid--2</code> or <code>.card-grid--3</code>: an <code>h3</code> with a paragraph (registration "What we do"), or an <code>h3</code> with a <code>.check-list</code> (service "What we do for you"). Cards stretch to equal height; add <code>card-grid--top</code> only when card lengths are very different (for example 2 items next to 6). <code>.section-lead</code> is the one intro line under a section's H2. One section = one H2 and one job; <code>.stack</code> spaces several blocks that belong to one topic.</p>
+  <pre class="sg-code"><code>&lt;h2&gt;…&lt;/h2&gt;
+&lt;p class="section-lead"&gt;…&lt;/p&gt;
+&lt;div class="card-grid card-grid--2"&gt;
+  &lt;div class="card"&gt;&lt;h3&gt;…&lt;/h3&gt;&lt;p&gt;…&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="card-grid card-grid--3 card-grid--top"&gt;
+  &lt;div class="card"&gt;&lt;h3&gt;…&lt;/h3&gt;&lt;ul class="check-list"&gt;&lt;li&gt;…&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+</div>
+<section class="section" aria-label="Content cards demo">
+  <div class="container">
+    <p class="section-lead">Sample intro line under a section heading.</p>
+    <div class="card-grid card-grid--2">
+      <div class="card"><h3>Sample card heading</h3><p>A short paragraph. Cards in a row stretch to the same height.</p></div>
+      <div class="card"><h3>Second card</h3><p>A slightly longer paragraph, to show the two cards still end at the same line even when their text is a little different in length.</p></div>
+    </div>
+    <div class="sg-gap"></div>
+    <div class="card-grid card-grid--3 card-grid--top">
+      <div class="card"><h3>Check-list card</h3><ul class="check-list"><li>One item.</li><li>Two items.</li></ul></div>
+      <div class="card"><h3>Longer card</h3><ul class="check-list"><li>One.</li><li>Two.</li><li>Three.</li><li>Four.</li><li>Five.</li></ul></div>
+      <div class="card"><h3>Short card</h3><ul class="check-list"><li>One item.</li></ul></div>
+    </div>
+  </div>
+</section>
 
 <div id="sg-office" class="sg-component">
   <div class="container"><p class="sg-component__name">No office visits</p><p class="sg-note">One line (brief section 8). Home "Where we work", city pages and contact.</p>

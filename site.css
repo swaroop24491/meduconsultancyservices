@@ -599,6 +599,10 @@ html { scroll-padding-bottom: calc(var(--tap-min) + var(--space-5) + env(safe-ar
 .prose > * + * { margin-top: var(--space-4); }
 .prose ul { padding-left: 1.25em; }
 .prose li + li { margin-top: var(--space-2); }
+/* A check list inside running text: no bullet indent; the list's own gap spaces the items */
+.prose .check-list { padding-left: 0; }
+.prose .check-list li + li { margin-top: 0; }
+.prose p + .check-list { margin-top: var(--space-3); }
 .prose strong { color: var(--color-heading); font-weight: var(--weight-semibold); }
 .section-lead { max-width: var(--container-text); margin-top: calc(-1 * var(--space-3)); margin-bottom: var(--space-5); }
 

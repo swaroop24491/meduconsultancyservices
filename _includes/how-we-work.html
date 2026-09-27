@@ -1,16 +1,14 @@
 {%- comment -%}
   How we work: 5 numbered steps (brief section 3), with the call button and filing promise.
-  include how-we-work.html            all 5 steps
-  include how-we-work.html limit=3    first steps only (registration pages)
+  include how-we-work.html            all 5 steps (service pages, home)
 {%- endcomment -%}
 {%- include i18n.html -%}
-{%- assign lim = include.limit | default: 5 -%}
 {%- assign bg = include.bg | default: "surface" -%}
 <section class="section{% if bg != "" %} section--{{ bg }}{% endif %}" aria-labelledby="how-heading">
   <div class="container">
     <h2 id="how-heading">{{ t.how_we_work.heading }}</h2>
     <ol class="steps">
-      {%- for s in t.how_we_work.steps limit: lim %}
+      {%- for s in t.how_we_work.steps %}
       <li><strong>{{ s.title }}</strong> {{ s.text }}</li>
       {%- endfor %}
     </ol>

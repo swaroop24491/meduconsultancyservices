@@ -12,7 +12,7 @@
         {%- endfor %}
       </ul>
     </nav>
-    <a class="lang-switch" href="{% if has_alt %}{{ alt_path }}{% elsif lang == 'kn' %}/{% else %}/kn/{% endif %}" hreflang="{% if lang == 'kn' %}en{% else %}kn{% endif %}" lang="{% if lang == 'kn' %}en{% else %}kn{% endif %}" aria-label="{% if has_alt %}{{ t.lang_switch_aria }}{% else %}{{ t.lang_switch_home_aria }}{% endif %}">{{ t.lang_switch_label }}</a>
+    <a class="lang-switch" href="{% if has_alt %}{{ alt_path }}{% elsif lang == 'kn' %}/{% else %}/kn/{% endif %}" hreflang="{% if lang == 'kn' %}en{% else %}kn{% endif %}" lang="{% if lang == 'kn' %}en{% else %}kn{% endif %}" aria-label="{{ t.lang_switch_label }}: {% if has_alt %}{{ t.lang_switch_aria }}{% else %}{{ t.lang_switch_home_aria }}{% endif %}">{{ t.lang_switch_label }}</a>
     <a class="btn site-header__call" href="tel:{{ site.data.site.phone_tel }}" data-call-location="header">
       {%- include icon.html name="call" size="20" -%}
       <span>{{ site.data.site.phone_display }}</span>
@@ -31,7 +31,7 @@
         <li><a href="{{ href }}"{% if link_en %} hreflang="en"{% endif %}{% if href == self_path %} aria-current="page"{% endif %}>{{ l.label }}{% if link_en %}<span class="link-lang"> {{ t.english_marker }}</span>{% endif %}</a></li>
         {%- endfor %}
       </ul>
-      <a class="lang-switch" href="{% if has_alt %}{{ alt_path }}{% elsif lang == 'kn' %}/{% else %}/kn/{% endif %}" hreflang="{% if lang == 'kn' %}en{% else %}kn{% endif %}" lang="{% if lang == 'kn' %}en{% else %}kn{% endif %}" aria-label="{% if has_alt %}{{ t.lang_switch_aria }}{% else %}{{ t.lang_switch_home_aria }}{% endif %}">{{ t.lang_switch_label }}</a>
+      <a class="lang-switch" href="{% if has_alt %}{{ alt_path }}{% elsif lang == 'kn' %}/{% else %}/kn/{% endif %}" hreflang="{% if lang == 'kn' %}en{% else %}kn{% endif %}" lang="{% if lang == 'kn' %}en{% else %}kn{% endif %}" aria-label="{{ t.lang_switch_label }}: {% if has_alt %}{{ t.lang_switch_aria }}{% else %}{{ t.lang_switch_home_aria }}{% endif %}">{{ t.lang_switch_label }}</a>
     </div>
   </nav>
 </header>

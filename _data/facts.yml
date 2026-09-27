@@ -1,6 +1,13 @@
-# Legal facts from docs/business-brief.md section 11 (checked 26 September 2026).
-# Every page reads them from here. Change a fact only when section 11 changes,
-# and run the compliance reviewer on the change.
+# Legal facts from docs/business-brief.md section 11 (checked 26 September 2026,
+# updated 27 September 2026). Page text reads them from here. Change a fact only
+# when section 11 changes, and run the compliance reviewer on the change.
+#
+# Front matter can't read this file, so these facts are also typed by hand in
+# FAQ answers (faq:) and meta descriptions (description:). When a fact changes,
+# grep for it there too: "15th", "20 or more", "10 or more", "towards 20",
+# "towards 10", "₹21,000", "₹25,000", "12%", "0.75%", "3.25%".
+# Pages: epf-consultancy-service, esi-consultancy-service, pf-registration,
+# esi-registration.
 law: "Code on Social Security, 2020"
 law_in_force: "21 November 2025"
 epf:
@@ -25,3 +32,4 @@ esi:
   total_rate_pct: 4
   due_day: 15            # of the following month
   contribution_periods: ["April–September", "October–March"]
+  contribution_periods_text: "April to September, and October to March"
