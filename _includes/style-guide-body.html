@@ -159,12 +159,14 @@
   <div class="container"><p class="sg-component__name">Industry links</p><p class="sg-note">Full on home and the industries hub. <code>compact=true</code> on service and industry pages (<code>except</code> leaves out the current industry).</p>
   <pre class="sg-code"><code>{% raw %}{% include industry-links.html %}
 {% include industry-links.html compact=true except="schools" %}
-{% include city-links.html %}{% endraw %}</code></pre></div>
+{% include city-links.html %}
+{% include city-links.html descriptive=true %}   (link text "PF and ESI in Mangalore", where links stand alone){% endraw %}</code></pre></div>
 </div>
 <div lang="{{ lang }}">
 {% include industry-links.html %}
 <div class="container sg-demo-plain">{% include industry-links.html compact=true except="schools" %}
-{% include city-links.html %}</div>
+{% include city-links.html %}
+{% include city-links.html descriptive=true %}</div>
 </div>
 
 <div id="sg-tools" class="sg-component">

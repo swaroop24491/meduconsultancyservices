@@ -80,9 +80,9 @@ no_office: ಕಚೇರಿಗೆ ಬರುವ ಅಗತ್ಯವಿಲ್ಲ. �
 
 cities_label: "ಈ ಊರುಗಳ ವ್ಯಾಪಾರಗಳೊಂದಿಗೆ ಕೆಲಸ ಮಾಡುತ್ತೇವೆ:"
 cities:
-  - { anchor: ಮಂಗಳೂರಿನಲ್ಲಿ PF ಮತ್ತು ESI, path: epf-esi-consultancy-mangalore }
-  - { anchor: ಉಡುಪಿಯಲ್ಲಿ PF ಮತ್ತು ESI, path: epf-esi-consultancy-udupi }
-  - { anchor: ಬೆಂಗಳೂರಿನಲ್ಲಿ PF ಮತ್ತು ESI, path: epf-esi-consultancy-bangalore }
+  - { name: ಮಂಗಳೂರು, anchor: ಮಂಗಳೂರಿನಲ್ಲಿ PF ಮತ್ತು ESI, path: epf-esi-consultancy-mangalore }
+  - { name: ಉಡುಪಿ, anchor: ಉಡುಪಿಯಲ್ಲಿ PF ಮತ್ತು ESI, path: epf-esi-consultancy-udupi }
+  - { name: ಬೆಂಗಳೂರು, anchor: ಬೆಂಗಳೂರಿನಲ್ಲಿ PF ಮತ್ತು ESI, path: epf-esi-consultancy-bangalore }
 
 situations:
   heading: ನಿಮ್ಮ ಪರಿಸ್ಥಿತಿ ಯಾವುದು?

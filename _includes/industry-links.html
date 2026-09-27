@@ -1,7 +1,8 @@
 {%- comment -%}
   Industry links.
   include industry-links.html                 full: 5 linked cards + "we also work with" (own section)
-  include industry-links.html compact=true    one row of 5 text links
+  include industry-links.html compact=true    one row of 5 text links (short names;
+                                              descriptive=true: "PF and ESI for hospitals"…)
   include industry-links.html compact=true except="schools"   leave out the current industry
 {%- endcomment -%}
 {%- include i18n.html -%}
@@ -9,7 +10,7 @@
 {%- if include.compact -%}
 <p class="inline-links"><span>{{ ind.compact_label }}</span>
   {%- for i in ind.primary %}{% unless i.key == include.except %}
-  {% assign _ip = "industries/" | append: i.key %}{% include resolve-link.html path=_ip %}<a href="{{ href }}"{% if link_en %} hreflang="en"{% endif %}>{{ i.anchor }}{% if link_en %}<span class="link-lang"> {{ t.english_marker }}</span>{% endif %}</a>
+  {% assign _ip = "industries/" | append: i.key %}{% include resolve-link.html path=_ip %}<a href="{{ href }}"{% if link_en %} hreflang="en"{% endif %}>{% if include.descriptive %}{{ i.anchor }}{% else %}{{ i.name }}{% endif %}{% if link_en %}<span class="link-lang"> {{ t.english_marker }}</span>{% endif %}</a>
   {%- endunless %}{% endfor %}
 </p>
 {%- else -%}

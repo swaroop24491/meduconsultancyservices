@@ -1,7 +1,11 @@
-{%- comment -%} The 3 city pages in one line. include city-links.html {%- endcomment -%}
+{%- comment -%}
+  The 3 city pages in one line. include city-links.html
+  descriptive=true uses link text like "PF and ESI in Mangalore" (where the links stand alone);
+  the default is the short city name (compact lists under a label).
+{%- endcomment -%}
 {%- include i18n.html -%}
 <p class="inline-links"><span>{{ t.cities_label }}</span>
   {%- for l in t.cities %}
-  {% include resolve-link.html path=l.path %}<a href="{{ href }}"{% if link_en %} hreflang="en"{% endif %}>{{ l.anchor }}{% if link_en %}<span class="link-lang"> {{ t.english_marker }}</span>{% endif %}</a>
+  {% include resolve-link.html path=l.path %}<a href="{{ href }}"{% if link_en %} hreflang="en"{% endif %}>{% if include.descriptive %}{{ l.anchor }}{% else %}{{ l.name }}{% endif %}{% if link_en %}<span class="link-lang"> {{ t.english_marker }}</span>{% endif %}</a>
   {%- endfor %}
 </p>
