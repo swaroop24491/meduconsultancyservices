@@ -73,6 +73,8 @@ how_we_work:
 
 no_office: ಕಚೇರಿಗೆ ಬರುವ ಅಗತ್ಯವಿಲ್ಲ. ಎಲ್ಲವನ್ನೂ ಫೋನ್ ಮತ್ತು ಇಮೇಲ್ ಮೂಲಕ ನಾವು ನೋಡಿಕೊಳ್ಳುತ್ತೇವೆ.
 
+cities_label: "ಈ ಊರುಗಳ ವ್ಯಾಪಾರಗಳೊಂದಿಗೆ ಕೆಲಸ ಮಾಡುತ್ತೇವೆ:"
+
 situations:
   heading: ನಿಮ್ಮ ಪರಿಸ್ಥಿತಿ ಯಾವುದು?
   new:
@@ -93,7 +95,7 @@ situations:
 
 industries:
   heading: ನಾವು ಸೇವೆ ನೀಡುವ ಉದ್ಯಮಗಳು
-  compact_label: "ನಾವು ಕೆಲಸ ಮಾಡುವ ಉದ್ಯಮಗಳು:"
+  compact_label: "ಉದ್ಯಮಗಳು:"
   also_heading: ಇವರೊಂದಿಗೂ ಕೆಲಸ ಮಾಡುತ್ತೇವೆ
   primary:
     - { key: hospitals, name: ಆಸ್ಪತ್ರೆಗಳು, icon: hospital, text: "ನರ್ಸ್‌ಗಳು, ಸಹಾಯಕ ಸಿಬ್ಬಂದಿ ಮತ್ತು ಏಜೆನ್ಸಿ ಕೆಲಸಗಾರರು." }

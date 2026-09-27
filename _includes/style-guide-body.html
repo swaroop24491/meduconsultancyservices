@@ -14,13 +14,15 @@
       <ul>
         <li><a href="#sg-colours">Colours</a></li>
         <li><a href="#sg-type">Type</a></li>
+        <li><a href="#sg-hero">Hero</a></li>
+        <li><a href="#sg-prose">Text, check list and sections</a></li>
         <li><a href="#sg-call">Call button</a></li>
         <li><a href="#sg-proof">Proof line and filing promise</a></li>
         <li><a href="#sg-paths">Two paths</a></li>
         <li><a href="#sg-how">How we work</a></li>
         <li><a href="#sg-office">No office visits</a></li>
         <li><a href="#sg-situations">Situation cards</a></li>
-        <li><a href="#sg-industries">Industry links</a></li>
+        <li><a href="#sg-industries">Industry and city links</a></li>
         <li><a href="#sg-tools">Tool cards</a></li>
         <li><a href="#sg-result">Result call box</a></li>
         <li><a href="#sg-faq">FAQ</a></li>
@@ -71,6 +73,29 @@
       <p style="font-size: var(--text-sm)">{{ t.footer.address }}</p>
       <p class="sg-label" lang="en">Link</p>
       <p><a href="{{ base }}epf-consultancy-service">{{ t.two_paths.monthly.links[0].label }}</a></p>
+    </div>
+  </div>
+</section>
+
+<div id="sg-hero" class="sg-component">
+  <div class="container"><p class="sg-component__name">Hero</p><p class="sg-note">Top of every page except tools (which use a plain H1 so the tool is on the first screen). H1, one plain line, the call block and the proof line. <code>proof=false</code> leaves out the proof line.</p>
+  <pre class="sg-code"><code>{% raw %}{% include hero.html heading="PF consultant: we file your PF every month" lead="..." %}{% endraw %}</code></pre></div>
+</div>
+<div lang="{{ lang }}">{% include hero.html heading=t.two_paths.monthly.title lead=t.two_paths.monthly.text %}</div>
+
+<section class="section section--surface" aria-labelledby="sg-prose">
+  <div class="container">
+    <h2 id="sg-prose">Text, check list and sections</h2>
+    <p class="sg-note">Sections are <code>&lt;section class="section"&gt;</code> with a container. Backgrounds alternate: cream (default), <code>section--surface</code> (white), <code>section--tint</code> (soft green). Section components take <code>bg="surface"</code> or <code>bg="tint"</code>. Running text goes in <code>.prose</code> (reading width). Lists of what we do use <code>.check-list</code>. Several blocks in one section use <code>.stack</code>.</p>
+    <div class="sg-demo" lang="{{ lang }}">
+      <div class="prose">
+        <p>{{ t.two_paths.monthly.text }} {{ t.no_office }}</p>
+        <ul class="check-list">
+          {%- for s in t.how_we_work.steps limit: 3 %}
+          <li>{{ s.title }} {{ s.text }}</li>
+          {%- endfor %}
+        </ul>
+      </div>
     </div>
   </div>
 </section>
@@ -133,11 +158,13 @@
 <div id="sg-industries" class="sg-component">
   <div class="container"><p class="sg-component__name">Industry links</p><p class="sg-note">Full on home and the industries hub. <code>compact=true</code> on service and industry pages (<code>except</code> leaves out the current industry).</p>
   <pre class="sg-code"><code>{% raw %}{% include industry-links.html %}
-{% include industry-links.html compact=true except="schools" %}{% endraw %}</code></pre></div>
+{% include industry-links.html compact=true except="schools" %}
+{% include city-links.html %}{% endraw %}</code></pre></div>
 </div>
 <div lang="{{ lang }}">
 {% include industry-links.html %}
-<div class="container sg-demo-plain">{% include industry-links.html compact=true except="schools" %}</div>
+<div class="container sg-demo-plain">{% include industry-links.html compact=true except="schools" %}
+{% include city-links.html %}</div>
 </div>
 
 <div id="sg-tools" class="sg-component">
@@ -191,6 +218,7 @@
       <li><strong>Sticky call bar (phones only):</strong> full-width call button fixed to the bottom, hidden while the menu is open. The page has bottom padding so it never hides content.</li>
       <li><strong>Footer:</strong> services, places, tools and guides, company links, address, phone and email. The footer is the only place the email appears. No headings in the header or footer.</li>
     </ul>
+    <p>Structured data (JSON-LD) is added by the layout from front matter: <code>breadcrumb</code> and <code>service</code> (see <code>_includes/schema.html</code>). FAQ JSON-LD comes from <code>faq.html schema=true</code>.</p>
     <p>Every <code>tel:</code> link sends a <code>phone_call_click</code> event to Google Analytics with <code>call_location</code> and <code>page_type</code> (decision D5).</p>
   </div>
 </section>

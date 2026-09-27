@@ -1,7 +1,8 @@
 {%- comment -%} Situation cards: route visitors by situation (home page). {%- endcomment -%}
 {%- include i18n.html -%}
 {%- assign s = t.situations -%}
-<section class="section" aria-labelledby="situations-heading">
+{%- assign bg = include.bg | default: "" -%}
+<section class="section{% if bg != "" %} section--{{ bg }}{% endif %}" aria-labelledby="situations-heading">
   <div class="container">
     <h2 id="situations-heading">{{ s.heading }}</h2>
     <div class="card-grid card-grid--3">

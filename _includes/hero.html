@@ -1,0 +1,17 @@
+{%- comment -%}
+  Page hero: H1, one plain line, call button with the filing promise, proof line.
+  include hero.html heading="..." lead="..."
+  proof=false leaves out the proof line (pages where it isn't in the hero, strategy 4.2).
+{%- endcomment -%}
+<section class="hero">
+  <div class="container">
+    <h1>{{ include.heading }}</h1>
+    {%- if include.lead %}
+    <p class="hero__lead">{{ include.lead }}</p>
+    {%- endif %}
+    {% include call-block.html location="hero" %}
+    {%- unless include.proof == false %}
+    {% include proof-line.html %}
+    {%- endunless %}
+  </div>
+</section>

@@ -1,0 +1,24 @@
+{%- comment -%}
+  JSON-LD for rebuilt pages (strategy 6.4), from front matter:
+    breadcrumb: [{ name: "PF services" }]         (Home is added first; the last item is this page)
+    service: { type: "...", name: "...", offers: ["...", "..."] }
+  The business entity is defined in full on home and contact; other pages refer to it by @id.
+  FAQPage comes from faq.html (schema=true).
+{%- endcomment -%}
+{%- include i18n.html -%}
+{%- assign site_url = site.data.site.url -%}
+{%- assign page_url = site_url | append: en_path -%}
+{%- if lang == "kn" %}{% assign page_url = site_url | append: kn_path %}{% endif -%}
+{%- assign biz = site_url | append: "/#business" -%}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"WebSite","@id":"{{ site_url }}/#website","url":"{{ site_url }}/","name":"{{ site.data.site.name }}","publisher":{"@id":"{{ biz }}"}},
+{"@type":"WebPage","@id":"{{ page_url }}#webpage","url":"{{ page_url }}","name":{{ page.title | jsonify }},"description":{{ page.description | jsonify }},"inLanguage":"{% if lang == 'kn' %}kn-IN{% else %}en-IN{% endif %}","isPartOf":{"@id":"{{ site_url }}/#website"},"about":{"@id":"{{ biz }}"}}
+{%- if page.breadcrumb -%}
+,{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":{{ t.nav.menu_links[0].label | jsonify }},"item":"{{ site_url }}{{ base }}"}{% for b in page.breadcrumb %},{"@type":"ListItem","position":{{ forloop.index | plus: 1 }},"name":{{ b.name | jsonify }}{% if b.path %},"item":"{{ site_url }}{{ base }}{{ b.path }}"{% elsif forloop.last %},"item":"{{ page_url }}"{% endif %}}{% endfor %}]}
+{%- endif -%}
+{%- if page.service -%}
+,{"@type":"Service","serviceType":{{ page.service.type | jsonify }},"name":{{ page.service.name | jsonify }},"provider":{"@id":"{{ biz }}"},"url":"{{ page_url }}","areaServed":[{% for c in site.data.site.cities %}{"@type":"City","name":"{{ c }}"}{% unless forloop.last %},{% endunless %}{% endfor %}]{% if page.service.offers %},"hasOfferCatalog":{"@type":"OfferCatalog","name":{{ page.service.name | jsonify }},"itemListElement":[{% for o in page.service.offers %}{"@type":"Offer","itemOffered":{"@type":"Service","name":{{ o | jsonify }}}}{% unless forloop.last %},{% endunless %}{% endfor %}]}{% endif %}}
+{%- endif -%}
+]}
+</script>

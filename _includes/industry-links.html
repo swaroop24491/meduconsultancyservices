@@ -13,7 +13,8 @@
   {%- endunless %}{% endfor %}
 </p>
 {%- else -%}
-<section class="section" aria-labelledby="industries-heading">
+{%- assign bg = include.bg | default: "" -%}
+<section class="section{% if bg != "" %} section--{{ bg }}{% endif %}" aria-labelledby="industries-heading">
   <div class="container">
     <h2 id="industries-heading">{{ ind.heading }}</h2>
     <ul class="card-grid card-grid--5 industry-cards">

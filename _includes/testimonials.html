@@ -6,7 +6,8 @@
 {%- include i18n.html -%}
 {%- assign items = include.items | default: site.data.testimonials -%}
 {%- if include.demo or site.data.site.testimonials_on -%}{%- if items.size > 0 -%}
-<section class="section" aria-labelledby="testimonials-heading">
+{%- assign bg = include.bg | default: "" -%}
+<section class="section{% if bg != "" %} section--{{ bg }}{% endif %}" aria-labelledby="testimonials-heading">
   <div class="container">
     <h2 id="testimonials-heading">{{ t.testimonials.heading }}</h2>
     <div class="card-grid card-grid--auto">

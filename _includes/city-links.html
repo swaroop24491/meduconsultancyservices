@@ -1,0 +1,7 @@
+{%- comment -%} The 3 city pages in one line. include city-links.html {%- endcomment -%}
+{%- include i18n.html -%}
+<p class="inline-links"><span>{{ t.cities_label }}</span>
+  {%- for l in t.footer.places_links %}
+  <a href="{{ base }}{{ l.path }}">{{ l.label }}</a>
+  {%- endfor %}
+</p>

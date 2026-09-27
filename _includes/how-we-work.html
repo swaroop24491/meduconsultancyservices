@@ -5,7 +5,8 @@
 {%- endcomment -%}
 {%- include i18n.html -%}
 {%- assign lim = include.limit | default: 5 -%}
-<section class="section section--surface" aria-labelledby="how-heading">
+{%- assign bg = include.bg | default: "surface" -%}
+<section class="section{% if bg != "" %} section--{{ bg }}{% endif %}" aria-labelledby="how-heading">
   <div class="container">
     <h2 id="how-heading">{{ t.how_we_work.heading }}</h2>
     <ol class="steps">

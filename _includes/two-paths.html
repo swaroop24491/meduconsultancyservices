@@ -2,6 +2,7 @@
   Two paths: "Get registered" and "We file every month".
   include two-paths.html            full version, own section heading
   include two-paths.html compact=true   one line bridge with links (registration and city pages)
+  bg="surface" | "tint" sets the section background (default cream). Same on every section component.
 {%- endcomment -%}
 {%- include i18n.html -%}
 {%- assign p = t.two_paths -%}
@@ -10,7 +11,8 @@
   {%- for l in p.monthly.links %} <a class="link-arrow" href="{{ base }}{{ l.path }}">{{ l.label }}{% include icon.html name="arrow" size="18" %}</a>{% endfor %}
 </p>
 {%- else -%}
-<section class="section" aria-labelledby="two-paths-heading">
+{%- assign bg = include.bg | default: "" -%}
+<section class="section{% if bg != "" %} section--{{ bg }}{% endif %}" aria-labelledby="two-paths-heading">
   <div class="container">
     <h2 id="two-paths-heading">{{ p.heading }}</h2>
     <div class="card-grid card-grid--2">

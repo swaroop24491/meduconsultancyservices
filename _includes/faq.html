@@ -5,7 +5,8 @@
   Each question lives on one page only (strategy section 4.12).
 {%- endcomment -%}
 {%- include i18n.html -%}
-<section class="section" aria-labelledby="faq-heading">
+{%- assign bg = include.bg | default: "" -%}
+<section class="section{% if bg != "" %} section--{{ bg }}{% endif %}" aria-labelledby="faq-heading">
   <div class="container container--text">
     <h2 id="faq-heading">{{ include.heading | default: t.faq_heading }}</h2>
     <div class="accordion faq" id="faq">

@@ -8,6 +8,9 @@ epf:
   wage_ceiling: 25000
   wage_ceiling_from: "17 September 2026"
   wage_ceiling_old: 15000
+  wage_ceiling_text: "₹25,000"
+  wage_ceiling_old_text: "₹15,000"
+  wage_ceiling_from_kn: "17 ಸೆಪ್ಟೆಂಬರ್ 2026"
   employee_rate_pct: 12
   employer_rate_pct: 12
   due_day: 15            # of the following month
