@@ -2,6 +2,10 @@
 # Text comes from docs/business-brief.md and docs/strategy.md section 4.1.
 lang_switch_label: ಕನ್ನಡ
 lang_switch_aria: View this page in Kannada
+lang_switch_home_aria: Kannada home page (this page is only in English)
+english_marker: (English)
+this_page: (this page)
+breadcrumb_home: Home
 skip_link: Skip to main content
 home_aria: Medu Consultancy home
 

@@ -2,6 +2,6 @@
 {%- include i18n.html -%}
 <p class="inline-links"><span>{{ t.cities_label }}</span>
   {%- for l in t.footer.places_links %}
-  <a href="{{ base }}{{ l.path }}">{{ l.label }}</a>
+  {% include resolve-link.html path=l.path %}<a href="{{ href }}"{% if link_en %} hreflang="en"{% endif %}>{{ l.label }}{% if link_en %}<span class="link-lang"> {{ t.english_marker }}</span>{% endif %}</a>
   {%- endfor %}
 </p>

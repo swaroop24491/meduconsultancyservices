@@ -1,10 +1,11 @@
 {%- comment -%} One tool card. include tool-card.html key="epf-eligibility" (keys in _data/i18n tools) {%- endcomment -%}
 {%- include i18n.html -%}
 {%- assign tool = t.tools | where: "key", include.key | first -%}
-<a class="card card--link tool-card" href="{{ base }}{{ tool.path }}">
+{%- include resolve-link.html path=tool.path -%}
+<a class="card card--link tool-card" href="{{ href }}"{% if link_en %} hreflang="en"{% endif %}>
   <span class="icon-badge">{% include icon.html name=tool.icon size="24" %}</span>
   <span class="tool-card__body">
-    <span class="tool-card__name">{{ tool.name }}</span>
+    <span class="tool-card__name">{{ tool.name }}{% if link_en %}<span class="link-lang"> {{ t.english_marker }}</span>{% endif %}</span>
     <span class="tool-card__text">{{ tool.text }}</span>
   </span>
   {% include icon.html name="arrow" size="20" %}

@@ -19,9 +19,15 @@
     <title>{{ page.title }}</title>
     <meta name="description" content="{{ page.description }}">
     <link rel="canonical" href="{{ self_url }}">
+{%- if has_alt or lang == "en" %}
     <link rel="alternate" hreflang="en" href="{{ en_url }}">
+{%- endif %}
+{%- if has_alt or lang == "kn" %}
     <link rel="alternate" hreflang="kn" href="{{ kn_url }}">
+{%- endif %}
+{%- if has_alt or lang == "en" %}
     <link rel="alternate" hreflang="x-default" href="{{ en_url }}">
+{%- endif %}
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="{{ site.data.site.name }}">

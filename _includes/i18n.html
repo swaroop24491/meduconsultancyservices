@@ -16,4 +16,17 @@
 {%- assign en_path = _p | remove_first: "/kn" -%}
 {%- if en_path == "" -%}{%- assign en_path = "/" -%}{%- endif -%}
 {%- assign kn_path = "/kn" | append: en_path -%}
-{%- if lang == "kn" -%}{%- assign alt_path = en_path -%}{%- else -%}{%- assign alt_path = kn_path -%}{%- endif -%}
+{%- if lang == "kn" -%}{%- assign alt_path = en_path -%}{%- assign self_path = kn_path -%}{%- else -%}{%- assign alt_path = kn_path -%}{%- assign self_path = en_path -%}{%- endif -%}
+{%- comment -%}
+  site_urls: every published page path (without .html), "|"-separated, built once per page render.
+  has_alt: true when the same page exists in the other language.
+{%- endcomment -%}
+{%- unless _urls_for == page.url -%}
+{%- assign _urls_for = page.url -%}
+{%- assign site_urls = "|" -%}
+{%- for p in site.html_pages -%}{%- assign site_urls = site_urls | append: p.url | append: "|" -%}{%- endfor -%}
+{%- for f in site.static_files -%}{%- if f.extname == ".html" -%}{%- assign site_urls = site_urls | append: f.path | append: "|" -%}{%- endif -%}{%- endfor -%}
+{%- assign site_urls = site_urls | replace: "/index.html|", "/|" | replace: ".html|", "|" -%}
+{%- endunless -%}
+{%- assign _alt_key = "|" | append: alt_path | append: "|" -%}
+{%- if site_urls contains _alt_key -%}{%- assign has_alt = true -%}{%- else -%}{%- assign has_alt = false -%}{%- endif -%}

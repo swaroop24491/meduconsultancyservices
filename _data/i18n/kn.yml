@@ -5,6 +5,10 @@
 # on the live site, the legal page names and the address are DRAFTS awaiting review.
 lang_switch_label: English
 lang_switch_aria: View this page in English
+lang_switch_home_aria: English home page (this page is only in Kannada)
+english_marker: (ಇಂಗ್ಲಿಷ್‌ನಲ್ಲಿ)
+this_page: (ಈ ಪುಟ)
+breadcrumb_home: ಮುಖಪುಟ
 skip_link: ಮುಖ್ಯ ವಿಷಯಕ್ಕೆ ಹೋಗಿ
 home_aria: ಮೆದು ಕನ್ಸಲ್ಟೆನ್ಸಿ ಮುಖಪುಟ
 

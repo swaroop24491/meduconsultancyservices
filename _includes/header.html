@@ -1,5 +1,5 @@
 {%- include i18n.html -%}
-{%- assign here = page.url | remove: ".html" | remove: "index" -%}
+
 <a class="skip-link" href="#main-content">{{ t.skip_link }}</a>
 <header class="site-header">
   <div class="container site-header__inner">
@@ -7,12 +7,12 @@
     <nav class="site-nav" aria-label="{{ t.nav.primary_aria }}">
       <ul>
         {%- for l in t.nav.links %}
-        {%- assign href = base | append: l.path %}
-        <li><a href="{{ href }}"{% if href == here %} aria-current="page"{% endif %}>{{ l.label }}</a></li>
+        {%- include resolve-link.html path=l.path %}
+        <li><a href="{{ href }}"{% if link_en %} hreflang="en"{% endif %}{% if href == self_path %} aria-current="page"{% endif %}>{{ l.label }}{% if link_en %}<span class="link-lang"> {{ t.english_marker }}</span>{% endif %}</a></li>
         {%- endfor %}
       </ul>
     </nav>
-    <a class="lang-switch" href="{{ alt_path }}" hreflang="{% if lang == 'kn' %}en{% else %}kn{% endif %}" lang="{% if lang == 'kn' %}en{% else %}kn{% endif %}" aria-label="{{ t.lang_switch_aria }}">{{ t.lang_switch_label }}</a>
+    <a class="lang-switch" href="{% if has_alt %}{{ alt_path }}{% elsif lang == 'kn' %}/{% else %}/kn/{% endif %}" hreflang="{% if lang == 'kn' %}en{% else %}kn{% endif %}" lang="{% if lang == 'kn' %}en{% else %}kn{% endif %}" aria-label="{% if has_alt %}{{ t.lang_switch_aria }}{% else %}{{ t.lang_switch_home_aria }}{% endif %}">{{ t.lang_switch_label }}</a>
     <a class="btn site-header__call" href="tel:{{ site.data.site.phone_tel }}" data-call-location="header">
       {%- include icon.html name="call" size="20" -%}
       <span>{{ site.data.site.phone_display }}</span>
@@ -27,11 +27,11 @@
       {% include call-button.html location="menu" block=true %}
       <ul>
         {%- for l in t.nav.menu_links %}
-        {%- assign href = base | append: l.path %}
-        <li><a href="{{ href }}"{% if href == here %} aria-current="page"{% endif %}>{{ l.label }}</a></li>
+        {%- include resolve-link.html path=l.path %}
+        <li><a href="{{ href }}"{% if link_en %} hreflang="en"{% endif %}{% if href == self_path %} aria-current="page"{% endif %}>{{ l.label }}{% if link_en %}<span class="link-lang"> {{ t.english_marker }}</span>{% endif %}</a></li>
         {%- endfor %}
       </ul>
-      <a class="lang-switch" href="{{ alt_path }}" hreflang="{% if lang == 'kn' %}en{% else %}kn{% endif %}" lang="{% if lang == 'kn' %}en{% else %}kn{% endif %}" aria-label="{{ t.lang_switch_aria }}">{{ t.lang_switch_label }}</a>
+      <a class="lang-switch" href="{% if has_alt %}{{ alt_path }}{% elsif lang == 'kn' %}/{% else %}/kn/{% endif %}" hreflang="{% if lang == 'kn' %}en{% else %}kn{% endif %}" lang="{% if lang == 'kn' %}en{% else %}kn{% endif %}" aria-label="{% if has_alt %}{{ t.lang_switch_aria }}{% else %}{{ t.lang_switch_home_aria }}{% endif %}">{{ t.lang_switch_label }}</a>
     </div>
   </nav>
 </header>

@@ -1,0 +1,15 @@
+{%- comment -%}
+  Works out a link for the current language. include resolve-link.html path="about-us"
+  Sets: href, link_en (true when a Kannada page links to the English page because
+  the Kannada one doesn't exist yet, per D9). English pages always link to /path.
+{%- endcomment -%}
+{%- include i18n.html -%}
+{%- assign href = base | append: include.path -%}
+{%- assign link_en = false -%}
+{%- if lang == "kn" -%}
+  {%- assign _key = "|" | append: href | append: "|" -%}
+  {%- unless site_urls contains _key -%}
+    {%- assign href = "/" | append: include.path -%}
+    {%- assign link_en = true -%}
+  {%- endunless -%}
+{%- endif -%}

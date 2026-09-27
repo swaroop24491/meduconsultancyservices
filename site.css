@@ -51,7 +51,7 @@
     --space-6: 2rem;
     --space-7: 3rem;
     --space-8: 4rem;
-    --section-gap: clamp(3rem, 2rem + 4vw, 6rem);
+    --section-gap: clamp(3rem, 2rem + 4vw, 5rem);
     --gutter: clamp(1rem, 4vw, 2rem);  /* 16px side gutter on phones */
 
     /* Layout and shape */
@@ -158,7 +158,8 @@ address { font-style: normal; }
     margin-inline: auto;
     padding-inline: var(--gutter);
 }
-.container--text { max-width: calc(var(--container-text) + 2 * var(--gutter)); }
+/* Narrow reading column, left-aligned with the other sections */
+.container--text > * { max-width: var(--container-text); }
 
 .section { padding-block: var(--section-gap); }
 .section--surface { background: var(--color-surface); }
@@ -167,18 +168,27 @@ address { font-style: normal; }
 .card-grid { display: grid; gap: var(--space-4); }
 .card-grid > * { min-width: 0; }
 .card-grid--auto { grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); }
+/* Cards as tall as their content (for groups with very different lengths) */
+.card-grid--top { align-items: start; }
 @media (min-width: 640px) {
     .card-grid--2, .card-grid--3 { grid-template-columns: repeat(2, 1fr); }
-    /* No card left alone on the last row: the call card takes the full row */
+}
+/* While a 3-card grid has 2 columns, no card is left alone on the last row */
+@media (min-width: 640px) and (max-width: 959px) {
+    .card-grid--3 > :last-child:nth-child(odd) { grid-column: 1 / -1; }
+}
+@media (min-width: 640px) and (max-width: 1199px) {
+    .card-grid--3:has(.card--brand) > :last-child:nth-child(odd),
     .card-grid--3 > .card--brand { grid-column: 1 / -1; }
 }
 @media (min-width: 960px) {
     .card-grid--5 { grid-template-columns: repeat(5, 1fr); }
+    /* Plain cards: 3 columns from 960px */
+    .card-grid--3:not(:has(.card--brand)) { grid-template-columns: repeat(3, 1fr); }
 }
-/* 3 columns only when each is wide enough for the call button on one line */
+/* With a call card: 3 columns only when each is wide enough for the call button */
 @media (min-width: 1200px) {
     .card-grid--3 { grid-template-columns: repeat(3, 1fr); }
-    .card-grid--3 > .card--brand { grid-column: auto; }
 }
 
 /* ---------- Buttons ---------- */
@@ -207,6 +217,10 @@ address { font-style: normal; }
 .btn__label { display: inline-flex; align-items: center; gap: var(--space-2); white-space: nowrap; }
 /* The phone number never breaks across lines; "Call" may wrap above it */
 .nowrap { white-space: nowrap; }
+
+/* ---------- Link notes ---------- */
+.link-lang { font-weight: var(--weight-regular); font-size: var(--text-sm); }
+.link-current { font-weight: var(--weight-medium); color: var(--color-text-muted); display: inline-flex; align-items: center; min-height: var(--tap-link); }
 
 /* ---------- Links with an arrow ---------- */
 .link-list { display: grid; gap: 0; }
@@ -352,9 +366,12 @@ body.menu-open .sticky-call { display: none; }
     .sticky-call .btn { min-height: 40px; padding-block: 0; font-size: var(--text-base); }
     body { padding-bottom: calc(40px + var(--space-2) + env(safe-area-inset-bottom)); }
 }
+/* Keyboard focus and in-page links never land under the sticky bar */
+html { scroll-padding-bottom: calc(var(--tap-min) + var(--space-5) + env(safe-area-inset-bottom)); }
 @media (min-width: 769px) {
     .sticky-call { display: none; }
     body { padding-bottom: 0; }
+    html { scroll-padding-bottom: 0; }
 }
 
 /* ---------- Footer ---------- */
@@ -404,8 +421,9 @@ body.menu-open .sticky-call { display: none; }
     transform: translateY(-0.1em);
 }
 /* Phones: a 2 x 2 block instead of a 4-row list */
+/* Phones: one fact per line */
 @media (max-width: 639px) {
-    .proof-line:not(.proof-line--compact) { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2) var(--space-4); }
+    .proof-line:not(.proof-line--compact) { display: grid; grid-template-columns: 1fr; gap: var(--space-1); }
 }
 /* Compact: plain text joined with " · ", no dots */
 .proof-line--compact { display: block; font-size: var(--text-sm); font-weight: var(--weight-regular); color: var(--color-text-muted); }
@@ -506,9 +524,6 @@ body.menu-open .sticky-call { display: none; }
 .industry-card__name { font-weight: var(--weight-semibold); color: var(--color-brand); font-size: var(--text-lg); }
 .industry-card__text { font-size: var(--text-sm); }
 .industry-also { margin-top: var(--space-5); max-width: var(--container-text); }
-.industry-compact { display: flex; flex-wrap: wrap; gap: var(--space-1) var(--space-4); align-items: center; }
-.industry-compact span { font-weight: var(--weight-medium); color: var(--color-heading); }
-.industry-compact a { display: inline-flex; align-items: center; min-height: var(--tap-link); }
 
 /* ---------- Tool card ---------- */
 .tool-card { display: flex; align-items: center; gap: var(--space-4); }
@@ -517,6 +532,8 @@ body.menu-open .sticky-call { display: none; }
 .tool-card__name { font-weight: var(--weight-semibold); color: var(--color-brand); }
 .tool-card__text { font-size: var(--text-sm); }
 .tool-card > .icon { color: var(--color-brand); flex-shrink: 0; }
+/* Small phones: the whole card is the link, so the trailing arrow goes */
+@media (max-width: 479px) { .tool-card > .icon { display: none; } }
 
 /* ---------- FAQ (accordion wired by script.js) ---------- */
 .faq { border-top: 1px solid var(--color-border); }
@@ -536,6 +553,7 @@ body.menu-open .sticky-call { display: none; }
     font: inherit;
     font-weight: var(--weight-semibold);
     text-align: left;
+    text-wrap: pretty;
     cursor: pointer;
 }
 .accordion-heading button:hover { color: var(--color-brand); }
@@ -597,10 +615,12 @@ body.menu-open .sticky-call { display: none; }
             mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 -960 960 960'%3E%3Cpath d='M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 
-/* ---------- Inline links (cities) ---------- */
-.inline-links { display: flex; flex-wrap: wrap; gap: var(--space-1) var(--space-4); align-items: center; }
-.inline-links span { font-weight: var(--weight-medium); color: var(--color-heading); }
+/* ---------- Inline links (industries, cities) ---------- */
+.inline-links { display: flex; flex-wrap: wrap; column-gap: var(--space-4); align-items: center; }
+.inline-links > span { font-weight: var(--weight-medium); color: var(--color-heading); }
 .inline-links a { display: inline-flex; align-items: center; min-height: var(--tap-link); }
+/* Phones: the label sits on its own line above the links */
+@media (max-width: 639px) { .inline-links > span { flex-basis: 100%; } }
 
 /* ---------- Stacked blocks inside one section ---------- */
 .stack > * + * { margin-top: var(--space-5); }

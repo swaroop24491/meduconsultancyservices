@@ -7,9 +7,9 @@
 {%- include i18n.html -%}
 {%- assign ind = t.industries -%}
 {%- if include.compact -%}
-<p class="industry-compact"><span>{{ ind.compact_label }}</span>
+<p class="inline-links"><span>{{ ind.compact_label }}</span>
   {%- for i in ind.primary %}{% unless i.key == include.except %}
-  <a href="{{ base }}industries/{{ i.key }}">{{ i.name }}</a>
+  {% assign _ip = "industries/" | append: i.key %}{% include resolve-link.html path=_ip %}<a href="{{ href }}"{% if link_en %} hreflang="en"{% endif %}>{{ i.name }}{% if link_en %}<span class="link-lang"> {{ t.english_marker }}</span>{% endif %}</a>
   {%- endunless %}{% endfor %}
 </p>
 {%- else -%}
@@ -20,9 +20,9 @@
     <ul class="card-grid card-grid--5 industry-cards">
       {%- for i in ind.primary %}
       <li>
-        <a class="card card--link industry-card" href="{{ base }}industries/{{ i.key }}">
+        {% assign _ip = "industries/" | append: i.key %}{% include resolve-link.html path=_ip %}<a class="card card--link industry-card" href="{{ href }}"{% if link_en %} hreflang="en"{% endif %}>
           <span class="icon-badge">{% include icon.html name=i.icon size="24" %}</span>
-          <span class="industry-card__name">{{ i.name }}</span>
+          <span class="industry-card__name">{{ i.name }}{% if link_en %}<span class="link-lang"> {{ t.english_marker }}</span>{% endif %}</span>
           <span class="industry-card__text">{{ i.text }}</span>
         </a>
       </li>

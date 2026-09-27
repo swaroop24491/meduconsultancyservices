@@ -9,7 +9,7 @@
         <p class="site-footer__title">{{ t.footer[g] }}</p>
         <ul>
           {%- for l in t.footer[links_key] %}
-          <li><a href="{{ base }}{{ l.path }}">{{ l.label }}</a></li>
+          <li>{% include resolve-link.html path=l.path %}<a href="{{ href }}"{% if link_en %} hreflang="en"{% endif %}>{{ l.label }}{% if link_en %}<span class="link-lang"> {{ t.english_marker }}</span>{% endif %}</a></li>
           {%- endfor %}
         </ul>
       </div>

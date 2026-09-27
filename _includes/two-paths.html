@@ -8,7 +8,7 @@
 {%- assign p = t.two_paths -%}
 {%- if include.compact -%}
 <p class="paths-compact">{{ p.bridge }}
-  {%- for l in p.monthly.links %} <a class="link-arrow" href="{{ base }}{{ l.path }}">{{ l.label }}{% include icon.html name="arrow" size="18" %}</a>{% endfor %}
+  {%- for l in p.monthly.links %} {% include resolve-link.html path=l.path %}{% if href == self_path %}<span class="link-current" aria-current="page">{{ l.label }} {{ t.this_page }}</span>{% else %}<a class="link-arrow" href="{{ href }}"{% if link_en %} hreflang="en"{% endif %}>{{ l.label }}{% if link_en %}<span class="link-lang"> {{ t.english_marker }}</span>{% endif %}&#8288;{% include icon.html name="arrow" size="18" %}</a>{% endif %}{% endfor %}
 </p>
 {%- else -%}
 {%- assign bg = include.bg | default: "" -%}
@@ -24,7 +24,7 @@
         <p>{{ card.text }}</p>
         <ul class="link-list">
           {%- for l in card.links %}
-          <li><a class="link-arrow" href="{{ base }}{{ l.path }}">{{ l.label }}{% include icon.html name="arrow" size="18" %}</a></li>
+          <li>{% include resolve-link.html path=l.path %}{% if href == self_path %}<span class="link-current" aria-current="page">{{ l.label }} {{ t.this_page }}</span>{% else %}<a class="link-arrow" href="{{ href }}"{% if link_en %} hreflang="en"{% endif %}>{{ l.label }}{% if link_en %}<span class="link-lang"> {{ t.english_marker }}</span>{% endif %}&#8288;{% include icon.html name="arrow" size="18" %}</a>{% endif %}</li>
           {%- endfor %}
         </ul>
       </article>
