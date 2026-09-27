@@ -87,7 +87,7 @@ situations:
   heading: Which one sounds like you?
   new:
     title: Just crossed 10 or 20 staff
-    text: Check if PF or ESI now applies to you.
+    text: PF applies with 20 or more staff. ESI applies with 10 or more. Check if it applies to you.
     links:
       - { label: Check PF, path: epf-eligibility-checker }
       - { label: Check ESI, path: esi-eligibility-checker }
@@ -110,7 +110,7 @@ industries:
     - { key: contractors, name: Contractors, anchor: PF and ESI for contractors, icon: contractor, text: "Staff who join and leave often, across sites." }
     - { key: factories, name: Factories, anchor: PF and ESI for factories, icon: factory, text: "Contract workers, overtime and inspections." }
     - { key: schools, name: Schools, anchor: PF and ESI for schools, icon: school, text: "Teaching and non-teaching staff, and CBSE checks." }
-    - { key: it-companies, name: IT companies, anchor: PF and ESI for IT companies, icon: it, text: "The new ₹25,000 PF limit and salary structures." }
+    - { key: it-companies, name: IT companies, anchor: PF and ESI for IT companies, icon: it, text: "The new ₹25,000 PF wage limit and how salaries are set up." }
   also: Estates, security agencies, housekeeping agencies, distributors and suppliers, local shops, hotels and restaurants.
 
 tools:

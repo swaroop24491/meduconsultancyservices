@@ -6,7 +6,7 @@
 # FAQ answers (faq:) and meta descriptions (description:). When a fact changes,
 # grep for it there too: "15th", "20 or more", "10 or more", "towards 20",
 # "towards 10", "₹21,000", "₹25,000", "12%", "0.75%", "3.25%".
-# Pages: index (home FAQ), epf-consultancy-service, esi-consultancy-service, pf-registration,
+# Pages: index (home FAQ and 'Why us' due-date card), _data/i18n/en.yml (situation and industry cards), epf-consultancy-service, esi-consultancy-service, pf-registration,
 # esi-registration.
 law: "Code on Social Security, 2020"
 law_in_force: "21 November 2025"
