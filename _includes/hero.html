@@ -1,5 +1,6 @@
 {%- comment -%}
-  Page hero: H1, one plain line, call button with the filing promise, proof line.
+  Page hero: H1, one plain line, call button, proof line. (No filing promise here:
+  owner decision 2026-09-27. It stays beside the other call buttons.)
   include hero.html heading="..." lead="..."
   proof=false leaves out the proof line (pages where it isn't in the hero, strategy 4.2).
 {%- endcomment -%}
@@ -9,7 +10,7 @@
     {%- if include.lead %}
     <p class="hero__lead">{{ include.lead }}</p>
     {%- endif %}
-    {% include call-block.html location="hero" %}
+    <div class="hero__call">{% include call-button.html location="hero" %}</div>
     {%- unless include.proof == false %}
     {% include proof-line.html %}
     {%- endunless %}

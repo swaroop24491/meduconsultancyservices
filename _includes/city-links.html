@@ -1,11 +1,15 @@
 {%- comment -%}
-  The 3 city pages in one line. include city-links.html
+  The 3 city pages as a link group (label, stacked arrow links). include city-links.html
+  Next to the compact industry links, wrap both in <div class="link-groups">.
   descriptive=true uses link text like "PF and ESI in Mangalore" (where the links stand alone);
   the default is the short city name (compact lists under a label).
 {%- endcomment -%}
 {%- include i18n.html -%}
-<p class="inline-links"><span>{{ t.cities_label }}</span>
-  {%- for l in t.cities %}
-  {% include resolve-link.html path=l.path %}<a href="{{ href }}"{% if link_en %} hreflang="en"{% endif %}>{% if include.descriptive %}{{ l.anchor }}{% else %}{{ l.name }}{% endif %}{% if link_en %}<span class="link-lang"> {{ t.english_marker }}</span>{% endif %}</a>
-  {%- endfor %}
-</p>
+<div class="link-group">
+  <p class="link-group__label">{{ t.cities_label }}</p>
+  <ul class="link-list">
+    {%- for l in t.cities %}
+    <li>{% include resolve-link.html path=l.path %}<a class="link-arrow" href="{{ href }}"{% if link_en %} hreflang="en"{% endif %}>{% if include.descriptive %}{{ l.anchor }}{% else %}{{ l.name }}{% endif %}{% if link_en %}<span class="link-lang"> {{ t.english_marker }}</span>{% endif %}&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+    {%- endfor %}
+  </ul>
+</div>

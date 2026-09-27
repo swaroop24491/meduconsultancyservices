@@ -12,7 +12,7 @@
 <section class="section{% if bg != "" %} section--{{ bg }}{% endif %}" aria-labelledby="testimonials-heading">
   <div class="container">
     <h2 id="testimonials-heading">{{ t.testimonials.heading }}</h2>
-    <div class="card-grid card-grid--auto">
+    <div class="card-grid">
       {%- for q in items %}
       <figure class="card testimonial">
         <blockquote><p>{{ q.quote }}</p></blockquote>

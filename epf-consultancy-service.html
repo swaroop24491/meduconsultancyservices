@@ -42,9 +42,9 @@ faq:
     a: 'It depends on how many employees you have and what you need. <a href="tel:+918217542975" data-call-location="faq">Call us</a> for a quote.'
 ---
 {%- assign epf = site.data.facts.epf -%}
-{% include hero.html heading="PF consultant: we file your PF every month" lead="We prepare and file your PF (Provident Fund, also called EPF) before the due date, every month. You send us salary details. We do the filing." %}
+{% include hero.html heading="PF consultant: we file your PF every month" lead="We prepare and file your PF before the due date, every month. You send us salary details. We do the filing." %}
 
-<section class="section section--surface" aria-labelledby="applies-heading">
+<section class="section" aria-labelledby="applies-heading">
   <div class="container">
     <div class="prose">
       <h2 id="applies-heading">Does PF apply to your business?</h2>
@@ -61,7 +61,7 @@ faq:
 <section class="section" aria-labelledby="services-heading">
   <div class="container">
     <h2 id="services-heading">What we do for you</h2>
-    <div class="card-grid card-grid--3 card-grid--top">
+    <div class="card-grid">
       <div class="card">
         <h3>Setting up (one-time)</h3>
         <ul class="check-list">
@@ -92,25 +92,32 @@ faq:
   </div>
 </section>
 
-{% include two-paths.html bg="surface" %}
+{% include two-paths.html %}
 
-{% include how-we-work.html bg="tint" %}
+{% include how-we-work.html %}
 
 <section class="section" aria-labelledby="behind-heading">
   <div class="container stack">
     <h2 id="behind-heading">Who's behind it</h2>
     <p class="prose">Medu Thirumaleshwara Bhat started Medu Consultancy in 2000. He worked at EPFO (the PF office) for 35 years. We know how the PF office works from the inside. That is why our filing is right and on time. <a class="link-arrow" href="/about-us">About us&#8288;{% include icon.html name="arrow" size="18" %}</a></p>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="work-with-heading">
+  <div class="container stack">
     <h2 id="work-with-heading">Who we work with</h2>
-    {% include industry-links.html compact=true %}
-    {% include city-links.html %}
+    <div class="link-groups">
+      {% include industry-links.html compact=true %}
+      {% include city-links.html %}
+    </div>
     {% include no-office.html %}
   </div>
 </section>
 
-<section class="section section--surface" aria-labelledby="tools-heading">
+<section class="section" aria-labelledby="tools-heading">
   <div class="container">
     <h2 id="tools-heading">Free PF tools and guides</h2>
-    <div class="card-grid card-grid--3">
+    <div class="card-grid">
       {% include tool-card.html key="epf-eligibility" %}
       {% include tool-card.html key="epf-contribution" %}
       {% include tool-card.html key="epf-penalty" %}

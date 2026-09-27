@@ -5,14 +5,15 @@
   the link text reads "PF and ESI consultant in <city>" (decision D7).
 {%- endcomment -%}
 {%- include i18n.html -%}
-<ul class="card-grid card-grid--3 city-cards">
+<ul class="card-grid city-cards">
   {%- for l in t.cities %}
   <li>
-    {% include resolve-link.html path=l.path %}<a class="card card--link city-card" href="{{ href }}"{% if link_en %} hreflang="en"{% endif %}>
-      <span class="city-card__name"><span class="visually-hidden">{{ t.city_card_prefix }} </span>{{ l.name }}{% if link_en %}<span class="link-lang"> {{ t.english_marker }}</span>{% endif %}&#8288;{% include icon.html name="arrow" size="18" %}</span>
+    {% include resolve-link.html path=l.path %}<a class="card card--link link-row" href="{{ href }}"{% if link_en %} hreflang="en"{% endif %}>
+      <span class="link-row__name"><span class="visually-hidden">{{ t.city_card_prefix }} </span>{{ l.name }}{% if link_en %}<span class="link-lang"> {{ t.english_marker }}</span>{% endif %}</span>
       {%- if l.line %}
-      <span class="city-card__text">{{ l.line }}</span>
+      <span class="link-row__text">{{ l.line }}</span>
       {%- endif %}
+      <span class="link-row__arrow">{% include icon.html name="arrow" size="20" %}</span>
     </a>
   </li>
   {%- endfor %}

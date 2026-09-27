@@ -4,7 +4,7 @@
 {%- endcomment -%}
 {%- include i18n.html -%}
 <div lang="en">
-<section class="section sg-intro">
+<section class="section section--stacked sg-intro">
   <div class="container container--text">
     <p class="sg-eyebrow">Internal page · not indexed</p>
     <h1>Style guide</h1>
@@ -36,17 +36,18 @@
   </div>
 </section>
 
-<section class="section section--surface" aria-labelledby="sg-colours">
+<section class="section" aria-labelledby="sg-colours">
   <div class="container">
     <h2 id="sg-colours">Colours</h2>
     <p class="sg-note">From the logo (brief section 9). Every text colour passes WCAG AA on the backgrounds it is used on. Mustard is never a text colour.</p>
     <ul class="sg-swatches">
       <li><span class="sg-swatch" aria-hidden="true" style="background: var(--color-bg)"></span><span><code>--color-bg</code> #f8f4f0 · page background (cream)</span></li>
-      <li><span class="sg-swatch" aria-hidden="true" style="background: var(--color-surface)"></span><span><code>--color-surface</code> #ffffff · cards, alternate sections</span></li>
-      <li><span class="sg-swatch" aria-hidden="true" style="background: var(--color-tint)"></span><span><code>--color-tint</code> #edf5ef · soft green sections</span></li>
+      <li><span class="sg-swatch" aria-hidden="true" style="background: var(--color-surface)"></span><span><code>--color-surface</code> #ffffff · skip link text only (the page is all cream)</span></li>
+      <li><span class="sg-swatch" aria-hidden="true" style="background: var(--color-tint)"></span><span><code>--color-tint</code> #edf5ef · icon and number circles</span></li>
+      <li><span class="sg-swatch" aria-hidden="true" style="background: var(--color-sand)"></span><span><code>--color-sand</code> #efe7dc · call panels: closing call, result call box · text 10.3:1, green 5.3:1</span></li>
       <li><span class="sg-swatch" aria-hidden="true" style="background: var(--color-brand)"></span><span><code>--color-brand</code> #006d3c · links, call button, accents · 5.9:1 on cream, 6.5:1 on white</span></li>
       <li><span class="sg-swatch" aria-hidden="true" style="background: var(--color-brand-dark)"></span><span><code>--color-brand-dark</code> #00552f · hover</span></li>
-      <li><span class="sg-swatch" aria-hidden="true" style="background: var(--color-accent)"></span><span><code>--color-accent</code> #fede00 · small highlights only (proof line dots)</span></li>
+      <li><span class="sg-swatch" aria-hidden="true" style="background: var(--color-accent)"></span><span><code>--color-accent</code> #fede00 · logo mustard · not used on pages now; small highlights only, never text</span></li>
       <li><span class="sg-swatch" aria-hidden="true" style="background: var(--color-heading)"></span><span><code>--color-heading</code> #1f1f1f · headings, focus ring</span></li>
       <li><span class="sg-swatch" aria-hidden="true" style="background: var(--color-text)"></span><span><code>--color-text</code> #333333 · body text · 11.5:1 on cream</span></li>
       <li><span class="sg-swatch" aria-hidden="true" style="background: var(--color-text-muted)"></span><span><code>--color-text-muted</code> #5c5c5c · secondary text · 6.1:1 on cream</span></li>
@@ -60,14 +61,14 @@
 <section class="section" aria-labelledby="sg-type">
   <div class="container">
     <h2 id="sg-type">Type</h2>
-    <p class="sg-note">Poppins for English, Noto Sans Kannada for Kannada, weights 400, 500 and 600 only. Heading sizes grow smoothly with the screen. Kannada gets more line height.</p>
+    <p class="sg-note">Poppins for English, Noto Sans Kannada for Kannada, weights 400, 500 and 600 only. Headings, card titles, link names and FAQ questions are 500 (medium); 600 is only for buttons, footer titles and bold words in running text. Heading sizes grow smoothly with the screen. Kannada gets more line height.</p>
     <div class="sg-type" lang="{{ lang }}">
       <p class="sg-label" lang="en">h1 · --text-h1</p>
-      <p style="font-size: var(--text-h1); font-weight: var(--weight-semibold); color: var(--color-heading); line-height: var(--leading-heading)">{{ t.two_paths.monthly.title }}</p>
+      <p style="font-size: var(--text-h1); font-weight: var(--weight-medium); color: var(--color-heading); line-height: var(--leading-heading)">{{ t.two_paths.monthly.title }}</p>
       <p class="sg-label" lang="en">h2 · --text-h2</p>
-      <p style="font-size: var(--text-h2); font-weight: var(--weight-semibold); color: var(--color-heading); line-height: var(--leading-heading)">{{ t.how_we_work.heading }}</p>
+      <p style="font-size: var(--text-h2); font-weight: var(--weight-medium); color: var(--color-heading); line-height: var(--leading-heading)">{{ t.how_we_work.heading }}</p>
       <p class="sg-label" lang="en">h3 · --text-h3</p>
-      <p style="font-size: var(--text-h3); font-weight: var(--weight-semibold); color: var(--color-heading); line-height: var(--leading-heading)">{{ t.two_paths.register.title }}</p>
+      <p style="font-size: var(--text-h3); font-weight: var(--weight-medium); color: var(--color-heading); line-height: var(--leading-heading)">{{ t.two_paths.register.title }}</p>
       <p class="sg-label" lang="en">Body · --text-base</p>
       <p>{{ t.two_paths.monthly.text }} {{ t.no_office }}</p>
       <p class="sg-label" lang="en">Small · --text-sm</p>
@@ -79,15 +80,15 @@
 </section>
 
 <div id="sg-hero" class="sg-component">
-  <div class="container"><p class="sg-component__name">Hero</p><p class="sg-note">Top of every page except tools (which use a plain H1 so the tool is on the first screen). H1, one plain line, the call block and the proof line. <code>proof=false</code> leaves out the proof line.</p>
+  <div class="container"><p class="sg-component__name">Hero</p><p class="sg-note">Top of every page except tools (which use a plain H1 so the tool is on the first screen). H1, one plain line, the call button and the proof line (no filing promise in the hero). <code>proof=false</code> leaves out the proof line.</p>
   <pre class="sg-code"><code>{% raw %}{% include hero.html heading="PF consultant: we file your PF every month" lead="..." %}{% endraw %}</code></pre></div>
 </div>
 <div lang="{{ lang }}">{% include hero.html heading=t.two_paths.monthly.title lead=t.two_paths.monthly.text %}</div>
 
-<section class="section section--surface" aria-labelledby="sg-prose">
+<section class="section" aria-labelledby="sg-prose">
   <div class="container">
     <h2 id="sg-prose">Text, check list and sections</h2>
-    <p class="sg-note">Sections are <code>&lt;section class="section"&gt;</code> with a container. Backgrounds alternate: cream (default), <code>section--surface</code> (white), <code>section--tint</code> (soft green). Section components take <code>bg="surface"</code> or <code>bg="tint"</code>. Running text goes in <code>.prose</code> (reading width). Lists of what we do use <code>.check-list</code>. Several blocks in one section use <code>.stack</code>.</p>
+    <p class="sg-note">Sections are <code>&lt;section class="section"&gt;</code> with a container. Every section is cream, with a thin line between sections; only the closing call has a coloured band (sand). From 1024px sections <strong>split</strong>: the H2 in a left column, everything else in a wider right column (this page shows it). <code>section--stacked</code> keeps the H2 on top at full width, for columns. One section = one H2. Running text goes in <code>.prose</code> (reading width; an H2 inside it still goes to the left column). Lists of what we do use <code>.check-list</code>. Several blocks under one H2 use <code>.stack</code>.</p>
     <div class="sg-demo" lang="{{ lang }}">
       <div class="prose">
         <p>{{ t.two_paths.monthly.text }} {{ t.no_office }}</p>
@@ -101,7 +102,7 @@
   </div>
 </section>
 
-<section class="section section--surface" aria-labelledby="sg-call">
+<section class="section" aria-labelledby="sg-call">
   <div class="container">
     <h2 id="sg-call">Call button</h2>
     <p class="sg-note">The only call to action on the site. Always shows the full number and links to <code>tel:+918217542975</code>. <code>location</code> is sent to Google Analytics with each click. <code>block=true</code> makes it full width (menu, sticky bar, cards).</p>
@@ -115,10 +116,10 @@
 <section class="section" aria-labelledby="sg-proof">
   <div class="container">
     <h2 id="sg-proof">Proof line and filing promise</h2>
-    <p class="sg-note">Proof line: 4 facts from brief section 7, used in heroes. <code>compact=true</code> is the small version (result call box, end of posts). The filing promise always sits next to a call button, so it is used through the call block.</p>
+    <p class="sg-note">Proof line: 4 facts from brief section 7, used in heroes: a 2 x 2 grid split by thin lines, each fact a large green number over a short muted label (no dots or icons). Data: <code>num</code>, <code>label</code> and <code>text</code> (the one-line version). <code>compact=true</code> is the small version (result call box, end of posts). The filing promise always sits next to a call button, so it is used through the call block (How we work, After registration, closing call). Never in the hero.</p>
     <pre class="sg-code"><code>{% raw %}{% include proof-line.html %}
 {% include proof-line.html compact=true %}
-{% include call-block.html location="hero" %}{% endraw %}</code></pre>
+{% include call-block.html location="closing" %}{% endraw %}</code></pre>
     <div class="sg-demo" lang="{{ lang }}">
       {% include proof-line.html %}
       <div class="sg-gap"></div>
@@ -145,28 +146,42 @@
 <div lang="{{ lang }}">{% include how-we-work.html %}</div>
 
 <div id="sg-cards" class="sg-component">
-  <div class="container"><p class="sg-component__name">Content cards</p><p class="sg-note">Plain <code>.card</code>s in <code>.card-grid--2</code> or <code>.card-grid--3</code>: an <code>h3</code> with a paragraph (registration "What we do"), or an <code>h3</code> with a <code>.check-list</code> (service "What we do for you"). Cards stretch to equal height; add <code>card-grid--top</code> only when card lengths are very different (for example 2 items next to 6). <code>.section-lead</code> is the one intro line under a section's H2. One section = one H2 and one job; <code>.stack</code> spaces several blocks that belong to one topic.</p>
+  <div class="container"><p class="sg-component__name">Content cards</p><p class="sg-note">A <code>.card</code> in a <code>.card-grid</code> is a <strong>row</strong>: a thin line above (below 1024px only between rows: none under the H2, none after the last row, so the section line stays the one clear break), the <code>h3</code> on the left and the details on the right from 640px (stacked in split sections from 1024 to 1199px, where the column is narrow). An <code>h3</code> with a paragraph (registration "What we do") or with a <code>.check-list</code> (service "What we do for you"). A call row is a plain row with a <code>tel:</code> arrow link (home "Want someone to handle it"); no boxed rows. <code>card-grid--columns</code> in a <code>section--stacked</code> shows cards as columns side by side from 960px, each under a short green line, for a few points of equal weight (home "Why businesses choose us"). <code>.section-lead</code> is the one intro line under a section's H2.</p>
   <pre class="sg-code"><code>&lt;h2&gt;…&lt;/h2&gt;
 &lt;p class="section-lead"&gt;…&lt;/p&gt;
-&lt;div class="card-grid card-grid--2"&gt;
+&lt;div class="card-grid"&gt;
   &lt;div class="card"&gt;&lt;h3&gt;…&lt;/h3&gt;&lt;p&gt;…&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="card-grid card-grid--3 card-grid--top"&gt;
+&lt;div class="card-grid"&gt;
   &lt;div class="card"&gt;&lt;h3&gt;…&lt;/h3&gt;&lt;ul class="check-list"&gt;&lt;li&gt;…&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;section class="section section--stacked"&gt; … &lt;h2&gt;…&lt;/h2&gt;
+&lt;div class="card-grid card-grid--columns"&gt;
+  &lt;div class="card"&gt;&lt;h3&gt;…&lt;/h3&gt;&lt;p&gt;…&lt;/p&gt;&lt;/div&gt; (2 to 4 cards)
 &lt;/div&gt;</code></pre></div>
 </div>
 <section class="section" aria-label="Content cards demo">
   <div class="container">
     <p class="section-lead">Sample intro line under a section heading.</p>
-    <div class="card-grid card-grid--2">
-      <div class="card"><h3>Sample card heading</h3><p>A short paragraph. Cards in a row stretch to the same height.</p></div>
-      <div class="card"><h3>Second card</h3><p>A slightly longer paragraph, to show the two cards still end at the same line even when their text is a little different in length.</p></div>
+    <div class="card-grid">
+      <div class="card"><h3>Sample row heading</h3><p>A short paragraph.</p></div>
+      <div class="card"><h3>Second row</h3><p>A slightly longer paragraph, to show how the details wrap in the right-hand column of the row.</p></div>
     </div>
     <div class="sg-gap"></div>
-    <div class="card-grid card-grid--3 card-grid--top">
+    <div class="card-grid">
       <div class="card"><h3>Check-list card</h3><ul class="check-list"><li>One item.</li><li>Two items.</li></ul></div>
       <div class="card"><h3>Longer card</h3><ul class="check-list"><li>One.</li><li>Two.</li><li>Three.</li><li>Four.</li><li>Five.</li></ul></div>
-      <div class="card"><h3>Short card</h3><ul class="check-list"><li>One item.</li></ul></div>
+    </div>
+  </div>
+</section>
+<section class="section section--stacked" aria-labelledby="sg-boxes-demo">
+  <div class="container">
+    <h2 id="sg-boxes-demo">Columns demo</h2>
+    <div class="card-grid card-grid--columns">
+      <div class="card"><h3>First point</h3><p>Columns sit side by side from 960px.</p></div>
+      <div class="card"><h3>Second point</h3><p>They stack on phones and tablets.</p></div>
+      <div class="card"><h3>Third point</h3><p>Use for a few points of equal weight.</p></div>
     </div>
   </div>
 </section>
@@ -184,34 +199,37 @@
 <div lang="{{ lang }}">{% include situation-cards.html %}</div>
 
 <div id="sg-industries" class="sg-component">
-  <div class="container"><p class="sg-component__name">Industry links</p><p class="sg-note">Full on home and the industries hub. <code>compact=true</code> on service and industry pages (<code>except</code> leaves out the current industry).</p>
+  <div class="container"><p class="sg-component__name">Industry and city links</p><p class="sg-note">Two link patterns. <strong>Link rows</strong> (<code>.link-row</code>): the whole row links to another page, with an optional icon, the name, one line of text and an arrow; the same design for industries (full, on home and the industries hub), cities (<code>city-cards.html</code>) and tools. <strong>Link groups</strong> (<code>.link-group</code>): a short label, then stacked arrow links, for secondary links (compact industries and cities on service pages, side by side in <code>&lt;div class="link-groups"&gt;</code>; compact two paths; guides under the tools). <code>except</code> leaves out the current industry.</p>
   <pre class="sg-code"><code>{% raw %}{% include industry-links.html %}
-{% include industry-links.html compact=true except="schools" %}
-{% include city-links.html %}
+&lt;div class="link-groups"&gt;
+  {% include industry-links.html compact=true except="schools" %}
+  {% include city-links.html %}
+&lt;/div&gt;
 {% include city-links.html descriptive=true %}   (link text "PF and ESI in Mangalore", where links stand alone)
-{% include city-cards.html %}   (home "Where we work": linked cards, one line each; link text "PF and ESI consultant in Mangalore"){% endraw %}</code></pre></div>
+{% include city-cards.html %}   (home "Where we work": link rows, one line each; link text "PF and ESI consultant in Mangalore"){% endraw %}</code></pre></div>
 </div>
 <div lang="{{ lang }}">
 {% include industry-links.html %}
-<div class="container sg-demo-plain">{% include industry-links.html compact=true except="schools" %}
-{% include city-links.html %}
+<div class="container sg-demo-plain"><div class="link-groups">{% include industry-links.html compact=true except="schools" %}
+{% include city-links.html %}</div>
+<div class="sg-gap"></div>
 {% include city-links.html descriptive=true %}</div>
 <div class="container sg-demo-plain">{% include city-cards.html %}</div>
 </div>
 
 <div id="sg-tools" class="sg-component">
-  <div class="container"><p class="sg-component__name">Tool cards</p><p class="sg-note">One design for every tool link (the audit found two). Keys are in the i18n files under <code>tools</code>. All cards are white on cream sections and turn cream automatically on white (<code>section--surface</code>) sections.</p>
-  <pre class="sg-code"><code>&lt;div class="card-grid card-grid--3"&gt;
+  <div class="container"><p class="sg-component__name">Tool cards</p><p class="sg-note">Link rows (see Industry and city links), one for every tool link. Keys are in the i18n files under <code>tools</code>. Guides go under them as a stacked <code>.link-list</code> of arrow links.</p>
+  <pre class="sg-code"><code>&lt;div class="card-grid"&gt;
   {% raw %}{% include tool-card.html key="epf-eligibility" %}{% endraw %}
   ...
 &lt;/div&gt;</code></pre>
-  <div class="card-grid card-grid--3 sg-demo" lang="{{ lang }}">
+  <div class="card-grid sg-demo" lang="{{ lang }}">
     {% for tool in t.tools %}{% include tool-card.html key=tool.key %}{% endfor %}
   </div></div>
 </div>
 
 <div id="sg-result" class="sg-component">
-  <div class="container"><p class="sg-component__name">Result call box</p><p class="sg-note">Static HTML placed right after a tool's result container (decision D4). One line per tool: <code>eligibility</code>, <code>penalty</code>, <code>contribution</code>, <code>converter</code>.</p>
+  <div class="container"><p class="sg-component__name">Result call box</p><p class="sg-note">Static HTML placed right after a tool's result container (decision D4). Sand, like every call panel. One line per tool: <code>eligibility</code>, <code>penalty</code>, <code>contribution</code>, <code>converter</code>.</p>
   <pre class="sg-code"><code>{% raw %}{% include result-call.html tool="contribution" %}{% endraw %}</code></pre>
   <div class="sg-demo" lang="{{ lang }}">{% include result-call.html tool="contribution" %}</div></div>
 </div>
@@ -235,17 +253,17 @@
 </div>
 
 <div id="sg-closing" class="sg-component">
-  <div class="container"><p class="sg-component__name">Closing call</p><p class="sg-note">Last section before the footer on every page except legal pages and the 404. Give each page its own <code>line</code>.</p>
+  <div class="container"><p class="sg-component__name">Closing call</p><p class="sg-note">Last section before the footer on every page except legal pages and the 404: the one full-width coloured band (sand), always stacked: heading on top, call button and filing promise under it. Give each page its own <code>line</code>.</p>
   <pre class="sg-code"><code>{% raw %}{% include closing-call.html line="Hand over your monthly PF filing." %}{% endraw %}</code></pre></div>
 </div>
 <div lang="{{ lang }}">{% include closing-call.html %}</div>
 
-<section class="section section--surface" aria-labelledby="sg-chrome">
+<section class="section" aria-labelledby="sg-chrome">
   <div class="container container--text">
     <h2 id="sg-chrome">Header, menu, sticky bar and footer</h2>
     <p>These are on this page, added by the layout (<code>_layouts/base.html</code>), so every rebuilt page gets them without extra markup.</p>
     <ul class="sg-list">
-      <li><strong>Header:</strong> logo, main links, language switch and call button with the full number on desktop. From 769px to 1199px: logo, language switch, call button with the full number and the menu button. On phones (up to 768px): logo, language switch and the menu button only; the sticky call bar is the call button there. Not sticky on desktop (decision D6).</li>
+      <li><strong>Header:</strong> logo, main links, language switch and call button with the full number on desktop. From 769px to 1199px: logo, language switch, call button with the full number and the menu button. On phones (up to 768px): logo, language switch and the menu button only; the sticky call bar is the call button there. The header stays at the top while scrolling (owner change 2026-09-27, replacing D6), except on screens under 421px tall; focus and in-page links scroll clear of it.</li>
       <li><strong>Menu (phones):</strong> call button first, then links, then the language switch. No email. Focus stays inside while open; Escape closes it.</li>
       <li><strong>Sticky call bar (phones only):</strong> full-width call button fixed to the bottom, hidden while the menu is open. The page has bottom padding so it never hides content.</li>
       <li><strong>Footer:</strong> services, places, tools and guides, company links, address, phone and email. The footer is the only place the email appears. No headings in the header or footer.</li>

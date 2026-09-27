@@ -114,9 +114,28 @@ colours outside the redesign.
 
 Rebuilt pages use the redesign tokens in the `:root` block at the top of
 `site.css`: logo green `#006d3c` for links, headings accents and the call button;
-mustard `#fede00` for small highlights only (never text on cream); cream and white
-backgrounds with a soft green tint; red only for genuine warnings. Contrast ratios
-are noted there. Use the variables, never raw values.
+mustard `#fede00` for small highlights only (never text on cream); cream page
+background everywhere; warm sand `--color-sand` for the closing band and tool result box only; no white surfaces; soft green `--color-tint` for icon and number circles only; red only for
+genuine warnings. Contrast ratios are noted there. Use the variables, never raw values.
+
+Layout (owner redesign 2026-09-27, inspired by segmental.ai: simple, lots of space):
+- Every section is cream, split from the next by a thin line. The closing call is the
+  only coloured band (sand). No alternating backgrounds.
+- From 1024px sections split: H2 in a left column, content in a wider right column.
+  Headings are not sticky. `section--stacked` keeps the H2 on top at full width, for
+  `card-grid--columns` (columns side by side, each under a short green line, e.g. home
+  "Why businesses choose us"), and for the closing call (always stacked). Hero proof facts
+  are a 2 x 2 grid split by thin lines: large green number over a short muted label (no
+  dots); mustard is left to the logo. One section = one H2.
+- Cards are rows (thin line above, title left, details right). Below 1024px the section
+  line is the only full-width divider: lines sit only between rows (none under the H2 or
+  after the last row), hero facts have no lines, stacked columns get a short green accent. No boxed rows: a call row
+  is a plain row with a `tel:` arrow link. Links to other pages use one `.link-row` design (industries,
+  cities, tools); secondary links use `.link-group` (label + stacked arrow links).
+- Headings, titles, link names and FAQ questions are weight 500; 600 only for buttons,
+  footer titles and bold words in text.
+- The header is sticky (owner change, replacing D6), except on screens under 421px tall.
+- Hero: H1, lead, call button (no filing promise), proof facts on the right.
 
 Infographics are hand-authored inline `<svg>` (not external image files), flat
 Material-Symbols style (`viewBox="0 -960 960 960"`, single `<path>`, fill only),
@@ -217,6 +236,12 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
   entity (with the Google Business Profile as `sameAs`) on home and contact via `schema.html`.
   Owner: no share image (og:image). Later owner change (language card wording) is in section F
   of the findings; the built page is the final text.
+- Layout redesign (2026-09-27, UI only, after phase 3): new look for the whole design system,
+  inspired by segmental.ai, with several design-reviewer rounds and owner choices. The rules
+  are under "Layout" in Visual conventions; the style guide shows every component. The five
+  rebuilt pages use it. Proof facts are now `{ num, label, text }` in `en.yml`/`kn.yml` (Kannada
+  split logged in `docs/kannada-review.md`). `card--brand` was removed. New pages (tools next)
+  must use this layout: check them against the style guide and the phone line rule.
 
 ### Next (strategy section 9.3, English first; Kannada last)
 1. **Phase 4: tools hub + 7 tools** (English). Start here in the next session. Also fix the
@@ -263,9 +288,9 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
 - Links in includes go through `_includes/resolve-link.html`: on Kannada pages a
   missing Kannada page falls back to the English one, marked "(ಇಂಗ್ಲಿಷ್‌ನಲ್ಲಿ)".
   The language switch and hreflang appear only when the other-language page exists.
-- Section components take `bg="surface"` or `bg="tint"`; backgrounds alternate cream,
-  white and soft green. Text sections use `.prose`; service lists use `.check-list`;
-  `card-grid--top` for cards of very different lengths.
+- Section components still take `bg=` but pages don't use it (one background; see
+  Layout under Visual conventions). Text sections use `.prose`; service lists use
+  `.check-list`.
 - `industry-links.html compact=true` and `city-links.html` use short names; add
   `descriptive=true` ("PF and ESI in Mangalore") only where the links stand alone.
 - The two paths link to the current page shows as "(this page)", not a link.
@@ -275,14 +300,15 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
 - Filing promise (shared, brief section 6): "We never miss a PF or ESI due date. While
   with us, no client has paid a late fine or interest." Never say "late-filing penalty".
 - Proof line (brief section 7): "25+ years in practice · Founder worked 35 years at
-  EPFO · 100+ clients · 3,500+ employees covered".
+  EPFO · 100+ clients · 3,500+ employees covered". In heroes each shows as number + label
+  ("35 years" / "our founder at EPFO", owner-approved 2026-09-27).
 - Challan is explained as "the PF payment slip" (or ESI) on first use; the shared
   How we work step says "(the payment slips)".
 - We can pay PF and ESI on the client's behalf, or the client pays using our challan.
 - Kannada: all acronyms in English letters (PF, ESI, EPF, UAN, ECR, KYC, EPFO, ESIC,
   DA, HRA…), decision D12. No "ಅನುಸರಣೆ"; say what is done instead.
-- "EPF" appears once in each PF page (e.g. "PF (Provident Fund, also called EPF)");
-  titles use "PF".
+- Titles use "PF". The hero line has no explanations in brackets (no "PF (Provident Fund,
+  also called EPF)"), and the hero has no filing promise: owner decisions 2026-09-27.
 - Registration pages: no public document list ("We tell you which documents we need when
   you call"); registration "takes just a few hours" only with "once we have all your
   documents". New UANs come from the employee's face scan on the UMANG app ("We guide
@@ -303,9 +329,10 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
   speakers of other languages. The website is in English and Kannada.
 - Udupi: served from the Mangaluru office; "We can visit you if needed." Clients never need
   to visit us. Bangalore keeps "Local support in Bangalore, backed by our Mangaluru team."
-- The filing promise sits next to call buttons (hero, How we work, closing). Don't repeat it
+- The filing promise sits next to call buttons (How we work, After registration, closing;
+  not the hero). Don't repeat it
   word for word as body text; say something new instead (e.g. the due-date card on home).
-- City links as cards: `city-cards.html` (whole card is the link; visible name is the city,
+- City links as link rows: `city-cards.html` (whole row is the link; visible name is the city,
   link text "PF and ESI consultant in <city>" via a hidden prefix, D7).
 - Business details for the JSON-LD live in `_data/site.yml` (geo, map, founder, languages,
   `gbp_url` for `sameAs`, `founder_photo`); the full entity prints on `page_type` home and contact.

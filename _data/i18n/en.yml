@@ -39,11 +39,12 @@ call:
 
 proof:
   aria: About Medu Consultancy
+  # num is shown large in heroes; text is the one-line version (compact proof line)
   items:
-    - 25+ years in practice
-    - Founder worked 35 years at EPFO
-    - 100+ clients
-    - 3,500+ employees covered
+    - { num: "25+", label: years in practice, text: 25+ years in practice }
+    - { num: "35 years", label: our founder at EPFO, text: Founder worked 35 years at EPFO }
+    - { num: "100+", label: clients, text: 100+ clients }
+    - { num: "3,500+", label: employees covered, text: "3,500+ employees covered" }
 
 filing_promise: We never miss a PF or ESI due date. While with us, no client has paid a late fine or interest.
 

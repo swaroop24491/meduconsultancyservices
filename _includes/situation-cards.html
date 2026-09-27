@@ -5,7 +5,7 @@
 <section class="section{% if bg != "" %} section--{{ bg }}{% endif %}" aria-labelledby="situations-heading">
   <div class="container">
     <h2 id="situations-heading">{{ s.heading }}</h2>
-    <div class="card-grid card-grid--3">
+    <div class="card-grid">
       {%- assign keys = "new,behind" | split: "," %}
       {%- for k in keys %}
       {%- assign c = s[k] %}
@@ -19,10 +19,12 @@
         </ul>
       </article>
       {%- endfor %}
-      <article class="card card--brand">
+      <article class="card">
         <h3>{{ s.handle.title }}</h3>
         <p>{{ s.handle.text }}</p>
-        {% include call-button.html location="situation" block=true %}
+        <ul class="link-list">
+          <li><a class="link-arrow" href="tel:{{ site.data.site.phone_tel }}" data-call-location="situation">{{ t.call.short }} <span class="nowrap">{{ site.data.site.phone_display }}</span>&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+        </ul>
       </article>
     </div>
   </div>

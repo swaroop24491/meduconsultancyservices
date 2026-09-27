@@ -1,21 +1,26 @@
 {%- comment -%}
   Two paths: "Get registered" and "We file every month".
   include two-paths.html            full version, own section heading
-  include two-paths.html compact=true   one line bridge with links (registration and city pages)
+  include two-paths.html compact=true   link group: bridge line + the two monthly filing links (registration and city pages)
   bg="surface" | "tint" sets the section background (default cream). Same on every section component.
 {%- endcomment -%}
 {%- include i18n.html -%}
 {%- assign p = t.two_paths -%}
 {%- if include.compact -%}
-<p class="paths-compact">{{ p.bridge }}
-  {%- for l in p.monthly.links %} {% include resolve-link.html path=l.path %}{% if href == self_path %}<span class="link-current" aria-current="page">{{ l.label }} {{ t.this_page }}</span>{% else %}<a class="link-arrow" href="{{ href }}"{% if link_en %} hreflang="en"{% endif %}>{{ l.label }}{% if link_en %}<span class="link-lang"> {{ t.english_marker }}</span>{% endif %}&#8288;{% include icon.html name="arrow" size="18" %}</a>{% endif %}{% endfor %}
-</p>
+<div class="link-group paths-compact">
+  <p class="link-group__label">{{ p.bridge }}</p>
+  <ul class="link-list">
+    {%- for l in p.monthly.links %}
+    <li>{% include resolve-link.html path=l.path %}{% if href == self_path %}<span class="link-current" aria-current="page">{{ l.label }} {{ t.this_page }}</span>{% else %}<a class="link-arrow" href="{{ href }}"{% if link_en %} hreflang="en"{% endif %}>{{ l.label }}{% if link_en %}<span class="link-lang"> {{ t.english_marker }}</span>{% endif %}&#8288;{% include icon.html name="arrow" size="18" %}</a>{% endif %}</li>
+    {%- endfor %}
+  </ul>
+</div>
 {%- else -%}
 {%- assign bg = include.bg | default: "" -%}
 <section class="section{% if bg != "" %} section--{{ bg }}{% endif %}" aria-labelledby="two-paths-heading">
   <div class="container">
     <h2 id="two-paths-heading">{{ p.heading }}</h2>
-    <div class="card-grid card-grid--2">
+    <div class="card-grid">
       {%- assign cards = "register,monthly" | split: "," %}
       {%- for c in cards %}
       {%- assign card = p[c] %}

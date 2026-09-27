@@ -1,30 +1,34 @@
 {%- comment -%}
   Industry links.
   include industry-links.html                 full: 5 linked cards + "we also work with" (own section)
-  include industry-links.html compact=true    one row of 5 text links (short names;
+  include industry-links.html compact=true    link group: label + 5 stacked arrow links (short names;
                                               descriptive=true: "PF and ESI for hospitals"…)
   include industry-links.html compact=true except="schools"   leave out the current industry
 {%- endcomment -%}
 {%- include i18n.html -%}
 {%- assign ind = t.industries -%}
 {%- if include.compact -%}
-<p class="inline-links"><span>{{ ind.compact_label }}</span>
-  {%- for i in ind.primary %}{% unless i.key == include.except %}
-  {% assign _ip = "industries/" | append: i.key %}{% include resolve-link.html path=_ip %}<a href="{{ href }}"{% if link_en %} hreflang="en"{% endif %}>{% if include.descriptive %}{{ i.anchor }}{% else %}{{ i.name }}{% endif %}{% if link_en %}<span class="link-lang"> {{ t.english_marker }}</span>{% endif %}</a>
-  {%- endunless %}{% endfor %}
-</p>
+<div class="link-group">
+  <p class="link-group__label">{{ ind.compact_label }}</p>
+  <ul class="link-list">
+    {%- for i in ind.primary %}{% unless i.key == include.except %}
+    {% assign _ip = "industries/" | append: i.key %}<li>{% include resolve-link.html path=_ip %}<a class="link-arrow" href="{{ href }}"{% if link_en %} hreflang="en"{% endif %}>{% if include.descriptive %}{{ i.anchor }}{% else %}{{ i.name }}{% endif %}{% if link_en %}<span class="link-lang"> {{ t.english_marker }}</span>{% endif %}&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+    {%- endunless %}{% endfor %}
+  </ul>
+</div>
 {%- else -%}
 {%- assign bg = include.bg | default: "" -%}
 <section class="section{% if bg != "" %} section--{{ bg }}{% endif %}" aria-labelledby="industries-heading">
   <div class="container">
     <h2 id="industries-heading">{{ ind.heading }}</h2>
-    <ul class="card-grid card-grid--5 industry-cards">
+    <ul class="card-grid industry-cards">
       {%- for i in ind.primary %}
       <li>
-        {% assign _ip = "industries/" | append: i.key %}{% include resolve-link.html path=_ip %}<a class="card card--link industry-card" href="{{ href }}"{% if link_en %} hreflang="en"{% endif %}>
+        {% assign _ip = "industries/" | append: i.key %}{% include resolve-link.html path=_ip %}<a class="card card--link link-row" href="{{ href }}"{% if link_en %} hreflang="en"{% endif %}>
           <span class="icon-badge">{% include icon.html name=i.icon size="24" %}</span>
-          <span class="industry-card__name">{{ i.name }}{% if link_en %}<span class="link-lang"> {{ t.english_marker }}</span>{% endif %}</span>
-          <span class="industry-card__text">{{ i.text }}</span>
+          <span class="link-row__name">{{ i.name }}{% if link_en %}<span class="link-lang"> {{ t.english_marker }}</span>{% endif %}</span>
+          <span class="link-row__text">{{ i.text }}</span>
+          <span class="link-row__arrow">{% include icon.html name="arrow" size="20" %}</span>
         </a>
       </li>
       {%- endfor %}
