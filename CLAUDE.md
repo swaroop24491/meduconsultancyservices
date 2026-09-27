@@ -205,10 +205,10 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
 - Phase 2 (English, 2026-09-27): ESI service page rebuilt; new PF registration and ESI
   registration pages. Copy in `docs/esi-service-copy.md`, `docs/pf-registration-copy.md`,
   `docs/esi-registration-copy.md` (each compliance-reviewed and owner-approved). Six-reviewer
-  review of the phase 2 pages is the next step.
+  review applied (`docs/phase2-review-findings.md`); later copy changes are recorded there.
 
 ### Next (strategy section 9.3)
-1. Six-reviewer review of the phase 2 pages; bring merged findings to the owner.
+1. Phase 2 is done in English (six-reviewer review applied: `docs/phase2-review-findings.md`).
 2. Kannada EPF service page, after the glossary and `kannada-review.md` are reviewed
    (pages that have Kannada today launch only as reviewed EN + KN pairs, D9).
 3. Then home, tools hub + tools, the 3 city pages, industry hub + 5 pages, blog, about,
