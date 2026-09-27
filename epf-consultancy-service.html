@@ -1,746 +1,126 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+---
+layout: base
+lang: en
+page_type: service
+title: "PF Consultant: Monthly PF Filing | Medu Consultancy"
+description: "We file your PF on time every month. None of our clients has paid a late-filing penalty. Call +91 82175 42975."
+breadcrumb:
+  - { name: PF services }
+service:
+  type: PF compliance and monthly filing
+  name: PF monthly filing
+  offers:
+    - PF registration for your business
+    - Employee registration and UAN
+    - Monthly ECR filing
+    - PF payment on your behalf
+    - PF transfers, withdrawals and KYC for your staff
+    - PF records and audit readiness
+    - Support during PF inspections
+    - Letters to the PF office
+faq:
+  - q: What do you need from us each month?
+    a: "The salary details for each employee: days worked, the full pay breakup (basic, DA and allowances), and anyone who joined or left. We tell you the exact format when we start."
+  - q: What do you send us after filing?
+    a: An email with the filing confirmation and the challan (the PF payment slip), so your records are complete.
+  - q: Do you pay the PF amount for us?
+    a: We can. Either you pay it yourself using the challan we send, or you send us the amount and we pay it for you. Choose what suits you.
+  - q: When is PF due each month?
+    a: By the 15th of the next month. For example, PF on March salaries is due by 15 April. We file before the due date every month.
+  - q: Can you register us and then file every month?
+    a: 'Yes. We register your business with EPFO and your staff for UAN. Then we move you straight on to monthly filing. <a href="/pf-registration">PF registration for employers</a>'
+  - q: We file PF ourselves now. Can you take over?
+    a: "Yes. Call us and we'll explain how we take over your monthly filing from the next due date."
+  - q: Do you help our staff with PF transfers, withdrawals and KYC?
+    a: "Yes. We help your staff with these, so your HR team doesn't have to."
+  - q: What if we have a PF inspection?
+    a: We keep your PF records ready and support you during the inspection.
+  - q: How much does it cost?
+    a: 'It depends on how many employees you have and what you need. <a href="tel:+918217542975" data-call-location="faq">Call us</a> for a quote.'
+---
+{%- assign epf = site.data.facts.epf -%}
+{% include hero.html heading="PF consultant: we file your PF every month" lead="We prepare and file your PF (Provident Fund) before the due date, every month. You send us salary details. We do the rest." %}
 
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-<meta name="author" content="Medu Consultancy">
-<meta name="robots" content="index, follow">
-<meta name="googlebot" content="index, follow">
-<meta name="theme-color" content="rgb(248,244,240)">
+<section class="section section--surface" aria-labelledby="applies-heading">
+  <div class="container">
+    <div class="prose">
+      <h2 id="applies-heading">Does PF apply to your business?</h2>
+      <p>PF applies if your business has <strong>{{ epf.min_employees }} or more employees</strong>, in any industry.</p>
+      <p>Every employee whose PF wages are <strong>{{ epf.wage_ceiling_text }} a month or less</strong> must be in PF. This limit went up from {{ epf.wage_ceiling_old_text }} to {{ epf.wage_ceiling_text }} on {{ epf.wage_ceiling_from }}. For September 2026 salaries, the rule is not yet clear. <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us.</a></p>
+      <p>PF wages are basic pay, DA (dearness allowance) and retaining allowance. They are not total salary. Other allowances usually don't count. But if they are more than half of total pay, the extra part is added to PF wages.</p>
+      <p>If an employee's PF wages are more than {{ epf.wage_ceiling_text }}, the rules are different. Someone who has never been in PF may join by choice. Anyone who is already a PF member stays a member.</p>
+      <p>Not sure? <a class="link-arrow" href="/epf-eligibility-checker">Check with our PF eligibility checker{% include icon.html name="arrow" size="18" %}</a></p>
+    </div>
+  </div>
+</section>
 
-    <title>Expert EPF Compliance Consultant</title>
-    <meta name="description" content="Medu Consultancy specializes in EPF compliance consulting in Karnataka. With 25+ years of experience, we handle PF registration, filings, and audits.">
-    <link rel="canonical" href="https://www.meduconsultancy.com/epf-consultancy-service" />
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Medu Consultancy">
-    <meta property="og:title" content="Expert EPF Compliance Consultant">
-    <meta property="og:description" content="Medu Consultancy specializes in EPF compliance consulting in Karnataka. With 25+ years of experience, we handle PF registration, filings, and audits.">
-    <meta property="og:url" content="https://www.meduconsultancy.com/epf-consultancy-service">
-    <meta property="og:image" content="https://www.meduconsultancy.com/android-chrome-512x512.png">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Expert EPF Compliance Consultant">
-    <meta name="twitter:description" content="Medu Consultancy specializes in EPF compliance consulting in Karnataka. With 25+ years of experience, we handle PF registration, filings, and audits.">
-    <meta name="twitter:image" content="https://www.meduconsultancy.com/android-chrome-512x512.png">
+<section class="section" aria-labelledby="services-heading">
+  <div class="container">
+    <h2 id="services-heading">What we do for you</h2>
+    <div class="card-grid card-grid--3">
+      <div class="card">
+        <h3>Setting up</h3>
+        <ul class="check-list">
+          <li>Register your business with EPFO (the PF office).</li>
+          <li>Register your employees and create their UAN (each employee's PF account number).</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Every month</h3>
+        <ul class="check-list">
+          <li>Prepare and file your ECR (the monthly PF return) by the {{ epf.due_day }}th of the next month.</li>
+          <li>Add new staff and mark staff who have left.</li>
+          <li>Pay the PF amount for you, if you prefer. Or you pay it yourself using the challan (the PF payment slip) we send.</li>
+          <li>Email you the filing confirmation and the challan.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>When something comes up</h3>
+        <ul class="check-list">
+          <li>Help your staff with PF transfers, withdrawals and KYC (linking Aadhaar, PAN and bank details).</li>
+          <li>Keep your PF records in order and ready for audits.</li>
+          <li>Support you during PF inspections.</li>
+          <li>Prepare and send letters to the PF office for you.</li>
+          <li>Tell you when PF rules change.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <link rel="alternate" hreflang="en" href="https://www.meduconsultancy.com/epf-consultancy-service" />
-    <link rel="alternate" hreflang="kn" href="https://www.meduconsultancy.com/kn/epf-consultancy-service" />
-    <link rel="alternate" hreflang="x-default" href="https://www.meduconsultancy.com/epf-consultancy-service" />
+{% include two-paths.html bg="surface" %}
 
-    <script type="application/ld+json">
-      {
-        "@context": "http://schema.org",
-        "@type": "WebPage",
-        "url": "https://www.meduconsultancy.com/epf-consultancy-service",
-        "name": "EPF Consultancy Services",
-        "description": "End-to-end EPF compliance services including registration, monthly filings, audits, and more. Over 25 years of expertise in EPF management.",
-        "breadcrumb": {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Home",
-              "item": "https://www.meduconsultancy.com/"
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "EPF Consultancy Service",
-              "item": "https://www.meduconsultancy.com/epf-consultancy-service"
-            }
-          ]
-        },
-        "mainEntity": {
-          "@type": "LocalBusiness",
-          "name": "Medu Consultancy",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "3rd Floor, Padil Gate Building, Padil",
-            "addressLocality": "Mangalore",
-            "addressRegion": "Karnataka",
-            "postalCode": "575007",
-            "addressCountry": "IN"
-          },
-          "telephone": "+91-8217542975",
-          "contactPoint": {
-            "@type": "ContactPoint",
-            "contactType": "Customer Service",
-            "telephone": "+91-8217542975",
-            "availableLanguage": "en"
-          },
-          "serviceArea": {
-            "@type": "Place",
-            "name": "Karnataka"
-          }
-        },
-        "offerCatalog": {
-          "@type": "OfferCatalog",
-          "name": "EPF Compliance Services",
-          "itemListElement": [
-            {
-              "@type": "Service",
-              "name": "PF Registration",
-              "description": "Complete support for PF registration for businesses, ensuring full compliance with EPF regulations."
-            },
-            {
-              "@type": "Service",
-              "name": "Employee Registration and UAN Generation",
-              "description": "Assistance with employee registration, UAN generation, and employee-specific PF account creation."
-            },
-            {
-              "@type": "Service",
-              "name": "Monthly Updates and Filings",
-              "description": "Timely filing of monthly EPF returns, ensuring adherence to statutory requirements."
-            },
-            {
-              "@type": "Service",
-              "name": "Support in Transfer of Employee PF Account / Withdrawal of PF Amount",
-              "description": "Support for smooth transfer or withdrawal of EPF accounts during employee transitions or retirements."
-            },
-            {
-              "@type": "Service",
-              "name": "Support in Updation / Correction of Employee KYC Details",
-              "description": "Helping businesses and employees update their KYC details in line with EPF rules and regulations."
-            },
-            {
-              "@type": "Service",
-              "name": "Records Maintenance and Audits",
-              "description": "Maintaining detailed records of employee contributions and auditing them to ensure compliance."
-            },
-            {
-              "@type": "Service",
-              "name": "Assist in Handling PF Inspections",
-              "description": "Expert support for businesses during PF inspections, ensuring smooth operations and compliance."
-            },
-            {
-              "@type": "Service",
-              "name": "Preparation and Submission of PF Related Correspondence",
-              "description": "Handling all correspondence related to PF matters, including submissions, responses, and follow-ups."
-            },
-            {
-              "@type": "Service",
-              "name": "Information Relating to Legislative Changes",
-              "description": "Keeping your business updated with any changes in EPF legislation and ensuring continued compliance."
-            }
-          ]
-        }
-      }
-    </script>
+{% include how-we-work.html bg="tint" %}
 
-    <link rel="stylesheet" href="/styles.css">
-    <link rel="stylesheet" href="/servicepage.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<section class="section" aria-labelledby="behind-heading">
+  <div class="container stack">
+    <h2 id="behind-heading">Who's behind it</h2>
+    <p class="prose">Medu Consultancy was founded in 2000 by Medu Thirumaleshwara Bhat, who worked at EPFO for 35 years. We know how PF works in practice, and we use that to keep your filing right and on time. <a class="link-arrow" href="/about-us">About us{% include icon.html name="arrow" size="18" %}</a></p>
+    <h2 id="work-with-heading">Who we work with</h2>
+    {% include industry-links.html compact=true %}
+    {% include city-links.html %}
+    {% include no-office.html %}
+  </div>
+</section>
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap&icon_names=call,mail" />
+<section class="section section--surface" aria-labelledby="tools-heading">
+  <div class="container">
+    <h2 id="tools-heading">Free PF tools and guides</h2>
+    <div class="card-grid card-grid--3">
+      {% include tool-card.html key="epf-eligibility" %}
+      {% include tool-card.html key="epf-contribution" %}
+      {% include tool-card.html key="epf-penalty" %}
+    </div>
+    <ul class="link-list">
+      <li><a class="link-arrow" href="/blogs/epf-applicability-threshold">Does PF apply to you? The 20-employee rule{% include icon.html name="arrow" size="18" %}</a></li>
+      <li><a class="link-arrow" href="/blogs/common-epf-compliance-mistakes">Common PF mistakes and how to avoid them{% include icon.html name="arrow" size="18" %}</a></li>
+      <li><a class="link-arrow" href="/blogs/epf-late-payment-penalty">What paying PF late costs{% include icon.html name="arrow" size="18" %}</a></li>
+    </ul>
+  </div>
+</section>
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4MEQF5W0XX"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+{% include testimonials.html %}
 
-      gtag('config', 'G-4MEQF5W0XX');
-    </script>
-</head>
-<body class="service-page">
-    <a class="skip-link" href="#main-content">Skip to main content</a>
+{% include faq.html items=page.faq schema=true %}
 
-    <!-- Header with Logo, Phone, and Navigation -->
-    <header>
-        <div class="container header-content">
-            <div class="logo">
-                <a href="/"><img src="/images/logo-new.svg" width="200" height="45" alt="Medu Consultancy Logo"></a>
-            </div>
-            <nav class="header-nav" aria-label="Primary">
-                <ul>
-                    <li>
-                        <a href="/contact-us">Contact</a>
-                    </li>
-                    <li>
-                        <a class="active" aria-current="page" href="/epf-consultancy-service">EPF Consultancy</a>
-                    </li>
-                    <li>
-                        <a href="/esi-consultancy-service">ESI Consultancy</a>
-                    </li>
-                    <li>
-                        <a href="/epf-esi-tools-calculators">Tools</a>
-                    </li>
-                </ul>
-            </nav>
-            <div class="header-links">
-                <a href="tel:+918217542975" class="phone"><span class="material-symbols-outlined" aria-hidden="true">
-                    call
-                    </span> 8217542975</a>
-                <a class="lang-switch" href="/kn/epf-consultancy-service" hreflang="kn" lang="kn" aria-label="View this page in Kannada">ಕನ್ನಡ</a>
-            </div>
-
-            <!-- Hamburger Icon -->
-            <div class="hamburger" id="hamburger-icon">
-                <div id="menuToggle">
-                    <input type="checkbox" id="menuCheckbox" aria-label="Open menu" />
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <nav class="mobile-nav" aria-label="Menu"><ul id="menu">
-                      <li>
-                        <a href="/" class="nav-link">Home</a>
-                      </li>
-                      <li>
-                        <a href="/about-us" class="nav-link">About Us</a>
-                      </li>
-                      <li>
-                        <a href="/contact-us" class="nav-link">Contact Us</a>
-                      </li>
-
-                      <li>
-                        <a href="/blogs" class="nav-link">Blogs</a>
-                      </li>
-                      <li>
-                        <a href="/epf-consultancy-service" class="nav-link">EPF Consultancy</a>
-                      </li>
-                      <li>
-                        <a href="/esi-consultancy-service" class="nav-link">ESI Consultancy</a>
-                      </li>
-                      <li>
-                        <a href="/epf-esi-tools-calculators" class="nav-link">Tools &amp; Calculators</a>
-                      </li>
-
-                      <li>
-                        <a href="/epf-excel-to-text-converter" class="nav-link">EPF Excel to Text Converter</a>
-                      </li>
-                      <li>
-                        <a href="/epf-penalty-calculator" class="nav-link">EPF Penalty Calculator</a>
-                      </li>
-                      <li>
-                        <a href="/esi-penalty-calculator" class="nav-link">ESI Penalty Calculator</a>
-                      </li>
-                      <li>
-                        <a href="/epf-eligibility-checker" class="nav-link">EPF Eligibility Checker</a>
-                      </li>
-                      <li>
-                        <a href="/esi-eligibility-checker" class="nav-link">ESI Eligibility Checker</a>
-                      </li>
-                      <li>
-                        <a href="/epf-contribution-calculator" class="nav-link">PF Contribution Calculator</a>
-                      </li>
-                      <li>
-                        <a href="/esi-contribution-calculator" class="nav-link">ESI Contribution Calculator</a>
-                      </li>
-                      <li>
-                        <a href="/kn/epf-consultancy-service" class="nav-link lang-switch" hreflang="kn" lang="kn" aria-label="View this page in Kannada">ಕನ್ನಡ</a>
-                      </li>
-                      <li>
-                        <div class="contact-us">
-                            <address>
-                                <p>
-                                    <a href="tel:+918217542975" class="phone">
-                                        <span class="material-symbols-outlined" aria-hidden="true">
-                                        call
-                                        </span>
-                                        8217542975</a>
-                                </p>
-                                <p><a href="mailto:hello.meduconsultancy@gmail.com" class="email">
-                                    <span class="material-symbols-outlined" aria-hidden="true">
-                                        mail
-                                        </span>
-                                        hello.meduconsultancy@gmail.com</a></p>
-                            </address>
-                            <address class="office-address">
-                                <h4>Our Office Address</h4>
-                                <p>
-                                    3rd Floor, Padil Gate Building,<br>
-                                    Padil, Mangaluru,<br>
-                                    Karnataka 575007
-                                </p>
-                            </address>
-                        </div>
-                      </li>
-                    </ul></nav>
-                  </div>
-            </div>
-        </div>
-    </header>
-
-    <div class="header-space"></div>
-    <main id="main-content" tabindex="-1">
-    <section id="home">
-        <div class="container">
-            <h1>Expert EPF Consultancy Services for Hassle-Free Compliance</h1>
-            <p class="subhead">Our team helps small businesses handle everything related to EPF (Employees’ Provident Fund) so you can focus on running your business.</p>
-            <div class="contact cta-btns">
-                <p><a href="tel:+918217542975" class="phone">
-                    Call us now: 
-                    <span class="material-symbols-outlined" aria-hidden="true">
-                    call
-                    </span>
-                    8217542975</a></p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="services">
-        <div class="container">
-            <h2>EPF Compliance Services</h2>
-            <p class="subhead">
-              We handle everything related to EPF &mdash; registration, monthly filings, audits, and inspections &mdash; so your business stays fully compliant. Backed by 25+ years of experience serving businesses across Karnataka.
-            </p>
-            <div class="services-cntr">
-                <div class="service">
-                    <ul>
-                        <li><img src="/images/check.svg" width="24" height="24" alt="" />PF Registration</li>
-                        <li><img src="/images/check.svg" width="24" height="24" alt="" />Employee registration and UAN generation</li>
-                        <li><img src="/images/check.svg" width="24" height="24" alt="" />Monthly updates and filings</li>
-                        <li><img src="/images/check.svg" width="24" height="24" alt="" />Support in Transfer of employee PF account / Withdrawal of PF amount</li>
-                        <li><img src="/images/check.svg" width="24" height="24" alt="" />Support in Updation / Correction of employee KYC details</li>
-                        <li><img src="/images/check.svg" width="24" height="24" alt="" />Records maintenance and audits</li>
-                        <li><img src="/images/check.svg" width="24" height="24" alt="" />Assist Client in handling of PF inspections</li>
-                        <li><img src="/images/check.svg" width="24" height="24" alt="" />Preparation and Submission of PF related correspondence</li>
-                        <li><img src="/images/check.svg" width="24" height="24" alt="" />Information relating to legislative changes, if any</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Free Tools Section -->
-    <section class="tools-feature">
-        <div class="container">
-            <h2>Free EPF Tools</h2>
-            <p class="subhead">Quick, no-signup tools to check where your business stands.</p>
-            <div class="tools-feature-cntr">
-                <a class="tool-card" href="/epf-penalty-calculator">
-                    <span class="tool-card-icon"><img src="/images/tool-calculator.svg" width="26" height="26" alt="" /></span>
-                    <h3>Penalty Calculator</h3>
-                    <p>Already behind on EPF? Estimate what you owe in minutes.</p>
-                    <span class="tool-card-cta">Open tool &rarr;</span>
-                </a>
-                <a class="tool-card" href="/epf-eligibility-checker">
-                    <span class="tool-card-icon"><img src="/images/tool-eligibility.svg" width="26" height="26" alt="" /></span>
-                    <h3>Eligibility Checker</h3>
-                    <p>Not sure if EPF applies to your business? Find out here.</p>
-                    <span class="tool-card-cta">Open tool &rarr;</span>
-                </a>
-                <a class="tool-card" href="/epf-contribution-calculator">
-                    <span class="tool-card-icon"><img src="/images/tool-split.svg" width="26" height="26" alt="" /></span>
-                    <h3>Contribution Calculator</h3>
-                    <p>See the exact employer/employee PF split.</p>
-                    <span class="tool-card-cta">Open tool &rarr;</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Industries We Serve Section -->
-    <section class="industries">
-        <div class="container">
-            <h2>Industries We Serve</h2>
-            <ul>
-                <li>
-                    <span class="industry-icon"><img src="/images/industry-hospital.svg" width="26" height="26" alt="" /></span>
-                    <span>Hospitals</span>
-                </li>
-                <li>
-                    <span class="industry-icon"><img src="/images/industry-factory.svg" width="26" height="26" alt="" /></span>
-                    <span>Factories</span>
-                </li>
-                <li>
-                    <span class="industry-icon"><img src="/images/industry-school.svg" width="26" height="26" alt="" /></span>
-                    <span>Schools</span>
-                </li>
-                <li>
-                    <span class="industry-icon"><img src="/images/industry-estate.svg" width="26" height="26" alt="" /></span>
-                    <span>Estates</span>
-                </li>
-                <li>
-                    <span class="industry-icon"><img src="/images/industry-security.svg" width="26" height="26" alt="" /></span>
-                    <span>Security Agencies</span>
-                </li>
-                <li>
-                    <span class="industry-icon"><img src="/images/industry-housekeeping.svg" width="26" height="26" alt="" /></span>
-                    <span>Housekeeping Agencies</span>
-                </li>
-                <li>
-                    <span class="industry-icon"><img src="/images/industry-it.svg" width="26" height="26" alt="" /></span>
-                    <span>IT companies</span>
-                </li>
-                <li>
-                    <span class="industry-icon"><img src="/images/industry-engineers.svg" width="26" height="26" alt="" /></span>
-                    <span>Engineers & Contractors</span>
-                </li>
-                <li>
-                    <span class="industry-icon"><img src="/images/industry-suppliers.svg" width="26" height="26" alt="" /></span>
-                    <span>Distributors & Suppliers</span>
-                </li>
-                <li>
-                    <span class="industry-icon"><img src="/images/industry-local-shop.svg" width="26" height="26" alt="" /></span>
-                    <span>Local Shops</span>
-                </li>
-                <li>
-                    <span class="industry-icon"><img src="/images/industry-hotel.svg" width="26" height="26" alt="" /></span>
-                    <span>Hotels</span>
-                </li>
-                <li>
-                    <span class="industry-icon"><img src="/images/industry-restaurant.svg" width="26" height="26" alt="" /></span>
-                    <span>Restaurants</span>
-                </li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- Why Choose Us Section -->
-    <section class="why-choose-us">
-        <div class="container">
-            <h2>Why Choose Us?</h2>
-            <ul>
-                <li>
-                    <img src="/images/experience.svg" width="100" height="100" alt="" />
-                    <h3>25+ years of Expertise</h3>
-                    <p>With 25+ years of experience as trusted PF consultants and ESI consultants, we ensure your business stays compliant with EPF and ESI regulations.</p>
-                </li>
-                <li>
-                    <img src="/images/handshake.svg" width="100" height="100" alt="" />
-                    <h3>Trusted by Businesses</h3>
-                    <p>We have earned the trust of  small and medium businesses across various industries through reliable and efficient services.</p>
-                </li>
-                <li>
-                    <img src="/images/bolt.svg" width="100" height="100" alt="" />
-                    <h3>Quick and Responsive Support</h3>
-                    <p>Whether it’s a query, urgent filing, or claims assistance, our team is always ready to assist you promptly.</p>
-                </li>
-            </ul>
-        </div>
-    </section>
-
-
-    <section class="faqs">
-      <div class="container" itemscope itemtype="https://schema.org/FAQPage">
-          <h2>Frequently Asked Questions</h2>
-          <div class="accordion">
-            <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <button id="accordion-button-1" aria-expanded="false">
-                <span class="accordion-title" itemprop="name">What is EPF, and why is it important for my business?</span>
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">
-                  EPF (Employees' Provident Fund) is a government-mandated savings scheme for employees, where both employers and employees contribute. It helps provide financial security to employees after retirement. As a business, adhering to EPF regulations ensures legal compliance and contributes to your employees' welfare.
-                </p>
-              </div>
-            </div>
-
-            <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <button id="accordion-button-2" aria-expanded="false">
-                <span class="accordion-title" itemprop="name">How can Medu Consultancy help my business with EPF compliance?</span>
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">
-                  We specialize in providing end-to-end EPF compliance services, from registration and UAN generation to monthly filings, audits, and liaising with the EPF department. Our expertise helps small businesses stay compliant without the hassle.
-                </p>
-              </div>
-            </div>
-
-            <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <button id="accordion-button-3" aria-expanded="false">
-                <span class="accordion-title" itemprop="name">How do I register my business and employees for EPF?</span>
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">
-                  Medu Consultancy will handle your EPF registration process, ensuring all paperwork is completed accurately. We register your business with EPFO and take care of the employee registration and UAN generation.
-                </p>
-              </div>
-            </div>
-
-            <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <button id="accordion-button-4" aria-expanded="false">
-                <span class="accordion-title" itemprop="name">What is the Universal Account Number (UAN), and how does it benefit my employees?</span>
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">
-                  UAN is a unique number assigned to each employee to consolidate their EPF accounts. We handle UAN generation for your employees, making it easier for them to access their EPF balance and manage transfers when switching jobs.
-                </p>
-              </div>
-            </div>
-
-            <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <button id="accordion-button-5" aria-expanded="false">
-                <span class="accordion-title" itemprop="name">What are the contributions to EPF, and who pays them?</span>
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">
-                  Both the employer and employee contribute to EPF, with the employer contributing an equal percentage of the employee's basic salary. As an employer, we help ensure timely and accurate contributions.
-                </p>
-              </div>
-            </div>
-
-            <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <button id="accordion-button-6" aria-expanded="false">
-                <span class="accordion-title" itemprop="name">Can my business be penalized for not complying with EPF regulations?</span>
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">
-                  Yes, non-compliance can lead to penalties, including fines and interest on unpaid contributions. Medu Consultancy ensures that your business avoids such penalties by managing timely filings and updates.
-                </p>
-              </div>
-            </div>
-
-            <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <button id="accordion-button-7" aria-expanded="false">
-                <span class="accordion-title" itemprop="name">How often do I need to file EPF returns for my business?</span>
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">
-                  EPF returns need to be filed monthly. We ensure all required documentation is submitted on time, taking the burden off your team.
-                </p>
-              </div>
-            </div>
-
-            <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <button id="accordion-button-8" aria-expanded="false">
-                <span class="accordion-title" itemprop="name">How do I withdraw or transfer my employees' EPF balances?</span>
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">
-                  If an employee leaves your business, we help guide them through the process of transferring their EPF or withdrawing the balance, ensuring smooth and hassle-free transactions.
-                </p>
-              </div>
-            </div>
-
-            <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <button id="accordion-button-9" aria-expanded="false">
-                <span class="accordion-title" itemprop="name">What documents do I need to provide for EPF registration?</span>
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">
-                  For EPF registration, we’ll need your business’s PAN, GST number (if applicable), and employee details like Aadhaar, PAN, and bank account information. Our team will assist you in collecting and submitting these documents.
-                </p>
-              </div>
-            </div>
-
-            <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <button id="accordion-button-10" aria-expanded="false">
-                <span class="accordion-title" itemprop="name">How can I ensure my employees' KYC details are up to date for EPF?</span>
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">
-                  We assist in collecting and updating KYC details for your employees to ensure they are in line with EPF requirements. This includes updating details like Aadhaar, PAN, and bank account information.
-                </p>
-              </div>
-            </div>
-
-            <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <button id="accordion-button-11" aria-expanded="false">
-                <span class="accordion-title" itemprop="name">Do I need to handle EPF inspections?</span>
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">
-                  Medu Consultancy will guide you in maintaining accurate records and ensure you are prepared for any inspections from the EPF department. We will also assist with submitting any required documentation.
-                </p>
-              </div>
-            </div>
-
-            <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <button id="accordion-button-12" aria-expanded="false">
-                <span class="accordion-title" itemprop="name">Is EPF mandatory for small businesses?</span>
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">
-                  Yes, if your business has 20 or more employees, EPF compliance is mandatory. We’ll help your business navigate through the legal requirements and ensure full compliance with EPF regulations.
-                </p>
-              </div>
-            </div>
-
-            <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <button id="accordion-button-13" aria-expanded="false">
-                <span class="accordion-title" itemprop="name">Can you help my business with EPF compliance if I have employees in multiple locations?</span>
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">
-                  Yes, Medu Consultancy can manage EPF compliance for businesses with employees in various locations. We offer tailored solutions to ensure smooth and compliant EPF management across all branches.
-                </p>
-              </div>
-            </div>
-
-            <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <button id="accordion-button-14" aria-expanded="false">
-                <span class="accordion-title" itemprop="name">What are the benefits of outsourcing EPF compliance to Medu Consultancy?</span>
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">
-                  By outsourcing EPF compliance to us, you save time and resources while ensuring that your business remains compliant with EPF regulations. We offer hassle-free management with expert support, so you can focus on growing your business.
-                </p>
-              </div>
-            </div>
-
-            <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <button id="accordion-button-15" aria-expanded="false">
-                <span class="accordion-title" itemprop="name">How can I get started with Medu Consultancy for EPF compliance?</span>
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">
-                  Getting started is easy! Simply contact us, and our team will guide you through the registration and setup process, taking care of all your EPF compliance needs.
-                </p>
-              </div>
-            </div>
-
-            <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <button id="accordion-button-16" aria-expanded="false">
-                <span class="accordion-title" itemprop="name">How much experience does Medu Consultancy have in EPF compliance?</span>
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">
-                  We bring over 25 years of experience in EPF compliance and have helped numerous small businesses across Karnataka ensure legal compliance. Our expertise and attention to detail make us a trusted partner for EPF management.
-                </p>
-              </div>
-            </div>
-
-            <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <button id="accordion-button-17" aria-expanded="false">
-                <span class="accordion-title" itemprop="name">Which cities do you serve for EPF and ESI compliance?</span>
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">
-                  We mainly serve businesses in Mangalore, Udupi and Bangalore, and in nearby areas.
-                </p>
-              </div>
-            </div>
-
-            <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <button id="accordion-button-18" aria-expanded="false">
-                <span class="accordion-title" itemprop="name">What makes Medu Consultancy different from other EPF consultants?</span>
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">
-                  We provide personalized, hands-on support tailored to your business. Our team is committed to simplifying the EPF process for small businesses, ensuring complete compliance and providing expert guidance at every step.
-                </p>
-              </div>
-            </div>
-            
-          </div>
-        </div>
-  </section>
-
-    <!-- Closing Call to Action -->
-    <section class="cta">
-        <div class="container">
-            <div class="cta-slim">
-                <span class="cta-slim-text">Ready when you are &mdash; give us a call anytime.</span>
-                <a href="tel:+918217542975" class="phone cta-slim-btn">
-                    <span class="material-symbols-outlined" aria-hidden="true">
-                    call
-                    </span>
-                    +91 82175 42975
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer Section -->
-    </main>
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="about-us">
-                    <p>We are Medu Consultancy, a trusted PF consultant and ESI consultant helping small and medium businesses with EPF and ESI compliance. Our team provides personalized services, including PF registration, ESI registration, monthly PF filing, and monthly ESI filings, ensuring your business stays compliant while you focus on growth.</p>
-                </div>
-    
-                <div class="quick-links link-list">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/about-us">About Us</a></li>
-                        <li><a href="/contact-us">Contact Us</a></li>
-<li><a href="/blogs">Blogs</a></li>
-<li><a href="/privacy-policy">Privacy Policy</a></li>
-<li><a href="/terms-and-conditions">Terms and Conditions</a></li>
-                    </ul>
-                </div>
-                <div class="services-offered link-list">
-                    <h3>Our Services</h3>
-                    <ul>
-                        <li><a href="/epf-consultancy-service">EPF Compliance</a></li>
-                       <li><a href="/esi-consultancy-service">ESI Compliance</a></li>
-    <li><a href="/epf-esi-tools-calculators">Tools &amp; Calculators</a></li>
-    <li><a href="/epf-excel-to-text-converter">EPF Excel to Text Converter</a></li>
-    <li><a href="/epf-penalty-calculator">EPF Penalty Calculator</a></li>
-    <li><a href="/esi-penalty-calculator">ESI Penalty Calculator</a></li>
-    <li><a href="/epf-eligibility-checker">EPF Eligibility Checker</a></li>
-    <li><a href="/esi-eligibility-checker">ESI Eligibility Checker</a></li>
-    <li><a href="/epf-contribution-calculator">PF Contribution Calculator</a></li>
-    <li><a href="/esi-contribution-calculator">ESI Contribution Calculator</a></li>
-                    </ul>
-                </div>
-                <div class="contact-us">
-                    <h3>Contact Us</h3>
-                    <address>
-                        <p>
-                            <a href="tel:+918217542975" class="phone">
-                                <span class="material-symbols-outlined" aria-hidden="true">
-                                call
-                                </span>
-                                8217542975</a>
-                        </p>
-                        <p><a href="mailto:hello.meduconsultancy@gmail.com" class="email">
-                            <span class="material-symbols-outlined" aria-hidden="true">
-                                mail
-                                </span>
-                                hello.meduconsultancy@gmail.com</a></p>
-                    </address>
-                    <address class="office-address">
-                        <h4>Our Office Address</h4>
-                        <p>
-                            3rd Floor, Padil Gate Building,<br>
-                            Padil, Mangaluru,<br>
-                            Karnataka 575007
-                        </p>
-                    </address>
-                </div>
-            </div>
-            <section class="quick-links link-list location-list">
-              <h3>Locations</h3>
-              <ul>
-                <li>
-                  <a href="/epf-esi-consultancy-mangalore">Mangalore</a>
-                </li>
-                <li>
-                  <a href="/epf-esi-consultancy-udupi">Udupi</a>
-                </li>
-                <li>
-                  <a href="/epf-esi-consultancy-bangalore">Bangalore</a>
-                </li>
-              </ul>
-            </section>
-<div class="rights">
-                <p>&#169; 2026 Medu Consultancy. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
-    <script src="/script.js" defer></script>
-</body>
-</html>
+{% include closing-call.html line="Hand over your monthly PF filing." %}
