@@ -13,7 +13,12 @@
 {%- assign biz = site_url | append: "/#business" -%}
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
-{"@type":"ProfessionalService","@id":"{{ biz }}","name":"{{ site.data.site.name }}","url":"{{ site_url }}/","telephone":"+91-82175-42975"},
+{%- assign s = site.data.site -%}
+{"@type":"ProfessionalService","@id":"{{ biz }}","name":"{{ s.name }}","url":"{{ site_url }}/","telephone":"+91-82175-42975"
+{%- if page.page_type == "home" or page.page_type == "contact" -%}
+,"alternateName":"{{ s.alternate_name }}","logo":"{{ site_url }}/android-chrome-512x512.png","image":"{{ site_url }}/android-chrome-512x512.png","address":{"@type":"PostalAddress","streetAddress":{{ s.address.street | jsonify }},"addressLocality":"{{ s.address.locality }}","addressRegion":"{{ s.address.region }}","postalCode":"{{ s.address.postal_code }}","addressCountry":"{{ s.address.country }}"},"geo":{"@type":"GeoCoordinates","latitude":{{ s.geo.lat }},"longitude":{{ s.geo.lng }}},"hasMap":"{{ s.map_url }}","areaServed":[{% for c in s.cities_official %}{"@type":"City","name":"{{ c }}"}{% unless forloop.last %},{% endunless %}{% endfor %}],"founder":{"@type":"Person","name":"{{ s.founder }}"},"foundingDate":"{{ s.founded }}","knowsLanguage":{{ s.languages | jsonify }}
+{%- endif -%}
+},
 {"@type":"WebSite","@id":"{{ site_url }}/#website","url":"{{ site_url }}/","name":"{{ site.data.site.name }}","publisher":{"@id":"{{ biz }}"}},
 {"@type":"WebPage","@id":"{{ page_url }}#webpage","url":"{{ page_url }}","name":{{ page.title | jsonify }},"description":{{ page.description | jsonify }},"inLanguage":"{% if lang == 'kn' %}kn-IN{% else %}en-IN{% endif %}","isPartOf":{"@id":"{{ site_url }}/#website"},"about":{"@id":"{{ biz }}"}}
 {%- if page.breadcrumb -%}

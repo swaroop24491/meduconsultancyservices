@@ -1,627 +1,80 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+---
+layout: base
+lang: en
+page_type: home
+last_modified: 2026-09-27
+title: "PF & ESI Consultants in Mangalore, Udupi & Bangalore | Medu Consultancy"
+description: "We register your business and file PF and ESI every month, in Mangalore, Udupi and Bangalore. Our founder worked 35 years at EPFO. Call +91 82175 42975."
+faq:
+  - q: What does Medu Consultancy do?
+    a: We take care of PF and ESI for businesses. We register your business, set up your staff and file PF and ESI every month. We work only on PF and ESI.
+  - q: Do PF and ESI apply to my business?
+    a: 'PF applies if your business has 20 or more employees. ESI applies if it has 10 or more. Count all your staff, including casual workers and workers a contractor sends to you. Once PF or ESI applies, it stays, even if your staff later drop below 20 or 10. Some other rules apply too. See <a href="/pf-registration">PF registration for employers</a> and <a href="/esi-registration">ESI registration for employers</a>, or <a href="tel:+918217542975" data-call-location="faq">call us</a> and we''ll check.'
+  - q: Do you work with small businesses?
+    a: Yes. We work with businesses of any size. There is no minimum or maximum.
+  - q: Which areas do you serve?
+    a: Mangalore, Udupi and Bangalore, and nearby areas. Our office is in Mangaluru. In Bangalore, we give local support, backed by our Mangaluru team. In Udupi, we can visit you if needed. Have branches in more than one place? We can handle all of them. You don't need to visit us. We handle everything over phone and email.
+  - q: We need only PF, or only ESI. Can you help?
+    a: Yes. We can do PF only, ESI only, or both.
+  - q: How do we get started?
+    a: '<a href="tel:+918217542975" data-call-location="faq">Call us on +91 82175 42975</a>. We ask a few questions about your business and tell you what applies. Then we tell you which documents we need.'
+---
+{%- include i18n.html -%}
+{% include hero.html heading="Simplifying EPF and ESI compliance for businesses" lead="We handle your EPF (Employees' Provident Fund, also called PF) and ESI (Employees' State Insurance). We register your business and file for you every month. You focus on running your business." %}
 
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-<meta name="author" content="Medu Consultancy">
-<meta name="robots" content="index, follow">
-<meta name="googlebot" content="index, follow">
-<meta name="theme-color" content="rgb(248,244,240)">
+{% include two-paths.html bg="surface" %}
 
-    <title>PF & ESI Consultants | Medu Consultancy</title>
-    <meta name="description" content="Best PF consultant and ESI consultant services from Medu Consultancy in Karnataka. 25+ years of experience ensuring full EPF and ESI compliance.">
-    <link rel="canonical" href="https://www.meduconsultancy.com/" />
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Medu Consultancy">
-    <meta property="og:title" content="PF & ESI Consultants | Medu Consultancy">
-    <meta property="og:description" content="Best PF consultant and ESI consultant services from Medu Consultancy in Karnataka. 25+ years of experience ensuring full EPF and ESI compliance.">
-    <meta property="og:url" content="https://www.meduconsultancy.com/">
-    <meta property="og:image" content="https://www.meduconsultancy.com/android-chrome-512x512.png">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="PF & ESI Consultants | Medu Consultancy">
-    <meta name="twitter:description" content="Best PF consultant and ESI consultant services from Medu Consultancy in Karnataka. 25+ years of experience ensuring full EPF and ESI compliance.">
-    <meta name="twitter:image" content="https://www.meduconsultancy.com/android-chrome-512x512.png">
+{% include situation-cards.html %}
 
-    <link rel="alternate" hreflang="en" href="https://www.meduconsultancy.com/" />
-    <link rel="alternate" hreflang="kn" href="https://www.meduconsultancy.com/kn/" />
-    <link rel="alternate" hreflang="x-default" href="https://www.meduconsultancy.com/" />
+<section class="section section--surface" aria-labelledby="why-heading">
+  <div class="container">
+    <h2 id="why-heading">Why businesses choose us</h2>
+    <div class="card-grid card-grid--3 card-grid--top">
+      <div class="card">
+        <h3>Our founder worked 35 years at EPFO</h3>
+        <p>Medu Thirumaleshwara Bhat started Medu Consultancy in 2000. He worked at EPFO (the PF office) for 35 years. We know how the PF office works from the inside. That is why our filing is right and on time.</p>
+        {% include photo-slot.html src=site.data.site.founder_photo alt="Medu Thirumaleshwara Bhat, founder of Medu Consultancy" %}
+        <p><a class="link-arrow" href="/about-us">About us&#8288;{% include icon.html name="arrow" size="18" %}</a></p>
+      </div>
+      <div class="card">
+        <h3>Every due date, every month</h3>
+        <p>{{ t.filing_promise }}</p>
+      </div>
+      <div class="card">
+        <h3>Local, and we speak Kannada</h3>
+        <p>We are based in Mangaluru and work with businesses in Mangalore, Udupi and Bangalore. You can talk to us in Kannada, English or Hindi. Our website is in English and Kannada.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <script type="application/ld+json">
-      {
-        "@context": "http://schema.org",
-        "@type": "WebPage",
-        "url": "https://www.meduconsultancy.com",
-        "name": "PF & ESI Consultants | Expert PF & ESI Registration & Monthly Filing Services",
-        "description": "Best PF consultant and ESI consultant services from Medu Consultancy in Karnataka. With 25+ years of experience, we provide reliable support to ensure full EPF and ESI compliance.",
-        "mainEntity": {
-          "@type": "LocalBusiness",
-          "name": "Medu Consultancy",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "3rd Floor, Padil Gate Building, Padil",
-            "addressLocality": "Mangalore",
-            "addressRegion": "Karnataka",
-            "postalCode": "575007",
-            "addressCountry": "IN"
-          },
-          "telephone": "+91-8217542975",
-          "contactPoint": {
-            "@type": "ContactPoint",
-            "contactType": "Customer Service",
-            "telephone": "+91-8217542975",
-            "availableLanguage": "en"
-          },
-          "serviceArea": {
-            "@type": "Place",
-            "name": "Karnataka"
-          }
-        },
-        "breadcrumb": {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Home",
-              "item": "https://www.meduconsultancy.com"
-            }
-          ]
-        }
-      }
-    </script>
-    <script type="application/ld+json">
-      {
-        "@context": "http://schema.org",
-        "@type": "OfferCatalog",
-        "name": "PF & ESI Consultant Services",
-        "itemListElement": [
-          {
-            "@type": "Service",
-            "name": "EPF Compliance Services",
-            "description": "PF registration, employee registration and UAN generation, monthly filings, transfer/withdrawal support, KYC updates, records and audits, inspection support, correspondence, and legislative updates."
-          },
-          {
-            "@type": "Service",
-            "name": "ESI Compliance Services",
-            "description": "ESI registration, employee registration and IP number generation, monthly filings, KYC updates, claims support, inspection support, correspondence, and legislative updates."
-          }
-        ]
-      }
-    </script>
-    <link rel="stylesheet" href="/styles.css">
-    <link rel="stylesheet" href="/homepage.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+{% include how-we-work.html bg="tint" %}
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap&icon_names=call,mail" />
+{% include industry-links.html %}
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4MEQF5W0XX"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+<section class="section section--surface" aria-labelledby="where-heading">
+  <div class="container stack">
+    <h2 id="where-heading">Where we work</h2>
+    <div class="card-grid card-grid--3 card-grid--top">
+      <div class="card">
+        <h3><a class="link-arrow" href="/epf-esi-consultancy-mangalore">PF and ESI consultant in Mangalore&#8288;{% include icon.html name="arrow" size="18" %}</a></h3>
+        <p>Our office and main team are in Mangaluru.</p>
+      </div>
+      <div class="card">
+        <h3><a class="link-arrow" href="/epf-esi-consultancy-udupi">PF and ESI consultant in Udupi&#8288;{% include icon.html name="arrow" size="18" %}</a></h3>
+        <p>We work with Udupi businesses from our Mangaluru office. We can visit you if needed.</p>
+      </div>
+      <div class="card">
+        <h3><a class="link-arrow" href="/epf-esi-consultancy-bangalore">PF and ESI consultant in Bangalore&#8288;{% include icon.html name="arrow" size="18" %}</a></h3>
+        <p>Local support in Bangalore, backed by our Mangaluru team.</p>
+      </div>
+    </div>
+    {% include no-office.html %}
+  </div>
+</section>
 
-      gtag('config', 'G-4MEQF5W0XX');
-    </script>
-</head>
-<body class="home">
-    <a class="skip-link" href="#main-content">Skip to main content</a>
+{% include testimonials.html %}
 
-    <!-- Header with Logo, Phone, and Navigation -->
-    <header>
-        <div class="container header-content">
-            <div class="logo">
-                <a href="/"><img src="/images/logo-new.svg" width="200" height="45" alt="Medu Consultancy Logo"></a>
-            </div>
-            <nav class="header-nav" aria-label="Primary">
-                <ul>
-                    <li>
-                        <a href="/contact-us">Contact</a>
-                    </li>
-                    <li>
-                        <a href="/epf-consultancy-service">EPF Consultancy</a>
-                    </li>
-                    <li>
-                        <a href="/esi-consultancy-service">ESI Consultancy</a>
-                    </li>
-                    <li>
-                        <a href="/epf-esi-tools-calculators">Tools</a>
-                    </li>
-                </ul>
-            </nav>
-            <div class="header-links">
-                <a href="tel:+918217542975" class="phone"><span class="material-symbols-outlined" aria-hidden="true">
-                    call
-                    </span> 8217542975</a>
-                <a class="lang-switch" href="/kn/" hreflang="kn" lang="kn" aria-label="View this page in Kannada">ಕನ್ನಡ</a>
-            </div>
+{% include faq.html items=page.faq schema=true %}
 
-            <!-- Hamburger Icon -->
-            <div class="hamburger" id="hamburger-icon">
-                <div id="menuToggle">
-                    <input type="checkbox" id="menuCheckbox" aria-label="Open menu" />
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <nav class="mobile-nav" aria-label="Menu"><ul id="menu">
-                      <li>
-                        <a href="/" class="nav-link">Home</a>
-                      </li>
-                      <li>
-                        <a href="/about-us" class="nav-link">About Us</a>
-                      </li>
-                      <li>
-                        <a href="/contact-us" class="nav-link">Contact Us</a>
-                      </li>
-
-                      <li>
-                        <a href="/blogs" class="nav-link">Blogs</a>
-                      </li>
-                      <li>
-                        <a href="/epf-consultancy-service" class="nav-link">EPF Consultancy</a>
-                      </li>
-                      <li>
-                        <a href="/esi-consultancy-service" class="nav-link">ESI Consultancy</a>
-                      </li>
-                      <li>
-                        <a href="/epf-esi-tools-calculators" class="nav-link">Tools &amp; Calculators</a>
-                      </li>
-
-                      <li>
-                        <a href="/epf-excel-to-text-converter" class="nav-link">EPF Excel to Text Converter</a>
-                      </li>
-                      <li>
-                        <a href="/epf-penalty-calculator" class="nav-link">EPF Penalty Calculator</a>
-                      </li>
-                      <li>
-                        <a href="/esi-penalty-calculator" class="nav-link">ESI Penalty Calculator</a>
-                      </li>
-                      <li>
-                        <a href="/epf-eligibility-checker" class="nav-link">EPF Eligibility Checker</a>
-                      </li>
-                      <li>
-                        <a href="/esi-eligibility-checker" class="nav-link">ESI Eligibility Checker</a>
-                      </li>
-                      <li>
-                        <a href="/epf-contribution-calculator" class="nav-link">PF Contribution Calculator</a>
-                      </li>
-                      <li>
-                        <a href="/esi-contribution-calculator" class="nav-link">ESI Contribution Calculator</a>
-                      </li>
-                      <li>
-                        <a href="/kn/" class="nav-link lang-switch" hreflang="kn" lang="kn" aria-label="View this page in Kannada">ಕನ್ನಡ</a>
-                      </li>
-                      <li>
-                        <div class="contact-us">
-                            <address>
-                                <p>
-                                    <a href="tel:+918217542975" class="phone">
-                                        <span class="material-symbols-outlined" aria-hidden="true">
-                                        call
-                                        </span>
-                                        8217542975</a>
-                                </p>
-                                <p><a href="mailto:hello.meduconsultancy@gmail.com" class="email">
-                                    <span class="material-symbols-outlined" aria-hidden="true">
-                                        mail
-                                        </span>
-                                        hello.meduconsultancy@gmail.com</a></p>
-                            </address>
-                            <address class="office-address">
-                                <h4>Our Office Address</h4>
-                                <p>
-                                    3rd Floor, Padil Gate Building,<br>
-                                    Padil, Mangaluru,<br>
-                                    Karnataka 575007
-                                </p>
-                            </address>
-                        </div>
-                      </li>
-                    </ul></nav>
-                  </div>
-            </div>
-        </div>
-    </header>
-
-    <div class="header-space"></div>
-    <main id="main-content" tabindex="-1">
-    <!-- Home Section -->
-    <section id="home">
-        <div class="container">
-            <h1>Simplifying EPF & ESI Compliance for Businesses</h1>
-            <p class="subhead">Our team helps small businesses handle everything related to EPF (Employees’ Provident Fund) and ESI (Employees’ State Insurance) so you can focus on running your business.</p>
-            <div class="contact cta-btns">
-                <span class="call-label">Call us now</span>
-                <p><a href="tel:+918217542975" class="phone phone-highlight">
-                    <span class="material-symbols-outlined" aria-hidden="true">
-                    call
-                    </span>
-                    +91 82175 42975</a></p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="services">
-        <div class="container">
-            <h2>Our Services</h2>
-            <p class="subhead">Complete EPF & ESI Management, Built on Decades of Experience, with services available across Karnataka.</p>
-            <div class="services-cntr">
-                <div class="service">
-                    <h3>EPF Compliance</h3>
-                    <ul>
-                        <li><img src="/images/check.svg" width="24" height="24" alt="" />PF Registration</li>
-                        <li><img src="/images/check.svg" width="24" height="24" alt="" />Employee registration and UAN generation</li>
-                        <li><img src="/images/check.svg" width="24" height="24" alt="" />Monthly updates and filings</li>
-                        <li><img src="/images/check.svg" width="24" height="24" alt="" />Records maintenance and audits</li>
-                        <li><img src="/images/check.svg" width="24" height="24" alt="" />Assist Client in handling of PF inspections</li>
-                    </ul>
-                    <p class="more-count"><a href="/epf-consultancy-service">+4 more services &rarr;</a></p>
-                    <div class="mtopauto">
-                        <a href="/epf-consultancy-service" class="outlined-btn">Know More</a>
-                        <div class="tools-row">
-                            <a class="tool-chip" href="/epf-penalty-calculator">Penalty calculator</a>
-                            <a class="tool-chip" href="/epf-eligibility-checker">Eligibility checker</a>
-                            <a class="tool-chip" href="/epf-contribution-calculator">Contribution split</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="service">
-                    <h3>ESI Compliance</h3>
-                    <ul>
-                        <li><img src="/images/check.svg" width="24" height="24" alt="" />ESI Registration</li>
-                        <li><img src="/images/check.svg" width="24" height="24" alt="" />Employee registration and IP number generation</li>
-                        <li><img src="/images/check.svg" width="24" height="24" alt="" />Monthly updates and filings</li>
-                        <li><img src="/images/check.svg" width="24" height="24" alt="" />Claims support</li>
-                        <li><img src="/images/check.svg" width="24" height="24" alt="" />Assist Client in handling of ESI inspections</li>
-                    </ul>
-                    <p class="more-count"><a href="/esi-consultancy-service">+3 more services &rarr;</a></p>
-                    <div class="mtopauto">
-                        <a href="/esi-consultancy-service" class="outlined-btn">Know More</a>
-                        <div class="tools-row">
-                            <a class="tool-chip" href="/esi-penalty-calculator">Penalty calculator</a>
-                            <a class="tool-chip" href="/esi-eligibility-checker">Eligibility checker</a>
-                            <a class="tool-chip" href="/esi-contribution-calculator">Contribution split</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Industries We Serve Section -->
-    <section class="industries">
-        <div class="container">
-            <h2>Industries We Serve</h2>
-            <ul>
-                <li>
-                    <span class="industry-icon"><img src="/images/industry-hospital.svg" width="26" height="26" alt="" /></span>
-                    <span>Hospitals</span>
-                </li>
-                <li>
-                    <span class="industry-icon"><img src="/images/industry-factory.svg" width="26" height="26" alt="" /></span>
-                    <span>Factories</span>
-                </li>
-                <li>
-                    <span class="industry-icon"><img src="/images/industry-school.svg" width="26" height="26" alt="" /></span>
-                    <span>Schools</span>
-                </li>
-                <li>
-                    <span class="industry-icon"><img src="/images/industry-estate.svg" width="26" height="26" alt="" /></span>
-                    <span>Estates</span>
-                </li>
-                <li>
-                    <span class="industry-icon"><img src="/images/industry-security.svg" width="26" height="26" alt="" /></span>
-                    <span>Security Agencies</span>
-                </li>
-                <li>
-                    <span class="industry-icon"><img src="/images/industry-housekeeping.svg" width="26" height="26" alt="" /></span>
-                    <span>Housekeeping Agencies</span>
-                </li>
-                <li>
-                    <span class="industry-icon"><img src="/images/industry-it.svg" width="26" height="26" alt="" /></span>
-                    <span>IT companies</span>
-                </li>
-                <li>
-                    <span class="industry-icon"><img src="/images/industry-engineers.svg" width="26" height="26" alt="" /></span>
-                    <span>Engineers & Contractors</span>
-                </li>
-                <li>
-                    <span class="industry-icon"><img src="/images/industry-suppliers.svg" width="26" height="26" alt="" /></span>
-                    <span>Distributors & Suppliers</span>
-                </li>
-                <li>
-                    <span class="industry-icon"><img src="/images/industry-local-shop.svg" width="26" height="26" alt="" /></span>
-                    <span>Local Shops</span>
-                </li>
-                <li>
-                    <span class="industry-icon"><img src="/images/industry-hotel.svg" width="26" height="26" alt="" /></span>
-                    <span>Hotels</span>
-                </li>
-                <li>
-                    <span class="industry-icon"><img src="/images/industry-restaurant.svg" width="26" height="26" alt="" /></span>
-                    <span>Restaurants</span>
-                </li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- Why Choose Us Section -->
-    <section class="why-choose-us">
-        <div class="container">
-            <h2>Why Choose Us?</h2>
-            <ul>
-                <li>
-                    <img src="/images/experience.svg" width="100" height="100" alt="" />
-                    <h3>25+ years of Expertise</h3>
-                    <p>With 25+ years of experience as trusted PF consultants and ESI consultants, we ensure your business stays compliant with EPF and ESI regulations.</p>
-                </li>
-                <li>
-                    <img src="/images/handshake.svg" width="100" height="100" alt="" />
-                    <h3>Trusted by Businesses</h3>
-                    <p>We have earned the trust of  small and medium businesses across various industries through reliable and efficient services.</p>
-                </li>
-                <li>
-                    <img src="/images/bolt.svg" width="100" height="100" alt="" />
-                    <h3>Quick and Responsive Support</h3>
-                    <p>Whether it’s a query, urgent filing, or claims assistance, our team is always ready to assist you promptly.</p>
-                </li>
-            </ul>
-        </div>
-    </section>
-
-    <section class="faqs">
-        <div class="container" itemscope itemtype="https://schema.org/FAQPage">
-            <h2>Frequently Asked Questions</h2>
-            <div class="accordion">
-              <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                <button id="accordion-button-1" aria-expanded="false">
-                  <span class="accordion-title" itemprop="name">What services does Medu Consultancy provide?</span>
-                  <span class="icon" aria-hidden="true"></span>
-                </button>
-                <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                  <p itemprop="text">
-                    We offer end-to-end EPF and ESI compliance services, including registrations, monthly filings, claims support, inspections handling, and more.
-                  </p>
-                </div>
-              </div>
-            
-              <!-- FAQ 2 -->
-              <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                <button id="accordion-button-2" aria-expanded="false">
-                  <span class="accordion-title" itemprop="name">Why is EPF and ESI compliance important for my business?</span>
-                  <span class="icon" aria-hidden="true"></span>
-                </button>
-                <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                  <p itemprop="text">
-                    Compliance ensures legal adherence, safeguards your employees, and avoids penalties. Our services make the process simple and stress-free.
-                  </p>
-                </div>
-              </div>
-            
-              <!-- FAQ 3 -->
-              <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                <button id="accordion-button-3" aria-expanded="false">
-                  <span class="accordion-title" itemprop="name">Who is required to register for EPF and ESI?</span>
-                  <span class="icon" aria-hidden="true"></span>
-                </button>
-                <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                  <p itemprop="text">
-                    EPF is mandatory for businesses with 20 or more employees, and ESI is required for businesses with 10 or more employees, in every state. We help you determine eligibility and complete the registration process.
-                  </p>
-                </div>
-              </div>
-            
-              <!-- FAQ 4 -->
-              <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                <button id="accordion-button-4" aria-expanded="false">
-                  <span class="accordion-title" itemprop="name">How does Medu Consultancy simplify compliance?</span>
-                  <span class="icon" aria-hidden="true"></span>
-                </button>
-                <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                  <p itemprop="text">
-                    Our experienced team handles everything from documentation and filings to inspections and claims, saving you time and ensuring accuracy.
-                  </p>
-                </div>
-              </div>
-            
-              <!-- FAQ 5 -->
-              <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                <button id="accordion-button-5" aria-expanded="false">
-                  <span class="accordion-title" itemprop="name">Can you assist with employee registrations and updates?</span>
-                  <span class="icon" aria-hidden="true"></span>
-                </button>
-                <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                  <p itemprop="text">
-                    Yes, we help register employees for EPF and ESI, generate UAN and IP numbers, and update KYC details when needed.
-                  </p>
-                </div>
-              </div>
-            
-              <!-- FAQ 6 -->
-              <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                <button id="accordion-button-6" aria-expanded="false">
-                  <span class="accordion-title" itemprop="name">What happens if my business fails to comply with EPF or ESI regulations?</span>
-                  <span class="icon" aria-hidden="true"></span>
-                </button>
-                <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                  <p itemprop="text">
-                    Non-compliance can result in penalties, legal actions, and employee dissatisfaction. We ensure timely filings and updates to keep your business compliant.
-                  </p>
-                </div>
-              </div>
-            
-              <!-- FAQ 7 -->
-              <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                <button id="accordion-button-7" aria-expanded="false">
-                  <span class="accordion-title" itemprop="name">Do you provide ongoing support for EPF and ESI compliance?</span>
-                  <span class="icon" aria-hidden="true"></span>
-                </button>
-                <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                  <p itemprop="text">
-                    Absolutely! We offer continuous support for all compliance needs, including monthly filings, inspections, and legislative updates.
-                  </p>
-                </div>
-              </div>
-            
-              <!-- FAQ 8 -->
-              <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                <button id="accordion-button-8" aria-expanded="false">
-                  <span class="accordion-title" itemprop="name">What makes Medu Consultancy different?</span>
-                  <span class="icon" aria-hidden="true"></span>
-                </button>
-                <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                  <p itemprop="text">
-                    We specialize in personalized, hands-on support for small businesses. With over 25 years of experience, we bring expertise and attention to detail to every client.
-                  </p>
-                </div>
-              </div>
-            
-              <!-- FAQ 9 -->
-              <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                <button id="accordion-button-9" aria-expanded="false">
-                  <span class="accordion-title" itemprop="name">Can you handle EPF and ESI compliance for businesses in multiple locations?</span>
-                  <span class="icon" aria-hidden="true"></span>
-                </button>
-                <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                  <p itemprop="text">
-                    Yes, we provide tailored solutions to manage compliance for businesses operating across multiple locations in Karnataka.
-                  </p>
-                </div>
-              </div>
-            
-              <!-- FAQ 10 -->
-              <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                <button id="accordion-button-10" aria-expanded="false">
-                  <span class="accordion-title" itemprop="name">Which cities do you serve for EPF and ESI compliance?</span>
-                  <span class="icon" aria-hidden="true"></span>
-                </button>
-                <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                  <p itemprop="text">
-                    We mainly serve businesses in Mangalore, Udupi and Bangalore, and in nearby areas.
-                  </p>
-                </div>
-              </div>
-
-              <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                <button id="accordion-button-11" aria-expanded="false">
-                  <span class="accordion-title" itemprop="name">How do I get started with Medu Consultancy?</span>
-                  <span class="icon" aria-hidden="true"></span>
-                </button>
-                <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                  <p itemprop="text">
-                    Contact us today, and our team will guide you through the process, from registrations to ongoing compliance management.
-                  </p>
-                </div>
-              </div>
-              
-            </div>
-          </div>
-    </section>
-
-    <!-- Closing Call to Action -->
-    <section class="cta">
-        <div class="container">
-            <div class="cta-slim">
-                <span class="cta-slim-text">Ready when you are &mdash; give us a call anytime.</span>
-                <a href="tel:+918217542975" class="phone cta-slim-btn">
-                    <span class="material-symbols-outlined" aria-hidden="true">
-                    call
-                    </span>
-                    +91 82175 42975
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer Section -->
-    </main>
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="about-us">
-                    <p>We are Medu Consultancy, a trusted PF consultant and ESI consultant helping small and medium businesses with EPF and ESI compliance. Our team provides personalized services, including PF registration, ESI registration, monthly PF filing, and monthly ESI filings, ensuring your business stays compliant while you focus on growth.</p>
-                </div>
-    
-                <div class="quick-links link-list">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/about-us">About Us</a></li>
-                        <li><a href="/contact-us">Contact Us</a></li>
-<li><a href="/blogs">Blogs</a></li>
-<li><a href="/privacy-policy">Privacy Policy</a></li>
-<li><a href="/terms-and-conditions">Terms and Conditions</a></li>
-                    </ul>
-                </div>
-                <div class="services-offered link-list">
-                    <h3>Our Services</h3>
-                    <ul>
-                        <li><a href="/epf-consultancy-service">EPF Compliance</a></li>
-                       <li><a href="/esi-consultancy-service">ESI Compliance</a></li>
-    <li><a href="/epf-esi-tools-calculators">Tools &amp; Calculators</a></li>
-    <li><a href="/epf-excel-to-text-converter">EPF Excel to Text Converter</a></li>
-    <li><a href="/epf-penalty-calculator">EPF Penalty Calculator</a></li>
-    <li><a href="/esi-penalty-calculator">ESI Penalty Calculator</a></li>
-    <li><a href="/epf-eligibility-checker">EPF Eligibility Checker</a></li>
-    <li><a href="/esi-eligibility-checker">ESI Eligibility Checker</a></li>
-    <li><a href="/epf-contribution-calculator">PF Contribution Calculator</a></li>
-    <li><a href="/esi-contribution-calculator">ESI Contribution Calculator</a></li>
-                    </ul>
-                </div>
-                <div class="contact-us">
-                    <h3>Contact Us</h3>
-                    <address>
-                        <p>
-                            <a href="tel:+918217542975" class="phone">
-                                <span class="material-symbols-outlined" aria-hidden="true">
-                                call
-                                </span>
-                                8217542975</a>
-                        </p>
-                        <p><a href="mailto:hello.meduconsultancy@gmail.com" class="email">
-                            <span class="material-symbols-outlined" aria-hidden="true">
-                                mail
-                                </span>
-                                hello.meduconsultancy@gmail.com</a></p>
-                    </address>
-                    <address class="office-address">
-                        <h4>Our Office Address</h4>
-                        <p>
-                            3rd Floor, Padil Gate Building,<br>
-                            Padil, Mangaluru,<br>
-                            Karnataka 575007
-                        </p>
-                    </address>
-                </div>
-            </div>
-            <section class="quick-links link-list location-list">
-              <h3>Locations</h3>
-              <ul>
-                <li>
-                  <a href="/epf-esi-consultancy-mangalore">Mangalore</a>
-                </li>
-                <li>
-                  <a href="/epf-esi-consultancy-udupi">Udupi</a>
-                </li>
-                <li>
-                  <a href="/epf-esi-consultancy-bangalore">Bangalore</a>
-                </li>
-              </ul>
-            </section>
-<div class="rights">
-                <p>&#169; 2026 Medu Consultancy. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
-    <script src="/script.js" defer></script>
-</body>
-</html>
+{% include closing-call.html %}

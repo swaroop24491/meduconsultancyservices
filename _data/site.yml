@@ -13,6 +13,12 @@ address:
   region: Karnataka
   postal_code: "575007"
   country: IN
+# From the Google Maps listing (contact page map)
+geo: { lat: 12.870844, lng: 74.8834522 }
+map_url: "https://maps.google.com/?cid=15926849928148429817"
+founder: Medu Thirumaleshwara Bhat
+# Languages we speak on the phone (owner, 2026-09-27)
+languages: [Kannada, English, Hindi]
 cities: [Mangalore, Udupi, Bangalore]
 # Official spellings for structured data (decision D3)
 cities_official: [Mangaluru, Udupi, Bengaluru]
@@ -20,5 +26,7 @@ proof:
   years: "25+"
   clients: "100+"
   employees_covered: "3,500+"
+# Photos (brief section 7): set a path when the photo arrives; empty slots render nothing.
+founder_photo: ""
 # Switch on when real testimonials are in _data/testimonials.yml (brief section 7).
 testimonials_on: false
