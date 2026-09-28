@@ -4,7 +4,7 @@ lang: en
 page_type: tool
 last_modified: 2026-09-28
 title: "PF Penalty Calculator (EPF) 2026 | Medu Consultancy"
-description: "Paid PF late? Work out the interest and damages EPFO can charge. Free PF penalty calculator, updated for 2026 rules."
+description: "Paid PF late? Work out the interest (12% a year) and damages EPFO can charge on late EPF payments. Free PF penalty calculator, updated for 2026 rules."
 scripts: [/penalty-calculator.js]
 tool: { name: PF penalty calculator }
 breadcrumb:
@@ -31,19 +31,15 @@ faq:
         <div class="field">
           <label for="amount">Unpaid PF amount (₹)</label>
           <input type="number" id="amount" name="amount" min="1" step="1" inputmode="numeric" required aria-describedby="amount-help amount-error">
-          <p id="amount-help" class="field__help">The PF amount that was not paid on time.</p>
+          <p id="amount-help" class="field__help">The full PF for that month that was paid late: your share and the employee's share.</p>
           <p id="amount-error" class="field__error" aria-live="polite"></p>
         </div>
         <div class="field">
           <label for="wage-month">Salary month</label>
-          <input type="month" id="wage-month" name="wage-month" required aria-describedby="wage-month-help wage-month-error">
+          <input type="month" id="wage-month" name="wage-month" required aria-describedby="wage-month-help due-date-line wage-month-error">
           <p id="wage-month-help" class="field__help">The month the salary was for, not the month you paid.</p>
+          <p id="due-date-line" class="field__help field__output">Due date ({{ epf.due_day }}th of the next month): <output id="due-date" for="wage-month" aria-live="polite"></output></p>
           <p id="wage-month-error" class="field__error" aria-live="polite"></p>
-        </div>
-        <div class="field">
-          <label for="due-date">Due date</label>
-          <input type="text" id="due-date" name="due-date" readonly aria-describedby="due-date-help">
-          <p id="due-date-help" class="field__help">Worked out for you: the {{ epf.due_day }}th of the next month.</p>
         </div>
         <div class="field">
           <label for="payment-date">Date you paid, or will pay</label>
@@ -64,7 +60,7 @@ faq:
   <div class="container">
     <div class="prose">
       <h2 id="how-heading">How PF late payment costs are worked out</h2>
-      <p>PF is due by the {{ epf.due_day }}th of the next month. If you pay late, EPFO can charge two extra amounts on top of the unpaid PF: <strong>interest</strong> and <strong>damages</strong> (a fine for paying late). This calculator works out both, so you know roughly what you may owe.</p>
+      <p>PF (also called EPF) is due by the {{ epf.due_day }}th of the next month. If you pay late, EPFO can charge two extra amounts on top of the unpaid PF: <strong>interest</strong> and <strong>damages</strong> (a fine for paying late). This calculator works out both, so you know roughly what you may owe.</p>
       <h3>Interest</h3>
       <p>Interest is 12% a year on the unpaid amount. It is counted for each day from the due date until the day you pay. It is charged on every late payment.</p>
       <h3>Damages</h3>
@@ -82,7 +78,7 @@ faq:
 
 <section class="section" aria-labelledby="related-heading">
   <div class="container">
-    <h2 id="related-heading">Related tools and guides</h2>
+    <h2 id="related-heading">Related tools and pages</h2>
     <div class="card-grid">
       {% include tool-card.html key="esi-penalty" %}
       {% include tool-card.html key="epf-contribution" %}

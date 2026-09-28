@@ -258,10 +258,12 @@
         paymentDate: paymentDate
       });
 
-      renderResult(resultsEl, labels, result);
+      renderResult(resultsEl, labels, result, paymentDate);
     });
 
-    function renderResult(container, labels, result) {
+    var CALL = '<a href="tel:+918217542975" data-call-location="result">Call us</a>';
+
+    function renderResult(container, labels, result, paymentDate) {
       if (result.onTime) {
         container.innerHTML =
           '<div class="result-message">' +
@@ -277,9 +279,8 @@
       html += '<p><strong>Due date:</strong> ' + formatDateLong(result.dueDate) + '</p>';
       html += '<p><strong>Days late:</strong> ' + result.delayDays;
       if (result.damages.usesRoundedMonths) {
-        html += ' (' + result.delayMonths +
-          ' month' + (result.delayMonths === 1 ? '' : 's') +
-          ' for damages: every 30 days is a month, and part of it counts as a full month)';
+        html += ' (counted as ' + result.delayMonths +
+          ' month' + (result.delayMonths === 1 ? '' : 's') + ' for damages)';
       }
       html += '</p>';
       html += '</div>';
@@ -291,11 +292,22 @@
       html += '<tr><th scope="row">Unpaid amount</th><td>' + formatINR(result.principal) + '</td></tr>';
       html += '<tr><th scope="row">' + labels.interestLabel + '</th><td>' + formatINR(result.interest) + '</td></tr>';
       html += '<tr><th scope="row">' + labels.damagesLabel + '</th><td>' + formatINR(result.damages.amount) + '</td></tr>';
-      html += '<tr class="result-table__total"><th scope="row">Total to pay</th><td>' + formatINR(result.total) + '</td></tr>';
+      html += '<tr class="result-table__total"><th scope="row">Total (estimate)</th><td>' + formatINR(result.total) + '</td></tr>';
       html += '</tbody></table>';
 
       html += '<p class="result-note">' + result.damages.ruleLabel +
         ', for ' + result.damages.bracketLabel + '.</p>';
+
+      // Text-only notes (the amounts above don't change). Strategy 9.4 #18: PF
+      // due before the 14 June 2024 change but paid after it. 9.4 #1/#2: the old
+      // slabs have no cap here, so very long delays can give damages above the
+      // unpaid amount; the cap under the Code is not yet confirmed.
+      if (scheme === 'epf' && result.dueDate < EPF_RATE_CHANGE_DATE && paymentDate >= EPF_RATE_CHANGE_DATE) {
+        html += '<p class="result-note">Your PF was due before 14 June 2024 and paid after it. The rules for this are not clear, so this figure may change. ' + CALL + ' to check.</p>';
+      }
+      if (!result.damages.capped && result.damages.amount > result.principal) {
+        html += '<p class="result-note">Damages this high are unusual. ' + CALL + ' to check.</p>';
+      }
 
       if (result.damages.capped) {
         html += '<p class="result-note">Damages can\'t be more than the unpaid amount. So they stop at 100% of it.</p>';
