@@ -462,7 +462,9 @@
         var CEILING_PWD = 25000;
         var EMPLOYEE_RATE = 0.0075;
         var EMPLOYER_RATE = 0.0325;
-        var LOW_WAGE_EXEMPTION_LIMIT = 176;
+        // The low-pay exemption amount (₹176 a day from 2019) is not confirmed
+        // under the Code, so the calculator doesn't check it (owner decision
+        // 2026-09-28; brief section 11). The page tells users to call.
 
         function roundRupee(n) {
           return Math.round(n);
@@ -488,15 +490,6 @@
                 { value: 'no', label: 'No' }
               ],
               default: 'no'
-            },
-            {
-              id: 'avg-daily-wage',
-              type: 'number',
-              label: 'Average daily wage (₹)',
-              help: 'Optional - only needed to check the low-wage exemption.',
-              advanced: true,
-              required: false,
-              min: 0
             }
           ],
           compute: function (a) {
@@ -513,17 +506,9 @@
 
             var employeeShare = roundRupee(a['gross-wages'] * EMPLOYEE_RATE);
             var employerShare = roundRupee(a['gross-wages'] * EMPLOYER_RATE);
-            var exempted = false;
-            if (a['avg-daily-wage'] !== undefined && !isNaN(a['avg-daily-wage']) && a['avg-daily-wage'] <= LOW_WAGE_EXEMPTION_LIMIT) {
-              employeeShare = 0;
-              exempted = true;
-            }
             var total = employeeShare + employerShare;
 
             var notes = [];
-            if (exempted) {
-              notes.push("Employee's own 0.75% contribution is exempt (average daily wage at or below ₹" + LOW_WAGE_EXEMPTION_LIMIT + '); the employer must still pay the 3.25% share.');
-            }
 
             return {
               applicable: true,

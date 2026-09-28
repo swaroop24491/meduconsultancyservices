@@ -496,7 +496,9 @@
 
         var ESI_CEILING = 21000;
         var ESI_CEILING_PWD = 25000;
-        var LOW_WAGE_EXEMPTION_LIMIT = 176;
+        // The low-pay exemption amount (₹176 a day from 2019) is not confirmed
+        // under the Code, so the checker doesn't check it (owner decision
+        // 2026-09-28; brief section 11).
 
         initEligibilityCalculator('business-eligibility', {
           cardTitle: 'Business registration status',
@@ -573,24 +575,12 @@
                 { value: 'no', label: 'No' }
               ],
               errorRequired: 'Select an option.'
-            },
-            {
-              id: 'avg-daily-wage',
-              type: 'number',
-              label: 'Average daily wage (₹)?',
-              help: 'Optional - only needed to check the low-wage exemption.',
-              advanced: true,
-              required: false,
-              min: 0
             }
           ],
           evaluate: function (a) {
             var ceiling = a['is-pwd'] === 'yes' ? ESI_CEILING_PWD : ESI_CEILING;
             if (a['gross-wages'] <= ceiling) {
               var note = null;
-              if (a['avg-daily-wage'] !== undefined && !isNaN(a['avg-daily-wage']) && a['avg-daily-wage'] <= LOW_WAGE_EXEMPTION_LIMIT) {
-                note = "Employee's own 0.75% contribution is exempt (average daily wage ₹" + a['avg-daily-wage'].toLocaleString('en-IN') + ' is at or below ₹' + LOW_WAGE_EXEMPTION_LIMIT + '); the employer must still pay the 3.25% share.';
-              }
               return {
                 kind: 'positive',
                 headline: 'Covered',
