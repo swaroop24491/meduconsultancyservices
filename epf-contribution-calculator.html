@@ -1,549 +1,174 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+---
+layout: base
+lang: en
+page_type: tool
+last_modified: 2026-09-28
+title: "PF Contribution Calculator (EPF) 2026 | Medu Consultancy"
+description: "See how much PF you and your employee pay each month, including the pension (EPS) part. Free PF calculator, updated for the ₹25,000 limit."
+scripts: [/contribution-calculator.js]
+tool: { name: PF contribution calculator }
+breadcrumb:
+  - { name: Free tools, path: epf-esi-tools-calculators }
+  - { name: PF contribution calculator }
+faq:
+  - q: What is EPS, and why is less than 12% in the PF account?
+    a: "EPS is the Employees' Pension Scheme. Part of your 12% goes to it: 8.33% of PF wages, up to ₹2,083 a month (₹1,250 when the limit was ₹15,000). It pays the employee a pension later. So less of your share goes into their PF account."
+  - q: Can we pay PF on the full salary if it is above ₹25,000?
+    a: Yes, if you and the employee both agree. Otherwise you pay PF on ₹25,000. For most staff, the pension part (EPS) stays at 8.33% of ₹25,000.
+  - q: Who pays 10% instead of 12%?
+    a: 'Only some businesses the government has named. Most businesses pay 12%. <a href="tel:+918217542975" data-call-location="faq">Call us</a> if you are not sure.'
+  - q: Will this match the payslip exactly?
+    a: It will be very close. The final figure can differ by a rupee or so, because of how each amount is rounded.
+---
+{%- assign epf = site.data.facts.epf -%}
+<section class="section section--stacked tool-section" aria-labelledby="tool-heading">
+  <div class="container">
+    <h1 id="tool-heading">PF contribution calculator</h1>
+    <p class="tool-lead">Enter an employee's PF wages. See how much PF (Provident Fund) the employee pays, how much you pay, and how much goes to their pension.</p>
 
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-<meta name="author" content="Medu Consultancy">
-<meta name="robots" content="index, follow">
-<meta name="googlebot" content="index, follow">
-<meta name="theme-color" content="rgb(248,244,240)">
+    <div class="tool tool--split">
+      <form id="contribution-form" class="tool-form" novalidate aria-label="PF contribution calculator">
+        <div id="contrib-fields"></div>
+        <button type="submit" class="btn btn--outline">Work it out</button>
+      </form>
 
-    <title>PF Contribution Calculator | Medu Consultancy</title>
-    <meta name="description" content="Free EPF contribution calculator: enter a salary and see the exact employer/employee PF split, including the EPS carve-out most payslips don't show.">
-    <link rel="canonical" href="https://www.meduconsultancy.com/epf-contribution-calculator" />
+      <div class="tool-result" id="contrib-results" aria-live="polite"></div>
 
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Medu Consultancy">
-    <meta property="og:title" content="PF Contribution Calculator – Employer & Employee Split">
-    <meta property="og:description" content="Enter a salary and see the exact employer/employee EPF split, including the EPS carve-out. Free online calculator by Medu Consultancy.">
-    <meta property="og:url" content="https://www.meduconsultancy.com/epf-contribution-calculator">
-    <meta property="og:image" content="https://www.meduconsultancy.com/android-chrome-512x512.png">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="PF Contribution Calculator – Employer & Employee Split">
-    <meta name="twitter:description" content="Enter a salary and see the exact employer/employee EPF split, including the EPS carve-out. Free online calculator by Medu Consultancy.">
-    <meta name="twitter:image" content="https://www.meduconsultancy.com/android-chrome-512x512.png">
+      {% include result-call.html tool="contribution" %}
+    </div>
+  </div>
+</section>
 
-    <script type="application/ld+json">
-      {
-        "@context": "http://schema.org",
-        "@type": "WebPage",
-        "url": "https://www.meduconsultancy.com/epf-contribution-calculator",
-        "name": "PF Contribution Calculator",
-        "description": "Calculate the exact employer/employee EPF contribution split, including the EPS carve-out.",
-        "breadcrumb": {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Home",
-              "item": "https://www.meduconsultancy.com/"
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "PF Contribution Calculator",
-              "item": "https://www.meduconsultancy.com/epf-contribution-calculator"
-            }
-          ]
+<section class="section" aria-labelledby="how-heading">
+  <div class="container">
+    <div class="prose">
+      <h2 id="how-heading">How PF is worked out</h2>
+      <p>The employee pays <strong>{{ epf.employee_rate_pct }}%</strong> of their PF wages. You take it from their salary. All of it goes to their PF account.</p>
+      <p>You also pay <strong>{{ epf.employer_rate_pct }}%</strong>. Part of it goes to the employee's pension, called <strong>EPS</strong> (the Employees' Pension Scheme): 8.33% of PF wages up to {{ epf.wage_ceiling_text }}. That is at most ₹2,083 a month. The rest of your {{ epf.employer_rate_pct }}% goes to their PF account.</p>
+      <p>Some businesses the government has named pay 10% instead of 12%. Most businesses pay 12%.</p>
+      <p>The PF wage limit is <strong>{{ epf.wage_ceiling_text }}</strong> from {{ epf.wage_ceiling_from }} (it was {{ epf.wage_ceiling_old_text }}). If an employee in PF has PF wages above {{ epf.wage_ceiling_text }}, you pay PF on at least {{ epf.wage_ceiling_text }}. You can pay on the full PF wages if you and the employee both agree.</p>
+      <p>PF is due by the {{ epf.due_day }}th of the next month.</p>
+      <p class="note"><strong>Note:</strong> This calculator gives an estimate. The final figure can differ slightly because of rounding. Checked against the rules as of {{ site.data.facts.tools_checked }}.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="related-heading">
+  <div class="container">
+    <h2 id="related-heading">Related tools and guides</h2>
+    <div class="card-grid">
+      {% include tool-card.html key="epf-eligibility" %}
+      {% include tool-card.html key="esi-contribution" %}
+    </div>
+    <ul class="link-list">
+      <li><a class="link-arrow" href="/blogs/common-epf-compliance-mistakes">Common PF mistakes and how to avoid them&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+      <li><a class="link-arrow" href="/epf-consultancy-service">PF monthly filing&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+    </ul>
+  </div>
+</section>
+
+{% include faq.html items=page.faq schema=true %}
+
+{% include closing-call.html line="Rather not work out PF every month? We'll do it and file it." %}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // EPF wage ceiling raised to ₹25,000 effective 17 September 2026
+    // (Gazette S.O. 5109(E), Code on Social Security, 2020); it was
+    // ₹15,000 before that. EPS 1995 (8.33%, capped ₹2,083/month at the
+    // new ceiling). Verify rates are still current - last checked
+    // 2026-09-27. EDLI (0.5%, capped at the wage ceiling) and EPFO
+    // admin charges (0.5% of basic+DA) are separate
+    // employer costs, not part of the PF contribution - deliberately
+    // excluded from this calculator. Text: docs/contribution-calculators-copy.md.
+    var WAGE_CEILING = 25000;
+    var EPS_RATE = 0.0833;
+    var CALL = '<a href="tel:+918217542975" data-call-location="result">Call us</a>';
+
+    function roundRupee(n) {
+      return Math.round(n);
+    }
+
+    initContributionCalculator('epf', {
+      fields: [
+        {
+          id: 'basic-da',
+          type: 'number',
+          label: 'PF wages (₹ a month)',
+          help: 'PF wages are mainly basic pay plus DA (dearness allowance). It is not the full salary. If other allowances, like HRA (house rent allowance), are more than half the salary, add the part above half.',
+          min: 1,
+          errorRequired: 'Enter the PF wages.',
+          errorMin: 'Enter a number more than 0.'
         },
-        "mainEntity": {
-          "@type": "LocalBusiness",
-          "name": "Medu Consultancy",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "3rd Floor, Padil Gate Building, Padil",
-            "addressLocality": "Mangalore",
-            "addressRegion": "Karnataka",
-            "postalCode": "575007",
-            "addressCountry": "IN"
-          },
-          "telephone": "+91-8217542975",
-          "contactPoint": {
-            "@type": "ContactPoint",
-            "contactType": "Customer Service",
-            "telephone": "+91-8217542975",
-            "availableLanguage": "en"
-          },
-          "serviceArea": {
-            "@type": "Place",
-            "name": "Karnataka"
-          }
-        }
-      }
-    </script>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "PF (EPF) Contribution Calculator",
-        "description": "Free online tool to calculate the employer and employee EPF contribution split, including the EPS carve-out.",
-        "url": "https://www.meduconsultancy.com/epf-contribution-calculator",
-        "applicationCategory": "FinanceApplication",
-        "operatingSystem": "Web",
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "INR"
-        }
-      }
-    </script>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "What is EPS and why does it reduce the EPF credit?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "EPS (Employees' Pension Scheme) is a mandatory 8.33% carve-out from the employer's contribution, capped at ₹2,083/month (8.33% of the ₹25,000 wage ceiling, effective 17 September 2026; it was ₹1,250/month, 8.33% of ₹15,000, before that). It goes toward the employee's future pension, not their withdrawable EPF balance, so the amount actually credited to the EPF account is lower than the full 12%/10%."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Can I contribute on my full salary if it's above ₹25,000?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes, voluntarily. If both employer and employee agree, contributions can continue on the full basic+DA instead of being capped at ₹25,000 (the wage ceiling from 17 September 2026; it was ₹15,000 before that). Either side can also unilaterally reduce or discontinue that voluntary portion later."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Who is eligible for the 10% reduced contribution rate?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "The 10% rate applies only to some establishments the government has named. Most businesses pay 12%."
-            }
-          }
-        ]
-      }
-    </script>
-
-    <link rel="stylesheet" href="/styles.css">
-    <link rel="stylesheet" href="/calculator.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap&icon_names=call,mail" />
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4MEQF5W0XX"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-4MEQF5W0XX');
-    </script>
-</head>
-<body class="tool-page">
-    <a class="skip-link" href="#main-content">Skip to main content</a>
-
-    <!-- Header with Logo, Phone, and Navigation -->
-    <header>
-        <div class="container header-content">
-            <div class="logo">
-                <a href="/"><img src="/images/logo-new.svg" width="200" height="45" alt="Medu Consultancy Logo"></a>
-            </div>
-            <nav class="header-nav" aria-label="Primary">
-                <ul>
-                    <li>
-                        <a href="/contact-us">Contact</a>
-                    </li>
-                    <li>
-                        <a href="/epf-consultancy-service">EPF Consultancy</a>
-                    </li>
-                    <li>
-                        <a href="/esi-consultancy-service">ESI Consultancy</a>
-                    </li>
-                    <li>
-                        <a href="/epf-esi-tools-calculators">Tools</a>
-                    </li>
-                </ul>
-            </nav>
-            <div class="header-links">
-                <a href="tel:+918217542975" class="phone"><span class="material-symbols-outlined" aria-hidden="true">
-                    call
-                    </span> 8217542975</a>
-            </div>
-
-            <!-- Hamburger Icon -->
-            <div class="hamburger" id="hamburger-icon">
-                <div id="menuToggle">
-                    <input type="checkbox" id="menuCheckbox" aria-label="Open menu" />
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <nav class="mobile-nav" aria-label="Menu"><ul id="menu">
-                      <li>
-                        <a href="/" class="nav-link">Home</a>
-                      </li>
-                      <li>
-                        <a href="/about-us" class="nav-link">About Us</a>
-                      </li>
-                      <li>
-                        <a href="/contact-us" class="nav-link">Contact Us</a>
-                      </li>
-
-                      <li>
-                        <a href="/blogs" class="nav-link">Blogs</a>
-                      </li>
-                      <li>
-                        <a href="/epf-consultancy-service" class="nav-link">EPF Consultancy</a>
-                      </li>
-                      <li>
-                        <a href="/esi-consultancy-service" class="nav-link">ESI Consultancy</a>
-                      </li>
-                      <li>
-                        <a href="/epf-esi-tools-calculators" class="nav-link">Tools &amp; Calculators</a>
-                      </li>
-
-                      <li>
-                        <a href="/epf-excel-to-text-converter" class="nav-link">EPF Excel to Text Converter</a>
-                      </li>
-                      <li>
-                        <a href="/epf-penalty-calculator" class="nav-link">EPF Penalty Calculator</a>
-                      </li>
-                      <li>
-                        <a href="/esi-penalty-calculator" class="nav-link">ESI Penalty Calculator</a>
-                      </li>
-                      <li>
-                        <a href="/epf-eligibility-checker" class="nav-link">EPF Eligibility Checker</a>
-                      </li>
-                      <li>
-                        <a href="/esi-eligibility-checker" class="nav-link">ESI Eligibility Checker</a>
-                      </li>
-                      <li>
-                        <a href="/epf-contribution-calculator" class="nav-link active" aria-current="page">PF Contribution Calculator</a>
-                      </li>
-                      <li>
-                        <a href="/esi-contribution-calculator" class="nav-link">ESI Contribution Calculator</a>
-                      </li>
-                      <li>
-                        <div class="contact-us">
-                            <address>
-                                <p>
-                                    <a href="tel:+918217542975" class="phone">
-                                        <span class="material-symbols-outlined" aria-hidden="true">
-                                        call
-                                        </span>
-                                        8217542975</a>
-                                </p>
-                                <p><a href="mailto:hello.meduconsultancy@gmail.com" class="email">
-                                    <span class="material-symbols-outlined" aria-hidden="true">
-                                        mail
-                                        </span>
-                                        hello.meduconsultancy@gmail.com</a></p>
-                            </address>
-                            <address class="office-address">
-                                <h4>Our Office Address</h4>
-                                <p>
-                                    3rd Floor, Padil Gate Building,<br>
-                                    Padil, Mangaluru,<br>
-                                    Karnataka 575007
-                                </p>
-                            </address>
-                        </div>
-                      </li>
-                    </ul></nav>
-                  </div>
-            </div>
-        </div>
-    </header>
-
-    <div class="header-space"></div>
-    <main id="main-content" tabindex="-1">
-    <section class="penalty-calc" aria-labelledby="calc-heading">
-      <div class="container">
-        <h1 id="calc-heading">PF (EPF) Contribution Calculator</h1>
-        <p class="subhead">Enter a salary and see the exact employer/employee PF split - including the EPS sub-account most payslips don't show.</p>
-
-        <div class="calc-layout">
-          <form id="contribution-form" class="calc-form" novalidate>
-            <div id="contrib-fields"></div>
-            <button type="submit" class="calc-submit">Calculate contribution</button>
-          </form>
-
-          <div class="calc-results" id="contrib-results" aria-live="polite"></div>
-        </div>
-
-        <div class="calc-crosslinks">
-          <p><a class="calc-crosslink" href="/esi-contribution-calculator">Need the ESI split instead? → ESI Contribution Calculator</a></p>
-        </div>
-      </div>
-    </section>
-
-    <section class="penalty-rules">
-      <div class="container">
-        <h2>How the EPF Split Works</h2>
-        <p>The employee contributes 12% (or 10% for reduced-rate establishments) of basic+DA, entirely credited to their own EPF account. The employer also contributes 12%/10%, but it's split: <strong>8.33% goes to EPS</strong> (capped at ₹25,000 basic - max ₹2,083/month), and the <strong>remainder goes to the employee's EPF account</strong>.</p>
-
-        <p>The 10% rate applies only to some establishments the government has named. Most businesses pay 12%.</p>
-
-        <p>The EPF wage ceiling is ₹25,000 from 17 September 2026 (it was ₹15,000 before that). Under the Employees' Provident Funds Scheme, 2026: for basic+DA above ₹25,000, contribution can be capped at the ₹25,000 ceiling (the mandatory minimum) or voluntarily continued on the full basic+DA if both employer and employee agree.</p>
-
-        <div class="calc-disclaimer">
-          <span class="calc-disclaimer-label">Important - read before you rely on this figure</span>
-          <p>This is an illustrative estimate. Actual payroll figures may differ slightly due to rounding conventions EPFO applies per employee.</p>
-          <p>For payroll set up correctly the first time, <a class="link" href="/contact-us">talk to Medu Consultancy</a>.</p>
-        </div>
-
-        <div class="tool-crosslinks">
-          <h2>Related tools and reading</h2>
-          <ul>
-            <li>Not sure if you're even covered? Check the <a class="link" href="/epf-eligibility-checker#employee-eligibility">EPF Eligibility Checker</a> →</li>
-            <li>Need ongoing help with registration and filings? See our <a class="link" href="/epf-consultancy-service">EPF consultancy service</a>.</li>
-            <li>Already behind on payments? Use the <a class="link" href="/epf-penalty-calculator">EPF Penalty Calculator</a>.</li>
-            <li>Read more: <a class="link" href="/blogs/epf-benefits-small-medium-businesses">Why EPF registration benefits small and medium businesses</a>.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="faqs">
-      <div class="container" itemscope itemtype="https://schema.org/FAQPage">
-          <h2>Frequently Asked Questions</h2>
-          <div class="accordion">
-            <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <button id="epf-contrib-faq-2" aria-expanded="false">
-                <span class="accordion-title" itemprop="name">What is EPS and why does it reduce the EPF credit?</span>
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">
-                  EPS (Employees' Pension Scheme) is a mandatory 8.33% carve-out from the employer's contribution, capped at ₹2,083/month (it was ₹1,250/month before 17 September 2026). It goes toward the employee's future pension, not their withdrawable EPF balance, so the amount actually credited to the EPF account is lower than the full 12%/10%.
-                </p>
-              </div>
-            </div>
-
-            <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <button id="epf-contrib-faq-3" aria-expanded="false">
-                <span class="accordion-title" itemprop="name">Can I contribute on my full salary if it's above ₹25,000?</span>
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">
-                  Yes, voluntarily. If both employer and employee agree, contributions can continue on the full basic+DA instead of being capped at ₹25,000 (the wage ceiling from 17 September 2026; it was ₹15,000 before that). Either side can also unilaterally reduce or discontinue that voluntary portion later.
-                </p>
-              </div>
-            </div>
-
-            <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <button id="epf-contrib-faq-4" aria-expanded="false">
-                <span class="accordion-title" itemprop="name">Who is eligible for the 10% reduced contribution rate?</span>
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">
-                  The 10% rate applies only to some establishments the government has named. Most businesses pay 12%.
-                </p>
-              </div>
-            </div>
-
-            <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <button id="epf-contrib-faq-5" aria-expanded="false">
-                <span class="accordion-title" itemprop="name">Is this figure exactly what will show on the payslip?</span>
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">
-                  It's a close illustrative estimate. Actual payroll figures may differ slightly due to per-employee rounding conventions EPFO applies. Talk to Medu Consultancy if you want payroll set up correctly the first time.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-  </section>
-
-    <!-- Footer Section -->
-    </main>
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="about-us">
-                    <p>We are Medu Consultancy, a trusted PF consultant and ESI consultant helping small and medium businesses with EPF and ESI compliance. Our team provides personalized services, including PF registration, ESI registration, monthly PF filing, and monthly ESI filings, ensuring your business stays compliant while you focus on growth.</p>
-                </div>
-
-                <div class="quick-links link-list">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/about-us">About Us</a></li>
-                        <li><a href="/contact-us">Contact Us</a></li>
-<li><a href="/blogs">Blogs</a></li>
-<li><a href="/privacy-policy">Privacy Policy</a></li>
-<li><a href="/terms-and-conditions">Terms and Conditions</a></li>
-                    </ul>
-                </div>
-                <div class="services-offered link-list">
-                    <h3>Our Services</h3>
-                    <ul>
-                        <li><a href="/epf-consultancy-service">EPF Compliance</a></li>
-                       <li><a href="/esi-consultancy-service">ESI Compliance</a></li>
-    <li><a href="/epf-esi-tools-calculators">Tools &amp; Calculators</a></li>
-    <li><a href="/epf-excel-to-text-converter">EPF Excel to Text Converter</a></li>
-    <li><a href="/epf-penalty-calculator">EPF Penalty Calculator</a></li>
-    <li><a href="/esi-penalty-calculator">ESI Penalty Calculator</a></li>
-    <li><a href="/epf-eligibility-checker">EPF Eligibility Checker</a></li>
-    <li><a href="/esi-eligibility-checker">ESI Eligibility Checker</a></li>
-    <li><a href="/epf-contribution-calculator">PF Contribution Calculator</a></li>
-    <li><a href="/esi-contribution-calculator">ESI Contribution Calculator</a></li>
-                    </ul>
-                </div>
-                <div class="contact-us">
-                    <h3>Contact Us</h3>
-                    <address>
-                        <p>
-                            <a href="tel:+918217542975" class="phone">
-                                <span class="material-symbols-outlined" aria-hidden="true">
-                                call
-                                </span>
-                                8217542975</a>
-                        </p>
-                        <p><a href="mailto:hello.meduconsultancy@gmail.com" class="email">
-                            <span class="material-symbols-outlined" aria-hidden="true">
-                                mail
-                                </span>
-                                hello.meduconsultancy@gmail.com</a></p>
-                    </address>
-                    <address class="office-address">
-                        <h4>Our Office Address</h4>
-                        <p>
-                            3rd Floor, Padil Gate Building,<br>
-                            Padil, Mangaluru,<br>
-                            Karnataka 575007
-                        </p>
-                    </address>
-                </div>
-            </div>
-            <section class="quick-links link-list location-list">
-              <h3>Locations</h3>
-              <ul>
-                <li>
-                  <a href="/epf-esi-consultancy-mangalore">Mangalore</a>
-                </li>
-                <li>
-                  <a href="/epf-esi-consultancy-udupi">Udupi</a>
-                </li>
-                <li>
-                  <a href="/epf-esi-consultancy-bangalore">Bangalore</a>
-                </li>
-              </ul>
-            </section>
-<div class="rights">
-                <p>&#169; 2026 Medu Consultancy. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
-    <script src="/script.js" defer></script>
-    <script src="/contribution-calculator.js" defer></script>
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        // EPF wage ceiling raised to ₹25,000 effective 17 September 2026
-        // (Gazette S.O. 5109(E), Code on Social Security, 2020); it was
-        // ₹15,000 before that. EPS 1995 (8.33%, capped ₹2,083/month at the
-        // new ceiling). Verify rates are still current - last checked
-        // 2026-09-27. EDLI (0.5%, capped at the wage ceiling) and EPFO
-        // admin charges (0.5% of basic+DA) are separate
-        // employer costs, not part of the PF contribution - deliberately
-        // excluded from this calculator.
-        var WAGE_CEILING = 25000;
-        var EPS_RATE = 0.0833;
-
-        function roundRupee(n) {
-          return Math.round(n);
-        }
-
-        initContributionCalculator('epf', {
-          fields: [
-            {
-              id: 'basic-da',
-              type: 'number',
-              label: 'Basic salary + DA (₹/month)',
-              help: 'Enter basic pay plus DA (dearness allowance). If other allowances, like HRA, are more than half of total pay, add the part above half.',
-              min: 1,
-              errorRequired: 'Enter the basic salary + DA.',
-              errorMin: 'Enter a number greater than 0.'
-            },
-            {
-              id: 'rate',
-              type: 'radio',
-              legend: 'Contribution rate',
-              options: [
-                { value: '12', label: '12% (standard)' },
-                { value: '10', label: '10% (reduced rate)' }
-              ],
-              default: '12',
-              help: 'The 10% rate applies only to some establishments the government has named. Most businesses pay 12%.'
-            },
-            {
-              id: 'ceiling-toggle',
-              type: 'radio',
-              legend: 'Contribution base above ₹25,000',
-              options: [
-                { value: 'cap', label: 'Cap contribution at ₹25,000 ceiling (mandatory minimum)' },
-                { value: 'full', label: 'Contribute on full basic+DA (voluntary)' }
-              ],
-              default: 'cap',
-              visibleIf: function (a) { return typeof a['basic-da'] === 'number' && !isNaN(a['basic-da']) && a['basic-da'] > WAGE_CEILING; }
-            }
+        {
+          id: 'rate',
+          type: 'radio',
+          legend: 'PF rate',
+          options: [
+            { value: '12', label: '12% (most businesses)' },
+            { value: '10', label: '10% (only some businesses)' }
           ],
-          compute: function (a) {
-            var basicDa = a['basic-da'];
-            var rate = a.rate === '10' ? 0.10 : 0.12;
-            var capBase = Math.min(basicDa, WAGE_CEILING);
-            var capSelected = basicDa <= WAGE_CEILING || a['ceiling-toggle'] !== 'full';
-            var contributionBase = capSelected ? capBase : basicDa;
+          default: '12',
+          help: 'The 10% rate is only for some businesses the government has named. Most businesses pay 12%.'
+        },
+        {
+          id: 'ceiling-toggle',
+          type: 'radio',
+          legend: 'PF wages are above ₹25,000. For an employee in PF, pay PF on:',
+          options: [
+            { value: 'cap', label: '₹25,000 (the minimum)' },
+            { value: 'full', label: 'the full PF wages (if you both agree)' }
+          ],
+          default: 'cap',
+          visibleIf: function (a) { return typeof a['basic-da'] === 'number' && !isNaN(a['basic-da']) && a['basic-da'] > WAGE_CEILING; }
+        }
+      ],
+      compute: function (a) {
+        var basicDa = a['basic-da'];
+        var rate = a.rate === '10' ? 0.10 : 0.12;
+        var capBase = Math.min(basicDa, WAGE_CEILING);
+        var capSelected = basicDa <= WAGE_CEILING || a['ceiling-toggle'] !== 'full';
+        var contributionBase = capSelected ? capBase : basicDa;
 
-            var employeeContribution = roundRupee(contributionBase * rate);
-            var employerEps = roundRupee(capBase * EPS_RATE);
-            var employerEpf = roundRupee(contributionBase * rate) - employerEps;
-            var employerTotal = employerEps + employerEpf;
-            var totalMonthly = employeeContribution + employerTotal;
-            var totalToEpfAccount = employeeContribution + employerEpf;
+        var employeeContribution = roundRupee(contributionBase * rate);
+        var employerEps = roundRupee(capBase * EPS_RATE);
+        var employerEpf = roundRupee(contributionBase * rate) - employerEps;
+        var employerTotal = employerEps + employerEpf;
+        var totalMonthly = employeeContribution + employerTotal;
+        var totalToEpfAccount = employeeContribution + employerEpf;
 
-            var summary = [
-              'Contribution base used: <strong>' + formatBase(contributionBase, capSelected, basicDa) + '</strong>'
-            ];
+        var summary = [
+          'PF worked out on: <strong>' + formatBase(contributionBase, capSelected, basicDa) + '</strong>'
+        ];
 
-            function formatBase(base, capped, full) {
-              var text = '₹' + base.toLocaleString('en-IN');
-              if (basicDa > WAGE_CEILING) {
-                text += capped ? ' (capped at the ₹25,000 ceiling)' : ' (full basic+DA, voluntary)';
-              }
-              return text;
-            }
-
-            return {
-              applicable: true,
-              tableCaption: 'PF contribution breakdown',
-              summary: summary,
-              rows: [
-                { label: "Employee's contribution (→ your EPF account)", amount: employeeContribution },
-                { label: "Employer's EPF share", amount: employerEpf },
-                { label: "Employer's EPS share (pension)", amount: employerEps },
-                { label: 'Total employer contribution', amount: employerTotal, subtotal: true },
-                { label: 'Total monthly contribution', amount: totalMonthly, emphasis: true }
-              ],
-              notes: [
-                'Of the ' + window.ContributionCalculator.formatINR(totalMonthly) + ' total monthly contribution, ' +
-                window.ContributionCalculator.formatINR(totalToEpfAccount) + ' is credited to the employee\'s withdrawable EPF account (this excludes the EPS portion). EDLI and admin charges are separate employer costs on top of this and aren\'t part of the PF contribution.',
-                'The EPF wage ceiling is ₹25,000 from 17 September 2026. It was ₹15,000 before that.',
-                'For September 2026 pay: the ₹25,000 limit started on 17 September. EPFO has not yet said clearly how to work out September. <a class="link" href="tel:+918217542975">Call us</a> before you file.'
-              ]
-            };
+        function formatBase(base, capped, full) {
+          var text = '₹' + base.toLocaleString('en-IN');
+          if (basicDa > WAGE_CEILING) {
+            text += capped ? ' (the ₹25,000 limit)' : ' (the full PF wages, by choice)';
           }
-        });
-      });
-    </script>
-</body>
-</html>
+          return text;
+        }
+
+        return {
+          applicable: true,
+          tableCaption: 'PF each month',
+          summary: summary,
+          rows: [
+            { label: 'Employee pays (goes to their PF account)', amount: employeeContribution },
+            { label: 'You pay: to their PF account', amount: employerEpf },
+            { label: 'You pay: to their pension (EPS)', amount: employerEps },
+            { label: 'You pay in total', amount: employerTotal, subtotal: true },
+            { label: 'Total PF each month', amount: totalMonthly, emphasis: true }
+          ],
+          notes: [
+            'Of the ' + window.ContributionCalculator.formatINR(totalMonthly) + ' total, ' +
+            window.ContributionCalculator.formatINR(totalToEpfAccount) + " goes to the employee's PF account. The rest goes to their pension. You also pay extra charges (EDLI insurance and admin charges). They are not part of this PF amount.",
+            'The PF wage limit is ₹25,000 from 17 September 2026. It was ₹15,000 before that.',
+            'For September 2026 pay: the ₹25,000 limit started on 17 September. EPFO has not yet said clearly how to work out September. ' + CALL + ' before you file.',
+            'This calculator always puts 8.33% of PF wages (up to ₹25,000) into the pension (EPS). For staff aged 58 or more, or new staff with PF wages above ₹25,000, this can be different. ' + CALL + ' to check.'
+          ]
+        };
+      }
+    });
+  });
+</script>

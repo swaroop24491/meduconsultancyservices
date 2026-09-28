@@ -68,7 +68,7 @@
     if (field.type === 'radio') {
       var options = field.options.map(function (opt) {
         return (
-          '<label class="elig-radio-label">' +
+          '<label class="radio">' +
           '<input type="radio" name="' + field.id + '" value="' + escapeHtml(opt.value) + '"' +
           (opt.value === field.default ? ' checked' : '') + '> ' +
           escapeHtml(opt.label) +
@@ -76,24 +76,24 @@
         );
       }).join('');
       return (
-        '<fieldset class="elig-field elig-radio-group" id="' + field.id + '-field">' +
+        '<fieldset class="field" id="' + field.id + '-field"' + describedByAttr + '>' +
         '<legend>' + escapeHtml(field.legend) + '</legend>' +
-        '<div class="elig-radio-options">' + options + '</div>' +
-        (field.help ? '<p class="calc-help" id="' + fieldHelpId(field.id) + '">' + field.help + '</p>' : '') +
-        '<p class="calc-error" id="' + fieldErrorId(field.id) + '" aria-live="polite"></p>' +
+        '<div class="field__options">' + options + '</div>' +
+        (field.help ? '<p class="field__help" id="' + fieldHelpId(field.id) + '">' + field.help + '</p>' : '') +
+        '<p class="field__error" id="' + fieldErrorId(field.id) + '" aria-live="polite"></p>' +
         '</fieldset>'
       );
     }
 
     // numeric
     return (
-      '<div class="elig-field calc-field" id="' + field.id + '-field">' +
+      '<div class="field" id="' + field.id + '-field">' +
       '<label for="' + field.id + '">' + escapeHtml(field.label) + '</label>' +
       '<input type="number" id="' + field.id + '" name="' + field.id + '" inputmode="numeric" step="1"' +
       (field.min !== undefined ? ' min="' + field.min + '"' : '') +
       describedByAttr + '>' +
-      (field.help ? '<p class="calc-help" id="' + fieldHelpId(field.id) + '">' + field.help + '</p>' : '') +
-      '<p class="calc-error" id="' + fieldErrorId(field.id) + '" aria-live="polite"></p>' +
+      (field.help ? '<p class="field__help" id="' + fieldHelpId(field.id) + '">' + field.help + '</p>' : '') +
+      '<p class="field__error" id="' + fieldErrorId(field.id) + '" aria-live="polite"></p>' +
       '</div>'
     );
   }
@@ -137,7 +137,7 @@
     var advanced = config.fields.filter(function (f) { return f.advanced; });
     var fieldsHtml = required.map(renderField).join('');
     if (advanced.length) {
-      fieldsHtml += '<details class="elig-advanced"><summary>Advanced (optional)</summary>' +
+      fieldsHtml += '<details class="field-more"><summary>More (optional)</summary>' +
         advanced.map(renderField).join('') + '</details>';
     }
     fieldsContainer.innerHTML = fieldsHtml;
@@ -170,7 +170,7 @@
         var isEmpty = value === '' || value === undefined || isNaN(value);
         if (isEmpty) {
           if (field.required === false) return; // optional field left blank
-          setError(field, field.errorRequired || 'This field is required.');
+          setError(field, field.errorRequired || 'Please fill this in.');
           valid = false;
           return;
         }
@@ -185,8 +185,8 @@
     function renderResult(result) {
       if (!result.applicable) {
         resultsEl.innerHTML =
-          '<div class="calc-ontime calc-not-applicable">' +
-          '<p><strong>' + result.headline + '</strong></p>' +
+          '<div class="result-message">' +
+          '<strong>' + result.headline + '</strong>' +
           '<p>' + result.message + '</p>' +
           (result.note ? '<p>' + result.note + '</p>' : '') +
           '</div>';
@@ -195,19 +195,19 @@
 
       var html = '';
       if (result.summary && result.summary.length) {
-        html += '<div class="calc-result-summary">';
+        html += '<div class="result-summary">';
         result.summary.forEach(function (line) {
           html += '<p>' + line + '</p>';
         });
         html += '</div>';
       }
 
-      html += '<table class="calc-table">';
+      html += '<table class="result-table">';
       html += '<caption class="visually-hidden">' + result.tableCaption + '</caption>';
-      html += '<thead><tr><th scope="col">Component</th><th scope="col">Amount</th></tr></thead>';
+      html += '<thead><tr><th scope="col">What</th><th scope="col">Amount</th></tr></thead>';
       html += '<tbody>';
       result.rows.forEach(function (row) {
-        var rowClass = row.emphasis ? ' class="calc-total-row"' : (row.subtotal ? ' class="calc-subtotal-row"' : '');
+        var rowClass = row.emphasis ? ' class="result-table__total"' : (row.subtotal ? ' class="result-table__subtotal"' : '');
         html += '<tr' + rowClass + '>' +
           '<th scope="row">' + row.label + '</th>' +
           '<td>' + formatINR(row.amount) + '</td></tr>';
@@ -215,7 +215,7 @@
       html += '</tbody></table>';
 
       (result.notes || []).forEach(function (note) {
-        html += '<p class="calc-rule-note">' + note + '</p>';
+        html += '<p class="result-note">' + note + '</p>';
       });
 
       resultsEl.innerHTML = html;

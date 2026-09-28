@@ -1,528 +1,145 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+---
+layout: base
+lang: en
+page_type: tool
+last_modified: 2026-09-28
+title: "ESI Contribution Calculator 2026 | Medu Consultancy"
+description: "See how much ESI you and your employee pay each month: 3.25% and 0.75% of ESI wages. Free ESI calculator for employers, updated for 2026 rules."
+scripts: [/contribution-calculator.js]
+tool: { name: ESI contribution calculator }
+breadcrumb:
+  - { name: Free tools, path: epf-esi-tools-calculators }
+  - { name: ESI contribution calculator }
+faq:
+  - q: What are ESI wages?
+    a: "The month's pay without some items: HRA (house rent allowance), overtime, bonus, commission and travel allowance. If those items are more than half the pay, the part above half is added back. This is the wages rule in the Code on Social Security, 2020."
+  - q: Do staff on very low pay pay ESI?
+    a: 'They don''t pay their own 0.75% share. You still pay your 3.25%. <a href="tel:+918217542975" data-call-location="faq">Call us</a> to check if this applies to your staff.'
+  - q: How much is ESI in total?
+    a: "4% of ESI wages: 3.25% from you and 0.75% from the employee."
+  - q: Will this match the payslip exactly?
+    a: It will be very close. The final figure can differ by a rupee or so, because of how each amount is rounded.
+---
+{%- assign esi = site.data.facts.esi -%}
+<section class="section section--stacked tool-section" aria-labelledby="tool-heading">
+  <div class="container">
+    <h1 id="tool-heading">ESI contribution calculator</h1>
+    <p class="tool-lead">Enter an employee's ESI wages. See how much ESI (Employees' State Insurance) the employee pays and how much you pay.</p>
 
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-<meta name="author" content="Medu Consultancy">
-<meta name="robots" content="index, follow">
-<meta name="googlebot" content="index, follow">
-<meta name="theme-color" content="rgb(248,244,240)">
+    <div class="tool tool--split">
+      <form id="contribution-form" class="tool-form" novalidate aria-label="ESI contribution calculator">
+        <div id="contrib-fields"></div>
+        <button type="submit" class="btn btn--outline">Work it out</button>
+      </form>
 
-    <title>ESI Contribution Calculator | Medu Consultancy</title>
-    <meta name="description" content="Free ESI contribution calculator: enter gross wages and see the exact employer (3.25%) and employee (0.75%) ESI contribution split instantly.">
-    <link rel="canonical" href="https://www.meduconsultancy.com/esi-contribution-calculator" />
+      <div class="tool-result" id="contrib-results" aria-live="polite"></div>
 
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Medu Consultancy">
-    <meta property="og:title" content="ESI Contribution Calculator – Employer & Employee Share">
-    <meta property="og:description" content="Enter gross wages and see the exact employer/employee ESI contribution split. Free online calculator by Medu Consultancy.">
-    <meta property="og:url" content="https://www.meduconsultancy.com/esi-contribution-calculator">
-    <meta property="og:image" content="https://www.meduconsultancy.com/android-chrome-512x512.png">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="ESI Contribution Calculator – Employer & Employee Share">
-    <meta name="twitter:description" content="Enter gross wages and see the exact employer/employee ESI contribution split. Free online calculator by Medu Consultancy.">
-    <meta name="twitter:image" content="https://www.meduconsultancy.com/android-chrome-512x512.png">
+      {% include result-call.html tool="contribution" %}
+    </div>
+  </div>
+</section>
 
-    <script type="application/ld+json">
-      {
-        "@context": "http://schema.org",
-        "@type": "WebPage",
-        "url": "https://www.meduconsultancy.com/esi-contribution-calculator",
-        "name": "ESI Contribution Calculator",
-        "description": "Calculate the exact employer/employee ESI contribution split.",
-        "breadcrumb": {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Home",
-              "item": "https://www.meduconsultancy.com/"
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "ESI Contribution Calculator",
-              "item": "https://www.meduconsultancy.com/esi-contribution-calculator"
-            }
-          ]
+<section class="section" aria-labelledby="how-heading">
+  <div class="container">
+    <div class="prose">
+      <h2 id="how-heading">How ESI is worked out</h2>
+      <p>ESI is <strong>{{ esi.total_rate_pct }}% of ESI wages</strong> each month. The employee pays <strong>{{ esi.employee_rate_pct }}%</strong>, which you take from their salary. You pay <strong>{{ esi.employer_rate_pct }}%</strong>.</p>
+      <p>ESI is paid for employees whose ESI wages are {{ esi.wage_ceiling_text }} a month or less ({{ esi.wage_ceiling_pwd_text }} for a person with a disability).</p>
+      <p>ESI wages are the month's pay without some items, like HRA (house rent allowance) and overtime. If those items are more than half the pay, part of them is added back.</p>
+      <p>Staff on very low daily pay don't pay their own {{ esi.employee_rate_pct }}% share. You still pay your {{ esi.employer_rate_pct }}%. <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a> to check if this applies.</p>
+      <p>ESI is due by the {{ esi.due_day }}th of the next month.</p>
+      <p class="note"><strong>Note:</strong> This calculator gives an estimate. The final figure can differ slightly because of rounding. Checked against the rules as of {{ site.data.facts.tools_checked }}.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="related-heading">
+  <div class="container">
+    <h2 id="related-heading">Related tools</h2>
+    <div class="card-grid">
+      {% include tool-card.html key="esi-eligibility" %}
+      {% include tool-card.html key="epf-contribution" %}
+    </div>
+    <ul class="link-list">
+      <li><a class="link-arrow" href="/esi-consultancy-service">ESI monthly filing&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+    </ul>
+  </div>
+</section>
+
+{% include faq.html items=page.faq schema=true %}
+
+{% include closing-call.html line="Rather not work out ESI every month? We'll do it and file it." %}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Code on Social Security, 2020 (replaced the ESI Act 1948):
+    // contribution rates, wage ceiling. Verify rates are still current -
+    // last checked 2026-09-27. Text: docs/contribution-calculators-copy.md.
+    var CEILING = 21000;
+    var CEILING_PWD = 25000;
+    var EMPLOYEE_RATE = 0.0075;
+    var EMPLOYER_RATE = 0.0325;
+    // The low-pay exemption amount (₹176 a day from 2019) is not confirmed
+    // under the Code, so the calculator doesn't check it (owner decision
+    // 2026-09-28; brief section 11). The page tells users to call.
+
+    function roundRupee(n) {
+      return Math.round(n);
+    }
+
+    initContributionCalculator('esi', {
+      fields: [
+        {
+          id: 'gross-wages',
+          type: 'number',
+          label: 'ESI wages (₹ a month)',
+          help: "ESI wages are the month's pay without some items, like HRA (house rent allowance), overtime, bonus, commission and travel allowance. If those items are more than half the pay, add the part above half.",
+          min: 1,
+          errorRequired: 'Enter the ESI wages.',
+          errorMin: 'Enter a number more than 0.'
         },
-        "mainEntity": {
-          "@type": "LocalBusiness",
-          "name": "Medu Consultancy",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "3rd Floor, Padil Gate Building, Padil",
-            "addressLocality": "Mangalore",
-            "addressRegion": "Karnataka",
-            "postalCode": "575007",
-            "addressCountry": "IN"
-          },
-          "telephone": "+91-8217542975",
-          "contactPoint": {
-            "@type": "ContactPoint",
-            "contactType": "Customer Service",
-            "telephone": "+91-8217542975",
-            "availableLanguage": "en"
-          },
-          "serviceArea": {
-            "@type": "Place",
-            "name": "Karnataka"
-          }
-        }
-      }
-    </script>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "ESI Contribution Calculator",
-        "description": "Free online tool to calculate the employer and employee ESI contribution split.",
-        "url": "https://www.meduconsultancy.com/esi-contribution-calculator",
-        "applicationCategory": "FinanceApplication",
-        "operatingSystem": "Web",
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "INR"
-        }
-      }
-    </script>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "What if my salary is above the ESI ceiling?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "No ESI contribution applies - the employee is not covered at that wage level. The ceiling is ₹21,000/month gross wages, or ₹25,000 for a person with disability. If wages crossed the ceiling partway through a contribution period, coverage continues until the end of that period."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What counts as gross wages for ESI?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "All pay for the month, leaving out HRA, overtime, bonus, commission and travel allowance. If those left-out items are more than half of total pay, the part above half is added back. This follows the wages rule in the Code on Social Security, 2020."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What is the low-wage exemption?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "If an employee's average daily wage is ₹176 or less, their own 0.75% contribution is exempted. The employer must still pay their 3.25% share."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How much does ESI actually cost in total?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "4% of gross wages in total - 3.25% from the employer and 0.75% from the employee - as long as gross wages are at or below the applicable ceiling."
-            }
-          }
-        ]
-      }
-    </script>
-
-    <link rel="stylesheet" href="/styles.css">
-    <link rel="stylesheet" href="/calculator.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap&icon_names=call,mail" />
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4MEQF5W0XX"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-4MEQF5W0XX');
-    </script>
-</head>
-<body class="tool-page">
-    <a class="skip-link" href="#main-content">Skip to main content</a>
-
-    <!-- Header with Logo, Phone, and Navigation -->
-    <header>
-        <div class="container header-content">
-            <div class="logo">
-                <a href="/"><img src="/images/logo-new.svg" width="200" height="45" alt="Medu Consultancy Logo"></a>
-            </div>
-            <nav class="header-nav" aria-label="Primary">
-                <ul>
-                    <li>
-                        <a href="/contact-us">Contact</a>
-                    </li>
-                    <li>
-                        <a href="/epf-consultancy-service">EPF Consultancy</a>
-                    </li>
-                    <li>
-                        <a href="/esi-consultancy-service">ESI Consultancy</a>
-                    </li>
-                    <li>
-                        <a href="/epf-esi-tools-calculators">Tools</a>
-                    </li>
-                </ul>
-            </nav>
-            <div class="header-links">
-                <a href="tel:+918217542975" class="phone"><span class="material-symbols-outlined" aria-hidden="true">
-                    call
-                    </span> 8217542975</a>
-            </div>
-
-            <!-- Hamburger Icon -->
-            <div class="hamburger" id="hamburger-icon">
-                <div id="menuToggle">
-                    <input type="checkbox" id="menuCheckbox" aria-label="Open menu" />
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <nav class="mobile-nav" aria-label="Menu"><ul id="menu">
-                      <li>
-                        <a href="/" class="nav-link">Home</a>
-                      </li>
-                      <li>
-                        <a href="/about-us" class="nav-link">About Us</a>
-                      </li>
-                      <li>
-                        <a href="/contact-us" class="nav-link">Contact Us</a>
-                      </li>
-
-                      <li>
-                        <a href="/blogs" class="nav-link">Blogs</a>
-                      </li>
-                      <li>
-                        <a href="/epf-consultancy-service" class="nav-link">EPF Consultancy</a>
-                      </li>
-                      <li>
-                        <a href="/esi-consultancy-service" class="nav-link">ESI Consultancy</a>
-                      </li>
-                      <li>
-                        <a href="/epf-esi-tools-calculators" class="nav-link">Tools &amp; Calculators</a>
-                      </li>
-
-                      <li>
-                        <a href="/epf-excel-to-text-converter" class="nav-link">EPF Excel to Text Converter</a>
-                      </li>
-                      <li>
-                        <a href="/epf-penalty-calculator" class="nav-link">EPF Penalty Calculator</a>
-                      </li>
-                      <li>
-                        <a href="/esi-penalty-calculator" class="nav-link">ESI Penalty Calculator</a>
-                      </li>
-                      <li>
-                        <a href="/epf-eligibility-checker" class="nav-link">EPF Eligibility Checker</a>
-                      </li>
-                      <li>
-                        <a href="/esi-eligibility-checker" class="nav-link">ESI Eligibility Checker</a>
-                      </li>
-                      <li>
-                        <a href="/epf-contribution-calculator" class="nav-link">PF Contribution Calculator</a>
-                      </li>
-                      <li>
-                        <a href="/esi-contribution-calculator" class="nav-link active" aria-current="page">ESI Contribution Calculator</a>
-                      </li>
-                      <li>
-                        <div class="contact-us">
-                            <address>
-                                <p>
-                                    <a href="tel:+918217542975" class="phone">
-                                        <span class="material-symbols-outlined" aria-hidden="true">
-                                        call
-                                        </span>
-                                        8217542975</a>
-                                </p>
-                                <p><a href="mailto:hello.meduconsultancy@gmail.com" class="email">
-                                    <span class="material-symbols-outlined" aria-hidden="true">
-                                        mail
-                                        </span>
-                                        hello.meduconsultancy@gmail.com</a></p>
-                            </address>
-                            <address class="office-address">
-                                <h4>Our Office Address</h4>
-                                <p>
-                                    3rd Floor, Padil Gate Building,<br>
-                                    Padil, Mangaluru,<br>
-                                    Karnataka 575007
-                                </p>
-                            </address>
-                        </div>
-                      </li>
-                    </ul></nav>
-                  </div>
-            </div>
-        </div>
-    </header>
-
-    <div class="header-space"></div>
-    <main id="main-content" tabindex="-1">
-    <section class="penalty-calc" aria-labelledby="calc-heading">
-      <div class="container">
-        <h1 id="calc-heading">ESI Contribution Calculator</h1>
-        <p class="subhead">Enter gross wages and see the exact employee/employer ESI contribution split.</p>
-
-        <div class="calc-layout">
-          <form id="contribution-form" class="calc-form" novalidate>
-            <div id="contrib-fields"></div>
-            <button type="submit" class="calc-submit">Calculate contribution</button>
-          </form>
-
-          <div class="calc-results" id="contrib-results" aria-live="polite"></div>
-        </div>
-
-        <div class="calc-crosslinks">
-          <p><a class="calc-crosslink" href="/epf-contribution-calculator">Need the PF split instead? → PF Contribution Calculator</a></p>
-        </div>
-      </div>
-    </section>
-
-    <section class="penalty-rules">
-      <div class="container">
-        <h2>How the ESI Split Works</h2>
-        <p>Total ESI contribution is 4% of gross wages - <strong>3.25% from the employer</strong> and <strong>0.75% from the employee</strong>. It applies only if gross wages are ≤ ₹21,000/month (≤ ₹25,000 for a person with disability).</p>
-
-        <h3>Low-wage exemption</h3>
-        <p>If the employee's average daily wage is ₹176 or less, their own 0.75% share is exempted - the employer must still pay the 3.25% share.</p>
-
-        <div class="calc-disclaimer">
-          <span class="calc-disclaimer-label">Important - read before you rely on this figure</span>
-          <p>This is an illustrative estimate. Actual figures may differ slightly due to per-employee rounding conventions ESIC applies.</p>
-          <p>For payroll set up correctly the first time, <a class="link" href="/contact-us">talk to Medu Consultancy</a>.</p>
-        </div>
-
-        <div class="tool-crosslinks">
-          <h2>Related tools and reading</h2>
-          <ul>
-            <li>Not sure if you're even covered? Check the <a class="link" href="/esi-eligibility-checker#employee-eligibility">ESI Eligibility Checker</a> →</li>
-            <li>Need ongoing help with registration and filings? See our <a class="link" href="/esi-consultancy-service">ESI consultancy service</a>.</li>
-            <li>Already behind on payments? Use the <a class="link" href="/esi-penalty-calculator">ESI Penalty Calculator</a>.</li>
-            <li>Read more: <a class="link" href="/blogs/esi-benefits-small-medium-businesses">Why ESI registration benefits small and medium businesses</a>.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="faqs">
-      <div class="container" itemscope itemtype="https://schema.org/FAQPage">
-          <h2>Frequently Asked Questions</h2>
-          <div class="accordion">
-            <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <button id="esi-contrib-faq-1" aria-expanded="false">
-                <span class="accordion-title" itemprop="name">What if my salary is above the ESI ceiling?</span>
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">
-                  No ESI contribution applies - the employee is not covered at that wage level. The ceiling is ₹21,000/month gross wages, or ₹25,000 for a person with disability. If wages crossed the ceiling partway through a contribution period, coverage continues until the end of that period.
-                </p>
-              </div>
-            </div>
-
-            <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <button id="esi-contrib-faq-2" aria-expanded="false">
-                <span class="accordion-title" itemprop="name">What counts as gross wages for ESI?</span>
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">
-                  All pay for the month, leaving out HRA, overtime, bonus, commission and travel allowance. If those left-out items are more than half of total pay, the part above half is added back. This follows the wages rule in the Code on Social Security, 2020.
-                </p>
-              </div>
-            </div>
-
-            <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <button id="esi-contrib-faq-3" aria-expanded="false">
-                <span class="accordion-title" itemprop="name">What is the low-wage exemption?</span>
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">
-                  If an employee's average daily wage is ₹176 or less, their own 0.75% contribution is exempted. The employer must still pay their 3.25% share.
-                </p>
-              </div>
-            </div>
-
-            <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <button id="esi-contrib-faq-4" aria-expanded="false">
-                <span class="accordion-title" itemprop="name">How much does ESI actually cost in total?</span>
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">
-                  4% of gross wages in total - 3.25% from the employer and 0.75% from the employee - as long as gross wages are at or below the applicable ceiling.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-  </section>
-
-    <!-- Footer Section -->
-    </main>
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="about-us">
-                    <p>We are Medu Consultancy, a trusted PF consultant and ESI consultant helping small and medium businesses with EPF and ESI compliance. Our team provides personalized services, including PF registration, ESI registration, monthly PF filing, and monthly ESI filings, ensuring your business stays compliant while you focus on growth.</p>
-                </div>
-
-                <div class="quick-links link-list">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/about-us">About Us</a></li>
-                        <li><a href="/contact-us">Contact Us</a></li>
-<li><a href="/blogs">Blogs</a></li>
-<li><a href="/privacy-policy">Privacy Policy</a></li>
-<li><a href="/terms-and-conditions">Terms and Conditions</a></li>
-                    </ul>
-                </div>
-                <div class="services-offered link-list">
-                    <h3>Our Services</h3>
-                    <ul>
-                        <li><a href="/epf-consultancy-service">EPF Compliance</a></li>
-                       <li><a href="/esi-consultancy-service">ESI Compliance</a></li>
-    <li><a href="/epf-esi-tools-calculators">Tools &amp; Calculators</a></li>
-    <li><a href="/epf-excel-to-text-converter">EPF Excel to Text Converter</a></li>
-    <li><a href="/epf-penalty-calculator">EPF Penalty Calculator</a></li>
-    <li><a href="/esi-penalty-calculator">ESI Penalty Calculator</a></li>
-    <li><a href="/epf-eligibility-checker">EPF Eligibility Checker</a></li>
-    <li><a href="/esi-eligibility-checker">ESI Eligibility Checker</a></li>
-    <li><a href="/epf-contribution-calculator">PF Contribution Calculator</a></li>
-    <li><a href="/esi-contribution-calculator">ESI Contribution Calculator</a></li>
-                    </ul>
-                </div>
-                <div class="contact-us">
-                    <h3>Contact Us</h3>
-                    <address>
-                        <p>
-                            <a href="tel:+918217542975" class="phone">
-                                <span class="material-symbols-outlined" aria-hidden="true">
-                                call
-                                </span>
-                                8217542975</a>
-                        </p>
-                        <p><a href="mailto:hello.meduconsultancy@gmail.com" class="email">
-                            <span class="material-symbols-outlined" aria-hidden="true">
-                                mail
-                                </span>
-                                hello.meduconsultancy@gmail.com</a></p>
-                    </address>
-                    <address class="office-address">
-                        <h4>Our Office Address</h4>
-                        <p>
-                            3rd Floor, Padil Gate Building,<br>
-                            Padil, Mangaluru,<br>
-                            Karnataka 575007
-                        </p>
-                    </address>
-                </div>
-            </div>
-            <section class="quick-links link-list location-list">
-              <h3>Locations</h3>
-              <ul>
-                <li>
-                  <a href="/epf-esi-consultancy-mangalore">Mangalore</a>
-                </li>
-                <li>
-                  <a href="/epf-esi-consultancy-udupi">Udupi</a>
-                </li>
-                <li>
-                  <a href="/epf-esi-consultancy-bangalore">Bangalore</a>
-                </li>
-              </ul>
-            </section>
-<div class="rights">
-                <p>&#169; 2026 Medu Consultancy. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
-    <script src="/script.js" defer></script>
-    <script src="/contribution-calculator.js" defer></script>
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        // Code on Social Security, 2020 (replaced the ESI Act 1948):
-        // contribution rates, wage ceiling, low-wage exemption. Verify rates
-        // are still current - last checked 2026-09-27.
-        var CEILING = 21000;
-        var CEILING_PWD = 25000;
-        var EMPLOYEE_RATE = 0.0075;
-        var EMPLOYER_RATE = 0.0325;
-        // The low-pay exemption amount (₹176 a day from 2019) is not confirmed
-        // under the Code, so the calculator doesn't check it (owner decision
-        // 2026-09-28; brief section 11). The page tells users to call.
-
-        function roundRupee(n) {
-          return Math.round(n);
-        }
-
-        initContributionCalculator('esi', {
-          fields: [
-            {
-              id: 'gross-wages',
-              type: 'number',
-              label: 'Gross monthly wages (₹)',
-              help: 'All pay for the month, leaving out HRA, overtime, bonus, commission and travel allowance. If those left-out items are more than half of total pay, add the part above half.',
-              min: 1,
-              errorRequired: 'Enter the gross monthly wages.',
-              errorMin: 'Enter a number greater than 0.'
-            },
-            {
-              id: 'is-pwd',
-              type: 'radio',
-              legend: 'Person with disability?',
-              options: [
-                { value: 'yes', label: 'Yes' },
-                { value: 'no', label: 'No' }
-              ],
-              default: 'no'
-            }
+        {
+          id: 'is-pwd',
+          type: 'radio',
+          legend: 'Is this employee a person with a disability?',
+          options: [
+            { value: 'yes', label: 'Yes' },
+            { value: 'no', label: 'No' }
           ],
-          compute: function (a) {
-            var ceiling = a['is-pwd'] === 'yes' ? CEILING_PWD : CEILING;
+          default: 'no'
+        }
+      ],
+      compute: function (a) {
+        var ceiling = a['is-pwd'] === 'yes' ? CEILING_PWD : CEILING;
+        var limit = '₹' + ceiling.toLocaleString('en-IN');
+        var pwd = a['is-pwd'] === 'yes' ? ', the limit for a person with a disability' : '';
 
-            if (a['gross-wages'] > ceiling) {
-              return {
-                applicable: false,
-                headline: 'Not applicable - wages exceed the ESI ceiling of ₹' + ceiling.toLocaleString('en-IN'),
-                message: 'Gross monthly wages of ₹' + a['gross-wages'].toLocaleString('en-IN') + ' are above the ₹' + ceiling.toLocaleString('en-IN') + ' ceiling' + (a['is-pwd'] === 'yes' ? ' for a person with disability' : '') + ', so no ESI contribution applies.',
-                note: 'If wages crossed this ceiling only just now, coverage continues until the end of the current contribution period (Apr–Sep or Oct–Mar).'
-              };
-            }
+        if (a['gross-wages'] > ceiling) {
+          return {
+            applicable: false,
+            headline: 'No ESI: ESI wages are above ' + limit + pwd,
+            message: 'ESI wages of ₹' + a['gross-wages'].toLocaleString('en-IN') + ' are above ' + limit + pwd + '. So no ESI is paid for this employee.',
+            note: 'Did their pay only just go above the limit? ESI works in two six-month periods: April to September, and October to March. They stay in ESI, and you keep paying, until the period ends.'
+          };
+        }
 
-            var employeeShare = roundRupee(a['gross-wages'] * EMPLOYEE_RATE);
-            var employerShare = roundRupee(a['gross-wages'] * EMPLOYER_RATE);
-            var total = employeeShare + employerShare;
+        var employeeShare = roundRupee(a['gross-wages'] * EMPLOYEE_RATE);
+        var employerShare = roundRupee(a['gross-wages'] * EMPLOYER_RATE);
+        var total = employeeShare + employerShare;
 
-            var notes = [];
+        var notes = [];
 
-            return {
-              applicable: true,
-              tableCaption: 'ESI contribution breakdown',
-              rows: [
-                { label: "Employee's share (0.75%)", amount: employeeShare },
-                { label: "Employer's share (3.25%)", amount: employerShare },
-                { label: 'Total monthly contribution', amount: total, emphasis: true }
-              ],
-              notes: notes
-            };
-          }
-        });
-      });
-    </script>
-</body>
-</html>
+        return {
+          applicable: true,
+          tableCaption: 'ESI each month',
+          rows: [
+            { label: 'Employee pays (0.75%)', amount: employeeShare },
+            { label: 'You pay (3.25%)', amount: employerShare },
+            { label: 'Total ESI each month', amount: total, emphasis: true }
+          ],
+          notes: notes
+        };
+      }
+    });
+  });
+</script>
