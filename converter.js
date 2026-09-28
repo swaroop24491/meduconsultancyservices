@@ -6,7 +6,7 @@
  * values (so UANs stay whole and commas in names are kept), heading row
  * skipped, empty rows dropped, cells joined with #~#, rows with new lines,
  * file name without spaces. Messages show on the page (role="status")
- * instead of browser pop-ups. Text: docs/converter-copy.md.
+ * instead of browser pop-ups.
  */
 (function () {
   'use strict';

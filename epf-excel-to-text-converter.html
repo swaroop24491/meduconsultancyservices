@@ -4,17 +4,18 @@ lang: en
 page_type: tool
 last_modified: 2026-09-28
 title: "EPF Excel to Text Converter (ECR) | Medu Consultancy"
-description: "Turn your EPF ECR Excel sheet into the text file the EPFO portal needs. Free, and your file stays on your computer."
+description: "Turn your EPF ECR Excel sheet into the text file the EPFO portal needs, in seconds. Free, no sign-up, and your file stays on your computer."
 scripts:
   - https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js
   - /converter.js
 tool: { name: EPF Excel to Text converter }
+preconnect: [https://cdnjs.cloudflare.com]
 breadcrumb:
   - { name: Free tools, path: epf-esi-tools-calculators }
   - { name: EPF Excel to Text converter }
 faq:
   - q: What is an ECR file?
-    a: ECR (Electronic Challan cum Return) is the monthly PF return. You upload it on the EPFO employer portal. It lists each employee's UAN, wages and PF amounts for the month.
+    a: ECR (Electronic Challan cum Return) is the monthly PF return. Challan means the PF payment slip. You upload the ECR on the EPFO employer portal. It lists each employee's UAN, wages and PF amounts for the month.
   - q: Why do I need a text file?
     a: "The EPFO portal takes the ECR as a text file, with the details split by #~#. This tool makes that file from your Excel sheet."
   - q: Is my salary data safe?
@@ -33,7 +34,7 @@ faq:
         <ol class="tool-steps">
           <li>
             <h3>Fill in the ECR Excel sheet</h3>
-            <p>Use our Excel format, so the columns are in the right order. Keep the heading row: the converter leaves it out.</p>
+            <p>Use our Excel format, so the columns are in the right order. Don't delete the heading row. The converter skips it for you.</p>
             <p><a class="link-arrow" href="/EPF_ECR_FORMAT.xlsx" download="EPF_ECR_FORMAT.xlsx">Download the ECR Excel format&#8288;{% include icon.html name="arrow" size="18" %}</a></p>
           </li>
           <li>
