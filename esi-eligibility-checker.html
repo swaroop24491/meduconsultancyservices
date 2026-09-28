@@ -24,7 +24,7 @@ faq:
     <h1 id="tool-heading">ESI eligibility checker</h1>
     <p class="tool-lead">Check if your business must register for ESI (Employees' State Insurance). You can also check if an employee must be in ESI. Use one check or both.</p>
 
-    <h2 id="checks-heading">Check your business or an employee</h2>
+    <h2 id="checks-heading" class="visually-hidden">Check your business or an employee</h2>
     <div class="tool-checks">
       <section id="business-eligibility" class="tool-check" aria-labelledby="business-eligibility-heading">
         <h3 id="business-eligibility-heading">Does your business need ESI?</h3>
@@ -33,6 +33,7 @@ faq:
           <button type="submit" class="btn btn--outline">Check my business</button>
         </form>
         <div class="tool-result" id="business-eligibility-results" aria-live="polite" hidden></div>
+        {% include result-call.html tool="eligibility" %}
       </section>
 
       <section id="employee-eligibility" class="tool-check" aria-labelledby="employee-eligibility-heading">
@@ -44,8 +45,6 @@ faq:
         <div class="tool-result" id="employee-eligibility-results" aria-live="polite" hidden></div>
       </section>
     </div>
-
-    {% include result-call.html tool="eligibility" %}
   </div>
 </section>
 
@@ -59,7 +58,7 @@ faq:
       <p><strong>Once ESI applies, it stays</strong>, even if your staff later drop below {{ esi.min_employees }}. For some risky kinds of work, ESI can apply even with 1 employee. <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a> to check.</p>
       <h3>For each employee</h3>
       <p>An employee must be in ESI when their ESI wages are <strong>{{ esi.wage_ceiling_text }} a month or less</strong> ({{ esi.wage_ceiling_pwd_text }} for a person with a disability).</p>
-      <p>ESI wages are the month's pay without some items, like HRA (house rent allowance) and overtime. If those items are more than half the pay, part of them is added back.</p>
+      <p>ESI wages are the month's pay minus HRA (house rent allowance), overtime, bonus, commission and travel allowance. Are these items more than half the pay? Then the extra part is added back.</p>
       <p>ESI works in two six-month periods: {{ esi.contribution_periods_text }}. If an employee's pay goes above the limit during a period, they stay in ESI until it ends.</p>
       <h3>Staff on very low pay</h3>
       <p>Staff on very low daily pay don't pay their own {{ esi.employee_rate_pct }}% share. You still pay your {{ esi.employer_rate_pct }}%. <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a> to check if this applies.</p>
@@ -70,7 +69,7 @@ faq:
 
 <section class="section" aria-labelledby="related-heading">
   <div class="container">
-    <h2 id="related-heading">Related tools</h2>
+    <h2 id="related-heading">Related tools and pages</h2>
     <div class="card-grid">
       {% include tool-card.html key="esi-contribution" %}
       {% include tool-card.html key="epf-eligibility" %}
@@ -91,7 +90,7 @@ faq:
     // force from 21 November 2025), ESI applies to establishments with
     // 10 or more employees in every state (except seasonal factories),
     // so the threshold no longer depends on the state - last checked
-    // 2026-09-27. Text: docs/eligibility-checkers-copy.md.
+    // 2026-09-27.
     var ESI_EMPLOYEE_THRESHOLD = 10;
 
     var ESI_CEILING = 21000;
@@ -105,17 +104,6 @@ faq:
       cardTitle: 'Result for your business',
       fields: [
         {
-          id: 'seasonal-factory',
-          type: 'radio',
-          legend: 'Is your business a seasonal factory?',
-          options: [
-            { value: 'no', label: 'No' },
-            { value: 'yes', label: 'Yes' }
-          ],
-          help: 'A seasonal factory works only part of the year, for example only during a crop season.',
-          errorRequired: 'Choose Yes or No.'
-        },
-        {
           id: 'current-employees',
           type: 'number',
           label: 'How many employees does your business have now?',
@@ -123,6 +111,17 @@ faq:
           min: 1,
           errorRequired: 'Enter the number of employees.',
           errorMin: 'Enter a number more than 0.'
+        },
+        {
+          id: 'seasonal-factory',
+          type: 'radio',
+          legend: 'Is your business a seasonal factory?',
+          options: [
+            { value: 'yes', label: 'Yes' },
+            { value: 'no', label: 'No' }
+          ],
+          help: 'A seasonal factory works only part of the year, for example only during a crop season.',
+          errorRequired: 'Choose Yes or No.'
         }
       ],
       evaluate: function (a) {
@@ -143,7 +142,7 @@ faq:
             headline: 'ESI applies. Your business must register.',
             reason: 'With ' + a['current-employees'] + ' employees, your business has ' + threshold + ' or more. So it must register for ESI.',
             note: 'This rule is the same in every state.',
-            crosslink: 'We can register you: <a href="/esi-registration">ESI registration for employers</a>.'
+            crosslink: 'We can register you, and then file every month. <a href="tel:+918217542975" data-call-location="result">Call +91 82175 42975</a>. More about <a href="/esi-registration">ESI registration for employers</a>.'
           };
         }
         return {
@@ -151,7 +150,7 @@ faq:
           headline: 'ESI does not apply yet.',
           reason: 'With ' + a['current-employees'] + ' employees, your business has fewer than ' + threshold + '. So ESI registration is not needed now.',
           note: 'But if your business ever had ' + threshold + ' or more employees, ESI still applies: once ESI applies, it stays. For some risky kinds of work, ESI can apply even with 1 employee. ' + CALL + ' to check.',
-          crosslink: null
+          crosslink: 'Growing? When you reach ' + threshold + ' employees, <a href="/esi-registration">we can register you</a>.'
         };
       }
     });
@@ -163,7 +162,7 @@ faq:
           id: 'gross-wages',
           type: 'number',
           label: "What are this employee's ESI wages? (₹ a month)",
-          help: "ESI wages are the month's pay without some items, like HRA (house rent allowance), overtime, bonus, commission and travel allowance. If those items are more than half the pay, add the part above half.",
+          help: "ESI wages are the month's pay minus HRA (house rent allowance), overtime, bonus, commission and travel allowance. Are these items more than half the pay? Then add back the extra part. Not sure? " + CALL + '.',
           min: 1,
           errorRequired: 'Enter the ESI wages.',
           errorMin: 'Enter a number more than 0.'
@@ -187,7 +186,7 @@ faq:
           return {
             kind: 'positive',
             headline: 'Must be in ESI.',
-            reason: 'ESI wages of ₹' + a['gross-wages'].toLocaleString('en-IN') + ' are ' + (a['is-pwd'] === 'yes' ? '₹' + ceiling.toLocaleString('en-IN') + ' or less, the limit for a person with a disability' : '₹' + ceiling.toLocaleString('en-IN') + ' or less') + '. So this employee must be in ESI. This applies if your business has ESI.',
+            reason: 'ESI wages of ₹' + a['gross-wages'].toLocaleString('en-IN') + ' are ' + (a['is-pwd'] === 'yes' ? '₹' + ceiling.toLocaleString('en-IN') + ' or less, the limit for a person with a disability' : '₹' + ceiling.toLocaleString('en-IN') + ' or less') + '. So this employee must be in ESI, if ESI applies to your business.',
             note: note,
             crosslink: 'See the monthly amounts: <a href="/esi-contribution-calculator">ESI contribution calculator</a>.'
           };

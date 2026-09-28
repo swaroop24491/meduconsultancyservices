@@ -15,8 +15,8 @@ faq:
     a: Yes. Once PF applies, it stays, even if your staff later drop below 20. You keep paying PF every month.
   - q: Does an employee with PF wages above ₹25,000 need PF?
     a: 'Only in some cases. If they were in PF in an old job, they usually stay in PF. A new employee can join if you both agree. International workers usually must be in PF too. <a href="tel:+918217542975" data-call-location="faq">Call us</a> to check.'
-  - q: How does a new employee get a UAN?
-    a: New staff get their UAN with a quick face scan on the UMANG app. We guide them. Employers can't create it.
+  - q: What are PF wages?
+    a: PF wages are basic pay plus DA (dearness allowance), not the full salary. Are other allowances, like HRA (house rent allowance), more than half the salary? Then the extra part also counts. We work this out for you.
 ---
 {%- assign epf = site.data.facts.epf -%}
 <section class="section section--stacked tool-section" aria-labelledby="tool-heading">
@@ -24,7 +24,7 @@ faq:
     <h1 id="tool-heading">PF eligibility checker</h1>
     <p class="tool-lead">Check if your business must register for PF (Provident Fund, also called EPF). You can also check if an employee must be in PF. Use one check or both.</p>
 
-    <h2 id="checks-heading">Check your business or an employee</h2>
+    <h2 id="checks-heading" class="visually-hidden">Check your business or an employee</h2>
     <div class="tool-checks">
       <section id="business-eligibility" class="tool-check" aria-labelledby="business-eligibility-heading">
         <h3 id="business-eligibility-heading">Does your business need PF?</h3>
@@ -33,6 +33,7 @@ faq:
           <button type="submit" class="btn btn--outline">Check my business</button>
         </form>
         <div class="tool-result" id="business-eligibility-results" aria-live="polite" hidden></div>
+        {% include result-call.html tool="eligibility" %}
       </section>
 
       <section id="employee-eligibility" class="tool-check" aria-labelledby="employee-eligibility-heading">
@@ -44,8 +45,6 @@ faq:
         <div class="tool-result" id="employee-eligibility-results" aria-live="polite" hidden></div>
       </section>
     </div>
-
-    {% include result-call.html tool="eligibility" %}
   </div>
 </section>
 
@@ -66,7 +65,7 @@ faq:
 
 <section class="section" aria-labelledby="related-heading">
   <div class="container">
-    <h2 id="related-heading">Related tools and guides</h2>
+    <h2 id="related-heading">Related tools and pages</h2>
     <div class="card-grid">
       {% include tool-card.html key="epf-contribution" %}
       {% include tool-card.html key="esi-eligibility" %}
@@ -87,11 +86,12 @@ faq:
     // Employees' Provident Funds Scheme, 2026. Wage ceiling raised to ₹25,000
     // effective 17 September 2026 (Gazette S.O. 5109(E), Code on Social
     // Security, 2020) - it was ₹15,000 before that. Verify thresholds
-    // are still current - last checked 2026-09-27. Text: docs/eligibility-checkers-copy.md.
+    // are still current - last checked 2026-09-27.
     var EPF_WAGE_CEILING = 25000;
     var EPF_HEADCOUNT_THRESHOLD = 20;
     var CALL = '<a href="tel:+918217542975" data-call-location="result">Call us</a>';
-    var LIMIT_NOTE = 'The PF wage limit is ₹25,000 from 17 September 2026. It was ₹15,000 before that. For September 2026 salaries, the PF office has not yet said which limit to use. ' + CALL + '.';
+    // Shown only when the September 2026 limit change matters (PF wages above ₹15,000, up to ₹25,000).
+    var SEPT_NOTE = 'Working out September 2026 pay? ' + CALL + ' first. The PF office has not yet said which limit (₹15,000 or ₹25,000) to use for that month.';
     var ceilingText = '₹' + EPF_WAGE_CEILING.toLocaleString('en-IN');
 
     initEligibilityCalculator('business-eligibility', {
@@ -129,7 +129,7 @@ faq:
             headline: 'PF applies. Your business must register.',
             reason: 'Your business has, or has had, ' + EPF_HEADCOUNT_THRESHOLD + ' or more employees. So it must register for PF.',
             note: note,
-            crosslink: 'We can register you: <a href="/pf-registration">PF registration for employers</a>.'
+            crosslink: 'We can register you, and then file every month. <a href="tel:+918217542975" data-call-location="result">Call +91 82175 42975</a>. More about <a href="/pf-registration">PF registration for employers</a>.'
           };
         }
         if (a['ever-reached-20'] === 'unsure') {
@@ -156,7 +156,7 @@ faq:
           id: 'basic-da',
           type: 'number',
           label: "What are this employee's PF wages? (₹ a month)",
-          help: 'PF wages are mainly basic pay plus DA (dearness allowance). It is not the full salary. If other allowances, like HRA (house rent allowance), are more than half the salary, add the part above half.',
+          help: 'PF wages are basic pay plus DA (dearness allowance), not the full salary. Are other allowances, like HRA (house rent allowance), more than half the salary? Then add the extra part. Not sure? ' + CALL + '.',
           min: 1,
           errorRequired: 'Enter the PF wages.',
           errorMin: 'Enter a number more than 0.'
@@ -214,8 +214,8 @@ faq:
           return {
             kind: 'positive',
             headline: 'Must be in PF.',
-            reason: 'PF wages of ₹' + a['basic-da'].toLocaleString('en-IN') + ' are ' + ceilingText + ' or less. So this employee must be in PF. This applies if your business has PF.',
-            note: LIMIT_NOTE,
+            reason: 'PF wages of ₹' + a['basic-da'].toLocaleString('en-IN') + ' are ' + ceilingText + ' or less. So this employee must be in PF, if PF applies to your business.',
+            note: a['basic-da'] > 15000 ? SEPT_NOTE : null,
             crosslink: 'See the monthly amounts: <a href="/epf-contribution-calculator">PF contribution calculator</a>.'
           };
         }
@@ -223,7 +223,6 @@ faq:
           kind: 'neutral',
           headline: 'PF is optional for this employee.',
           reason: 'PF wages of ₹' + a['basic-da'].toLocaleString('en-IN') + ' are above ' + ceilingText + ', and they were not in PF before. They can join PF if you both agree. It is not required.',
-          note: LIMIT_NOTE,
           crosslink: 'See what PF would cost: <a href="/epf-contribution-calculator">PF contribution calculator</a>.'
         };
       }
