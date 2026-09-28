@@ -77,6 +77,7 @@ how_we_work:
 no_office: No office visits needed. We handle everything over phone and email.
 
 cities_label: "We work with businesses in:"
+services_label: "Our services:"
 cities:
   - { name: Mangalore, anchor: PF and ESI in Mangalore, path: epf-esi-consultancy-mangalore, line: Our office and main team are in Mangaluru. }
   - { name: Udupi, anchor: PF and ESI in Udupi, path: epf-esi-consultancy-udupi, line: We work with Udupi businesses from our Mangaluru office. We can visit you if needed. }
@@ -109,7 +110,7 @@ industries:
   primary:
     - { key: hospitals, name: Hospitals, anchor: PF and ESI for hospitals, icon: hospital, text: "Nurses, support staff and agency workers." }
     - { key: contractors, name: Contractors, anchor: PF and ESI for contractors, icon: contractor, text: "Staff who join and leave often, across sites." }
-    - { key: factories, name: Factories, anchor: PF and ESI for factories, icon: factory, text: "Contract workers, overtime and inspections." }
+    - { key: factories, name: Factories, anchor: PF and ESI for factories, icon: factory, text: "Contract and casual workers, wage changes and inspections." }
     - { key: schools, name: Schools, anchor: PF and ESI for schools, icon: school, text: "Teaching and non-teaching staff, and CBSE checks." }
     - { key: it-companies, name: IT companies, anchor: PF and ESI for IT companies, icon: it, text: "The new ₹25,000 PF wage limit and how salaries are set up." }
   also: Estates, security agencies, housekeeping agencies, distributors and suppliers, local shops, hotels and restaurants.

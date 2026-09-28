@@ -1,0 +1,35 @@
+---
+layout: base
+lang: en
+page_type: industries
+last_modified: 2026-09-28
+title: "PF & ESI by Industry | Medu Consultancy"
+description: "PF and ESI help for hospitals, contractors, factories, schools and IT companies. We register you and file every month. Call +91 82175 42975."
+breadcrumb:
+  - { name: Industries }
+---
+{%- assign epf = site.data.facts.epf -%}
+{% include hero.html heading="PF and ESI for your industry" lead="PF and ESI rules are the same for every business. But each kind of business has its own problems. Here is what to watch in yours." %}
+
+{% include industry-links.html %}
+
+<section class="section" aria-labelledby="same-heading">
+  <div class="container stack">
+    <div class="prose">
+      <h2 id="same-heading">What's the same for every business</h2>
+      <p>Every business needs the same basics. Register on time. Pay and file PF and ESI by the {{ epf.due_day }}th of the next month. Keep records ready. We do all of this for you, whatever your business.</p>
+    </div>
+    {% include service-links.html %}
+  </div>
+</section>
+
+<section class="section" aria-labelledby="join-heading">
+  <div class="container">
+    <div class="prose">
+      <h2 id="join-heading">Staff don't want to join?</h2>
+      <p>Many employees ask to skip PF or ESI to take home more pay. But if they are eligible, it is not a choice. The law says they must be in PF and ESI. We help you explain what they get from it.</p>
+    </div>
+  </div>
+</section>
+
+{% include closing-call.html line="Tell us what your business does. We'll tell you what applies." %}

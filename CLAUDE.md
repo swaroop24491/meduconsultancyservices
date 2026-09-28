@@ -278,12 +278,16 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
     onto its own line at 1024px; a CSS-only fix didn't work in testing, real fix needs a markup
     change at every call site.
 
+- Phase 6 (English, 2026-09-28): industry hub (`industries/index.html`) + 5 industry pages
+  (`industries/<key>.html`). Copy in `docs/industries-copy.md` (compliance-reviewed, owner-approved; the
+  built pages are the final text). "Where … go wrong" dropped; staff-benefits links wait for phase 7.
+  New `service-links.html` include (style guide). `Service.audience` in schema; hub is a `CollectionPage`
+  (`page_type: industries`). New facts to verify: strategy 9.4 #27–31. Six-reviewer round not yet run.
+
 ### Next (strategy section 9.3, English first; Kannada last)
-1. Industry hub + 5 industry pages (English) — start here in the next session. This also fixes the
-   5 broken `/industries/*` links already live on the city, home and service pages (noted in
-   `docs/phase5-review-findings.md`).
+1. Run all six reviewers on the industry pages (page type finished) and bring findings to the owner.
 2. Then blog index + posts (rewrite the ESI posts and the three unlinked guides first, then restore
-   their links, #22, #22b), about, contact, legal, bilingual 404.
+   their links, #22, #22b; add the staff-benefits post links to the 5 industry pages and the hub), about, contact, legal, bilingual 404.
    Open from phase 4: the 100% cap on old-slab penalty damages (a reviewed update once the Code's
    section is confirmed, 9.4 #1/#2; the result shows a "call us" note for now).
 3. **Kannada phase (last, before launch):** first a fluent speaker reviews

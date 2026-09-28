@@ -207,6 +207,7 @@
   {% include city-links.html %}
 &lt;/div&gt;
 {% include city-links.html descriptive=true %}   (link text "PF and ESI in Mangalore", where links stand alone)
+{% include service-links.html %}   (industry pages: the 2 service and 2 registration pages)
 {% include city-cards.html %}   (home "Where we work": link rows, one line each; link text "PF and ESI consultant in Mangalore"){% endraw %}</code></pre></div>
 </div>
 <div lang="{{ lang }}">
@@ -214,7 +215,9 @@
 <div class="container sg-demo-plain"><div class="link-groups">{% include industry-links.html compact=true except="schools" %}
 {% include city-links.html %}</div>
 <div class="sg-gap"></div>
-{% include city-links.html descriptive=true %}</div>
+{% include city-links.html descriptive=true %}
+<div class="sg-gap"></div>
+{% include service-links.html %}</div>
 <div class="container sg-demo-plain">{% include city-cards.html %}</div>
 </div>
 

@@ -1,0 +1,90 @@
+---
+layout: base
+lang: en
+page_type: industry
+last_modified: 2026-09-28
+title: "PF & ESI for Schools | Medu Consultancy"
+description: "CBSE asks its schools to follow PF and ESI rules. We cover teaching and non-teaching staff and file every month. Call +91 82175 42975."
+breadcrumb:
+  - { name: Industries, path: industries/ }
+  - { name: Schools }
+service:
+  type: PF and ESI compliance and monthly filing
+  name: PF and ESI for schools
+  audience: Schools and colleges
+faq:
+  - q: Does CBSE check PF and ESI?
+    a: "CBSE's affiliation rules ask schools to follow PF, ESI and labour laws for their staff. Keep your challans and records ready for affiliation and renewal."
+  - q: Do drivers, cleaners and helpers need PF and ESI?
+    a: "Yes, if they are your employees. They count towards the 10 and 20 limits, and many are within the ESI wage limit."
+  - q: Our school has fewer than 20 staff. Do we need PF?
+    a: 'PF applies at 20 or more employees, and ESI at 10 or more. Count all staff, including non-teaching and casual staff. Not sure? Check with our <a href="/epf-eligibility-checker">PF eligibility checker</a>, or <a href="tel:+918217542975" data-call-location="faq">call us</a>.'
+---
+{%- assign esi = site.data.facts.esi -%}
+{%- assign epf = site.data.facts.epf -%}
+{% include hero.html heading="PF and ESI for schools" lead="Schools must cover teachers and non-teaching staff under PF and ESI. CBSE schools are also asked about it. We register your staff and file every month." %}
+
+<section class="section" aria-labelledby="apply-heading">
+  <div class="container">
+    <h2 id="apply-heading">How PF and ESI apply to your staff</h2>
+    <p class="section-lead">PF (Provident Fund) applies once you have {{ epf.min_employees }} or more employees. ESI (Employees' State Insurance) applies once you have {{ esi.min_employees }} or more. A private school follows the same rules as any other business.</p>
+    <div class="card-grid">
+      <div class="card">
+        <h3>CBSE schools</h3>
+        <p>CBSE's affiliation rules ask schools to follow PF, ESI and labour laws for their staff. It can come up when you apply for affiliation or renew it.</p>
+      </div>
+      <div class="card">
+        <h3>Teaching and non-teaching staff</h3>
+        <p>Both are covered. That includes drivers, helpers, cleaners, security and office staff. Non-teaching staff often earn {{ esi.wage_ceiling_text }} a month or less in ESI wages, so they must be in ESI.</p>
+      </div>
+      <div class="card">
+        <h3>Part-time and temporary staff</h3>
+        <p>Regular part-time and temporary staff can be covered too. <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a> to check your staff.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="join-heading">
+  <div class="container">
+    <div class="prose">
+      <h2 id="join-heading">When staff don't want to join</h2>
+      <p>In schools, staff often ask to skip PF or ESI. If they are eligible, they can't opt out.</p>
+      <p>Tell them what they get. PF builds savings for later, a pension and life insurance. ESI gives them and their family free medical care, and cash help when they are sick or on maternity leave.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="handle-heading">
+  <div class="container stack">
+    <div class="prose">
+      <h2 id="handle-heading">What we handle for you</h2>
+      <ul class="check-list">
+        <li>Register your school for PF and ESI, if you are new to it.</li>
+        <li>Add every teacher and staff member to PF and ESI. We guide them to get their UAN (their PF account number) with a quick face scan on the UMANG app. We create their IP number (their ESI number).</li>
+        <li>File PF and ESI every month, before the due date (the {{ epf.due_day }}th of the next month).</li>
+        <li>Email you the confirmation and the challans (payment slips), so your records are ready for CBSE and inspections.</li>
+        <li>Help your staff with their PF and ESI details.</li>
+      </ul>
+      <p>We work with schools in Mangalore, Udupi and Bangalore.</p>
+    </div>
+    {% include service-links.html %}
+    {% include call-block.html location="handle" %}
+  </div>
+</section>
+
+<section class="section" aria-labelledby="related-heading">
+  <div class="container stack">
+    <h2 id="related-heading">Related tools and pages</h2>
+    <div class="card-grid">
+      {% include tool-card.html key="epf-eligibility" %}
+      {% include tool-card.html key="esi-eligibility" %}
+      {% include tool-card.html key="epf-contribution" %}
+    </div>
+    {% include industry-links.html compact=true except="schools" %}
+  </div>
+</section>
+
+{% include faq.html items=page.faq schema=true %}
+
+{% include closing-call.html line="Tell us about your school. We'll cover every teacher and staff member." %}

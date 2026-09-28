@@ -80,6 +80,7 @@ how_we_work:
 no_office: ಕಚೇರಿಗೆ ಬರುವ ಅಗತ್ಯವಿಲ್ಲ. ಎಲ್ಲವನ್ನೂ ಫೋನ್ ಮತ್ತು ಇಮೇಲ್ ಮೂಲಕ ನಾವು ನೋಡಿಕೊಳ್ಳುತ್ತೇವೆ.
 
 cities_label: "ಈ ಊರುಗಳ ವ್ಯಾಪಾರಗಳೊಂದಿಗೆ ಕೆಲಸ ಮಾಡುತ್ತೇವೆ:"
+services_label: "ನಮ್ಮ ಸೇವೆಗಳು:"
 cities:
   - { name: ಮಂಗಳೂರು, anchor: ಮಂಗಳೂರಿನಲ್ಲಿ PF ಮತ್ತು ESI, path: epf-esi-consultancy-mangalore }
   - { name: ಉಡುಪಿ, anchor: ಉಡುಪಿಯಲ್ಲಿ PF ಮತ್ತು ESI, path: epf-esi-consultancy-udupi }

@@ -1,0 +1,13 @@
+{%- comment -%}
+  The 2 service pages and 2 registration pages as a link group (label, stacked arrow links).
+  include service-links.html   (industry pages, "What we handle for you"). Links from footer.services_links.
+{%- endcomment -%}
+{%- include i18n.html -%}
+<div class="link-group">
+  <p class="link-group__label">{{ t.services_label }}</p>
+  <ul class="link-list">
+    {%- for l in t.footer.services_links %}
+    <li>{% include resolve-link.html path=l.path %}<a class="link-arrow" href="{{ href }}"{% if link_en %} hreflang="en"{% endif %}>{{ l.label }}{% if link_en %}<span class="link-lang"> {{ t.english_marker }}</span>{% endif %}&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+    {%- endfor %}
+  </ul>
+</div>

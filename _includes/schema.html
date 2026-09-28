@@ -4,8 +4,10 @@
     service: { type: "...", name: "...", offers: ["...", "..."], area: ["Mangaluru"] }
                                           (area: official city name(s) this service covers; defaults to all
                                           cities_official when left out)
+    service.audience: "Hospitals and clinics"     (industry pages: BusinessAudience)
     tool: { name: "..." }                          (page_type tool: WebApplication)
   page_type tools (the hub) is a CollectionPage with an ItemList of the tools.
+  page_type industries (the industry hub) is a CollectionPage.
   Every page has a short business entity (name, url, phone) under the shared @id; the full
   entity (address, founder, areaServed…) goes on home and contact.
   FAQPage comes from faq.html (schema=true).
@@ -24,7 +26,7 @@
 {%- endif -%}
 },
 {"@type":"WebSite","@id":"{{ site_url }}/#website","url":"{{ site_url }}/","name":"{{ site.data.site.name }}","publisher":{"@id":"{{ biz }}"}},
-{"@type":"{% if page.page_type == 'tools' %}CollectionPage{% else %}WebPage{% endif %}","@id":"{{ page_url }}#webpage","url":"{{ page_url }}","name":{{ page.title | jsonify }},"description":{{ page.description | jsonify }},"inLanguage":"{% if lang == 'kn' %}kn-IN{% else %}en-IN{% endif %}","isPartOf":{"@id":"{{ site_url }}/#website"},"about":{"@id":"{{ biz }}"}{% if page.tool %},"mainEntity":{"@id":"{{ page_url }}#app"}{% elsif page.page_type == 'tools' %},"mainEntity":{"@id":"{{ page_url }}#tools"}{% endif %}}
+{"@type":"{% if page.page_type == 'tools' or page.page_type == 'industries' %}CollectionPage{% else %}WebPage{% endif %}","@id":"{{ page_url }}#webpage","url":"{{ page_url }}","name":{{ page.title | jsonify }},"description":{{ page.description | jsonify }},"inLanguage":"{% if lang == 'kn' %}kn-IN{% else %}en-IN{% endif %}","isPartOf":{"@id":"{{ site_url }}/#website"},"about":{"@id":"{{ biz }}"}{% if page.tool %},"mainEntity":{"@id":"{{ page_url }}#app"}{% elsif page.page_type == 'tools' %},"mainEntity":{"@id":"{{ page_url }}#tools"}{% endif %}}
 {%- if page.breadcrumb -%}
 ,{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":{{ t.breadcrumb_home | jsonify }},"item":"{{ site_url }}{{ base }}"}{% for b in page.breadcrumb %},{"@type":"ListItem","position":{{ forloop.index | plus: 1 }},"name":{{ b.name | jsonify }}{% if b.path %},"item":"{{ site_url }}{{ base }}{{ b.path }}"{% elsif forloop.last %},"item":"{{ page_url }}"{% endif %}}{% endfor %}]}
 {%- endif -%}
@@ -36,7 +38,7 @@
 {%- endif -%}
 {%- if page.service -%}
 {%- assign _areas = page.service.area | default: site.data.site.cities_official -%}
-,{"@type":"Service","serviceType":{{ page.service.type | jsonify }},"name":{{ page.service.name | jsonify }},"provider":{"@id":"{{ biz }}"},"url":"{{ page_url }}","areaServed":[{% for c in _areas %}{"@type":"City","name":"{{ c }}"}{% unless forloop.last %},{% endunless %}{% endfor %}]{% if page.service.offers %},"hasOfferCatalog":{"@type":"OfferCatalog","name":{{ page.service.name | jsonify }},"itemListElement":[{% for o in page.service.offers %}{"@type":"Offer","itemOffered":{"@type":"Service","name":{{ o | jsonify }}}}{% unless forloop.last %},{% endunless %}{% endfor %}]}{% endif %}}
+,{"@type":"Service","serviceType":{{ page.service.type | jsonify }},"name":{{ page.service.name | jsonify }},"provider":{"@id":"{{ biz }}"},"url":"{{ page_url }}","areaServed":[{% for c in _areas %}{"@type":"City","name":"{{ c }}"}{% unless forloop.last %},{% endunless %}{% endfor %}]{% if page.service.audience %},"audience":{"@type":"BusinessAudience","name":{{ page.service.audience | jsonify }}}{% endif %}{% if page.service.offers %},"hasOfferCatalog":{"@type":"OfferCatalog","name":{{ page.service.name | jsonify }},"itemListElement":[{% for o in page.service.offers %}{"@type":"Offer","itemOffered":{"@type":"Service","name":{{ o | jsonify }}}}{% unless forloop.last %},{% endunless %}{% endfor %}]}{% endif %}}
 {%- endif -%}
 ]}
 </script>
