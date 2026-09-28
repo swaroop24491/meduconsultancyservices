@@ -25,6 +25,7 @@
         <li><a href="#sg-situations">Situation cards</a></li>
         <li><a href="#sg-industries">Industry and city links</a></li>
         <li><a href="#sg-tools">Tool cards</a></li>
+        <li><a href="#sg-tool-parts">Tool parts (fields, results)</a></li>
         <li><a href="#sg-result">Result call box</a></li>
         <li><a href="#sg-faq">FAQ</a></li>
         <li><a href="#sg-testimonials">Testimonial slot</a></li>
@@ -226,6 +227,61 @@
   <div class="card-grid sg-demo" lang="{{ lang }}">
     {% for tool in t.tools %}{% include tool-card.html key=tool.key %}{% endfor %}
   </div></div>
+</div>
+
+<div id="sg-tool-parts" class="sg-component">
+  <div class="container"><p class="sg-component__name">Tool parts</p><p class="sg-note">Used on the tool pages. The tool scripts (<code>eligibility-checker.js</code>, <code>penalty-calculator.js</code>, <code>contribution-calculator.js</code>) build fields and results with exactly these classes; the markup below is what they output. Page layout: <code>section.tool-section</code> (H1 + <code>.tool-lead</code>), then <code>.tool.tool--split</code> (form left, result and result call box right from 1024px) or <code>.tool-checks</code> (two checks side by side). Inputs sit on cream with the strong border; errors are words, never colour alone. The tool's button is <code>.btn--outline</code>, so it never looks like the call button. Result cards have no red: they are answers, not warnings. <code>.note</code> is the plain-words disclaimer. <code>.tool-group</code> groups tool cards under a question on the hub.</p>
+  <pre class="sg-code"><code>&lt;div class="field"&gt;&lt;label for="x"&gt;…&lt;/label&gt;&lt;input type="number" id="x" aria-describedby="x-help x-error"&gt;
+  &lt;p class="field__help" id="x-help"&gt;…&lt;/p&gt;&lt;p class="field__error" id="x-error" aria-live="polite"&gt;&lt;/p&gt;&lt;/div&gt;
+&lt;fieldset class="field"&gt;&lt;legend&gt;…&lt;/legend&gt;&lt;div class="field__options"&gt;&lt;label class="radio"&gt;&lt;input type="radio"&gt; …&lt;/label&gt;&lt;/div&gt;&lt;/fieldset&gt;
+&lt;button type="submit" class="btn btn--outline"&gt;Work it out&lt;/button&gt;
+&lt;table class="result-table"&gt;… &lt;tr class="result-table__total"&gt;…&lt;/table&gt;
+&lt;div class="verdict verdict--positive"&gt;&lt;p class="verdict__label"&gt;…&lt;/p&gt;&lt;p class="verdict__title"&gt;[icon] …&lt;/p&gt;…&lt;/div&gt;</code></pre>
+  <div class="sg-demo tool tool--split">
+    <form class="tool-form" onsubmit="return false">
+      <div class="field">
+        <label for="sg-f1">PF wages (₹ a month)</label>
+        <input type="number" id="sg-f1" inputmode="numeric" value="18000" aria-describedby="sg-f1-help sg-f1-error">
+        <p class="field__help" id="sg-f1-help">PF wages are mainly basic pay plus DA (dearness allowance).</p>
+        <p class="field__error" id="sg-f1-error" aria-live="polite"></p>
+      </div>
+      <fieldset class="field">
+        <legend>PF rate</legend>
+        <div class="field__options">
+          <label class="radio"><input type="radio" name="sg-rate" checked> 12% (most businesses)</label>
+          <label class="radio"><input type="radio" name="sg-rate"> 10% (only some businesses)</label>
+        </div>
+      </fieldset>
+      <div class="field">
+        <label for="sg-f2">Unpaid PF amount (₹)</label>
+        <input type="number" id="sg-f2" inputmode="numeric" aria-invalid="true" aria-describedby="sg-f2-error">
+        <p class="field__error" id="sg-f2-error">Enter the unpaid amount.</p>
+      </div>
+      <button type="submit" class="btn btn--outline">Work it out</button>
+    </form>
+    <div class="tool-result">
+      <div class="result-summary"><p><strong>Due date:</strong> 15 October 2026</p><p><strong>Days late:</strong> 40</p></div>
+      <table class="result-table">
+        <caption class="visually-hidden">Sample result</caption>
+        <thead><tr><th scope="col">What</th><th scope="col">Amount</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Employee pays</th><td>₹2,160</td></tr>
+          <tr><th scope="row">You pay: to their PF account</th><td>₹661</td></tr>
+          <tr><th scope="row">You pay: to their pension (EPS)</th><td>₹1,499</td></tr>
+          <tr class="result-table__subtotal"><th scope="row">You pay in total</th><td>₹2,160</td></tr>
+          <tr class="result-table__total"><th scope="row">Total PF each month</th><td>₹4,320</td></tr>
+        </tbody>
+      </table>
+      <p class="result-note">Of the ₹4,320 total, ₹2,821 goes to the employee's PF account.</p>
+    </div>
+  </div>
+  <div class="sg-demo tool-checks">
+    <div class="verdict verdict--positive"><p class="verdict__label">Result for your business</p><p class="verdict__title">{% include icon.html name="check-circle" size="24" %}<span>PF applies. Your business must register.</span></p><p>Your business has, or has had, 20 or more employees.</p><p class="verdict__note">Once PF applies, it stays.</p><p><button type="button" class="btn-link">Check again</button></p></div>
+    <div class="verdict verdict--neutral"><p class="verdict__label">Result for this employee</p><p class="verdict__title">{% include icon.html name="info" size="24" %}<span>PF is optional for this employee.</span></p><p>Other kinds: <code>negative</code> (cancel icon), <code>uncertain</code> (help icon).</p></div>
+  </div>
+  <div class="sg-demo"><div class="result-message"><strong>On time. Nothing extra to pay.</strong><p>Your payment date is on or before the due date.</p></div></div>
+  <div class="sg-demo"><p class="note"><strong>Note:</strong> This calculator gives an estimate. It is not the final amount. Checked against the rules as of 27 September 2026.</p></div>
+  </div>
 </div>
 
 <div id="sg-result" class="sg-component">

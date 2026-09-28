@@ -4,6 +4,8 @@
 #   page_type: home | service | registration | city | industry | tools | tool | blog | post | about | contact | legal | other
 #   css: [extra stylesheets]   (optional)
 #   noindex: true              (optional, e.g. the style guide)
+#   scripts: [/tool.js]        (optional, loaded with defer after script.js; tool pages)
+#   tool: { name }             (tool pages: WebApplication JSON-LD)
 ---
 {%- include i18n.html -%}
 <!DOCTYPE html>
@@ -20,5 +22,8 @@
 {% include footer.html %}
 {% include schema.html %}
 <script src="/script.js" defer></script>
+{%- for s in page.scripts %}
+<script src="{{ s }}" defer></script>
+{%- endfor %}
 </body>
 </html>

@@ -751,3 +751,142 @@ html[lang="kn"] .proof-line__num { letter-spacing: 0; }
 
 /* ---------- Closing call ---------- */
 .closing-call h2 { margin-bottom: 0; }
+
+/* ---------- Tools (calculators, checkers, converter) ----------
+   Tool pages start with a short head (H1 + one line) so the tool is on the
+   first screen on phones. The tool scripts build the fields and results with
+   these classes. Inputs sit on cream with the strong border (3.5:1); errors
+   are written out in words, never colour alone. */
+.tool-section { padding-top: var(--space-6); }
+.tool-section h1 { max-width: 20ch; }
+.tool-lead { max-width: var(--container-text); margin-top: var(--space-4); font-size: var(--text-lg); }
+.tool { display: grid; gap: var(--space-6); margin-top: var(--space-6); }
+.tool-section h2 { margin-top: var(--space-7); margin-bottom: var(--space-4); }
+/* Form and result side by side from 1024px; the result call box sits under the result */
+@media (min-width: 1024px) {
+    .tool--split { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: var(--space-8); align-items: start; }
+    .tool--split > .tool-form { grid-row: 1 / span 2; }
+    .tool--split > .result-call { margin-top: 0; }
+}
+/* Two separate checks (eligibility): side by side from 1024px */
+.tool-checks { display: grid; gap: var(--space-7); margin-top: var(--space-5); }
+@media (min-width: 1024px) { .tool-checks { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--space-8); } }
+.tool-check > h3 { margin-bottom: var(--space-4); }
+.tool-checks + .result-call { max-width: var(--container-text); }
+
+.tool-form { display: grid; gap: var(--space-5); max-width: 32rem; }
+/* The scripts fill a wrapper div with the fields */
+.tool-form > div:not(.field):empty { display: none; }
+.tool-form > div:not(.field) { display: grid; gap: var(--space-5); }
+
+.field { display: grid; gap: var(--space-2); min-width: 0; padding: 0; border: 0; }
+.field[hidden] { display: none; }
+.field > label, .field > legend { font-weight: var(--weight-medium); color: var(--color-heading); padding: 0; }
+.field > legend { margin-bottom: var(--space-2); }
+.field input[type="number"], .field input[type="text"], .field input[type="month"],
+.field input[type="date"], .field input[type="file"], .field select {
+    width: 100%;
+    min-height: var(--tap-min);
+    padding: var(--space-2) var(--space-3);
+    border: 1px solid var(--color-border-strong);
+    border-radius: var(--radius-sm);
+    background: var(--color-bg);
+    color: var(--color-text);
+    font: inherit;
+}
+.field input[readonly] { border-style: dashed; color: var(--color-text-muted); }
+.field input[type="file"] { padding-block: var(--space-3); }
+.field input[aria-invalid="true"], .field[aria-invalid="true"] .radio { border-color: var(--color-warning); }
+.field > p + p { margin-top: 0; }
+.field__help { font-size: var(--text-sm); color: var(--color-text-muted); }
+.field__error { font-size: var(--text-sm); font-weight: var(--weight-medium); color: var(--color-warning); }
+.field__error:empty { display: none; }
+.field__options { display: grid; gap: var(--space-2); }
+.radio {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    min-height: var(--tap-min);
+    padding: var(--space-2) var(--space-3);
+    border: 1px solid var(--color-border-strong);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+}
+.radio:has(input:checked) { border-color: var(--color-brand); box-shadow: inset 0 0 0 1px var(--color-brand); }
+.radio input { width: 20px; height: 20px; margin: 0; flex-shrink: 0; accent-color: var(--color-brand); }
+.field-more summary { min-height: var(--tap-link); display: flex; align-items: center; color: var(--color-brand); font-weight: var(--weight-medium); cursor: pointer; }
+.field-more[open] summary { margin-bottom: var(--space-4); }
+
+/* The tool's own button: outlined, so it never looks like the call button */
+.btn--outline {
+    justify-self: start;
+    background: transparent;
+    color: var(--color-brand);
+    box-shadow: inset 0 0 0 2px var(--color-brand);
+}
+.btn--outline:hover { background: transparent; color: var(--color-brand-dark); box-shadow: inset 0 0 0 2px var(--color-brand-dark); }
+/* A button that reads as a link (e.g. "Check again") */
+.btn-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: var(--tap-link);
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--color-brand);
+    font: inherit;
+    font-weight: var(--weight-medium);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    cursor: pointer;
+}
+.btn-link:hover { color: var(--color-brand-dark); }
+
+/* Results */
+.tool-result:empty { display: none; }
+.tool-result > * + * { margin-top: var(--space-4); }
+.tool-result:focus { outline: none; }
+.result-summary p + p { margin-top: var(--space-1); }
+.result-message { padding-top: var(--space-4); border-top: 2px solid var(--color-brand); }
+.result-message strong { display: block; font-size: var(--text-lg); font-weight: var(--weight-medium); color: var(--color-heading); }
+.result-table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.result-table th, .result-table td { padding: var(--space-3) 0; border-bottom: 1px solid var(--color-border); text-align: left; vertical-align: top; }
+.result-table thead th { padding-top: 0; font-size: var(--text-sm); font-weight: var(--weight-medium); color: var(--color-text-muted); }
+.result-table tbody th { font-weight: var(--weight-regular); padding-right: var(--space-4); }
+.result-table td, .result-table thead th:last-child { text-align: right; white-space: nowrap; }
+.result-table__subtotal th, .result-table__subtotal td { font-weight: var(--weight-medium); color: var(--color-heading); }
+.result-table__total th, .result-table__total td {
+    border-top: 2px solid var(--color-heading);
+    border-bottom: 0;
+    font-size: var(--text-lg);
+    font-weight: var(--weight-medium);
+    color: var(--color-heading);
+}
+.result-note { font-size: var(--text-sm); color: var(--color-text-muted); }
+
+/* Eligibility result: a short green line above, an icon for the kind of
+   answer (applies, doesn't apply, not needed yet, not sure). No red: these are
+   answers, not warnings. */
+.verdict { padding-top: var(--space-4); border-top: 2px solid var(--color-brand); }
+.verdict > * + * { margin-top: var(--space-3); }
+.verdict__label { font-size: var(--text-sm); color: var(--color-text-muted); }
+.verdict__title { display: flex; align-items: flex-start; gap: var(--space-2); font-size: var(--text-lg); font-weight: var(--weight-medium); color: var(--color-heading); }
+.verdict__label + .verdict__title { margin-top: var(--space-1); }
+.verdict__title .icon { flex-shrink: 0; margin-top: 0.1em; color: var(--color-brand); }
+.verdict__note { font-size: var(--text-sm); color: var(--color-text-muted); }
+
+/* Converter: step list and the message under the button */
+.tool-steps { display: grid; gap: var(--space-5); max-width: 32rem; counter-reset: tstep; }
+.tool-steps > li { counter-increment: tstep; }
+.tool-steps h3::before { content: counter(tstep) ". "; color: var(--color-brand); }
+.tool-status { font-weight: var(--weight-medium); color: var(--color-heading); }
+.tool-status:empty { display: none; }
+.tool-status--error { color: var(--color-warning); }
+
+/* Note under "how this is worked out": the disclaimer in plain words, not red */
+.note { font-size: var(--text-sm); color: var(--color-text-muted); }
+.note strong { color: var(--color-heading); }
+
+/* Tools hub: tool cards grouped under a question */
+.tool-group + .tool-group { margin-top: var(--space-7); }
+.tool-group > h3 { margin-bottom: var(--space-3); }
