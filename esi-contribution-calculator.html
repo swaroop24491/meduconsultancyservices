@@ -17,8 +17,6 @@ faq:
     a: 'They don''t pay their own 0.75% share. You still pay your 3.25%. <a href="tel:+918217542975" data-call-location="faq">Call us</a> to check if this applies to your staff.'
   - q: How much is ESI in total?
     a: "4% of ESI wages: 3.25% from you and 0.75% from the employee."
-  - q: Will this match the payslip exactly?
-    a: It will be very close. The final figure can differ by a rupee or so, because of how each amount is rounded.
 ---
 {%- assign esi = site.data.facts.esi -%}
 <section class="section section--stacked tool-section" aria-labelledby="tool-heading">
@@ -45,7 +43,7 @@ faq:
       <h2 id="how-heading">How ESI is worked out</h2>
       <p>ESI is <strong>{{ esi.total_rate_pct }}% of ESI wages</strong> each month. The employee pays <strong>{{ esi.employee_rate_pct }}%</strong>, which you take from their salary. You pay <strong>{{ esi.employer_rate_pct }}%</strong>.</p>
       <p>ESI is paid for employees whose ESI wages are {{ esi.wage_ceiling_text }} a month or less ({{ esi.wage_ceiling_pwd_text }} for a person with a disability).</p>
-      <p>ESI wages are the month's pay without some items, like HRA (house rent allowance) and overtime. If those items are more than half the pay, part of them is added back.</p>
+      <p>ESI wages are the month's pay minus HRA (house rent allowance), overtime, bonus, commission and travel allowance. Are these items more than half the pay? Then the extra part is added back.</p>
       <p>Staff on very low daily pay don't pay their own {{ esi.employee_rate_pct }}% share. You still pay your {{ esi.employer_rate_pct }}%. <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a> to check if this applies.</p>
       <p>ESI is due by the {{ esi.due_day }}th of the next month.</p>
       <p class="note"><strong>Note:</strong> This calculator gives an estimate. The final figure can differ slightly because of rounding. Checked against the rules as of {{ site.data.facts.tools_checked }}.</p>
@@ -55,7 +53,7 @@ faq:
 
 <section class="section" aria-labelledby="related-heading">
   <div class="container">
-    <h2 id="related-heading">Related tools</h2>
+    <h2 id="related-heading">Related tools and pages</h2>
     <div class="card-grid">
       {% include tool-card.html key="esi-eligibility" %}
       {% include tool-card.html key="epf-contribution" %}
@@ -74,11 +72,12 @@ faq:
   document.addEventListener('DOMContentLoaded', function () {
     // Code on Social Security, 2020 (replaced the ESI Act 1948):
     // contribution rates, wage ceiling. Verify rates are still current -
-    // last checked 2026-09-27. Text: docs/contribution-calculators-copy.md.
+    // last checked 2026-09-27.
     var CEILING = 21000;
     var CEILING_PWD = 25000;
     var EMPLOYEE_RATE = 0.0075;
     var EMPLOYER_RATE = 0.0325;
+    var CALL = '<a href="tel:+918217542975" data-call-location="result">Call us</a>';
     // The low-pay exemption amount (₹176 a day from 2019) is not confirmed
     // under the Code, so the calculator doesn't check it (owner decision
     // 2026-09-28; brief section 11). The page tells users to call.
@@ -93,7 +92,7 @@ faq:
           id: 'gross-wages',
           type: 'number',
           label: 'ESI wages (₹ a month)',
-          help: "ESI wages are the month's pay without some items, like HRA (house rent allowance), overtime, bonus, commission and travel allowance. If those items are more than half the pay, add the part above half.",
+          help: "ESI wages are the month's pay minus HRA (house rent allowance), overtime, bonus, commission and travel allowance. Are these items more than half the pay? Then add back the extra part. Not sure? " + CALL + '.',
           min: 1,
           errorRequired: 'Enter the ESI wages.',
           errorMin: 'Enter a number more than 0.'

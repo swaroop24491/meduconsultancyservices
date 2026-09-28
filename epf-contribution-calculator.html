@@ -47,7 +47,8 @@ faq:
       <p>You also pay <strong>{{ epf.employer_rate_pct }}%</strong>. Part of it goes to the employee's pension, called <strong>EPS</strong> (the Employees' Pension Scheme): 8.33% of PF wages up to {{ epf.wage_ceiling_text }}. That is at most ₹2,083 a month. The rest of your {{ epf.employer_rate_pct }}% goes to their PF account.</p>
       <p>Some businesses the government has named pay 10% instead of 12%. Most businesses pay 12%.</p>
       <p>The PF wage limit is <strong>{{ epf.wage_ceiling_text }}</strong> from {{ epf.wage_ceiling_from }} (it was {{ epf.wage_ceiling_old_text }}). If an employee in PF has PF wages above {{ epf.wage_ceiling_text }}, you pay PF on at least {{ epf.wage_ceiling_text }}. You can pay on the full PF wages if you and the employee both agree.</p>
-      <p>PF is due by the {{ epf.due_day }}th of the next month.</p>
+      <p>This calculator always puts 8.33% of PF wages (up to {{ epf.wage_ceiling_text }}) into the pension. For staff aged 58 or more, or new staff with PF wages above {{ epf.wage_ceiling_text }}, this can be different. <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a> to check.</p>
+      <p>PF (also called EPF) is due by the {{ epf.due_day }}th of the next month.</p>
       <p class="note"><strong>Note:</strong> This calculator gives an estimate. The final figure can differ slightly because of rounding. Checked against the rules as of {{ site.data.facts.tools_checked }}.</p>
     </div>
   </div>
@@ -55,7 +56,7 @@ faq:
 
 <section class="section" aria-labelledby="related-heading">
   <div class="container">
-    <h2 id="related-heading">Related tools and guides</h2>
+    <h2 id="related-heading">Related tools and pages</h2>
     <div class="card-grid">
       {% include tool-card.html key="epf-eligibility" %}
       {% include tool-card.html key="esi-contribution" %}
@@ -80,7 +81,7 @@ faq:
     // 2026-09-27. EDLI (0.5%, capped at the wage ceiling) and EPFO
     // admin charges (0.5% of basic+DA) are separate
     // employer costs, not part of the PF contribution - deliberately
-    // excluded from this calculator. Text: docs/contribution-calculators-copy.md.
+    // excluded from this calculator.
     var WAGE_CEILING = 25000;
     var EPS_RATE = 0.0833;
     var CALL = '<a href="tel:+918217542975" data-call-location="result">Call us</a>';
@@ -95,7 +96,7 @@ faq:
           id: 'basic-da',
           type: 'number',
           label: 'PF wages (₹ a month)',
-          help: 'PF wages are mainly basic pay plus DA (dearness allowance). It is not the full salary. If other allowances, like HRA (house rent allowance), are more than half the salary, add the part above half.',
+          help: 'PF wages are basic pay plus DA (dearness allowance), not the full salary. Are other allowances, like HRA (house rent allowance), more than half the salary? Then add the extra part. Not sure? ' + CALL + '.',
           min: 1,
           errorRequired: 'Enter the PF wages.',
           errorMin: 'Enter a number more than 0.'
@@ -162,11 +163,11 @@ faq:
           ],
           notes: [
             'Of the ' + window.ContributionCalculator.formatINR(totalMonthly) + ' total, ' +
-            window.ContributionCalculator.formatINR(totalToEpfAccount) + " goes to the employee's PF account. The rest goes to their pension. You also pay extra charges (EDLI insurance and admin charges). They are not part of this PF amount.",
-            'The PF wage limit is ₹25,000 from 17 September 2026. It was ₹15,000 before that.',
-            'For September 2026 pay: the ₹25,000 limit started on 17 September. EPFO has not yet said clearly how to work out September. ' + CALL + ' before you file.',
-            'This calculator always puts 8.33% of PF wages (up to ₹25,000) into the pension (EPS). For staff aged 58 or more, or new staff with PF wages above ₹25,000, this can be different. ' + CALL + ' to check.'
-          ]
+            window.ContributionCalculator.formatINR(totalToEpfAccount) + " goes to the employee's PF account. The rest goes to their pension. You also pay two extra charges: EDLI (life insurance for the employee) and an admin charge. They are not in this table."
+          ].concat(basicDa > 15000 ? [
+            // The September 2026 limit change only matters above ₹15,000.
+            'Working out September 2026 pay? ' + CALL + ' first. The PF office has not yet said which limit (₹15,000 or ₹25,000) to use for that month.'
+          ] : [])
         };
       }
     });
