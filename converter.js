@@ -1,6 +1,8 @@
 /*
  * EPF Excel to Text (ECR) converter, used by /epf-excel-to-text-converter.
- * Needs SheetJS (xlsx 0.18.5), loaded with defer before this file.
+ * SheetJS (xlsx 0.20.3, self-hosted in /assets) is loaded only when needed:
+ * when a file is chosen, or at the latest when the button is pressed. 0.20.3
+ * fixes the published issues in 0.18.5 and gives byte-identical output.
  *
  * The conversion is unchanged from the old inline script: first sheet, cell
  * values (so UANs stay whole and commas in names are kept), heading row
@@ -14,8 +16,26 @@
   var MESSAGES = {
     noFile: 'Choose your Excel file first.',
     done: 'Done. Check your Downloads folder for the text file.',
-    error: "We couldn't read this file. Check that it is an .xls or .xlsx file."
+    error: "We couldn't read this file. Check that it is an .xls or .xlsx file.",
+    loadError: "The converter didn't load. Check your internet connection and try again."
   };
+
+  var SHEETJS_SRC = '/assets/xlsx-0.20.3.full.min.js';
+  var sheetjsLoading = null;
+
+  function loadSheetJS() {
+    if (window.XLSX) return Promise.resolve();
+    if (!sheetjsLoading) {
+      sheetjsLoading = new Promise(function (resolve, reject) {
+        var s = document.createElement('script');
+        s.src = SHEETJS_SRC;
+        s.onload = resolve;
+        s.onerror = function () { sheetjsLoading = null; reject(); };
+        document.head.appendChild(s);
+      });
+    }
+    return sheetjsLoading;
+  }
 
   function setStatus(message, isError) {
     var el = document.getElementById('converter-status');
@@ -72,9 +92,19 @@
   document.addEventListener('DOMContentLoaded', function () {
     var form = document.getElementById('converter-form');
     if (!form) return;
+    // Start loading SheetJS as soon as a file is chosen
+    document.getElementById('fileInput').addEventListener('change', function () {
+      loadSheetJS().catch(function () {});
+    });
     form.addEventListener('submit', function (event) {
       event.preventDefault();
-      convertEPF();
+      if (!document.getElementById('fileInput').files[0]) {
+        convertEPF(); // shows "Choose your Excel file first."
+        return;
+      }
+      loadSheetJS().then(convertEPF, function () {
+        setStatus(MESSAGES.loadError, true);
+      });
     });
   });
 })();
