@@ -254,13 +254,29 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
   SheetJS 0.20.3 from `/assets`. Three guides unlinked until rewritten (9.4 #22b).
 - Phase 5 (English, 2026-09-28): the 3 city pages rebuilt (Mangalore, Udupi, Bangalore). Copy in
   `docs/city-pages-copy.md` (compliance-reviewed, owner-approved: same industry shortlist on all
-  three cities, no Mangalore office photo yet). Six-reviewer review applied
-  (`docs/phase5-review-findings.md`): switched city pages from the compact two-paths component to
-  the full one (compact was silently dropping the registration links), fixed a Mangalore team-location
-  overclaim, added per-city `Service` JSON-LD (`schema.html` now takes an optional `service.area`
-  override), added a tools link section, evened out the "Areas we cover" call prompt across all three.
-  Open: exact EPFO/ESIC office names for Mangalore/Udupi (`docs/city-pages-copy.md` Q3); any specific
-  Bangalore localities worth naming (optional).
+  three cities, no Mangalore office photo yet). Two six-reviewer rounds applied
+  (`docs/phase5-review-findings.md`), plus owner-directed structural changes between them:
+  - **Round 1:** switched from the compact two-paths component to the full one (compact was
+    silently dropping the registration links), fixed a Mangalore team-location overclaim, added
+    per-city `Service` JSON-LD (`schema.html` takes an optional `service.area` override).
+  - **Owner changes:** removed "Your local PF and ESI offices" and "Areas we cover" (their content
+    — nearby towns, which EPFO/ESIC office covers you — still lives in each page's FAQ); moved
+    "Two ways to work with us" up, right after the hero; added back "How we work", "Who's behind
+    it" and a fuller "Free PF and ESI tools and guides" section (all three now: Hero → Two ways →
+    How we serve you here → How we work → Who's behind it → Businesses we work with here → Tools
+    and guides → FAQ → closing).
+  - **Round 2:** removed the "mistakes" guide links the tools section had picked up (strategy 9.4
+    #22/#22b keep both unlinked until rewritten); reworded Bangalore throughout to say the 2 local
+    team members can visit clients if needed (owner-confirmed), replacing vague "local support"
+    wording; hero leads now state the actual offer, not just location; removed 6 em dashes; merged
+    duplicate Mangalore FAQs; dropped a repeated "no visits needed" line; added nearby towns to
+    Mangalore/Udupi's `Service` schema.
+  - Open: the SEO reviewer's high-priority finding that ~70% of the three pages' text is now
+    identical (How we work / Who's behind it / tools are shared blocks) — needs owner-supplied
+    local detail per city (e.g. which kinds of businesses are most common there), not guessed.
+    Also a pre-existing, low-severity bug: the `.link-arrow` icon (e.g. "About us →") can wrap
+    onto its own line at 1024px; a CSS-only fix didn't work in testing, real fix needs a markup
+    change at every call site.
 
 ### Next (strategy section 9.3, English first; Kannada last)
 1. Industry hub + 5 industry pages (English) — start here in the next session. This also fixes the
@@ -278,8 +294,8 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
 4. Launch check (phase 9): internal-link crawl of `_site` (the industry pages are
    already linked from rebuilt pages), all six reviewers, strategy 9.4 verified by the
    compliance reviewer (incl. #10: remove the ESI "stay to the end of the period" line
-   if not confirmed). Owner input still needed: exact EPFO/ESIC office names for
-   Mangalore/Udupi (phase 5), photos if any.
+   if not confirmed). Owner input still needed: city-specific detail to reduce the
+   text overlap across the 3 city pages (phase 5, see "Done" above), any photos.
 
 ### Workflow for each page
 1. Read the brief, strategy section 4 for the page type, and the old page.
