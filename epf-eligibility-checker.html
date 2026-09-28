@@ -202,14 +202,6 @@ faq:
             crosslink: CALL + " if you're not sure."
           };
         }
-        if (a['already-member'] === 'unsure') {
-          return {
-            kind: 'uncertain',
-            headline: 'Not sure yet.',
-            reason: 'If their PF wages are ' + ceilingText + ' or less, they must be in PF. If their PF wages are above ' + ceilingText + ', it depends on whether they were in PF in an old job. Ask them for their UAN.',
-            crosslink: 'Need help? ' + CALL + '.'
-          };
-        }
         if (a['basic-da'] <= EPF_WAGE_CEILING) {
           return {
             kind: 'positive',
@@ -217,6 +209,17 @@ faq:
             reason: 'PF wages of ₹' + a['basic-da'].toLocaleString('en-IN') + ' are ' + ceilingText + ' or less. So this employee must be in PF, if PF applies to your business.',
             note: a['basic-da'] > 15000 ? SEPT_NOTE : null,
             crosslink: 'See the monthly amounts: <a href="/epf-contribution-calculator">PF contribution calculator</a>.'
+          };
+        }
+        // Reviewed logic update (phase 4 review A2): "Not sure" about an old job
+        // only matters above the wage limit; at or below it the employee must be
+        // in PF either way, so the wage test above runs first.
+        if (a['already-member'] === 'unsure') {
+          return {
+            kind: 'uncertain',
+            headline: 'Not sure yet.',
+            reason: 'Their PF wages are above ' + ceilingText + '. So it depends on whether they were in PF in an old job. Ask them for their UAN.',
+            crosslink: 'Need help? ' + CALL + '.'
           };
         }
         return {
