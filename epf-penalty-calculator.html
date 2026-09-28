@@ -1,483 +1,110 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+---
+layout: base
+lang: en
+page_type: tool
+last_modified: 2026-09-28
+title: "PF Penalty Calculator (EPF) 2026 | Medu Consultancy"
+description: "Paid PF late? Work out the interest and damages EPFO can charge. Free PF penalty calculator, updated for 2026 rules."
+scripts: [/penalty-calculator.js]
+tool: { name: PF penalty calculator }
+breadcrumb:
+  - { name: Free tools, path: epf-esi-tools-calculators }
+  - { name: PF penalty calculator }
+faq:
+  - q: What are PF damages?
+    a: Damages are a fine EPFO can charge when you pay PF late. They are on top of the interest. For payments due from 14 June 2024, damages are 1% of the unpaid amount for each month late.
+  - q: How much interest is charged on late PF?
+    a: 12% a year on the unpaid amount, counted for each day from the due date until the day you pay. Interest is charged on every late payment.
+  - q: Are damages always charged?
+    a: EPFO decides whether to charge damages, and how much. That is why the calculator's damages figure is an estimate, not a final amount.
+  - q: What changed on 14 June 2024?
+    a: For PF due from 14 June 2024, damages are 1% of the unpaid amount for each month late, up to 100% of it. Before that, the rate went up in steps, from 5% to 25% a year.
+---
+{%- assign epf = site.data.facts.epf -%}
+<section class="section section--stacked tool-section" aria-labelledby="tool-heading">
+  <div class="container">
+    <h1 id="tool-heading">PF penalty calculator</h1>
+    <p class="tool-lead">Paid PF (Provident Fund) late? Work out the extra amount EPFO (the PF office) can charge.</p>
 
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-<meta name="author" content="Medu Consultancy">
-<meta name="robots" content="index, follow">
-<meta name="googlebot" content="index, follow">
-<meta name="theme-color" content="rgb(248,244,240)">
-
-    <title>EPF Penalty Calculator | Medu Consultancy</title>
-    <meta name="description" content="Free EPF penalty calculator: estimate the interest and damages EPFO can charge on late PF payments, including the post-June 2024 flat-rate rule.">
-    <link rel="canonical" href="https://www.meduconsultancy.com/epf-penalty-calculator" />
-
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Medu Consultancy">
-    <meta property="og:title" content="EPF Late Payment Penalty Calculator – Interest & Damages">
-    <meta property="og:description" content="Estimate the interest and damages EPFO may charge on late PF payments. Free online calculator by Medu Consultancy.">
-    <meta property="og:url" content="https://www.meduconsultancy.com/epf-penalty-calculator">
-    <meta property="og:image" content="https://www.meduconsultancy.com/android-chrome-512x512.png">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="EPF Late Payment Penalty Calculator – Interest & Damages">
-    <meta name="twitter:description" content="Estimate the interest and damages EPFO may charge on late PF payments. Free online calculator by Medu Consultancy.">
-    <meta name="twitter:image" content="https://www.meduconsultancy.com/android-chrome-512x512.png">
-
-    <script type="application/ld+json">
-      {
-        "@context": "http://schema.org",
-        "@type": "WebPage",
-        "url": "https://www.meduconsultancy.com/epf-penalty-calculator",
-        "name": "EPF Late Payment Penalty Calculator",
-        "description": "Estimate the interest and damages EPFO may charge on late PF payments.",
-        "breadcrumb": {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Home",
-              "item": "https://www.meduconsultancy.com/"
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "EPF Late Payment Penalty Calculator",
-              "item": "https://www.meduconsultancy.com/epf-penalty-calculator"
-            }
-          ]
-        },
-        "mainEntity": {
-          "@type": "LocalBusiness",
-          "name": "Medu Consultancy",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "3rd Floor, Padil Gate Building, Padil",
-            "addressLocality": "Mangalore",
-            "addressRegion": "Karnataka",
-            "postalCode": "575007",
-            "addressCountry": "IN"
-          },
-          "telephone": "+91-8217542975",
-          "contactPoint": {
-            "@type": "ContactPoint",
-            "contactType": "Customer Service",
-            "telephone": "+91-8217542975",
-            "availableLanguage": "en"
-          },
-          "serviceArea": {
-            "@type": "Place",
-            "name": "Karnataka"
-          }
-        }
-      }
-    </script>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "EPF Late Payment Penalty & Interest Calculator",
-        "description": "Free online tool to estimate interest and damages on late EPF contributions.",
-        "url": "https://www.meduconsultancy.com/epf-penalty-calculator",
-        "applicationCategory": "FinanceApplication",
-        "operatingSystem": "Web",
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "INR"
-        }
-      }
-    </script>
-
-    <link rel="stylesheet" href="/styles.css">
-    <link rel="stylesheet" href="/calculator.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap&icon_names=call,mail" />
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4MEQF5W0XX"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-4MEQF5W0XX');
-    </script>
-</head>
-<body class="tool-page">
-    <a class="skip-link" href="#main-content">Skip to main content</a>
-
-    <!-- Header with Logo, Phone, and Navigation -->
-    <header>
-        <div class="container header-content">
-            <div class="logo">
-                <a href="/"><img src="/images/logo-new.svg" width="200" height="45" alt="Medu Consultancy Logo"></a>
-            </div>
-            <nav class="header-nav" aria-label="Primary">
-                <ul>
-                    <li>
-                        <a href="/contact-us">Contact</a>
-                    </li>
-                    <li>
-                        <a href="/epf-consultancy-service">EPF Consultancy</a>
-                    </li>
-                    <li>
-                        <a href="/esi-consultancy-service">ESI Consultancy</a>
-                    </li>
-                    <li>
-                        <a href="/epf-esi-tools-calculators">Tools</a>
-                    </li>
-                </ul>
-            </nav>
-            <div class="header-links">
-                <a href="tel:+918217542975" class="phone"><span class="material-symbols-outlined" aria-hidden="true">
-                    call
-                    </span> 8217542975</a>
-            </div>
-
-            <!-- Hamburger Icon -->
-            <div class="hamburger" id="hamburger-icon">
-                <div id="menuToggle">
-                    <input type="checkbox" id="menuCheckbox" aria-label="Open menu" />
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <nav class="mobile-nav" aria-label="Menu"><ul id="menu">
-                      <li>
-                        <a href="/" class="nav-link">Home</a>
-                      </li>
-                      <li>
-                        <a href="/about-us" class="nav-link">About Us</a>
-                      </li>
-                      <li>
-                        <a href="/contact-us" class="nav-link">Contact Us</a>
-                      </li>
-
-                      <li>
-                        <a href="/blogs" class="nav-link">Blogs</a>
-                      </li>
-                      <li>
-                        <a href="/epf-consultancy-service" class="nav-link">EPF Consultancy</a>
-                      </li>
-                      <li>
-                        <a href="/esi-consultancy-service" class="nav-link">ESI Consultancy</a>
-                      </li>
-                      <li>
-                        <a href="/epf-esi-tools-calculators" class="nav-link">Tools &amp; Calculators</a>
-                      </li>
-
-                      <li>
-                        <a href="/epf-excel-to-text-converter" class="nav-link">EPF Excel to Text Converter</a>
-                      </li>
-                      <li>
-                        <a href="/epf-penalty-calculator" class="nav-link active" aria-current="page">EPF Penalty Calculator</a>
-                      </li>
-                      <li>
-                        <a href="/esi-penalty-calculator" class="nav-link">ESI Penalty Calculator</a>
-                      </li>
-                      <li>
-                        <a href="/epf-eligibility-checker" class="nav-link">EPF Eligibility Checker</a>
-                      </li>
-                      <li>
-                        <a href="/esi-eligibility-checker" class="nav-link">ESI Eligibility Checker</a>
-                      </li>
-                      <li>
-                        <a href="/epf-contribution-calculator" class="nav-link">PF Contribution Calculator</a>
-                      </li>
-                      <li>
-                        <a href="/esi-contribution-calculator" class="nav-link">ESI Contribution Calculator</a>
-                      </li>
-                      <li>
-                        <div class="contact-us">
-                            <address>
-                                <p>
-                                    <a href="tel:+918217542975" class="phone">
-                                        <span class="material-symbols-outlined" aria-hidden="true">
-                                        call
-                                        </span>
-                                        8217542975</a>
-                                </p>
-                                <p><a href="mailto:hello.meduconsultancy@gmail.com" class="email">
-                                    <span class="material-symbols-outlined" aria-hidden="true">
-                                        mail
-                                        </span>
-                                        hello.meduconsultancy@gmail.com</a></p>
-                            </address>
-                            <address class="office-address">
-                                <h4>Our Office Address</h4>
-                                <p>
-                                    3rd Floor, Padil Gate Building,<br>
-                                    Padil, Mangaluru,<br>
-                                    Karnataka 575007
-                                </p>
-                            </address>
-                        </div>
-                      </li>
-                    </ul></nav>
-                  </div>
-            </div>
+    <div class="tool tool--split">
+      <form id="penalty-form" class="tool-form" novalidate aria-label="PF penalty calculator">
+        <div class="field">
+          <label for="amount">Unpaid PF amount (₹)</label>
+          <input type="number" id="amount" name="amount" min="1" step="1" inputmode="numeric" required aria-describedby="amount-help amount-error">
+          <p id="amount-help" class="field__help">The PF amount that was not paid on time.</p>
+          <p id="amount-error" class="field__error" aria-live="polite"></p>
         </div>
-    </header>
-
-    <div class="header-space"></div>
-    <main id="main-content" tabindex="-1">
-    <section class="penalty-calc" aria-labelledby="calc-heading">
-      <div class="container">
-        <h1 id="calc-heading">Calculate Your EPF Penalty</h1>
-
-        <div class="calc-layout">
-          <form id="penalty-form" class="calc-form" novalidate>
-            <div class="calc-field">
-              <label for="amount">Amount in arrears (₹)</label>
-              <input type="number" id="amount" name="amount" min="1" step="1" inputmode="numeric" required aria-describedby="amount-help amount-error">
-              <p id="amount-help" class="calc-help">The EPF contribution amount that was not paid on time.</p>
-              <p id="amount-error" class="calc-error" aria-live="polite"></p>
-            </div>
-
-            <div class="calc-field">
-              <label for="wage-month">Wage month this contribution relates to</label>
-              <input type="month" id="wage-month" name="wage-month" required aria-describedby="wage-month-help wage-month-error">
-              <p id="wage-month-help" class="calc-help">The salary month you were contributing for, not the month you paid in.</p>
-              <p id="wage-month-error" class="calc-error" aria-live="polite"></p>
-            </div>
-
-            <div class="calc-field">
-              <label for="due-date">Due date</label>
-              <input type="text" id="due-date" name="due-date" readonly aria-describedby="due-date-help">
-              <p id="due-date-help" class="calc-help">Calculated automatically: the 15th of the month after the wage month.</p>
-            </div>
-
-            <div class="calc-field">
-              <label for="payment-date">Actual (or expected) payment date</label>
-              <input type="date" id="payment-date" name="payment-date" required aria-describedby="payment-date-help payment-date-error">
-              <p id="payment-date-help" class="calc-help">The date the contribution was, or will be, actually paid.</p>
-              <p id="payment-date-error" class="calc-error" aria-live="polite"></p>
-            </div>
-
-            <button type="submit" class="calc-submit">Calculate penalty</button>
-          </form>
-
-          <div class="calc-results" id="calc-results" aria-live="polite"></div>
+        <div class="field">
+          <label for="wage-month">Salary month</label>
+          <input type="month" id="wage-month" name="wage-month" required aria-describedby="wage-month-help wage-month-error">
+          <p id="wage-month-help" class="field__help">The month the salary was for, not the month you paid.</p>
+          <p id="wage-month-error" class="field__error" aria-live="polite"></p>
         </div>
-
-        <div class="calc-crosslinks">
-          <p><a class="calc-crosslink" href="/esi-penalty-calculator">Looking for the ESI penalty instead? → ESI Late Payment Penalty Calculator</a></p>
-          <p><a class="calc-crosslink" href="/epf-eligibility-checker#employee-eligibility">Not sure if EPF applies to you? → EPF Eligibility Checker</a></p>
-          <p><a class="calc-crosslink" href="/epf-contribution-calculator">Want to know your monthly contribution? → PF Contribution Calculator</a></p>
+        <div class="field">
+          <label for="due-date">Due date</label>
+          <input type="text" id="due-date" name="due-date" readonly aria-describedby="due-date-help">
+          <p id="due-date-help" class="field__help">Worked out for you: the {{ epf.due_day }}th of the next month.</p>
         </div>
-      </div>
-    </section>
-
-    <section class="penalty-rules">
-      <div class="container">
-        <h2>How EPF Late Payment Penalties Work</h2>
-        <p>When an EPF contribution is paid after its due date, EPFO can charge two separate amounts on top of the arrears itself: interest for every day of delay, and damages as a penalty for defaulting. This tool estimates both, so you know roughly what you owe before EPFO issues its own assessment.</p>
-
-        <h3>Interest on Late Payment</h3>
-        <p>EPFO charges 12% per annum simple interest on the overdue amount, calculated for every day between the due date (the 15th of the month after the wage month) and the date you actually pay. This rate is fixed - it applies to every late payment and isn't open to negotiation.</p>
-
-        <h3>Damages for Late Payment</h3>
-        <p>Damages are a separate, discretionary penalty. The rate that applies depends on when the default occurred:</p>
-        <ul>
-          <li><strong>Defaults before 14 June 2024:</strong> a slab rate based on total delay - 5% p.a. for delays under 2 months, 10% p.a. for 2–4 months, 15% p.a. for 4–6 months, and 25% p.a. for 6 months or more.</li>
-          <li><strong>Defaults on or after 14 June 2024:</strong> a flat 1% per month (or part month) of the arrears, capped at 100% of the arrears.</li>
-        </ul>
-        <p>EPFO decides whether to charge damages at all, and the amount can change with the facts of your case. Treat this calculator's damages figure as a worst-case estimate, not a bill.</p>
-
-        <h3>EPFO VISHWAS 2026 Settlement Scheme</h3>
-        <p>If your damages dispute relates to a default before 14 June 2024, EPFO's VISHWAS 2026 one-time settlement scheme may let you close it out at reduced rates of 0.25%–1% per month instead of the slab rates above. Eligibility depends on your case.</p>
-
-        <div class="calc-disclaimer">
-          <span class="calc-disclaimer-label">Important - read before you rely on this figure</span>
-          <p>This calculator gives an estimate for planning purposes only. It is not a final liability figure. Damages are charged at EPFO's discretion, and the amount EPFO actually assesses depends on its review of your case, so your real dues may differ from this estimate.</p>
-          <p>Talk to us about staying compliant from here on. Call <a class="link" href="tel:+918217542975">+91 82175 42975</a>.</p>
+        <div class="field">
+          <label for="payment-date">Date you paid, or will pay</label>
+          <input type="date" id="payment-date" name="payment-date" required aria-describedby="payment-date-error">
+          <p id="payment-date-error" class="field__error" aria-live="polite"></p>
         </div>
+        <button type="submit" class="btn btn--outline">Work it out</button>
+      </form>
 
-        <p>Need ongoing help staying compliant instead of catching up on arrears? See our <a class="link" href="/epf-consultancy-service">EPF consultancy service</a>, or read <a class="link" href="/blogs/epf-benefits-small-medium-businesses">why EPF registration benefits small and medium businesses</a>.</p>
-      </div>
-    </section>
+      <div class="tool-result" id="calc-results" aria-live="polite"></div>
 
-    <section class="faqs">
-      <div class="container" itemscope itemtype="https://schema.org/FAQPage">
-          <h2>Frequently Asked Questions</h2>
-          <div class="accordion">
-            <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <button id="epf-faq-1" aria-expanded="false">
-                <span class="accordion-title" itemprop="name">What are EPF damages?</span>
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">
-                  Damages are a penalty, separate from interest, that EPFO can charge employers who pay EPF late. The rate depends on how late you are and, since 14 June 2024, on a revised flat-rate formula for new defaults.
-                </p>
-              </div>
-            </div>
+      {% include result-call.html tool="penalty" %}
+    </div>
+  </div>
+</section>
 
-            <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <button id="epf-faq-2" aria-expanded="false">
-                <span class="accordion-title" itemprop="name">What is the interest on late EPF payment?</span>
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">
-                  This is the interest EPFO charges on any EPF contribution paid after its due date - 12% per annum, calculated daily from the due date until the date of actual payment. Unlike damages, this interest is mandatory and not discretionary.
-                </p>
-              </div>
-            </div>
+<section class="section" aria-labelledby="how-heading">
+  <div class="container">
+    <div class="prose">
+      <h2 id="how-heading">How PF late payment costs are worked out</h2>
+      <p>PF is due by the {{ epf.due_day }}th of the next month. If you pay late, EPFO can charge two extra amounts on top of the unpaid PF: <strong>interest</strong> and <strong>damages</strong> (a fine for paying late). This calculator works out both, so you know roughly what you may owe.</p>
+      <h3>Interest</h3>
+      <p>Interest is 12% a year on the unpaid amount. It is counted for each day from the due date until the day you pay. It is charged on every late payment.</p>
+      <h3>Damages</h3>
+      <p>Damages are a fine on top of the interest. The rate depends on when the payment was due:</p>
+      <ul>
+        <li><strong>Due on or after 14 June 2024:</strong> 1% of the unpaid amount for each month late. Part of a month counts as a full month. Damages can't be more than the unpaid amount.</li>
+        <li><strong>Due before 14 June 2024:</strong> a yearly rate that goes up the longer you are late: 5% (under 2 months), 10% (2 to 4 months), 15% (4 to 6 months), 25% (6 months or more).</li>
+      </ul>
+      <p>Was your PF due before 14 June 2024, and paid after it? The rules for this are not clear. <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a> to check.</p>
+      <p>EPFO decides whether to charge damages, and how much. So the damages figure is an estimate, not a bill.</p>
+      <p class="note"><strong>Note:</strong> This calculator gives an estimate. It is not the final amount. EPFO decides the final amount after it looks at your case. Checked against the rules as of {{ site.data.facts.tools_checked }}.</p>
+    </div>
+  </div>
+</section>
 
-            <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <button id="epf-faq-3" aria-expanded="false">
-                <span class="accordion-title" itemprop="name">Are EPF damages always charged, or are they negotiable?</span>
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">
-                  EPFO decides whether to charge damages and how much, based on your case. That's why this calculator's damages figure is an estimate, not a final amount.
-                </p>
-              </div>
-            </div>
+<section class="section" aria-labelledby="related-heading">
+  <div class="container">
+    <h2 id="related-heading">Related tools and guides</h2>
+    <div class="card-grid">
+      {% include tool-card.html key="esi-penalty" %}
+      {% include tool-card.html key="epf-contribution" %}
+    </div>
+    <ul class="link-list">
+      <li><a class="link-arrow" href="/blogs/epf-late-payment-penalty">What paying PF late costs&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+      <li><a class="link-arrow" href="/epf-consultancy-service">PF monthly filing&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+    </ul>
+  </div>
+</section>
 
-            <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <button id="epf-faq-4" aria-expanded="false">
-                <span class="accordion-title" itemprop="name">What changed in EPF damages rates after 14 June 2024?</span>
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">
-                  For defaults on or after 14 June 2024, EPFO moved from the old slab-rate system (5%–25% p.a. depending on delay) to a flat 1% per month (or part month) of the arrears, capped at 100% of the arrears.
-                </p>
-              </div>
-            </div>
+{% include faq.html items=page.faq schema=true %}
 
-            <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <button id="epf-faq-5" aria-expanded="false">
-                <span class="accordion-title" itemprop="name">What is the EPFO VISHWAS 2026 scheme?</span>
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">
-                  VISHWAS 2026 is a one-time EPFO settlement scheme that lets employers resolve old damages disputes (for defaults before 14 June 2024) at reduced rates of roughly 0.25%–1% per month. Eligibility depends on your case.
-                </p>
-              </div>
-            </div>
+{% include closing-call.html line="Never pay late again. We file your PF on time, every month." %}
 
-            <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <button id="epf-faq-6" aria-expanded="false">
-                <span class="accordion-title" itemprop="name">Is the number this calculator gives me final?</span>
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">
-                  No. It's a planning estimate based on the rules described above. Your actual EPFO assessment can differ, especially on the damages portion, which is discretionary. Speak with Medu Consultancy for a figure specific to your case.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-  </section>
-
-    <!-- Footer Section -->
-    </main>
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="about-us">
-                    <p>We are Medu Consultancy, a trusted PF consultant and ESI consultant helping small and medium businesses with EPF and ESI compliance. Our team provides personalized services, including PF registration, ESI registration, monthly PF filing, and monthly ESI filings, ensuring your business stays compliant while you focus on growth.</p>
-                </div>
-
-                <div class="quick-links link-list">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/about-us">About Us</a></li>
-                        <li><a href="/contact-us">Contact Us</a></li>
-<li><a href="/blogs">Blogs</a></li>
-<li><a href="/privacy-policy">Privacy Policy</a></li>
-<li><a href="/terms-and-conditions">Terms and Conditions</a></li>
-                    </ul>
-                </div>
-                <div class="services-offered link-list">
-                    <h3>Our Services</h3>
-                    <ul>
-                        <li><a href="/epf-consultancy-service">EPF Compliance</a></li>
-                       <li><a href="/esi-consultancy-service">ESI Compliance</a></li>
-    <li><a href="/epf-esi-tools-calculators">Tools &amp; Calculators</a></li>
-    <li><a href="/epf-excel-to-text-converter">EPF Excel to Text Converter</a></li>
-    <li><a href="/epf-penalty-calculator">EPF Penalty Calculator</a></li>
-    <li><a href="/esi-penalty-calculator">ESI Penalty Calculator</a></li>
-    <li><a href="/epf-eligibility-checker">EPF Eligibility Checker</a></li>
-    <li><a href="/esi-eligibility-checker">ESI Eligibility Checker</a></li>
-    <li><a href="/epf-contribution-calculator">PF Contribution Calculator</a></li>
-    <li><a href="/esi-contribution-calculator">ESI Contribution Calculator</a></li>
-                    </ul>
-                </div>
-                <div class="contact-us">
-                    <h3>Contact Us</h3>
-                    <address>
-                        <p>
-                            <a href="tel:+918217542975" class="phone">
-                                <span class="material-symbols-outlined" aria-hidden="true">
-                                call
-                                </span>
-                                8217542975</a>
-                        </p>
-                        <p><a href="mailto:hello.meduconsultancy@gmail.com" class="email">
-                            <span class="material-symbols-outlined" aria-hidden="true">
-                                mail
-                                </span>
-                                hello.meduconsultancy@gmail.com</a></p>
-                    </address>
-                    <address class="office-address">
-                        <h4>Our Office Address</h4>
-                        <p>
-                            3rd Floor, Padil Gate Building,<br>
-                            Padil, Mangaluru,<br>
-                            Karnataka 575007
-                        </p>
-                    </address>
-                </div>
-            </div>
-            <section class="quick-links link-list location-list">
-              <h3>Locations</h3>
-              <ul>
-                <li>
-                  <a href="/epf-esi-consultancy-mangalore">Mangalore</a>
-                </li>
-                <li>
-                  <a href="/epf-esi-consultancy-udupi">Udupi</a>
-                </li>
-                <li>
-                  <a href="/epf-esi-consultancy-bangalore">Bangalore</a>
-                </li>
-              </ul>
-            </section>
-<div class="rights">
-                <p>&#169; 2026 Medu Consultancy. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
-    <script src="/script.js" defer></script>
-    <script src="/penalty-calculator.js" defer></script>
-    <script>
-      // The `defer` attribute has no effect on inline scripts, so this waits
-      // for DOMContentLoaded to guarantee the deferred penalty-calculator.js
-      // above has already run and defined initPenaltyCalculator.
-      document.addEventListener('DOMContentLoaded', function () {
-        initPenaltyCalculator('epf', {
-          interestLabel: 'Interest on late payment (12% p.a.)',
-          damagesLabel: 'Damages for late payment',
-          tableCaption: 'EPF penalty breakdown'
-        });
-      });
-    </script>
-</body>
-</html>
+<script>
+  // Waits for DOMContentLoaded so the deferred penalty-calculator.js has run.
+  document.addEventListener('DOMContentLoaded', function () {
+    initPenaltyCalculator('epf', {
+      interestLabel: 'Interest (12% a year)',
+      damagesLabel: 'Damages',
+      tableCaption: 'PF late payment costs'
+    });
+  });
+</script>

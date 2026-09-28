@@ -61,10 +61,10 @@
     // Slabs use the actual delay in 30-day months, not rounded up: a delay
     // of exactly 60 days is 2 months and falls in the 10% slab.
     var months = delayDays / 30;
-    if (months < 2) return { rate: 0.05, label: 'delay under 2 months' };
-    if (months < 4) return { rate: 0.10, label: 'delay bracket 2-4 months' };
-    if (months < 6) return { rate: 0.15, label: 'delay bracket 4-6 months' };
-    return { rate: 0.25, label: 'delay bracket 6+ months' };
+    if (months < 2) return { rate: 0.05, label: 'a delay under 2 months' };
+    if (months < 4) return { rate: 0.10, label: 'a delay from 2 months up to 4 months' };
+    if (months < 6) return { rate: 0.15, label: 'a delay from 4 months up to 6 months' };
+    return { rate: 0.25, label: 'a delay of 6 months or more' };
   }
 
   function calculateInterest(amount, delayDays) {
@@ -75,7 +75,7 @@
     var slab = slabFor(delayDays);
     return {
       amount: round2(amount * slab.rate * (delayDays / 365)),
-      ruleLabel: 'Slab rate: ' + (slab.rate * 100) + '% p.a.',
+      ruleLabel: 'Rate: ' + (slab.rate * 100) + '% a year',
       bracketLabel: slab.label,
       capped: false,
       usesRoundedMonths: false
@@ -87,7 +87,7 @@
       var slab = slabFor(delayDays);
       return {
         amount: round2(amount * slab.rate * (delayDays / 365)),
-        ruleLabel: 'Pre-June 2024 slab rate: ' + (slab.rate * 100) + '% p.a.',
+        ruleLabel: 'Old rate (before 14 June 2024): ' + (slab.rate * 100) + '% a year',
         bracketLabel: slab.label,
         capped: false,
         usesRoundedMonths: false
@@ -98,8 +98,8 @@
     var capped = raw > cap;
     return {
       amount: round2(Math.min(raw, cap)),
-      ruleLabel: 'Post-June 2024 flat rate: 1% per month',
-      bracketLabel: delayMonths + ' month' + (delayMonths === 1 ? '' : 's') + ' of delay',
+      ruleLabel: 'New rate (from 14 June 2024): 1% a month',
+      bracketLabel: delayMonths + ' month' + (delayMonths === 1 ? '' : 's') + ' late',
       capped: capped,
       usesRoundedMonths: true
     };
@@ -211,7 +211,7 @@
         return null;
       }
       var due = dueDateForWageMonth(parsed.monthIndex, parsed.year);
-      dueDateOutput.value = formatDateLong(due) + ' (15th of the following month)';
+      dueDateOutput.value = formatDateLong(due); // the help line says it is the 15th of the next month
       return due;
     }
 
@@ -228,22 +228,22 @@
 
       var amountValue = parseFloat(amountInput.value);
       if (!amountInput.value || isNaN(amountValue)) {
-        setError('amount', 'Enter the arrears amount.');
+        setError('amount', 'Enter the unpaid amount.');
         valid = false;
       } else if (amountValue <= 0) {
-        setError('amount', 'Enter an amount greater than ₹0.');
+        setError('amount', 'Enter an amount more than ₹0.');
         valid = false;
       }
 
       var due = updateDueDate();
       if (!due) {
-        setError('wage-month', 'Select the wage month this contribution relates to.');
+        setError('wage-month', 'Choose the salary month.');
         valid = false;
       }
 
       var paymentDate = parseDateInput(paymentDateInput.value);
       if (!paymentDate) {
-        setError('payment-date', 'Select the actual or expected payment date.');
+        setError('payment-date', 'Choose the date you paid, or will pay.');
         valid = false;
       }
 
@@ -264,42 +264,41 @@
     function renderResult(container, labels, result) {
       if (result.onTime) {
         container.innerHTML =
-          '<div class="calc-ontime">' +
-          '<p><strong>No penalty - you’re on time.</strong></p>' +
-          '<p>The payment date you entered is on or before the due date (' +
-          formatDateLong(result.dueDate) + '). No interest or damages apply.</p>' +
+          '<div class="result-message">' +
+          '<strong>On time. Nothing extra to pay.</strong>' +
+          '<p>Your payment date is on or before the due date (' +
+          formatDateLong(result.dueDate) + '). No interest or damages.</p>' +
           '</div>';
         return;
       }
 
       var html = '';
-      html += '<div class="calc-result-summary">';
+      html += '<div class="result-summary">';
       html += '<p><strong>Due date:</strong> ' + formatDateLong(result.dueDate) + '</p>';
-      html += '<p><strong>Delay:</strong> ' + result.delayDays +
-        ' day' + (result.delayDays === 1 ? '' : 's');
+      html += '<p><strong>Days late:</strong> ' + result.delayDays;
       if (result.damages.usesRoundedMonths) {
         html += ' (' + result.delayMonths +
           ' month' + (result.delayMonths === 1 ? '' : 's') +
-          ' for damages calculation, rounded up)';
+          ' for damages: every 30 days is a month, and part of it counts as a full month)';
       }
       html += '</p>';
       html += '</div>';
 
-      html += '<table class="calc-table">';
+      html += '<table class="result-table">';
       html += '<caption class="visually-hidden">' + labels.tableCaption + '</caption>';
-      html += '<thead><tr><th scope="col">Component</th><th scope="col">Amount</th></tr></thead>';
+      html += '<thead><tr><th scope="col">What</th><th scope="col">Amount</th></tr></thead>';
       html += '<tbody>';
-      html += '<tr><th scope="row">Principal arrears</th><td>' + formatINR(result.principal) + '</td></tr>';
+      html += '<tr><th scope="row">Unpaid amount</th><td>' + formatINR(result.principal) + '</td></tr>';
       html += '<tr><th scope="row">' + labels.interestLabel + '</th><td>' + formatINR(result.interest) + '</td></tr>';
       html += '<tr><th scope="row">' + labels.damagesLabel + '</th><td>' + formatINR(result.damages.amount) + '</td></tr>';
-      html += '<tr class="calc-total-row"><th scope="row">Total payable</th><td>' + formatINR(result.total) + '</td></tr>';
+      html += '<tr class="result-table__total"><th scope="row">Total to pay</th><td>' + formatINR(result.total) + '</td></tr>';
       html += '</tbody></table>';
 
-      html += '<p class="calc-rule-note">' + result.damages.ruleLabel +
-        ' - ' + result.damages.bracketLabel + '.</p>';
+      html += '<p class="result-note">' + result.damages.ruleLabel +
+        ', for ' + result.damages.bracketLabel + '.</p>';
 
       if (result.damages.capped) {
-        html += '<p class="calc-cap-note">Damages have been capped at 100% of the arrears amount (statutory ceiling).</p>';
+        html += '<p class="result-note">Damages can\'t be more than the unpaid amount. So they stop at 100% of it.</p>';
       }
 
       container.innerHTML = html;
