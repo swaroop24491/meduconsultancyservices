@@ -254,8 +254,15 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
   SheetJS 0.20.3 from `/assets`. Three guides unlinked until rewritten (9.4 #22b).
 
 ### Next (strategy section 9.3, English first; Kannada last)
-1. **Phase 5: the 3 city pages** (English). Start here in the next session. Needs owner input
-   (strategy 9.3/0.7): local industry mix per city.
+1. **Phase 5: the 3 city pages** (English). Start here in the next session.
+   - Read brief sections 5 and 10 (Udupi served from Mangaluru, "we can visit"; Bangalore "Local
+     support in Bangalore, backed by our Mangaluru team", no Bangalore address; nearby towns),
+     strategy 4.6 (city section plan), D7 (the Mangalore page owns "PF/ESI consultant Mangalore"),
+     and the old pages `epf-esi-consultancy-mangalore.html`, `-udupi.html`, `-bangalore.html`.
+   - Ask the owner first: the local industry mix per city (strategy 0.7), and whether an office photo
+     is ready (Mangalore only). Local FAQs only (strategy 4.12: visiting, local offices, local team).
+   - Then the usual workflow: `docs/<city>-copy.md` for all three (old vs new), compliance reviewer,
+     owner approval, build from components, checks, one commit per page, six reviewers at the end.
 2. Then English only, in this order: industry hub + 5 industry pages, blog index + posts (rewrite
    the ESI posts and the three unlinked guides first, then restore their links, #22, #22b), about,
    contact, legal, bilingual 404.
