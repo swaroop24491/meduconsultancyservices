@@ -198,6 +198,21 @@
     return { valid: valid, answers: answers };
   }
 
+  // Shared tool behaviour (style guide "Tool parts"): after the button, a valid
+  // result gets focus and scrolls into view (clear of the sticky header and call
+  // bar); an invalid form focuses the first field with an error.
+  function showResult(el) {
+    el.setAttribute('tabindex', '-1');
+    el.focus({ preventScroll: true });
+    el.scrollIntoView({ block: 'start' });
+  }
+
+  function focusFirstInvalid(form) {
+    var el = form.querySelector('[aria-invalid="true"]');
+    if (el && el.tagName === 'FIELDSET') el = el.querySelector('input');
+    if (el) el.focus();
+  }
+
   function statusCard(kind, title, headline, reason, note, crosslink) {
     var icon = STATUS_ICON[kind] || STATUS_ICON.uncertain;
     return (
@@ -234,6 +249,7 @@
       if (!result.valid) {
         resultsEl.hidden = true;
         resultsEl.innerHTML = '';
+        focusFirstInvalid(form);
         return;
       }
       renderResult(config.evaluate(result.answers));
@@ -244,7 +260,7 @@
       html += '<p><button type="button" class="btn-link" data-restart>Check again</button></p>';
       resultsEl.innerHTML = html;
       resultsEl.hidden = false;
-      resultsEl.focus();
+      showResult(resultsEl);
 
       resultsEl.querySelector('[data-restart]').addEventListener('click', function () {
         resultsEl.hidden = true;

@@ -176,6 +176,21 @@
 
   /* ------------------------------- DOM wiring ------------------------------ */
 
+  // Shared tool behaviour (style guide "Tool parts"): after the button, a valid
+  // result gets focus and scrolls into view (clear of the sticky header and call
+  // bar); an invalid form focuses the first field with an error.
+  function showResult(el) {
+    el.setAttribute('tabindex', '-1');
+    el.focus({ preventScroll: true });
+    el.scrollIntoView({ block: 'start' });
+  }
+
+  function focusFirstInvalid(form) {
+    var el = form.querySelector('[aria-invalid="true"]');
+    if (el && el.tagName === 'FIELDSET') el = el.querySelector('input');
+    if (el) el.focus();
+  }
+
   function initPenaltyCalculator(scheme, labels) {
     var form = document.getElementById('penalty-form');
     if (!form) return;
@@ -249,6 +264,7 @@
 
       if (!valid) {
         resultsEl.innerHTML = '';
+        focusFirstInvalid(form);
         return;
       }
 
@@ -259,6 +275,7 @@
       });
 
       renderResult(resultsEl, labels, result, paymentDate);
+      showResult(resultsEl);
     });
 
     var CALL = '<a href="tel:+918217542975" data-call-location="result">Call us</a>';

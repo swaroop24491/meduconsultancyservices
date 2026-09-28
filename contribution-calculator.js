@@ -126,6 +126,21 @@
     }
   }
 
+  // Shared tool behaviour (style guide "Tool parts"): after the button, a valid
+  // result gets focus and scrolls into view (clear of the sticky header and call
+  // bar); an invalid form focuses the first field with an error.
+  function showResult(el) {
+    el.setAttribute('tabindex', '-1');
+    el.focus({ preventScroll: true });
+    el.scrollIntoView({ block: 'start' });
+  }
+
+  function focusFirstInvalid(form) {
+    var el = form.querySelector('[aria-invalid="true"]');
+    if (el && el.tagName === 'FIELDSET') el = el.querySelector('input');
+    if (el) el.focus();
+  }
+
   function initContributionCalculator(scheme, config) {
     var form = document.getElementById('contribution-form');
     if (!form) return;
@@ -245,9 +260,20 @@
       renderResult(result);
     }
 
+    // Typing updates the result as before (no errors while fields are empty).
+    // The button also checks empty fields and moves to the result or the error.
     form.addEventListener('submit', function (event) {
       event.preventDefault();
+      var answers = currentAnswers();
+      updateVisibility(answers);
+      answers = currentAnswers();
+      if (!validate(answers)) {
+        resultsEl.innerHTML = '';
+        focusFirstInvalid(form);
+        return;
+      }
       recalculate();
+      if (resultsEl.innerHTML) showResult(resultsEl);
     });
 
     form.addEventListener('input', recalculate);

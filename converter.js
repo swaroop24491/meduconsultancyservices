@@ -28,6 +28,7 @@
     const input = document.getElementById('fileInput').files[0];
     if (!input) {
       setStatus(MESSAGES.noFile, true);
+      document.getElementById('fileInput').focus(); // same rule as the other tools: focus the field to fix
       return;
     }
     setStatus('');
