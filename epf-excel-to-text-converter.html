@@ -1,540 +1,92 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+---
+layout: base
+lang: en
+page_type: tool
+last_modified: 2026-09-28
+title: "EPF Excel to Text Converter (ECR) | Medu Consultancy"
+description: "Turn your EPF ECR Excel sheet into the text file the EPFO portal needs. Free, and your file stays on your computer."
+scripts:
+  - https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js
+  - /converter.js
+tool: { name: EPF Excel to Text converter }
+breadcrumb:
+  - { name: Free tools, path: epf-esi-tools-calculators }
+  - { name: EPF Excel to Text converter }
+faq:
+  - q: What is an ECR file?
+    a: ECR (Electronic Challan cum Return) is the monthly PF return. You upload it on the EPFO employer portal. It lists each employee's UAN, wages and PF amounts for the month.
+  - q: Why do I need a text file?
+    a: "The EPFO portal takes the ECR as a text file, with the details split by #~#. This tool makes that file from your Excel sheet."
+  - q: Is my salary data safe?
+    a: Yes. Your file is read in your own browser. It is not sent to us or saved anywhere.
+  - q: Which Excel files work?
+    a: .xls and .xlsx files. Use our ECR Excel format so the columns are in the right order.
+---
+<section class="section section--stacked tool-section" aria-labelledby="tool-heading">
+  <div class="container">
+    <h1 id="tool-heading">EPF Excel to Text converter</h1>
+    <p class="tool-lead">Turn your ECR Excel sheet into the text file the EPFO portal needs. ECR is the monthly PF (Provident Fund) return you upload to EPFO, the PF office. Your file stays on your computer.</p>
 
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-<meta name="author" content="Medu Consultancy">
-<meta name="robots" content="index, follow">
-<meta name="googlebot" content="index, follow">
-<meta name="theme-color" content="rgb(248,244,240)">
-
-    <title>EPF Excel to Text ECR File Converter | Free Online Tool</title>
-    <meta name="description" content="Convert EPF Excel files to text format online for free. Our easy-to-use tool helps you prepare EPFO-compliant ECR files quickly.">
-    <link rel="canonical" href="https://www.meduconsultancy.com/epf-excel-to-text-converter" />
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Medu Consultancy">
-    <meta property="og:title" content="EPF Excel to Text ECR File Converter | Free Online Tool">
-    <meta property="og:description" content="Convert EPF Excel files to text format online for free. Our easy-to-use tool helps you prepare EPFO-compliant ECR files quickly.">
-    <meta property="og:url" content="https://www.meduconsultancy.com/epf-excel-to-text-converter">
-    <meta property="og:image" content="https://www.meduconsultancy.com/android-chrome-512x512.png">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="EPF Excel to Text ECR File Converter | Free Online Tool">
-    <meta name="twitter:description" content="Convert EPF Excel files to text format online for free. Our easy-to-use tool helps you prepare EPFO-compliant ECR files quickly.">
-    <meta name="twitter:image" content="https://www.meduconsultancy.com/android-chrome-512x512.png">
-
-    <link rel="alternate" hreflang="en" href="https://www.meduconsultancy.com/epf-excel-to-text-converter" />
-    <link rel="alternate" hreflang="kn" href="https://www.meduconsultancy.com/kn/epf-excel-to-text-converter" />
-    <link rel="alternate" hreflang="x-default" href="https://www.meduconsultancy.com/epf-excel-to-text-converter" />
-
-    <script type="application/ld+json">
-        {
-          "@context": "http://schema.org",
-          "@type": "WebPage",
-          "url": "https://www.meduconsultancy.com/epf-excel-to-text-converter",
-          "name": "EPF Excel to Text ECR File Converter | Free Online Tool",
-          "description": "Convert EPF Excel files to text format online for free. Our easy-to-use tool helps you prepare EPFO-compliant ECR files quickly.",
-          "mainEntity": {
-            "@type": "LocalBusiness",
-            "name": "Medu Consultancy",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "3rd Floor, Padil Gate Building, Padil",
-              "addressLocality": "Mangalore",
-              "addressRegion": "Karnataka",
-              "postalCode": "575007",
-              "addressCountry": "IN"
-            },
-            "telephone": "+91-8217542975",
-            "contactPoint": {
-              "@type": "ContactPoint",
-              "contactType": "Customer Service",
-              "telephone": "+91-8217542975",
-              "availableLanguage": "en"
-            },
-            "serviceArea": {
-              "@type": "Country",
-              "name": "India"
-            }
-          },
-          "breadcrumb": {
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://www.meduconsultancy.com"
-              },
-              {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "EPF Excel to Text ECR File Converter",
-                "item": "https://www.meduconsultancy.com/epf-excel-to-text-converter"
-              }
-            ]
-          }
-        }
-      </script>
-
-      <script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@type": "SoftwareApplication",
-          "name": "EPF Excel to Text File Converter",
-          "description": "Free online tool to convert EPF Excel files to text format for easy submission to EPFO.",
-          "applicationCategory": "FinanceApplication",
-          "operatingSystem": "Web",
-          "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "INR"
-          }
-        }
-        </script>
-
-    <link rel="stylesheet" href="/styles.css">
-    <link rel="stylesheet" href="/calculator.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap&icon_names=call,mail" />
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4MEQF5W0XX"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-4MEQF5W0XX');
-    </script>
-</head>
-<body class="tool-page">
-    <a class="skip-link" href="#main-content">Skip to main content</a>
-
-    <!-- Header with Logo, Phone, and Navigation -->
-    <header>
-        <div class="container header-content">
-            <div class="logo">
-                <a href="/"><img src="/images/logo-new.svg" width="200" height="45" alt="Medu Consultancy Logo"></a>
-            </div>
-            <nav class="header-nav" aria-label="Primary">
-                <ul>
-                    <li>
-                        <a href="/contact-us">Contact</a>
-                    </li>
-                    <li>
-                        <a href="/epf-consultancy-service">EPF Consultancy</a>
-                    </li>
-                    <li>
-                        <a href="/esi-consultancy-service">ESI Consultancy</a>
-                    </li>
-                    <li>
-                        <a href="/epf-esi-tools-calculators">Tools</a>
-                    </li>
-                </ul>
-            </nav>
-            <div class="header-links">
-                <a href="tel:+918217542975" class="phone"><span class="material-symbols-outlined" aria-hidden="true">
-                    call
-                    </span> 8217542975</a>
-                <a class="lang-switch" href="/kn/epf-excel-to-text-converter" hreflang="kn" lang="kn" aria-label="View this page in Kannada">ಕನ್ನಡ</a>
-            </div>
-
-            <!-- Hamburger Icon -->
-            <div class="hamburger" id="hamburger-icon">
-                <div id="menuToggle">
-                    <input type="checkbox" id="menuCheckbox" aria-label="Open menu" />
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <nav class="mobile-nav" aria-label="Menu"><ul id="menu">
-                      <li>
-                        <a href="/" class="nav-link">Home</a>
-                      </li>
-                      <li>
-                        <a href="/about-us" class="nav-link">About Us</a>
-                      </li>
-                      <li>
-                        <a href="/contact-us" class="nav-link">Contact Us</a>
-                      </li>
-
-                      <li>
-                        <a href="/blogs" class="nav-link">Blogs</a>
-                      </li>
-                      <li>
-                        <a href="/epf-consultancy-service" class="nav-link">EPF Consultancy</a>
-                      </li>
-                      <li>
-                        <a href="/esi-consultancy-service" class="nav-link">ESI Consultancy</a>
-                      </li>
-                      <li>
-                        <a href="/epf-esi-tools-calculators" class="nav-link">Tools &amp; Calculators</a>
-                      </li>
-
-                      <li>
-                        <a href="/epf-excel-to-text-converter" class="nav-link">EPF Excel to Text Converter</a>
-                      </li>
-                      <li>
-                        <a href="/epf-penalty-calculator" class="nav-link">EPF Penalty Calculator</a>
-                      </li>
-                      <li>
-                        <a href="/esi-penalty-calculator" class="nav-link">ESI Penalty Calculator</a>
-                      </li>
-                      <li>
-                        <a href="/epf-eligibility-checker" class="nav-link">EPF Eligibility Checker</a>
-                      </li>
-                      <li>
-                        <a href="/esi-eligibility-checker" class="nav-link">ESI Eligibility Checker</a>
-                      </li>
-                      <li>
-                        <a href="/epf-contribution-calculator" class="nav-link">PF Contribution Calculator</a>
-                      </li>
-                      <li>
-                        <a href="/esi-contribution-calculator" class="nav-link">ESI Contribution Calculator</a>
-                      </li>
-                      <li>
-                        <a href="/kn/epf-excel-to-text-converter" class="nav-link lang-switch" hreflang="kn" lang="kn" aria-label="View this page in Kannada">ಕನ್ನಡ</a>
-                      </li>
-                      <li>
-                        <div class="contact-us">
-                            <address>
-                                <p>
-                                    <a href="tel:+918217542975" class="phone">
-                                        <span class="material-symbols-outlined" aria-hidden="true">
-                                        call
-                                        </span>
-                                        8217542975</a>
-                                </p>
-                                <p><a href="mailto:hello.meduconsultancy@gmail.com" class="email">
-                                    <span class="material-symbols-outlined" aria-hidden="true">
-                                        mail
-                                        </span>
-                                        hello.meduconsultancy@gmail.com</a></p>
-                            </address>
-                            <address class="office-address">
-                                <h4>Our Office Address</h4>
-                                <p>
-                                    3rd Floor, Padil Gate Building,<br>
-                                    Padil, Mangaluru,<br>
-                                    Karnataka 575007
-                                </p>
-                            </address>
-                        </div>
-                      </li>
-                    </ul></nav>
-                  </div>
-            </div>
-        </div>
-    </header>
-
-    <div class="header-space"></div>
-    <main id="main-content" tabindex="-1">
-    <section class="converter-cntr">
-        <div class="container">
-            <h1>EPF Excel to Text ECR File Converter - Free Online Tool</h1>
-            <p>With the EPF Excel to Text ECR File Converter, businesses can easily convert their Employee Provident Fund (EPF) Excel sheets into the standard ECR format for EPFO submission. This free online tool streamlines the EPF filing process by converting your files into the correct format.</p>
-            <div class="converter-step">
-                <div class="step_link_cntr">
-                  <h2>Step 1: Upload EPF excel file</h2>
-                  <span>(<a class="link" href="EPF_ECR_FORMAT.xlsx" download="EPF_ECR_FORMAT.xlsx">Download EPF ECR format in Excel</a>)</span>
-                </div>
-                <label for="fileInput">Choose an EPF Excel file (.xls or .xlsx)</label>
-                <input type="file" id="fileInput" accept=".xls,.xlsx" />
-            </div>
-            <div class="converter-step">
-                <h2>Step 2: Thats it! Download the converted Text ECR file</h2>
-                <button onclick="convertEPF()">Download EPFO Text file</button>
-            </div>
-
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-            <script>
-               function convertEPF() {
-                  const input = document.getElementById('fileInput').files[0];
-                  if (!input) {
-                      alert('Please upload an EPF Excel file.');
-                      return;
-                  }
-
-                  // document.getElementById('convertBtn').disabled = true;  // Disable button during processing
-
-                  const reader = new FileReader();
-                  reader.onload = function(event) {
-                      try {
-                          const data = new Uint8Array(event.target.result);
-                          const workbook = XLSX.read(data, { type: 'array' });
-
-                          // Process first sheet of Excel file
-                          const sheetName = workbook.SheetNames[0];
-                          const sheet = workbook.Sheets[sheetName];
-                          // Read the cell values, not the text Excel shows, so UANs stay
-                          // whole (not 1.00123E+11) and commas in names or numbers are kept.
-                          const rows = XLSX.utils.sheet_to_json(sheet, { header: 1, raw: true, defval: '', blankrows: false })
-                              .slice(1)  // Remove header row
-                              .map(row => row.map(cell => String(cell).replace(/[\r\n\t]+/g, ' ').trim()))
-                              .filter(row => row.some(cell => cell !== ''));  // Remove empty rows
-
-                          // Join fields with #~# and rows with new lines
-                          let formattedText = rows.map(row => row.join('#~#')).join('\n');
-
-                          // Save the formatted text file
-                          const blob = new Blob([formattedText], { type: 'text/plain' });
-                          const filename = input.name.replace(/\s+/g, '').replace(/\.[^/.]+$/, '') + '.txt';  // Remove spaces in filename
-                          const link = document.createElement('a');
-                          link.href = URL.createObjectURL(blob);
-                          link.download = filename;
-                          link.click();
-
-                          alert('File converted successfully! Please check the downloads folder');
-                      } catch (error) {
-                          alert('Error processing the file. Please check the format.');
-                      } finally {
-                          // document.getElementById('convertBtn').disabled = false;  // Re-enable button
-                      }
-                  };
-
-                  reader.readAsArrayBuffer(input);
-              }
-            </script>
-        </div>
-    </section>
-
-    <section class="manual-steps">
-      <div class="container">
-        <h2>How to Manually Convert an Excel File to a Text File for EPF</h2>
-        <p>If you prefer to convert an Excel file to a text file manually for EPF uploading, follow these steps:</p>
-        <h3>Steps to Convert Manually:</h3>
-        <ul class="main-list">
-          <li>Prepare the Excel Sheet: Ensure the sheet contains all required details.</li>
-          <li>Save as CSV:
-            <ul class="sub-list">
-              <li>Click File → Save As</li>
-              <li>Choose CSV (Comma Delimited) as the file format</li>
-              <li>Save the file and close Excel</li>
-            </ul>
-          </li>
-          <li>Open in a Text Editor:
-            <ul class="sub-list">
-              <li>Right-click the CSV file</li>
-              <li>Open it with Notepad or EditPlus</li>
-            </ul>
+    <div class="tool tool--split">
+      <form id="converter-form" class="tool-form" novalidate aria-labelledby="convert-heading">
+        <h2 id="convert-heading" class="visually-hidden">Convert your file</h2>
+        <ol class="tool-steps">
+          <li>
+            <h3>Fill in the ECR Excel sheet</h3>
+            <p>Use our Excel format, so the columns are in the right order. Keep the heading row: the converter leaves it out.</p>
+            <p><a class="link-arrow" href="/EPF_ECR_FORMAT.xlsx" download="EPF_ECR_FORMAT.xlsx">Download the ECR Excel format&#8288;{% include icon.html name="arrow" size="18" %}</a></p>
           </li>
           <li>
-            Remove Unwanted Data:
-            <ul class="sub-list">
-              <li>Delete any headers or blank lines</li>
-            </ul>
-          </li>
-          <li>Replace Commas with Delimiters:
-            <ul class="sub-list">
-              <li>Open the Edit menu → Click Replace</li>
-              <li>In Find What, enter , (comma)</li>
-              <li>In Replace With, enter #~#</li>
-              <li>Click Replace All</li>
-            </ul>
+            <h3>Choose your filled Excel file</h3>
+            <div class="field">
+              <label for="fileInput">Your ECR Excel file (.xls or .xlsx)</label>
+              <input type="file" id="fileInput" accept=".xls,.xlsx" aria-describedby="converter-status">
+            </div>
           </li>
           <li>
-            Save as a Text File:
-            <ul class="sub-list">
-              <li>Ensure there are no spaces in the file name</li>
-              <li>Save it as a .txt file</li>
-            </ul>
+            <h3>Get the text file</h3>
+            <button type="submit" class="btn btn--outline">Convert and download</button>
+            <p class="tool-status" id="converter-status" role="status"></p>
           </li>
-        </ul>
-        <h3 class="bold">Easier Alternative: Use Our Free Online Tool</h3>
-        <p>Instead of manually converting your file, try our EPF Excel to Text File Converter. It automates the process, saving you time and effort!</p>
-        <p><a class="link" href="EPF_ECR_FORMAT.xlsx" download="EPF_ECR_FORMAT.xlsx">Click here</a> to download EPF ECR format in Excel for free.</p>
-      </div>
-    </section>
+        </ol>
+      </form>
 
-    <section class="faqs">
-        <div class="container" itemscope itemtype="https://schema.org/FAQPage">
-            <h2>Frequently Asked Questions</h2>
-            <div class="accordion">
-                <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                    <button id="accordion-button-1" aria-expanded="false">
-                      <span class="accordion-title" itemprop="name">What is an EPF ECR file?</span>
-                      <span class="icon" aria-hidden="true"></span>
-                    </button>
-                    <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                      <p itemprop="text">
-                        An EPF ECR (Electronic Challan cum Return) file is a standard format used by employers to submit Employee Provident Fund (EPF) contributions to the EPFO (Employees' Provident Fund Organisation). It includes details such as employee data, contribution amounts, and other necessary information.
-                      </p>
-                    </div>
-                  </div>
-                  
-                  <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                    <button id="accordion-button-2" aria-expanded="false">
-                      <span class="accordion-title" itemprop="name">Why should I convert my EPF Excel file to a text file?</span>
-                      <span class="icon" aria-hidden="true"></span>
-                    </button>
-                    <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                      <p itemprop="text">
-                        The EPFO requires ECR files to be in a specific text format to process EPF contributions. Converting your EPF Excel file into a text ECR format ensures that your submission is compliant with EPFO guidelines.
-                      </p>
-                    </div>
-                  </div>
-                  
-                  <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                    <button id="accordion-button-3" aria-expanded="false">
-                      <span class="accordion-title" itemprop="name">Is this tool really free to use?</span>
-                      <span class="icon" aria-hidden="true"></span>
-                    </button>
-                    <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                      <p itemprop="text">
-                        Yes, our EPF Excel to Text ECR File Converter is completely free to use. There are no hidden charges or fees involved.
-                      </p>
-                    </div>
-                  </div>
-                  
-                  <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                    <button id="accordion-button-4" aria-expanded="false">
-                      <span class="accordion-title" itemprop="name">How do I use the EPF Excel to Text Converter?</span>
-                      <span class="icon" aria-hidden="true"></span>
-                    </button>
-                    <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                      <p itemprop="text">
-                        Simply upload your EPF Excel file, and the tool will automatically convert it into the required text format. Once the conversion is complete, you can download the text ECR file for your EPF submission.
-                      </p>
-                    </div>
-                  </div>
-                  
-                  <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                    <button id="accordion-button-5" aria-expanded="false">
-                      <span class="accordion-title" itemprop="name">What types of Excel files can I upload?</span>
-                      <span class="icon" aria-hidden="true"></span>
-                    </button>
-                    <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                      <p itemprop="text">
-                        You can upload both `.xls` and `.xlsx` Excel files. Make sure your file is formatted according to EPFO standards for smooth conversion.
-                      </p>
-                    </div>
-                  </div>
-                  
-                  <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                    <button id="accordion-button-6" aria-expanded="false">
-                      <span class="accordion-title" itemprop="name">Can I edit the converted text file?</span>
-                      <span class="icon" aria-hidden="true"></span>
-                    </button>
-                    <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                      <p itemprop="text">
-                        Yes, once you download the converted text ECR file, you can open and edit it using any text editor if needed.
-                      </p>
-                    </div>
-                  </div>
-                  
-                  <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                    <button id="accordion-button-7" aria-expanded="false">
-                      <span class="accordion-title" itemprop="name">Is my data safe while using this tool?</span>
-                      <span class="icon" aria-hidden="true"></span>
-                    </button>
-                    <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                      <p itemprop="text">
-                        No data is saved on servers. We prioritize user privacy and ensure your data is handled securely.
-                      </p>
-                    </div>
-                  </div>
-              
-            </div>
-          </div>
-    </section>
+      {% include result-call.html tool="converter" %}
+    </div>
+  </div>
+</section>
 
-    <section class="importance-sec">
-      <div class="container">
-        <h2>Free Online EPF ECR Text File Generator</h2>
-        <p>Use our free online tool to automatically convert your EPF Excel file to a Text (TXT) file for easy uploading to the EPFO system. This ECR utility simplifies the process of creating a Text file for EPF by converting Excel data into the required format for EPF submissions.</p>
-        <p>This tool will help save a lot of time for your company by automating manual work, making EPF filing faster and more efficient. Save valuable time by converting your Excel files to Text format for EPF uploading in just a few clicks.</p>
-      </div>
-    </section>
+<section class="section" aria-labelledby="manual-heading">
+  <div class="container">
+    <div class="prose">
+      <h2 id="manual-heading">How to make the text file by hand</h2>
+      <p>You can also do this yourself in Excel and Notepad:</p>
+      <ol>
+        <li>Open your filled ECR Excel sheet. Delete the heading row and any empty rows.</li>
+        <li>Save it as CSV: <strong>File → Save As → CSV (Comma delimited)</strong>. Close Excel.</li>
+        <li>Right-click the CSV file and open it with Notepad.</li>
+        <li>Replace every comma with <code>#~#</code>: <strong>Edit → Replace</strong>, type <code>,</code> and <code>#~#</code>, then <strong>Replace All</strong>.</li>
+        <li>Save it as a .txt file, with no spaces in the file name.</li>
+      </ol>
+      <p>This goes wrong if a name or number has a comma in it, or if Excel shows a UAN (the employee's PF account number) as 1.00123E+11. The converter avoids both.</p>
+      <p class="note"><strong>Note:</strong> The converter only changes the file format. It does not check your figures. Check the amounts before you upload the file to EPFO.</p>
+    </div>
+  </div>
+</section>
 
-    <!-- Footer Section -->
-    </main>
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="about-us">
-                    <p>We are Medu Consultancy, a trusted PF consultant and ESI consultant helping small and medium businesses with EPF and ESI compliance. Our team provides personalized services, including PF registration, ESI registration, monthly PF filing, and monthly ESI filings, ensuring your business stays compliant while you focus on growth.</p>
-                </div>
-    
-                <div class="quick-links link-list">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/about-us">About Us</a></li>
-                        <li><a href="/contact-us">Contact Us</a></li>
-<li><a href="/blogs">Blogs</a></li>
-<li><a href="/privacy-policy">Privacy Policy</a></li>
-<li><a href="/terms-and-conditions">Terms and Conditions</a></li>
-                    </ul>
-                </div>
-                <div class="services-offered link-list">
-                    <h3>Our Services</h3>
-                    <ul>
-                        <li><a href="/epf-consultancy-service">EPF Compliance</a></li>
-                       <li><a href="/esi-consultancy-service">ESI Compliance</a></li>
-    <li><a href="/epf-esi-tools-calculators">Tools &amp; Calculators</a></li>
-    <li><a href="/epf-excel-to-text-converter">EPF Excel to Text Converter</a></li>
-    <li><a href="/epf-penalty-calculator">EPF Penalty Calculator</a></li>
-    <li><a href="/esi-penalty-calculator">ESI Penalty Calculator</a></li>
-    <li><a href="/epf-eligibility-checker">EPF Eligibility Checker</a></li>
-    <li><a href="/esi-eligibility-checker">ESI Eligibility Checker</a></li>
-    <li><a href="/epf-contribution-calculator">PF Contribution Calculator</a></li>
-    <li><a href="/esi-contribution-calculator">ESI Contribution Calculator</a></li>
-                    </ul>
-                </div>
-                <div class="contact-us">
-                    <h3>Contact Us</h3>
-                    <address>
-                        <p>
-                            <a href="tel:+918217542975" class="phone">
-                                <span class="material-symbols-outlined" aria-hidden="true">
-                                call
-                                </span>
-                                8217542975</a>
-                        </p>
-                        <p><a href="mailto:hello.meduconsultancy@gmail.com" class="email">
-                            <span class="material-symbols-outlined" aria-hidden="true">
-                                mail
-                                </span>
-                                hello.meduconsultancy@gmail.com</a></p>
-                    </address>
-                    <address class="office-address">
-                        <h4>Our Office Address</h4>
-                        <p>
-                            3rd Floor, Padil Gate Building,<br>
-                            Padil, Mangaluru,<br>
-                            Karnataka 575007
-                        </p>
-                    </address>
-                </div>
-            </div>
-            <section class="quick-links link-list location-list">
-              <h3>Locations</h3>
-              <ul>
-                <li>
-                  <a href="/epf-esi-consultancy-mangalore">Mangalore</a>
-                </li>
-                <li>
-                  <a href="/epf-esi-consultancy-udupi">Udupi</a>
-                </li>
-                <li>
-                  <a href="/epf-esi-consultancy-bangalore">Bangalore</a>
-                </li>
-              </ul>
-            </section>
-<div class="rights">
-                <p>&#169; 2026 Medu Consultancy. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
-    <script src="/script.js" defer></script>
+<section class="section" aria-labelledby="related-heading">
+  <div class="container">
+    <h2 id="related-heading">Related tools</h2>
+    <div class="card-grid">
+      {% include tool-card.html key="epf-contribution" %}
+      {% include tool-card.html key="epf-penalty" %}
+    </div>
+    <ul class="link-list">
+      <li><a class="link-arrow" href="/epf-consultancy-service">PF monthly filing&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+    </ul>
+  </div>
+</section>
 
-</body>
-</html>
+{% include faq.html items=page.faq schema=true %}
+
+{% include closing-call.html line="Want to stop filing PF yourself? We'll file it every month." %}

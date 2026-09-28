@@ -686,7 +686,7 @@ html[lang="kn"] .proof-line__num { letter-spacing: 0; }
 /* ---------- Text section (prose) ---------- */
 .prose { max-width: var(--container-text); }
 .prose > * + * { margin-top: var(--space-4); }
-.prose ul { padding-left: 1.25em; }
+.prose ul, .prose ol { padding-left: 1.25em; }
 .prose li + li { margin-top: var(--space-2); }
 .prose > * + h3 { margin-top: var(--space-6); }
 /* A check list inside running text: no bullet indent; the list's own gap spaces the items */
@@ -879,6 +879,7 @@ html[lang="kn"] .proof-line__num { letter-spacing: 0; }
 /* Converter: step list and the message under the button */
 .tool-steps { display: grid; gap: var(--space-5); max-width: 32rem; counter-reset: tstep; }
 .tool-steps > li { counter-increment: tstep; }
+.tool-steps > li > * + * { margin-top: var(--space-3); }
 .tool-steps h3::before { content: counter(tstep) ". "; color: var(--color-brand); }
 .tool-status { font-weight: var(--weight-medium); color: var(--color-heading); }
 .tool-status:empty { display: none; }
