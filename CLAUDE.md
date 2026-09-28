@@ -347,7 +347,11 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
   Never single out one language (no "we speak Kannada" headings): owner, it can put off
   speakers of other languages. The website is in English and Kannada.
 - Udupi: served from the Mangaluru office; "We can visit you if needed." Clients never need
-  to visit us. Bangalore keeps "Local support in Bangalore, backed by our Mangaluru team."
+  to visit us. Bangalore: "We have team members in Bangalore, backed by our Mangaluru office."
+  (owner 2026-09-28: the old "Local support in Bangalore, backed by our Mangaluru team" read
+  as no support at all). The 2 Bangalore team members can also visit clients if needed, same
+  as Udupi (owner, 2026-09-28) — registration and monthly filing are still done by the
+  Mangaluru team for every client.
 - The filing promise sits next to call buttons (How we work, After registration, closing;
   not the hero). Don't repeat it
   word for word as body text; say something new instead (e.g. the due-date card on home).
