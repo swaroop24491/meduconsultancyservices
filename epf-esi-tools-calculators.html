@@ -14,10 +14,8 @@ faq:
     a: 'No. The tools give a close estimate based on the current rules. The final amount comes from EPFO (the PF office) or ESIC (the ESI office). <a href="tel:+918217542975" data-call-location="faq">Call us</a> and we''ll check your case.'
   - q: Do you save what I type?
     a: No. The calculators work in your browser. Nothing you type is sent to us or saved.
-  - q: Can you do this for us every month?
-    a: 'Yes. We register businesses for PF and ESI, and file both every month. We serve businesses in Mangalore, Udupi and Bangalore. See <a href="/epf-consultancy-service">PF monthly filing</a> and <a href="/esi-consultancy-service">ESI monthly filing</a>.'
 ---
-{% include hero.html heading="Free PF and ESI calculators" lead="Check if PF or ESI applies to you. Work out what you pay each month, or what paying late costs. Free, with no sign-up." proof=false %}
+{% include hero.html heading="Free PF and ESI calculators" lead="Check if PF or ESI applies to you. Work out what you pay each month, or what paying late costs. Free, with no sign-up." proof="compact" %}
 
 <section class="section" aria-labelledby="which-heading">
   <div class="container">
@@ -57,12 +55,14 @@ faq:
   <div class="container">
     <div class="prose">
       <h2 id="updated-heading">Kept up to date</h2>
-      <p>The rules changed a lot in 2026. The {{ site.data.facts.law }} replaced the old PF and ESI Acts on {{ site.data.facts.law_in_force }}. The PF wage limit went up from {{ site.data.facts.epf.wage_ceiling_old_text }} to {{ site.data.facts.epf.wage_ceiling_text }} on {{ site.data.facts.epf.wage_ceiling_from }}.</p>
+      <p>The rules changed a lot in 2026. New PF and ESI rules started on {{ site.data.facts.law_in_force }}. They are called the {{ site.data.facts.law }}. The PF wage limit went up from {{ site.data.facts.epf.wage_ceiling_old_text }} to {{ site.data.facts.epf.wage_ceiling_text }} on {{ site.data.facts.epf.wage_ceiling_from }}.</p>
       <p>Our tools use the new rules. They were last checked on <strong>{{ site.data.facts.tools_checked }}</strong>.</p>
       <p>Our founder worked 35 years at EPFO (the PF office). Our team has been doing PF and ESI work for 25+ years.</p>
     </div>
   </div>
 </section>
+
+{% include two-paths.html %}
 
 {% include faq.html items=page.faq schema=true %}
 

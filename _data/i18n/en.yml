@@ -121,7 +121,7 @@ tools:
   - { key: esi-penalty, path: esi-penalty-calculator, icon: schedule, name: ESI penalty calculator, text: What will paying ESI late cost? }
   - { key: epf-contribution, path: epf-contribution-calculator, icon: calculator, name: PF contribution calculator, text: How much PF do you and your employee pay each month? }
   - { key: esi-contribution, path: esi-contribution-calculator, icon: calculator, name: ESI contribution calculator, text: How much ESI do you and your employee pay each month? }
-  - { key: converter, path: epf-excel-to-text-converter, icon: file, name: EPF Excel to Text converter, text: "Turn your ECR (monthly PF return) Excel sheet into the text file EPFO needs." }
+  - { key: converter, path: epf-excel-to-text-converter, icon: file, name: EPF Excel to Text converter, text: "Turn your ECR (monthly PF return) Excel sheet into the text file the PF office (EPFO) needs." }
 
 faq_heading: Common questions
 
@@ -129,8 +129,8 @@ testimonials:
   heading: What clients say
 
 result_call:
-  eligibility: Does this apply to you? We can register you and then file every month.
-  penalty: Talk to us about staying compliant from here on.
+  eligibility: Need to register now, or soon? We can register you and then file every month.
+  penalty: Paid late before? We can file every month, so it doesn't happen again.
   contribution: Want us to work this out and file it every month?
   converter: Filing every month yourself? We can do it for you.
 
