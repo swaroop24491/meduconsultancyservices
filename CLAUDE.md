@@ -252,20 +252,22 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
   style guide. Reviewed tool updates: ₹176 check removed from the ESI tools; PF checker checks the wage
   before "Not sure"; one after-the-button behaviour in every tool script; converter lazy-loads a fixed
   SheetJS 0.20.3 from `/assets`. Three guides unlinked until rewritten (9.4 #22b).
+- Phase 5 (English, 2026-09-28): the 3 city pages rebuilt (Mangalore, Udupi, Bangalore). Copy in
+  `docs/city-pages-copy.md` (compliance-reviewed, owner-approved: same industry shortlist on all
+  three cities, no Mangalore office photo yet). Six-reviewer review applied
+  (`docs/phase5-review-findings.md`): switched city pages from the compact two-paths component to
+  the full one (compact was silently dropping the registration links), fixed a Mangalore team-location
+  overclaim, added per-city `Service` JSON-LD (`schema.html` now takes an optional `service.area`
+  override), added a tools link section, evened out the "Areas we cover" call prompt across all three.
+  Open: exact EPFO/ESIC office names for Mangalore/Udupi (`docs/city-pages-copy.md` Q3); any specific
+  Bangalore localities worth naming (optional).
 
 ### Next (strategy section 9.3, English first; Kannada last)
-1. **Phase 5: the 3 city pages** (English). Start here in the next session.
-   - Read brief sections 5 and 10 (Udupi served from Mangaluru, "we can visit"; Bangalore "Local
-     support in Bangalore, backed by our Mangaluru team", no Bangalore address; nearby towns),
-     strategy 4.6 (city section plan), D7 (the Mangalore page owns "PF/ESI consultant Mangalore"),
-     and the old pages `epf-esi-consultancy-mangalore.html`, `-udupi.html`, `-bangalore.html`.
-   - Ask the owner first: the local industry mix per city (strategy 0.7), and whether an office photo
-     is ready (Mangalore only). Local FAQs only (strategy 4.12: visiting, local offices, local team).
-   - Then the usual workflow: `docs/<city>-copy.md` for all three (old vs new), compliance reviewer,
-     owner approval, build from components, checks, one commit per page, six reviewers at the end.
-2. Then English only, in this order: industry hub + 5 industry pages, blog index + posts (rewrite
-   the ESI posts and the three unlinked guides first, then restore their links, #22, #22b), about,
-   contact, legal, bilingual 404.
+1. Industry hub + 5 industry pages (English) — start here in the next session. This also fixes the
+   5 broken `/industries/*` links already live on the city, home and service pages (noted in
+   `docs/phase5-review-findings.md`).
+2. Then blog index + posts (rewrite the ESI posts and the three unlinked guides first, then restore
+   their links, #22, #22b), about, contact, legal, bilingual 404.
    Open from phase 4: the 100% cap on old-slab penalty damages (a reviewed update once the Code's
    section is confirmed, 9.4 #1/#2; the result shows a "call us" note for now).
 3. **Kannada phase (last, before launch):** first a fluent speaker reviews
@@ -276,8 +278,8 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
 4. Launch check (phase 9): internal-link crawl of `_site` (the industry pages are
    already linked from rebuilt pages), all six reviewers, strategy 9.4 verified by the
    compliance reviewer (incl. #10: remove the ESI "stay to the end of the period" line
-   if not confirmed). Owner input still needed: local industry mix per city, Google
-   Business Profile URL, photos if any.
+   if not confirmed). Owner input still needed: exact EPFO/ESIC office names for
+   Mangalore/Udupi (phase 5), photos if any.
 
 ### Workflow for each page
 1. Read the brief, strategy section 4 for the page type, and the old page.
