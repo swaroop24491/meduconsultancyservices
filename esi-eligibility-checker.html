@@ -1,606 +1,207 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+---
+layout: base
+lang: en
+page_type: tool
+last_modified: 2026-09-28
+title: "ESI Eligibility Checker 2026 | Medu Consultancy"
+description: "Does ESI apply to your business or an employee? Free ESI eligibility checker for employers, using the 2026 rules: 10 or more staff, ₹21,000 ESI wages."
+scripts: [/eligibility-checker.js]
+tool: { name: ESI eligibility checker }
+breadcrumb:
+  - { name: Free tools, path: epf-esi-tools-calculators }
+  - { name: ESI eligibility checker }
+faq:
+  - q: Is the 10-employee rule the same in every state?
+    a: Yes. Since the Code on Social Security, 2020, ESI applies to businesses with 10 or more employees in every state. Seasonal factories are not covered.
+  - q: An employee's pay went above ₹21,000. Do they leave ESI?
+    a: 'Not straight away. ESI works in two six-month periods: April to September, and October to March. They stay in ESI until the period ends, and you keep paying ESI for them.'
+  - q: Our staff dropped below 10. Do we still need ESI?
+    a: Yes. Once ESI applies, it stays, even if your staff later drop below 10.
+---
+{%- assign esi = site.data.facts.esi -%}
+<section class="section section--stacked tool-section" aria-labelledby="tool-heading">
+  <div class="container">
+    <h1 id="tool-heading">ESI eligibility checker</h1>
+    <p class="tool-lead">Check if your business must register for ESI (Employees' State Insurance). You can also check if an employee must be in ESI. Use one check or both.</p>
 
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-<meta name="author" content="Medu Consultancy">
-<meta name="robots" content="index, follow">
-<meta name="googlebot" content="index, follow">
-<meta name="theme-color" content="rgb(248,244,240)">
+    <h2 id="checks-heading">Check your business or an employee</h2>
+    <div class="tool-checks">
+      <section id="business-eligibility" class="tool-check" aria-labelledby="business-eligibility-heading">
+        <h3 id="business-eligibility-heading">Does your business need ESI?</h3>
+        <form id="business-eligibility-form" class="tool-form" novalidate>
+          <div id="business-eligibility-fields"></div>
+          <button type="submit" class="btn btn--outline">Check my business</button>
+        </form>
+        <div class="tool-result" id="business-eligibility-results" aria-live="polite" hidden></div>
+      </section>
 
-    <title>ESI Eligibility Checker | Medu Consultancy</title>
-    <meta name="description" content="Free ESI eligibility checker: find out if your business must register and if an employee must be covered, based on current thresholds.">
-    <link rel="canonical" href="https://www.meduconsultancy.com/esi-eligibility-checker" />
+      <section id="employee-eligibility" class="tool-check" aria-labelledby="employee-eligibility-heading">
+        <h3 id="employee-eligibility-heading">Does this employee need ESI?</h3>
+        <form id="employee-eligibility-form" class="tool-form" novalidate>
+          <div id="employee-eligibility-fields"></div>
+          <button type="submit" class="btn btn--outline">Check this employee</button>
+        </form>
+        <div class="tool-result" id="employee-eligibility-results" aria-live="polite" hidden></div>
+      </section>
+    </div>
 
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Medu Consultancy">
-    <meta property="og:title" content="ESI Eligibility Checker – Registration & Coverage Rules">
-    <meta property="og:description" content="Find out whether your business must register for ESI and whether a specific employee must be covered. Free online checker by Medu Consultancy.">
-    <meta property="og:url" content="https://www.meduconsultancy.com/esi-eligibility-checker">
-    <meta property="og:image" content="https://www.meduconsultancy.com/android-chrome-512x512.png">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="ESI Eligibility Checker – Registration & Coverage Rules">
-    <meta name="twitter:description" content="Find out whether your business must register for ESI and whether a specific employee must be covered. Free online checker by Medu Consultancy.">
-    <meta name="twitter:image" content="https://www.meduconsultancy.com/android-chrome-512x512.png">
+    {% include result-call.html tool="eligibility" %}
+  </div>
+</section>
 
-    <script type="application/ld+json">
-      {
-        "@context": "http://schema.org",
-        "@type": "WebPage",
-        "url": "https://www.meduconsultancy.com/esi-eligibility-checker",
-        "name": "ESI Eligibility Checker",
-        "description": "Check whether your business must register for ESI and whether a specific employee must be covered.",
-        "breadcrumb": {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Home",
-              "item": "https://www.meduconsultancy.com/"
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "ESI Eligibility Checker",
-              "item": "https://www.meduconsultancy.com/esi-eligibility-checker"
-            }
-          ]
+<section class="section" aria-labelledby="how-heading">
+  <div class="container">
+    <div class="prose">
+      <h2 id="how-heading">How the ESI rules work</h2>
+      <h3>For your business</h3>
+      <p>Your business must register for ESI when it has <strong>{{ esi.min_employees }} or more employees</strong>. This rule is the same in every state. Seasonal factories are not covered.</p>
+      <p>Count all your staff, as for PF. Don't count apprentices, the owner or partners. Is your business a company? <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a> to check how to count directors.</p>
+      <p><strong>Once ESI applies, it stays</strong>, even if your staff later drop below {{ esi.min_employees }}. For some risky kinds of work, ESI can apply even with 1 employee. <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a> to check.</p>
+      <h3>For each employee</h3>
+      <p>An employee must be in ESI when their ESI wages are <strong>{{ esi.wage_ceiling_text }} a month or less</strong> ({{ esi.wage_ceiling_pwd_text }} for a person with a disability).</p>
+      <p>ESI wages are the month's pay without some items, like HRA (house rent allowance) and overtime. If those items are more than half the pay, part of them is added back.</p>
+      <p>ESI works in two six-month periods: {{ esi.contribution_periods_text }}. If an employee's pay goes above the limit during a period, they stay in ESI until it ends.</p>
+      <h3>Staff on very low pay</h3>
+      <p>Staff on very low daily pay don't pay their own {{ esi.employee_rate_pct }}% share. You still pay your {{ esi.employer_rate_pct }}%. <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a> to check if this applies.</p>
+      <p class="note"><strong>Note:</strong> This checker is a guide based on the general ESI rules. It is not a final answer for your business. Some cases need a closer look, like staff in more than one state or contract workers. <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a> and we'll check. Checked against the rules as of {{ site.data.facts.tools_checked }}.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="related-heading">
+  <div class="container">
+    <h2 id="related-heading">Related tools</h2>
+    <div class="card-grid">
+      {% include tool-card.html key="esi-contribution" %}
+      {% include tool-card.html key="epf-eligibility" %}
+    </div>
+    <ul class="link-list">
+      <li><a class="link-arrow" href="/esi-registration">ESI registration for employers&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+    </ul>
+  </div>
+</section>
+
+{% include faq.html items=page.faq schema=true %}
+
+{% include closing-call.html line="Not sure what applies to your business? Call us and we'll check." %}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Replaced the ESI Act 1948: under the Code on Social Security, 2020 (in
+    // force from 21 November 2025), ESI applies to establishments with
+    // 10 or more employees in every state (except seasonal factories),
+    // so the threshold no longer depends on the state - last checked
+    // 2026-09-27. Text: docs/eligibility-checkers-copy.md.
+    var ESI_EMPLOYEE_THRESHOLD = 10;
+
+    var ESI_CEILING = 21000;
+    var ESI_CEILING_PWD = 25000;
+    // The low-pay exemption amount (₹176 a day from 2019) is not confirmed
+    // under the Code, so the checker doesn't check it (owner decision
+    // 2026-09-28; brief section 11).
+    var CALL = '<a href="tel:+918217542975" data-call-location="result">Call us</a>';
+
+    initEligibilityCalculator('business-eligibility', {
+      cardTitle: 'Result for your business',
+      fields: [
+        {
+          id: 'seasonal-factory',
+          type: 'radio',
+          legend: 'Is your business a seasonal factory?',
+          options: [
+            { value: 'no', label: 'No' },
+            { value: 'yes', label: 'Yes' }
+          ],
+          help: 'A seasonal factory works only part of the year, for example only during a crop season.',
+          errorRequired: 'Choose Yes or No.'
         },
-        "mainEntity": {
-          "@type": "LocalBusiness",
-          "name": "Medu Consultancy",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "3rd Floor, Padil Gate Building, Padil",
-            "addressLocality": "Mangalore",
-            "addressRegion": "Karnataka",
-            "postalCode": "575007",
-            "addressCountry": "IN"
-          },
-          "telephone": "+91-8217542975",
-          "contactPoint": {
-            "@type": "ContactPoint",
-            "contactType": "Customer Service",
-            "telephone": "+91-8217542975",
-            "availableLanguage": "en"
-          },
-          "serviceArea": {
-            "@type": "Place",
-            "name": "Karnataka"
-          }
+        {
+          id: 'current-employees',
+          type: 'number',
+          label: 'How many employees does your business have now?',
+          help: "Count all staff, including casual staff, workers a contractor sends and staff on high salaries. Don't count apprentices, the owner or partners.",
+          min: 1,
+          errorRequired: 'Enter the number of employees.',
+          errorMin: 'Enter a number more than 0.'
         }
-      }
-    </script>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "ESI Eligibility Checker",
-        "description": "Free online tool to check whether a business must register for ESI and whether a specific employee must be covered.",
-        "url": "https://www.meduconsultancy.com/esi-eligibility-checker",
-        "applicationCategory": "FinanceApplication",
-        "operatingSystem": "Web",
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "INR"
+      ],
+      evaluate: function (a) {
+        // Under the Code, ESI covers every establishment with 10+ employees
+        // except seasonal factories.
+        if (a['seasonal-factory'] === 'yes') {
+          return {
+            kind: 'neutral',
+            headline: 'ESI does not apply: seasonal factory.',
+            reason: 'ESI does not cover seasonal factories.',
+            crosslink: 'Not sure if your factory counts as seasonal? ' + CALL + " and we'll check."
+          };
         }
+        var threshold = ESI_EMPLOYEE_THRESHOLD;
+        if (a['current-employees'] >= threshold) {
+          return {
+            kind: 'positive',
+            headline: 'ESI applies. Your business must register.',
+            reason: 'With ' + a['current-employees'] + ' employees, your business has ' + threshold + ' or more. So it must register for ESI.',
+            note: 'This rule is the same in every state.',
+            crosslink: 'We can register you: <a href="/esi-registration">ESI registration for employers</a>.'
+          };
+        }
+        return {
+          kind: 'neutral',
+          headline: 'ESI does not apply yet.',
+          reason: 'With ' + a['current-employees'] + ' employees, your business has fewer than ' + threshold + '. So ESI registration is not needed now.',
+          note: 'But if your business ever had ' + threshold + ' or more employees, ESI still applies: once ESI applies, it stays. For some risky kinds of work, ESI can apply even with 1 employee. ' + CALL + ' to check.',
+          crosslink: null
+        };
       }
-    </script>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Does the ESI headcount threshold change by state?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "No. Under the Code on Social Security, 2020, the rule is the same in every state: ESI applies once your business has 10 or more employees. Seasonal factories are the only exception."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What if my employee's wages are above the ESI ceiling?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "They are not covered under ESI at that wage level, unless it's a person with disability (ceiling ₹25,000 instead of ₹21,000). If wages crossed the ceiling partway through a contribution period (April–September or October–March), coverage continues until the end of that period."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What is the low-wage exemption?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "If an employee's average daily wage is ₹176 or less, their own 0.75% ESI contribution is exempted. The employer still has to pay their 3.25% share."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Is ESI coverage permanent once triggered, like EPF?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. Once an establishment crosses the applicable headcount threshold, ESI coverage is permanent even if the headcount later drops below it."
-            }
-          }
-        ]
+    });
+
+    initEligibilityCalculator('employee-eligibility', {
+      cardTitle: 'Result for this employee',
+      fields: [
+        {
+          id: 'gross-wages',
+          type: 'number',
+          label: "What are this employee's ESI wages? (₹ a month)",
+          help: "ESI wages are the month's pay without some items, like HRA (house rent allowance), overtime, bonus, commission and travel allowance. If those items are more than half the pay, add the part above half.",
+          min: 1,
+          errorRequired: 'Enter the ESI wages.',
+          errorMin: 'Enter a number more than 0.'
+        },
+        {
+          id: 'is-pwd',
+          type: 'radio',
+          legend: 'Is this employee a person with a disability?',
+          options: [
+            { value: 'yes', label: 'Yes' },
+            { value: 'no', label: 'No' }
+          ],
+          errorRequired: 'Choose one.'
+        }
+      ],
+      evaluate: function (a) {
+        var ceiling = a['is-pwd'] === 'yes' ? ESI_CEILING_PWD : ESI_CEILING;
+        var limit = '₹' + ceiling.toLocaleString('en-IN') + (a['is-pwd'] === 'yes' ? ', the limit for a person with a disability' : '');
+        if (a['gross-wages'] <= ceiling) {
+          var note = null;
+          return {
+            kind: 'positive',
+            headline: 'Must be in ESI.',
+            reason: 'ESI wages of ₹' + a['gross-wages'].toLocaleString('en-IN') + ' are ' + (a['is-pwd'] === 'yes' ? '₹' + ceiling.toLocaleString('en-IN') + ' or less, the limit for a person with a disability' : '₹' + ceiling.toLocaleString('en-IN') + ' or less') + '. So this employee must be in ESI. This applies if your business has ESI.',
+            note: note,
+            crosslink: 'See the monthly amounts: <a href="/esi-contribution-calculator">ESI contribution calculator</a>.'
+          };
+        }
+        return {
+          kind: 'negative',
+          headline: 'ESI does not apply to this employee.',
+          reason: 'ESI wages of ₹' + a['gross-wages'].toLocaleString('en-IN') + ' are above ' + limit + '. So this employee is not in ESI at this pay.',
+          note: 'Did their pay only just go above the limit? ESI works in two six-month periods: April to September, and October to March. They stay in ESI until the period ends.',
+          crosslink: null
+        };
       }
-    </script>
+    });
 
-    <link rel="stylesheet" href="/styles.css">
-    <link rel="stylesheet" href="/calculator.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap&icon_names=call,mail,task_alt,cancel,info,help" />
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4MEQF5W0XX"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-4MEQF5W0XX');
-    </script>
-</head>
-<body class="tool-page">
-    <a class="skip-link" href="#main-content">Skip to main content</a>
-
-    <!-- Header with Logo, Phone, and Navigation -->
-    <header>
-        <div class="container header-content">
-            <div class="logo">
-                <a href="/"><img src="/images/logo-new.svg" width="200" height="45" alt="Medu Consultancy Logo"></a>
-            </div>
-            <nav class="header-nav" aria-label="Primary">
-                <ul>
-                    <li>
-                        <a href="/contact-us">Contact</a>
-                    </li>
-                    <li>
-                        <a href="/epf-consultancy-service">EPF Consultancy</a>
-                    </li>
-                    <li>
-                        <a href="/esi-consultancy-service">ESI Consultancy</a>
-                    </li>
-                    <li>
-                        <a href="/epf-esi-tools-calculators">Tools</a>
-                    </li>
-                </ul>
-            </nav>
-            <div class="header-links">
-                <a href="tel:+918217542975" class="phone"><span class="material-symbols-outlined" aria-hidden="true">
-                    call
-                    </span> 8217542975</a>
-            </div>
-
-            <!-- Hamburger Icon -->
-            <div class="hamburger" id="hamburger-icon">
-                <div id="menuToggle">
-                    <input type="checkbox" id="menuCheckbox" aria-label="Open menu" />
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <nav class="mobile-nav" aria-label="Menu"><ul id="menu">
-                      <li>
-                        <a href="/" class="nav-link">Home</a>
-                      </li>
-                      <li>
-                        <a href="/about-us" class="nav-link">About Us</a>
-                      </li>
-                      <li>
-                        <a href="/contact-us" class="nav-link">Contact Us</a>
-                      </li>
-
-                      <li>
-                        <a href="/blogs" class="nav-link">Blogs</a>
-                      </li>
-                      <li>
-                        <a href="/epf-consultancy-service" class="nav-link">EPF Consultancy</a>
-                      </li>
-                      <li>
-                        <a href="/esi-consultancy-service" class="nav-link">ESI Consultancy</a>
-                      </li>
-                      <li>
-                        <a href="/epf-esi-tools-calculators" class="nav-link">Tools &amp; Calculators</a>
-                      </li>
-
-                      <li>
-                        <a href="/epf-excel-to-text-converter" class="nav-link">EPF Excel to Text Converter</a>
-                      </li>
-                      <li>
-                        <a href="/epf-penalty-calculator" class="nav-link">EPF Penalty Calculator</a>
-                      </li>
-                      <li>
-                        <a href="/esi-penalty-calculator" class="nav-link">ESI Penalty Calculator</a>
-                      </li>
-                      <li>
-                        <a href="/epf-eligibility-checker" class="nav-link">EPF Eligibility Checker</a>
-                      </li>
-                      <li>
-                        <a href="/esi-eligibility-checker" class="nav-link active" aria-current="page">ESI Eligibility Checker</a>
-                      </li>
-                      <li>
-                        <a href="/epf-contribution-calculator" class="nav-link">PF Contribution Calculator</a>
-                      </li>
-                      <li>
-                        <a href="/esi-contribution-calculator" class="nav-link">ESI Contribution Calculator</a>
-                      </li>
-                      <li>
-                        <div class="contact-us">
-                            <address>
-                                <p>
-                                    <a href="tel:+918217542975" class="phone">
-                                        <span class="material-symbols-outlined" aria-hidden="true">
-                                        call
-                                        </span>
-                                        8217542975</a>
-                                </p>
-                                <p><a href="mailto:hello.meduconsultancy@gmail.com" class="email">
-                                    <span class="material-symbols-outlined" aria-hidden="true">
-                                        mail
-                                        </span>
-                                        hello.meduconsultancy@gmail.com</a></p>
-                            </address>
-                            <address class="office-address">
-                                <h4>Our Office Address</h4>
-                                <p>
-                                    3rd Floor, Padil Gate Building,<br>
-                                    Padil, Mangaluru,<br>
-                                    Karnataka 575007
-                                </p>
-                            </address>
-                        </div>
-                      </li>
-                    </ul></nav>
-                  </div>
-            </div>
-        </div>
-    </header>
-
-    <div class="header-space"></div>
-    <main id="main-content" tabindex="-1">
-    <section class="penalty-calc elig-checker">
-      <div class="container">
-        <h1>ESI Eligibility Checker</h1>
-        <p class="subhead">Two independent checks in one place: whether your <strong>business</strong> must register for ESI, and whether a <strong>specific employee</strong> must be covered. Use either one on its own, or both.</p>
-      </div>
-    </section>
-
-    <section class="elig-checker" aria-labelledby="checker-heading">
-      <div class="container">
-        <h2 id="checker-heading">Check Your ESI Eligibility</h2>
-        <p class="subhead">These are two independent tools - fill in either one on its own, or both, in any order.</p>
-
-        <div class="elig-columns">
-          <section id="business-eligibility" class="elig-card" aria-labelledby="business-eligibility-heading">
-            <h3 id="business-eligibility-heading">Business Eligibility Check</h3>
-            <form id="business-eligibility-form" class="elig-form" novalidate>
-              <div id="business-eligibility-fields"></div>
-              <button type="submit" class="elig-submit-btn">Check business eligibility</button>
-            </form>
-            <div class="elig-results" id="business-eligibility-results" aria-live="polite" hidden></div>
-          </section>
-
-          <section id="employee-eligibility" class="elig-card" aria-labelledby="employee-eligibility-heading">
-            <h3 id="employee-eligibility-heading">Employee Eligibility Check</h3>
-            <form id="employee-eligibility-form" class="elig-form" novalidate>
-              <div id="employee-eligibility-fields"></div>
-              <button type="submit" class="elig-submit-btn">Check employee eligibility</button>
-            </form>
-            <div class="elig-results" id="employee-eligibility-results" aria-live="polite" hidden></div>
-          </section>
-        </div>
-      </div>
-    </section>
-
-    <section class="penalty-rules">
-      <div class="container">
-        <h2>How ESI Eligibility Works</h2>
-
-        <h3>Establishment-level coverage</h3>
-        <p>ESI registration is mandatory for every establishment with <strong>10 or more employees</strong>, in every state, under the Code on Social Security, 2020. Seasonal factories are not covered. Some hazardous work must register even with 1 employee. Like EPF, coverage is permanent once triggered - dropping below 10 employees later does not remove it.</p>
-
-        <h3>Employee-level coverage</h3>
-        <p>An employee is covered if their gross monthly wages are <strong>₹21,000 or less</strong> (₹25,000 or less for a person with disability). Wages here means all pay for the month, leaving out HRA, overtime, bonus, commission and travel allowance. If those left-out items are more than half of total pay, the part above half is added back. If wages cross the ceiling partway through a contribution period (April–September or October–March), coverage continues until that period ends.</p>
-
-        <h3>Low-wage exemption</h3>
-        <p>If an employee's average daily wage is ₹176 or less, their own 0.75% share is exempted - the employer must still pay their 3.25% share.</p>
-
-        <div class="calc-disclaimer">
-          <span class="calc-disclaimer-label">Important - read before you rely on this result</span>
-          <p>This tool gives guidance based on general ESI rules, not a compliance certificate. Multi-state operations, contract workers, and borderline establishment categories need individual review.</p>
-          <p>For a definitive answer for your business, <a class="link" href="/contact-us">contact Medu Consultancy</a>.</p>
-        </div>
-
-        <div class="tool-crosslinks">
-          <h2>Related tools and reading</h2>
-          <ul>
-            <li>Need ongoing help with registration and filings? See our <a class="link" href="/esi-consultancy-service">ESI consultancy service</a>.</li>
-            <li>Already behind on payments? Use the <a class="link" href="/esi-penalty-calculator">ESI Penalty Calculator</a>.</li>
-            <li>Once you know an employee is covered, see the exact monthly split with the <a class="link" href="/esi-contribution-calculator">ESI Contribution Calculator</a>.</li>
-            <li>Checking EPF too? Try the <a class="link" href="/epf-eligibility-checker">EPF Eligibility Checker</a>.</li>
-            <li>Read more: <a class="link" href="/blogs/esi-benefits-small-medium-businesses">Why ESI registration benefits small and medium businesses</a>.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="faqs">
-      <div class="container" itemscope itemtype="https://schema.org/FAQPage">
-          <h2>Frequently Asked Questions</h2>
-          <div class="accordion">
-            <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <button id="esi-elig-faq-1" aria-expanded="false">
-                <span class="accordion-title" itemprop="name">Does the ESI headcount threshold change by state?</span>
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">
-                  No. Under the Code on Social Security, 2020, the rule is the same in every state: ESI applies once your business has 10 or more employees. Seasonal factories are the only exception.
-                </p>
-              </div>
-            </div>
-
-            <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <button id="esi-elig-faq-2" aria-expanded="false">
-                <span class="accordion-title" itemprop="name">What if my employee's wages are above the ESI ceiling?</span>
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">
-                  They are not covered under ESI at that wage level, unless it's a person with disability (ceiling ₹25,000 instead of ₹21,000). If wages crossed the ceiling partway through a contribution period (April–September or October–March), coverage continues until the end of that period.
-                </p>
-              </div>
-            </div>
-
-            <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <button id="esi-elig-faq-3" aria-expanded="false">
-                <span class="accordion-title" itemprop="name">What is the low-wage exemption?</span>
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">
-                  If an employee's average daily wage is ₹176 or less, their own 0.75% ESI contribution is exempted. The employer still has to pay their 3.25% share.
-                </p>
-              </div>
-            </div>
-
-            <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <button id="esi-elig-faq-4" aria-expanded="false">
-                <span class="accordion-title" itemprop="name">Is ESI coverage permanent once triggered, like EPF?</span>
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">
-                  Yes. Once an establishment crosses the applicable headcount threshold, ESI coverage is permanent even if the headcount later drops below it.
-                </p>
-              </div>
-            </div>
-
-            <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <button id="esi-elig-faq-5" aria-expanded="false">
-                <span class="accordion-title" itemprop="name">Is this checker's result final?</span>
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">
-                  No. It's guidance based on general rules. Multi-state operations, contract workers, and borderline establishment categories need individual review - speak with Medu Consultancy for a definitive answer.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-  </section>
-
-    <!-- Footer Section -->
-    </main>
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="about-us">
-                    <p>We are Medu Consultancy, a trusted PF consultant and ESI consultant helping small and medium businesses with EPF and ESI compliance. Our team provides personalized services, including PF registration, ESI registration, monthly PF filing, and monthly ESI filings, ensuring your business stays compliant while you focus on growth.</p>
-                </div>
-
-                <div class="quick-links link-list">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/about-us">About Us</a></li>
-                        <li><a href="/contact-us">Contact Us</a></li>
-<li><a href="/blogs">Blogs</a></li>
-<li><a href="/privacy-policy">Privacy Policy</a></li>
-<li><a href="/terms-and-conditions">Terms and Conditions</a></li>
-                    </ul>
-                </div>
-                <div class="services-offered link-list">
-                    <h3>Our Services</h3>
-                    <ul>
-                        <li><a href="/epf-consultancy-service">EPF Compliance</a></li>
-                       <li><a href="/esi-consultancy-service">ESI Compliance</a></li>
-    <li><a href="/epf-esi-tools-calculators">Tools &amp; Calculators</a></li>
-    <li><a href="/epf-excel-to-text-converter">EPF Excel to Text Converter</a></li>
-    <li><a href="/epf-penalty-calculator">EPF Penalty Calculator</a></li>
-    <li><a href="/esi-penalty-calculator">ESI Penalty Calculator</a></li>
-    <li><a href="/epf-eligibility-checker">EPF Eligibility Checker</a></li>
-    <li><a href="/esi-eligibility-checker">ESI Eligibility Checker</a></li>
-    <li><a href="/epf-contribution-calculator">PF Contribution Calculator</a></li>
-    <li><a href="/esi-contribution-calculator">ESI Contribution Calculator</a></li>
-                    </ul>
-                </div>
-                <div class="contact-us">
-                    <h3>Contact Us</h3>
-                    <address>
-                        <p>
-                            <a href="tel:+918217542975" class="phone">
-                                <span class="material-symbols-outlined" aria-hidden="true">
-                                call
-                                </span>
-                                8217542975</a>
-                        </p>
-                        <p><a href="mailto:hello.meduconsultancy@gmail.com" class="email">
-                            <span class="material-symbols-outlined" aria-hidden="true">
-                                mail
-                                </span>
-                                hello.meduconsultancy@gmail.com</a></p>
-                    </address>
-                    <address class="office-address">
-                        <h4>Our Office Address</h4>
-                        <p>
-                            3rd Floor, Padil Gate Building,<br>
-                            Padil, Mangaluru,<br>
-                            Karnataka 575007
-                        </p>
-                    </address>
-                </div>
-            </div>
-            <section class="quick-links link-list location-list">
-              <h3>Locations</h3>
-              <ul>
-                <li>
-                  <a href="/epf-esi-consultancy-mangalore">Mangalore</a>
-                </li>
-                <li>
-                  <a href="/epf-esi-consultancy-udupi">Udupi</a>
-                </li>
-                <li>
-                  <a href="/epf-esi-consultancy-bangalore">Bangalore</a>
-                </li>
-              </ul>
-            </section>
-<div class="rights">
-                <p>&#169; 2026 Medu Consultancy. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
-    <script src="/script.js" defer></script>
-    <script src="/eligibility-checker.js" defer></script>
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        // Replaced the ESI Act 1948: under the Code on Social Security, 2020 (in
-        // force from 21 November 2025), ESI applies to establishments with
-        // 10 or more employees in every state (except seasonal factories),
-        // so the threshold no longer depends on the state - last checked
-        // 2026-09-26.
-        var ESI_EMPLOYEE_THRESHOLD = 10;
-
-        var ESI_CEILING = 21000;
-        var ESI_CEILING_PWD = 25000;
-        // The low-pay exemption amount (₹176 a day from 2019) is not confirmed
-        // under the Code, so the checker doesn't check it (owner decision
-        // 2026-09-28; brief section 11).
-
-        initEligibilityCalculator('business-eligibility', {
-          cardTitle: 'Business registration status',
-          fields: [
-            {
-              id: 'seasonal-factory',
-              type: 'radio',
-              legend: 'Is this a seasonal factory?',
-              options: [
-                { value: 'no', label: 'No' },
-                { value: 'yes', label: 'Yes' }
-              ],
-              help: 'A seasonal factory works only part of the year, for example only during a crop season.',
-              errorRequired: 'Choose Yes or No.'
-            },
-            {
-              id: 'current-employees',
-              type: 'number',
-              label: 'How many employees does the business currently employ?',
-              min: 1,
-              errorRequired: 'Enter the current number of employees.',
-              errorMin: 'Enter a number greater than 0.'
-            }
-          ],
-          evaluate: function (a) {
-            // Under the Code, ESI covers every establishment with 10+ employees
-            // except seasonal factories.
-            if (a['seasonal-factory'] === 'yes') {
-              return {
-                kind: 'neutral',
-                headline: 'Not covered - seasonal factory',
-                reason: 'ESI does not cover seasonal factories.',
-                crosslink: 'Not sure your factory counts as seasonal? <a class="link" href="tel:+918217542975">Call us</a> and we will check.'
-              };
-            }
-            var threshold = ESI_EMPLOYEE_THRESHOLD;
-            if (a['current-employees'] >= threshold) {
-              return {
-                kind: 'positive',
-                headline: 'Mandatory - registration required',
-                reason: 'With ' + a['current-employees'] + ' employees, your headcount has reached the threshold of ' + threshold + ', so ESI registration is mandatory.',
-                note: 'Threshold used: ' + threshold + ' employees (the same in every state).',
-                crosslink: 'Get help registering: <a class="link" href="/esi-consultancy-service">ESI Consultancy Service</a>.'
-              };
-            }
-            return {
-              kind: 'neutral',
-              headline: 'Not mandatory at current headcount',
-              reason: 'With ' + a['current-employees'] + ' employees, you are below the threshold of ' + threshold + ', so ESI registration is not currently mandatory.',
-              note: 'Threshold used: ' + threshold + ' employees (the same in every state). This is a point-in-time test - once reached, coverage is permanent even if headcount later drops. Some hazardous work must register even with 1 employee. You can also register by choice with fewer than 10 employees.',
-              crosslink: 'Planning to grow the team? <a class="link" href="/esi-consultancy-service">Talk to Medu Consultancy</a> about staying ahead of registration.'
-            };
-          }
-        });
-
-        initEligibilityCalculator('employee-eligibility', {
-          cardTitle: "This employee's coverage status",
-          fields: [
-            {
-              id: 'gross-wages',
-              type: 'number',
-              label: "What are this employee's gross monthly wages (₹)?",
-              help: 'All pay for the month, leaving out HRA, overtime, bonus, commission and travel allowance. If those left-out items are more than half of total pay, add the part above half.',
-              min: 1,
-              errorRequired: 'Enter the gross monthly wages.',
-              errorMin: 'Enter a number greater than 0.'
-            },
-            {
-              id: 'is-pwd',
-              type: 'radio',
-              legend: 'Is this employee a person with disability?',
-              options: [
-                { value: 'yes', label: 'Yes' },
-                { value: 'no', label: 'No' }
-              ],
-              errorRequired: 'Select an option.'
-            }
-          ],
-          evaluate: function (a) {
-            var ceiling = a['is-pwd'] === 'yes' ? ESI_CEILING_PWD : ESI_CEILING;
-            if (a['gross-wages'] <= ceiling) {
-              var note = null;
-              return {
-                kind: 'positive',
-                headline: 'Covered',
-                reason: 'Gross monthly wages of ₹' + a['gross-wages'].toLocaleString('en-IN') + ' are at or below the ₹' + ceiling.toLocaleString('en-IN') + ' ceiling' + (a['is-pwd'] === 'yes' ? ' for a person with disability' : '') + ', so this employee is covered under ESI.',
-                note: note,
-                crosslink: 'See the exact split: <a class="link" href="/esi-contribution-calculator">ESI Contribution Calculator</a>.'
-              };
-            }
-            return {
-              kind: 'negative',
-              headline: 'Not covered at this wage level',
-              reason: 'Gross monthly wages of ₹' + a['gross-wages'].toLocaleString('en-IN') + ' are above the ₹' + ceiling.toLocaleString('en-IN') + ' ceiling' + (a['is-pwd'] === 'yes' ? ' for a person with disability' : '') + ', so this employee is not covered under ESI.',
-              note: 'If wages crossed this ceiling mid-contribution-period, coverage continues until the end of that period (Apr–Sep or Oct–Mar).',
-              crosslink: null
-            };
-          }
-        });
-
-        EligibilityChecker.scrollToHash();
-      });
-    </script>
-</body>
-</html>
+    EligibilityChecker.scrollToHash();
+  });
+</script>

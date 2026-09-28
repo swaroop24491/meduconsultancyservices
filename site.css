@@ -688,6 +688,7 @@ html[lang="kn"] .proof-line__num { letter-spacing: 0; }
 .prose > * + * { margin-top: var(--space-4); }
 .prose ul { padding-left: 1.25em; }
 .prose li + li { margin-top: var(--space-2); }
+.prose > * + h3 { margin-top: var(--space-6); }
 /* A check list inside running text: no bullet indent; the list's own gap spaces the items */
 .prose .check-list { padding-left: 0; }
 .prose .check-list li + li { margin-top: 0; }
@@ -890,3 +891,4 @@ html[lang="kn"] .proof-line__num { letter-spacing: 0; }
 /* Tools hub: tool cards grouped under a question */
 .tool-group + .tool-group { margin-top: var(--space-7); }
 .tool-group > h3 { margin-bottom: var(--space-3); }
+.tool-form + .tool-result { margin-top: var(--space-6); }

@@ -41,12 +41,20 @@
     }
   }
 
+  // Inline SVG icons (Material Symbols paths, same as _data/icons.yml:
+  // check-circle, cancel, info, help). Rebuilt pages load no icon font.
+  var RING = 'Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z';
+  var CIRCLE = 'q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80' + RING;
   var STATUS_ICON = {
-    positive: 'task_alt',
-    negative: 'cancel',
-    neutral: 'info',
-    uncertain: 'help'
+    positive: 'm424-296 282-282-56-57-226 226-114-114-56 57 170 170Zm56 216' + CIRCLE,
+    negative: 'm336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80' + CIRCLE,
+    neutral: 'M440-280h80v-240h-80v240Zm40-320q17 0 28.5-11.5T520-640q0-17-11.5-28.5T480-680q-17 0-28.5 11.5T440-640q0 17 11.5 28.5T480-600Zm0 520' + CIRCLE,
+    uncertain: 'M478-240q21 0 35.5-14.5T528-290q0-21-14.5-35.5T478-340q-21 0-35.5 14.5T428-290q0 21 14.5 35.5T478-240Zm-36-154h74q0-33 7.5-52t42.5-52q26-26 41-49.5t15-56.5q0-56-41-86t-97-30q-57 0-92.5 30T342-618l66 26q5-18 22.5-39t53.5-21q32 0 48 17.5t16 38.5q0 20-12 37.5T506-526q-44 39-54 59t-10 73Zm38 314' + CIRCLE
   };
+
+  function iconSvg(path) {
+    return '<svg class="icon" width="24" height="24" viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true" focusable="false"><path d="' + path + '"/></svg>';
+  }
 
   function escapeHtml(value) {
     return String(value)
@@ -76,7 +84,7 @@
       var options = field.options.map(function (opt, i) {
         var optId = ids.input + '-' + i;
         return (
-          '<label class="elig-radio-label" for="' + optId + '">' +
+          '<label class="radio" for="' + optId + '">' +
           '<input type="radio" id="' + optId + '" name="' + groupName + '" value="' + escapeHtml(opt.value) + '"' +
           (field.required ? ' required' : '') + '> ' +
           escapeHtml(opt.label) +
@@ -84,11 +92,11 @@
         );
       }).join('');
       return (
-        '<fieldset class="elig-field elig-radio-group" id="' + ids.input + '-fieldset">' +
+        '<fieldset class="field" id="' + ids.input + '-fieldset"' + describedByAttr + '>' +
         '<legend>' + escapeHtml(field.legend) + '</legend>' +
-        '<div class="elig-radio-options">' + options + '</div>' +
-        (field.help ? '<p class="calc-help" id="' + ids.help + '">' + field.help + '</p>' : '') +
-        '<p class="calc-error" id="' + ids.error + '" aria-live="polite"></p>' +
+        '<div class="field__options">' + options + '</div>' +
+        (field.help ? '<p class="field__help" id="' + ids.help + '">' + field.help + '</p>' : '') +
+        '<p class="field__error" id="' + ids.error + '" aria-live="polite"></p>' +
         '</fieldset>'
       );
     }
@@ -99,24 +107,24 @@
           (opt.selected ? ' selected' : '') + '>' + escapeHtml(opt.label) + '</option>';
       }).join('');
       return (
-        '<div class="elig-field">' +
+        '<div class="field">' +
         '<label for="' + ids.input + '">' + escapeHtml(field.label) + '</label>' +
         '<select id="' + ids.input + '" name="' + ids.input + '"' + describedByAttr + '>' + opts + '</select>' +
-        (field.help ? '<p class="calc-help" id="' + ids.help + '">' + field.help + '</p>' : '') +
-        '<p class="calc-error" id="' + ids.error + '" aria-live="polite"></p>' +
+        (field.help ? '<p class="field__help" id="' + ids.help + '">' + field.help + '</p>' : '') +
+        '<p class="field__error" id="' + ids.error + '" aria-live="polite"></p>' +
         '</div>'
       );
     }
 
     // numeric
     return (
-      '<div class="elig-field">' +
+      '<div class="field">' +
       '<label for="' + ids.input + '">' + escapeHtml(field.label) + '</label>' +
       '<input type="number" id="' + ids.input + '" name="' + ids.input + '" inputmode="numeric" step="1"' +
       (field.min !== undefined ? ' min="' + field.min + '"' : '') +
       describedByAttr + '>' +
-      (field.help ? '<p class="calc-help" id="' + ids.help + '">' + field.help + '</p>' : '') +
-      '<p class="calc-error" id="' + ids.error + '" aria-live="polite"></p>' +
+      (field.help ? '<p class="field__help" id="' + ids.help + '">' + field.help + '</p>' : '') +
+      '<p class="field__error" id="' + ids.error + '" aria-live="polite"></p>' +
       '</div>'
     );
   }
@@ -126,7 +134,7 @@
     var advanced = fields.filter(function (f) { return f.advanced; });
     var html = required.map(function (f) { return renderField(prefix, f); }).join('');
     if (advanced.length) {
-      html += '<details class="elig-advanced"><summary>Advanced (optional)</summary>' +
+      html += '<details class="field-more"><summary>More (optional)</summary>' +
         advanced.map(function (f) { return renderField(prefix, f); }).join('') + '</details>';
     }
     return html;
@@ -173,7 +181,7 @@
       var isEmpty = value === '' || value === undefined || (typeof value === 'number' && isNaN(value));
       if (isEmpty) {
         if (!field.advanced && field.required !== false) {
-          setError(prefix, field, field.errorRequired || 'This field is required.');
+          setError(prefix, field, field.errorRequired || 'Please fill this in.');
           valid = false;
         }
         answers[field.id] = field.type === 'number' ? undefined : '';
@@ -193,15 +201,12 @@
   function statusCard(kind, title, headline, reason, note, crosslink) {
     var icon = STATUS_ICON[kind] || STATUS_ICON.uncertain;
     return (
-      '<div class="verdict-card status-' + kind + '">' +
-      '<div class="verdict-status">' +
-      '<span class="material-symbols-outlined" aria-hidden="true">' + icon + '</span>' +
-      '<span class="verdict-label">' + escapeHtml(headline) + '</span>' +
-      '</div>' +
-      '<h4>' + escapeHtml(title) + '</h4>' +
-      '<p class="verdict-reason">' + reason + '</p>' +
-      (note ? '<p class="verdict-note">' + note + '</p>' : '') +
-      (crosslink ? '<p class="verdict-cta">' + crosslink + '</p>' : '') +
+      '<div class="verdict verdict--' + kind + '">' +
+      '<p class="verdict__label">' + escapeHtml(title) + '</p>' +
+      '<p class="verdict__title">' + iconSvg(icon) + '<span>' + escapeHtml(headline) + '</span></p>' +
+      '<p>' + reason + '</p>' +
+      (note ? '<p class="verdict__note">' + note + '</p>' : '') +
+      (crosslink ? '<p>' + crosslink + '</p>' : '') +
       '</div>'
     );
   }
@@ -236,12 +241,12 @@
 
     function renderResult(verdict) {
       var html = statusCard(verdict.kind, config.cardTitle, verdict.headline, verdict.reason, verdict.note, verdict.crosslink);
-      html += '<button type="button" class="elig-restart-btn">Check another scenario</button>';
+      html += '<p><button type="button" class="btn-link" data-restart>Check again</button></p>';
       resultsEl.innerHTML = html;
       resultsEl.hidden = false;
       resultsEl.focus();
 
-      resultsEl.querySelector('.elig-restart-btn').addEventListener('click', function () {
+      resultsEl.querySelector('[data-restart]').addEventListener('click', function () {
         resultsEl.hidden = true;
         resultsEl.innerHTML = '';
         form.reset();
