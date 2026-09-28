@@ -34,6 +34,15 @@ faq:
   </div>
 </section>
 
+{% include how-we-work.html %}
+
+<section class="section" aria-labelledby="behind-heading">
+  <div class="container stack">
+    <h2 id="behind-heading">Who's behind it</h2>
+    <p class="prose">Medu Thirumaleshwara Bhat started Medu Consultancy in 2000. He worked at EPFO (the PF office) for 35 years. We know how the PF office works from the inside. That is why our filing is right and on time. <a class="link-arrow" href="/about-us">About us&#8288;{% include icon.html name="arrow" size="18" %}</a></p>
+  </div>
+</section>
+
 <section class="section" aria-labelledby="work-with-heading">
   <div class="container stack">
     <h2 id="work-with-heading">Businesses we work with here</h2>
@@ -43,11 +52,16 @@ faq:
 </section>
 
 <section class="section" aria-labelledby="tools-heading">
-  <div class="container stack">
-    <h2 id="tools-heading">Not sure if PF or ESI applies to you?</h2>
+  <div class="container">
+    <h2 id="tools-heading">Free PF and ESI tools and guides</h2>
+    <div class="card-grid">
+      {% include tool-card.html key="epf-eligibility" %}
+      {% include tool-card.html key="esi-eligibility" %}
+      {% include tool-card.html key="epf-contribution" %}
+    </div>
     <ul class="link-list">
-      <li><a class="link-arrow" href="/epf-eligibility-checker">Check with our PF eligibility checker&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
-      <li><a class="link-arrow" href="/esi-eligibility-checker">Check with our ESI eligibility checker&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+      <li><a class="link-arrow" href="/blogs/common-epf-compliance-mistakes">Common PF mistakes and how to avoid them&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+      <li><a class="link-arrow" href="/blogs/common-esi-compliance-mistakes">Common ESI mistakes and how to avoid them&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
     </ul>
   </div>
 </section>
