@@ -1,7 +1,9 @@
 {%- comment -%}
   JSON-LD for rebuilt pages (strategy 6.4), from front matter:
     breadcrumb: [{ name: "PF services" }]         (Home is added first; the last item is this page)
-    service: { type: "...", name: "...", offers: ["...", "..."] }
+    service: { type: "...", name: "...", offers: ["...", "..."], area: ["Mangaluru"] }
+                                          (area: official city name(s) this service covers; defaults to all
+                                          cities_official when left out)
     tool: { name: "..." }                          (page_type tool: WebApplication)
   page_type tools (the hub) is a CollectionPage with an ItemList of the tools.
   Every page has a short business entity (name, url, phone) under the shared @id; the full
@@ -33,7 +35,8 @@
 ,{"@type":"ItemList","@id":"{{ page_url }}#tools","itemListElement":[{% for tool in t.tools %}{% include resolve-link.html path=tool.path %}{"@type":"ListItem","position":{{ forloop.index }},"name":{{ tool.name | jsonify }},"url":"{{ site_url }}{{ href }}"}{% unless forloop.last %},{% endunless %}{% endfor %}]}
 {%- endif -%}
 {%- if page.service -%}
-,{"@type":"Service","serviceType":{{ page.service.type | jsonify }},"name":{{ page.service.name | jsonify }},"provider":{"@id":"{{ biz }}"},"url":"{{ page_url }}","areaServed":[{% for c in site.data.site.cities_official %}{"@type":"City","name":"{{ c }}"}{% unless forloop.last %},{% endunless %}{% endfor %}]{% if page.service.offers %},"hasOfferCatalog":{"@type":"OfferCatalog","name":{{ page.service.name | jsonify }},"itemListElement":[{% for o in page.service.offers %}{"@type":"Offer","itemOffered":{"@type":"Service","name":{{ o | jsonify }}}}{% unless forloop.last %},{% endunless %}{% endfor %}]}{% endif %}}
+{%- assign _areas = page.service.area | default: site.data.site.cities_official -%}
+,{"@type":"Service","serviceType":{{ page.service.type | jsonify }},"name":{{ page.service.name | jsonify }},"provider":{"@id":"{{ biz }}"},"url":"{{ page_url }}","areaServed":[{% for c in _areas %}{"@type":"City","name":"{{ c }}"}{% unless forloop.last %},{% endunless %}{% endfor %}]{% if page.service.offers %},"hasOfferCatalog":{"@type":"OfferCatalog","name":{{ page.service.name | jsonify }},"itemListElement":[{% for o in page.service.offers %}{"@type":"Offer","itemOffered":{"@type":"Service","name":{{ o | jsonify }}}}{% unless forloop.last %},{% endunless %}{% endfor %}]}{% endif %}}
 {%- endif -%}
 ]}
 </script>

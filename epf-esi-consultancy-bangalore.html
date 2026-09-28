@@ -7,6 +7,10 @@ title: "PF & ESI Consultant in Bangalore (Bengaluru) | Medu Consultancy"
 description: "Local support in Bangalore, backed by our Mangaluru team. PF and ESI registration and monthly filing. Call +91 82175 42975."
 breadcrumb:
   - { name: Bangalore }
+service:
+  type: PF and ESI compliance and monthly filing
+  name: PF and ESI consultant in Bangalore
+  area: [Bengaluru]
 faq:
   - q: Do you have an office in Bangalore?
     a: "No. We don't have an office in Bangalore. We have 2 team members here for local support, and our main office is in Mangaluru."
@@ -32,7 +36,7 @@ faq:
   <div class="container">
     <div class="prose">
       <h2 id="areas-heading">Areas we cover</h2>
-      <p>We work with businesses across Bangalore.</p>
+      <p>We work with businesses across Bangalore. Not sure we cover your area? <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a>.</p>
     </div>
   </div>
 </section>
@@ -49,17 +53,22 @@ faq:
   <div class="container">
     <div class="prose">
       <h2 id="offices-heading">Your local PF and ESI offices</h2>
-      <p>We deal with the EPFO (PF) office and the ESIC (ESI) office that cover your business directly on your behalf, so you don't have to work out which one to approach.</p>
+      <p>We deal with the EPFO (PF) office and the ESIC (ESI) office that cover your business. You don't have to work out which one to approach — we do that for you.</p>
     </div>
   </div>
 </section>
 
-<section class="section" aria-labelledby="two-paths-heading">
+<section class="section" aria-labelledby="tools-heading">
   <div class="container stack">
-    <h2 id="two-paths-heading">Two ways to work with us</h2>
-    {% include two-paths.html compact=true %}
+    <h2 id="tools-heading">Not sure if PF or ESI applies to you?</h2>
+    <ul class="link-list">
+      <li><a class="link-arrow" href="/epf-eligibility-checker">Check with our PF eligibility checker&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+      <li><a class="link-arrow" href="/esi-eligibility-checker">Check with our ESI eligibility checker&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+    </ul>
   </div>
 </section>
+
+{% include two-paths.html %}
 
 {% include testimonials.html %}
 
