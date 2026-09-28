@@ -115,12 +115,12 @@ industries:
   also: Estates, security agencies, housekeeping agencies, distributors and suppliers, local shops, hotels and restaurants.
 
 tools:
-  - { key: epf-eligibility, path: epf-eligibility-checker, icon: check, name: PF eligibility checker, text: Does PF apply to your business or an employee? }
-  - { key: esi-eligibility, path: esi-eligibility-checker, icon: check, name: ESI eligibility checker, text: Does ESI apply to your business or an employee? }
-  - { key: epf-penalty, path: epf-penalty-calculator, icon: calculator, name: PF penalty calculator, text: What will paying PF late cost? }
-  - { key: esi-penalty, path: esi-penalty-calculator, icon: calculator, name: ESI penalty calculator, text: What will paying ESI late cost? }
-  - { key: epf-contribution, path: epf-contribution-calculator, icon: split, name: PF contribution calculator, text: How much PF do you and your employee pay each month? }
-  - { key: esi-contribution, path: esi-contribution-calculator, icon: split, name: ESI contribution calculator, text: How much ESI do you and your employee pay each month? }
+  - { key: epf-eligibility, path: epf-eligibility-checker, icon: help, name: PF eligibility checker, text: Does PF apply to your business or an employee? }
+  - { key: esi-eligibility, path: esi-eligibility-checker, icon: help, name: ESI eligibility checker, text: Does ESI apply to your business or an employee? }
+  - { key: epf-penalty, path: epf-penalty-calculator, icon: schedule, name: PF penalty calculator, text: What will paying PF late cost? }
+  - { key: esi-penalty, path: esi-penalty-calculator, icon: schedule, name: ESI penalty calculator, text: What will paying ESI late cost? }
+  - { key: epf-contribution, path: epf-contribution-calculator, icon: calculator, name: PF contribution calculator, text: How much PF do you and your employee pay each month? }
+  - { key: esi-contribution, path: esi-contribution-calculator, icon: calculator, name: ESI contribution calculator, text: How much ESI do you and your employee pay each month? }
   - { key: converter, path: epf-excel-to-text-converter, icon: file, name: EPF Excel to Text converter, text: "Turn your ECR (monthly PF return) Excel sheet into the text file EPFO needs." }
 
 faq_heading: Common questions

@@ -230,7 +230,7 @@
 </div>
 
 <div id="sg-tool-parts" class="sg-component">
-  <div class="container"><p class="sg-component__name">Tool parts</p><p class="sg-note">Used on the tool pages. The tool scripts (<code>eligibility-checker.js</code>, <code>penalty-calculator.js</code>, <code>contribution-calculator.js</code>) build fields and results with exactly these classes; the markup below is what they output. Page layout: <code>section.tool-section</code> (H1 + <code>.tool-lead</code>), then <code>.tool.tool--split</code> (form left, result and result call box right from 1024px) or <code>.tool-checks</code> (two checks side by side). Inputs sit on cream with the strong border; errors are words, never colour alone. The tool's button is <code>.btn--outline</code>, so it never looks like the call button. Result cards have no red: they are answers, not warnings. <code>.note</code> is the plain-words disclaimer. <code>.tool-group</code> groups tool cards under a question on the hub. The converter uses <code>ol.tool-steps</code> (numbered H3 steps) and <code>p.tool-status</code> (<code>role="status"</code>, the message under the button instead of a pop-up; <code>.tool-status--error</code> for errors).</p>
+  <div class="container"><p class="sg-component__name">Tool parts</p><p class="sg-note">Used on the tool pages. The tool scripts (<code>eligibility-checker.js</code>, <code>penalty-calculator.js</code>, <code>contribution-calculator.js</code>) build fields and results with exactly these classes; the markup below is what they output. Page layout: <code>section.tool-section</code> (H1 + <code>.tool-lead</code>), then <code>.tool.tool--split</code> (form left, result and result call box right from 1024px) or <code>.tool-checks</code> (two checks side by side). Inputs sit on cream with the strong border; errors are words, never colour alone. The tool's button is <code>.btn--outline</code>, so it never looks like the call button. Result cards have no red: they are answers, not warnings. A value worked out as you type (the due date) is text in <code>p.field__output</code> with an <code>&lt;output&gt;</code>, hidden while empty, not a read-only box. No visible H2 inside <code>.tool-section</code> (a visually hidden one where the outline needs it), so the first field stays high on phones. <code>.note</code> is the plain-words disclaimer. <code>.tool-group</code> groups tool cards under a question on the hub. The converter uses <code>ol.tool-steps</code> (numbered H3 steps) and <code>p.tool-status</code> (<code>role="status"</code>, the message under the button instead of a pop-up; <code>.tool-status--error</code> for errors).</p>
   <pre class="sg-code"><code>&lt;div class="field"&gt;&lt;label for="x"&gt;…&lt;/label&gt;&lt;input type="number" id="x" aria-describedby="x-help x-error"&gt;
   &lt;p class="field__help" id="x-help"&gt;…&lt;/p&gt;&lt;p class="field__error" id="x-error" aria-live="polite"&gt;&lt;/p&gt;&lt;/div&gt;
 &lt;fieldset class="field"&gt;&lt;legend&gt;…&lt;/legend&gt;&lt;div class="field__options"&gt;&lt;label class="radio"&gt;&lt;input type="radio"&gt; …&lt;/label&gt;&lt;/div&gt;&lt;/fieldset&gt;
@@ -253,6 +253,13 @@
         </div>
       </fieldset>
       <div class="field">
+        <label for="sg-f3">Salary month</label>
+        <input type="month" id="sg-f3" value="2026-08" aria-describedby="sg-f3-help sg-f3-due">
+        <p class="field__help" id="sg-f3-help">The month the salary was for, not the month you paid.</p>
+        <p class="field__help field__output" id="sg-f3-due">Due date: <output for="sg-f3">15 September 2026</output></p>
+      </div>
+      <details class="field-more"><summary>More (optional)</summary><p class="field__help">Optional fields go here.</p></details>
+      <div class="field">
         <label for="sg-f2">Unpaid PF amount (₹)</label>
         <input type="number" id="sg-f2" inputmode="numeric" aria-invalid="true" aria-describedby="sg-f2-error">
         <p class="field__error" id="sg-f2-error">Enter the unpaid amount.</p>
@@ -260,19 +267,19 @@
       <button type="submit" class="btn btn--outline">Work it out</button>
     </form>
     <div class="tool-result">
-      <div class="result-summary"><p><strong>Due date:</strong> 15 October 2026</p><p><strong>Days late:</strong> 40</p></div>
+      <div class="result-summary"><p><strong>Due date:</strong> 15 September 2026</p><p><strong>Days late:</strong> 40</p></div>
       <table class="result-table">
         <caption class="visually-hidden">Sample result</caption>
         <thead><tr><th scope="col">What</th><th scope="col">Amount</th></tr></thead>
         <tbody>
-          <tr><th scope="row">Employee pays</th><td>₹2,160</td></tr>
-          <tr><th scope="row">You pay: to their PF account</th><td>₹661</td></tr>
-          <tr><th scope="row">You pay: to their pension (EPS)</th><td>₹1,499</td></tr>
-          <tr class="result-table__subtotal"><th scope="row">You pay in total</th><td>₹2,160</td></tr>
-          <tr class="result-table__total"><th scope="row">Total PF each month</th><td>₹4,320</td></tr>
+          <tr><th scope="row">Employee pays</th><td>₹2,160.00</td></tr>
+          <tr><th scope="row">You pay: to their PF account</th><td>₹661.00</td></tr>
+          <tr><th scope="row">You pay: to their pension (EPS)</th><td>₹1,499.00</td></tr>
+          <tr class="result-table__subtotal"><th scope="row">You pay in total</th><td>₹2,160.00</td></tr>
+          <tr class="result-table__total"><th scope="row">Total PF each month</th><td>₹4,320.00</td></tr>
         </tbody>
       </table>
-      <p class="result-note">Of the ₹4,320 total, ₹2,821 goes to the employee's PF account.</p>
+      <p class="result-note">Of the ₹4,320.00 total, ₹2,821.00 goes to the employee's PF account.</p>
     </div>
   </div>
   <div class="sg-demo tool-checks">
@@ -280,12 +287,19 @@
     <div class="verdict verdict--neutral"><p class="verdict__label">Result for this employee</p><p class="verdict__title">{% include icon.html name="info" size="24" %}<span>PF is optional for this employee.</span></p><p>Other kinds: <code>negative</code> (cancel icon), <code>uncertain</code> (help icon).</p></div>
   </div>
   <div class="sg-demo"><div class="result-message"><strong>On time. Nothing extra to pay.</strong><p>Your payment date is on or before the due date.</p></div></div>
+  <div class="sg-demo tool">
+    <ol class="tool-steps">
+      <li><h3>Choose your filled Excel file</h3><div class="field"><label for="sg-file">Your ECR Excel file (.xls or .xlsx)</label><input type="file" id="sg-file" accept=".xls,.xlsx"></div></li>
+      <li><h3>Get the text file</h3><button type="button" class="btn btn--outline">Convert and download</button><p class="tool-status" role="status">Done. Check your Downloads folder for the text file.</p><p class="tool-status tool-status--error">We couldn't read this file. Check that it is an .xls or .xlsx file.</p></li>
+    </ol>
+  </div>
+  <div class="sg-demo"><div class="tool-group"><h3>Does PF or ESI apply to us?</h3><div class="card-grid">{% include tool-card.html key="epf-eligibility" %}</div></div></div>
   <div class="sg-demo"><p class="note"><strong>Note:</strong> This calculator gives an estimate. It is not the final amount. Checked against the rules as of 27 September 2026.</p></div>
   </div>
 </div>
 
 <div id="sg-result" class="sg-component">
-  <div class="container"><p class="sg-component__name">Result call box</p><p class="sg-note">Static HTML placed right after a tool's result container (decision D4). Sand, like every call panel. One line per tool: <code>eligibility</code>, <code>penalty</code>, <code>contribution</code>, <code>converter</code>.</p>
+  <div class="container"><p class="sg-component__name">Result call box</p><p class="sg-note">Static HTML placed right after a tool's result container (decision D4). Sand, like every call panel. The line, the call button and the compact proof line; no filing promise (the closing call on the same page carries it). One line per tool: <code>eligibility</code>, <code>penalty</code>, <code>contribution</code>, <code>converter</code>.</p>
   <pre class="sg-code"><code>{% raw %}{% include result-call.html tool="contribution" %}{% endraw %}</code></pre>
   <div class="sg-demo" lang="{{ lang }}">{% include result-call.html tool="contribution" %}</div></div>
 </div>

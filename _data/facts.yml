@@ -12,7 +12,8 @@
 law: "Code on Social Security, 2020"
 law_in_force: "21 November 2025"
 # Shown on the tools hub and every tool page ("checked against the rules as of").
-# Change it when brief section 11 is rechecked.
+# Change it when brief section 11 is rechecked. Each January, also update the year
+# in the tool page titles and meta descriptions ("2026").
 tools_checked: "27 September 2026"
 epf:
   min_employees: 20

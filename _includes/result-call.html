@@ -1,10 +1,12 @@
 {%- comment -%}
   Result call box, placed directly after a tool's result container (decision D4: static).
+  Line, call button and compact proof line. No filing promise: the closing call on every tool
+  page carries it (phase 4 review: don't repeat it word for word).
   include result-call.html tool="eligibility"   (eligibility | penalty | contribution | converter)
 {%- endcomment -%}
 {%- include i18n.html -%}
 <div class="result-call">
   <p class="result-call__line">{{ t.result_call[include.tool] }}</p>
-  {% include call-block.html location="result" %}
+  <div class="result-call__button">{% include call-button.html location="result" %}</div>
   {% include proof-line.html compact=true %}
 </div>

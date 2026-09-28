@@ -39,6 +39,9 @@
     <meta property="og:description" content="{{ page.description }}">
     <meta property="og:url" content="{{ self_url }}">
 
+{%- for origin in page.preconnect %}
+    <link rel="preconnect" href="{{ origin }}" crossorigin>
+{%- endfor %}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 {%- if lang == "kn" %}

@@ -3,6 +3,7 @@
   owner decision 2026-09-27. It stays beside the other call buttons.)
   include hero.html heading="..." lead="..."
   proof=false leaves out the proof line (pages where it isn't in the hero, strategy 4.2).
+  proof="compact" shows the one-line proof under the call button (tools hub).
 {%- endcomment -%}
 <section class="hero">
   <div class="container">
@@ -11,8 +12,10 @@
     <p class="hero__lead">{{ include.lead }}</p>
     {%- endif %}
     <div class="hero__call">{% include call-button.html location="hero" %}</div>
-    {%- unless include.proof == false %}
+    {%- if include.proof == "compact" %}
+    {% include proof-line.html compact=true %}
+    {%- elsif include.proof != false %}
     {% include proof-line.html %}
-    {%- endunless %}
+    {%- endif %}
   </div>
 </section>

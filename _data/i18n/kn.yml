@@ -116,12 +116,12 @@ industries:
   also: ಎಸ್ಟೇಟ್‌ಗಳು, ಭದ್ರತಾ ಏಜೆನ್ಸಿಗಳು, ಹೌಸ್‌ಕೀಪಿಂಗ್ ಏಜೆನ್ಸಿಗಳು, ವಿತರಕರು ಮತ್ತು ಸರಬರಾಜುದಾರರು, ಸ್ಥಳೀಯ ಅಂಗಡಿಗಳು, ಹೋಟೆಲ್‌ಗಳು ಮತ್ತು ರೆಸ್ಟೋರೆಂಟ್‌ಗಳು.
 
 tools:
-  - { key: epf-eligibility, path: epf-eligibility-checker, icon: check, name: PF ಅರ್ಹತೆ ಪರಿಶೀಲನೆ, text: ನಿಮ್ಮ ವ್ಯಾಪಾರಕ್ಕೆ ಅಥವಾ ಉದ್ಯೋಗಿಗೆ PF ಅನ್ವಯಿಸುತ್ತದೆಯೇ? }
-  - { key: esi-eligibility, path: esi-eligibility-checker, icon: check, name: ESI ಅರ್ಹತೆ ಪರಿಶೀಲನೆ, text: ನಿಮ್ಮ ವ್ಯಾಪಾರಕ್ಕೆ ಅಥವಾ ಉದ್ಯೋಗಿಗೆ ESI ಅನ್ವಯಿಸುತ್ತದೆಯೇ? }
-  - { key: epf-penalty, path: epf-penalty-calculator, icon: calculator, name: PF ದಂಡ ಲೆಕ್ಕಾಚಾರ, text: PF ತಡವಾಗಿ ಕಟ್ಟಿದರೆ ಎಷ್ಟು ಆಗುತ್ತದೆ? }
-  - { key: esi-penalty, path: esi-penalty-calculator, icon: calculator, name: ESI ದಂಡ ಲೆಕ್ಕಾಚಾರ, text: ESI ತಡವಾಗಿ ಕಟ್ಟಿದರೆ ಎಷ್ಟು ಆಗುತ್ತದೆ? }
-  - { key: epf-contribution, path: epf-contribution-calculator, icon: split, name: PF ಕೊಡುಗೆ ಲೆಕ್ಕಾಚಾರ, text: ಪ್ರತಿ ತಿಂಗಳು ನೀವು ಮತ್ತು ನಿಮ್ಮ ಉದ್ಯೋಗಿ ಎಷ್ಟು PF ಕಟ್ಟಬೇಕು? }
-  - { key: esi-contribution, path: esi-contribution-calculator, icon: split, name: ESI ಕೊಡುಗೆ ಲೆಕ್ಕಾಚಾರ, text: ಪ್ರತಿ ತಿಂಗಳು ನೀವು ಮತ್ತು ನಿಮ್ಮ ಉದ್ಯೋಗಿ ಎಷ್ಟು ESI ಕಟ್ಟಬೇಕು? }
+  - { key: epf-eligibility, path: epf-eligibility-checker, icon: help, name: PF ಅರ್ಹತೆ ಪರಿಶೀಲನೆ, text: ನಿಮ್ಮ ವ್ಯಾಪಾರಕ್ಕೆ ಅಥವಾ ಉದ್ಯೋಗಿಗೆ PF ಅನ್ವಯಿಸುತ್ತದೆಯೇ? }
+  - { key: esi-eligibility, path: esi-eligibility-checker, icon: help, name: ESI ಅರ್ಹತೆ ಪರಿಶೀಲನೆ, text: ನಿಮ್ಮ ವ್ಯಾಪಾರಕ್ಕೆ ಅಥವಾ ಉದ್ಯೋಗಿಗೆ ESI ಅನ್ವಯಿಸುತ್ತದೆಯೇ? }
+  - { key: epf-penalty, path: epf-penalty-calculator, icon: schedule, name: PF ದಂಡ ಲೆಕ್ಕಾಚಾರ, text: PF ತಡವಾಗಿ ಕಟ್ಟಿದರೆ ಎಷ್ಟು ಆಗುತ್ತದೆ? }
+  - { key: esi-penalty, path: esi-penalty-calculator, icon: schedule, name: ESI ದಂಡ ಲೆಕ್ಕಾಚಾರ, text: ESI ತಡವಾಗಿ ಕಟ್ಟಿದರೆ ಎಷ್ಟು ಆಗುತ್ತದೆ? }
+  - { key: epf-contribution, path: epf-contribution-calculator, icon: calculator, name: PF ಕೊಡುಗೆ ಲೆಕ್ಕಾಚಾರ, text: ಪ್ರತಿ ತಿಂಗಳು ನೀವು ಮತ್ತು ನಿಮ್ಮ ಉದ್ಯೋಗಿ ಎಷ್ಟು PF ಕಟ್ಟಬೇಕು? }
+  - { key: esi-contribution, path: esi-contribution-calculator, icon: calculator, name: ESI ಕೊಡುಗೆ ಲೆಕ್ಕಾಚಾರ, text: ಪ್ರತಿ ತಿಂಗಳು ನೀವು ಮತ್ತು ನಿಮ್ಮ ಉದ್ಯೋಗಿ ಎಷ್ಟು ESI ಕಟ್ಟಬೇಕು? }
   - { key: converter, path: epf-excel-to-text-converter, icon: file, name: EPF ಎಕ್ಸೆಲ್‌ನಿಂದ ಟೆಕ್ಸ್ಟ್ ಪರಿವರ್ತಕ, text: "ನಿಮ್ಮ ECR (ಮಾಸಿಕ PF ರಿಟರ್ನ್) ಎಕ್ಸೆಲ್ ಶೀಟ್ ಅನ್ನು EPFOಗೆ ಬೇಕಾದ ಟೆಕ್ಸ್ಟ್ ಫೈಲ್ ಆಗಿ ಬದಲಿಸಿ." }
 
 faq_heading: ಸಾಮಾನ್ಯ ಪ್ರಶ್ನೆಗಳು
