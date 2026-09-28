@@ -219,6 +219,10 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
 - `esi-service-copy.md`, `pf-registration-copy.md`, `esi-registration-copy.md` - approved
   phase 2 copy; `phase2-review-findings.md` - six-reviewer findings on phase 2, the owner's
   decisions and the changes made after the copy docs (the built pages are the final text).
+- Phase 4 (tools): `tools-hub-copy.md` (+ shared rules for tool pages), `eligibility-checkers-copy.md`,
+  `penalty-calculators-copy.md`, `contribution-calculators-copy.md`, `converter-copy.md`;
+  `phase4-review-findings.md` (six-reviewer findings, owner decisions, how they were applied);
+  tool logic records with before/after cases: `tool-logic-176.md`, `tool-logic-a2.md`, `tool-logic-a4.md`.
 
 ### Done
 - Phase 0: Jekyll scaffold; tool logic/text update (converter fix, EPF text, ESI checker,
@@ -242,15 +246,21 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
   rebuilt pages use it. Proof facts are now `{ num, label, text }` in `en.yml`/`kn.yml` (Kannada
   split logged in `docs/kannada-review.md`). `card--brand` was removed. New pages (tools next)
   must use this layout: check them against the style guide and the phone line rule.
+- Phase 4 (English, 2026-09-28): tools hub + 7 tools rebuilt (copy docs above, compliance-reviewed,
+  owner-approved); six-reviewer review applied (`docs/phase4-review-findings.md`). New design-system
+  "Tool parts" (fields, result table, result card, due-date line, tool steps/status, tool groups) on the
+  style guide. Reviewed tool updates: ₹176 check removed from the ESI tools; PF checker checks the wage
+  before "Not sure"; one after-the-button behaviour in every tool script; converter lazy-loads a fixed
+  SheetJS 0.20.3 from `/assets`. Three guides unlinked until rewritten (9.4 #22b).
 
 ### Next (strategy section 9.3, English first; Kannada last)
-1. **Phase 4: tools hub + 7 tools** (English). Start here in the next session. Also fix the
-   tool text in strategy 9.4 #23, check the calculators' EPS cap and ₹176 figures (#4, #8),
-   replace the VISHWAS call to action on the EPF penalty calculator (brief section 3), and
-   verify the EPF checker's "EPF Scheme, 2026 (notified 29 June 2026)" line (phase 3 review E).
-2. Then English only, in this order: the
-   3 city pages, industry hub + 5 industry pages, blog index + posts (rewrite the ESI
-   posts first, then restore their links, #22), about, contact, legal, bilingual 404.
+1. **Phase 5: the 3 city pages** (English). Start here in the next session. Needs owner input
+   (strategy 9.3/0.7): local industry mix per city.
+2. Then English only, in this order: industry hub + 5 industry pages, blog index + posts (rewrite
+   the ESI posts and the three unlinked guides first, then restore their links, #22, #22b), about,
+   contact, legal, bilingual 404.
+   Open from phase 4: the 100% cap on old-slab penalty damages (a reviewed update once the Code's
+   section is confirmed, 9.4 #1/#2; the result shows a "call us" note for now).
 3. **Kannada phase (last, before launch):** first a fluent speaker reviews
    `docs/kannada-glossary.md` and `docs/kannada-review.md`; then every Kannada page is
    built from the final English page (EN + KN pairs, D9), including the EPF/ESI service
@@ -339,6 +349,27 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
 - No share image (og:image), owner decision.
 - New or changed English strings in `_data/i18n/en.yml` without Kannada yet are logged in
   `docs/kannada-review.md` for the Kannada phase.
+
+### Conventions settled during phase 4 (tools)
+- Tool page: plain H1 + `.tool-lead`, no hero call button, no visible H2 inside `.tool-section`; the tool;
+  the result call box (line + call button + compact proof, no filing promise: the closing call has it);
+  "How … is worked out" (`.prose`, ends with `.note`: "Checked against the rules as of
+  {{ site.data.facts.tools_checked }}"); "Related tools and pages" (2 tool cards + link list); FAQ;
+  closing call. Front matter adds `scripts:` and `tool: { name }` (WebApplication JSON-LD).
+- Tool text (questions, help, results) lives in each page's inline config and the tool scripts. Changing
+  it is a reviewed text change; changing what a tool calculates is a separate reviewed logic update with
+  before/after cases (`audit/check/*-cases.js`, `converter-compare.js`) and the compliance reviewer.
+- After the button, every tool: valid → focus and scroll to the result; invalid → focus the first wrong
+  field. Results that update as you type are not `aria-live`.
+- Results link to the phone first ("Call +91 82175 42975"), then a page. No links to `/contact-us`.
+- PF wages / ESI wages help: "PF wages are basic pay plus DA (dearness allowance), not the full salary.
+  Are other allowances… more than half the salary? Then add the extra part." (ESI: "the month's pay minus
+  HRA…, overtime, bonus, commission and travel allowance…"). Never "gross wages".
+- Penalty results say "Total (estimate)". No VISHWAS anywhere on tool pages.
+- The tools' "checked" date is `tools_checked` in `_data/facts.yml`; update the "2026" in tool titles each
+  January.
+- Test scripts for the preview are in `audit/check/` (git-ignored): `check-page.mjs`, `use-*.mjs`,
+  `focus-check.mjs`, `jsonld.py`.
 
 ### Local preview
 The Docker command above runs the preview. If Docker Desktop isn't running, start it
