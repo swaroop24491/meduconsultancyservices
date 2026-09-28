@@ -1,510 +1,69 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+---
+layout: base
+lang: en
+page_type: tools
+last_modified: 2026-09-28
+title: "Free PF & ESI Calculators | Medu Consultancy"
+description: "Free PF and ESI calculators for employers. Check if PF or ESI applies, work out monthly amounts and late payment costs. Updated for 2026 rules."
+breadcrumb:
+  - { name: Free tools }
+faq:
+  - q: Are these tools free?
+    a: Yes. Every tool is free. You don't need to sign up or log in.
+  - q: Are the results final?
+    a: 'No. The tools give a close estimate based on the current rules. The final amount comes from EPFO (the PF office) or ESIC (the ESI office). <a href="tel:+918217542975" data-call-location="faq">Call us</a> and we''ll check your case.'
+  - q: Do you save what I type?
+    a: No. The calculators work in your browser. Nothing you type is sent to us or saved.
+  - q: Can you do this for us every month?
+    a: 'Yes. We register businesses for PF and ESI, and file both every month. We serve businesses in Mangalore, Udupi and Bangalore. See <a href="/epf-consultancy-service">PF monthly filing</a> and <a href="/esi-consultancy-service">ESI monthly filing</a>.'
+---
+{% include hero.html heading="Free PF and ESI calculators" lead="Check if PF or ESI applies to you. Work out what you pay each month, or what paying late costs. Free, with no sign-up." proof=false %}
 
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-<meta name="author" content="Medu Consultancy">
-<meta name="robots" content="index, follow">
-<meta name="googlebot" content="index, follow">
-<meta name="theme-color" content="rgb(248,244,240)">
+<section class="section" aria-labelledby="which-heading">
+  <div class="container">
+    <h2 id="which-heading">Which tool do you need?</h2>
+    <p class="section-lead">PF (Provident Fund, also called EPF) and ESI (Employees' State Insurance) are paid every month for your staff. Pick your question.</p>
+    <div class="tool-group">
+      <h3>Does PF or ESI apply to us?</h3>
+      <div class="card-grid">
+        {% include tool-card.html key="epf-eligibility" %}
+        {% include tool-card.html key="esi-eligibility" %}
+      </div>
+    </div>
+    <div class="tool-group">
+      <h3>How much do we pay each month?</h3>
+      <div class="card-grid">
+        {% include tool-card.html key="epf-contribution" %}
+        {% include tool-card.html key="esi-contribution" %}
+      </div>
+    </div>
+    <div class="tool-group">
+      <h3>What will paying late cost?</h3>
+      <div class="card-grid">
+        {% include tool-card.html key="epf-penalty" %}
+        {% include tool-card.html key="esi-penalty" %}
+      </div>
+    </div>
+    <div class="tool-group">
+      <h3>We file PF ourselves</h3>
+      <div class="card-grid">
+        {% include tool-card.html key="converter" %}
+      </div>
+    </div>
+  </div>
+</section>
 
-    <title>EPF & ESI Tools & Calculators | Medu Consultancy</title>
-    <meta name="description" content="Free EPF and ESI tools from Medu Consultancy: contribution calculators, penalty calculators, eligibility checkers, and an Excel to text converter.">
-    <link rel="canonical" href="https://www.meduconsultancy.com/epf-esi-tools-calculators" />
+<section class="section" aria-labelledby="updated-heading">
+  <div class="container">
+    <div class="prose">
+      <h2 id="updated-heading">Kept up to date</h2>
+      <p>The rules changed a lot in 2026. The {{ site.data.facts.law }} replaced the old PF and ESI Acts on {{ site.data.facts.law_in_force }}. The PF wage limit went up from {{ site.data.facts.epf.wage_ceiling_old_text }} to {{ site.data.facts.epf.wage_ceiling_text }} on {{ site.data.facts.epf.wage_ceiling_from }}.</p>
+      <p>Our tools use the new rules. They were last checked on <strong>{{ site.data.facts.tools_checked }}</strong>.</p>
+      <p>Our founder worked 35 years at EPFO (the PF office). Our team has been doing PF and ESI work for 25+ years.</p>
+    </div>
+  </div>
+</section>
 
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Medu Consultancy">
-    <meta property="og:title" content="EPF & ESI Tools & Calculators - Free Online Estimators">
-    <meta property="og:description" content="PF and ESI contribution calculators, penalty and interest calculators, eligibility checkers, and an EPF Excel to text converter - all free, no sign-up required.">
-    <meta property="og:url" content="https://www.meduconsultancy.com/epf-esi-tools-calculators">
-    <meta property="og:image" content="https://www.meduconsultancy.com/android-chrome-512x512.png">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="EPF & ESI Tools & Calculators - Free Online Estimators">
-    <meta name="twitter:description" content="PF and ESI contribution calculators, penalty and interest calculators, eligibility checkers, and an EPF Excel to text converter - all free, no sign-up required.">
-    <meta name="twitter:image" content="https://www.meduconsultancy.com/android-chrome-512x512.png">
+{% include faq.html items=page.faq schema=true %}
 
-    <script type="application/ld+json">
-      {
-        "@context": "http://schema.org",
-        "@type": "WebPage",
-        "url": "https://www.meduconsultancy.com/epf-esi-tools-calculators",
-        "name": "EPF & ESI Tools & Calculators - Free Online Estimators",
-        "description": "Free EPF and ESI tools and calculators from Medu Consultancy: PF and ESI contribution calculators, penalty and interest calculators, eligibility checkers, and an EPF Excel to text converter.",
-        "breadcrumb": {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Home",
-              "item": "https://www.meduconsultancy.com/"
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "EPF & ESI Tools & Calculators",
-              "item": "https://www.meduconsultancy.com/epf-esi-tools-calculators"
-            }
-          ]
-        },
-        "mainEntity": {
-          "@type": "LocalBusiness",
-          "name": "Medu Consultancy",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "3rd Floor, Padil Gate Building, Padil",
-            "addressLocality": "Mangalore",
-            "addressRegion": "Karnataka",
-            "postalCode": "575007",
-            "addressCountry": "IN"
-          },
-          "telephone": "+91-8217542975",
-          "contactPoint": {
-            "@type": "ContactPoint",
-            "contactType": "Customer Service",
-            "telephone": "+91-8217542975",
-            "availableLanguage": "en"
-          },
-          "serviceArea": {
-            "@type": "Place",
-            "name": "Karnataka"
-          }
-        }
-      }
-    </script>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "ItemList",
-        "name": "EPF & ESI Tools and Calculators",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "PF Contribution Calculator",
-            "url": "https://www.meduconsultancy.com/epf-contribution-calculator"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "ESI Contribution Calculator",
-            "url": "https://www.meduconsultancy.com/esi-contribution-calculator"
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "EPF Late Payment Penalty Calculator",
-            "url": "https://www.meduconsultancy.com/epf-penalty-calculator"
-          },
-          {
-            "@type": "ListItem",
-            "position": 4,
-            "name": "ESI Late Payment Penalty Calculator",
-            "url": "https://www.meduconsultancy.com/esi-penalty-calculator"
-          },
-          {
-            "@type": "ListItem",
-            "position": 5,
-            "name": "EPF Eligibility Checker",
-            "url": "https://www.meduconsultancy.com/epf-eligibility-checker"
-          },
-          {
-            "@type": "ListItem",
-            "position": 6,
-            "name": "ESI Eligibility Checker",
-            "url": "https://www.meduconsultancy.com/esi-eligibility-checker"
-          },
-          {
-            "@type": "ListItem",
-            "position": 7,
-            "name": "EPF Excel to Text Converter",
-            "url": "https://www.meduconsultancy.com/epf-excel-to-text-converter"
-          }
-        ]
-      }
-    </script>
-
-    <link rel="stylesheet" href="/styles.css">
-    <link rel="stylesheet" href="/aboutuspage.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap&icon_names=call,mail,calculate,fact_check,sync_alt,arrow_forward" />
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4MEQF5W0XX"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-4MEQF5W0XX');
-    </script>
-</head>
-<body class="tools-page">
-    <a class="skip-link" href="#main-content">Skip to main content</a>
-
-    <!-- Header with Logo, Phone, and Navigation -->
-    <header>
-        <div class="container header-content">
-            <div class="logo">
-                <a href="/"><img src="/images/logo-new.svg" width="200" height="45" alt="Medu Consultancy Logo"></a>
-            </div>
-            <nav class="header-nav" aria-label="Primary">
-                <ul>
-                    <li>
-                        <a href="/contact-us">Contact</a>
-                    </li>
-                    <li>
-                        <a href="/epf-consultancy-service">EPF Consultancy</a>
-                    </li>
-                    <li>
-                        <a href="/esi-consultancy-service">ESI Consultancy</a>
-                    </li>
-                    <li>
-                        <a href="/epf-esi-tools-calculators">Tools</a>
-                    </li>
-                </ul>
-            </nav>
-            <div class="header-links">
-                <a href="tel:+918217542975" class="phone"><span class="material-symbols-outlined" aria-hidden="true">
-                    call
-                    </span> 8217542975</a>
-            </div>
-
-            <!-- Hamburger Icon -->
-            <div class="hamburger" id="hamburger-icon">
-                <div id="menuToggle">
-                    <input type="checkbox" id="menuCheckbox" aria-label="Open menu" />
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <nav class="mobile-nav" aria-label="Menu"><ul id="menu">
-                      <li>
-                        <a href="/" class="nav-link">Home</a>
-                      </li>
-                      <li>
-                        <a href="/about-us" class="nav-link">About Us</a>
-                      </li>
-                      <li>
-                        <a href="/contact-us" class="nav-link">Contact Us</a>
-                      </li>
-
-                      <li>
-                        <a href="/blogs" class="nav-link">Blogs</a>
-                      </li>
-                      <li>
-                        <a href="/epf-consultancy-service" class="nav-link">EPF Consultancy</a>
-                      </li>
-                      <li>
-                        <a href="/esi-consultancy-service" class="nav-link">ESI Consultancy</a>
-                      </li>
-                      <li>
-                        <a href="/epf-esi-tools-calculators" class="nav-link active" aria-current="page">Tools &amp; Calculators</a>
-                      </li>
-                      <li>
-                        <a href="/epf-excel-to-text-converter" class="nav-link">EPF Excel to Text Converter</a>
-                      </li>
-                      <li>
-                        <a href="/epf-penalty-calculator" class="nav-link">EPF Penalty Calculator</a>
-                      </li>
-                      <li>
-                        <a href="/esi-penalty-calculator" class="nav-link">ESI Penalty Calculator</a>
-                      </li>
-                      <li>
-                        <a href="/epf-eligibility-checker" class="nav-link">EPF Eligibility Checker</a>
-                      </li>
-                      <li>
-                        <a href="/esi-eligibility-checker" class="nav-link">ESI Eligibility Checker</a>
-                      </li>
-                      <li>
-                        <a href="/epf-contribution-calculator" class="nav-link">PF Contribution Calculator</a>
-                      </li>
-                      <li>
-                        <a href="/esi-contribution-calculator" class="nav-link">ESI Contribution Calculator</a>
-                      </li>
-                      <li>
-                        <div class="contact-us">
-                            <address>
-                                <p>
-                                    <a href="tel:+918217542975" class="phone">
-                                        <span class="material-symbols-outlined" aria-hidden="true">
-                                        call
-                                        </span>
-                                        8217542975</a>
-                                </p>
-                                <p><a href="mailto:hello.meduconsultancy@gmail.com" class="email">
-                                    <span class="material-symbols-outlined" aria-hidden="true">
-                                        mail
-                                        </span>
-                                        hello.meduconsultancy@gmail.com</a></p>
-                            </address>
-                            <address class="office-address">
-                                <h4>Our Office Address</h4>
-                                <p>
-                                    3rd Floor, Padil Gate Building,<br>
-                                    Padil, Mangaluru,<br>
-                                    Karnataka 575007
-                                </p>
-                            </address>
-                        </div>
-                      </li>
-                    </ul></nav>
-                  </div>
-            </div>
-        </div>
-    </header>
-
-    <div class="header-space"></div>
-    <main id="main-content" tabindex="-1">
-    <section class="blog-hero">
-        <div class="container">
-            <h1>Free EPF &amp; ESI Tools &amp; Calculators</h1>
-            <p class="subhead">Work out contributions, penalties, and eligibility yourself, in a few clicks. No sign-up, no cost - built on the same EPF and ESI rules our consultants use every day.</p>
-        </div>
-    </section>
-
-    <section class="blog-tools">
-        <div class="container">
-            <div class="section-head">
-                <h2>All Tools</h2>
-                <p>Pick a tool below and get your answer straight away.</p>
-            </div>
-            <div class="tools-grid">
-                <article class="tool-card">
-                    <span class="category-badge epf">EPF</span>
-                    <span class="tool-icon material-symbols-outlined" aria-hidden="true">calculate</span>
-                    <h3><a href="/epf-contribution-calculator">PF Contribution Calculator</a></h3>
-                    <p>Enter a salary and see the exact employer/employee PF split, including the EPS carve-out.</p>
-                    <a href="/epf-contribution-calculator" class="card-cta mtopauto">Try the calculator <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
-                </article>
-                <article class="tool-card">
-                    <span class="category-badge esi">ESI</span>
-                    <span class="tool-icon material-symbols-outlined" aria-hidden="true">calculate</span>
-                    <h3><a href="/esi-contribution-calculator">ESI Contribution Calculator</a></h3>
-                    <p>Enter gross wages and see the exact employer/employee ESI contribution split.</p>
-                    <a href="/esi-contribution-calculator" class="card-cta mtopauto">Try the calculator <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
-                </article>
-                <article class="tool-card">
-                    <span class="category-badge epf">EPF</span>
-                    <span class="tool-icon material-symbols-outlined" aria-hidden="true">calculate</span>
-                    <h3><a href="/epf-penalty-calculator">EPF Late Payment Penalty &amp; Interest Calculator</a></h3>
-                    <p>Missed an EPF due date? Estimate the interest and damages EPFO may charge on your arrears.</p>
-                    <a href="/epf-penalty-calculator" class="card-cta mtopauto">Try the calculator <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
-                </article>
-                <article class="tool-card">
-                    <span class="category-badge esi">ESI</span>
-                    <span class="tool-icon material-symbols-outlined" aria-hidden="true">calculate</span>
-                    <h3><a href="/esi-penalty-calculator">ESI Late Payment Penalty &amp; Interest Calculator</a></h3>
-                    <p>Missed an ESI due date? Estimate the interest and damages ESIC may charge on your arrears.</p>
-                    <a href="/esi-penalty-calculator" class="card-cta mtopauto">Try the calculator <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
-                </article>
-                <article class="tool-card">
-                    <span class="category-badge epf">EPF</span>
-                    <span class="tool-icon material-symbols-outlined" aria-hidden="true">fact_check</span>
-                    <h3><a href="/epf-eligibility-checker">EPF Eligibility Checker</a></h3>
-                    <p>Not sure if EPF applies to your business or a specific employee? Answer a few quick questions to find out.</p>
-                    <a href="/epf-eligibility-checker" class="card-cta mtopauto">Try the checker <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
-                </article>
-                <article class="tool-card">
-                    <span class="category-badge esi">ESI</span>
-                    <span class="tool-icon material-symbols-outlined" aria-hidden="true">fact_check</span>
-                    <h3><a href="/esi-eligibility-checker">ESI Eligibility Checker</a></h3>
-                    <p>Not sure if ESI applies to your business or a specific employee? Answer a few quick questions to find out.</p>
-                    <a href="/esi-eligibility-checker" class="card-cta mtopauto">Try the checker <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
-                </article>
-                <article class="tool-card">
-                    <span class="category-badge epf">EPF</span>
-                    <span class="tool-icon material-symbols-outlined" aria-hidden="true">sync_alt</span>
-                    <h3><a href="/epf-excel-to-text-converter">EPF Excel to Text Converter</a></h3>
-                    <p>Convert your EPF ECR Excel sheet into the text file format the EPFO portal accepts, right in your browser.</p>
-                    <a href="/epf-excel-to-text-converter" class="card-cta mtopauto">Try the converter <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <section class="why-choose-us">
-        <div class="container">
-            <h2>Why Use Our Free Tools?</h2>
-            <ul>
-                <li>
-                    <img src="/images/bolt.svg" width="100" height="100" alt="" />
-                    <h3>Instant Answers</h3>
-                    <p>No forms to submit and no waiting - every tool gives you a number or an answer in seconds.</p>
-                </li>
-                <li>
-                    <img src="/images/check.svg" width="100" height="100" alt="" />
-                    <h3>Always Free, No Sign-up</h3>
-                    <p>Use any calculator or checker on this page as often as you like, with no account or email required.</p>
-                </li>
-                <li>
-                    <img src="/images/experience.svg" width="100" height="100" alt="" />
-                    <h3>Built by Real Consultants</h3>
-                    <p>These tools run on the same EPF and ESI rules our team has applied for 25+ years of hands-on compliance work.</p>
-                </li>
-            </ul>
-        </div>
-    </section>
-
-    <section class="faqs">
-        <div class="container" itemscope itemtype="https://schema.org/FAQPage">
-            <h2>Frequently Asked Questions</h2>
-            <div class="accordion">
-              <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                <button id="tools-faq-1" aria-expanded="false">
-                  <span class="accordion-title" itemprop="name">Are these EPF and ESI calculators free to use?</span>
-                  <span class="icon" aria-hidden="true"></span>
-                </button>
-                <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                  <p itemprop="text">
-                    Yes. Every tool on this page is completely free, with no sign-up or login needed. Use them as often as you like.
-                  </p>
-                </div>
-              </div>
-
-              <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                <button id="tools-faq-2" aria-expanded="false">
-                  <span class="accordion-title" itemprop="name">Are the results legally binding?</span>
-                  <span class="icon" aria-hidden="true"></span>
-                </button>
-                <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                  <p itemprop="text">
-                    No. Each tool gives a planning estimate based on current EPF and ESI rules, not a final figure from EPFO or ESIC. For an assessment specific to your business, contact Medu Consultancy.
-                  </p>
-                </div>
-              </div>
-
-              <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                <button id="tools-faq-3" aria-expanded="false">
-                  <span class="accordion-title" itemprop="name">Which calculator should I use first?</span>
-                  <span class="icon" aria-hidden="true"></span>
-                </button>
-                <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                  <p itemprop="text">
-                    If you already pay EPF or ESI, start with the Contribution Calculator to check your monthly split. If you are behind on a payment, use the Penalty Calculator. If you are not sure EPF or ESI applies to your business at all, start with the Eligibility Checker.
-                  </p>
-                </div>
-              </div>
-
-              <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                <button id="tools-faq-4" aria-expanded="false">
-                  <span class="accordion-title" itemprop="name">Can Medu Consultancy handle my EPF and ESI every month?</span>
-                  <span class="icon" aria-hidden="true"></span>
-                </button>
-                <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                  <p itemprop="text">
-                    Yes. Alongside these free tools, we handle EPF and ESI registration, monthly filings and inspections for small and medium businesses across Karnataka. Talk to us about staying compliant from here on. Call <a class="link" href="tel:+918217542975">+91 82175 42975</a>.
-                  </p>
-                </div>
-              </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Closing Call to Action -->
-    <section class="cta">
-        <div class="container">
-            <div class="cta-slim">
-                <span class="cta-slim-text">Ready when you are &mdash; give us a call anytime.</span>
-                <a href="tel:+918217542975" class="phone cta-slim-btn">
-                    <span class="material-symbols-outlined" aria-hidden="true">
-                    call
-                    </span>
-                    +91 82175 42975
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer Section -->
-    </main>
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="about-us">
-                    <p>We are Medu Consultancy, a trusted PF consultant and ESI consultant helping small and medium businesses with EPF and ESI compliance. Our team provides personalized services, including PF registration, ESI registration, monthly PF filing, and monthly ESI filings, ensuring your business stays compliant while you focus on growth.</p>
-                </div>
-
-                <div class="quick-links link-list">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/about-us">About Us</a></li>
-                        <li><a href="/contact-us">Contact Us</a></li>
-<li><a href="/blogs">Blogs</a></li>
-<li><a href="/privacy-policy">Privacy Policy</a></li>
-<li><a href="/terms-and-conditions">Terms and Conditions</a></li>
-                    </ul>
-                </div>
-                <div class="services-offered link-list">
-                    <h3>Our Services</h3>
-                    <ul>
-                        <li><a href="/epf-consultancy-service">EPF Compliance</a></li>
-                       <li><a href="/esi-consultancy-service">ESI Compliance</a></li>
-    <li><a href="/epf-esi-tools-calculators">Tools &amp; Calculators</a></li>
-    <li><a href="/epf-excel-to-text-converter">EPF Excel to Text Converter</a></li>
-    <li><a href="/epf-penalty-calculator">EPF Penalty Calculator</a></li>
-    <li><a href="/esi-penalty-calculator">ESI Penalty Calculator</a></li>
-    <li><a href="/epf-eligibility-checker">EPF Eligibility Checker</a></li>
-    <li><a href="/esi-eligibility-checker">ESI Eligibility Checker</a></li>
-    <li><a href="/epf-contribution-calculator">PF Contribution Calculator</a></li>
-    <li><a href="/esi-contribution-calculator">ESI Contribution Calculator</a></li>
-                    </ul>
-                </div>
-                <div class="contact-us">
-                    <h3>Contact Us</h3>
-                    <address>
-                        <p>
-                            <a href="tel:+918217542975" class="phone">
-                                <span class="material-symbols-outlined" aria-hidden="true">
-                                call
-                                </span>
-                                8217542975</a>
-                        </p>
-                        <p><a href="mailto:hello.meduconsultancy@gmail.com" class="email">
-                            <span class="material-symbols-outlined" aria-hidden="true">
-                                mail
-                                </span>
-                                hello.meduconsultancy@gmail.com</a></p>
-                    </address>
-                    <address class="office-address">
-                        <h4>Our Office Address</h4>
-                        <p>
-                            3rd Floor, Padil Gate Building,<br>
-                            Padil, Mangaluru,<br>
-                            Karnataka 575007
-                        </p>
-                    </address>
-                </div>
-            </div>
-            <section class="quick-links link-list location-list">
-              <h3>Locations</h3>
-              <ul>
-                <li>
-                  <a href="/epf-esi-consultancy-mangalore">Mangalore</a>
-                </li>
-                <li>
-                  <a href="/epf-esi-consultancy-udupi">Udupi</a>
-                </li>
-                <li>
-                  <a href="/epf-esi-consultancy-bangalore">Bangalore</a>
-                </li>
-              </ul>
-            </section>
-<div class="rights">
-                <p>&#169; 2026 Medu Consultancy. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="/script.js" defer></script>
-</body>
-</html>
+{% include closing-call.html line="Rather not work it out yourself every month? We'll do it." %}
