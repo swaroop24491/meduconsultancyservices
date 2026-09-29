@@ -117,7 +117,7 @@
 <section class="section" aria-labelledby="sg-proof">
   <div class="container">
     <h2 id="sg-proof">Proof line and filing promise</h2>
-    <p class="sg-note">Proof line: 4 facts from brief section 7, used in heroes: a 2 x 2 grid split by thin lines, each fact a large green number over a short muted label (no dots or icons). Data: <code>num</code>, <code>label</code> and <code>text</code> (the one-line version). <code>compact=true</code> is the small version (result call box, end of posts). The filing promise always sits next to a call button, so it is used through the call block (How we work, After registration, closing call). Never in the hero.</p>
+    <p class="sg-note">Proof line: 4 facts from brief section 7, used in heroes: a 2 x 2 grid split by thin lines, each fact a large green number over a short muted label (no dots or icons). Data: <code>num</code>, <code>label</code> and <code>text</code> (the one-line version). In the hero, stacked in one column from 1024 to 1199px, where the column is too narrow for 2 x 2 without a number wrapping. <code>compact=true</code> is the small version (result call box, end of posts). The filing promise always sits next to a call button, so it is used through the call block (How we work, After registration, closing call). Never in the hero.</p>
     <pre class="sg-code"><code>{% raw %}{% include proof-line.html %}
 {% include proof-line.html compact=true %}
 {% include call-block.html location="closing" %}{% endraw %}</code></pre>
@@ -200,14 +200,17 @@
 <div lang="{{ lang }}">{% include situation-cards.html %}</div>
 
 <div id="sg-industries" class="sg-component">
-  <div class="container"><p class="sg-component__name">Industry and city links</p><p class="sg-note">Two link patterns. <strong>Link rows</strong> (<code>.link-row</code>): the whole row links to another page, with an optional icon, the name, one line of text and an arrow; the same design for industries (full, on home and the industries hub), cities (<code>city-cards.html</code>) and tools. <strong>Link groups</strong> (<code>.link-group</code>): a short label, then stacked arrow links, for secondary links (compact industries and cities on service pages, side by side in <code>&lt;div class="link-groups"&gt;</code>; compact two paths; guides under the tools). <code>except</code> leaves out the current industry.</p>
+  <div class="container"><p class="sg-component__name">Industry and city links</p><p class="sg-note">Two link patterns. <strong>Link rows</strong> (<code>.link-row</code>): the whole row links to another page, with an optional icon, the name, one line of text and an arrow; the same design for industries (full, on home and the industries hub), cities (<code>city-cards.html</code>) and tools. <strong>Link groups</strong> (<code>.link-group</code>): a short label, then stacked arrow links, for secondary links (compact industries and cities on service pages, side by side in <code>&lt;div class="link-groups"&gt;</code>; compact two paths; guides under the tools). <code>except</code> leaves out the current industry; <code>descriptive=true</code> on the compact industry links uses anchor text like "PF and ESI for hospitals" (industry pages linking to the other 4, so the link text describes the target, not just the name). On industry pages, <code>service-links.html</code> (the 2 service and 2 registration pages) sits in "Related tools and pages", in a <code>link-groups</code> next to the other-industry links, not next to the call block. The hub keeps it under "What's the same for every business".</p>
   <pre class="sg-code"><code>{% raw %}{% include industry-links.html %}
 &lt;div class="link-groups"&gt;
   {% include industry-links.html compact=true except="schools" %}
   {% include city-links.html %}
 &lt;/div&gt;
 {% include city-links.html descriptive=true %}   (link text "PF and ESI in Mangalore", where links stand alone)
-{% include service-links.html %}   (industry pages: the 2 service and 2 registration pages)
+&lt;div class="link-groups"&gt;
+  {% include service-links.html %}
+  {% include industry-links.html compact=true except="hospitals" descriptive=true %}
+&lt;/div&gt;
 {% include city-cards.html %}   (home "Where we work": link rows, one line each; link text "PF and ESI consultant in Mangalore"){% endraw %}</code></pre></div>
 </div>
 <div lang="{{ lang }}">
@@ -217,7 +220,8 @@
 <div class="sg-gap"></div>
 {% include city-links.html descriptive=true %}
 <div class="sg-gap"></div>
-{% include service-links.html %}</div>
+<div class="link-groups">{% include service-links.html %}
+{% include industry-links.html compact=true except="hospitals" descriptive=true %}</div></div>
 <div class="container sg-demo-plain">{% include city-cards.html %}</div>
 </div>
 

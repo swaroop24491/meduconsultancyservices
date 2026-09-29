@@ -2,7 +2,7 @@
 layout: base
 lang: en
 page_type: industry
-last_modified: 2026-09-28
+last_modified: 2026-09-29
 title: "PF & ESI for Factories | Medu Consultancy"
 description: "Count every worker, update PF and ESI when wages change, and keep records ready for inspections. We do it for factories. Call +91 82175 42975."
 breadcrumb:
@@ -14,7 +14,7 @@ service:
   audience: Factories and manufacturing units
 faq:
   - q: Do contract workers count towards our 10 or 20 workers?
-    a: "Yes. Workers a contractor sends to work for you count, and so do casual workers. Apprentices (trainees under the Apprentices Act) are not counted."
+    a: "Yes. Count workers a contractor sends to you, and casual workers too. Apprentices (trainees under the Apprentices Act) are not counted."
   - q: Does overtime count for ESI?
     a: "Overtime is left out of ESI wages. But if HRA, overtime and similar items are more than half the pay, part of them is added back. We work this out for you each month."
   - q: What should we keep ready for a PF or ESI inspection?
@@ -29,11 +29,11 @@ faq:
 <section class="section" aria-labelledby="apply-heading">
   <div class="container">
     <h2 id="apply-heading">How PF and ESI apply to your workers</h2>
-    <p class="section-lead">PF (Provident Fund) applies once you have {{ epf.min_employees }} or more employees. ESI (Employees' State Insurance) applies once you have {{ esi.min_employees }} or more.</p>
+    <p class="section-lead">PF (Provident Fund, also called EPF) applies once you have {{ epf.min_employees }} or more employees. ESI (Employees' State Insurance) applies once you have {{ esi.min_employees }} or more.</p>
     <div class="card-grid">
       <div class="card">
         <h3>Count everyone</h3>
-        <p>Casual workers and workers a contractor sends to you count towards the {{ esi.min_employees }} and {{ epf.min_employees }} limits. Leaving them out is one of the most common mistakes. Once PF or ESI applies, it stays, even if your staff drop below the limit.</p>
+        <p>Count casual workers too. Also count workers a contractor sends to you. They all count towards the {{ esi.min_employees }} and {{ epf.min_employees }} limits. Leaving them out is one of the most common mistakes. Once PF or ESI applies, it stays, even if your staff drop below the limit.</p>
       </div>
       <div class="card">
         <h3>ESI wages and overtime</h3>
@@ -55,7 +55,7 @@ faq:
   <div class="container">
     <div class="prose">
       <h2 id="join-heading">When workers don't want to join</h2>
-      <p>Some workers ask to skip PF or ESI to take home more pay. If they are eligible, they can't opt out.</p>
+      <p>Some workers ask to skip PF or ESI to take home more pay. If the law covers them, they must join.</p>
       <p>Tell them what they get. ESI gives them and their family free medical care, and cash help if they are hurt at work or fall sick. PF builds savings, a pension and life insurance.</p>
     </div>
   </div>
@@ -68,14 +68,14 @@ faq:
       <ul class="check-list">
         <li>Register your factory for PF and ESI, if you are new to it.</li>
         <li>Count every worker correctly, including casual and contract workers.</li>
-        <li>Add every new worker to PF and ESI. We guide them to get their UAN (their PF account number) with a quick face scan on the UMANG app. We create their IP number (their ESI number).</li>
+        <li>Add every new worker to PF and ESI. We guide them to get their UAN (their PF account number) with a quick face scan on the UMANG app (the government's mobile app). We create their IP number (their ESI number).</li>
         <li>Mark workers who left, and update PF and ESI when wages change.</li>
-        <li>File PF and ESI every month, before the due date (the {{ epf.due_day }}th of the next month).</li>
-        <li>Keep your records ready for PF and ESI inspections, and support you during them.</li>
+        <li>Each month, you send us salary details. We file PF and ESI before the due date (the {{ epf.due_day }}th of the next month) and email you the confirmation and challans (the payment slips).</li>
+        <li>Keep your PF and ESI records ready for inspections, and support you during them.</li>
       </ul>
-      <p>We work with factories in Mangalore, Udupi and Bangalore.</p>
+      <p>Our founder worked 35 years at EPFO (the PF office), so we know what inspectors ask to see.</p>
+      <p>We work with factories in <a href="/epf-esi-consultancy-mangalore">Mangalore</a>, <a href="/epf-esi-consultancy-udupi">Udupi</a> and <a href="/epf-esi-consultancy-bangalore">Bangalore</a>. No office visits needed. We handle everything over phone and email.</p>
     </div>
-    {% include service-links.html %}
     {% include call-block.html location="handle" %}
   </div>
 </section>
@@ -88,7 +88,10 @@ faq:
       {% include tool-card.html key="esi-eligibility" %}
       {% include tool-card.html key="esi-contribution" %}
     </div>
-    {% include industry-links.html compact=true except="factories" %}
+    <div class="link-groups">
+      {% include service-links.html %}
+      {% include industry-links.html compact=true except="factories" descriptive=true %}
+    </div>
   </div>
 </section>
 

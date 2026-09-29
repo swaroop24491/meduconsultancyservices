@@ -2,8 +2,8 @@
 layout: base
 lang: en
 page_type: industry
-last_modified: 2026-09-28
-title: "PF & ESI for Contractors | Medu Consultancy"
+last_modified: 2026-09-29
+title: "PF & ESI Compliance for Contractors | Medu Consultancy"
 description: "Workers join and leave every month. We register them, mark exits and file PF and ESI on time, with challans your clients can check. Call +91 82175 42975."
 breadcrumb:
   - { name: Industries, path: industries/ }
@@ -19,25 +19,25 @@ faq:
     a: 'Every worker at every site must be covered. Whether you need one registration or more depends on how your business is set up. <a href="tel:+918217542975" data-call-location="faq">Call us</a> and we''ll check.'
   - q: A worker left after a few days. Do we still file PF and ESI for them?
     a: "Yes. PF and ESI are due on the wages you paid them for those days. Then we mark them as left, so their records stay right."
-  - q: Is the main employer responsible for our workers' PF and ESI?
-    a: "You, the contractor, are the employer. If PF and ESI apply to you, you must pay. But if you don't, the main employer can be asked to pay. That is why clients check your challans."
+  - q: Is the principal (main) employer responsible for our workers' PF and ESI?
+    a: "You, the contractor, are the employer. If PF and ESI apply to you, you must pay. But if you don't, the main employer (in law, the 'principal employer') can be asked to pay. That is why clients check your challans."
 ---
 {%- assign esi = site.data.facts.esi -%}
 {%- assign epf = site.data.facts.epf -%}
-{% include hero.html heading="PF and ESI for contractors" lead="Your workers join and leave all the time, across many sites. We keep every worker's PF and ESI right each month, and send you challans your clients can check." %}
+{% include hero.html heading="PF and ESI for contractors" lead="Your workers join and leave all the time, across many sites. We keep every worker's PF and ESI right each month. We send you the challans (payment slips) to show your clients." %}
 
 <section class="section" aria-labelledby="apply-heading">
   <div class="container">
     <h2 id="apply-heading">How PF and ESI apply to your workers</h2>
-    <p class="section-lead">As a contractor, you are the employer of your workers. PF (Provident Fund) applies once you have {{ epf.min_employees }} or more employees. ESI (Employees' State Insurance) applies once you have {{ esi.min_employees }} or more. Then you register your workers and pay both every month. Smaller contractor? <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a> to check.</p>
+    <p class="section-lead">As a contractor, you are the employer of your workers. PF (Provident Fund, also called EPF) applies once you have {{ epf.min_employees }} or more employees. ESI (Employees' State Insurance) applies once you have {{ esi.min_employees }} or more. Then you register your workers and pay both every month. Smaller contractor? <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a> to check.</p>
     <div class="card-grid">
       <div class="card">
         <h3>Workers join and leave every month</h3>
-        <p>Each new worker needs a UAN (their PF account number) and an IP number (their ESI number). Each worker who leaves must be marked as left. If one is missed, their records don't match and problems build up.</p>
+        <p>Each new worker usually needs a UAN (their PF account number) and an IP number (their ESI number). Each worker who leaves must be marked as left. If one is missed, their records go wrong. This causes trouble later.</p>
       </div>
       <div class="card">
         <h3>Your clients check your PF and ESI</h3>
-        <p>The company that hires you is called the main employer. If you don't pay PF and ESI for your workers, the main employer can be asked to pay. So many clients ask for your challans (PF and ESI payment slips) before they clear your bills. Filing on time helps you get paid on time.</p>
+        <p>The company that hires you is called the main employer (in law, the "principal employer"). If you don't pay PF and ESI for your workers, the main employer can be asked to pay. So many clients ask for your challans (PF and ESI payment slips) before they clear your bills. Filing on time helps you get paid on time.</p>
       </div>
       <div class="card">
         <h3>Workers at many sites</h3>
@@ -45,7 +45,7 @@ faq:
       </div>
       <div class="card">
         <h3>New workers and their UAN</h3>
-        <p>New workers get their UAN with a quick face scan on the UMANG app. We guide them. If a worker already has a UAN from an old job, we use that one.</p>
+        <p>New workers get their UAN with a quick face scan on the UMANG app (the government's mobile app). We guide them. If a worker already has a UAN from an old job, we use that one.</p>
       </div>
     </div>
   </div>
@@ -55,7 +55,7 @@ faq:
   <div class="container">
     <div class="prose">
       <h2 id="join-heading">When workers don't want to join</h2>
-      <p>Many workers want full cash pay and ask to skip PF or ESI. If they are eligible, they can't opt out, and you can't leave them out.</p>
+      <p>Many workers want full cash pay and ask to skip PF or ESI. If the law covers them, they must join. You can't leave them out.</p>
       <p>Tell them what they get. PF builds savings, a pension and life insurance. It moves with them to their next job through their UAN. ESI gives them and their family free medical care, and cash help if they are hurt at work.</p>
     </div>
   </div>
@@ -68,14 +68,13 @@ faq:
       <ul class="check-list">
         <li>Register your business for PF and ESI, if you are new to it.</li>
         <li>Every month, add new workers to PF and ESI, and mark the ones who left.</li>
-        <li>Guide new workers through the UAN face scan. We create their IP number.</li>
-        <li>File PF and ESI for every site, every month, before the due date (the {{ epf.due_day }}th of the next month).</li>
-        <li>Email you the confirmation and challans to share with your clients.</li>
-        <li>Keep your records ready for PF and ESI inspections.</li>
+        <li>Guide new workers through the UAN face scan (the government's UMANG app). We create their IP number.</li>
+        <li>Each month, you send us salary details for every site. We file PF and ESI before the due date (the {{ epf.due_day }}th of the next month) and email you the confirmation and challans to share with your clients.</li>
+        <li>Keep your PF and ESI records ready for inspections.</li>
       </ul>
-      <p>We work with contractors in Mangalore, Udupi and Bangalore.</p>
+      <p>Our founder worked 35 years at EPFO (the PF office), so we keep your records the way the PF office expects.</p>
+      <p>We work with contractors in <a href="/epf-esi-consultancy-mangalore">Mangalore</a>, <a href="/epf-esi-consultancy-udupi">Udupi</a> and <a href="/epf-esi-consultancy-bangalore">Bangalore</a>. No office visits needed. We handle everything over phone and email.</p>
     </div>
-    {% include service-links.html %}
     {% include call-block.html location="handle" %}
   </div>
 </section>
@@ -88,7 +87,10 @@ faq:
       {% include tool-card.html key="esi-contribution" %}
       {% include tool-card.html key="converter" %}
     </div>
-    {% include industry-links.html compact=true except="contractors" %}
+    <div class="link-groups">
+      {% include service-links.html %}
+      {% include industry-links.html compact=true except="contractors" descriptive=true %}
+    </div>
   </div>
 </section>
 

@@ -2,8 +2,8 @@
 layout: base
 lang: en
 page_type: industry
-last_modified: 2026-09-28
-title: "PF & ESI for Hospitals | Medu Consultancy"
+last_modified: 2026-09-29
+title: "ESI & PF Consultant for Hospitals | Medu Consultancy"
 description: "Nurses near the ESI limit, agency staff and consultant doctors: we handle PF and ESI for hospitals and clinics. Call +91 82175 42975."
 breadcrumb:
   - { name: Industries, path: industries/ }
@@ -14,7 +14,7 @@ service:
   audience: Hospitals, clinics and nursing homes
 faq:
   - q: Do agency nurses and housekeeping staff count towards our 10 or 20 staff?
-    a: "Yes. Workers an agency or contractor sends to work for you count towards the 10 (ESI) and 20 (PF) limits. Usually the agency, as their employer, pays their PF and ESI. Ask the agency for their challans every month."
+    a: "Yes. If an agency or contractor sends workers to you, they count. They count towards the 10 (ESI) and 20 (PF) limits. Usually the agency, as their employer, pays their PF and ESI. Ask the agency for their challans every month."
   - q: Do we pay PF for visiting consultant doctors?
     a: 'It depends on how they work with you. If a doctor works like a staff member, they may count as an employee. Then they count towards your 10 and 20, and may have to be in PF. <a href="tel:+918217542975" data-call-location="faq">Call us</a> and we''ll check each case with you.'
   - q: A nurse's pay went above ₹21,000 this month. Do we stop ESI?
@@ -24,28 +24,29 @@ faq:
 ---
 {%- assign esi = site.data.facts.esi -%}
 {%- assign epf = site.data.facts.epf -%}
-{% include hero.html heading="PF and ESI for hospitals" lead="Hospitals have nurses, support staff, agency workers and doctors, each with different PF and ESI rules. We register your staff and file every month, so nothing is missed." %}
+{% include hero.html heading="PF and ESI for hospitals" lead="Hospitals have nurses, support staff, agency workers and doctors. PF and ESI rules are different for each. We register your staff and file every month, so nothing is missed." %}
 
 <section class="section" aria-labelledby="apply-heading">
   <div class="container">
     <h2 id="apply-heading">How PF and ESI apply to your staff</h2>
-    <p class="section-lead">PF (Provident Fund) is savings and a pension for employees. ESI (Employees' State Insurance) gives them medical care. PF applies once you have {{ epf.min_employees }} or more employees. ESI applies once you have {{ esi.min_employees }} or more.</p>
+    <p class="section-lead">PF (Provident Fund, also called EPF) is savings and a pension for employees. ESI (Employees' State Insurance) gives them medical care. PF applies once you have {{ epf.min_employees }} or more employees. ESI applies once you have {{ esi.min_employees }} or more.</p>
     <div class="card-grid">
       <div class="card">
         <h3>Nurses and support staff</h3>
-        <p>Many nurses, ward staff and helpers earn {{ esi.wage_ceiling_text }} a month or less in ESI wages, so they must be in ESI. ESI wages are the month's pay without some items, like HRA (house rent allowance) and overtime. If those items are more than half the pay, part of them is added back. Shift and night-duty allowances usually count. So ESI wages can change from month to month.</p>
+        <p>Many nurses, ward staff and helpers must be in ESI. Their ESI wages are {{ esi.wage_ceiling_text }} a month or less.</p>
+        <p>ESI wages are the month's pay minus some items, like HRA (house rent allowance) and overtime. If these items are more than half the pay, part of them counts again. Shift and night-duty allowances usually count. So ESI wages can change each month.</p>
       </div>
       <div class="card">
         <h3>When pay goes above {{ esi.wage_ceiling_text }}</h3>
-        <p>ESI works in two six-month periods: {{ esi.contribution_periods_text }}. If a nurse's pay goes above {{ esi.wage_ceiling_text }} during a period, they stay in ESI until it ends. You keep paying ESI for them until then.</p>
+        <p>ESI works in two six-month periods: {{ esi.contribution_periods_text }}. Say a nurse's pay goes above {{ esi.wage_ceiling_text }} in the middle of a period. They stay in ESI until that period ends. You keep paying ESI for them till then.</p>
       </div>
       <div class="card">
         <h3>Agency staff</h3>
         <p>Housekeeping, security and some nursing staff often come from an agency. If the agency doesn't pay their PF and ESI, the hospital can be held responsible. So ask the agency for proof every month: their challan (the PF or ESI payment slip).</p>
       </div>
       <div class="card">
-        <h3>Doctors on consultant terms</h3>
-        <p>Some doctors work as consultants, not staff. But if a doctor works like a staff member, EPFO (the PF office) may treat them as one and ask for PF. <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a> to check how to count your doctors.</p>
+        <h3>Visiting and consultant doctors</h3>
+        <p>Some doctors work as consultants, not staff. But if a doctor works like staff, EPFO (the PF office) may count them as staff. Then it can ask for PF. <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a> to check how to count your doctors.</p>
       </div>
     </div>
   </div>
@@ -55,7 +56,7 @@ faq:
   <div class="container">
     <div class="prose">
       <h2 id="join-heading">When staff don't want to join</h2>
-      <p>Nurses and ward staff sometimes ask to skip PF or ESI to take home more pay. If they are eligible, they can't opt out.</p>
+      <p>Nurses and ward staff sometimes ask to skip PF or ESI to take home more pay. If the law covers them, they must join. They can't say no.</p>
       <p>It helps to tell them what they get. ESI gives them and their family free medical care, and cash help when they are sick or on maternity leave. PF builds savings, a pension and life insurance. We can help you explain this to your staff.</p>
     </div>
   </div>
@@ -67,15 +68,15 @@ faq:
       <h2 id="handle-heading">What we handle for you</h2>
       <ul class="check-list">
         <li>Register your hospital for PF and ESI, if you are new to it.</li>
-        <li>Add every new staff member to PF and ESI. We guide them to get their UAN (their PF account number) with a quick face scan on the UMANG app. We create their IP number (their ESI number).</li>
-        <li>Work out ESI wages each month as shift pay changes.</li>
-        <li>File PF and ESI every month, before the due date (the {{ epf.due_day }}th of the next month).</li>
-        <li>Keep your records ready for PF and ESI inspections.</li>
+        <li>Add every new staff member to PF and ESI. We guide them to get their UAN (their PF account number) with a quick face scan on the UMANG app (the government's mobile app). We create their IP number (their ESI number).</li>
+        <li>Work out ESI wages every month, when shift pay changes.</li>
+        <li>Each month, you send us salary details. We file PF and ESI before the due date (the {{ epf.due_day }}th of the next month) and email you the confirmation and challans (the payment slips).</li>
+        <li>Keep your PF and ESI records ready for inspections.</li>
         <li>Help your staff with ESI claims and their PF details.</li>
       </ul>
-      <p>We work with hospitals and clinics in Mangalore, Udupi and Bangalore.</p>
+      <p>Our founder worked 35 years at EPFO (the PF office), so we know how PF rules apply to doctors and agency staff.</p>
+      <p>We work with hospitals and clinics in <a href="/epf-esi-consultancy-mangalore">Mangalore</a>, <a href="/epf-esi-consultancy-udupi">Udupi</a> and <a href="/epf-esi-consultancy-bangalore">Bangalore</a>. No office visits needed. We handle everything over phone and email.</p>
     </div>
-    {% include service-links.html %}
     {% include call-block.html location="handle" %}
   </div>
 </section>
@@ -88,10 +89,13 @@ faq:
       {% include tool-card.html key="esi-contribution" %}
       {% include tool-card.html key="epf-eligibility" %}
     </div>
-    {% include industry-links.html compact=true except="hospitals" %}
+    <div class="link-groups">
+      {% include service-links.html %}
+      {% include industry-links.html compact=true except="hospitals" descriptive=true %}
+    </div>
   </div>
 </section>
 
 {% include faq.html items=page.faq schema=true %}
 
-{% include closing-call.html line="Tell us about your hospital. We'll handle PF and ESI for every staff member." %}
+{% include closing-call.html line="Tell us about your hospital. We'll make sure every employee who should be in PF and ESI is covered." %}

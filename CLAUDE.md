@@ -278,24 +278,36 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
     onto its own line at 1024px; a CSS-only fix didn't work in testing, real fix needs a markup
     change at every call site.
 
-- Phase 6 (English, 2026-09-28): industry hub (`industries/index.html`) + 5 industry pages
+- Phase 6 (English, built 2026-09-28): industry hub (`industries/index.html`) + 5 industry pages
   (`industries/<key>.html`). Copy in `docs/industries-copy.md` (compliance-reviewed, owner-approved; the
-  built pages are the final text). "Where … go wrong" dropped; staff-benefits links wait for phase 7.
-  New `service-links.html` include (style guide). `Service.audience` in schema; hub is a `CollectionPage`
-  (`page_type: industries`). New facts to verify: strategy 9.4 #27–31. Six-reviewer round not yet run.
+  built pages are the final text). Staff-benefits links wait for phase 7.
+  **Six-reviewer round run 2026-09-29** (marketing, service, business owner, compliance, design,
+  SEO/Kannada): no wrong facts, no out-of-scope offers, no accessibility failures; the 5 pages pass the
+  doorway-page rule (39–58% shared text vs ~70% on the city pages). Findings in `docs/phase6-review-findings.md`.
+  **Owner: "go with the recommendations" — applied 2026-09-29:** IT page reworded off salary-structure
+  design; plain-English fixes ("eligible/opt out" and others); schools hero/CBSE wording corrected;
+  new titles (hospitals, contractors, schools, IT, hub) and "principal employer" on contractors; city
+  names in body text now link to the 3 city pages; a founder/EPFO line per page; `service-links.html`
+  moved into "Related tools and pages" next to the other-industry links (both `descriptive=true`);
+  hub hero now explains PF/ESI and its "Staff don't want to join?" section folded in; hub schema gained
+  an `ItemList`; `Service.audienceType` added. Site-wide fixes alongside: header marks a nav section
+  current on child pages, not just the exact URL (`header.html`); hero proof facts no longer wrap
+  ("35 years") from 1024–1199px (`site.css`). Brief section 5's out-of-date overtime lines corrected to
+  match section 11. New facts to verify: strategy 9.4 #27–33.
+  **Still open (owner input needed, not guessed):** schools is the thinnest of the 5 pages and could use
+  a real school-specific point (E4 in the findings doc); per-industry client counts (G4).
 
 ### Next (strategy section 9.3, English first; Kannada last)
-1. Run all six reviewers on the industry pages (page type finished) and bring findings to the owner.
-2. Then blog index + posts (rewrite the ESI posts and the three unlinked guides first, then restore
+1. Then blog index + posts (rewrite the ESI posts and the three unlinked guides first, then restore
    their links, #22, #22b; add the staff-benefits post links to the 5 industry pages and the hub), about, contact, legal, bilingual 404.
    Open from phase 4: the 100% cap on old-slab penalty damages (a reviewed update once the Code's
    section is confirmed, 9.4 #1/#2; the result shows a "call us" note for now).
-3. **Kannada phase (last, before launch):** first a fluent speaker reviews
+2. **Kannada phase (last, before launch):** first a fluent speaker reviews
    `docs/kannada-glossary.md` and `docs/kannada-review.md`; then every Kannada page is
    built from the final English page (EN + KN pairs, D9), including the EPF/ESI service
    and registration pages. The old `kn/` pages are replaced then (e.g. the old Kannada
    ESI page still says "gross salary"). Run the SEO/Kannada reviewer on each.
-4. Launch check (phase 9): internal-link crawl of `_site` (the industry pages are
+3. Launch check (phase 9): internal-link crawl of `_site` (the industry pages are
    already linked from rebuilt pages), all six reviewers, strategy 9.4 verified by the
    compliance reviewer (incl. #10: remove the ESI "stay to the end of the period" line
    if not confirmed). Owner input still needed: city-specific detail to reduce the

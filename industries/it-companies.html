@@ -2,9 +2,9 @@
 layout: base
 lang: en
 page_type: industry
-last_modified: 2026-09-28
-title: "PF & ESI for IT Companies | Medu Consultancy"
-description: "The PF wage limit is now ₹25,000, and the 50% wages rule changes salary structures. We check your PF and file every month. Call +91 82175 42975."
+last_modified: 2026-09-29
+title: "PF & ESI for IT Companies: ₹25,000 Rule | Medu Consultancy"
+description: "The PF wage limit is now ₹25,000, and the 50% wages rule can raise PF wages. We work out your PF and file every month. Call +91 82175 42975."
 breadcrumb:
   - { name: Industries, path: industries/ }
   - { name: IT companies }
@@ -16,7 +16,7 @@ faq:
   - q: Which of our staff come under PF now?
     a: 'From 17 September 2026, everyone with PF wages of ₹25,000 a month or less must be in PF. Anyone already in PF stays in PF. Staff above ₹25,000 who were never in PF can choose to join. Were they in PF at an old job? <a href="tel:+918217542975" data-call-location="faq">Call us</a> to check.'
   - q: Our basic pay is 40% of salary. What changes?
-    a: 'Pay items like HRA, travel allowance, overtime, bonus and commission are left out of PF wages. But if they are more than half the salary, the part above half is added back. So if basic pay and DA are 40% of the salary, PF wages usually go up to half the salary. Some other allowances may count in full. <a href="tel:+918217542975" data-call-location="faq">Call us</a> and we''ll work it out for your salary structure.'
+    a: 'Some pay items are left out of PF wages. These are HRA, travel allowance, overtime, bonus and commission. But they can''t be more than half the salary. If they are, the extra part counts as PF wages. So if basic pay and DA are 40% of the salary, PF wages usually become 50%. Some other allowances may count in full. <a href="tel:+918217542975" data-call-location="faq">Call us</a> and we''ll work it out for your salary structure.'
   - q: An employee earning ₹40,000 wants to stop PF. Can they?
     a: "No. If they are already in PF, they stay in PF, even above ₹25,000."
   - q: What about September 2026 salaries?
@@ -24,28 +24,28 @@ faq:
 ---
 {%- assign esi = site.data.facts.esi -%}
 {%- assign epf = site.data.facts.epf -%}
-{% include hero.html heading="PF and ESI for IT companies" lead="PF rules have changed. The wage limit is now ₹25,000. And some allowances can now count as PF wages. We check your PF and file PF and ESI every month." %}
+{% include hero.html heading="PF and ESI for IT companies" lead="PF rules have changed. The wage limit is now ₹25,000. And some allowances now count as PF wages (the pay PF is worked out on). We check your PF and file PF and ESI every month." %}
 
 <section class="section" aria-labelledby="apply-heading">
   <div class="container">
     <h2 id="apply-heading">How PF and ESI apply to your staff</h2>
-    <p class="section-lead">PF (Provident Fund) applies once you have {{ epf.min_employees }} or more employees. ESI (Employees' State Insurance) applies once you have {{ esi.min_employees }} or more.</p>
+    <p class="section-lead">PF (Provident Fund, also called EPF) applies once you have {{ epf.min_employees }} or more employees. ESI (Employees' State Insurance) applies once you have {{ esi.min_employees }} or more.</p>
     <div class="card-grid">
       <div class="card">
         <h3>The new {{ epf.wage_ceiling_text }} PF limit</h3>
-        <p>From {{ epf.wage_ceiling_from }}, PF is a must for employees whose PF wages are {{ epf.wage_ceiling_text }} a month or less. It was {{ epf.wage_ceiling_old_text }} before. PF wages are mainly basic pay plus DA (dearness allowance), not the full salary. So many more of your staff now must be in PF.</p>
+        <p>From {{ epf.wage_ceiling_from }}, PF is a must for employees whose PF wages are {{ epf.wage_ceiling_text }} a month or less. It was {{ epf.wage_ceiling_old_text }} before. PF wages are mainly basic pay plus DA (dearness allowance), not the full salary. So many more of your staff must now be in PF.</p>
       </div>
       <div class="card">
         <h3>The 50% wages rule</h3>
-        <p>Many IT salaries have a low basic pay and large allowances. If other allowances are more than half the salary, part of them also counts as PF wages. Salary structures may need to change. We work this out for you.</p>
+        <p>Many IT salaries have low basic pay and big allowances. If these allowances are more than half the salary, part of them now counts as PF wages too. So PF wages, and the PF you pay, can go up. We work out the right PF wages for you each month.</p>
       </div>
       <div class="card">
         <h3>"Can I stop my PF?"</h3>
-        <p>An employee who is already in PF stays in PF, even when their salary goes above {{ epf.wage_ceiling_text }}. For a new joiner above {{ epf.wage_ceiling_text }}, check if they were in PF at an old job. If they were, they usually stay in PF. <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a> to check.</p>
+        <p>An employee who is already in PF stays in PF, even when their salary goes above {{ epf.wage_ceiling_text }}. Is a new joiner earning above {{ epf.wage_ceiling_text }}? Check if they had PF at an old job. If yes, they usually stay in PF. <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a> to check.</p>
       </div>
       <div class="card">
         <h3>ESI</h3>
-        <p>ESI applies to your company once you have {{ esi.min_employees }} or more employees. But only staff with ESI wages of {{ esi.wage_ceiling_text }} a month or less ({{ esi.wage_ceiling_pwd_text }} for a person with a disability) are in ESI, like office support staff.</p>
+        <p>ESI applies to your company once you have {{ esi.min_employees }} or more employees. But only staff earning {{ esi.wage_ceiling_text }} a month or less in ESI wages are in ESI. For a person with a disability, the limit is {{ esi.wage_ceiling_pwd_text }}. In IT companies, this is usually office support staff.</p>
       </div>
     </div>
   </div>
@@ -70,11 +70,13 @@ faq:
         <li>Check which staff now come under PF with the {{ epf.wage_ceiling_text }} limit.</li>
         <li>Work out PF wages with the 50% rule, each month.</li>
         <li>Check new joiners' past PF membership.</li>
-        <li>File PF and ESI every month, before the due date (the {{ epf.due_day }}th of the next month).</li>
+        <li>Add every new employee to PF, and to ESI if they qualify. We guide them to get their UAN (their PF account number) with a quick face scan on the UMANG app (the government's mobile app).</li>
+        <li>Each month, you send us salary details. We file PF and ESI before the due date (the {{ epf.due_day }}th of the next month) and email you the confirmation and challans (the payment slips).</li>
+        <li>Keep your PF and ESI records ready for inspections.</li>
       </ul>
-      <p>We work with IT companies in Mangalore, Udupi and Bangalore.</p>
+      <p>Our founder worked 35 years at EPFO (the PF office), so we can explain the new rules in plain words.</p>
+      <p>We work with IT companies in <a href="/epf-esi-consultancy-mangalore">Mangalore</a>, <a href="/epf-esi-consultancy-udupi">Udupi</a> and <a href="/epf-esi-consultancy-bangalore">Bangalore</a>. We have team members in Bangalore, backed by our Mangaluru office. No office visits needed. We handle everything over phone and email.</p>
     </div>
-    {% include service-links.html %}
     {% include call-block.html location="handle" %}
   </div>
 </section>
@@ -87,10 +89,13 @@ faq:
       {% include tool-card.html key="epf-contribution" %}
       {% include tool-card.html key="converter" %}
     </div>
-    {% include industry-links.html compact=true except="it-companies" %}
+    <div class="link-groups">
+      {% include service-links.html %}
+      {% include industry-links.html compact=true except="it-companies" descriptive=true %}
+    </div>
   </div>
 </section>
 
 {% include faq.html items=page.faq schema=true %}
 
-{% include closing-call.html line="Tell us your salary structure. We'll check your PF under the new rules." %}
+{% include closing-call.html line="Not sure how the new PF rules affect your staff? We'll check and file for you." %}

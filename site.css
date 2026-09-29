@@ -682,6 +682,11 @@ html[lang="kn"] .proof-line__num { letter-spacing: 0; }
         margin-top: 0;
     }
 }
+/* The proof column is too narrow from 1024 to 1199px for a 2 x 2 grid without
+   a number wrapping (e.g. "35 years"): stack the 4 facts in one column instead. */
+@media (min-width: 1024px) and (max-width: 1199px) {
+    .hero .proof-line:not(.proof-line--compact) { grid-template-columns: minmax(0, 1fr); }
+}
 
 /* ---------- Text section (prose) ---------- */
 .prose { max-width: var(--container-text); }

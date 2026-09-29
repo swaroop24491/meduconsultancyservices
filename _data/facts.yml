@@ -7,8 +7,9 @@
 # grep for it there too: "15th", "20 or more", "10 or more", "towards 20",
 # "towards 10", "₹21,000", "₹25,000", "12%", "0.75%", "3.25%".
 # Pages: index (home FAQ and 'Why us' due-date card), _data/i18n/en.yml (situation and industry cards), epf-consultancy-service, esi-consultancy-service, pf-registration,
-# esi-registration, and the tool pages (FAQ answers, meta descriptions and the
-# text inside the tool scripts, e.g. EPF_WAGE_CEILING = 25000).
+# esi-registration, industries/*.html (FAQ answers, meta descriptions and the IT hero: "₹25,000",
+# "₹21,000", "20 or more", "10 or more", "17 September 2026", contribution periods), and the tool
+# pages (FAQ answers, meta descriptions and the text inside the tool scripts, e.g. EPF_WAGE_CEILING = 25000).
 law: "Code on Social Security, 2020"
 law_in_force: "21 November 2025"
 # Shown on the tools hub and every tool page ("checked against the rules as of").
