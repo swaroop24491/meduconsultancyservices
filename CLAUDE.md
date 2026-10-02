@@ -414,7 +414,7 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
    businesses choose us", so ask: full, without the stat, or leave out. (b) Router `situations.monthly.text` (home +
    city pages): change to "…once you share the documents we need" to match two paths? (c) Optional city detail.
    **About v2 (2026-10-02, built and committed):** copy in `docs/about-contact-legal-copy-v2.md` section 1
-   (compliance-reviewed, owner-approved). Order: hero (H1 "About Medu Consultancy", lead = founder lines + "For over 25 years, our team has filed PF and ESI every month for our clients.", `proof="strip"`; no "Who's behind it" on About, owner 2026-10-03) → "Our mission" (owner, plain version of the old mission; never "CEO", "leads", "seamless", "complexities") → "Our team, and where we work" (white, 3 `.col-word`
+   (compliance-reviewed, owner-approved). Order: hero (H1 "About Medu Consultancy", lead = founder lines + "For over 25 years, our team has filed PF and ESI every month for our clients.", `proof="strip"`; no "Who's behind it" on About, owner 2026-10-03); no mission section (owner removed it 2026-10-03; never "CEO", "leads", "seamless", "complexities") → "Our team, and where we work" (white, 3 `.col-word`
    columns: 6 people / 3 cities + `city-links.html descriptive=true label=false` / 3 languages) → full two paths →
    closing. `founder-note stat=true` now has the founder photo slot. Shared `why.items[1].text` fixed to "must be paid
    by the 15th" (compliance). Contact, Privacy and Terms are next, in the same doc.
