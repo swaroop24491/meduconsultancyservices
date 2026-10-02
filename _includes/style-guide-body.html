@@ -24,6 +24,7 @@
         <li><a href="#sg-cards">Content cards</a></li>
         <li><a href="#sg-office">No office visits</a></li>
         <li><a href="#sg-situations">Situation router</a></li>
+        <li><a href="#sg-why">Why businesses choose us</a></li>
         <li><a href="#sg-industries">Industry and city links</a></li>
         <li><a href="#sg-tools">Tool cards</a></li>
         <li><a href="#sg-tool-parts">Tool parts (fields, results)</a></li>
@@ -207,10 +208,16 @@
 </div>
 
 <div id="sg-situations" class="sg-component">
-  <div class="container"><p class="sg-component__name">Situation router</p><p class="sg-note">"What do you need help with?": four choices (register, file every month, not sure, paid late), each with links; the last two start with a call row. Home page only; replaces two paths there.</p>
+  <div class="container"><p class="sg-component__name">Situation router</p><p class="sg-note">"What do you need help with?": four choices (register, file every month, not sure, paid late), each with links; the last two start with a call row. Home and city pages; replaces two paths there.</p>
   <pre class="sg-code"><code>{% raw %}{% include situation-cards.html %}{% endraw %}</code></pre></div>
 </div>
 <div lang="{{ lang }}">{% include situation-cards.html %}</div>
+
+<div id="sg-why" class="sg-component">
+  <div class="container"><p class="sg-component__name">Why businesses choose us</p><p class="sg-note">Three columns with big words: the founder (with the founder photo slot and About link), every due date, 3 languages. White band by default. Home and city pages (there it replaces the founder note). Text in <code>t.why</code>.</p>
+  <pre class="sg-code"><code>{% raw %}{% include why-us.html %}{% endraw %}</code></pre></div>
+</div>
+<div lang="{{ lang }}">{% include why-us.html %}</div>
 
 <div id="sg-industries" class="sg-component">
   <div class="container"><p class="sg-component__name">Industry and city links</p><p class="sg-note">Two link patterns. <strong>Link rows</strong> (<code>.link-row</code>): the whole row links to another page, with an optional icon, the name, one line of text and an arrow; the same design for industries (full, on home and the industries hub), cities (<code>city-cards.html</code>) and tools. <strong>Link groups</strong> (<code>.link-group</code>): a short label, then stacked arrow links, for secondary links (compact industries and cities on service pages, side by side in <code>&lt;div class="link-groups"&gt;</code>; compact two paths; guides under the tools). <code>link-groups--wide</code> puts up to 4 groups side by side from 1024px in a full-width section (PF page "More help with PF": guides, industries, cities, the other service). <code>except</code> leaves out the current industry; <code>descriptive=true</code> on the compact industry links uses anchor text like "PF and ESI for hospitals" (industry pages linking to the other 4, so the link text describes the target, not just the name). On industry pages, <code>service-links.html</code> (the 2 service and 2 registration pages) sits in "Related tools and pages", in a <code>link-groups</code> next to the other-industry links, not next to the call block. The hub keeps it under "What's the same for every business".</p>

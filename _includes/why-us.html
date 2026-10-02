@@ -1,0 +1,25 @@
+{%- comment -%}
+  "Why businesses choose us": 3 columns with big words (founder, every due date, 3 languages).
+  Home and the city pages. include why-us.html   (white band; bg="tint" or bg="none" to change)
+{%- endcomment -%}
+{%- include i18n.html -%}
+{%- assign w = t.why -%}
+{%- assign bg = include.bg | default: "surface" -%}
+<section class="section{% if bg != "none" %} section--{{ bg }}{% endif %} section--stacked" aria-labelledby="why-heading">
+  <div class="container">
+    <h2 id="why-heading">{{ w.heading }}</h2>
+    <div class="card-grid card-grid--columns">
+      {%- for c in w.items %}
+      <div class="card">
+        <p class="col-word">{{ c.word }}</p>
+        <h3>{{ c.title }}</h3>
+        <p>{{ c.text }}</p>
+        {%- if forloop.first %}
+        {% include photo-slot.html src=site.data.site.founder_photo alt=w.founder_photo_alt %}
+        {% include resolve-link.html path="about-us" %}<p><a class="link-arrow" href="{{ href }}"{% if link_en %} hreflang="en"{% endif %}>{{ w.about }}{% if link_en %}<span class="link-lang"> {{ t.english_marker }}</span>{% endif %}&#8288;{% include icon.html name="arrow" size="18" %}</a></p>
+        {%- endif %}
+      </div>
+      {%- endfor %}
+    </div>
+  </div>
+</section>

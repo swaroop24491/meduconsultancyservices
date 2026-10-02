@@ -26,30 +26,7 @@ faq:
 
 {% include situation-cards.html %}
 
-<section class="section section--surface section--stacked" aria-labelledby="why-heading">
-  <div class="container">
-    <h2 id="why-heading">Why businesses choose us</h2>
-    <div class="card-grid card-grid--columns">
-      <div class="card">
-        <p class="col-word">35 years</p>
-        <h3>Our founder worked 35 years at EPFO</h3>
-        <p>Medu Thirumaleshwara Bhat started Medu Consultancy in 2000. He worked at EPFO (the PF office) for 35 years. We learned how the PF office works from him.</p>
-        {% include photo-slot.html src=site.data.site.founder_photo alt="Medu Thirumaleshwara Bhat, founder of Medu Consultancy" %}
-        <p><a class="link-arrow" href="/about-us">About us&#8288;{% include icon.html name="arrow" size="18" %}</a></p>
-      </div>
-      <div class="card">
-        <p class="col-word">Every due date</p>
-        <h3>We never miss a PF or ESI due date.</h3>
-        <p>PF and ESI for each month's salaries are due by the 15th of the next month. We track these dates for every client and file before them.</p>
-      </div>
-      <div class="card">
-        <p class="col-word">3 languages</p>
-        <h3>Talk to us in English, Kannada or Hindi</h3>
-        <p>You can talk to us in English or Kannada, and we can help you in Hindi too. Our website is in English and Kannada.</p>
-      </div>
-    </div>
-  </div>
-</section>
+{% include why-us.html %}
 
 {% include how-we-work.html short=true bg="none" %}
 
