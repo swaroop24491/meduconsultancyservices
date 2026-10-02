@@ -297,9 +297,25 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
   **Still open (owner input needed, not guessed):** schools is the thinnest of the 5 pages and could use
   a real school-specific point (E4 in the findings doc); per-industry client counts (G4).
 
+- Phase 7 (English, 2026-10-02): blog index + 11 posts rebuilt (copy docs `docs/blog-*-copy.md`, each
+  compliance-reviewed and owner-approved; six-reviewer round in `docs/phase7-review-findings.md`, applied).
+  The 4 old benefits posts are replaced by `epf-benefits-for-employees`, `esi-benefits-for-employees`,
+  `pf-esi-benefits-for-employers` (old URLs redirect via `redirect_from`; `sitemap.xml` skips redirect
+  stubs). The two unlinked guides were rewritten and their links restored (9.4 #22/#22b done); staff
+  links added to the industry hub and 5 pages. Post conventions: `page_type: post`, front matter
+  `headline` (and optional `published`); header = `section--stacked tool-section` with H1, `.tool-lead`
+  short answer, `.note` byline "Rules checked on {{ site.data.facts.tools_checked }}"; body = one
+  `.prose` section per H2; one mid-post `result-call.html line="..."` (new optional `line=`); "Related
+  tools and pages" (tool cards + link list + one line linking the 3 city pages); `closing-call`.
+  `schema.html` emits BlogPosting. No FAQ block on posts. Staff posts speak to the employee (brief §5
+  exception) but their call boxes speak to the employer. Benefit descriptions are generic and unverified
+  (strategy 9.4); late-payment rates/caps still match the tools (9.4 #1/#2/#25).
+
 ### Next (strategy section 9.3, English first; Kannada last)
-1. Then blog index + posts (rewrite the ESI posts and the three unlinked guides first, then restore
-   their links, #22, #22b; add the staff-benefits post links to the 5 industry pages and the hub), about, contact, legal, bilingual 404.
+1. Phase 8: about, contact, privacy, terms, bilingual 404. Deferred from phase 7 (after the launch check,
+   before Kannada): make each PF/ESI twin post more distinct (inspection 87%, late-payment 82%, threshold 75%
+   similar) and merge the short one-paragraph sections; `.link-arrow` tap targets (26px) as a separate
+   style-guide-first change; real `published:` dates for posts.
    Open from phase 4: the 100% cap on old-slab penalty damages (a reviewed update once the Code's
    section is confirmed, 9.4 #1/#2; the result shows a "call us" note for now).
 2. **Kannada phase (last, before launch):** first a fluent speaker reviews
