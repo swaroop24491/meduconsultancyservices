@@ -439,9 +439,11 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
    commit. Phase 8 history: `docs/phase8-copy.md`, `docs/phase8-review-findings.md`. Settled facts: founder retired,
    past tense only, no job title; email in the footer only; no invite to visit the office; Contact's plain "Open in
    Google Maps" link; Privacy has no promise about call data. Then the launch check (phase 9), then the Kannada phase.
-   **Uncommitted in the working tree:** the 3 city pages have a "Who's behind it" `founder-note` added (pending
-   decision (a) above). Leave it uncommitted until the owner decides: full, without the stat, or remove (`git checkout`
-   the 3 files).
+   **Committed (owner, 2026-10-03: "commit and push all changes"):** the 3 city pages have a "Who's behind it"
+   `founder-note stat=true bg="tint"` above "More help". Decision (a) is still open on its form: keep the stat or not,
+   given the big "35 years" under "Why businesses choose us".
+   **Hero size (2026-10-03, owner):** hero H1 uses its own `--text-hero` token (max 56px, was `--text-display` 72px);
+   `.hero__text:only-child` spans the full grid when there is no proof column; proof-strip numbers max 44px.
    Open from earlier (owner to decide): the 5 industry pages say "Our founder worked 35 years at EPFO (the
    PF office), so we know/keep/can explain..." (factories:76, hospitals:77, contractors:75, schools:68,
    it-companies:77); compliance rates it medium (could read as current inside knowledge); propose old vs
