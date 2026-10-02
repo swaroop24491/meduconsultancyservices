@@ -2,9 +2,9 @@
 layout: base
 lang: en
 page_type: registration
-last_modified: 2026-09-27
+last_modified: 2026-10-02
 title: "ESI Registration for Employers in Mangalore | Medu Consultancy"
-description: "10 or more staff? We register your business for ESI in Mangalore, Udupi and Bangalore, and create IP numbers for staff. Call +91 82175 42975."
+description: "10 or more staff? We register your business for ESI in Mangalore, Udupi and Bangalore, and add your staff. Call +91 82175 42975."
 breadcrumb:
   - { name: ESI registration }
 service:
@@ -12,30 +12,31 @@ service:
   name: ESI registration for employers
   offers:
     - ESI registration for your business
-    - IP numbers for your staff
+    - Adding your staff to ESI (IP number)
 faq:
   - q: How long does ESI registration take?
     a: Just a few hours, once we have all your documents.
   - q: What documents do you need?
     a: 'It depends on your type of business. <a href="tel:+918217542975" data-call-location="faq">Call us</a> and we''ll tell you exactly what to send.'
-  - q: Do contract and casual workers count towards 10?
-    a: Yes. Count all your staff, including casual workers and workers a contractor sends to work for you. Staff on high salaries count too. Apprentices are not counted. The owner and partners are not counted either. If your business is a company, call us to check how to count directors.
-  - q: Our new employee already has an IP number. Do they need a new one?
-    a: No. An IP number stays the same for life. We add them to your business using their existing number.
+  - q: Which staff must be in ESI?
+    a: Once ESI applies to your business, staff whose ESI wages are ₹21,000 a month or less must be in ESI. For a person with a disability, the limit is ₹25,000. ESI wages are the month's pay without some items, like HRA (house rent allowance) and overtime. If those items are more than half the pay, the part above half counts as ESI wages. We work this out for you.
   - q: Do we need PF registration too?
-    a: 'Only if you have 20 or more employees. Then you need PF as well as ESI. We can register you for both. See <a href="/pf-registration">PF registration for employers</a>.'
-  - q: What happens after registration?
-    a: 'ESI must be paid every month, by the 15th of the next month. We can file it for you. See <a href="/esi-consultancy-service">ESI monthly filing</a>.'
+    a: 'You need PF when you have 20 or more employees, counted the same way as for ESI. Once PF applies, it stays. We can register you for both. See <a href="/pf-registration">PF registration for employers</a>.'
   - q: How much does it cost?
-    a: 'It depends on your business and what you need. <a href="tel:+918217542975" data-call-location="faq">Call us</a> for a quote.'
+    a: 'It depends on your business and what you need. Asking is free. <a href="tel:+918217542975" data-call-location="faq">Call us</a> and we''ll give you a quote.'
 ---
 {%- assign esi = site.data.facts.esi -%}
-{% include hero.html heading="ESI registration for employers" lead="We register your business for ESI and set up your staff. Once we have your documents, it takes just a few hours. Call us and we'll check what applies to your business." %}
+{% capture fork %}Already registered? <a class="link-arrow" href="/esi-consultancy-service">ESI monthly filing&#8288;{% include icon.html name="arrow" size="18" %}</a>{% endcapture %}
+{% include hero.html heading="We register your business for ESI, and add your staff." lead="Once we have all your documents, it takes just a few hours. Then we can file your ESI every month. Not sure if ESI applies to you? Call us and we'll check." fork=fork proof="strip" %}
 
 <section class="section" aria-labelledby="applies-heading">
   <div class="container">
     <div class="prose">
       <h2 id="applies-heading">Does your business need ESI registration?</h2>
+      <ul class="fact-pair">
+        <li><span class="fact-pair__num">{{ esi.min_employees }}</span> <span class="fact-pair__label">employees or more</span></li>
+        <li><span class="fact-pair__num">{{ esi.wage_ceiling_text }}</span> <span class="fact-pair__label">staff with ESI wages up to this a month must join</span></li>
+      </ul>
       <p>Your business must register for ESI when it has <strong>{{ esi.min_employees }} or more employees</strong>. This is the same in every state. ESI does not apply to seasonal factories.</p>
       <p>Count all your staff:</p>
       <ul class="check-list">
@@ -46,30 +47,50 @@ faq:
       <p>Don't count: apprentices (trainees under the Apprentices Act), the owner of the business, or its partners. Is your business a company? <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a> to check how to count directors.</p>
       <p><strong>Once ESI applies, it stays.</strong> It does not stop if your staff later drop below {{ esi.min_employees }}.</p>
       <p>For some risky kinds of work, ESI can apply even with 1 employee. <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a> to check.</p>
-      <p>Every employee whose ESI wages are <strong>{{ esi.wage_ceiling_text }} a month or less</strong> must then be in ESI. For a person with a disability, the limit is {{ esi.wage_ceiling_pwd_text }}.</p>
-      <p>ESI wages are the month's pay without some items, like HRA (house rent allowance) and overtime. If those items are more than half the pay, part of them is added back. We work this out for you.</p>
+      <p>Staff with ESI wages up to {{ esi.wage_ceiling_text }} a month must be in ESI. ESI wages are the month's pay without some items, like HRA (house rent allowance) and overtime. <strong>We check this for you.</strong></p>
       <p>Not sure? <a class="link-arrow" href="/esi-eligibility-checker">Check with our ESI eligibility checker&#8288;{% include icon.html name="arrow" size="18" %}</a></p>
-      <p><a class="link-arrow" href="/blogs/esi-applicability-threshold">Read: who must register for ESI&#8288;{% include icon.html name="arrow" size="18" %}</a></p>
     </div>
   </div>
 </section>
 
-<section class="section" aria-labelledby="do-heading">
+<section class="section section--surface section--stacked" aria-labelledby="do-heading">
   <div class="container">
-    <h2 id="do-heading">What we do</h2>
-    <p class="section-lead">We tell you which documents we need <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">when you call</a>. The list depends on your type of business. You send them to us by email. No office visits needed. We register businesses in Mangalore (Mangaluru), Udupi and Bangalore.</p>
-    <div class="card-grid">
+    <h2 id="do-heading">What we do for you</h2>
+    <p class="section-lead">No office visits needed. We register businesses in Mangalore (Mangaluru), Udupi and Bangalore.</p>
+    <div class="card-grid card-grid--columns">
       <div class="card">
-        <h3>Register your business with ESIC (the ESI office)</h3>
-        <p>Your business gets an ESI code number (17 digits). This is your business's ESI account number. Once we have all your documents, this takes just a few hours.</p>
+        <p class="col-word">First</p>
+        <h3>We check and ask</h3>
+        <ul class="check-list">
+          <li>We check if ESI applies to your business, and count your staff with you.</li>
+          <li>We tell you which documents we need. The list depends on your type of business.</li>
+          <li>You send them to us by email.</li>
+        </ul>
       </div>
       <div class="card">
-        <h3>Register your staff</h3>
-        <p>We register each employee on the ESIC website and create their IP number (each employee's ESI number; IP means "insured person"). If someone already has an IP number from an old job, we use that one.</p>
+        <p class="col-word">Next</p>
+        <h3>We register your business</h3>
+        <ul class="check-list">
+          <li>We register your business with ESIC (the ESI office).</li>
+          <li>Once we have all your documents, it takes just a few hours.</li>
+          <li>You get an ESI code number for your business. It has 17 digits.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <p class="col-word">Then</p>
+        <h3>We add your staff</h3>
+        <ul class="check-list">
+          <li>We add your staff to ESI on the ESIC website.</li>
+          <li>Staff who already have an IP number (each employee's ESI number, which stays the same for life) keep it.</li>
+          <li>We create one for the others.</li>
+        </ul>
       </div>
     </div>
   </div>
 </section>
+
+{% capture founder %}<p>Medu Thirumaleshwara Bhat started Medu Consultancy in 2000. He worked at EPFO (the PF office) for 35 years. Our team registers businesses for ESI and PF. So we know which documents and details a new ESI registration needs.</p><p><a class="link-arrow" href="/about-us">About us&#8288;{% include icon.html name="arrow" size="18" %}</a></p>{% endcapture %}
+{% include founder-note.html text=founder stat=true bg="tint" %}
 
 <section class="section" aria-labelledby="after-heading">
   <div class="container">
@@ -77,12 +98,36 @@ faq:
       <h2 id="after-heading">After registration</h2>
       <p>ESI must be paid every month, by the {{ esi.due_day }}th of the next month.</p>
       <p>Each month, the employee pays 0.75% of their ESI wages, and you pay 3.25%. That is 4% in total. You take the employee's part from their salary. Staff on very low daily pay don't pay their part, but you still pay yours.</p>
-      <p>Your staff use their IP number to get ESI medical care, and to claim cash help, for example when they are too sick to work. We help them with claims.</p>
-      <p>Each month, you send us salary details. We file, and email you the confirmation and the challan (the ESI payment slip).</p>
-      <p><a class="link-arrow" href="/esi-contribution-calculator">Work out the amounts with our ESI contribution calculator&#8288;{% include icon.html name="arrow" size="18" %}</a></p>
+      <p>We can do this work for you every month. You send us salary details. We file your monthly ESI details with ESIC and email you the challan (the ESI payment slip). Pay it by the {{ esi.due_day }}th of the next month, or send us the amount and we pay it.</p>
+      <p><a class="link-arrow" href="/esi-consultancy-service">ESI monthly filing&#8288;{% include icon.html name="arrow" size="18" %}</a></p>
     </div>
-    {% include two-paths.html compact=true %}
     {% include call-block.html location="after-registration" %}
+  </div>
+</section>
+
+<section class="section section--surface section--stacked" aria-labelledby="more-heading">
+  <div class="container">
+    <h2 id="more-heading">More help with ESI</h2>
+    <div class="card-grid card-grid--panel">
+      {% include tool-card.html key="esi-eligibility" %}
+      {% include tool-card.html key="esi-contribution" %}
+    </div>
+    <div class="link-groups link-groups--wide">
+      <div class="link-group">
+        <p class="link-group__label">ESI guides:</p>
+        <ul class="link-list">
+          <li><a class="link-arrow" href="/blogs/esi-applicability-threshold">ESI: who must register&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+        </ul>
+      </div>
+      {% include industry-links.html compact=true %}
+      {% include city-links.html %}
+      <div class="link-group">
+        <p class="link-group__label">Need PF too?</p>
+        <ul class="link-list">
+          <li><a class="link-arrow" href="/pf-registration">PF registration&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+        </ul>
+      </div>
+    </div>
   </div>
 </section>
 

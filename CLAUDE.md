@@ -392,7 +392,12 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
    `stat=true bg="tint"` (registration line: "So we know which documents and details a new PF registration
    needs.") → After registration (payment wording + PF monthly filing link + call block) → "More help with PF"
    (2 tool cards + link groups, "Need ESI too? ESI registration") → FAQ 6 → closing. No two-paths. New 9.4 #34/#35.
-   **Next:** ESI registration page, same shape as PF registration v2.
+   **ESI registration v2 (2026-10-02, built and committed):** same shape as PF registration v2; copy in
+   `docs/esi-registration-copy-v2.md` (compliance-reviewed, owner-approved). ESI-specific: body keeps "same in every
+   state", seasonal factories and the risky-work line; founder line rests on the team's registration work (he worked
+   at EPFO, not ESIC); FAQ 5; meta now "...and add your staff". New 9.4 #36/#37 (17-digit code, IP numbers).
+   **Next:** the English rebuild is complete. Launch check (phase 9), then the Kannada phase; the open owner items
+   below still stand.
    Open from earlier (owner to decide): the 5 industry pages say "Our founder worked 35 years at EPFO (the
    PF office), so we know/keep/can explain..." (factories:76, hospitals:77, contractors:75, schools:68,
    it-companies:77); compliance rates it medium (could read as current inside knowledge); propose old vs
