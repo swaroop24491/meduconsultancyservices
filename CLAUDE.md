@@ -396,17 +396,17 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
    `docs/esi-registration-copy-v2.md` (compliance-reviewed, owner-approved). ESI-specific: body keeps "same in every
    state", seasonal factories and the risky-work line; founder line rests on the team's registration work (he worked
    at EPFO, not ESIC); FAQ 5; meta now "...and add your staff". New 9.4 #36/#37 (17-digit code, IP numbers).
-   **Next (owner, 2026-10-02): the 3 city pages (Mangalore, Udupi, Bangalore), updated in the same v2 spirit**
-   as the service and registration pages: one short story, fewer sections, links low on the page, big type
-   (`.col-word` columns, fact pair, `proof="strip"`, founder note `stat=true`, "More help" link block), white/tint
-   band variety. Today each city page is Hero → Two ways → How we serve you here → How we work → Who's behind it →
-   Businesses we work with here → Tools and guides → FAQ → closing (phase 5, see "Done"). Workflow as usual: read
-   `docs/city-pages-copy.md`, `docs/phase5-review-findings.md` and the built pages; write
-   `docs/city-pages-copy-v2.md` (old vs new per section, all three cities); compliance reviewer; owner approval;
-   build; check at all widths; commit. Keep the settled city facts (Udupi served from Mangaluru, can visit if
-   needed; Bangalore "We have team members in Bangalore, backed by our Mangaluru office", 2 team members can
-   visit, no Bangalore office) and the open ~70% shared-text issue in mind: the v2 pages should cut shared
-   blocks, not add them. Ask the owner for real local detail rather than guessing.
+   **City pages v2 (2026-10-02, built and committed):** copy in `docs/city-pages-copy-v2.md` (compliance-reviewed,
+   owner-approved; the built pages are the final text). Order on all 3: hero (H1 "We file PF and ESI for <city>
+   businesses, every month.", city lead, `proof="strip"`) → two paths (white) → "How we work with you in <city>"
+   (3 `.col-word` columns written per city + call block) → founder note `stat=true bg="tint"` ("For over 25 years, our
+   team has filed PF and ESI every month": owner confirmed both since ~2000) → "More help with PF and ESI" (2 checker
+   cards, 2 guides, industry links) → local FAQ (2-3) → closing. How we work and "Businesses we work with here" removed.
+   Owner: Mangalore clients can be visited if needed too; don't say the Bangalore team will be there during an
+   inspection. Shared `two_paths.monthly.text` now "We take over your filing once you share the documents we need"
+   (home router `situations.monthly.text` still says "from your next due date": owner to decide). No local business
+   mix / client numbers / city history given (not guessed): ~50-55% shared text remains. At 1440px the city H1 wraps
+   to 5 lines (narrow hero column); left as is.
    After the city pages: launch check (phase 9), then the Kannada phase; the open owner items below still stand.
    Open from earlier (owner to decide): the 5 industry pages say "Our founder worked 35 years at EPFO (the
    PF office), so we know/keep/can explain..." (factories:76, hospitals:77, contractors:75, schools:68,

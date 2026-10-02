@@ -4,7 +4,7 @@ lang: en
 page_type: city
 last_modified: 2026-10-02
 title: "PF & ESI Consultant in Bangalore (Bengaluru) | Medu Consultancy"
-description: "PF and ESI consultant in Bangalore. Team members here, backed by our Mangaluru office. 35 years at EPFO. Call +91 82175 42975."
+description: "PF and ESI consultant in Bangalore. We have team members in Bangalore, backed by our Mangaluru office. Our founder worked 35 years at EPFO. Call +91 82175 42975."
 breadcrumb:
   - { name: Bangalore }
 service:
@@ -13,57 +13,70 @@ service:
   area: [Bengaluru]
 faq:
   - q: Do you have an office in Bangalore?
-    a: "No. We don't have an office in Bangalore. We have 2 team members here who can visit you if needed, and our main office is in Mangaluru."
-  - q: Who actually does our PF and ESI work?
-    a: "Our team in Mangaluru handles registration and monthly filing for every client, including those in Bangalore. Our 2 team members in Bangalore can visit you if needed."
+    a: "No. Our office is in Mangaluru. We have 2 team members in Bangalore who can visit you if needed."
   - q: What if an inspector visits my business in Bangalore?
-    a: "We help you get ready. We prepare the papers you need and guide you by phone and email. Our Bangalore team members can be with you if needed."
+    a: "We help you get ready. We prepare the papers you need and guide you by phone and email."
   - q: Which PF and ESI offices cover my business in Bangalore?
     a: "We deal with the PF office (EPFO) and the ESI office (ESIC) for you. Call us and we'll confirm which ones apply to you."
 ---
-{% include hero.html heading="PF and ESI consultant in Bangalore" lead="We register your business and file your PF and ESI every month. Our Bangalore team can visit you if needed, backed by our Mangaluru office." %}
+{% include hero.html heading="We file PF and ESI for Bangalore businesses, every month." lead="We have team members in Bangalore, backed by our Mangaluru office. Not registered yet? We register your business first." proof="strip" %}
 
-{% include two-paths.html %}
+{% include two-paths.html bg="surface" %}
 
-<section class="section" aria-labelledby="serve-heading">
+<section class="section section--stacked" aria-labelledby="local-heading">
   <div class="container">
-    <div class="prose">
-      <h2 id="serve-heading">How we serve you here</h2>
-      <p>We have 2 team members based in Bangalore (Bengaluru). They can visit you if needed, for example to collect documents. Our main team in Mangaluru does your registration and monthly filing. We work this way for every client.</p>
+    <h2 id="local-heading">How we work with you in Bangalore</h2>
+    <div class="card-grid card-grid--columns">
+      <div class="card">
+        <p class="col-word">2</p>
+        <h3>Team members in Bangalore</h3>
+        <ul class="check-list">
+          <li>We have 2 team members in Bangalore (Bengaluru).</li>
+          <li>They can visit you if needed, for example to collect documents.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <p class="col-word">Mangaluru</p>
+        <h3>Your filing is done by our main team</h3>
+        <ul class="check-list">
+          <li>Our main team in Mangaluru does your registration and monthly filing.</li>
+          <li>We work this way for every client.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <p class="col-word">Phone and email</p>
+        <h3>You don't need to visit us</h3>
+        <ul class="check-list">
+          <li>We work by phone and email.</li>
+          <li>You email us salary details. We file, and email you the confirmation and challans (the payment slips).</li>
+          <li>You pay by the {{ site.data.facts.epf.due_day }}th of the next month, or send us the amount and we pay it.</li>
+        </ul>
+      </div>
     </div>
+    {% include call-block.html location="local" %}
   </div>
 </section>
 
-{% include how-we-work.html %}
+{% capture founder %}<p>Medu Thirumaleshwara Bhat started Medu Consultancy in 2000. He worked at EPFO (the PF office) for 35 years. For over 25 years, our team has filed PF and ESI every month for our clients.</p><p><a class="link-arrow" href="/about-us">About us&#8288;{% include icon.html name="arrow" size="18" %}</a></p>{% endcapture %}
+{% include founder-note.html text=founder stat=true bg="tint" %}
 
-<section class="section" aria-labelledby="behind-heading">
-  <div class="container stack">
-    <h2 id="behind-heading">Who's behind it</h2>
-    <p class="prose">Medu Thirumaleshwara Bhat started Medu Consultancy in 2000. He worked at EPFO (the PF office) for 35 years. We learned how the PF office works from him. That is why our filing is right and on time. <a class="link-arrow" href="/about-us">About us&#8288;{% include icon.html name="arrow" size="18" %}</a></p>
-  </div>
-</section>
-
-<section class="section" aria-labelledby="work-with-heading">
-  <div class="container stack">
-    <h2 id="work-with-heading">Businesses we work with here</h2>
-    {% include industry-links.html compact=true %}
-  </div>
-</section>
-
-<section class="section" aria-labelledby="tools-heading">
+<section class="section section--surface section--stacked" aria-labelledby="more-heading">
   <div class="container">
-    <h2 id="tools-heading">Free PF and ESI tools and guides</h2>
-    <div class="card-grid">
+    <h2 id="more-heading">More help with PF and ESI</h2>
+    <div class="card-grid card-grid--panel">
       {% include tool-card.html key="epf-eligibility" %}
       {% include tool-card.html key="esi-eligibility" %}
-      {% include tool-card.html key="epf-contribution" %}
     </div>
-    <ul class="link-list">
-      <li><a class="link-arrow" href="/blogs/epf-applicability-threshold">PF: who must register&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
-      <li><a class="link-arrow" href="/blogs/esi-applicability-threshold">ESI: who must register&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
-      <li><a class="link-arrow" href="/blogs/common-epf-compliance-mistakes">Common PF mistakes and how to avoid them&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
-      <li><a class="link-arrow" href="/blogs/common-esi-compliance-mistakes">Common ESI mistakes and how to avoid them&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
-    </ul>
+    <div class="link-groups link-groups--wide">
+      <div class="link-group">
+        <p class="link-group__label">Guides:</p>
+        <ul class="link-list">
+          <li><a class="link-arrow" href="/blogs/epf-applicability-threshold">PF: who must register&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+          <li><a class="link-arrow" href="/blogs/esi-applicability-threshold">ESI: who must register&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+        </ul>
+      </div>
+      {% include industry-links.html compact=true %}
+    </div>
   </div>
 </section>
 

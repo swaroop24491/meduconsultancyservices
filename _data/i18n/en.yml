@@ -58,7 +58,7 @@ two_paths:
       - { label: ESI registration, path: esi-registration }
   monthly:
     title: We file every month
-    text: Ongoing. Each month you send salary details and we do the filing. Already registered? We take over from your next due date.
+    text: Ongoing. Each month you send salary details and we do the filing. Already registered? We take over your filing once you share the documents we need.
     links:
       - { label: PF monthly filing, path: epf-consultancy-service }
       - { label: ESI monthly filing, path: esi-consultancy-service }
