@@ -408,7 +408,18 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
    (home router `situations.monthly.text` still says "from your next due date": owner to decide). No local business
    mix / client numbers / city history given (not guessed): ~50-55% shared text remains. At 1440px the city H1 wraps
    to 5 lines (narrow hero column); left as is.
-   After the city pages: launch check (phase 9), then the Kannada phase; the open owner items below still stand.
+   Pending owner decisions from the city pages: (a) add "Who's behind it" (`founder-note stat=true bg="tint"`,
+   line "For over 25 years, our team has filed PF and ESI every month for our clients.") above "More help" on the 3
+   city pages? Owner asked, then stopped the edit; it would repeat the founder and the big "35 years" under "Why
+   businesses choose us", so ask: full, without the stat, or leave out. (b) Router `situations.monthly.text` (home +
+   city pages): change to "…once you share the documents we need" to match two paths? (c) Optional city detail.
+   **Next (owner, 2026-10-02): About, Terms, Privacy and Contact, revisited in the same v2 spirit** (one short
+   story, fewer sections, big type, white/tint band variety; legal pages keep `page_type: legal` and no closing call).
+   Phase 8 built them (`docs/phase8-copy.md`, `docs/phase8-review-findings.md`): read those and the built pages,
+   write `docs/about-contact-legal-copy-v2.md` (old vs new per section), compliance reviewer, owner approval, build,
+   check at all widths, commit. Settled facts: founder retired, past tense only, no job title; email in the footer
+   only; no invite to visit the office; Contact's plain "Open in Google Maps" link; Privacy has no promise about
+   call data. Then the launch check (phase 9), then the Kannada phase; the open owner items below still stand.
    Open from earlier (owner to decide): the 5 industry pages say "Our founder worked 35 years at EPFO (the
    PF office), so we know/keep/can explain..." (factories:76, hospitals:77, contractors:75, schools:68,
    it-companies:77); compliance rates it medium (could read as current inside knowledge); propose old vs
