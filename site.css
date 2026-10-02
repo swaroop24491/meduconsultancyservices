@@ -1117,7 +1117,7 @@ html[lang="kn"] .big-line__num { letter-spacing: 0; }
 
 /* ---------- Fact pair ----------
    Two key numbers pulled out above running text (e.g. who must register). */
-.fact-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-5); padding-bottom: var(--space-5); border-bottom: 1px solid var(--color-border); }
+ul.fact-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-5); padding-bottom: var(--space-5); border-bottom: 1px solid var(--color-border); }
 .fact-pair__num { display: block; font-size: clamp(2rem, 1.4rem + 2.4vw, 3.25rem); line-height: var(--leading-heading); color: var(--color-brand); white-space: nowrap; }
 .fact-pair__label { display: block; margin-top: var(--space-1); font-size: var(--text-sm); color: var(--color-text-muted); }
 .prose > .fact-pair + * { margin-top: var(--space-5); }
