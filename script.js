@@ -91,6 +91,18 @@
   var footer = document.querySelector('footer');
   var stickyCall = document.querySelector('.sticky-call');
 
+  /* Phones: hide the sticky call bar while the hero's own call button is on
+     screen, so the first screen shows one call button, not two. Rebuilt pages
+     only (old pages have no sticky bar; tool pages have no hero button). */
+  var heroCall = document.querySelector('.hero__call');
+  if (stickyCall && heroCall && 'IntersectionObserver' in window) {
+    var heroRect = heroCall.getBoundingClientRect();
+    stickyCall.classList.toggle('sticky-call--hidden', heroRect.top < window.innerHeight && heroRect.bottom > 0);
+    new IntersectionObserver(function (entries) {
+      stickyCall.classList.toggle('sticky-call--hidden', entries[0].isIntersecting);
+    }).observe(heroCall);
+  }
+
   var isMenuOpen = function () {
     return toggle ? toggle.checked : toggleButton.getAttribute('aria-expanded') === 'true';
   };

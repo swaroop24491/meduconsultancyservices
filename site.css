@@ -399,6 +399,11 @@ body.menu-open .site-header__inner > .lang-switch { visibility: hidden; }
 }
 body { padding-bottom: calc(var(--tap-min) + var(--space-4) + env(safe-area-inset-bottom)); }
 body.menu-open .sticky-call { display: none; }
+/* Hidden (slid down, not focusable) while the hero call button is on screen (script.js) */
+.sticky-call--hidden { transform: translateY(100%); visibility: hidden; }
+@media (prefers-reduced-motion: no-preference) {
+    .sticky-call { transition: transform 0.2s ease, visibility 0.2s; }
+}
 /* Landscape phones and 200% zoom: keep the bar to about 15% of the screen */
 @media (max-height: 420px) {
     .sticky-call { padding-block: var(--space-1) calc(var(--space-1) + env(safe-area-inset-bottom)); }
