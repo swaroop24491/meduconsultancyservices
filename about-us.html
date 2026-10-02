@@ -9,19 +9,32 @@ breadcrumb:
   - { name: About }
 ---
 {%- include i18n.html -%}
-{% include hero.html heading="About Medu Consultancy" lead="We help businesses with PF and ESI. Our founder worked 35 years at EPFO." %}
+{% include hero.html heading="About Medu Consultancy" lead="We work only on PF and ESI. We started in 2000, and our office is in Mangaluru." proof="strip" %}
 
-<section class="section" aria-labelledby="who-heading">
-  <div class="container stack">
-    <div class="prose">
-      <h2 id="who-heading">Who we are</h2>
-      <p>Medu Thirumaleshwara Bhat started Medu Consultancy in 2000. He worked at EPFO (the PF office) for 35 years.</p>
-      <p>We are a team of 6. Our office and main team are in Mangaluru. We have team members in Bangalore, backed by our Mangaluru office.</p>
-      <p>We work with businesses in <a href="/epf-esi-consultancy-mangalore">PF and ESI in Mangalore</a>, <a href="/epf-esi-consultancy-udupi">PF and ESI in Udupi</a> and <a href="/epf-esi-consultancy-bangalore">PF and ESI in Bangalore</a>.</p>
-      <p>We work only on PF and ESI. You can talk to us in English or Kannada, and we can help you in Hindi too.</p>
+{% capture founder %}<p>Medu Thirumaleshwara Bhat started Medu Consultancy in 2000. He worked at EPFO (the PF office) for 35 years. He taught us the PF rules and how PF filing is checked. We keep up with every change in the rules. For over 25 years, our team has filed PF and ESI every month for our clients.</p>{% endcapture %}
+{% include founder-note.html text=founder stat=true bg="tint" %}
+
+<section class="section section--surface section--stacked" aria-labelledby="team-heading">
+  <div class="container">
+    <h2 id="team-heading">Our team, and where we work</h2>
+    <div class="card-grid card-grid--columns">
+      <div class="card">
+        <p class="col-word">6 people</p>
+        <h3>A small team</h3>
+        <p>Our office and main team are in Mangaluru. We have team members in Bangalore, backed by our Mangaluru office.</p>
+      </div>
+      <div class="card">
+        <p class="col-word">3 cities</p>
+        <h3>Mangalore, Udupi and Bangalore</h3>
+        <p>We work with businesses in all three, and in nearby towns. We can visit you if needed. You never need to visit us: we work by phone and email.</p>
+        {% include city-links.html descriptive=true label=false %}
+      </div>
+      <div class="card">
+        <p class="col-word">{{ t.why.items[2].word }}</p>
+        <h3>{{ t.why.items[2].title }}</h3>
+        <p>{{ t.why.items[2].text }}</p>
+      </div>
     </div>
-    {% include photo-slot.html src=site.data.site.founder_photo alt="Medu Thirumaleshwara Bhat, founder of Medu Consultancy" %}
-    {% include no-office.html %}
   </div>
 </section>
 

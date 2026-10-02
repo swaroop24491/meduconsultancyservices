@@ -94,7 +94,7 @@
 <section class="section" aria-labelledby="sg-prose">
   <div class="container">
     <h2 id="sg-prose">Text, check list and sections</h2>
-    <p class="sg-note">Sections are <code>&lt;section class="section"&gt;</code> with a container. Cream is the base; <code>section--surface</code> (white), <code>section--tint</code> (soft green) and <code>section--deep</code> (deep green, the closing call) are available. Other parts: white panel cards (<code>card-grid--panel</code>), the two-paths flow, the How we work timeline, the founder feature (<code>founder-note.html</code>; <code>stat=true</code> on white, <code>bg="tint"</code> on soft green), a fact pair (<code>.fact-pair</code>), and the hero proof facts as a full-width row (<code>hero.html proof="strip"</code>). Each page is composed on its own with design-reviewer input. From 1024px sections <strong>split</strong>: the H2 in a left column, everything else in a wider right column (this page shows it). <code>section--stacked</code> keeps the H2 on top at full width, for columns. One section = one H2. Running text goes in <code>.prose</code> (reading width; an H2 inside it still goes to the left column). Lists of what we do use <code>.check-list</code>. Several blocks under one H2 use <code>.stack</code>.</p>
+    <p class="sg-note">Sections are <code>&lt;section class="section"&gt;</code> with a container. Cream is the base; <code>section--surface</code> (white), <code>section--tint</code> (soft green) and <code>section--deep</code> (deep green, the closing call) are available. Other parts: white panel cards (<code>card-grid--panel</code>), the two-paths flow, the How we work timeline, the founder feature (<code>founder-note.html</code>; <code>stat=true</code> on white, <code>bg="tint"</code> on soft green; the founder photo shows under the text once <code>founder_photo</code> is set in <code>_data/site.yml</code>), a fact pair (<code>.fact-pair</code>), and the hero proof facts as a full-width row (<code>hero.html proof="strip"</code>). Each page is composed on its own with design-reviewer input. From 1024px sections <strong>split</strong>: the H2 in a left column, everything else in a wider right column (this page shows it). <code>section--stacked</code> keeps the H2 on top at full width, for columns. One section = one H2. Running text goes in <code>.prose</code> (reading width; an H2 inside it still goes to the left column). Lists of what we do use <code>.check-list</code>. Several blocks under one H2 use <code>.stack</code>.</p>
     <div class="sg-demo" lang="{{ lang }}">
       <div class="prose">
         <p>{{ t.two_paths.monthly.text }} {{ t.no_office }}</p>
@@ -227,6 +227,7 @@
   {% include city-links.html %}
 &lt;/div&gt;
 {% include city-links.html descriptive=true %}   (link text "PF and ESI in Mangalore", where links stand alone)
+{% include city-links.html descriptive=true label=false %}   (no "Cities:" label, under a heading that already says it: About "3 cities")
 &lt;div class="link-groups"&gt;
   {% include service-links.html %}
   {% include industry-links.html compact=true except="hospitals" descriptive=true %}

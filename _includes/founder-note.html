@@ -1,6 +1,7 @@
 {%- comment -%}
   "Who's behind it": the founder's 35 years at EPFO as a big number, then the page's own story.
   {% capture founder %}<p>...</p>{% endcapture %}{% include founder-note.html text=founder %}
+  The founder photo slot shows under the text once site.data.site.founder_photo is set (both versions).
   stat=true shows the big "35 years" beside the text (also next to a proof strip: owner accepted
   the repeat on the PF page, 2026-10-02), on a white band; bg="tint" puts it on the soft green band instead.
 {%- endcomment -%}
@@ -11,7 +12,10 @@
     <h2 id="behind-heading">{{ t.founder.heading }}</h2>
     <div class="founder">
       <p class="founder__stat"><span class="founder__num">{{ t.proof.items[1].num }}</span> <span class="founder__label">{{ t.founder.stat_label }}</span></p>
-      <div class="prose">{{ include.text }}</div>
+      <div class="stack">
+        <div class="prose">{{ include.text }}</div>
+        {% include photo-slot.html src=site.data.site.founder_photo alt=t.why.founder_photo_alt %}
+      </div>
     </div>
   </div>
 </section>
@@ -20,7 +24,7 @@
   <div class="container">
     <h2 id="behind-heading">{{ t.founder.heading }}</h2>
     <div class="prose">{{ include.text }}</div>
-    {% include photo-slot.html src=site.data.site.founder_photo alt="Medu Thirumaleshwara Bhat, founder of Medu Consultancy" %}
+    {% include photo-slot.html src=site.data.site.founder_photo alt=t.why.founder_photo_alt %}
   </div>
 </section>
 {%- endif -%}
