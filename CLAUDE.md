@@ -384,7 +384,15 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
    ESI for them" fallback in the copy doc; same for hospitals). Design-reviewer pass: no high/medium.
    Fixed after it: the fact-pair label touched its bottom line because `ul[class] { padding: 0 }` beat
    `.fact-pair`'s padding-bottom; the selector is now `ul.fact-pair` (PF and ESI pages).
-   **Next:** PF and ESI registration pages, in the same spirit as the v2 service pages.
+   **PF registration v2 (2026-10-02, built and committed):** copy in `docs/pf-registration-copy-v2.md`
+   (compliance-reviewed, owner-approved; the built page is the final text). Order: hero (H1 "We register your
+   business for PF, and add your staff.", `fork=` "Already registered? PF monthly filing →", `proof="strip"`) →
+   "Does your business need PF registration?" (fact pair + counting rules kept in the body + 1 wages line +
+   checker link) → "What we do for you" (white, 3 `.col-word` columns First / Next / Then) → founder note
+   `stat=true bg="tint"` (registration line: "So we know which documents and details a new PF registration
+   needs.") → After registration (payment wording + PF monthly filing link + call block) → "More help with PF"
+   (2 tool cards + link groups, "Need ESI too? ESI registration") → FAQ 6 → closing. No two-paths. New 9.4 #34/#35.
+   **Next:** ESI registration page, same shape as PF registration v2.
    Open from earlier (owner to decide): the 5 industry pages say "Our founder worked 35 years at EPFO (the
    PF office), so we know/keep/can explain..." (factories:76, hospitals:77, contractors:75, schools:68,
    it-companies:77); compliance rates it medium (could read as current inside knowledge); propose old vs

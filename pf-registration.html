@@ -2,7 +2,7 @@
 layout: base
 lang: en
 page_type: registration
-last_modified: 2026-09-27
+last_modified: 2026-10-02
 title: "PF Registration for Employers in Mangalore | Medu Consultancy"
 description: "20 or more staff? We register your business for PF in Mangalore, Udupi and Bangalore, and set up your staff. Call +91 82175 42975."
 breadcrumb:
@@ -12,30 +12,33 @@ service:
   name: PF registration for employers
   offers:
     - PF registration for your business
-    - UAN setup for your staff
+    - Adding your staff to PF (UAN)
 faq:
   - q: How long does PF registration take?
-    a: Just a few hours, once we have all your documents. New staff then get their UAN with a quick face scan on the UMANG app. We guide them.
+    a: Just a few hours, once we have all your documents. Staff who already have a UAN keep it. Others get one with a quick face scan on the UMANG app. We guide them.
   - q: What documents do you need?
     a: 'It depends on your type of business. <a href="tel:+918217542975" data-call-location="faq">Call us</a> and we''ll tell you exactly what to send.'
-  - q: Do contract and casual workers count towards 20?
-    a: Yes. Count all your staff, including casual workers and workers a contractor sends to work for you. Staff on high salaries count too. Apprentices are not counted. The owner and partners are not counted either. If your business is a company, call us to check how to count directors.
-  - q: Our new employee already has a UAN. Do they need a new one?
-    a: No. A UAN stays the same for life. We add them to your business using their existing UAN.
+  - q: Which staff must be in PF?
+    a: "Once PF applies to your business, staff whose PF wages are ₹25,000 a month or less must be in PF. PF wages are mainly basic pay plus DA (dearness allowance), not the full salary. If other allowances are more than half the salary, the part above half also counts as PF wages. We work this out for you. Staff with PF wages above ₹25,000: if they were never in PF, joining is optional. If they are already in PF, they stay in PF."
+  - q: Which PF limit applies to September 2026 salaries?
+    a: 'The limit went up from ₹15,000 to ₹25,000 on 17 September 2026. For September 2026 salaries, the PF office has not yet said which limit to use. <a href="tel:+918217542975" data-call-location="faq">Call us</a> and we''ll tell you what to do.'
   - q: Do we need ESI registration too?
-    a: 'Almost always, yes. ESI applies from 10 employees, so a business with 20 or more staff needs ESI too. ESI covers staff whose ESI wages are ₹21,000 a month or less (₹25,000 for a person with a disability). We can register you for both. See <a href="/esi-registration">ESI registration for employers</a>.'
-  - q: What happens after registration?
-    a: 'PF must be paid every month, by the 15th of the next month. We can file it for you. See <a href="/epf-consultancy-service">PF monthly filing</a>.'
+    a: 'Almost always, yes. ESI applies from 10 employees (except seasonal factories), so a business with 20 or more staff usually needs ESI too. ESI covers staff whose ESI wages are ₹21,000 a month or less (₹25,000 for a person with a disability). We can register you for both. See <a href="/esi-registration">ESI registration for employers</a>.'
   - q: How much does it cost?
-    a: 'It depends on your business and what you need. <a href="tel:+918217542975" data-call-location="faq">Call us</a> for a quote.'
+    a: 'It depends on your business and what you need. Asking is free. <a href="tel:+918217542975" data-call-location="faq">Call us</a> and we''ll give you a quote.'
 ---
 {%- assign epf = site.data.facts.epf -%}
-{% include hero.html heading="PF registration for employers" lead="We register your business for PF and set up your staff. Once we have your documents, it takes just a few hours. Call us and we'll check what applies to your business." %}
+{% capture fork %}Already registered? <a class="link-arrow" href="/epf-consultancy-service">PF monthly filing&#8288;{% include icon.html name="arrow" size="18" %}</a>{% endcapture %}
+{% include hero.html heading="We register your business for PF, and add your staff." lead="Once we have all your documents, it takes just a few hours. Then we can file your PF every month. Not sure if PF applies to you? Call us and we'll check." fork=fork proof="strip" %}
 
 <section class="section" aria-labelledby="applies-heading">
   <div class="container">
     <div class="prose">
       <h2 id="applies-heading">Does your business need PF registration?</h2>
+      <ul class="fact-pair">
+        <li><span class="fact-pair__num">{{ epf.min_employees }}</span> <span class="fact-pair__label">employees or more</span></li>
+        <li><span class="fact-pair__num">{{ epf.wage_ceiling_text }}</span> <span class="fact-pair__label">staff with PF wages up to this a month must join</span></li>
+      </ul>
       <p>Your business must register for PF when it has <strong>{{ epf.min_employees }} or more employees</strong>, in any industry.</p>
       <p>Count all your staff:</p>
       <ul class="check-list">
@@ -45,30 +48,50 @@ faq:
       </ul>
       <p>Don't count: apprentices (trainees under the Apprentices Act), the owner of the business, or its partners. Is your business a company? <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a> to check how to count directors.</p>
       <p><strong>Once PF applies, it stays.</strong> It does not stop if your staff later drop below {{ epf.min_employees }}.</p>
-      <p>Every employee whose PF wages are <strong>{{ epf.wage_ceiling_text }} a month or less</strong> must then be in PF. This limit went up from {{ epf.wage_ceiling_old_text }} to {{ epf.wage_ceiling_text }} on {{ epf.wage_ceiling_from }}. For September 2026 salaries, the PF office has not yet said which limit to use. <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a> and we'll tell you what to do.</p>
-      <p>PF wages are mainly basic pay plus DA (dearness allowance). It is not the full salary. If other allowances are more than half the salary, part of them also counts. We work this out for you.</p>
+      <p>Staff with PF wages (mainly basic pay plus DA, dearness allowance) up to {{ epf.wage_ceiling_text }} a month must be in PF. <strong>We check this for you.</strong></p>
       <p>Not sure? <a class="link-arrow" href="/epf-eligibility-checker">Check with our PF eligibility checker&#8288;{% include icon.html name="arrow" size="18" %}</a></p>
-      <p><a class="link-arrow" href="/blogs/epf-applicability-threshold">Read: who must register for PF&#8288;{% include icon.html name="arrow" size="18" %}</a></p>
     </div>
   </div>
 </section>
 
-<section class="section" aria-labelledby="do-heading">
+<section class="section section--surface section--stacked" aria-labelledby="do-heading">
   <div class="container">
-    <h2 id="do-heading">What we do</h2>
-    <p class="section-lead">We tell you which documents we need <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">when you call</a>. The list depends on your type of business. You send them to us by email. No office visits needed. We register businesses in Mangalore (Mangaluru), Udupi and Bangalore.</p>
-    <div class="card-grid">
+    <h2 id="do-heading">What we do for you</h2>
+    <p class="section-lead">No office visits needed. We register businesses in Mangalore (Mangaluru), Udupi and Bangalore.</p>
+    <div class="card-grid card-grid--columns">
       <div class="card">
-        <h3>Register your business with EPFO (the PF office)</h3>
-        <p>Your business gets a PF code number (the PF office calls it the establishment code). This is your business's PF account number. Once we have all your documents, this takes just a few hours.</p>
+        <p class="col-word">First</p>
+        <h3>We check and ask</h3>
+        <ul class="check-list">
+          <li>We check if PF applies to your business, and count your staff with you.</li>
+          <li>We tell you which documents we need. The list depends on your type of business.</li>
+          <li>You send them to us by email.</li>
+        </ul>
       </div>
       <div class="card">
-        <h3>Register your staff</h3>
-        <p>Each employee needs a UAN (their PF account number for life). New staff get it with a quick face scan on the UMANG app. We guide them. If someone already has a UAN from an old job, we use that one.</p>
+        <p class="col-word">Next</p>
+        <h3>We register your business</h3>
+        <ul class="check-list">
+          <li>We register your business with EPFO (the PF office).</li>
+          <li>Once we have all your documents, it takes just a few hours.</li>
+          <li>You get a PF code number for your business. The PF office calls it the establishment code.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <p class="col-word">Then</p>
+        <h3>We add your staff</h3>
+        <ul class="check-list">
+          <li>We add your staff to PF.</li>
+          <li>Staff who already have a UAN (a PF account number for life) keep it.</li>
+          <li>Others get one by a face scan on the UMANG app. We guide them.</li>
+        </ul>
       </div>
     </div>
   </div>
 </section>
+
+{% capture founder %}<p>Medu Thirumaleshwara Bhat started Medu Consultancy in 2000. He worked at EPFO (the PF office) for 35 years. He taught us the PF rules. So we know which documents and details a new PF registration needs.</p><p><a class="link-arrow" href="/about-us">About us&#8288;{% include icon.html name="arrow" size="18" %}</a></p>{% endcapture %}
+{% include founder-note.html text=founder stat=true bg="tint" %}
 
 <section class="section" aria-labelledby="after-heading">
   <div class="container">
@@ -76,12 +99,36 @@ faq:
       <h2 id="after-heading">After registration</h2>
       <p>PF must be paid every month, by the {{ epf.due_day }}th of the next month.</p>
       <p>Each month, the employee pays 12% of their PF wages, and you pay 12%. You take the employee's part from their salary. Part of your share goes to the employee's pension (EPS, the Employees' Pension Scheme). We work out the exact amounts.</p>
-      <p>Your staff use their UAN to check their PF balance, and to move their PF when they change jobs. We help them with transfers, withdrawals and KYC (linking Aadhaar, PAN and bank details).</p>
-      <p>Each month, you send us salary details. We file, and email you the confirmation and the challan (the PF payment slip).</p>
-      <p><a class="link-arrow" href="/epf-contribution-calculator">Work out the amounts with our PF contribution calculator&#8288;{% include icon.html name="arrow" size="18" %}</a></p>
+      <p>We can do this work for you every month. You send us salary details. We file your monthly PF return (the ECR) and email you the challan (the PF payment slip). Pay it by the {{ epf.due_day }}th of the next month, or send us the amount and we pay it.</p>
+      <p><a class="link-arrow" href="/epf-consultancy-service">PF monthly filing&#8288;{% include icon.html name="arrow" size="18" %}</a></p>
     </div>
-    {% include two-paths.html compact=true %}
     {% include call-block.html location="after-registration" %}
+  </div>
+</section>
+
+<section class="section section--surface section--stacked" aria-labelledby="more-heading">
+  <div class="container">
+    <h2 id="more-heading">More help with PF</h2>
+    <div class="card-grid card-grid--panel">
+      {% include tool-card.html key="epf-eligibility" %}
+      {% include tool-card.html key="epf-contribution" %}
+    </div>
+    <div class="link-groups link-groups--wide">
+      <div class="link-group">
+        <p class="link-group__label">PF guides:</p>
+        <ul class="link-list">
+          <li><a class="link-arrow" href="/blogs/epf-applicability-threshold">PF: who must register&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+        </ul>
+      </div>
+      {% include industry-links.html compact=true %}
+      {% include city-links.html %}
+      <div class="link-group">
+        <p class="link-group__label">Need ESI too?</p>
+        <ul class="link-list">
+          <li><a class="link-arrow" href="/esi-registration">ESI registration&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+        </ul>
+      </div>
+    </div>
   </div>
 </section>
 
