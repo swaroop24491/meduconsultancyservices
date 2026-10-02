@@ -5,6 +5,8 @@
   proof=false leaves out the proof line (pages where it isn't in the hero, strategy 4.2).
   proof="strip" shows the four facts as a full-width row under the hero.
   proof="compact" shows the one-line proof under the call button (tools hub).
+  fork="..." adds one small line under the lead, e.g. "Not registered yet? <a>PF registration</a>"
+  (service pages; may contain one link).
 {%- endcomment -%}
 <section class="hero">
   <div class="container hero__grid">
@@ -12,6 +14,9 @@
       <h1>{{ include.heading }}</h1>
       {%- if include.lead %}
       <p class="hero__lead">{{ include.lead }}</p>
+      {%- endif %}
+      {%- if include.fork %}
+      <p class="hero__fork">{{ include.fork }}</p>
       {%- endif %}
       <div class="hero__call">{% include call-button.html location="hero" %}</div>
       {%- if include.proof == "compact" %}

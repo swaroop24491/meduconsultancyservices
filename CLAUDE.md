@@ -351,17 +351,17 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
   - Kannada: stopgap strings for the router and short steps, logged in `docs/kannada-review.md`.
 
 ### Next (strategy section 9.3, English first; Kannada last)
-0. **Where we stopped (2026-10-02):** home v2 is done and committed on `feature/revamp`. **Next: the PF page
-   (`epf-consultancy-service.html`).** Write `docs/epf-service-copy-v2.md` (old vs new) from
-   `docs/home-epf-fresh-plan.md` section 4 and the owner decisions in its section 7: hero with a
-   "Not registered yet? PF registration" line and takeover in the lead; "Every month: you send, we do,
-   you get" (big "15th"); "Switching to us, or behind?" (no arrears/notice offer); "Also included" (6 items
-   max); founder note with a PF-specific line; a short "Does PF apply?" (owner: move PF wages / September
-   2026 / above-ceiling detail to the FAQ or the registration page); one "Explore" section (3 compact tool
-   cards + link columns, ESI cross-link); FAQ with cost; closing. Drop "Two ways" and the separate How we
-   work on this page. Use the shortened filing promise. Then compliance reviewer → owner approval → build
-   → design-reviewer pass on home + PF page. After that, roll the look out one page type at a time (ESI
-   service and registration pages first).
+0. **Where we stopped (2026-10-02):** home v2 and PF page v2 are done and committed on `feature/revamp`.
+   PF page copy in `docs/epf-service-copy-v2.md` (compliance-reviewed, owner "proceed as recommended";
+   the built page is the final text). Order: hero (H1 "We file your PF every month, before the due date.",
+   `fork=` "Not registered yet? PF registration") → "Every month: you send, we do, you get" (white, big
+   "15th" `.big-line`, 3 columns, call block) → "Moving your PF filing to us" → "Also included" (6) →
+   founder note `stat=true bg="tint"` (PF-specific line) → short "Does PF apply?" → "More help with PF"
+   (3 tool cards + `link-groups--wide`: guides, industries, cities, ESI) → FAQ (8; PF wages, September
+   2026 and the counting rule moved here) → closing. No two-paths or How we work on this page. "15th" is
+   the payment deadline: say "must be paid by the 15th… We file in time for that", not "before the 15th".
+   **Next:** design-reviewer pass on home + PF page, then roll the look out to the ESI service page and
+   the registration pages (copy doc first, as for PF).
    Open from earlier (owner to decide): the 5 industry pages say "Our founder worked 35 years at EPFO (the
    PF office), so we know/keep/can explain..." (factories:76, hospitals:77, contractors:75, schools:68,
    it-companies:77); compliance rates it medium (could read as current inside knowledge); propose old vs

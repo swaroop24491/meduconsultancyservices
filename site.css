@@ -686,6 +686,8 @@ html[lang="kn"] .proof-line__num { letter-spacing: 0; }
 html[lang="kn"] .hero h1 { line-height: 1.4; }
 .hero__lead { max-width: 34rem; margin-top: var(--space-5); font-size: var(--text-lead); color: var(--color-text-muted); }
 .hero__call { margin-top: var(--space-6); }
+/* One small line under the lead (service pages: "Not registered yet? …") */
+.hero__fork { margin-top: var(--space-3); font-weight: var(--weight-medium); }
 .hero .proof-line { margin-top: var(--space-7); }
 @media (min-width: 1024px) {
     .hero__grid {
@@ -736,6 +738,8 @@ html[lang="kn"] .hero h1 { line-height: 1.4; }
 .link-group__label + .link-list { margin-top: var(--space-1); }
 .link-groups { display: grid; gap: var(--space-5); }
 @media (min-width: 640px) { .link-groups { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+/* Up to 4 groups side by side in a full-width (stacked) section */
+@media (min-width: 1024px) { .link-groups--wide { grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: var(--space-6); } }
 
 /* ---------- Stacked blocks inside one section ---------- */
 .stack > * + * { margin-top: var(--space-5); }
@@ -1006,6 +1010,7 @@ html[lang="kn"] .hero h1 { line-height: 1.4; }
 .row-links { margin-top: auto; padding-top: var(--space-4); }
 .link-groups .link-list { margin-top: var(--space-2); }
 .card-grid + .link-list { margin-top: var(--space-6); }
+.card-grid + .link-groups { margin-top: var(--space-7); }
 .row-links li, .link-groups .link-list li, .card-grid + .link-list li { border-top: 1px solid var(--color-border); padding-block: 0; }
 .row-links a.link-arrow, .link-groups a.link-arrow, .card-grid + .link-list a.link-arrow {
     display: flex;
@@ -1089,6 +1094,17 @@ html[lang="kn"] .founder__num { letter-spacing: 0; }
 .founder__label { display: block; margin-top: var(--space-2); color: var(--color-text-muted); }
 @media (min-width: 768px) {
     .founder { grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); column-gap: var(--space-8); align-items: center; }
+}
+
+/* ---------- Big number line ----------
+   One big green number (e.g. "15th") beside one short line, above the
+   section's columns. Side by side from 640px. Green on white 6.5:1. */
+.big-line { display: grid; gap: var(--space-3); margin-bottom: var(--space-7); }
+.big-line__num { font-size: var(--text-display); font-weight: var(--weight-medium); line-height: 1.05; letter-spacing: var(--tracking-heading); color: var(--color-brand); white-space: nowrap; }
+html[lang="kn"] .big-line__num { letter-spacing: 0; }
+.big-line__text { max-width: 30rem; font-size: var(--text-lead); color: var(--color-heading); }
+@media (min-width: 640px) {
+    .big-line { grid-template-columns: auto minmax(0, 1fr); column-gap: var(--space-6); align-items: center; }
 }
 
 /* ---------- Fact pair ----------
