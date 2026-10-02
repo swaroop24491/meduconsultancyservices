@@ -351,7 +351,7 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
   - Kannada: stopgap strings for the router and short steps, logged in `docs/kannada-review.md`.
 
 ### Next (strategy section 9.3, English first; Kannada last)
-0. **Where we stopped (2026-10-02):** home v2 and PF page v2 are done and committed on `feature/revamp`.
+0. **Where we stopped (2026-10-03):** home v2 and PF page v2 are done and committed on `feature/revamp`.
    **PF page v2 (final, owner-approved):** copy in `docs/epf-service-copy-v2.md` (round 1 + owner changes +
    round 2; compliance-reviewed; the built page is the final text). Order: hero (H1 "We file your PF every
    month, before the due date.", lead with takeover, `fork=` "Not registered yet? PF registration →",
@@ -413,18 +413,35 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
    city pages? Owner asked, then stopped the edit; it would repeat the founder and the big "35 years" under "Why
    businesses choose us", so ask: full, without the stat, or leave out. (b) Router `situations.monthly.text` (home +
    city pages): change to "…once you share the documents we need" to match two paths? (c) Optional city detail.
-   **About v2 (2026-10-02, built and committed):** copy in `docs/about-contact-legal-copy-v2.md` section 1
-   (compliance-reviewed, owner-approved). Order: hero (H1 "About Medu Consultancy", lead = founder lines + "For over 25 years, our team has filed PF and ESI every month for our clients.", `proof="strip"`; no "Who's behind it" on About, owner 2026-10-03); no mission section (owner removed it 2026-10-03; never "CEO", "leads", "seamless", "complexities") → "Our team, and where we work" (white, 3 `.col-word`
-   columns: 6 people / 3 cities + `city-links.html descriptive=true label=false` / 3 languages) → full two paths →
-   closing. `founder-note stat=true` now has the founder photo slot. Shared `why.items[1].text` fixed to "must be paid
-   by the 15th" (compliance). Contact, Privacy and Terms are next, in the same doc.
-   **Next (owner, 2026-10-02): About, Terms, Privacy and Contact, revisited in the same v2 spirit** (one short
-   story, fewer sections, big type, white/tint band variety; legal pages keep `page_type: legal` and no closing call).
-   Phase 8 built them (`docs/phase8-copy.md`, `docs/phase8-review-findings.md`): read those and the built pages,
-   write `docs/about-contact-legal-copy-v2.md` (old vs new per section), compliance reviewer, owner approval, build,
-   check at all widths, commit. Settled facts: founder retired, past tense only, no job title; email in the footer
-   only; no invite to visit the office; Contact's plain "Open in Google Maps" link; Privacy has no promise about
-   call data. Then the launch check (phase 9), then the Kannada phase; the open owner items below still stand.
+   **About v2 (2026-10-02/03, built and committed, final):** copy in `docs/about-contact-legal-copy-v2.md` section 1
+   (compliance-reviewed, owner-approved, plus the owner changes logged at the end of section 1; the built page is the
+   final text). Order: hero (H1 "About Medu Consultancy"; lead "Medu Thirumaleshwara Bhat started Medu Consultancy in
+   2000. He worked at the Employees' Provident Fund Organisation (EPFO) for 35 years. His work built the firm we are
+   today. For over 25 years, our team has filed PF and ESI every month for our clients."; `proof="strip"`) → "Our team,
+   and where we work" (white, 3 `.col-word` columns: 6 people / 3 cities + `city-links.html descriptive=true
+   label=false` / 3 languages) → full two paths → closing.
+   - The owner tried, then removed, a founder note ("Who's behind it") and an "Our mission" section (looked odd as a
+     two-line split section). Lesson: About stays short; don't add them back. No founder photo slot on About now.
+   - The owner pasted the old About text (founder "brings 35 years", "our CEO, leads the company", "seamless",
+     "complexities", "full regulatory compliance"); it clashes with settled rules, so it was asked and a plain version
+     used. Never use "CEO", "leads", present-tense founder lines or those phrases. Never "how the PF office works"
+     right after his EPFO years (compliance: reads as current inside knowledge).
+   - Component changes: `founder-note.html stat=true` now has the founder photo slot (shows once
+     `site.data.site.founder_photo` is set; alt from `t.why.founder_photo_alt`); `city-links.html label=false`. Both on
+     the style guide. `statement.html` is still unused.
+   - Shared fix (compliance): `why.items[1].text` now "...must be paid by the 15th of the next month. We track these
+     dates for every client." (was "...and file before them"); kn.yml stopgap updated, logged in `kannada-review.md`.
+   - Team size stays "6 people" (owner confirmed "a team of 6" after the retirement). Not confirmed: that the firm
+     *started in Mangaluru* (brief says only 2000), so don't claim it.
+   **Next: Contact, then Privacy and Terms** (same v2 spirit: one short story, fewer sections, big type, white/tint
+   band variety; legal pages keep `page_type: legal` and no closing call). Add each as a section of
+   `docs/about-contact-legal-copy-v2.md` (old vs new), compliance reviewer, owner approval, build, check at all widths,
+   commit. Phase 8 history: `docs/phase8-copy.md`, `docs/phase8-review-findings.md`. Settled facts: founder retired,
+   past tense only, no job title; email in the footer only; no invite to visit the office; Contact's plain "Open in
+   Google Maps" link; Privacy has no promise about call data. Then the launch check (phase 9), then the Kannada phase.
+   **Uncommitted in the working tree:** the 3 city pages have a "Who's behind it" `founder-note` added (pending
+   decision (a) above). Leave it uncommitted until the owner decides: full, without the stat, or remove (`git checkout`
+   the 3 files).
    Open from earlier (owner to decide): the 5 industry pages say "Our founder worked 35 years at EPFO (the
    PF office), so we know/keep/can explain..." (factories:76, hospitals:77, contractors:75, schools:68,
    it-companies:77); compliance rates it medium (could read as current inside knowledge); propose old vs
