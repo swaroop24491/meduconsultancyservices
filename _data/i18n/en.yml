@@ -86,7 +86,7 @@ founder:
 
 no_office: No office visits needed. We handle everything over phone and email.
 
-cities_label: "We work with businesses in:"
+cities_label: "Cities:"
 services_label: "Our services:"
 cities:
   - { name: Mangalore, anchor: PF and ESI in Mangalore, path: epf-esi-consultancy-mangalore, line: Our office and main team are in Mangaluru. }

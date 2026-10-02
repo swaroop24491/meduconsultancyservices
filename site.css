@@ -177,8 +177,9 @@ address { font-style: normal; }
 
 .section { padding-block: var(--section-gap); }
 /* Cream is the page base. A section may change background (tint, deep green)
-   or hold white panel cards for variety. The thin line only sits between two
-   plain cream sections: where the colour changes, the colour is the divider. */
+   or be a white band for variety. The thin line only sits between two
+   plain cream sections (or two white bands): where the colour changes, the
+   colour is the divider. */
 main > section + section { border-top: 1px solid var(--color-border); }
 .section--surface { background: var(--color-surface); }
 .section--tint { background: var(--color-tint); }
@@ -188,7 +189,7 @@ main > .section--tint, main > .section--tint + section,
 main > .section--sand, main > .section--sand + section,
 main > .section--deep, main > .section--deep + section,
 main > .section--surface + section { border-top-color: transparent; }
-main > .section--surface { border-block: 1px solid var(--color-border); }
+main > .section--surface { border-top-color: transparent; }
 main > .section--surface + .section--surface { border-top-color: var(--color-border); }
 
 /* Split sections (from 1024px): the H2 sits in a left column and everything
@@ -688,6 +689,7 @@ html[lang="kn"] .hero h1 { line-height: 1.4; }
 .hero__call { margin-top: var(--space-6); }
 /* One small line under the lead (service pages: "Not registered yet? …") */
 .hero__fork { margin-top: var(--space-3); font-weight: var(--weight-medium); }
+.hero__fork .link-arrow { white-space: nowrap; }   /* keeps the arrow with the link text */
 .hero .proof-line { margin-top: var(--space-7); }
 @media (min-width: 1024px) {
     .hero__grid {
@@ -738,8 +740,10 @@ html[lang="kn"] .hero h1 { line-height: 1.4; }
 .link-group__label + .link-list { margin-top: var(--space-1); }
 .link-groups { display: grid; gap: var(--space-5); }
 @media (min-width: 640px) { .link-groups { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-/* Up to 4 groups side by side in a full-width (stacked) section */
-@media (min-width: 1024px) { .link-groups--wide { grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: var(--space-6); } }
+/* Up to 4 groups in a full-width (stacked) section: 2 columns from 560px,
+   4 from 1200px (narrower columns wrap the labels and rows) */
+@media (min-width: 560px) { .link-groups--wide { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1200px) { .link-groups--wide { grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: var(--space-6); } }
 
 /* ---------- Stacked blocks inside one section ---------- */
 .stack > * + * { margin-top: var(--space-5); }
@@ -973,7 +977,7 @@ html[lang="kn"] .hero h1 { line-height: 1.4; }
 .section--surface .card-grid--panel > .card { box-shadow: none; }
 
 /* Tool and link cards in a panel grid: icon beside the name, text below,
-   the whole card is the link */
+   the whole card is the link. Border only, no shadow (border turns green on hover). */
 .card-grid.card-grid--panel > .card--link.link-row {
     grid-template-columns: auto minmax(0, 1fr) auto;
     grid-template-areas: "icon name arrow" "text text text";
@@ -984,7 +988,6 @@ html[lang="kn"] .hero h1 { line-height: 1.4; }
     background: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-card);
     transition: border-color 0.15s, transform 0.15s;
 }
 .card-grid.card-grid--panel > .card--link.link-row:hover { border-color: var(--color-brand); }
@@ -1021,7 +1024,7 @@ html[lang="kn"] .hero h1 { line-height: 1.4; }
     text-decoration: none;
 }
 .row-links a.link-arrow:hover, .link-groups a.link-arrow:hover, .card-grid + .link-list a.link-arrow:hover { text-decoration: underline; }
-.row-links a.link-arrow .icon, .link-groups a.link-arrow .icon, .card-grid + .link-list a.link-arrow .icon { margin-left: auto; }
+.row-links a.link-arrow .icon, .link-groups a.link-arrow .icon, .card-grid + .link-list a.link-arrow .icon { margin-left: auto; flex-shrink: 0; }
 .link-groups .link-list li:last-child, .card-grid + .link-list li:last-child { border-bottom: 1px solid var(--color-border); }
 .row-links .link-current { min-height: var(--tap-link); font-weight: var(--weight-medium); color: var(--color-text-muted); }
 

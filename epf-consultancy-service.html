@@ -39,7 +39,7 @@ faq:
 ---
 {%- assign epf = site.data.facts.epf -%}
 {% capture fork %}Not registered yet? <a class="link-arrow" href="/pf-registration">PF registration&#8288;{% include icon.html name="arrow" size="18" %}</a>{% endcapture %}
-{% include hero.html heading="We file your PF every month, before the due date." lead="You send us salary details. We do the rest. Filing PF yourself now? We take over from your next due date." fork=fork %}
+{% include hero.html heading="We file your PF every month, before the due date." lead="You send us salary details. We do the rest. Filing PF yourself now? We take over from your next due date." fork=fork proof="strip" %}
 
 <section class="section section--surface section--stacked" aria-labelledby="monthly-heading">
   <div class="container">
@@ -90,7 +90,7 @@ faq:
   </div>
 </section>
 
-{% capture founder %}<p>Medu Thirumaleshwara Bhat started Medu Consultancy in 2000. He worked at EPFO (the PF office) for 35 years. He taught us the PF rules and how the PF office reads your monthly returns and records. That is how we keep your PF filing right. <a class="link-arrow" href="/about-us">About us&#8288;{% include icon.html name="arrow" size="18" %}</a></p>{% endcapture %}
+{% capture founder %}<p>Medu Thirumaleshwara Bhat started Medu Consultancy in 2000. He worked at EPFO (the PF office) for 35 years. He taught us the PF rules and how the PF office reads your monthly returns and records. That is how we keep your PF filing right.</p><p><a class="link-arrow" href="/about-us">About us&#8288;{% include icon.html name="arrow" size="18" %}</a></p>{% endcapture %}
 {% include founder-note.html text=founder stat=true bg="tint" %}
 
 <section class="section" aria-labelledby="applies-heading">
@@ -103,13 +103,12 @@ faq:
       </ul>
       <p>PF applies if your business has <strong>{{ epf.min_employees }} or more employees</strong>, in any industry. Once PF applies, it stays, even if your staff drop below {{ epf.min_employees }}.</p>
       <p>Staff with PF wages (mainly basic pay plus DA, dearness allowance) up to {{ epf.wage_ceiling_text }} a month must be in PF. <strong>We check this for you.</strong></p>
-      <p><a class="link-arrow" href="/epf-eligibility-checker">PF eligibility checker&#8288;{% include icon.html name="arrow" size="18" %}</a></p>
       <p><a class="link-arrow" href="/pf-registration">PF registration&#8288;{% include icon.html name="arrow" size="18" %}</a></p>
     </div>
   </div>
 </section>
 
-<section class="section section--stacked" aria-labelledby="more-heading">
+<section class="section section--surface section--stacked" aria-labelledby="more-heading">
   <div class="container">
     <h2 id="more-heading">More help with PF</h2>
     <div class="card-grid card-grid--panel">
