@@ -413,6 +413,13 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
    city pages? Owner asked, then stopped the edit; it would repeat the founder and the big "35 years" under "Why
    businesses choose us", so ask: full, without the stat, or leave out. (b) Router `situations.monthly.text` (home +
    city pages): change to "…once you share the documents we need" to match two paths? (c) Optional city detail.
+   **About v2 (2026-10-02, built and committed):** copy in `docs/about-contact-legal-copy-v2.md` section 1
+   (compliance-reviewed, owner-approved). Order: hero (H1 "About Medu Consultancy", `proof="strip"`) → founder note
+   `stat=true bg="tint"` ("He taught us the PF rules and how PF filing is checked. We keep up with every change in the
+   rules."; never "how the PF office works" next to his EPFO years) → "Our team, and where we work" (white, 3 `.col-word`
+   columns: 6 people / 3 cities + `city-links.html descriptive=true label=false` / 3 languages) → full two paths →
+   closing. `founder-note stat=true` now has the founder photo slot. Shared `why.items[1].text` fixed to "must be paid
+   by the 15th" (compliance). Contact, Privacy and Terms are next, in the same doc.
    **Next (owner, 2026-10-02): About, Terms, Privacy and Contact, revisited in the same v2 spirit** (one short
    story, fewer sections, big type, white/tint band variety; legal pages keep `page_type: legal` and no closing call).
    Phase 8 built them (`docs/phase8-copy.md`, `docs/phase8-review-findings.md`): read those and the built pages,
