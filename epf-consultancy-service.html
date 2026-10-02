@@ -56,6 +56,44 @@ faq:
   </div>
 </section>
 
+<section class="section section--surface section--stacked" aria-labelledby="services-heading">
+  <div class="container">
+    <h2 id="services-heading">What we do for you</h2>
+    <p class="section-lead">You send us salary details. We do the PF work.</p>
+    <div class="card-grid card-grid--columns">
+      <div class="card">
+        <p class="col-word">Once</p>
+        <h3>When you start</h3>
+        <ul class="check-list">
+          <li>We register your business for PF, if it isn't registered yet.</li>
+          <li>We add your current staff to PF. Staff who already have a UAN (a PF account number for life) keep it. Others get one by a face scan on the UMANG app. We guide them.</li>
+          <li>Already registered? Once you share the documents we need, we file from your next due date.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <p class="col-word">Monthly</p>
+        <h3>Every month</h3>
+        <ul class="check-list">
+          <li>We file your monthly PF return (the ECR) on time.</li>
+          <li>We add staff who join, and mark the date when staff leave.</li>
+          <li>We email you the challan (the PF payment slip). Pay it by the {{ epf.due_day }}th of the next month, or send us the amount and we pay it.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <p class="col-word">Anytime</p>
+        <h3>When you need help</h3>
+        <ul class="check-list">
+          <li>We help your staff move their PF to a new job, or withdraw their PF money.</li>
+          <li>We link their Aadhaar, PAN and bank details to PF (KYC).</li>
+          <li>We keep your PF records ready for checks, and help you during a PF inspection.</li>
+          <li>We write to the PF office for you, and tell you when PF rules change.</li>
+        </ul>
+      </div>
+    </div>
+    {% include call-block.html location="services" %}
+  </div>
+</section>
+
 {% capture founder %}<p>Medu Thirumaleshwara Bhat started Medu Consultancy in 2000. He worked at EPFO (the PF office) for 35 years. He taught us the PF rules and how the PF office reads your monthly returns and records. That is how we keep your PF filing right.</p><p><a class="link-arrow" href="/about-us">About us&#8288;{% include icon.html name="arrow" size="18" %}</a></p>{% endcapture %}
 {% include founder-note.html text=founder stat=true bg="tint" %}
 
