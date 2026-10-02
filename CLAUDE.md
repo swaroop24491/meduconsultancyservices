@@ -333,7 +333,11 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
     below the hero; 3-step How it works on home; PF rule detail moves out of the EPF page body; enquiries
     are free; speak to owners and HR). First step built: home's "Two ways" + "Which one sounds like you?"
     merged into one 4-choice router, "What do you need help with?" (`situation-cards.html`); home no
-    longer uses `two-paths.html`. Next: `docs/home-copy-v2.md` and `docs/epf-service-copy-v2.md` (old vs new).
+    longer uses `two-paths.html`. **Home v2 built** from `docs/home-copy-v2.md` (approved): hero → record
+    band (`statement.html`, the filing promise) → router → Why (columns with `.col-word` big words) →
+    `how-we-work.html short=true` (3 steps, no promise) → "Who we work with, and where" (`section--groups`,
+    `industry-links.html inner=true` + `city-cards.html`) → FAQ → closing. Proof label is now "our founder
+    worked at EPFO" (shared). Next: `docs/epf-service-copy-v2.md` (old vs new), then a design-reviewer pass.
 
 ### Next (strategy section 9.3, English first; Kannada last)
 0. **Section variety (2026-10-02, in progress):** owner to review the pilot, then commit it. Open, owner

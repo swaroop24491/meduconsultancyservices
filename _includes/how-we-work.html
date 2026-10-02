@@ -1,16 +1,29 @@
 {%- comment -%}
   How we work: 5 numbered steps (brief section 3), with the call button and filing promise.
-  include how-we-work.html            all 5 steps (service pages, home)
+  include how-we-work.html            all 5 steps (service and city pages)
+  include how-we-work.html short=true "How it works": 3 short steps and the call button,
+                                      no filing promise (home, where the record band has it)
 {%- endcomment -%}
 {%- include i18n.html -%}
+{%- if include.short -%}
+{%- assign hw_heading = t.how_we_work.short_heading -%}
+{%- assign hw_steps = t.how_we_work.short_steps -%}
+{%- else -%}
+{%- assign hw_heading = t.how_we_work.heading -%}
+{%- assign hw_steps = t.how_we_work.steps -%}
+{%- endif -%}
 <section class="section section--tint section--stacked" aria-labelledby="how-heading">
   <div class="container">
-    <h2 id="how-heading">{{ t.how_we_work.heading }}</h2>
+    <h2 id="how-heading">{{ hw_heading }}</h2>
     <ol class="steps steps--timeline">
-      {%- for s in t.how_we_work.steps %}
+      {%- for s in hw_steps %}
       <li><strong>{{ s.title }}</strong> {{ s.text }}</li>
       {%- endfor %}
     </ol>
+    {%- if include.short %}
+    <div class="call-block">{% include call-button.html location="how-we-work" %}</div>
+    {%- else %}
     {% include call-block.html location="how-we-work" %}
+    {%- endif %}
   </div>
 </section>

@@ -42,7 +42,7 @@ proof:
   # num is shown large in heroes; text is the one-line version (compact proof line)
   items:
     - { num: "25+", label: years in practice, text: 25+ years in practice }
-    - { num: "35 years", label: our founder at EPFO, text: Founder worked 35 years at EPFO }
+    - { num: "35 years", label: our founder worked at EPFO, text: Founder worked 35 years at EPFO }
     - { num: "100+", label: clients, text: 100+ clients }
     - { num: "3,500+", label: employees covered, text: "3,500+ employees covered" }
 
@@ -73,6 +73,12 @@ how_we_work:
     - { title: We set up your business and staff., text: New to PF or ESI? We register you first. }
     - { title: "Each month, you send salary details", text: and we file. }
     - { title: We email you the confirmation and challans, text: (the payment slips). }
+  # Home only (how-we-work.html short=true): 3 steps, no filing promise
+  short_heading: How it works
+  short_steps:
+    - { title: Call us., text: We check what applies to your business. Asking is free. }
+    - { title: Send us the documents we ask for., text: "We register your business if it isn't registered yet. Already registered? We take over your filing." }
+    - { title: "Each month, send us salary details.", text: We file and email you the confirmation and challans (the payment slips). }
 
 founder:
   heading: Who's behind it

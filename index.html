@@ -6,8 +6,6 @@ last_modified: 2026-10-02
 title: "PF & ESI Consultants in Mangalore, Udupi & Bangalore | Medu Consultancy"
 description: "We register your business and file PF and ESI every month, in Mangalore, Udupi and Bangalore. Our founder worked 35 years at EPFO. Call +91 82175 42975."
 faq:
-  - q: What does Medu Consultancy do?
-    a: We take care of PF and ESI for businesses. We register your business, set up your staff and file PF and ESI every month. We work only on PF and ESI.
   - q: Do PF and ESI apply to my business?
     a: 'PF applies if your business has 20 or more employees. ESI applies if it has 10 or more. Count all your staff, including casual workers and workers a contractor sends to you. Once PF or ESI applies, it stays. It does not stop if you have fewer staff later. Some other rules apply too. See <a href="/pf-registration">PF registration for employers</a> and <a href="/esi-registration">ESI registration for employers</a>, or <a href="tel:+918217542975" data-call-location="faq">call us</a> and we''ll check.'
   - q: Do you work with small businesses?
@@ -16,11 +14,17 @@ faq:
     a: Mangalore, Udupi and Bangalore, and nearby areas. Our office is in Mangaluru. In Udupi and Bangalore, our team can visit you if needed. Have branches in more than one place? We handle all of them. We work over phone and email, so you don't need to visit us.
   - q: We need only PF, or only ESI. Can you help?
     a: Yes. We can do PF only, ESI only, or both.
+  - q: We already have PF or ESI. Can you take over?
+    a: Yes. We tell you which documents we need. Once you share them, we take over your filing from your next due date.
+  - q: How much does it cost?
+    a: 'It depends on how many employees you have and what you need. Asking is free. <a href="tel:+918217542975" data-call-location="faq">Call us</a> and we''ll give you a quote.'
   - q: How do we get started?
     a: '<a href="tel:+918217542975" data-call-location="faq">Call us on +91 82175 42975</a>. We ask a few questions about your business and tell you what applies. Then we tell you which documents we need.'
 ---
 {%- include i18n.html -%}
-{% include hero.html heading="Simplifying EPF and ESI compliance for businesses" lead="We handle your EPF and ESI. We register your business and file for you every month, in Mangalore, Udupi and Bangalore. You focus on running your business." %}
+{% include hero.html heading="We file your PF and ESI on time, every month." lead="Not registered yet? We register your business first. We work with businesses in Mangalore, Udupi and Bangalore. You focus on running your business." proof="strip" %}
+
+{% include statement.html heading=t.filing_promise line="PF and ESI for each month's salaries are due by the 15th of the next month. We track these dates for every client and file before them." %}
 
 {% include situation-cards.html %}
 
@@ -29,35 +33,36 @@ faq:
     <h2 id="why-heading">Why businesses choose us</h2>
     <div class="card-grid card-grid--columns">
       <div class="card">
-        <span class="icon-badge icon-badge--lg" aria-hidden="true">{% include icon.html name="bank" size="26" %}</span>
+        <p class="col-word">35 years</p>
         <h3>Our founder worked 35 years at EPFO</h3>
-        <p>Medu Thirumaleshwara Bhat started Medu Consultancy in 2000. He worked at EPFO (the PF office) for 35 years. We learned how the PF office works from him. That is why our filing is right and on time.</p>
+        <p>Medu Thirumaleshwara Bhat started Medu Consultancy in 2000. He worked at EPFO (the PF office) for 35 years. We learned how the PF office works from him.</p>
         {% include photo-slot.html src=site.data.site.founder_photo alt="Medu Thirumaleshwara Bhat, founder of Medu Consultancy" %}
         <p><a class="link-arrow" href="/about-us">About us&#8288;{% include icon.html name="arrow" size="18" %}</a></p>
       </div>
       <div class="card">
-        <span class="icon-badge icon-badge--lg" aria-hidden="true">{% include icon.html name="calendar" size="26" %}</span>
-        <h3>Every due date, every month</h3>
-        <p>PF and ESI for each month's salaries are due by the 15th of the next month. We track these dates for every client and file before them. You don't need to remember them.</p>
+        <p class="col-word">Phone and email</p>
+        <h3>No need to visit us</h3>
+        <p>We handle everything over phone and email. In Udupi and Bangalore, our team can visit you if needed.</p>
       </div>
       <div class="card">
-        <span class="icon-badge icon-badge--lg" aria-hidden="true">{% include icon.html name="chat" size="26" %}</span>
+        <p class="col-word">3 languages</p>
         <h3>Talk to us in English, Kannada or Hindi</h3>
-        <p>We are based in Mangaluru (Mangalore). You can talk to us in English or Kannada, and we can help you in Hindi too. Our website is in English and Kannada.</p>
+        <p>You can talk to us in English or Kannada, and we can help you in Hindi too. Our website is in English and Kannada.</p>
       </div>
     </div>
   </div>
 </section>
 
-{% include how-we-work.html %}
+{% include how-we-work.html short=true %}
 
-{% include industry-links.html %}
-
-<section class="section" aria-labelledby="where-heading">
-  <div class="container stack">
-    <h2 id="where-heading">Where we work</h2>
+<section class="section section--groups" aria-labelledby="who-heading">
+  <div class="container">
+    <h2 id="who-heading">Who we work with, and where</h2>
+    <h3>{{ t.industries.heading }}</h3>
+    {% include industry-links.html inner=true %}
+    <h3>Where we work</h3>
+    <p>Our office is in Mangaluru (Mangalore).</p>
     {% include city-cards.html %}
-    {% include no-office.html %}
   </div>
 </section>
 

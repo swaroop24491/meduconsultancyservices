@@ -4,23 +4,12 @@
   include industry-links.html compact=true    link group: label + 5 stacked arrow links (short names;
                                               descriptive=true: "PF and ESI for hospitals"…)
   include industry-links.html compact=true except="schools"   leave out the current industry
+  include industry-links.html inner=true      the 5 cards + "we also work with" only, inside a
+                                              section the page builds (home "Who we work with, and where")
 {%- endcomment -%}
 {%- include i18n.html -%}
 {%- assign ind = t.industries -%}
-{%- if include.compact -%}
-<div class="link-group">
-  <p class="link-group__label">{{ ind.compact_label }}</p>
-  <ul class="link-list">
-    {%- for i in ind.primary %}{% unless i.key == include.except %}
-    {% assign _ip = "industries/" | append: i.key %}<li>{% include resolve-link.html path=_ip %}<a class="link-arrow" href="{{ href }}"{% if link_en %} hreflang="en"{% endif %}>{% if include.descriptive %}{{ i.anchor }}{% else %}{{ i.name }}{% endif %}{% if link_en %}<span class="link-lang"> {{ t.english_marker }}</span>{% endif %}&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
-    {%- endunless %}{% endfor %}
-  </ul>
-</div>
-{%- else -%}
-{%- assign bg = include.bg | default: "" -%}
-<section class="section{% if bg != "" %} section--{{ bg }}{% endif %}" aria-labelledby="industries-heading">
-  <div class="container">
-    <h2 id="industries-heading">{{ ind.heading }}</h2>
+{%- capture industry_cards -%}
     <ul class="card-grid industry-cards">
       {%- for i in ind.primary %}
       <li>
@@ -34,6 +23,24 @@
       {%- endfor %}
     </ul>
     <p class="industry-also"><strong>{{ ind.also_heading }}:</strong> {{ ind.also }}</p>
+{%- endcapture -%}
+{%- if include.inner -%}
+{{ industry_cards }}
+{%- elsif include.compact -%}
+<div class="link-group">
+  <p class="link-group__label">{{ ind.compact_label }}</p>
+  <ul class="link-list">
+    {%- for i in ind.primary %}{% unless i.key == include.except %}
+    {% assign _ip = "industries/" | append: i.key %}<li>{% include resolve-link.html path=_ip %}<a class="link-arrow" href="{{ href }}"{% if link_en %} hreflang="en"{% endif %}>{% if include.descriptive %}{{ i.anchor }}{% else %}{{ i.name }}{% endif %}{% if link_en %}<span class="link-lang"> {{ t.english_marker }}</span>{% endif %}&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+    {%- endunless %}{% endfor %}
+  </ul>
+</div>
+{%- else -%}
+{%- assign bg = include.bg | default: "" -%}
+<section class="section{% if bg != "" %} section--{{ bg }}{% endif %}" aria-labelledby="industries-heading">
+  <div class="container">
+    <h2 id="industries-heading">{{ ind.heading }}</h2>
+{{ industry_cards }}
   </div>
 </section>
 {%- endif -%}
