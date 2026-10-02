@@ -115,27 +115,19 @@ colours outside the redesign.
 Rebuilt pages use the redesign tokens in the `:root` block at the top of
 `site.css`: logo green `#006d3c` for links, headings accents and the call button;
 mustard `#fede00` for small highlights only (never text on cream); cream page
-background everywhere; warm sand `--color-sand` for the closing band and tool result box only; no white surfaces; soft green `--color-tint` for icon and number circles only; red only for
-genuine warnings. Contrast ratios are noted there. Use the variables, never raw values.
+base, with white, soft green `--color-tint`, warm sand `--color-sand` and deep green `--color-brand-deep`
+available to the page design; red only for genuine warnings. Contrast ratios are noted there. Use the variables, never raw values.
 
-Layout (owner redesign 2026-09-27, inspired by segmental.ai: simple, lots of space):
-- Every section is cream, split from the next by a thin line. The closing call is the
-  only coloured band (sand). No alternating backgrounds.
-- From 1024px sections split: H2 in a left column, content in a wider right column.
-  Headings are not sticky. `section--stacked` keeps the H2 on top at full width, for
-  `card-grid--columns` (columns side by side, each under a short green line, e.g. home
-  "Why businesses choose us"), and for the closing call (always stacked). Hero proof facts
-  are a 2 x 2 grid split by thin lines: large green number over a short muted label (no
-  dots); mustard is left to the logo. One section = one H2.
-- Cards are rows (thin line above, title left, details right). Below 1024px the section
-  line is the only full-width divider: lines sit only between rows (none under the H2 or
-  after the last row), hero facts have no lines, stacked columns get a short green accent. No boxed rows: a call row
-  is a plain row with a `tel:` arrow link. Links to other pages use one `.link-row` design (industries,
-  cities, tools); secondary links use `.link-group` (label + stacked arrow links).
+Layout: section variety redesign in progress (owner, 2026-10-02: the earlier all-cream,
+same-layout look was accidental). Pages are composed one by one from the components on
+`/style-guide`, guided by design-reviewer input, **not by fixed layout rules** (owner: don't
+write design rules). Only constraint: light and clean. Reference for the feel:
+claude.com/product/claude-code. The closing call is a deep green band (owner decision
+2026-10-02, brief section 9 updated). No hero illustrations or example/mock cards (owner
+removed both on the pilot: "don't add any value"). Pilot: home and `epf-consultancy-service`.
 - Headings, titles, link names and FAQ questions are weight 500; 600 only for buttons,
   footer titles and bold words in text.
 - The header is sticky (owner change, replacing D6), except on screens under 421px tall.
-- Hero: H1, lead, call button (no filing promise), proof facts on the right.
 
 Infographics are hand-authored inline `<svg>` (not external image files), flat
 Material-Symbols style (`viewBox="0 -960 960 960"`, single `<path>`, fill only),
@@ -318,8 +310,41 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
   uses a plain "Open in Google Maps" link. Legal pages: `page_type: legal`, no closing call. `schema.html` gives
   `AboutPage` (+ founder `Person`, no job title) and `ContactPage`. Six-reviewer round done and applied (`docs/phase8-review-findings.md`): About is hero (proof on) → Who we are → full two-paths → closing; 404 has the Kannada line above 5 link rows (`kannada_font: true` loads the Kannada font on an English page); `head.html` omits canonical/hreflang/og:url when `noindex`; the founder `Person` is defined once and referenced by `@id`.
 
+- Section variety pilot (2026-10-02, uncommitted until the owner reviews): home + EPF service page
+  recomposed over three design-reviewer rounds; compliance reviewer checked the new labels.
+  - Components: bigger type (`--text-display` hero H1, `--text-lead`, larger `--text-h2`); tokens
+    `--color-brand-deep`, `--color-tint-line`, `--radius-lg`, `--shadow-card`, `--badge-step`.
+    Section backgrounds `section--surface` (white), `section--tint`, `section--deep`; a line only
+    between two plain cream sections. Hero `proof="strip"` (full-width row) is available; the pilot
+    heroes use the default 2 x 2 proof on the right.
+  - Shared includes changed (affect all pages using them): `closing-call.html` (deep green, bigger
+    heading), `how-we-work.html` (tint band, filled-circle timeline), `two-paths.html` (two white
+    cards joined by an arrow, row links, "(this page)" in muted text), `situation-cards.html` (row
+    links). Link groups (industries, cities, services) and guide lists under tool cards are full-width
+    arrow rows (44px). Footer phone link 44px.
+  - New: `founder-note.html` ("Who's behind it"; `stat=true` adds a big "35 years", only where the
+    hero has no proof), `card-grid--panel` (white rounded cards; compact tool cards), `.fact-pair`
+    (two big numbers above text), `icon-badge--lg`; icons `sync`, `bank`, `calendar`, `chat`.
+  - Pilot pages: home "Why" columns got icons; EPF "Does PF apply?" fact pair, flat "What we do"
+    columns, tools on a white band.
+  - New English strings logged in `docs/kannada-review.md`.
+  - **Fresh plan (2026-10-02):** five reviewers' plan for home + EPF page, with owner decisions, in
+    `docs/home-epf-fresh-plan.md` (home H1 "We file your PF and ESI on time, every month."; promise band
+    below the hero; 3-step How it works on home; PF rule detail moves out of the EPF page body; enquiries
+    are free; speak to owners and HR). First step built: home's "Two ways" + "Which one sounds like you?"
+    merged into one 4-choice router, "What do you need help with?" (`situation-cards.html`); home no
+    longer uses `two-paths.html`. Next: `docs/home-copy-v2.md` and `docs/epf-service-copy-v2.md` (old vs new).
+
 ### Next (strategy section 9.3, English first; Kannada last)
-0. **Where we stopped (2026-10-02):** phases 0 to 8 and the founder wording pass are done and committed on
+0. **Section variety (2026-10-02, in progress):** owner to review the pilot, then commit it. Open, owner
+   to decide: (a) approve the new labels ("employees or more", "staff with PF wages up to this a month
+   must join", founder label "our founder worked at EPFO (the PF office)"); (b) copy changes the design
+   reviewer suggested: full title + full line for each How we work step, and moving the last two "Does
+   PF apply?" paragraphs to the FAQ (show old vs new first); (c) keep or drop the white band behind the
+   EPF tools (reviewer: barely visible). Then roll the look out one page type at a time (ESI service and
+   registration pages first), each with a design-reviewer pass; use the compact tool cards everywhere.
+   Already done: "Where we stopped" below.
+   **Where we stopped (2026-10-02):** phases 0 to 8 and the founder wording pass are done and committed on
    `feature/revamp` (last code commit `83b44ea`). Founder pass: "We know how the PF office works from the inside"
    became "We learned how the PF office works from him." on home, EPF service and the 3 city pages (ESI page
    already differed); brief updated (founder retired, no title); copy in `docs/founder-wording-copy.md`;

@@ -48,6 +48,10 @@ faq:
   <div class="container">
     <div class="prose">
       <h2 id="applies-heading">Does PF apply to your business?</h2>
+      <ul class="fact-pair">
+        <li><span class="fact-pair__num">{{ epf.min_employees }}</span> <span class="fact-pair__label">employees or more</span></li>
+        <li><span class="fact-pair__num">{{ epf.wage_ceiling_text }}</span> <span class="fact-pair__label">staff with PF wages up to this a month must join</span></li>
+      </ul>
       <p>PF applies if your business has <strong>{{ epf.min_employees }} or more employees</strong>, in any industry.</p>
       <p>Count all your staff, including casual workers and workers a contractor sends to work for you. <strong>Once PF applies, it stays</strong>, even if your staff drop below {{ epf.min_employees }}.</p>
       <p>Every employee whose PF wages are <strong>{{ epf.wage_ceiling_text }} a month or less</strong> must be in PF. This limit went up from {{ epf.wage_ceiling_old_text }} to {{ epf.wage_ceiling_text }} on {{ epf.wage_ceiling_from }}. For September 2026 salaries, the PF office has not yet said which limit to use. <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a> and we'll tell you what to do.</p>
@@ -58,10 +62,10 @@ faq:
   </div>
 </section>
 
-<section class="section" aria-labelledby="services-heading">
+<section class="section section--stacked" aria-labelledby="services-heading">
   <div class="container">
     <h2 id="services-heading">What we do for you</h2>
-    <div class="card-grid">
+    <div class="card-grid card-grid--columns">
       <div class="card">
         <h3>Setting up (one-time)</h3>
         <ul class="check-list">
@@ -96,12 +100,8 @@ faq:
 
 {% include how-we-work.html %}
 
-<section class="section" aria-labelledby="behind-heading">
-  <div class="container stack">
-    <h2 id="behind-heading">Who's behind it</h2>
-    <p class="prose">Medu Thirumaleshwara Bhat started Medu Consultancy in 2000. He worked at EPFO (the PF office) for 35 years. We learned how the PF office works from him. That is why our filing is right and on time. <a class="link-arrow" href="/about-us">About us&#8288;{% include icon.html name="arrow" size="18" %}</a></p>
-  </div>
-</section>
+{% capture founder %}<p>Medu Thirumaleshwara Bhat started Medu Consultancy in 2000. He worked at EPFO (the PF office) for 35 years. We learned how the PF office works from him. That is why our filing is right and on time. <a class="link-arrow" href="/about-us">About us&#8288;{% include icon.html name="arrow" size="18" %}</a></p>{% endcapture %}
+{% include founder-note.html text=founder %}
 
 <section class="section" aria-labelledby="work-with-heading">
   <div class="container stack">
@@ -114,10 +114,10 @@ faq:
   </div>
 </section>
 
-<section class="section" aria-labelledby="tools-heading">
+<section class="section section--stacked section--surface" aria-labelledby="tools-heading">
   <div class="container">
     <h2 id="tools-heading">Free PF tools and guides</h2>
-    <div class="card-grid">
+    <div class="card-grid card-grid--panel">
       {% include tool-card.html key="epf-eligibility" %}
       {% include tool-card.html key="epf-contribution" %}
       {% include tool-card.html key="epf-penalty" %}

@@ -3,19 +3,26 @@
   owner decision 2026-09-27. It stays beside the other call buttons.)
   include hero.html heading="..." lead="..."
   proof=false leaves out the proof line (pages where it isn't in the hero, strategy 4.2).
+  proof="strip" shows the four facts as a full-width row under the hero.
   proof="compact" shows the one-line proof under the call button (tools hub).
 {%- endcomment -%}
 <section class="hero">
-  <div class="container">
-    <h1>{{ include.heading }}</h1>
-    {%- if include.lead %}
-    <p class="hero__lead">{{ include.lead }}</p>
-    {%- endif %}
-    <div class="hero__call">{% include call-button.html location="hero" %}</div>
-    {%- if include.proof == "compact" %}
-    {% include proof-line.html compact=true %}
-    {%- elsif include.proof != false %}
+  <div class="container hero__grid">
+    <div class="hero__text">
+      <h1>{{ include.heading }}</h1>
+      {%- if include.lead %}
+      <p class="hero__lead">{{ include.lead }}</p>
+      {%- endif %}
+      <div class="hero__call">{% include call-button.html location="hero" %}</div>
+      {%- if include.proof == "compact" %}
+      {% include proof-line.html compact=true %}
+      {%- endif %}
+    </div>
+    {%- if include.proof != false and include.proof != "strip" and include.proof != "compact" %}
     {% include proof-line.html %}
     {%- endif %}
   </div>
+  {%- if include.proof == "strip" %}
+  <div class="container"><div class="proof-strip">{% include proof-line.html %}</div></div>
+  {%- endif %}
 </section>

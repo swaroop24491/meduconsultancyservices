@@ -15,6 +15,8 @@
     --color-bg: #f8f4f0;             /* cream page background, rgb(248,244,240) */
     --color-surface: #ffffff;        /* cards, alternate sections */
     --color-tint: #edf5ef;           /* soft green: icon and number badges */
+    --color-brand-deep: #004d2a;     /* deep green band (closing call): white text 9.9:1 */
+    --color-tint-line: #cfe3d6;      /* thin lines on a tint band */
     --color-sand: #efe7dc;           /* warm sand: call panels (call box, closing call,
                                         result call); text 10.3:1, green 5.3:1 */
     --color-text: #333333;
@@ -36,7 +38,9 @@
     --text-base: 1rem;
     --text-lg: 1.125rem;
     --text-h3: 1.25rem;
-    --text-h2: clamp(1.5rem, 1.1rem + 1.6vw, 2.25rem);
+    --text-lead: 1.25rem;            /* hero lead */
+    --text-h2: clamp(1.75rem, 1.2rem + 2vw, 2.75rem);
+    --text-display: clamp(2.5rem, 1.3rem + 4.4vw, 4.5rem);  /* hero H1, founder stat */
     --text-h1: clamp(2rem, 1.2rem + 3.2vw, 3.5rem);
     --weight-regular: 400;
     --weight-medium: 500;
@@ -62,11 +66,14 @@
     --container-text: 42rem;         /* comfortable reading width */
     --radius-sm: 6px;
     --radius: 12px;
+    --radius-lg: 16px;               /* panel cards */
+    --shadow-card: 0 1px 2px rgba(31, 31, 31, 0.04), 0 4px 16px rgba(31, 31, 31, 0.05);
     --radius-pill: 999px;
     --tap-min: 48px;                 /* minimum touch target for buttons */
     --tap-link: 44px;                /* minimum height for stacked text links */
     --header-h: 64px;                /* header height (80px from 1200px, set below) */
     --badge-sm: 32px;                /* How we work number circle */
+    --badge-step: 40px;              /* timeline number circle */
 }
 
 /* Kannada script needs more line height, a larger small size (vowel signs
@@ -169,14 +176,20 @@ address { font-style: normal; }
 .container--text > * { max-width: var(--container-text); }
 
 .section { padding-block: var(--section-gap); }
-/* One calm background: sections are cream, split by a thin line. Only the
-   closing call keeps a coloured band. */
+/* Cream is the page base. A section may change background (tint, deep green)
+   or hold white panel cards for variety. The thin line only sits between two
+   plain cream sections: where the colour changes, the colour is the divider. */
 main > section + section { border-top: 1px solid var(--color-border); }
 .section--surface { background: var(--color-surface); }
 .section--tint { background: var(--color-tint); }
 .section--sand { background: var(--color-sand); }
+.section--deep { background: var(--color-brand-deep); color: var(--color-on-brand); }
 main > .section--tint, main > .section--tint + section,
-main > .section--sand, main > .section--sand + section { border-top-color: transparent; }
+main > .section--sand, main > .section--sand + section,
+main > .section--deep, main > .section--deep + section,
+main > .section--surface + section { border-top-color: transparent; }
+main > .section--surface { border-block: 1px solid var(--color-border); }
+main > .section--surface + .section--surface { border-top-color: var(--color-border); }
 
 /* Split sections (from 1024px): the H2 sits in a left column and everything
    else in a wider right column, so the page uses its full width. Every
@@ -423,6 +436,7 @@ html { scroll-padding-bottom: calc(var(--tap-min) + var(--space-5) + env(safe-ar
 .site-footer a:hover { color: var(--color-brand); }
 /* Navigation lists: no underline until hover or focus; phone and email keep it */
 .site-footer li a { text-decoration: none; }
+.site-footer a[href^="tel:"] { min-height: var(--tap-link); }
 .site-footer li a:hover, .site-footer li a:focus-visible { text-decoration: underline; }
 .site-footer address p + p { margin-top: 0; }
 .site-footer__rights { margin-top: var(--space-6); color: var(--color-text-muted); }
@@ -661,31 +675,28 @@ html[lang="kn"] .proof-line__num { letter-spacing: 0; }
 .result-call .proof-line { margin-top: var(--space-4); }
 
 /* ---------- Hero ----------
-   From 1024px: H1, lead and call on the left; the proof line as a list of
-   facts on the right. */
-.hero { padding-block: clamp(3rem, 1rem + 6vw, 7rem) var(--section-gap); }
-.hero h1 { max-width: 18ch; }
-.hero__lead { max-width: var(--container-text); margin-top: var(--space-5); font-size: var(--text-lg); }
+   Text on the left. From 1024px the right column holds the proof facts
+   (2 x 2). proof="strip" puts the
+   four facts in a full-width row under both columns. */
+.hero { padding-block: clamp(3rem, 2rem + 6vw, 8rem) clamp(3rem, 2rem + 4vw, 6rem); }
+.hero h1 { max-width: 18ch; font-size: var(--text-display); line-height: 1.05; }
+html[lang="kn"] .hero h1 { line-height: 1.4; }
+.hero__lead { max-width: 34rem; margin-top: var(--space-5); font-size: var(--text-lead); color: var(--color-text-muted); }
 .hero__call { margin-top: var(--space-6); }
 .hero .proof-line { margin-top: var(--space-7); }
 @media (min-width: 1024px) {
-    .hero .container {
+    .hero__grid {
         display: grid;
-        grid-template-columns: minmax(0, 8fr) minmax(0, 4fr);
+        grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
         column-gap: var(--space-8);
+        align-items: end;
     }
-    .hero .container > * { grid-column: 1; }
-    .hero .proof-line:not(.proof-line--compact) {
-        grid-column: 2;
-        grid-row: 1 / span 3;
-        align-self: end;
-        margin-top: 0;
-    }
+    .hero__grid > .proof-line:not(.proof-line--compact) { margin-top: 0; }
 }
 /* The proof column is too narrow from 1024 to 1199px for a 2 x 2 grid without
    a number wrapping (e.g. "35 years"): stack the 4 facts in one column instead. */
 @media (min-width: 1024px) and (max-width: 1199px) {
-    .hero .proof-line:not(.proof-line--compact) { grid-template-columns: minmax(0, 1fr); }
+    .hero__grid > .proof-line:not(.proof-line--compact) { grid-template-columns: minmax(0, 1fr); }
 }
 
 /* ---------- Text section (prose) ---------- */
@@ -755,8 +766,18 @@ html[lang="kn"] .proof-line__num { letter-spacing: 0; }
     }
 }
 
-/* ---------- Closing call ---------- */
-.closing-call h2 { margin-bottom: 0; }
+/* ---------- Closing call ----------
+   Deep green band, white text, white call button. Focus ring turns white. */
+.closing-call h2 { margin-bottom: 0; max-width: 20ch; font-size: clamp(2rem, 1.2rem + 3vw, 3.25rem); }
+.closing-call .btn--call { padding: var(--space-4) var(--space-6); }
+.section--deep h2, .section--deep h3 { color: var(--color-on-brand); }
+.section--deep .filing-promise { color: var(--color-on-brand); }
+.section--deep .filing-promise .icon { color: var(--color-accent); }
+.section--deep .btn--call { background: var(--color-surface); color: var(--color-brand-deep); }
+.section--deep .btn--call:hover { background: var(--color-tint); color: var(--color-brand-deep); }
+.section--deep :focus-visible { outline-color: var(--color-surface); }
+.section--deep a { color: var(--color-on-brand); }
+.section--deep .btn--call, .section--deep .btn--call:hover { text-decoration: none; }
 
 /* ---------- Tools (calculators, checkers, converter) ----------
    Tool pages start with a short head (H1 + one line) so the tool is on the
@@ -913,3 +934,169 @@ html[lang="kn"] .proof-line__num { letter-spacing: 0; }
 .tool-group + .tool-group { margin-top: var(--space-7); }
 .tool-group > h3 { margin-bottom: var(--space-3); }
 .tool-form + .tool-result { margin-top: var(--space-6); }
+
+
+/* ---------- Bands ----------
+   White and soft green bands need less padding than cream sections: the
+   colour already separates them. Stacked headings get a little more room. */
+.section--surface, .section--tint { padding-block: clamp(3.5rem, 2rem + 5vw, 6.5rem); }
+.section--stacked > .container > h2 { margin-bottom: var(--space-6); }
+
+/* ---------- Panel cards ----------
+   White rounded cards for a few points of equal weight. Use in a
+   .section--stacked so they get the full width. */
+.card-grid.card-grid--panel {
+    gap: var(--space-5);
+    border-bottom: 0;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+}
+.card-grid.card-grid--panel > .card:not(.card--link), .paths-flow > .card {
+    display: flex;
+    flex-direction: column;
+    padding: clamp(1.25rem, 0.8rem + 1.6vw, 2rem);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+}
+.card-grid.card-grid--panel > .card:not(.card--link) > * { grid-column: auto; grid-row: auto; }
+.card-grid.card-grid--panel > .card:not(.card--link) > :nth-child(n+2), .paths-flow > .card > * + * { margin-top: var(--space-3); }
+.card-grid.card-grid--panel > .card:not(.card--link) > h3, .paths-flow > .card > h3 { margin-bottom: 0; font-size: 1.375rem; }
+.card-grid--panel .icon-badge, .paths-flow .icon-badge { align-self: flex-start; }
+.section--surface .card-grid--panel > .card { box-shadow: none; }
+
+/* Tool and link cards in a panel grid: icon beside the name, text below,
+   the whole card is the link */
+.card-grid.card-grid--panel > .card--link.link-row {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-areas: "icon name arrow" "text text text";
+    column-gap: var(--space-3);
+    row-gap: var(--space-3);
+    align-content: start;
+    padding: var(--space-5);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    transition: border-color 0.15s, transform 0.15s;
+}
+.card-grid.card-grid--panel > .card--link.link-row:hover { border-color: var(--color-brand); }
+@media (prefers-reduced-motion: no-preference) {
+    .card-grid.card-grid--panel > .card--link.link-row:hover { transform: translateY(-2px); }
+}
+
+/* ---------- Two paths as a flow ----------
+   Two white cards joined by an arrow (down on phones, across from 768px).
+   The links sit at the foot of each card as full-width rows. */
+.paths-flow { display: grid; gap: var(--space-3); justify-items: stretch; }
+.paths-flow__arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-brand);
+}
+.paths-flow__arrow .icon { transform: rotate(90deg); }
+@media (min-width: 768px) {
+    .paths-flow { grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: var(--space-4); }
+    .paths-flow__arrow .icon { transform: none; }
+}
+.row-links { margin-top: auto; padding-top: var(--space-4); }
+.link-groups .link-list { margin-top: var(--space-2); }
+.card-grid + .link-list { margin-top: var(--space-6); }
+.row-links li, .link-groups .link-list li, .card-grid + .link-list li { border-top: 1px solid var(--color-border); padding-block: 0; }
+.row-links a.link-arrow, .link-groups a.link-arrow, .card-grid + .link-list a.link-arrow {
+    display: flex;
+    gap: 0.3em;
+    align-items: center;
+    width: 100%;
+    min-height: var(--tap-link);
+    text-decoration: none;
+}
+.row-links a.link-arrow:hover, .link-groups a.link-arrow:hover, .card-grid + .link-list a.link-arrow:hover { text-decoration: underline; }
+.row-links a.link-arrow .icon, .link-groups a.link-arrow .icon, .card-grid + .link-list a.link-arrow .icon { margin-left: auto; }
+.link-groups .link-list li:last-child, .card-grid + .link-list li:last-child { border-bottom: 1px solid var(--color-border); }
+.row-links .link-current { min-height: var(--tap-link); font-weight: var(--weight-medium); color: var(--color-text-muted); }
+
+/* ---------- Timeline (How we work) ----------
+   Filled number circles joined by a line: down on phones and tablets, across
+   from 1024px. White numbers on green 6.5:1; muted text on tint 6:1. */
+.steps.steps--timeline { max-width: none; border-bottom: 0; color: var(--color-text-muted); }
+.steps.steps--timeline li:nth-child(n) {
+    padding: calc((var(--badge-step) - 1.6em) / 2) 0 var(--space-5) calc(var(--badge-step) + var(--space-4));
+    border-top: 0;
+}
+.steps.steps--timeline li:last-child { padding-bottom: 0; }
+.steps.steps--timeline li:nth-child(n)::before {
+    top: 0;
+    width: var(--badge-step); height: var(--badge-step);
+    background: var(--color-brand);
+    color: var(--color-on-brand);
+    font-size: var(--text-base);
+    font-weight: var(--weight-semibold);
+}
+.steps.steps--timeline li:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    left: calc(var(--badge-step) / 2 - 1px);
+    top: var(--badge-step);
+    bottom: 0;
+    width: 2px;
+    background: var(--color-tint-line);
+}
+.steps.steps--timeline strong { display: block; font-size: var(--text-lg); color: var(--color-heading); }
+.steps--timeline + .call-block { margin-top: var(--space-7); }
+@media (min-width: 1024px) {
+    .steps.steps--timeline { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--space-5); }
+    .steps.steps--timeline li:nth-child(n) { padding: calc(var(--badge-step) + var(--space-4)) 0 0; }
+    .steps.steps--timeline li:not(:last-child)::after {
+        left: calc(var(--badge-step) + var(--space-2));
+        right: calc(-1 * var(--space-3));
+        top: calc(var(--badge-step) / 2 - 1px);
+        bottom: auto;
+        width: auto;
+        height: 2px;
+    }
+}
+
+/* ---------- Proof strip ----------
+   The four proof facts in a full-width row under the hero, split by thin
+   lines. Large green numbers (5.9:1 on cream) over muted labels. */
+.proof-strip { margin-top: clamp(3rem, 2rem + 3vw, 5rem); }
+.proof-strip .proof-line:not(.proof-line--compact) {
+    margin-top: 0;
+    padding-top: var(--space-6);
+    border-top: 1px solid var(--color-border);
+    border-bottom: 0;
+    row-gap: var(--space-5);
+}
+.proof-strip .proof-line:not(.proof-line--compact) li { padding-block: 0; border-top: 0; }
+.proof-strip .proof-line__num { font-size: clamp(2rem, 1.4rem + 2.4vw, 3.25rem); }
+.proof-line__num { white-space: nowrap; }
+@media (min-width: 768px) {
+    .proof-strip .proof-line:not(.proof-line--compact) { grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 0; }
+    .proof-strip .proof-line:not(.proof-line--compact) li { padding-inline: var(--space-5); border-left: 1px solid var(--color-border); }
+    .proof-strip .proof-line:not(.proof-line--compact) li:first-child { padding-left: 0; border-left: 0; }
+}
+
+/* ---------- Founder feature ----------
+   Big "35 years" on the left, the story on the right (from 768px). */
+.founder { display: grid; gap: var(--space-5); }
+.founder__num { display: block; font-size: var(--text-display); line-height: 1.05; letter-spacing: var(--tracking-heading); color: var(--color-brand); white-space: nowrap; }
+html[lang="kn"] .founder__num { letter-spacing: 0; }
+.founder__label { display: block; margin-top: var(--space-2); color: var(--color-text-muted); }
+@media (min-width: 768px) {
+    .founder { grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); column-gap: var(--space-8); align-items: center; }
+}
+
+/* ---------- Fact pair ----------
+   Two key numbers pulled out above running text (e.g. who must register). */
+.fact-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-5); padding-bottom: var(--space-5); border-bottom: 1px solid var(--color-border); }
+.fact-pair__num { display: block; font-size: clamp(2rem, 1.4rem + 2.4vw, 3.25rem); line-height: var(--leading-heading); color: var(--color-brand); white-space: nowrap; }
+.fact-pair__label { display: block; margin-top: var(--space-1); font-size: var(--text-sm); color: var(--color-text-muted); }
+.prose > .fact-pair + * { margin-top: var(--space-5); }
+.prose .fact-pair { padding-left: 0; }
+.prose .fact-pair li + li { margin-top: 0; }
+
+/* ---------- Icons above columns ---------- */
+.icon-badge--lg { width: 48px; height: 48px; }
+.card-grid--columns .icon-badge { margin-bottom: var(--space-2); }

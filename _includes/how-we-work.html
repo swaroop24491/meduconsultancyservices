@@ -3,11 +3,10 @@
   include how-we-work.html            all 5 steps (service pages, home)
 {%- endcomment -%}
 {%- include i18n.html -%}
-{%- assign bg = include.bg | default: "" -%}
-<section class="section{% if bg != "" %} section--{{ bg }}{% endif %}" aria-labelledby="how-heading">
+<section class="section section--tint section--stacked" aria-labelledby="how-heading">
   <div class="container">
     <h2 id="how-heading">{{ t.how_we_work.heading }}</h2>
-    <ol class="steps">
+    <ol class="steps steps--timeline">
       {%- for s in t.how_we_work.steps %}
       <li><strong>{{ s.title }}</strong> {{ s.text }}</li>
       {%- endfor %}

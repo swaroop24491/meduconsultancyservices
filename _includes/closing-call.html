@@ -3,7 +3,7 @@
   include closing-call.html line="Hand over your monthly PF filing."
 {%- endcomment -%}
 {%- include i18n.html -%}
-<section class="section section--sand section--stacked closing-call" aria-labelledby="closing-heading">
+<section class="section section--deep section--stacked closing-call" aria-labelledby="closing-heading">
   <div class="container container--text">
     <h2 id="closing-heading">{{ include.line | default: t.closing_call.default }}</h2>
     {% include call-block.html location="closing" %}

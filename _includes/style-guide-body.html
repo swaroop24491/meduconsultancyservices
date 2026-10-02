@@ -22,7 +22,7 @@
         <li><a href="#sg-how">How we work</a></li>
         <li><a href="#sg-cards">Content cards</a></li>
         <li><a href="#sg-office">No office visits</a></li>
-        <li><a href="#sg-situations">Situation cards</a></li>
+        <li><a href="#sg-situations">Situation router</a></li>
         <li><a href="#sg-industries">Industry and city links</a></li>
         <li><a href="#sg-tools">Tool cards</a></li>
         <li><a href="#sg-tool-parts">Tool parts (fields, results)</a></li>
@@ -89,7 +89,7 @@
 <section class="section" aria-labelledby="sg-prose">
   <div class="container">
     <h2 id="sg-prose">Text, check list and sections</h2>
-    <p class="sg-note">Sections are <code>&lt;section class="section"&gt;</code> with a container. Every section is cream, with a thin line between sections; only the closing call has a coloured band (sand). From 1024px sections <strong>split</strong>: the H2 in a left column, everything else in a wider right column (this page shows it). <code>section--stacked</code> keeps the H2 on top at full width, for columns. One section = one H2. Running text goes in <code>.prose</code> (reading width; an H2 inside it still goes to the left column). Lists of what we do use <code>.check-list</code>. Several blocks under one H2 use <code>.stack</code>.</p>
+    <p class="sg-note">Sections are <code>&lt;section class="section"&gt;</code> with a container. Cream is the base; <code>section--surface</code> (white), <code>section--tint</code> (soft green) and <code>section--deep</code> (deep green, the closing call) are available. Other parts: white panel cards (<code>card-grid--panel</code>), the two-paths flow, the How we work timeline, the founder feature (<code>founder-note.html</code>), a fact pair (<code>.fact-pair</code>), and the hero proof facts as a full-width row (<code>hero.html proof="strip"</code>). Each page is composed on its own with design-reviewer input. From 1024px sections <strong>split</strong>: the H2 in a left column, everything else in a wider right column (this page shows it). <code>section--stacked</code> keeps the H2 on top at full width, for columns. One section = one H2. Running text goes in <code>.prose</code> (reading width; an H2 inside it still goes to the left column). Lists of what we do use <code>.check-list</code>. Several blocks under one H2 use <code>.stack</code>.</p>
     <div class="sg-demo" lang="{{ lang }}">
       <div class="prose">
         <p>{{ t.two_paths.monthly.text }} {{ t.no_office }}</p>
@@ -194,7 +194,7 @@
 </div>
 
 <div id="sg-situations" class="sg-component">
-  <div class="container"><p class="sg-component__name">Situation cards</p><p class="sg-note">Routes the "newly liable" and "behind on filings" visitors (home page).</p>
+  <div class="container"><p class="sg-component__name">Situation router</p><p class="sg-note">"What do you need help with?": four choices (register, file every month, not sure, paid late), each with links; the last two start with a call row. Home page only; replaces two paths there.</p>
   <pre class="sg-code"><code>{% raw %}{% include situation-cards.html %}{% endraw %}</code></pre></div>
 </div>
 <div lang="{{ lang }}">{% include situation-cards.html %}</div>
@@ -331,7 +331,7 @@
 </div>
 
 <div id="sg-closing" class="sg-component">
-  <div class="container"><p class="sg-component__name">Closing call</p><p class="sg-note">Last section before the footer on every page except legal pages and the 404: the one full-width coloured band (sand), always stacked: heading on top, call button and filing promise under it. Give each page its own <code>line</code>.</p>
+  <div class="container"><p class="sg-component__name">Closing call</p><p class="sg-note">Last section before the footer on every page except legal pages and the 404: a deep green band with white text and a white call button, always stacked: heading on top, call button and filing promise under it. Give each page its own <code>line</code>.</p>
   <pre class="sg-code"><code>{% raw %}{% include closing-call.html line="Hand over your monthly PF filing." %}{% endraw %}</code></pre></div>
 </div>
 <div lang="{{ lang }}">{% include closing-call.html %}</div>

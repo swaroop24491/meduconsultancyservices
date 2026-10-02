@@ -1,0 +1,25 @@
+{%- comment -%}
+  "Who's behind it": the founder's 35 years at EPFO as a big number, then the page's own story.
+  {% capture founder %}<p>...</p>{% endcapture %}{% include founder-note.html text=founder %}
+  stat=true shows the big "35 years" beside the text (only where the hero has no proof strip).
+{%- endcomment -%}
+{%- include i18n.html -%}
+{%- if include.stat -%}
+<section class="section section--surface section--stacked" aria-labelledby="behind-heading">
+  <div class="container">
+    <h2 id="behind-heading">{{ t.founder.heading }}</h2>
+    <div class="founder">
+      <p class="founder__stat"><span class="founder__num">{{ t.proof.items[1].num }}</span> <span class="founder__label">{{ t.founder.stat_label }}</span></p>
+      <div class="prose">{{ include.text }}</div>
+    </div>
+  </div>
+</section>
+{%- else -%}
+<section class="section" aria-labelledby="behind-heading">
+  <div class="container">
+    <h2 id="behind-heading">{{ t.founder.heading }}</h2>
+    <div class="prose">{{ include.text }}</div>
+    {% include photo-slot.html src=site.data.site.founder_photo alt="Medu Thirumaleshwara Bhat, founder of Medu Consultancy" %}
+  </div>
+</section>
+{%- endif -%}

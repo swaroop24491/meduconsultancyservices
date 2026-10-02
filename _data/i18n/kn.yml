@@ -88,21 +88,33 @@ cities:
 
 situations:
   heading: ನಿಮ್ಮ ಪರಿಸ್ಥಿತಿ ಯಾವುದು?
-  new:
+  # Same keys as en.yml; register/monthly reuse two_paths text (draft, Kannada phase)
+  register:
+    title: ನೋಂದಣಿ ಮಾಡಿಸಿ
+    text: ಒಂದು ಸಲದ ಕೆಲಸ. ನಿಮ್ಮ ವ್ಯಾಪಾರವನ್ನು PF, ESI ಅಥವಾ ಎರಡಕ್ಕೂ ನಾವು ನೋಂದಣಿ ಮಾಡುತ್ತೇವೆ.
+    links:
+      - { label: PF ನೋಂದಣಿ, path: pf-registration }
+      - { label: ESI ನೋಂದಣಿ, path: esi-registration }
+  monthly:
+    title: ಪ್ರತಿ ತಿಂಗಳು ನಾವು ಫೈಲ್ ಮಾಡುತ್ತೇವೆ
+    text: ಪ್ರತಿ ತಿಂಗಳು ನೀವು ಸಂಬಳದ ವಿವರ ಕಳುಹಿಸಿ, ಫೈಲಿಂಗ್ ನಾವು ಮಾಡುತ್ತೇವೆ. ಈಗಾಗಲೇ ನೋಂದಣಿ ಆಗಿದೆಯೇ? ಮುಂದಿನ ಕೊನೆಯ ದಿನಾಂಕದಿಂದ ನಾವು ಕೆಲಸ ವಹಿಸಿಕೊಳ್ಳುತ್ತೇವೆ.
+    links:
+      - { label: PF ಮಾಸಿಕ ಫೈಲಿಂಗ್, path: epf-consultancy-service }
+      - { label: ESI ಮಾಸಿಕ ಫೈಲಿಂಗ್, path: esi-consultancy-service }
+  unsure:
+    call: true
     title: ಈಗಷ್ಟೇ 10 ಅಥವಾ 20 ಸಿಬ್ಬಂದಿ ದಾಟಿದ್ದೀರಾ?
     text: PF ಅಥವಾ ESI ಈಗ ನಿಮಗೆ ಅನ್ವಯಿಸುತ್ತದೆಯೇ ಎಂದು ನೋಡಿ.
     links:
       - { label: PF ಪರಿಶೀಲಿಸಿ, path: epf-eligibility-checker }
       - { label: ESI ಪರಿಶೀಲಿಸಿ, path: esi-eligibility-checker }
   behind:
+    call: true
     title: ಫೈಲಿಂಗ್ ಬಾಕಿ ಇದೆಯೇ?
     text: ತಡವಾಗಿ ಕಟ್ಟಿದರೆ ಎಷ್ಟು ಆಗುತ್ತದೆ ಎಂದು ನೋಡಿ. ಇನ್ನು ಮುಂದೆ ಸಮಯಕ್ಕೆ ಸರಿಯಾಗಿ ನಾವು ಫೈಲ್ ಮಾಡುತ್ತೇವೆ.
     links:
       - { label: PF ದಂಡ ಲೆಕ್ಕಾಚಾರ, path: epf-penalty-calculator }
       - { label: ESI ದಂಡ ಲೆಕ್ಕಾಚಾರ, path: esi-penalty-calculator }
-  handle:
-    title: ಇದನ್ನೆಲ್ಲ ಯಾರಾದರೂ ನೋಡಿಕೊಳ್ಳಬೇಕೆ?
-    text: ನಮಗೆ ಕರೆ ಮಾಡಿ. ನಿಮ್ಮ PF ಮತ್ತು ESI ಕೆಲಸ ನಾವು ನೋಡಿಕೊಳ್ಳುತ್ತೇವೆ.
 
 industries:
   heading: ನಾವು ಸೇವೆ ನೀಡುವ ಉದ್ಯಮಗಳು

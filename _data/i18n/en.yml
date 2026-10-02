@@ -74,6 +74,10 @@ how_we_work:
     - { title: "Each month, you send salary details", text: and we file. }
     - { title: We email you the confirmation and challans, text: (the payment slips). }
 
+founder:
+  heading: Who's behind it
+  stat_label: our founder worked at EPFO (the PF office)
+
 no_office: No office visits needed. We handle everything over phone and email.
 
 cities_label: "We work with businesses in:"
@@ -85,23 +89,35 @@ cities:
 # Hidden start of each city card's link text (decision D7)
 city_card_prefix: PF and ESI consultant in
 
+# Home router: one choice per visitor situation. call: true adds a call row first.
 situations:
-  heading: Which one sounds like you?
-  new:
-    title: Just crossed 10 or 20 staff
-    text: PF applies with 20 or more staff. ESI applies with 10 or more. Check if it applies to you.
+  heading: What do you need help with?
+  register:
+    title: We need to register for PF or ESI
+    text: We register your business for PF, ESI or both. After that, we can file for you every month.
+    links:
+      - { label: PF registration, path: pf-registration }
+      - { label: ESI registration, path: esi-registration }
+  monthly:
+    title: We want someone to file every month
+    text: Each month you send salary details and we do the filing. Already registered? We take over from your next due date.
+    links:
+      - { label: PF monthly filing, path: epf-consultancy-service }
+      - { label: ESI monthly filing, path: esi-consultancy-service }
+  unsure:
+    title: Not sure if PF or ESI applies to us
+    text: PF applies with 20 or more staff. ESI applies with 10 or more. Call us and we check for you. Asking is free. Or use our checkers.
+    call: true
     links:
       - { label: Check PF, path: epf-eligibility-checker }
       - { label: Check ESI, path: esi-eligibility-checker }
   behind:
-    title: Behind on filings
-    text: See what paying late costs. Then let us file on time from now on.
+    title: We paid late or fell behind
+    text: Call us and let us file on time from now on. You can also see roughly what paying late costs.
+    call: true
     links:
       - { label: PF penalty calculator, path: epf-penalty-calculator }
       - { label: ESI penalty calculator, path: esi-penalty-calculator }
-  handle:
-    title: Want someone to handle it
-    text: Call us. We take care of PF and ESI for you.
 
 industries:
   heading: Industries we serve

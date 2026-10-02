@@ -17,17 +17,21 @@
 </div>
 {%- else -%}
 {%- assign bg = include.bg | default: "" -%}
-<section class="section{% if bg != "" %} section--{{ bg }}{% endif %}" aria-labelledby="two-paths-heading">
+<section class="section section--stacked{% if bg != "" %} section--{{ bg }}{% endif %}" aria-labelledby="two-paths-heading">
   <div class="container">
     <h2 id="two-paths-heading">{{ p.heading }}</h2>
-    <div class="card-grid">
+    <div class="paths-flow">
       {%- assign cards = "register,monthly" | split: "," %}
       {%- for c in cards %}
       {%- assign card = p[c] %}
+      {%- if forloop.last %}
+      <span class="paths-flow__arrow" aria-hidden="true">{% include icon.html name="arrow" size="28" %}</span>
+      {%- endif %}
       <article class="card path-card">
+        <span class="icon-badge" aria-hidden="true">{% if c == "register" %}{% include icon.html name="file" size="24" %}{% else %}{% include icon.html name="sync" size="24" %}{% endif %}</span>
         <h3>{{ card.title }}</h3>
         <p>{{ card.text }}</p>
-        <ul class="link-list">
+        <ul class="link-list row-links">
           {%- for l in card.links %}
           <li>{% include resolve-link.html path=l.path %}{% if href == self_path %}<span class="link-current" aria-current="page">{{ l.label }} {{ t.this_page }}</span>{% else %}<a class="link-arrow" href="{{ href }}"{% if link_en %} hreflang="en"{% endif %}>{{ l.label }}{% if link_en %}<span class="link-lang"> {{ t.english_marker }}</span>{% endif %}&#8288;{% include icon.html name="arrow" size="18" %}</a>{% endif %}</li>
           {%- endfor %}
