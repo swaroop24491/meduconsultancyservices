@@ -9,18 +9,30 @@ sitemap_exclude: true
 {%- endcomment -%}
 {%- assign base_url = site.data.site.url -%}
 {%- assign entries = "" | split: "" -%}
+{%- comment -%} Old URLs that redirect (redirect_from) are stubs, not pages: keep them out. {%- endcomment -%}
+{%- assign redirect_keys = "|" -%}
+{%- for p in site.html_pages -%}
+  {%- for r in p.redirect_from -%}
+    {%- assign rk = r | replace: "/index.html", "/" | remove: ".html" -%}
+    {%- assign redirect_keys = redirect_keys | append: rk | append: "|" -%}
+  {%- endfor -%}
+{%- endfor -%}
 {%- for p in site.html_pages -%}
   {%- unless p.noindex or p.sitemap_exclude or p.redirect_to or p.url contains "404" -%}
     {%- assign u = p.url | replace: "/index.html", "/" | remove: ".html" -%}
+    {%- assign uk = "|" | append: u | append: "|" -%}
+    {%- unless redirect_keys contains uk -%}
     {%- assign e = u | append: "#" | append: p.last_modified -%}
     {%- assign entries = entries | push: e -%}
+    {%- endunless -%}
   {%- endunless -%}
 {%- endfor -%}
 {%- for f in site.static_files -%}
   {%- if f.extname == ".html" -%}
     {%- unless f.path contains "404" -%}
       {%- assign u = f.path | replace: "/index.html", "/" | remove: ".html" -%}
-      {%- assign entries = entries | push: u -%}
+      {%- assign uk = "|" | append: u | append: "|" -%}
+      {%- unless redirect_keys contains uk -%}{%- assign entries = entries | push: u -%}{%- endunless -%}
     {%- endunless -%}
   {%- endif -%}
 {%- endfor -%}
