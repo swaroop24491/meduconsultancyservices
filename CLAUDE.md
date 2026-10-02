@@ -375,9 +375,16 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
      560px); "Cities:" label (Kannada logged); hero fork arrow kept with its text. On phones the sticky call
      bar hides while the hero call button is on screen (`script.js`, `.sticky-call--hidden`; tested on
      rebuilt, tool and old pages). Left as is: icon badges on home's industry cards; `.link-arrow` tap targets.
-   **Next:** the ESI service page (`esi-consultancy-service.html`) in the same shape as the PF page: write
-   `docs/esi-service-copy-v2.md` (old vs new) modelled on the final PF page → compliance reviewer → owner →
-   build → design-reviewer pass. Then PF and ESI registration pages.
+   **ESI page v2 (2026-10-02, built and committed):** same shape and components as the PF page; copy in
+   `docs/esi-service-copy-v2.md` (compliance-reviewed, owner-approved; the built page is the final text).
+   ESI-specific: the "Does ESI apply?" body keeps "It does not apply to seasonal factories" (compliance: "10 or
+   more" is too broad without it); IP numbers "we create one for the others" (no face scan); founder line rests on
+   the firm's 25+ years of ESI and PF filing (he worked at EPFO, not ESIC; no "since then"); FAQ 9 incl. "pay goes
+   above ₹21,000" (9.4 #10: if unconfirmed at launch, use the "Call us and we'll tell you how long you keep paying
+   ESI for them" fallback in the copy doc; same for hospitals). Design-reviewer pass: no high/medium.
+   Open (low, owner to decide): the fact-pair label can sit ~1px above its bottom line when it wraps (PF and ESI);
+   fix in the shared component (`.fact-pair li` bottom padding), style guide first.
+   **Next:** PF and ESI registration pages, in the same spirit as the v2 service pages.
    Open from earlier (owner to decide): the 5 industry pages say "Our founder worked 35 years at EPFO (the
    PF office), so we know/keep/can explain..." (factories:76, hospitals:77, contractors:75, schools:68,
    it-companies:77); compliance rates it medium (could read as current inside knowledge); propose old vs
