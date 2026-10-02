@@ -320,11 +320,14 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
   `AboutPage` (+ founder `Person`, no job title) and `ContactPage`. Six-reviewer round done and applied (`docs/phase8-review-findings.md`): About is hero (proof on) → Who we are → full two-paths → closing; 404 has the Kannada line above 5 link rows (`kannada_font: true` loads the Kannada font on an English page); `head.html` omits canonical/hreflang/og:url when `noindex`; the founder `Person` is defined once and referenced by `@id`.
 
 ### Next (strategy section 9.3, English first; Kannada last)
-0. **Where we stopped (2026-10-02):** phases 0 to 7 are done and committed on `feature/revamp` (last
-   commit: phase 7 notes). Start the next session with phase 8; read the brief first, then for each page
-   write `docs/<page>-copy.md` (old vs new), run the compliance reviewer, get owner approval, build, check,
-   commit. The owner approves with short messages ("go with the recommendations").
-1. Phase 8 is built (see above). Deferred from phase 7 (after the launch check,
+0. **Where we stopped (2026-10-02):** phases 0 to 8 are done and committed on `feature/revamp` (last
+   code commit: phase 8 review fixes). Start the next session with the **founder wording pass**: the founder
+   has retired (owner, 2026-10-02), but home, service, city and industry pages still say "We know how the PF
+   office works from the inside" (present tense) and the brief still says "Founder and CEO". Propose old vs new
+   text per page for approval (`docs/founder-wording-copy.md`), update the brief (past tense, retired), apply,
+   run the compliance reviewer. Then the launch check (phase 9), then the Kannada phase. The owner approves with
+   short messages ("go with the recommendations").
+1. Phase 8 is done (see above). Deferred from phase 7 (after the launch check,
    before Kannada): make each PF/ESI twin post more distinct (inspection 87%, late-payment 82%, threshold 75%
    similar) and merge the short one-paragraph sections; `.link-arrow` tap targets (26px) as a separate
    style-guide-first change; real `published:` dates for posts.
