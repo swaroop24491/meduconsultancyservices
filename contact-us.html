@@ -10,20 +10,23 @@ breadcrumb:
 ---
 {%- include i18n.html -%}
 {%- assign a = site.data.site.address -%}
-{% include hero.html heading="Call us" lead="Calling is the best way to reach us. Talk to us in English or Kannada. We can help you in Hindi too." %}
+{% include hero.html heading="Call us" lead="Call us on +91 82175 42975. Talk to us in English or Kannada. We can help you in Hindi too." %}
 
 <section class="section" aria-labelledby="call-heading">
-  <div class="container">
+  <div class="container stack">
     <div class="prose">
       <h2 id="call-heading">What happens when you call</h2>
       <ol class="steps">
         <li><strong>We ask a few questions about your business.</strong> We tell you what applies.</li>
         <li><strong>We tell you which documents we need.</strong> You send them.</li>
       </ol>
-      <p>Please keep these ready if you can: how many people work for you, and whether you already have a PF or ESI number.</p>
-      {% include call-block.html location="contact" %}
-      {% include no-office.html %}
+      <p>If you can, keep two things ready:</p>
+      <ul class="check-list">
+        <li>How many people work for you.</li>
+        <li>Your PF or ESI number, if you have one.</li>
+      </ul>
     </div>
+    {% include filing-promise.html %}
   </div>
 </section>
 
@@ -31,6 +34,7 @@ breadcrumb:
   <div class="container stack">
     <div class="prose">
       <h2 id="office-heading">Our office</h2>
+      <p>Our office is in Mangaluru. You do not need to visit us. We also work with businesses in <a href="/epf-esi-consultancy-mangalore">Mangalore</a>, <a href="/epf-esi-consultancy-udupi">Udupi</a> and <a href="/epf-esi-consultancy-bangalore">Bangalore</a>.</p>
       <address>{{ site.data.site.name }}<br>{{ a.street }}<br>{{ a.locality }}, {{ a.region }} {{ a.postal_code }}</address>
       <p><a class="link-arrow" href="{{ site.data.site.map_url }}" rel="noopener">Open in Google Maps&#8288;{% include icon.html name="arrow" size="18" %}</a></p>
     </div>

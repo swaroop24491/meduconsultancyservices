@@ -23,7 +23,7 @@
 {%- assign s = site.data.site -%}
 {"@type":"ProfessionalService","@id":"{{ biz }}","name":"{{ s.name }}","url":"{{ site_url }}/","telephone":"+91-82175-42975"
 {%- if page.page_type == "home" or page.page_type == "contact" -%}
-,"alternateName":"{{ s.alternate_name }}","logo":"{{ site_url }}/android-chrome-512x512.png","image":"{{ site_url }}/android-chrome-512x512.png","address":{"@type":"PostalAddress","streetAddress":{{ s.address.street | jsonify }},"addressLocality":"{{ s.address.locality }}","addressRegion":"{{ s.address.region }}","postalCode":"{{ s.address.postal_code }}","addressCountry":"{{ s.address.country }}"},"geo":{"@type":"GeoCoordinates","latitude":{{ s.geo.lat }},"longitude":{{ s.geo.lng }}},"hasMap":"{{ s.map_url }}","areaServed":[{% for c in s.cities_official %}{"@type":"City","name":"{{ c }}"}{% unless forloop.last %},{% endunless %}{% endfor %}],"founder":{"@type":"Person","name":"{{ s.founder }}"},"foundingDate":"{{ s.founded }}","knowsLanguage":{{ s.languages | jsonify }}{% if s.gbp_url and s.gbp_url != "" %},"sameAs":["{{ s.gbp_url }}"]{% endif %}
+,"alternateName":"{{ s.alternate_name }}","logo":"{{ site_url }}/android-chrome-512x512.png","image":"{{ site_url }}/android-chrome-512x512.png","address":{"@type":"PostalAddress","streetAddress":{{ s.address.street | jsonify }},"addressLocality":"{{ s.address.locality }}","addressRegion":"{{ s.address.region }}","postalCode":"{{ s.address.postal_code }}","addressCountry":"{{ s.address.country }}"},"geo":{"@type":"GeoCoordinates","latitude":{{ s.geo.lat }},"longitude":{{ s.geo.lng }}},"hasMap":"{{ s.map_url }}","areaServed":[{% for c in s.cities_official %}{"@type":"City","name":"{{ c }}"}{% unless forloop.last %},{% endunless %}{% endfor %}],"founder":{"@id":"{{ site_url }}/#founder"},"foundingDate":"{{ s.founded }}","knowsLanguage":{{ s.languages | jsonify }}{% if s.gbp_url and s.gbp_url != "" %},"sameAs":["{{ s.gbp_url }}"]{% endif %}
 {%- endif -%}
 },
 {"@type":"WebSite","@id":"{{ site_url }}/#website","url":"{{ site_url }}/","name":"{{ site.data.site.name }}","publisher":{"@id":"{{ biz }}"}},
@@ -34,8 +34,8 @@
 {%- if page.tool -%}
 ,{"@type":"WebApplication","@id":"{{ page_url }}#app","name":{{ page.tool.name | jsonify }},"description":{{ page.description | jsonify }},"url":"{{ page_url }}","applicationCategory":"BusinessApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"inLanguage":"{% if lang == 'kn' %}kn-IN{% else %}en-IN{% endif %}","provider":{"@id":"{{ biz }}"}}
 {%- endif -%}
-{%- if page.page_type == "about" -%}
-,{"@type":"Person","@id":"{{ site_url }}/#founder","name":"{{ site.data.site.founder }}","worksFor":{"@id":"{{ biz }}"}}
+{%- if page.page_type == "about" or page.page_type == "home" or page.page_type == "contact" -%}
+,{"@type":"Person","@id":"{{ site_url }}/#founder","name":"{{ site.data.site.founder }}"}
 {%- endif -%}
 {%- if page.page_type == "post" -%}
 ,{"@type":"BlogPosting","headline":{{ page.headline | default: page.title | jsonify }},"description":{{ page.description | jsonify }},"mainEntityOfPage":{"@id":"{{ page_url }}#webpage"},"dateModified":"{{ page.last_modified | date: '%Y-%m-%d' }}","datePublished":"{{ page.published | default: page.last_modified | date: '%Y-%m-%d' }}","inLanguage":"{% if lang == 'kn' %}kn-IN{% else %}en-IN{% endif %}","author":{"@id":"{{ biz }}"},"publisher":{"@id":"{{ biz }}"}}

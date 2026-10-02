@@ -18,6 +18,7 @@
 
     <title>{{ page.title }}</title>
     <meta name="description" content="{{ page.description }}">
+{%- unless page.noindex %}
     <link rel="canonical" href="{{ self_url }}">
 {%- if has_alt or lang == "en" %}
     <link rel="alternate" hreflang="en" href="{{ en_url }}">
@@ -28,6 +29,7 @@
 {%- if has_alt or lang == "en" %}
     <link rel="alternate" hreflang="x-default" href="{{ en_url }}">
 {%- endif %}
+{%- endunless %}
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="{{ site.data.site.name }}">
@@ -37,14 +39,16 @@
 {%- endif %}
     <meta property="og:title" content="{{ page.title }}">
     <meta property="og:description" content="{{ page.description }}">
+{%- unless page.noindex %}
     <meta property="og:url" content="{{ self_url }}">
+{%- endunless %}
 
 {%- for origin in page.preconnect %}
     <link rel="preconnect" href="{{ origin }}" crossorigin>
 {%- endfor %}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-{%- if lang == "kn" %}
+{%- if lang == "kn" or page.kannada_font %}
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Kannada:wght@400;500;600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 {%- else %}
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">

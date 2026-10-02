@@ -317,7 +317,7 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
   Still to check: home, service, city and industry pages say "We know how the PF office works from the inside"
   (present tense) and the brief still says "Founder and CEO". Privacy has no promise about call data. Contact
   uses a plain "Open in Google Maps" link. Legal pages: `page_type: legal`, no closing call. `schema.html` gives
-  `AboutPage` (+ founder `Person`, no job title) and `ContactPage`. Not yet done: six-reviewer round on phase 8.
+  `AboutPage` (+ founder `Person`, no job title) and `ContactPage`. Six-reviewer round done and applied (`docs/phase8-review-findings.md`): About is hero (proof on) → Who we are → full two-paths → closing; 404 has the Kannada line above 5 link rows (`kannada_font: true` loads the Kannada font on an English page); `head.html` omits canonical/hreflang/og:url when `noindex`; the founder `Person` is defined once and referenced by `@id`.
 
 ### Next (strategy section 9.3, English first; Kannada last)
 0. **Where we stopped (2026-10-02):** phases 0 to 7 are done and committed on `feature/revamp` (last
