@@ -352,24 +352,32 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
 
 ### Next (strategy section 9.3, English first; Kannada last)
 0. **Where we stopped (2026-10-02):** home v2 and PF page v2 are done and committed on `feature/revamp`.
-   PF page copy in `docs/epf-service-copy-v2.md` (compliance-reviewed, owner "proceed as recommended";
-   the built page is the final text). Order: hero (H1 "We file your PF every month, before the due date.",
-   `fork=` "Not registered yet? PF registration") → "Every month: you send, we do, you get" (white, big
-   "15th" `.big-line`, 3 columns, call block) → "Moving your PF filing to us" → "Also included" (6) →
-   founder note `stat=true bg="tint"` (PF-specific line) → short "Does PF apply?" → "More help with PF"
-   (3 tool cards + `link-groups--wide`: guides, industries, cities, ESI) → FAQ (8; PF wages, September
-   2026 and the counting rule moved here) → closing. **Owner, later 2026-10-02: removed "Every month",
-   "Moving your PF filing to us" and "Also included"; "Does PF apply?" now right after the hero. Then a rewritten "What we do for you" after it (white band,
-   3 columns with big words Once / Monthly / Anytime, short "We…" lines, call block; round 2 in the copy doc).** No two-paths or How we work on this page. "15th" is
-   the payment deadline: say "must be paid by the 15th… We file in time for that", not "before the 15th".
-   Design-reviewer pass on home + PF done and applied (2026-10-02): white bands on home (Why, Who and
-   where) and PF (More help); no lines at white bands; no shadow on panel link cards; PF hero uses
-   `proof="strip"` (the "35 years" repeat in the founder note is accepted); `link-groups--wide` 4 columns
-   only from 1200px; "Cities:" label; on phones the sticky call bar hides while the hero call button is on
-   screen (`script.js`, `.sticky-call--hidden`). Left as is: icon badges on home's industry cards; the
-   deferred `.link-arrow` tap targets.
-   **Next:** roll the look out to the ESI service page, then the registration pages (copy doc first, as
-   for PF: `docs/esi-service-copy-v2.md` from `docs/epf-service-copy-v2.md`).
+   **PF page v2 (final, owner-approved):** copy in `docs/epf-service-copy-v2.md` (round 1 + owner changes +
+   round 2; compliance-reviewed; the built page is the final text). Order: hero (H1 "We file your PF every
+   month, before the due date.", lead with takeover, `fork=` "Not registered yet? PF registration →",
+   `proof="strip"`) → short "Does PF apply?" (fact pair + 2 lines + PF registration link) → "What we do for
+   you" (white band, 3 `card-grid--columns` with `.col-word` big words Once / Monthly / Anytime, titles When
+   you start / Every month / When you need help, short "We…" check-list lines, call block) → founder note
+   `stat=true bg="tint"` (PF-specific line) → "More help with PF" (white; 3 tool cards + `link-groups--wide`:
+   guides, industries, cities, "Need ESI too?") → FAQ (8; PF wages/50% rule, September 2026 and the counting
+   rule live here) → closing. No two-paths or How we work on this page.
+   - The owner built, then removed, three sections ("Every month: you send, we do, you get" with a big
+     "15th", "Moving your PF filing to us", "Also included") and asked for "What we do for you" back,
+     rewritten to be easy to understand. Lesson: fewer sections; one clear list of what we do, grouped by
+     *when*. `.big-line` stays on the style guide, unused. The owner declined bringing back the removed
+     FAQs and keeps the second "PF registration" link.
+   - Compliance wording to reuse (ESI too): the 15th is the *payment* deadline ("Pay it by the 15th of the
+     next month, or send us the amount and we pay it"; never "we file before the 15th"); "mark the date
+     when staff leave" (not "remove"); staff with a UAN keep it; "move their PF to a new job, or withdraw
+     their PF money" (not "take out"); takeover only "once you share the documents we need".
+   - Design-reviewer pass on home + PF done and applied: white bands on home (Why, Who and where); no lines
+     at white bands; no shadow on panel link cards; `link-groups--wide` 4 columns only from 1200px (2 from
+     560px); "Cities:" label (Kannada logged); hero fork arrow kept with its text. On phones the sticky call
+     bar hides while the hero call button is on screen (`script.js`, `.sticky-call--hidden`; tested on
+     rebuilt, tool and old pages). Left as is: icon badges on home's industry cards; `.link-arrow` tap targets.
+   **Next:** the ESI service page (`esi-consultancy-service.html`) in the same shape as the PF page: write
+   `docs/esi-service-copy-v2.md` (old vs new) modelled on the final PF page → compliance reviewer → owner →
+   build → design-reviewer pass. Then PF and ESI registration pages.
    Open from earlier (owner to decide): the 5 industry pages say "Our founder worked 35 years at EPFO (the
    PF office), so we know/keep/can explain..." (factories:76, hospitals:77, contractors:75, schools:68,
    it-companies:77); compliance rates it medium (could read as current inside knowledge); propose old vs
