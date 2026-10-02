@@ -1,432 +1,109 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+---
+layout: base
+lang: en
+page_type: post
+last_modified: 2026-10-02
+title: "What Happens If You Pay PF Late? Interest and Damages | Medu Consultancy"
+headline: "What happens if you pay PF late?"
+description: "Paid PF late? EPFO can charge 12% a year interest plus damages. How both work, with a ₹50,000 example."
+breadcrumb:
+  - { name: Guides, path: blogs/ }
+  - { name: "What paying PF late costs" }
+---
+{%- assign f = site.data.facts.epf -%}
+<section class="section section--stacked tool-section" aria-labelledby="post-heading">
+  <div class="container">
+    <h1 id="post-heading">What happens if you pay PF late?</h1>
+    <p class="tool-lead">EPFO can charge interest and damages (a fine) on top of the PF you owe. Interest is 12% a year. For PF due from 14 June 2024, damages are 1% of the unpaid amount for each month late, up to 100% of it. EPFO decides the final amount.</p>
+    <p class="note">Updated 2 October 2026 · Rules checked on {{ site.data.facts.tools_checked }}</p>
+  </div>
+</section>
 
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <meta name="author" content="Medu Consultancy">
-    <meta name="robots" content="index, follow">
-    <meta name="googlebot" content="index, follow">
-    <meta name="theme-color" content="rgb(248,244,240)">
+<section class="section" aria-labelledby="due-heading">
+  <div class="container">
+    <div class="prose">
+      <h2 id="due-heading">When PF is due</h2>
+      <p>PF for a month is due by the {{ f.due_day }}th of the next month. For example, PF for March is due by 15 April. Pay after that date and it is late.</p>
+    </div>
+  </div>
+</section>
 
-    <title>Penalties for Late EPF Payment Explained</title>
-    <meta name="description" content="Late on an EPF payment? See how interest and damages on late payment are worked out, a worked ₹50,000 example, and EPFO's VISHWAS 2026 settlement scheme.">
-    <link rel="canonical" href="https://www.meduconsultancy.com/blogs/epf-late-payment-penalty" />
+<section class="section" aria-labelledby="interest-heading">
+  <div class="container">
+    <div class="prose">
+      <h2 id="interest-heading">Interest</h2>
+      <p>Interest is 12% a year on the unpaid amount. It is counted for each day, from the due date until the day you pay. It is charged on every late payment.</p>
+    </div>
+  </div>
+</section>
 
-    <meta property="og:type" content="article">
-    <meta property="og:site_name" content="Medu Consultancy">
-    <meta property="og:title" content="Penalties for Late EPF Payment - Interest and Damages Explained">
-    <meta property="og:description" content="Late on an EPF payment? See how interest and damages on late payment are worked out, a worked ₹50,000 example, and EPFO's VISHWAS 2026 settlement scheme.">
-    <meta property="og:url" content="https://www.meduconsultancy.com/blogs/epf-late-payment-penalty">
-    <meta property="og:image" content="https://www.meduconsultancy.com/android-chrome-512x512.png">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Penalties for Late EPF Payment - Interest and Damages Explained">
-    <meta name="twitter:description" content="Late on an EPF payment? See how interest and damages on late payment are worked out, a worked ₹50,000 example, and EPFO's VISHWAS 2026 settlement scheme.">
-    <meta name="twitter:image" content="https://www.meduconsultancy.com/android-chrome-512x512.png">
+<section class="section" aria-labelledby="damages-heading">
+  <div class="container">
+    <div class="prose">
+      <h2 id="damages-heading">Damages</h2>
+      <p>Damages are a fine on top of the interest. EPFO decides whether to charge them, and how much.</p>
+      <ul>
+        <li><strong>PF due on or after 14 June 2024:</strong> 1% of the unpaid amount for each month late. Part of a month counts as a full month, so 32 days late counts as 2 months. Damages can't be more than the unpaid amount.</li>
+        <li><strong>PF due before 14 June 2024:</strong> a yearly rate that goes up the longer you are late: 5% (under 2 months), 10% (2 to 4 months), 15% (4 to 6 months), 25% (6 months or more).</li>
+      </ul>
+      <p>Was your PF due before 14 June 2024, and paid after it? The rules for this are not clear. <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a> to check. For very long delays, call us to check the amount.</p>
+    </div>
+  </div>
+</section>
 
-    <script type="application/ld+json">
-        {
-            "@context": "http://schema.org",
-            "@type": "WebPage",
-            "url": "https://www.meduconsultancy.com/blogs/epf-late-payment-penalty",
-            "name": "Penalties for Late EPF Payment - Interest and Damages Explained",
-            "description": "Late on an EPF payment? See how interest and damages on late payment are worked out, a worked ₹50,000 example, and EPFO's VISHWAS 2026 settlement scheme.",
-            "headline": "Penalties for Late EPF Payment - Interest and Damages Explained",
-            "datePublished": "2026-09-17",
-            "dateModified": "2026-09-17",
-            "author": {
-                "@type": "Organization",
-                "name": "Medu Consultancy"
-            },
-            "mainEntity": {
-                "@type": "LocalBusiness",
-                "name": "Medu Consultancy",
-                "address": {
-                    "@type": "PostalAddress",
-                    "streetAddress": "3rd Floor, Padil Gate Building, Padil",
-                    "addressLocality": "Mangalore",
-                    "addressRegion": "Karnataka",
-                    "postalCode": "575007",
-                    "addressCountry": "IN"
-                },
-                "telephone": "+91-8217542975",
-                "contactPoint": {
-                    "@type": "ContactPoint",
-                    "contactType": "Customer Service",
-                    "telephone": "+91-8217542975",
-                    "availableLanguage": "en"
-                },
-                "serviceArea": {
-                    "@type": "Place",
-                    "name": "Karnataka"
-                }
-            },
-            "breadcrumb": {
-                "@type": "BreadcrumbList",
-                "itemListElement": [
-                    {
-                        "@type": "ListItem",
-                        "position": 1,
-                        "name": "Home",
-                        "item": "https://www.meduconsultancy.com"
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 2,
-                        "name": "Blogs",
-                        "item": "https://www.meduconsultancy.com/blogs"
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 3,
-                        "name": "Penalties for Late EPF Payment - Interest and Damages Explained",
-                        "item": "https://www.meduconsultancy.com/blogs/epf-late-payment-penalty"
-                    }
-                ]
-            }
-        }
-    </script>
-    <link rel="stylesheet" href="/styles.css">
-    <link rel="stylesheet" href="/aboutuspage.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<section class="section" aria-labelledby="example-heading">
+  <div class="container">
+    <div class="prose">
+      <h2 id="example-heading">Example: ₹50,000 paid 66 days late</h2>
+      <p>You owe ₹50,000 of PF for a month due on or after 14 June 2024. You pay 66 days late.</p>
+      <ul class="check-list">
+        <li><strong>Interest:</strong> ₹1,085 (12% a year for 66 days)</li>
+        <li><strong>Damages:</strong> ₹1,500 (1% for each of 3 months, as part of a month counts as a full month)</li>
+        <li><strong>Extra to pay:</strong> ₹2,585</li>
+        <li><strong>Total you pay:</strong> ₹52,585</li>
+      </ul>
+      <p>These are estimates. EPFO decides the final amount.</p>
+    </div>
+    {% include result-call.html line="Paid late before? We file every month and track the due date for you." %}
+  </div>
+</section>
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap&icon_names=call,mail" />
+<section class="section" aria-labelledby="inspect-heading">
+  <div class="container">
+    <div class="prose">
+      <h2 id="inspect-heading">If an inspection finds it</h2>
+      <p>An inspection can find late payments. You may then have to pay the unpaid amount, interest and damages together.</p>
+    </div>
+  </div>
+</section>
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4MEQF5W0XX"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+<section class="section" aria-labelledby="avoid-heading">
+  <div class="container">
+    <div class="prose">
+      <h2 id="avoid-heading">How to avoid it</h2>
+      <ul class="check-list">
+        <li>Pay your PF by the {{ f.due_day }}th every month.</li>
+        <li>Check the amount with our free PF contribution calculator before you pay.</li>
+        <li>Each month, compare payroll with what you paid, so a missed payment is caught in days, not months.</li>
+      </ul>
+      <p>Not sure PF applies to you? Read <a href="/blogs/epf-applicability-threshold">PF: who must register</a>.</p>
+    </div>
+  </div>
+</section>
 
-      gtag('config', 'G-4MEQF5W0XX');
-    </script>
-</head>
-<body class="blog-post-page">
-    <a class="skip-link" href="#main-content">Skip to main content</a>
+<section class="section" aria-labelledby="related-heading">
+  <div class="container">
+    <h2 id="related-heading">Related tools and pages</h2>
+    <div class="card-grid">
+      {% include tool-card.html key="epf-penalty" %}
+      {% include tool-card.html key="epf-contribution" %}
+    </div>
+    <ul class="link-list">
+      <li><a class="link-arrow" href="/blogs/epf-applicability-threshold">PF: who must register&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+      <li><a class="link-arrow" href="/epf-consultancy-service">PF monthly filing&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+      <li><a class="link-arrow" href="/blogs/">All guides&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+    </ul>
+  </div>
+</section>
 
-    <!-- Header with Logo, Phone, and Navigation -->
-    <header>
-        <div class="container header-content">
-            <div class="logo">
-                <a href="/"><img src="/images/logo-new.svg" width="200" height="45" alt="Medu Consultancy Logo"></a>
-            </div>
-            <nav class="header-nav" aria-label="Primary">
-                <ul>
-                    <li>
-                        <a href="/contact-us">Contact</a>
-                    </li>
-                    <li>
-                        <a href="/epf-consultancy-service">EPF Consultancy</a>
-                    </li>
-                    <li>
-                        <a href="/esi-consultancy-service">ESI Consultancy</a>
-                    </li>
-                    <li>
-                        <a href="/epf-esi-tools-calculators">Tools</a>
-                    </li>
-                </ul>
-            </nav>
-            <div class="header-links">
-                <a href="tel:+918217542975" class="phone"><span class="material-symbols-outlined" aria-hidden="true">
-                    call
-                    </span> 8217542975</a>
-            </div>
-
-            <!-- Hamburger Icon -->
-            <div class="hamburger" id="hamburger-icon">
-                <div id="menuToggle">
-                    <input type="checkbox" id="menuCheckbox" aria-label="Open menu" />
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <nav class="mobile-nav" aria-label="Menu"><ul id="menu">
-                        <li>
-                            <a href="/" class="nav-link">Home</a>
-                        </li>
-                      <li>
-                        <a href="/about-us" class="nav-link">About Us</a>
-                      </li>
-                      <li>
-                        <a href="/contact-us" class="nav-link">Contact Us</a>
-                      </li>
-
-                      <li>
-                        <a href="/blogs" class="nav-link">Blogs</a>
-                      </li>
-                      <li>
-                        <a href="/epf-consultancy-service" class="nav-link">EPF Consultancy</a>
-                      </li>
-                      <li>
-                        <a href="/esi-consultancy-service" class="nav-link">ESI Consultancy</a>
-                      </li>
-                      <li>
-                        <a href="/epf-esi-tools-calculators" class="nav-link">Tools &amp; Calculators</a>
-                      </li>
-
-                      <li>
-                        <a href="/epf-excel-to-text-converter" class="nav-link">EPF Excel to Text Converter</a>
-                      </li>
-                      <li>
-                        <a href="/epf-penalty-calculator" class="nav-link">EPF Penalty Calculator</a>
-                      </li>
-                      <li>
-                        <a href="/esi-penalty-calculator" class="nav-link">ESI Penalty Calculator</a>
-                      </li>
-                      <li>
-                        <a href="/epf-eligibility-checker" class="nav-link">EPF Eligibility Checker</a>
-                      </li>
-                      <li>
-                        <a href="/esi-eligibility-checker" class="nav-link">ESI Eligibility Checker</a>
-                      </li>
-                      <li>
-                        <a href="/epf-contribution-calculator" class="nav-link">PF Contribution Calculator</a>
-                      </li>
-                      <li>
-                        <a href="/esi-contribution-calculator" class="nav-link">ESI Contribution Calculator</a>
-                      </li>
-                      <li>
-                        <div class="contact-us">
-                            <address>
-                                <p>
-                                    <a href="tel:+918217542975" class="phone">
-                                        <span class="material-symbols-outlined" aria-hidden="true">
-                                        call
-                                        </span>
-                                        8217542975</a>
-                                </p>
-                                <p><a href="mailto:hello.meduconsultancy@gmail.com" class="email">
-                                    <span class="material-symbols-outlined" aria-hidden="true">
-                                        mail
-                                        </span>
-                                        hello.meduconsultancy@gmail.com</a></p>
-                            </address>
-                            <address class="office-address">
-                                <h4>Our Office Address</h4>
-                                <p>
-                                    3rd Floor, Padil Gate Building,<br>
-                                    Padil, Mangaluru,<br>
-                                    Karnataka 575007
-                                </p>
-                            </address>
-                        </div>
-                      </li>
-                    </ul></nav>
-                  </div>
-            </div>
-        </div>
-    </header>
-
-    <div class="header-space"></div>
-    <main id="main-content" tabindex="-1">
-    <section>
-        <div class="container">
-            <article class="blog-section">
-                <a class="back-link" href="/blogs">&larr; All articles</a>
-                <div class="post-meta">
-                    <span class="category-badge epf">EPF</span>
-                    <span class="post-date">Sep 17, 2026</span>
-                </div>
-                <h1>Penalties for Late EPF Payment - Interest and Damages Explained</h1>
-                <p>If you've missed an EPF payment deadline - even by a few days - EPFO can charge you two separate amounts on top of the arrears itself: interest for every day of delay, and a discretionary "damages" penalty. This guide is for small business owners and HR staff in Karnataka who want to understand exactly how both are calculated, with a worked example showing the actual rupee cost, before EPFO sends its own assessment.</p>
-
-                <!-- The interest rate, damages slabs, and VISHWAS 2026 scheme details below reflect EPFO rules in force as of September 2026. These rates and thresholds are revised periodically by the government - reverify against current EPFO notifications before relying on this for a real compliance decision. -->
-
-                <h2>Why the EPF Due Date Matters</h2>
-                <p>EPF contributions for a wage month are due by the 15th of the following month. Miss that date - even by a day - and interest starts accruing immediately. Stay unpaid for longer, and a second penalty, damages, kicks in as well. Both are calculated independently and both are payable on top of the arrears (the unpaid contribution itself).</p>
-
-                <h2>Interest - The Cost of Every Day You're Late</h2>
-                <p><strong>Interest on late payment</strong> is what EPFO charges on any contribution paid after its due date. It is:</p>
-                <ul>
-                    <li>12% per annum, simple interest - not compounding</li>
-                    <li>Calculated daily, from the 15th of the month after the wage month until the date you actually pay</li>
-                    <li>Mandatory - there's no discretion involved, unlike damages below</li>
-                </ul>
-                <p>Because it's calculated per day, settling your arrears even a week earlier makes a real difference to the final bill.</p>
-
-                <h2>Damages - The Penalty on Top of Interest</h2>
-                <p>EPFO can also charge an extra penalty called <strong>damages</strong> for paying late. Unlike interest, EPFO decides whether to charge damages - but in practice it usually does, and the rate depends on when your default happened.</p>
-
-                <h3>Defaults Before 14 June 2024</h3>
-                <p>Older defaults follow a slab structure based on the length of the delay:</p>
-                <ul>
-                    <li><strong>Under 2 months late:</strong> 5% per annum</li>
-                    <li><strong>2 to 4 months late:</strong> 10% per annum</li>
-                    <li><strong>4 to 6 months late:</strong> 15% per annum</li>
-                    <li><strong>6 months or more late:</strong> 25% per annum</li>
-                </ul>
-
-                <h3>Defaults On or After 14 June 2024</h3>
-                <p>For anything defaulted from 14 June 2024 onward, EPFO moved to a flat rate: <strong>1% per month, or part of a month, of the arrears</strong> - capped at 100% of the arrears. The "part of a month" detail matters more than it sounds: being late by 32 days counts as 2 months, not 1.</p>
-
-                <div class="fact-note">
-                    <span class="fact-note-label">Rates change - verify before you rely on this</span>
-                    <p>Interest rates, damages slabs, and settlement-scheme terms are set by EPFO and the government, and are revised periodically. The figures on this page reflect rules in force as of September 2026. Check current rates against official EPFO notifications before you rely on them.</p>
-                </div>
-
-                <h2>Worked Example: ₹50,000 in Arrears, 66 Days Late</h2>
-                <p>Numbers make this concrete. Say an employer owes ₹50,000 in EPF contributions and pays it 66 days after the due date - a little over two months late.</p>
-
-                <div class="table-scroll">
-                <table>
-                    <caption>Worked example: ₹50,000 EPF arrears paid 66 days late</caption>
-                    <thead>
-                        <tr>
-                            <th scope="col">Scenario</th>
-                            <th scope="col">Interest</th>
-                            <th scope="col">Damages</th>
-                            <th scope="col">Total Penalty</th>
-                            <th scope="col">Total Payable</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Default before 14 June 2024 (10% p.a. slab, 2–4 month bracket)</td>
-                            <td>₹1,085</td>
-                            <td>₹904</td>
-                            <td>₹1,989</td>
-                            <td>₹51,989</td>
-                        </tr>
-                        <tr>
-                            <td>Default on/after 14 June 2024 (flat 1% × 3 part-months)</td>
-                            <td>₹1,085</td>
-                            <td>₹1,500</td>
-                            <td>₹2,585</td>
-                            <td>₹52,585</td>
-                        </tr>
-                    </tbody>
-                </table>
-                </div>
-                <p><em>Figures are approximate, using a 365-day year for the interest calculation and rounding "part months" up for damages, the way EPFO does.</em></p>
-
-                <p>Notice that the post-2024 flat rate actually costs more here than the old slab would have - because 66 days rounds up to 3 part-months at 1% each (3%), while the old slab charged only 10% per annum prorated for the actual 66 days. For short delays, the newer rule can be less forgiving, not more. Want to check your own numbers instead of doing this by hand? Use our <a href="/epf-penalty-calculator">EPF late payment penalty calculator</a> for an instant estimate on your exact arrears and delay period.</p>
-
-                <h2>EPFO's VISHWAS 2026 Settlement Scheme</h2>
-                <p>If you're carrying an old damages dispute from before 14 June 2024, EPFO's <strong>VISHWAS 2026</strong> one-time settlement scheme may let you close it out at reduced rates - roughly 0.25% to 1% per month instead of the slab rates above - rather than fighting or paying the full assessed amount. Eligibility depends on the details of your case.</p>
-
-                <h2>Not Sure You Even Need to Be Registered?</h2>
-                <p>Some businesses that get caught out by interest and damages weren't sure EPF applied to them in the first place, and registered - or should have registered - late. If that sounds like you, read our guide on the <a href="/blogs/epf-applicability-threshold">EPF applicability threshold</a> before assuming you're in the clear, or use the <a href="/epf-eligibility-checker#business-eligibility">EPF eligibility checker</a> to confirm.</p>
-
-                <h2>What Happens If EPFO Finds This During an Inspection?</h2>
-                <p>Late payments are one of the most common things an EPFO inspection turns up. If a defaulted period is discovered during an inspection rather than self-reported, the arrears, interest, and damages are usually assessed together in a formal EPFO assessment. See our <a href="/blogs/pf-inspection-guide">PF inspection guide</a> to understand what inspectors check and how to prepare.</p>
-
-                <h2>Avoiding These Penalties Going Forward</h2>
-                <p>The cheapest way to deal with interest and damages is to never trigger them:</p>
-                <ul class="prep-list">
-                    <li>File your ECR (Electronic Challan cum Return) and pay by the 15th of every month, without exception</li>
-                    <li>Double-check your contribution math using our <a href="/epf-contribution-calculator">PF contribution calculator</a> before you file, so a wrong figure doesn't turn into a partial default</li>
-                    <li>Keep a monthly reconciliation habit - comparing payroll, ECR filings, and bank debits - so a missed payment is caught within days, not months</li>
-                </ul>
-
-                <h3>Want to Stay on Time from Now On?</h3>
-                <p>Talk to us about staying compliant from here on. We can file your EPF every month, on time. <a href="/epf-consultancy-service">See our EPF consultancy service</a>, try the <a href="/epf-penalty-calculator">EPF penalty calculator</a> for an instant estimate, or <a href="tel:+918217542975">call us at 8217542975</a>.</p>
-            </article>
-        </div>
-    </section>
-
-    <section class="cta">
-        <div class="container">
-            <div class="cta-slim">
-                <span class="cta-slim-text">Ready when you are &mdash; give us a call anytime.</span>
-                <a href="tel:+918217542975" class="phone cta-slim-btn">
-                    <span class="material-symbols-outlined" aria-hidden="true">
-                    call
-                    </span>
-                    +91 82175 42975
-                </a>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Footer Section -->
-    </main>
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="about-us">
-                    <p>We are Medu Consultancy, a trusted PF consultant and ESI consultant helping small and medium businesses with EPF and ESI compliance. Our team provides personalized services, including PF registration, ESI registration, monthly PF filing, and monthly ESI filings, ensuring your business stays compliant while you focus on growth.</p>
-                </div>
-
-                <div class="quick-links link-list">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/about-us">About Us</a></li>
-                        <li><a href="/contact-us">Contact Us</a></li>
-<li><a href="/blogs">Blogs</a></li>
-<li><a href="/privacy-policy">Privacy Policy</a></li>
-<li><a href="/terms-and-conditions">Terms and Conditions</a></li>
-                    </ul>
-                </div>
-                <div class="services-offered link-list">
-                    <h3>Our Services</h3>
-                    <ul>
-                        <li><a href="/epf-consultancy-service">EPF Compliance</a></li>
-                       <li><a href="/esi-consultancy-service">ESI Compliance</a></li>
-    <li><a href="/epf-esi-tools-calculators">Tools &amp; Calculators</a></li>
-    <li><a href="/epf-excel-to-text-converter">EPF Excel to Text Converter</a></li>
-    <li><a href="/epf-penalty-calculator">EPF Penalty Calculator</a></li>
-    <li><a href="/esi-penalty-calculator">ESI Penalty Calculator</a></li>
-    <li><a href="/epf-eligibility-checker">EPF Eligibility Checker</a></li>
-    <li><a href="/esi-eligibility-checker">ESI Eligibility Checker</a></li>
-    <li><a href="/epf-contribution-calculator">PF Contribution Calculator</a></li>
-    <li><a href="/esi-contribution-calculator">ESI Contribution Calculator</a></li>
-                    </ul>
-                </div>
-                <div class="contact-us">
-                    <h3>Contact Us</h3>
-                    <address>
-                        <p>
-                            <a href="tel:+918217542975" class="phone">
-                                <span class="material-symbols-outlined" aria-hidden="true">
-                                call
-                                </span>
-                                8217542975</a>
-                        </p>
-                        <p><a href="mailto:hello.meduconsultancy@gmail.com" class="email">
-                            <span class="material-symbols-outlined" aria-hidden="true">
-                                mail
-                                </span>
-                                hello.meduconsultancy@gmail.com</a></p>
-                    </address>
-                    <address class="office-address">
-                        <h4>Our Office Address</h4>
-                        <p>
-                            3rd Floor, Padil Gate Building,<br>
-                            Padil, Mangaluru,<br>
-                            Karnataka 575007
-                        </p>
-                    </address>
-                </div>
-            </div>
-            <section class="quick-links link-list location-list">
-              <h3>Locations</h3>
-              <ul>
-                <li>
-                  <a href="/epf-esi-consultancy-mangalore">Mangalore</a>
-                </li>
-                <li>
-                  <a href="/epf-esi-consultancy-udupi">Udupi</a>
-                </li>
-                <li>
-                  <a href="/epf-esi-consultancy-bangalore">Bangalore</a>
-                </li>
-              </ul>
-            </section>
-<div class="rights">
-                <p>&#169; 2026 Medu Consultancy. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="/script.js" defer></script>
-</body>
-</html>
+{% include closing-call.html line="Never miss a due date. We file your PF on time, every month." %}
