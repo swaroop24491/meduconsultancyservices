@@ -20,115 +20,111 @@ service:
     - Support during ESI inspections
     - Letters to the ESI office
 faq:
-  - q: What do you need from us each month?
-    a: "For each employee, send us the days they were paid for. Also send their pay in parts: basic, DA (dearness allowance), HRA, overtime and other allowances. Tell us as soon as someone joins or leaves, so we can register them on time. We tell you the exact format when we start."
-  - q: What do you send us after filing?
-    a: An email with the filing confirmation and the challan (the ESI payment slip), so your records are complete.
-  - q: Do you pay the ESI amount for us?
-    a: We can. Either you pay it yourself using the challan we send, or you send us the amount and we pay it for you. Choose what suits you.
   - q: When is ESI due each month?
     a: By the 15th of the next month. For example, ESI on March salaries is due by 15 April. Send us the salary details as early as you can, and we file before the due date.
-  - q: Can you register us and then file every month?
-    a: 'Yes. We register your business with ESIC and create IP numbers for your staff. Then we file for you every month. See <a href="/esi-registration">ESI registration for employers</a>.'
-  - q: We file ESI ourselves now. Can you take over?
-    a: 'Yes. <a href="tel:+918217542975" data-call-location="faq">Call us</a> and we''ll explain how we take over your monthly filing from the next due date.'
-  - q: We have been late with ESI before. Can you help us stay on time?
-    a: 'Yes. <a href="tel:+918217542975" data-call-location="faq">Call us</a>. We take over your monthly filing from the next due date. Send us salary details on time, and we file before the due date.'
+  - q: Do contract and casual workers count towards 10?
+    a: Yes. Count all your staff, including casual workers and workers a contractor sends to work for you. Staff on high salaries count too. Apprentices are not counted. The owner and partners are not counted either. If your business is a company, call us to check how to count directors.
+  - q: Which staff must be in ESI?
+    a: Once ESI applies to your business, staff whose ESI wages are ₹21,000 a month or less must be in ESI. For a person with a disability, the limit is ₹25,000. ESI wages are the month's pay without some items, like HRA (house rent allowance) and overtime. If those items are more than half the pay, the part above half counts as ESI wages. We work this out for you.
+  - q: What if an employee's pay goes above ₹21,000?
+    a: "ESI works in two six-month periods: April to September, and October to March. If an employee's ESI wages go above ₹21,000 during a period, they stay in ESI until it ends. You keep paying ESI for them until then."
+  - q: Can ESI apply with fewer than 10 employees?
+    a: 'Yes, for some risky kinds of work. Then ESI can apply even with 1 employee. <a href="tel:+918217542975" data-call-location="faq">Call us</a> to check.'
+  - q: Do you pay the ESI amount for us?
+    a: We can. Either you pay it yourself using the challan we send, or you send us the amount and we pay it for you. Choose what suits you.
   - q: Do you help our staff with ESI claims and their ESI details?
     a: "Yes. We help your staff with these, so you don't have to."
   - q: What if we have an ESI inspection?
     a: We keep your ESI records ready and support you during the inspection.
   - q: How much does it cost?
-    a: 'It depends on how many employees you have and what you need. <a href="tel:+918217542975" data-call-location="faq">Call us</a> for a quote.'
+    a: 'It depends on how many employees you have and what you need. Asking is free. <a href="tel:+918217542975" data-call-location="faq">Call us</a> and we''ll give you a quote.'
 ---
 {%- assign esi = site.data.facts.esi -%}
-{% include hero.html heading="ESI consultant: we file your ESI every month" lead="We prepare and file your ESI before the due date, every month. You send us salary details. We do the filing." %}
+{% capture fork %}Not registered yet? <a class="link-arrow" href="/esi-registration">ESI registration&#8288;{% include icon.html name="arrow" size="18" %}</a>{% endcapture %}
+{% include hero.html heading="We file your ESI every month, before the due date." lead="You send us salary details. We do the rest. Filing ESI yourself now? We take over from your next due date." fork=fork proof="strip" %}
 
 <section class="section" aria-labelledby="applies-heading">
   <div class="container">
     <div class="prose">
       <h2 id="applies-heading">Does ESI apply to your business?</h2>
-      <p>ESI applies if your business has <strong>{{ esi.min_employees }} or more employees</strong>. This is the same in every state. ESI does not apply to seasonal factories.</p>
-      <p>Count all your staff, including casual workers and workers a contractor sends to work for you. <strong>Once ESI applies, it stays</strong>, even if your staff drop below {{ esi.min_employees }}. For some risky kinds of work, ESI can apply even with 1 employee. <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a> to check.</p>
-      <p>Every employee whose ESI wages are <strong>{{ esi.wage_ceiling_text }} a month or less</strong> must be in ESI. For a person with a disability, the limit is {{ esi.wage_ceiling_pwd_text }}.</p>
-      <p>ESI wages are the month's pay without some items, like HRA (house rent allowance) and overtime. If those items are more than half the pay, part of them is added back. We work this out for you.</p>
-      <p>ESI works in two six-month periods: {{ esi.contribution_periods_text }}. If an employee's pay goes above {{ esi.wage_ceiling_text }} during a period, they stay in ESI until it ends. You keep paying ESI for them until then.</p>
-      <p>Not sure? <a class="link-arrow" href="/esi-eligibility-checker">Check with our ESI eligibility checker&#8288;{% include icon.html name="arrow" size="18" %}</a></p>
+      <ul class="fact-pair">
+        <li><span class="fact-pair__num">{{ esi.min_employees }}</span> <span class="fact-pair__label">employees or more</span></li>
+        <li><span class="fact-pair__num">{{ esi.wage_ceiling_text }}</span> <span class="fact-pair__label">staff with ESI wages up to this a month must join</span></li>
+      </ul>
+      <p>ESI applies if your business has <strong>{{ esi.min_employees }} or more employees</strong>. This is the same in every state. It does not apply to seasonal factories. Once ESI applies, it stays, even if your staff drop below {{ esi.min_employees }}.</p>
+      <p>Staff with ESI wages up to {{ esi.wage_ceiling_text }} a month must be in ESI. ESI wages are the month's pay without some items, like HRA (house rent allowance) and overtime. <strong>We check this for you.</strong></p>
+      <p><a class="link-arrow" href="/esi-registration">ESI registration&#8288;{% include icon.html name="arrow" size="18" %}</a></p>
     </div>
   </div>
 </section>
 
-<section class="section" aria-labelledby="services-heading">
+<section class="section section--surface section--stacked" aria-labelledby="services-heading">
   <div class="container">
     <h2 id="services-heading">What we do for you</h2>
-    <div class="card-grid">
+    <p class="section-lead">You send us salary details. We do the ESI work.</p>
+    <div class="card-grid card-grid--columns">
       <div class="card">
-        <h3>Setting up (one-time)</h3>
+        <p class="col-word">Once</p>
+        <h3>When you start</h3>
         <ul class="check-list">
-          <li>Register your business with ESIC (the ESI office).</li>
-          <li>Register your employees and create their IP number (each employee's ESI number; IP means "insured person").</li>
+          <li>We register your business for ESI, if it isn't registered yet.</li>
+          <li>We add your current staff to ESI. Staff who already have an IP number (each employee's ESI number, which stays the same for life) keep it. We create one for the others.</li>
+          <li>Already registered? Once you share the documents we need, we file from your next due date.</li>
         </ul>
       </div>
       <div class="card">
+        <p class="col-word">Monthly</p>
         <h3>Every month</h3>
         <ul class="check-list">
-          <li>File your monthly ESI details on the ESIC website by the {{ esi.due_day }}th of the next month.</li>
-          <li>Register new staff when they join, and mark staff who have left.</li>
-          <li>Pay the ESI amount for you, if you prefer. Or you pay it yourself using the challan (the ESI payment slip) we send.</li>
-          <li>Email you the filing confirmation and the challan.</li>
+          <li>We file your monthly ESI details with ESIC (the ESI office) on time.</li>
+          <li>We add staff who join, and mark the date when staff leave.</li>
+          <li>We email you the challan (the ESI payment slip). Pay it by the {{ esi.due_day }}th of the next month, or send us the amount and we pay it.</li>
         </ul>
       </div>
       <div class="card">
-        <h3>When something comes up</h3>
+        <p class="col-word">Anytime</p>
+        <h3>When you need help</h3>
         <ul class="check-list">
-          <li>Help your staff with ESI claims, like sickness or maternity benefit.</li>
-          <li>Help your staff keep their ESI details right (Aadhaar, bank account, name and date of birth).</li>
-          <li>Keep your ESI records in order and ready for audits.</li>
-          <li>Support you during ESI inspections.</li>
-          <li>Prepare and send letters to the ESI office for you.</li>
-          <li>Tell you when ESI rules change.</li>
+          <li>We help your staff with ESI claims, like sickness or maternity benefit.</li>
+          <li>We keep their ESI details right: Aadhaar, bank account, name and date of birth.</li>
+          <li>We keep your ESI records ready for checks, and help you during an ESI inspection.</li>
+          <li>We write to the ESI office for you, and tell you when ESI rules change.</li>
         </ul>
       </div>
     </div>
+    {% include call-block.html location="services" %}
   </div>
 </section>
 
-{% include two-paths.html %}
+{% capture founder %}<p>Medu Thirumaleshwara Bhat started Medu Consultancy in 2000. He worked at EPFO (the PF office) for 35 years. For over 25 years, our team has filed ESI and PF every month for our clients. We know what ESIC (the ESI office) needs in your monthly details and records.</p><p><a class="link-arrow" href="/about-us">About us&#8288;{% include icon.html name="arrow" size="18" %}</a></p>{% endcapture %}
+{% include founder-note.html text=founder stat=true bg="tint" %}
 
-{% include how-we-work.html %}
-
-<section class="section" aria-labelledby="behind-heading">
-  <div class="container stack">
-    <h2 id="behind-heading">Who's behind it</h2>
-    <p class="prose">Medu Thirumaleshwara Bhat started Medu Consultancy in 2000. He worked at EPFO (the PF office) for 35 years. For over 25 years, our team has filed PF and ESI for our clients every month. That is why our filing is right and on time. <a class="link-arrow" href="/about-us">About us&#8288;{% include icon.html name="arrow" size="18" %}</a></p>
-  </div>
-</section>
-
-<section class="section" aria-labelledby="work-with-heading">
-  <div class="container stack">
-    <h2 id="work-with-heading">Who we work with</h2>
-    <div class="link-groups">
-      {% include industry-links.html compact=true %}
-      {% include city-links.html %}
-    </div>
-    {% include no-office.html %}
-  </div>
-</section>
-
-<section class="section" aria-labelledby="tools-heading">
+<section class="section section--surface section--stacked" aria-labelledby="more-heading">
   <div class="container">
-    <h2 id="tools-heading">Free ESI tools and guides</h2>
-    <div class="card-grid">
+    <h2 id="more-heading">More help with ESI</h2>
+    <div class="card-grid card-grid--panel">
       {% include tool-card.html key="esi-eligibility" %}
       {% include tool-card.html key="esi-contribution" %}
       {% include tool-card.html key="esi-penalty" %}
     </div>
-    <ul class="link-list">
-      <li><a class="link-arrow" href="/blogs/common-esi-compliance-mistakes">Common ESI mistakes and how to avoid them&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
-      <li><a class="link-arrow" href="/blogs/esi-applicability-threshold">ESI: who must register&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
-      <li><a class="link-arrow" href="/blogs/esi-late-payment-penalty">What paying ESI late costs&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
-      <li><a class="link-arrow" href="/blogs/esi-inspection-guide">What happens in an ESI inspection&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
-    </ul>
+    <div class="link-groups link-groups--wide">
+      <div class="link-group">
+        <p class="link-group__label">ESI guides:</p>
+        <ul class="link-list">
+          <li><a class="link-arrow" href="/blogs/esi-applicability-threshold">ESI: who must register&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+          <li><a class="link-arrow" href="/blogs/esi-late-payment-penalty">What paying ESI late costs&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+          <li><a class="link-arrow" href="/blogs/esi-inspection-guide">What happens in an ESI inspection&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+        </ul>
+      </div>
+      {% include industry-links.html compact=true %}
+      {% include city-links.html %}
+      <div class="link-group">
+        <p class="link-group__label">Need PF too?</p>
+        <ul class="link-list">
+          <li><a class="link-arrow" href="/epf-consultancy-service">PF monthly filing&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+        </ul>
+      </div>
+    </div>
   </div>
 </section>
 
