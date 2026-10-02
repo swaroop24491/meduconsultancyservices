@@ -3,10 +3,11 @@
   Line, call button and compact proof line. No filing promise: the closing call on every tool
   page carries it (phase 4 review: don't repeat it word for word).
   include result-call.html tool="eligibility"   (eligibility | penalty | contribution | converter)
+  include result-call.html line="Just reached 20 staff? Call us."   (blog posts: own line)
 {%- endcomment -%}
 {%- include i18n.html -%}
 <div class="result-call">
-  <p class="result-call__line">{{ t.result_call[include.tool] }}</p>
+  <p class="result-call__line">{{ include.line | default: t.result_call[include.tool] }}</p>
   <div class="result-call__button">{% include call-button.html location="result" %}</div>
   {% include proof-line.html compact=true %}
 </div>

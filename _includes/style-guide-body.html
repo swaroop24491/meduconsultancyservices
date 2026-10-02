@@ -306,8 +306,9 @@
 </div>
 
 <div id="sg-result" class="sg-component">
-  <div class="container"><p class="sg-component__name">Result call box</p><p class="sg-note">Static HTML placed right after a tool's result container (decision D4). Sand, like every call panel. The line, the call button and the compact proof line; no filing promise (the closing call on the same page carries it). One line per tool: <code>eligibility</code>, <code>penalty</code>, <code>contribution</code>, <code>converter</code>.</p>
-  <pre class="sg-code"><code>{% raw %}{% include result-call.html tool="contribution" %}{% endraw %}</code></pre>
+  <div class="container"><p class="sg-component__name">Result call box</p><p class="sg-note">Static HTML placed right after a tool's result container (decision D4). Sand, like every call panel. The line, the call button and the compact proof line; no filing promise (the closing call on the same page carries it). One line per tool: <code>eligibility</code>, <code>penalty</code>, <code>contribution</code>, <code>converter</code>. Blog posts pass their own <code>line=</code> instead (the mid-post call box).</p>
+  <pre class="sg-code"><code>{% raw %}{% include result-call.html tool="contribution" %}
+{% include result-call.html line="Just reached 20 staff? Call us." %}{% endraw %}</code></pre>
   <div class="sg-demo" lang="{{ lang }}">{% include result-call.html tool="contribution" %}</div></div>
 </div>
 
