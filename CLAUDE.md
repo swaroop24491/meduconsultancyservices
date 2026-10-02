@@ -314,19 +314,21 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
 - Phase 8 (English, 2026-10-02): About, Contact, Privacy, Terms and the bilingual 404 rebuilt (copy and owner
   answers in `docs/phase8-copy.md`; compliance reviewer run on the copy, wording tightened). **The founder has
   retired (owner, 2026-10-02): say "He worked at EPFO for 35 years", past tense only; no "leads" or job title.**
-  Still to check: home, service, city and industry pages say "We know how the PF office works from the inside"
-  (present tense) and the brief still says "Founder and CEO". Privacy has no promise about call data. Contact
+  Founder wording pass done (see "Where we stopped"). Privacy has no promise about call data. Contact
   uses a plain "Open in Google Maps" link. Legal pages: `page_type: legal`, no closing call. `schema.html` gives
   `AboutPage` (+ founder `Person`, no job title) and `ContactPage`. Six-reviewer round done and applied (`docs/phase8-review-findings.md`): About is hero (proof on) → Who we are → full two-paths → closing; 404 has the Kannada line above 5 link rows (`kannada_font: true` loads the Kannada font on an English page); `head.html` omits canonical/hreflang/og:url when `noindex`; the founder `Person` is defined once and referenced by `@id`.
 
 ### Next (strategy section 9.3, English first; Kannada last)
-0. **Where we stopped (2026-10-02):** phases 0 to 8 are done and committed on `feature/revamp` (last
-   code commit: phase 8 review fixes). Start the next session with the **founder wording pass**: the founder
-   has retired (owner, 2026-10-02), but home, service, city and industry pages still say "We know how the PF
-   office works from the inside" (present tense) and the brief still says "Founder and CEO". Propose old vs new
-   text per page for approval (`docs/founder-wording-copy.md`), update the brief (past tense, retired), apply,
-   run the compliance reviewer. Then the launch check (phase 9), then the Kannada phase. The owner approves with
-   short messages ("go with the recommendations").
+0. **Where we stopped (2026-10-02):** phases 0 to 8 and the founder wording pass are done and committed on
+   `feature/revamp` (last code commit `83b44ea`). Founder pass: "We know how the PF office works from the inside"
+   became "We learned how the PF office works from him." on home, EPF service and the 3 city pages (ESI page
+   already differed); brief updated (founder retired, no title); copy in `docs/founder-wording-copy.md`;
+   compliance reviewer passed. **Open, owner to decide:** the 5 industry pages say "Our founder worked 35 years
+   at EPFO (the PF office), so we know/keep/can explain..." (factories:76, hospitals:77, contractors:75,
+   schools:68, it-companies:77); reviewer rates it medium (could read as current inside knowledge). If wanted,
+   propose old vs new per page for approval. Proof label "our founder at EPFO" left as is (owner-approved).
+   Next: the launch check (phase 9), then the Kannada phase. Kannada pages still carry old founder wording
+   (rebuilt later). The owner approves with short messages ("go with the recommendations").
 1. Phase 8 is done (see above). Deferred from phase 7 (after the launch check,
    before Kannada): make each PF/ESI twin post more distinct (inspection 87%, late-payment 82%, threshold 75%
    similar) and merge the short one-paragraph sections; `.link-arrow` tap targets (26px) as a separate
