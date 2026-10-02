@@ -360,8 +360,14 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
    (3 tool cards + `link-groups--wide`: guides, industries, cities, ESI) → FAQ (8; PF wages, September
    2026 and the counting rule moved here) → closing. No two-paths or How we work on this page. "15th" is
    the payment deadline: say "must be paid by the 15th… We file in time for that", not "before the 15th".
-   **Next:** design-reviewer pass on home + PF page, then roll the look out to the ESI service page and
-   the registration pages (copy doc first, as for PF).
+   Design-reviewer pass on home + PF done and applied (2026-10-02): white bands on home (Why, Who and
+   where) and PF (More help); no lines at white bands; no shadow on panel link cards; PF hero uses
+   `proof="strip"` (the "35 years" repeat in the founder note is accepted); `link-groups--wide` 4 columns
+   only from 1200px; "Cities:" label; on phones the sticky call bar hides while the hero call button is on
+   screen (`script.js`, `.sticky-call--hidden`). Left as is: icon badges on home's industry cards; the
+   deferred `.link-arrow` tap targets.
+   **Next:** roll the look out to the ESI service page, then the registration pages (copy doc first, as
+   for PF: `docs/esi-service-copy-v2.md` from `docs/epf-service-copy-v2.md`).
    Open from earlier (owner to decide): the 5 industry pages say "Our founder worked 35 years at EPFO (the
    PF office), so we know/keep/can explain..." (factories:76, hospitals:77, contractors:75, schools:68,
    it-companies:77); compliance rates it medium (could read as current inside knowledge); propose old vs
