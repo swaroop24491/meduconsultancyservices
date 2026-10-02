@@ -382,8 +382,8 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
    the firm's 25+ years of ESI and PF filing (he worked at EPFO, not ESIC; no "since then"); FAQ 9 incl. "pay goes
    above ₹21,000" (9.4 #10: if unconfirmed at launch, use the "Call us and we'll tell you how long you keep paying
    ESI for them" fallback in the copy doc; same for hospitals). Design-reviewer pass: no high/medium.
-   Open (low, owner to decide): the fact-pair label can sit ~1px above its bottom line when it wraps (PF and ESI);
-   fix in the shared component (`.fact-pair li` bottom padding), style guide first.
+   Fixed after it: the fact-pair label touched its bottom line because `ul[class] { padding: 0 }` beat
+   `.fact-pair`'s padding-bottom; the selector is now `ul.fact-pair` (PF and ESI pages).
    **Next:** PF and ESI registration pages, in the same spirit as the v2 service pages.
    Open from earlier (owner to decide): the 5 industry pages say "Our founder worked 35 years at EPFO (the
    PF office), so we know/keep/can explain..." (factories:76, hospitals:77, contractors:75, schools:68,
