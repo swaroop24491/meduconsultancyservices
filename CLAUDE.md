@@ -358,7 +358,8 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
    "15th" `.big-line`, 3 columns, call block) → "Moving your PF filing to us" → "Also included" (6) →
    founder note `stat=true bg="tint"` (PF-specific line) → short "Does PF apply?" → "More help with PF"
    (3 tool cards + `link-groups--wide`: guides, industries, cities, ESI) → FAQ (8; PF wages, September
-   2026 and the counting rule moved here) → closing. No two-paths or How we work on this page. "15th" is
+   2026 and the counting rule moved here) → closing. **Owner, later 2026-10-02: removed "Every month",
+   "Moving your PF filing to us" and "Also included"; "Does PF apply?" now right after the hero.** No two-paths or How we work on this page. "15th" is
    the payment deadline: say "must be paid by the 15th… We file in time for that", not "before the 15th".
    Design-reviewer pass on home + PF done and applied (2026-10-02): white bands on home (Why, Who and
    where) and PF (More help); no lines at white bands; no shadow on panel link cards; PF hero uses

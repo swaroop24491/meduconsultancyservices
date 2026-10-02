@@ -41,58 +41,6 @@ faq:
 {% capture fork %}Not registered yet? <a class="link-arrow" href="/pf-registration">PF registration&#8288;{% include icon.html name="arrow" size="18" %}</a>{% endcapture %}
 {% include hero.html heading="We file your PF every month, before the due date." lead="You send us salary details. We do the rest. Filing PF yourself now? We take over from your next due date." fork=fork proof="strip" %}
 
-<section class="section section--surface section--stacked" aria-labelledby="monthly-heading">
-  <div class="container">
-    <h2 id="monthly-heading">Every month: you send, we do, you get</h2>
-    <p class="big-line"><span class="big-line__num">{{ epf.due_day }}th</span> <span class="big-line__text">PF for each month's salaries must be paid by the {{ epf.due_day }}th of the next month. We file in time for that.</span></p>
-    <div class="card-grid card-grid--columns">
-      <div class="card">
-        <h3>You send</h3>
-        <p>For each employee: the days they were paid for, and their pay in parts (basic, DA, HRA and other allowances). Tell us when someone joins or leaves. We tell you the exact format when we start.</p>
-      </div>
-      <div class="card">
-        <h3>We do</h3>
-        <p>We prepare and file your ECR (the monthly PF return). We add new staff and mark staff who have left. New staff without a UAN (a PF account number for life) get one with a quick face scan on the UMANG app. We guide them.</p>
-      </div>
-      <div class="card">
-        <h3>You get</h3>
-        <p>An email with the filing confirmation and the challan (the PF payment slip). Pay it yourself by the {{ epf.due_day }}th, or send us the amount and we pay it for you.</p>
-      </div>
-    </div>
-    {% include call-block.html location="monthly" %}
-  </div>
-</section>
-
-<section class="section" aria-labelledby="moving-heading">
-  <div class="container stack">
-    <h2 id="moving-heading">Moving your PF filing to us</h2>
-    <div class="prose">
-      <h3>Filing PF yourself, or with someone else?</h3>
-      <p>It works the same as starting with us. We tell you which documents we need. Once you share them, we file from your next due date.</p>
-      <h3>Been late with PF before?</h3>
-      <p>We file every month from your next due date. Send us salary details on time, and we file by the due date.</p>
-    </div>
-    {% include no-office.html %}
-  </div>
-</section>
-
-<section class="section" aria-labelledby="included-heading">
-  <div class="container">
-    <h2 id="included-heading">Also included</h2>
-    <ul class="check-list">
-      <li>Help your staff with PF transfers and withdrawals.</li>
-      <li>KYC for your staff: linking Aadhaar, PAN and bank details.</li>
-      <li>Keep your PF records in order and ready for audits.</li>
-      <li>Support you during PF inspections.</li>
-      <li>Prepare and send letters to the PF office for you.</li>
-      <li>Tell you when PF rules change.</li>
-    </ul>
-  </div>
-</section>
-
-{% capture founder %}<p>Medu Thirumaleshwara Bhat started Medu Consultancy in 2000. He worked at EPFO (the PF office) for 35 years. He taught us the PF rules and how the PF office reads your monthly returns and records. That is how we keep your PF filing right.</p><p><a class="link-arrow" href="/about-us">About us&#8288;{% include icon.html name="arrow" size="18" %}</a></p>{% endcapture %}
-{% include founder-note.html text=founder stat=true bg="tint" %}
-
 <section class="section" aria-labelledby="applies-heading">
   <div class="container">
     <div class="prose">
@@ -107,6 +55,9 @@ faq:
     </div>
   </div>
 </section>
+
+{% capture founder %}<p>Medu Thirumaleshwara Bhat started Medu Consultancy in 2000. He worked at EPFO (the PF office) for 35 years. He taught us the PF rules and how the PF office reads your monthly returns and records. That is how we keep your PF filing right.</p><p><a class="link-arrow" href="/about-us">About us&#8288;{% include icon.html name="arrow" size="18" %}</a></p>{% endcapture %}
+{% include founder-note.html text=founder stat=true bg="tint" %}
 
 <section class="section section--surface section--stacked" aria-labelledby="more-heading">
   <div class="container">
