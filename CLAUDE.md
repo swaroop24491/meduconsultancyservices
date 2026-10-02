@@ -396,8 +396,18 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
    `docs/esi-registration-copy-v2.md` (compliance-reviewed, owner-approved). ESI-specific: body keeps "same in every
    state", seasonal factories and the risky-work line; founder line rests on the team's registration work (he worked
    at EPFO, not ESIC); FAQ 5; meta now "...and add your staff". New 9.4 #36/#37 (17-digit code, IP numbers).
-   **Next:** the English rebuild is complete. Launch check (phase 9), then the Kannada phase; the open owner items
-   below still stand.
+   **Next (owner, 2026-10-02): the 3 city pages (Mangalore, Udupi, Bangalore), updated in the same v2 spirit**
+   as the service and registration pages: one short story, fewer sections, links low on the page, big type
+   (`.col-word` columns, fact pair, `proof="strip"`, founder note `stat=true`, "More help" link block), white/tint
+   band variety. Today each city page is Hero → Two ways → How we serve you here → How we work → Who's behind it →
+   Businesses we work with here → Tools and guides → FAQ → closing (phase 5, see "Done"). Workflow as usual: read
+   `docs/city-pages-copy.md`, `docs/phase5-review-findings.md` and the built pages; write
+   `docs/city-pages-copy-v2.md` (old vs new per section, all three cities); compliance reviewer; owner approval;
+   build; check at all widths; commit. Keep the settled city facts (Udupi served from Mangaluru, can visit if
+   needed; Bangalore "We have team members in Bangalore, backed by our Mangaluru office", 2 team members can
+   visit, no Bangalore office) and the open ~70% shared-text issue in mind: the v2 pages should cut shared
+   blocks, not add them. Ask the owner for real local detail rather than guessing.
+   After the city pages: launch check (phase 9), then the Kannada phase; the open owner items below still stand.
    Open from earlier (owner to decide): the 5 industry pages say "Our founder worked 35 years at EPFO (the
    PF office), so we know/keep/can explain..." (factories:76, hospitals:77, contractors:75, schools:68,
    it-companies:77); compliance rates it medium (could read as current inside knowledge); propose old vs
