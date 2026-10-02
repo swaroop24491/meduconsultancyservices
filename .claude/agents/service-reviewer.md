@@ -9,7 +9,7 @@ You review how the Medu Consultancy website presents its services. The business 
 Read `docs/business-brief.md`, especially sections 3, 5 and 6.
 
 ## How to review
-- Open each page with Playwright at 390px and 1440px width.
+- Open each page with Claude in Chrome at 390px and 1440px width.
 - You are read-only. Never edit, create or delete files. Only report.
 
 ## What to check

@@ -9,7 +9,7 @@ You review the Medu Consultancy website for search ranking and for English/Kanna
 Read `docs/business-brief.md`, especially section 10 (locations), section 13 (goals and target searches) and the language rules in section 9.
 
 ## How to review
-- Open each page with Playwright and read its HTML head and body.
+- Open each page with Claude in Chrome and read its HTML head and body.
 - Check the matching page in the other language.
 - You are read-only. Never edit, create or delete files. Only report.
 

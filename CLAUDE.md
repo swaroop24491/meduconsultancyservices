@@ -45,7 +45,7 @@ docker run --rm -p 4000:4000 -v "$PWD":/srv -v medu-gems:/usr/local/bundle -w /s
 ```
 
 Extensionless URLs (`/about-us`) work in the preview as on GitHub Pages. Use this
-preview for the Playwright screenshots. The build output goes to `_site/` (not
+preview when reviewing pages with Claude in Chrome, and for the `check-page.mjs` screenshots. The build output goes to `_site/` (not
 committed).
 
 - **Liquid in inline JS**: Jekyll processes every file with front matter. Wrap any
@@ -172,7 +172,7 @@ legal facts. If a request conflicts with it, ask before acting.
 - Build with the shared design system: colours, spacing and type sizes come from
   CSS variables in `site.css`, and components use the exact includes shown on the
   style guide page (`/style-guide`). No one-off styles on individual pages.
-- After any page change, take screenshots at 390px and 1440px width with Playwright
+- After any page change, take screenshots at 390px and 1440px width with Claude in Chrome
   and review them before saying the work is done.
 - Commit one page, or one small group of pages, at a time.
 
