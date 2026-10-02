@@ -310,54 +310,64 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
   uses a plain "Open in Google Maps" link. Legal pages: `page_type: legal`, no closing call. `schema.html` gives
   `AboutPage` (+ founder `Person`, no job title) and `ContactPage`. Six-reviewer round done and applied (`docs/phase8-review-findings.md`): About is hero (proof on) → Who we are → full two-paths → closing; 404 has the Kannada line above 5 link rows (`kannada_font: true` loads the Kannada font on an English page); `head.html` omits canonical/hreflang/og:url when `noindex`; the founder `Person` is defined once and referenced by `@id`.
 
-- Section variety pilot (2026-10-02, uncommitted until the owner reviews): home + EPF service page
-  recomposed over three design-reviewer rounds; compliance reviewer checked the new labels.
+- Section variety pilot (2026-10-02, committed `c651a8e`): home + EPF service page recomposed over
+  three design-reviewer rounds. The owner made it the starting point for the fresh plan below.
   - Components: bigger type (`--text-display` hero H1, `--text-lead`, larger `--text-h2`); tokens
     `--color-brand-deep`, `--color-tint-line`, `--radius-lg`, `--shadow-card`, `--badge-step`.
     Section backgrounds `section--surface` (white), `section--tint`, `section--deep`; a line only
-    between two plain cream sections. Hero `proof="strip"` (full-width row) is available; the pilot
-    heroes use the default 2 x 2 proof on the right.
+    between two plain cream sections. Hero `proof="strip"` (full-width row of the 4 facts).
   - Shared includes changed (affect all pages using them): `closing-call.html` (deep green, bigger
     heading), `how-we-work.html` (tint band, filled-circle timeline), `two-paths.html` (two white
-    cards joined by an arrow, row links, "(this page)" in muted text), `situation-cards.html` (row
-    links). Link groups (industries, cities, services) and guide lists under tool cards are full-width
-    arrow rows (44px). Footer phone link 44px.
-  - New: `founder-note.html` ("Who's behind it"; `stat=true` adds a big "35 years", only where the
-    hero has no proof), `card-grid--panel` (white rounded cards; compact tool cards), `.fact-pair`
-    (two big numbers above text), `icon-badge--lg`; icons `sync`, `bank`, `calendar`, `chat`.
-  - Pilot pages: home "Why" columns got icons; EPF "Does PF apply?" fact pair, flat "What we do"
-    columns, tools on a white band.
-  - New English strings logged in `docs/kannada-review.md`.
-  - **Fresh plan (2026-10-02):** five reviewers' plan for home + EPF page, with owner decisions, in
-    `docs/home-epf-fresh-plan.md` (home H1 "We file your PF and ESI on time, every month."; promise band
-    below the hero; 3-step How it works on home; PF rule detail moves out of the EPF page body; enquiries
-    are free; speak to owners and HR). First step built: home's "Two ways" + "Which one sounds like you?"
-    merged into one 4-choice router, "What do you need help with?" (`situation-cards.html`); home no
-    longer uses `two-paths.html`. **Home v2 built** from `docs/home-copy-v2.md` (approved): hero → record
-    band (`statement.html`, the filing promise) → router → Why (columns with `.col-word` big words) →
-    `how-we-work.html short=true` (3 steps, no promise) → "Who we work with, and where" (`section--groups`,
-    `industry-links.html inner=true` + `city-cards.html`) → FAQ → closing. Proof label is now "our founder
-    worked at EPFO" (shared). Next: `docs/epf-service-copy-v2.md` (old vs new), then a design-reviewer pass.
+    cards joined by an arrow, row links, "(this page)" in muted text). Link groups and guide lists are
+    full-width arrow rows (44px). Footer phone link 44px.
+  - New: `founder-note.html` ("Who's behind it"; `stat=true` adds a big "35 years"), `card-grid--panel`
+    (white rounded cards; compact tool cards), `.fact-pair`, `icon-badge--lg`; icons `sync`, `bank`,
+    `calendar`, `chat`.
+- **Fresh plan for home + EPF page (2026-10-02):** five reviewers (product manager, marketing, design,
+  information architect, business owner) merged in `docs/home-epf-fresh-plan.md`, with the owner's
+  decisions in its section 7. Core idea: each page tells one short story; fewer routing blocks, links low
+  on the page, big type instead of pictures. Two new reviewer agents: `information-architect`,
+  `product-manager`.
+- **Home v2 (2026-10-02, built and committed):** copy in `docs/home-copy-v2.md` (compliance-reviewed,
+  owner-approved, plus the owner's later changes listed at its top; the built page is the final text).
+  - Order: hero (H1 "We file your PF and ESI on time, every month.", `proof="strip"`) → "What do you need
+    help with?" (`situation-cards.html`: 4 choices, register / file every month / not sure / paid late;
+    the last two start with a call row; replaces "Two ways" + "Which one sounds like you?" on home) →
+    "Why businesses choose us" (3 columns with `.col-word` big words: "35 years" founder, "Every due
+    date" filing promise, "3 languages") → `how-we-work.html short=true bg="none"` ("How it works", 3 steps,
+    call button, no promise, plain cream: owner found the green band odd here) → "Who we work with, and
+    where" (`section--groups`: `industry-links.html inner=true` + `city-cards.html`) → FAQ (adds "Can you
+    take over?" and "How much does it cost?" with "Asking is free") → closing call.
+  - Owner removed during the build: the separate filing-promise band (`statement.html` stays on the style
+    guide, unused) and a "Phone and email / No need to visit us" column.
+  - **Filing promise shortened everywhere (owner, 2026-10-02): "We never miss a PF or ESI due date."**
+    Never use "no client has paid a late fine or interest" on the site (brief sections 6/7 updated; EPF and
+    ESI meta descriptions now say "We never miss a due date.").
+  - Shared label changed: hero proof "35 years / our founder worked at EPFO" (was "our founder at EPFO").
+  - Owner facts: enquiries are free; taking over works like starting (we tell you the documents, you
+    share them); both owners and HR staff call, so write for both. No extra hotels/shops line.
+  - Old tagline "Simplifying EPF & ESI compliance" is no longer on the site (brief section 1 updated).
+  - Fixed on the way: in card-grid--columns the first column lost its top line from 960 to 1023px.
+  - Kannada: stopgap strings for the router and short steps, logged in `docs/kannada-review.md`.
 
 ### Next (strategy section 9.3, English first; Kannada last)
-0. **Section variety (2026-10-02, in progress):** owner to review the pilot, then commit it. Open, owner
-   to decide: (a) approve the new labels ("employees or more", "staff with PF wages up to this a month
-   must join", founder label "our founder worked at EPFO (the PF office)"); (b) copy changes the design
-   reviewer suggested: full title + full line for each How we work step, and moving the last two "Does
-   PF apply?" paragraphs to the FAQ (show old vs new first); (c) keep or drop the white band behind the
-   EPF tools (reviewer: barely visible). Then roll the look out one page type at a time (ESI service and
-   registration pages first), each with a design-reviewer pass; use the compact tool cards everywhere.
-   Already done: "Where we stopped" below.
-   **Where we stopped (2026-10-02):** phases 0 to 8 and the founder wording pass are done and committed on
-   `feature/revamp` (last code commit `83b44ea`). Founder pass: "We know how the PF office works from the inside"
-   became "We learned how the PF office works from him." on home, EPF service and the 3 city pages (ESI page
-   already differed); brief updated (founder retired, no title); copy in `docs/founder-wording-copy.md`;
-   compliance reviewer passed. **Open, owner to decide:** the 5 industry pages say "Our founder worked 35 years
-   at EPFO (the PF office), so we know/keep/can explain..." (factories:76, hospitals:77, contractors:75,
-   schools:68, it-companies:77); reviewer rates it medium (could read as current inside knowledge). If wanted,
-   propose old vs new per page for approval. Proof label "our founder at EPFO" left as is (owner-approved).
-   Next: the launch check (phase 9), then the Kannada phase. Kannada pages still carry old founder wording
-   (rebuilt later). The owner approves with short messages ("go with the recommendations").
+0. **Where we stopped (2026-10-02):** home v2 is done and committed on `feature/revamp`. **Next: the PF page
+   (`epf-consultancy-service.html`).** Write `docs/epf-service-copy-v2.md` (old vs new) from
+   `docs/home-epf-fresh-plan.md` section 4 and the owner decisions in its section 7: hero with a
+   "Not registered yet? PF registration" line and takeover in the lead; "Every month: you send, we do,
+   you get" (big "15th"); "Switching to us, or behind?" (no arrears/notice offer); "Also included" (6 items
+   max); founder note with a PF-specific line; a short "Does PF apply?" (owner: move PF wages / September
+   2026 / above-ceiling detail to the FAQ or the registration page); one "Explore" section (3 compact tool
+   cards + link columns, ESI cross-link); FAQ with cost; closing. Drop "Two ways" and the separate How we
+   work on this page. Use the shortened filing promise. Then compliance reviewer → owner approval → build
+   → design-reviewer pass on home + PF page. After that, roll the look out one page type at a time (ESI
+   service and registration pages first).
+   Open from earlier (owner to decide): the 5 industry pages say "Our founder worked 35 years at EPFO (the
+   PF office), so we know/keep/can explain..." (factories:76, hospitals:77, contractors:75, schools:68,
+   it-companies:77); compliance rates it medium (could read as current inside knowledge); propose old vs
+   new if wanted. Check-page script times out on pages with no FAQ (industries hub, contact) after 390px:
+   a script limit, not a page bug. Then the launch check (phase 9), then the Kannada phase. The owner
+   approves with short messages ("go with the recommendations", "proceed as recommended").
 1. Phase 8 is done (see above). Deferred from phase 7 (after the launch check,
    before Kannada): make each PF/ESI twin post more distinct (inspection 87%, late-payment 82%, threshold 75%
    similar) and merge the short one-paragraph sections; `.link-arrow` tap targets (26px) as a separate
@@ -412,6 +422,8 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
   button with the full number.
 - Filing promise (shared, brief section 6): "We never miss a PF or ESI due date. While
   with us, no client has paid a late fine or interest." Never say "late-filing penalty".
+  **Owner, 2026-10-02: shortened everywhere to "We never miss a PF or ESI due date." Don't use the
+  "no client has paid a late fine or interest" sentence on the site.**
 - Proof line (brief section 7): "25+ years in practice · Founder worked 35 years at
   EPFO · 100+ clients · 3,500+ employees covered". In heroes each shows as number + label
   ("35 years" / "our founder at EPFO", owner-approved 2026-09-27).

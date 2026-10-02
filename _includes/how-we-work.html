@@ -2,7 +2,8 @@
   How we work: 5 numbered steps (brief section 3), with the call button and filing promise.
   include how-we-work.html            all 5 steps (service and city pages)
   include how-we-work.html short=true "How it works": 3 short steps and the call button,
-                                      no filing promise (home, where the record band has it)
+                                      no filing promise (home)
+  bg="none" drops the soft green band (home: plain cream). Default: tint.
 {%- endcomment -%}
 {%- include i18n.html -%}
 {%- if include.short -%}
@@ -12,7 +13,8 @@
 {%- assign hw_heading = t.how_we_work.heading -%}
 {%- assign hw_steps = t.how_we_work.steps -%}
 {%- endif -%}
-<section class="section section--tint section--stacked" aria-labelledby="how-heading">
+{%- assign bg = include.bg | default: "tint" -%}
+<section class="section{% if bg != "none" %} section--{{ bg }}{% endif %} section--stacked" aria-labelledby="how-heading">
   <div class="container">
     <h2 id="how-heading">{{ hw_heading }}</h2>
     <ol class="steps steps--timeline">

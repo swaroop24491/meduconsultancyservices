@@ -46,7 +46,7 @@ proof:
     - { num: "100+", label: clients, text: 100+ clients }
     - { num: "3,500+", label: employees covered, text: "3,500+ employees covered" }
 
-filing_promise: We never miss a PF or ESI due date. While with us, no client has paid a late fine or interest.
+filing_promise: We never miss a PF or ESI due date.
 
 two_paths:
   heading: Two ways to work with us

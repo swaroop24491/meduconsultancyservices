@@ -747,7 +747,7 @@ html[lang="kn"] .hero h1 { line-height: 1.4; }
    none after the last row. Hero facts use spacing only. */
 @media (max-width: 1023px) {
     .card-grid, .steps { border-bottom: 0; }
-    .card-grid > .card:first-child, .card-grid > li:first-child > .card, .steps li:first-child { border-top: 0; padding-top: 0; }
+    .card-grid:not(.card-grid--columns) > .card:first-child, .card-grid > li:first-child > .card, .steps li:first-child { border-top: 0; padding-top: 0; }
     .card-grid > .card:last-child, .card-grid > li:last-child > .card, .steps li:last-child { padding-bottom: 0; }
     .steps li:first-child::before { top: calc(0.8em - var(--badge-sm) / 2 + 2px); } /* keeps badge 1 on its line */
     .card-grid + * { margin-top: var(--space-6); }
@@ -1125,6 +1125,11 @@ html[lang="kn"] .founder__num { letter-spacing: 0; }
     color: var(--color-brand);
 }
 html[lang="kn"] .col-word { letter-spacing: 0; }
+/* Side by side, a smaller size keeps each big word on one line, so the
+   headings under them line up across the columns */
+@media (min-width: 960px) {
+    .card-grid--columns .col-word { font-size: clamp(1.75rem, 0.9rem + 1.6vw, 2.5rem); white-space: nowrap; }
+}
 
 /* ---------- Icons above columns ---------- */
 .icon-badge--lg { width: 48px; height: 48px; }
