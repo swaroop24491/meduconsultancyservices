@@ -40,7 +40,8 @@
     --text-h3: 1.25rem;
     --text-lead: 1.25rem;            /* hero lead */
     --text-h2: clamp(1.75rem, 1.2rem + 2vw, 2.75rem);
-    --text-display: clamp(2.5rem, 1.3rem + 4.4vw, 4.5rem);  /* hero H1, founder stat */
+    --text-display: clamp(2.5rem, 1.3rem + 4.4vw, 4.5rem);  /* founder stat, big numbers */
+    --text-hero: clamp(2.125rem, 1.5rem + 2.6vw, 3.5rem);    /* hero H1 */
     --text-h1: clamp(2rem, 1.2rem + 3.2vw, 3.5rem);
     --weight-regular: 400;
     --weight-medium: 500;
@@ -688,7 +689,7 @@ html[lang="kn"] .proof-line__num { letter-spacing: 0; }
    (2 x 2). proof="strip" puts the
    four facts in a full-width row under both columns. */
 .hero { padding-block: clamp(3rem, 2rem + 6vw, 8rem) clamp(3rem, 2rem + 4vw, 6rem); }
-.hero h1 { max-width: 18ch; font-size: var(--text-display); line-height: 1.05; }
+.hero h1 { max-width: 24ch; font-size: var(--text-hero); line-height: 1.1; }
 html[lang="kn"] .hero h1 { line-height: 1.4; }
 .hero__lead { max-width: 34rem; margin-top: var(--space-5); font-size: var(--text-lead); color: var(--color-text-muted); }
 .hero__call { margin-top: var(--space-6); }
@@ -704,6 +705,8 @@ html[lang="kn"] .hero h1 { line-height: 1.4; }
         align-items: end;
     }
     .hero__grid > .proof-line:not(.proof-line--compact) { margin-top: 0; }
+    /* No proof column (proof="strip", "compact" or false): the text uses the full width */
+    .hero__text:only-child { grid-column: 1 / -1; }
 }
 /* The proof column is too narrow from 1024 to 1199px for a 2 x 2 grid without
    a number wrapping (e.g. "35 years"): stack the 4 facts in one column instead. */
@@ -1086,7 +1089,7 @@ html[lang="kn"] .hero h1 { line-height: 1.4; }
     row-gap: var(--space-5);
 }
 .proof-strip .proof-line:not(.proof-line--compact) li { padding-block: 0; border-top: 0; }
-.proof-strip .proof-line__num { font-size: clamp(2rem, 1.4rem + 2.4vw, 3.25rem); }
+.proof-strip .proof-line__num { font-size: clamp(1.75rem, 1.3rem + 1.8vw, 2.75rem); }
 .proof-line__num { white-space: nowrap; }
 @media (min-width: 768px) {
     .proof-strip .proof-line:not(.proof-line--compact) { grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 0; }
