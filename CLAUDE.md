@@ -355,8 +355,8 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
    `feature/revamp` (not pushed); the last 4 (About, Contact, Privacy, Terms) on 2026-10-03 from
    `docs/kn-about-contact-legal-copy.md` (compliance-reviewed, owner-approved). Kannada Contact loads the map only after
    "ನಕ್ಷೆ ತೋರಿಸಿ" (checked: no Google requests before the tap), so Privacy's map line is true in both languages. Shared keys
-   added: `footer.address_name`/`address_lines` and `months` (legal "Last updated" date in Kannada). SEO/Kannada reviewer on
-   these 4 still to run. Then the launch check (phase 9), which should also cover: brief
+   added: `footer.address_name`/`address_lines` and `months` (legal "Last updated" date in Kannada). SEO/Kannada reviewer run
+   and applied (no comma before ಮತ್ತು in the About H2 and Privacy; Contact title kept). Then the launch check (phase 9), which should also cover: brief
    s11 has no row for ESI damages (5–25% yearly) or ESI interest (12%); `og:type` "article" for posts (site-wide); the
    English ESI threshold post leaves maternity out of its first ESI line (owner may want both languages changed); the
    English ESI post's "Seasonal factories (open only part of the year)" bracket (Kannada drops it, settled).
