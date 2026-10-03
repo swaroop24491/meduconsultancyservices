@@ -469,7 +469,10 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
    the ESI service page wording (9.4 #10 fallback in the copy doc). Compliance: never "every worker/staff member" gets
    UAN/IP or is added to PF/ESI ("if the rules cover them"). Hub: proof strip, white industry cards, "once the rules apply
    to you". New CSS: `.card-grid + .prose` spacing. Still open: schools thin (E4), per-industry numbers (G4): owner input only.
-   **Next session: the launch check (phase 9)**, then the Kannada phase.
+   **Next session (owner, 2026-10-03): tools hub and the 7 tool pages, v2** (same v2 spirit: copy doc old vs new in
+   `docs/tools-copy-v2.md`, compliance reviewer, owner approval, build, check at all widths, commit). Start from the phase 4
+   copy docs and the tool page conventions (phase 4 below). Tool text and calculation logic don't change as part of the
+   redesign: any change is a separate reviewed update with before/after cases. Then the launch check (phase 9), then Kannada.
    Contact checks: `node audit/check/shot-contact.mjs` (widths, axe, Google requests before/after the tap).
    **Committed (owner, 2026-10-03: "commit and push all changes"):** the 3 city pages have a "Who's behind it"
    `founder-note stat=true bg="tint"` above "More help". Decision (a) is still open on its form: keep the stat or not,
