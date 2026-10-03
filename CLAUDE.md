@@ -351,7 +351,7 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
   - Kannada: stopgap strings for the router and short steps, logged in `docs/kannada-review.md`.
 
 ### Next (strategy section 9.3, English first; Kannada last)
-0. **Where we stopped (2026-10-03):** home v2 and PF page v2 are done and committed on `feature/revamp`.
+0. **Where we stopped (2026-10-03):** home, service, registration, city, About and Contact v2 are done and committed on `feature/revamp`.
    **PF page v2 (final, owner-approved):** copy in `docs/epf-service-copy-v2.md` (round 1 + owner changes +
    round 2; compliance-reviewed; the built page is the final text). Order: hero (H1 "We file your PF every
    month, before the due date.", lead with takeover, `fork=` "Not registered yet? PF registration →",
@@ -433,12 +433,27 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
      dates for every client." (was "...and file before them"); kn.yml stopgap updated, logged in `kannada-review.md`.
    - Team size stays "6 people" (owner confirmed "a team of 6" after the retirement). Not confirmed: that the firm
      *started in Mangaluru* (brief says only 2000), so don't claim it.
-   **Next: Contact, then Privacy and Terms** (same v2 spirit: one short story, fewer sections, big type, white/tint
-   band variety; legal pages keep `page_type: legal` and no closing call). Add each as a section of
-   `docs/about-contact-legal-copy-v2.md` (old vs new), compliance reviewer, owner approval, build, check at all widths,
-   commit. Phase 8 history: `docs/phase8-copy.md`, `docs/phase8-review-findings.md`. Settled facts: founder retired,
-   past tense only, no job title; email in the footer only; no invite to visit the office; Contact's plain "Open in
-   Google Maps" link; Privacy has no promise about call data. Then the launch check (phase 9), then the Kannada phase.
+   **Contact v2 (2026-10-03, built and committed, final):** copy in `docs/about-contact-legal-copy-v2.md` section 2
+   (compliance-reviewed, owner-approved; the built page is the final text). Owner: "it should look like a contact us
+   page". Order: hero (H1 "Contact us", lead "The quickest way to reach us is a phone call. We tell you if PF and ESI
+   apply to your business.", `proof=false`) → "How to reach us" (white, 3 `card-grid--panel` cards with icon badges:
+   Phone with the number as a big `.col-word` tel link + languages line / Our office with the address and "Open in
+   Google Maps" / No office visits needed + `city-links.html descriptive=true label=false`; then `map-tap.html`) →
+   "What happens when you call" (tint, 2-step timeline, what to keep ready, call block). No closing band.
+   - New component `map-tap.html` (on the style guide): a light panel with a map grid; the Google map
+     (`map_embed_url` in `_data/site.yml`) loads only after "Show the map" is tapped (tested: no Google requests
+     before the tap), then focus moves to it; hidden without JavaScript. Text in `t.map` (kn stopgap logged). New `pin`
+     icon. `.card-grid--panel .col-word` is smaller and stays on one line.
+   - Compliance wording: "We tell you **if** PF and ESI apply" (never "what PF and ESI apply" / "what applies"); card
+     3 "You never need to visit us. We work by phone and email." (not "We handle everything"). Keep the no-visits card
+     next to the office card; never "visit us", "directions" or "come to our office".
+   **Next: Privacy, then Terms** (same v2 spirit; legal pages keep `page_type: legal` and no closing call). Add each as
+   section 3/4 of `docs/about-contact-legal-copy-v2.md` (old vs new), compliance reviewer, owner approval, build, check
+   at all widths, commit. **Privacy must now say the Contact map loads from Google only if you tap it** (verified:
+   nothing is sent before the tap). Phase 8 history: `docs/phase8-copy.md`, `docs/phase8-review-findings.md`. Settled
+   facts: founder retired, past tense only, no job title; email in the footer only; no invite to visit the office;
+   Privacy has no promise about call data. Then the launch check (phase 9), then the Kannada phase.
+   Contact checks: `node audit/check/shot-contact.mjs` (widths, axe, Google requests before/after the tap).
    **Committed (owner, 2026-10-03: "commit and push all changes"):** the 3 city pages have a "Who's behind it"
    `founder-note stat=true bg="tint"` above "More help". Decision (a) is still open on its form: keep the stat or not,
    given the big "35 years" under "Why businesses choose us".
