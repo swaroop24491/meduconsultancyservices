@@ -1,0 +1,154 @@
+---
+layout: base
+lang: kn
+page_type: tool
+last_modified: 2026-10-03
+title: "ESI ವಂತಿಗೆ ಲೆಕ್ಕಾಚಾರ 2026 | ಮೆದು ಕನ್ಸಲ್ಟೆನ್ಸಿ"
+description: "ಪ್ರತಿ ತಿಂಗಳು ನೀವು ಮತ್ತು ನಿಮ್ಮ ಉದ್ಯೋಗಿ ಎಷ್ಟು ESI ಕಟ್ಟಬೇಕು ಎಂದು ನೋಡಿ: ESI ವೇತನದ 3.25% ಮತ್ತು 0.75%. ಉದ್ಯೋಗದಾತರಿಗೆ ಉಚಿತ ESI ಲೆಕ್ಕಾಚಾರ, 2026ರ ನಿಯಮಗಳ ಪ್ರಕಾರ."
+scripts: [/contribution-calculator.js]
+tool: { name: ESI ವಂತಿಗೆ ಲೆಕ್ಕಾಚಾರ }
+breadcrumb:
+  - { name: ಉಚಿತ ಸಾಧನಗಳು, path: epf-esi-tools-calculators }
+  - { name: ESI ವಂತಿಗೆ ಲೆಕ್ಕಾಚಾರ }
+faq:
+  - q: "ESI ವೇತನ ಎಂದರೇನು?"
+    a: "ಕೆಲವು ಭಾಗಗಳನ್ನು ಬಿಟ್ಟ ತಿಂಗಳ ಸಂಬಳ: HRA (ಮನೆ ಬಾಡಿಗೆ ಭತ್ಯೆ), ಓವರ್‌ಟೈಮ್, ಬೋನಸ್, ಕಮಿಷನ್ ಮತ್ತು ಪ್ರಯಾಣ ಭತ್ಯೆ. ಆದರೆ ESI ವೇತನ ಒಟ್ಟು ಸಂಬಳದ ಕನಿಷ್ಠ ಅರ್ಧದಷ್ಟು ಇರಬೇಕು. ಅದಕ್ಕಿಂತ ಕಡಿಮೆ ಇದ್ದರೆ, ಕಡಿಮೆಯಾದ ಭಾಗವನ್ನು ESI ವೇತನಕ್ಕೆ ಸೇರಿಸಲಾಗುತ್ತದೆ. ಇದು ಸಾಮಾಜಿಕ ಭದ್ರತಾ ಸಂಹಿತೆ, 2020ರ (PF ಮತ್ತು ESIಗೆ ಈಗಿನ ಕಾನೂನು) ಸಂಬಳದ ನಿಯಮ."
+  - q: "ತುಂಬಾ ಕಡಿಮೆ ಸಂಬಳದ ಸಿಬ್ಬಂದಿ ESI ಕಟ್ಟಬೇಕೇ?"
+    a: 'ಅವರು ತಮ್ಮ 0.75% ಪಾಲನ್ನು ಕಟ್ಟುವುದಿಲ್ಲ. ಆದರೆ ನಿಮ್ಮ 3.25% ಪಾಲನ್ನು ನೀವು ಕಟ್ಟಲೇಬೇಕು. ಇದು ನಿಮ್ಮ ಸಿಬ್ಬಂದಿಗೆ ಅನ್ವಯಿಸುತ್ತದೆಯೇ ಎಂದು ತಿಳಿಯಲು <a href="tel:+918217542975" data-call-location="faq">ನಮಗೆ ಕರೆ ಮಾಡಿ</a>.'
+  - q: "ಒಟ್ಟು ESI ಎಷ್ಟು?"
+    a: "ESI ವೇತನದ 4%: ನಿಮ್ಮಿಂದ 3.25% ಮತ್ತು ಉದ್ಯೋಗಿಯಿಂದ 0.75%."
+---
+{%- assign esi = site.data.facts.esi -%}
+<section class="section section--stacked tool-section" aria-labelledby="tool-heading">
+  <div class="container">
+    <h1 id="tool-heading">ESI ವಂತಿಗೆ ಲೆಕ್ಕಾಚಾರ</h1>
+    <p class="tool-lead">ಉದ್ಯೋಗಿಯ ESI ವೇತನವನ್ನು ನಮೂದಿಸಿ. ಉದ್ಯೋಗಿ ಎಷ್ಟು ESI (ಉದ್ಯೋಗಿಗಳ ರಾಜ್ಯ ವಿಮೆ) ಕಟ್ಟುತ್ತಾರೆ, ಮತ್ತು ನೀವು ಎಷ್ಟು ಕಟ್ಟುತ್ತೀರಿ ಎಂದು ನೋಡಿ.</p>
+
+    <div class="tool tool--split">
+      <form id="contribution-form" class="tool-form" novalidate aria-label="ESI ವಂತಿಗೆ ಲೆಕ್ಕಾಚಾರ">
+        <div id="contrib-fields"></div>
+        <button type="submit" class="btn btn--outline">ಲೆಕ್ಕ ಹಾಕಿ</button>
+      </form>
+
+      <div class="tool-result" id="contrib-results"></div>
+
+      {% include result-call.html tool="contribution" %}
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="how-heading">
+  <div class="container">
+    <div class="prose">
+      <h2 id="how-heading">ESI ಹೇಗೆ ಲೆಕ್ಕ ಹಾಕಲಾಗುತ್ತದೆ</h2>
+      <p>ಪ್ರತಿ ತಿಂಗಳು ESI ಎಂದರೆ <strong>ESI ವೇತನದ {{ esi.total_rate_pct }}%</strong>. ಉದ್ಯೋಗಿ <strong>{{ esi.employee_rate_pct }}%</strong> ಕಟ್ಟುತ್ತಾರೆ, ಅದನ್ನು ನೀವು ಅವರ ಸಂಬಳದಿಂದ ಕಡಿತ ಮಾಡುತ್ತೀರಿ. ನೀವು <strong>{{ esi.employer_rate_pct }}%</strong> ಕಟ್ಟುತ್ತೀರಿ.</p>
+      <p>ESI ವೇತನ ತಿಂಗಳಿಗೆ {{ esi.wage_ceiling_text }} ಅಥವಾ ಕಡಿಮೆ ಇರುವ ಉದ್ಯೋಗಿಗಳಿಗೆ ESI ಕಟ್ಟಲಾಗುತ್ತದೆ (ವಿಕಲಚೇತನ ವ್ಯಕ್ತಿಗೆ {{ esi.wage_ceiling_pwd_text }}).</p>
+      <p>ESI ವೇತನ ಎಂದರೆ ತಿಂಗಳ ಸಂಬಳದಿಂದ HRA (ಮನೆ ಬಾಡಿಗೆ ಭತ್ಯೆ), ಓವರ್‌ಟೈಮ್, ಬೋನಸ್, ಕಮಿಷನ್ ಮತ್ತು ಪ್ರಯಾಣ ಭತ್ಯೆಯನ್ನು ಬಿಟ್ಟು ಉಳಿದದ್ದು. ಆದರೆ ESI ವೇತನ ಒಟ್ಟು ಸಂಬಳದ ಕನಿಷ್ಠ ಅರ್ಧದಷ್ಟು ಇರಬೇಕು. ಅದಕ್ಕಿಂತ ಕಡಿಮೆ ಇದ್ದರೆ, ಕಡಿಮೆಯಾದ ಭಾಗವನ್ನು ESI ವೇತನಕ್ಕೆ ಸೇರಿಸಲಾಗುತ್ತದೆ.</p>
+      <p>ದಿನಕ್ಕೆ ತುಂಬಾ ಕಡಿಮೆ ಸಂಬಳ ಪಡೆಯುವ ಸಿಬ್ಬಂದಿ ತಮ್ಮ {{ esi.employee_rate_pct }}% ಪಾಲನ್ನು ಕಟ್ಟುವುದಿಲ್ಲ. ಆದರೆ ನಿಮ್ಮ {{ esi.employer_rate_pct }}% ಪಾಲನ್ನು ನೀವು ಕಟ್ಟಲೇಬೇಕು. ಇದು ಅನ್ವಯಿಸುತ್ತದೆಯೇ ಎಂದು ತಿಳಿಯಲು <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">ನಮಗೆ ಕರೆ ಮಾಡಿ</a>.</p>
+      <p>ESI ಅನ್ನು ಮುಂದಿನ ತಿಂಗಳ {{ esi.due_day }}ನೇ ತಾರೀಖಿನೊಳಗೆ ಕಟ್ಟಬೇಕು.</p>
+      <p class="note"><strong>ಗಮನಿಸಿ:</strong> ಈ ಲೆಕ್ಕಾಚಾರ ಅಂದಾಜು ಮೊತ್ತ ನೀಡುತ್ತದೆ. ಪೈಸೆಗಳನ್ನು ರೂಪಾಯಿಗೆ ಸರಿಪಡಿಸುವ ರೀತಿಯಿಂದ, ಅಂತಿಮ ಮೊತ್ತ ಸ್ವಲ್ಪ ಬೇರೆ ಆಗಬಹುದು. {{ site.data.facts.tools_checked_kn }}ರ ನಿಯಮಗಳ ಪ್ರಕಾರ ಪರಿಶೀಲಿಸಲಾಗಿದೆ.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--surface section--stacked" aria-labelledby="more-heading">
+  <div class="container">
+    <h2 id="more-heading">PF ಮತ್ತು ESI ಬಗ್ಗೆ ಇನ್ನಷ್ಟು ಸಹಾಯ</h2>
+    <div class="card-grid card-grid--panel">
+      {% include tool-card.html key="esi-eligibility" %}
+      {% include tool-card.html key="epf-contribution" %}
+    </div>
+    <div class="link-groups link-groups--wide">
+      <div class="link-group">
+        <p class="link-group__label">ಮಾರ್ಗದರ್ಶಿಗಳು:</p>
+        <ul class="link-list">
+          <li>{% include link.html path="blogs/common-esi-compliance-mistakes" label="ESIನಲ್ಲಿ ಸಾಮಾನ್ಯವಾಗಿ ಆಗುವ ತಪ್ಪುಗಳು ಮತ್ತು ಅವುಗಳನ್ನು ತಪ್ಪಿಸುವುದು ಹೇಗೆ" %}</li>
+        </ul>
+      </div>
+      <div class="link-group">
+        <p class="link-group__label">ನಮ್ಮ ಸೇವೆಗಳು:</p>
+        <ul class="link-list">
+          <li>{% include link.html path="esi-consultancy-service" label="ESI ಮಾಸಿಕ ಫೈಲಿಂಗ್" %}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% include faq.html items=page.faq schema=true %}
+
+{% include closing-call.html line="ಪ್ರತಿ ತಿಂಗಳು ESI ಲೆಕ್ಕ ಹಾಕಲು ಇಷ್ಟವಿಲ್ಲವೇ? ಲೆಕ್ಕ ಹಾಕುವುದು, ಫೈಲ್ ಮಾಡುವುದು ನಮಗೆ ಬಿಡಿ." %}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Same rules and logic as /esi-contribution-calculator (Kannada text only).
+    // Code on Social Security, 2020: rates and wage ceiling. Last checked 2026-09-27.
+    var CEILING = 21000;
+    var CEILING_PWD = 25000;
+    var EMPLOYEE_RATE = 0.0075;
+    var EMPLOYER_RATE = 0.0325;
+    var CALL = '<a href="tel:+918217542975" data-call-location="result">ನಮಗೆ ಕರೆ ಮಾಡಿ</a>';
+    // The low-pay exemption amount is not confirmed under the Code, so the
+    // calculator doesn't check it (owner decision 2026-09-28; brief section 11).
+
+    function roundRupee(n) {
+      return Math.round(n);
+    }
+
+    initContributionCalculator('esi', {
+      text: { more: 'ಇನ್ನಷ್ಟು (ಬೇಕಿದ್ದರೆ)', fillIn: 'ದಯವಿಟ್ಟು ಇದನ್ನು ತುಂಬಿ.', minValue: function (min) { return min + ' ಅಥವಾ ಹೆಚ್ಚು ನಮೂದಿಸಿ.'; }, colWhat: 'ವಿವರ', colAmount: 'ಮೊತ್ತ' },
+      fields: [
+        {
+          id: 'gross-wages',
+          type: 'number',
+          label: 'ESI ವೇತನ (ತಿಂಗಳಿಗೆ ₹)',
+          help: 'ESI ವೇತನ ಎಂದರೆ ತಿಂಗಳ ಸಂಬಳದಿಂದ HRA (ಮನೆ ಬಾಡಿಗೆ ಭತ್ಯೆ), ಓವರ್‌ಟೈಮ್, ಬೋನಸ್, ಕಮಿಷನ್ ಮತ್ತು ಪ್ರಯಾಣ ಭತ್ಯೆಯನ್ನು ಬಿಟ್ಟು ಉಳಿದದ್ದು. ಇವು ಸಂಬಳದ ಅರ್ಧಕ್ಕಿಂತ ಹೆಚ್ಚಿವೆಯೇ? ಹಾಗಿದ್ದರೆ, ಹೆಚ್ಚಾದ ಭಾಗವನ್ನು ಮತ್ತೆ ಸೇರಿಸಿ. ಗೊತ್ತಿಲ್ಲವೇ? ' + CALL + '.',
+          min: 1,
+          errorRequired: 'ESI ವೇತನವನ್ನು ನಮೂದಿಸಿ.',
+          errorMin: '0ಕ್ಕಿಂತ ಹೆಚ್ಚಿನ ಸಂಖ್ಯೆಯನ್ನು ನಮೂದಿಸಿ.'
+        },
+        {
+          id: 'is-pwd',
+          type: 'radio',
+          legend: 'ಈ ಉದ್ಯೋಗಿ ವಿಕಲಚೇತನ ವ್ಯಕ್ತಿಯೇ?',
+          options: [
+            { value: 'yes', label: 'ಹೌದು' },
+            { value: 'no', label: 'ಇಲ್ಲ' }
+          ],
+          default: 'no'
+        }
+      ],
+      compute: function (a) {
+        var ceiling = a['is-pwd'] === 'yes' ? CEILING_PWD : CEILING;
+        var limit = '₹' + ceiling.toLocaleString('en-IN');
+        var pwd = a['is-pwd'] === 'yes' ? ' (ವಿಕಲಚೇತನ ವ್ಯಕ್ತಿಗೆ ಇರುವ ಮಿತಿ)' : '';
+
+        if (a['gross-wages'] > ceiling) {
+          return {
+            applicable: false,
+            headline: 'ESI ಇಲ್ಲ: ESI ವೇತನ ' + limit + 'ಕ್ಕಿಂತ ಹೆಚ್ಚು' + pwd,
+            message: 'ESI ವೇತನ ₹' + a['gross-wages'].toLocaleString('en-IN') + ', ಅಂದರೆ ' + limit + 'ಕ್ಕಿಂತ ಹೆಚ್ಚು' + pwd + '. ಹಾಗಾಗಿ ಈ ಉದ್ಯೋಗಿಗೆ ESI ಕಟ್ಟಲಾಗುವುದಿಲ್ಲ.',
+            note: 'ಅವರ ಸಂಬಳ ಈಗಷ್ಟೇ ಮಿತಿ ದಾಟಿತೇ? ESI ಆರು ತಿಂಗಳ ಎರಡು ಅವಧಿಗಳಲ್ಲಿ ನಡೆಯುತ್ತದೆ: ಏಪ್ರಿಲ್‌ನಿಂದ ಸೆಪ್ಟೆಂಬರ್, ಮತ್ತು ಅಕ್ಟೋಬರ್‌ನಿಂದ ಮಾರ್ಚ್. ಆ ಅವಧಿ ಮುಗಿಯುವವರೆಗೆ ಅವರು ESIನಲ್ಲೇ ಇರುತ್ತಾರೆ, ಮತ್ತು ನೀವು ಕಟ್ಟುತ್ತಲೇ ಇರಬೇಕು.'
+          };
+        }
+
+        var employeeShare = roundRupee(a['gross-wages'] * EMPLOYEE_RATE);
+        var employerShare = roundRupee(a['gross-wages'] * EMPLOYER_RATE);
+        var total = employeeShare + employerShare;
+
+        var notes = [];
+
+        return {
+          applicable: true,
+          tableCaption: 'ಪ್ರತಿ ತಿಂಗಳ ESI',
+          rows: [
+            { label: 'ಉದ್ಯೋಗಿ ಕಟ್ಟುವುದು (0.75%)', amount: employeeShare },
+            { label: 'ನೀವು ಕಟ್ಟುವುದು (3.25%)', amount: employerShare },
+            { label: 'ಪ್ರತಿ ತಿಂಗಳ ಒಟ್ಟು ESI', amount: total, emphasis: true }
+          ],
+          notes: notes
+        };
+      }
+    });
+  });
+</script>

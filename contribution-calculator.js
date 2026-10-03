@@ -51,6 +51,24 @@
       .replace(/"/g, '&quot;');
   }
 
+  // Words the script writes itself. A page can pass its own in config.text
+  // (the Kannada pages do); English pages pass nothing and get these.
+  var DEFAULT_TEXT = {
+    more: 'More (optional)',
+    fillIn: 'Please fill this in.',
+    minValue: function (min) { return 'Enter a value of ' + min + ' or more.'; },
+    colWhat: 'What',
+    colAmount: 'Amount'
+  };
+
+  function textFor(config) {
+    var t = {};
+    Object.keys(DEFAULT_TEXT).forEach(function (k) {
+      t[k] = config.text && config.text[k] !== undefined ? config.text[k] : DEFAULT_TEXT[k];
+    });
+    return t;
+  }
+
   function fieldErrorId(id) {
     return id + '-error';
   }
@@ -147,12 +165,13 @@
 
     var fieldsContainer = document.getElementById('contrib-fields');
     var resultsEl = document.getElementById('contrib-results');
+    var T = textFor(config);
 
     var required = config.fields.filter(function (f) { return !f.advanced; });
     var advanced = config.fields.filter(function (f) { return f.advanced; });
     var fieldsHtml = required.map(renderField).join('');
     if (advanced.length) {
-      fieldsHtml += '<details class="field-more"><summary>More (optional)</summary>' +
+      fieldsHtml += '<details class="field-more"><summary>' + escapeHtml(T.more) + '</summary>' +
         advanced.map(renderField).join('') + '</details>';
     }
     fieldsContainer.innerHTML = fieldsHtml;
@@ -185,12 +204,12 @@
         var isEmpty = value === '' || value === undefined || isNaN(value);
         if (isEmpty) {
           if (field.required === false) return; // optional field left blank
-          setError(field, field.errorRequired || 'Please fill this in.');
+          setError(field, field.errorRequired || T.fillIn);
           valid = false;
           return;
         }
         if (field.min !== undefined && value < field.min) {
-          setError(field, field.errorMin || ('Enter a value of ' + field.min + ' or more.'));
+          setError(field, field.errorMin || T.minValue(field.min));
           valid = false;
         }
       });
@@ -219,7 +238,7 @@
 
       html += '<table class="result-table">';
       html += '<caption class="visually-hidden">' + result.tableCaption + '</caption>';
-      html += '<thead><tr><th scope="col">What</th><th scope="col">Amount</th></tr></thead>';
+      html += '<thead><tr><th scope="col">' + escapeHtml(T.colWhat) + '</th><th scope="col">' + escapeHtml(T.colAmount) + '</th></tr></thead>';
       html += '<tbody>';
       result.rows.forEach(function (row) {
         var rowClass = row.emphasis ? ' class="result-table__total"' : (row.subtotal ? ' class="result-table__subtotal"' : '');

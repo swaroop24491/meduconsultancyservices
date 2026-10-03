@@ -204,9 +204,45 @@
     if (el) el.focus();
   }
 
+  // Words the result and errors use. A page can pass its own in labels.text
+  // (the Kannada pages do); English pages pass nothing and get these.
+  // labels.text.rateLines maps each English rate line to the page's own words.
+  var DEFAULT_TEXT = {
+    months: null, // null: English month names (formatDateLong)
+    call: 'Call us',
+    amountRequired: 'Enter the unpaid amount.',
+    amountMin: 'Enter an amount more than ₹0.',
+    monthRequired: 'Choose the salary month.',
+    dateRequired: 'Choose the date you paid, or will pay.',
+    onTimeTitle: 'On time. Nothing extra to pay.',
+    onTimeText: function (due) { return 'Your payment date is on or before the due date (' + due + '). No interest or damages.'; },
+    dueDate: 'Due date:',
+    daysLate: 'Days late:',
+    countedAs: function (months) { return ' (counted as ' + months + ' month' + (months === 1 ? '' : 's') + ' for damages)'; },
+    colWhat: 'What',
+    colAmount: 'Amount',
+    unpaid: 'Unpaid amount',
+    total: 'Total (estimate)',
+    rateLines: {},
+    unclearNote: function (call) { return 'Your PF was due before 14 June 2024 and paid after it. The rules for this are not clear, so this figure may change. ' + call + ' to check.'; },
+    unusualNote: function (call) { return 'Damages this high are unusual. ' + call + ' to check.'; },
+    cappedNote: 'Damages can\'t be more than the unpaid amount. So they stop at 100% of it.'
+  };
+
   function initPenaltyCalculator(scheme, labels) {
     var form = document.getElementById('penalty-form');
     if (!form) return;
+
+    var T = {};
+    Object.keys(DEFAULT_TEXT).forEach(function (k) {
+      T[k] = labels.text && labels.text[k] !== undefined ? labels.text[k] : DEFAULT_TEXT[k];
+    });
+
+    function showDate(date) {
+      return T.months
+        ? date.getDate() + ' ' + T.months[date.getMonth()] + ' ' + date.getFullYear()
+        : formatDateLong(date);
+    }
 
     var amountInput = document.getElementById('amount');
     var wageMonthInput = document.getElementById('wage-month');
@@ -239,7 +275,7 @@
         return null;
       }
       var due = dueDateForWageMonth(parsed.monthIndex, parsed.year);
-      dueDateOutput.value = formatDateLong(due); // the help line says it is the 15th of the next month
+      dueDateOutput.value = showDate(due); // the help line says it is the 15th of the next month
       return due;
     }
 
@@ -256,22 +292,22 @@
 
       var amountValue = parseFloat(amountInput.value);
       if (!amountInput.value || isNaN(amountValue)) {
-        setError('amount', 'Enter the unpaid amount.');
+        setError('amount', T.amountRequired);
         valid = false;
       } else if (amountValue <= 0) {
-        setError('amount', 'Enter an amount more than ₹0.');
+        setError('amount', T.amountMin);
         valid = false;
       }
 
       var due = updateDueDate();
       if (!due) {
-        setError('wage-month', 'Choose the salary month.');
+        setError('wage-month', T.monthRequired);
         valid = false;
       }
 
       var paymentDate = parseDateInput(paymentDateInput.value);
       if (!paymentDate) {
-        setError('payment-date', 'Choose the date you paid, or will pay.');
+        setError('payment-date', T.dateRequired);
         valid = false;
       }
 
@@ -291,56 +327,54 @@
       showResult(resultsEl);
     });
 
-    var CALL = '<a href="tel:+918217542975" data-call-location="result">Call us</a>';
+    var CALL = '<a href="tel:+918217542975" data-call-location="result">' + T.call + '</a>';
 
     function renderResult(container, labels, result, paymentDate) {
       if (result.onTime) {
         container.innerHTML =
           '<div class="result-message">' +
-          '<strong>On time. Nothing extra to pay.</strong>' +
-          '<p>Your payment date is on or before the due date (' +
-          formatDateLong(result.dueDate) + '). No interest or damages.</p>' +
+          '<strong>' + T.onTimeTitle + '</strong>' +
+          '<p>' + T.onTimeText(showDate(result.dueDate)) + '</p>' +
           '</div>';
         return;
       }
 
       var html = '';
       html += '<div class="result-summary">';
-      html += '<p><strong>Due date:</strong> ' + formatDateLong(result.dueDate) + '</p>';
-      html += '<p><strong>Days late:</strong> ' + result.delayDays;
+      html += '<p><strong>' + T.dueDate + '</strong> ' + showDate(result.dueDate) + '</p>';
+      html += '<p><strong>' + T.daysLate + '</strong> ' + result.delayDays;
       if (result.damages.usesRoundedMonths) {
-        html += ' (counted as ' + result.delayMonths +
-          ' month' + (result.delayMonths === 1 ? '' : 's') + ' for damages)';
+        html += T.countedAs(result.delayMonths);
       }
       html += '</p>';
       html += '</div>';
 
       html += '<table class="result-table">';
       html += '<caption class="visually-hidden">' + labels.tableCaption + '</caption>';
-      html += '<thead><tr><th scope="col">What</th><th scope="col">Amount</th></tr></thead>';
+      html += '<thead><tr><th scope="col">' + T.colWhat + '</th><th scope="col">' + T.colAmount + '</th></tr></thead>';
       html += '<tbody>';
-      html += '<tr><th scope="row">Unpaid amount</th><td>' + formatINR(result.principal) + '</td></tr>';
+      html += '<tr><th scope="row">' + T.unpaid + '</th><td>' + formatINR(result.principal) + '</td></tr>';
       html += '<tr><th scope="row">' + labels.interestLabel + '</th><td>' + formatINR(result.interest) + '</td></tr>';
       html += '<tr><th scope="row">' + labels.damagesLabel + '</th><td>' + formatINR(result.damages.amount) + '</td></tr>';
-      html += '<tr class="result-table__total"><th scope="row">Total (estimate)</th><td>' + formatINR(result.total) + '</td></tr>';
+      html += '<tr class="result-table__total"><th scope="row">' + T.total + '</th><td>' + formatINR(result.total) + '</td></tr>';
       html += '</tbody></table>';
 
-      html += '<p class="result-note">' + result.damages.ruleLabel +
-        ', for ' + result.damages.bracketLabel + '.</p>';
+      var rateLine = result.damages.ruleLabel + ', for ' + result.damages.bracketLabel + '.';
+      html += '<p class="result-note">' + (T.rateLines[rateLine] || rateLine) + '</p>';
 
       // Text-only notes (the amounts above don't change). Strategy 9.4 #18: PF
       // due before the 14 June 2024 change but paid after it. 9.4 #1/#2: the old
       // slabs have no cap here, so very long delays can give damages above the
       // unpaid amount; the cap under the Code is not yet confirmed.
       if (scheme === 'epf' && result.dueDate < EPF_RATE_CHANGE_DATE && paymentDate >= EPF_RATE_CHANGE_DATE) {
-        html += '<p class="result-note">Your PF was due before 14 June 2024 and paid after it. The rules for this are not clear, so this figure may change. ' + CALL + ' to check.</p>';
+        html += '<p class="result-note">' + T.unclearNote(CALL) + '</p>';
       }
       if (!result.damages.capped && result.damages.amount > result.principal) {
-        html += '<p class="result-note">Damages this high are unusual. ' + CALL + ' to check.</p>';
+        html += '<p class="result-note">' + T.unusualNote(CALL) + '</p>';
       }
 
       if (result.damages.capped) {
-        html += '<p class="result-note">Damages can\'t be more than the unpaid amount. So they stop at 100% of it.</p>';
+        html += '<p class="result-note">' + T.cappedNote + '</p>';
       }
 
       container.innerHTML = html;

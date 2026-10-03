@@ -1,0 +1,214 @@
+---
+layout: base
+lang: kn
+page_type: tool
+last_modified: 2026-10-03
+title: "ESI ಅರ್ಹತೆ ಪರಿಶೀಲನೆ 2026 | ಮೆದು ಕನ್ಸಲ್ಟೆನ್ಸಿ"
+description: "ನಿಮ್ಮ ವ್ಯಾಪಾರಕ್ಕೆ ಅಥವಾ ಉದ್ಯೋಗಿಗೆ ESI ಅನ್ವಯಿಸುತ್ತದೆಯೇ? ಉದ್ಯೋಗದಾತರಿಗೆ ಉಚಿತ ESI ಅರ್ಹತೆ ಪರಿಶೀಲನೆ, 2026ರ ನಿಯಮಗಳ ಪ್ರಕಾರ: 10 ಅಥವಾ ಹೆಚ್ಚು ಸಿಬ್ಬಂದಿ, ₹21,000 ESI ವೇತನ."
+scripts: [/eligibility-checker.js]
+tool: { name: ESI ಅರ್ಹತೆ ಪರಿಶೀಲನೆ }
+breadcrumb:
+  - { name: ಉಚಿತ ಸಾಧನಗಳು, path: epf-esi-tools-calculators }
+  - { name: ESI ಅರ್ಹತೆ ಪರಿಶೀಲನೆ }
+faq:
+  - q: "10 ಉದ್ಯೋಗಿಗಳ ನಿಯಮ ಎಲ್ಲ ರಾಜ್ಯಗಳಲ್ಲೂ ಒಂದೇ ಆಗಿದೆಯೇ?"
+    a: "ಹೌದು. ಸಾಮಾಜಿಕ ಭದ್ರತಾ ಸಂಹಿತೆ, 2020 (PF ಮತ್ತು ESIಗೆ ಈಗಿನ ಕಾನೂನು) ಬಂದ ನಂತರ, ಎಲ್ಲ ರಾಜ್ಯಗಳಲ್ಲೂ 10 ಅಥವಾ ಹೆಚ್ಚು ಉದ್ಯೋಗಿಗಳಿರುವ ವ್ಯಾಪಾರಗಳಿಗೆ ESI ಅನ್ವಯಿಸುತ್ತದೆ. ಋತುಮಾನದ ಕಾರ್ಖಾನೆಗಳಿಗೆ ಇದು ಅನ್ವಯಿಸುವುದಿಲ್ಲ."
+  - q: "ಉದ್ಯೋಗಿಯ ಸಂಬಳ ₹21,000 ದಾಟಿತು. ಅವರು ESIನಿಂದ ಹೊರಗೆ ಹೋಗುತ್ತಾರೆಯೇ?"
+    a: "ತಕ್ಷಣ ಅಲ್ಲ. ESI ಆರು ತಿಂಗಳ ಎರಡು ಅವಧಿಗಳಲ್ಲಿ ನಡೆಯುತ್ತದೆ: ಏಪ್ರಿಲ್‌ನಿಂದ ಸೆಪ್ಟೆಂಬರ್, ಮತ್ತು ಅಕ್ಟೋಬರ್‌ನಿಂದ ಮಾರ್ಚ್. ಆ ಅವಧಿ ಮುಗಿಯುವವರೆಗೆ ಅವರು ESIನಲ್ಲೇ ಇರುತ್ತಾರೆ, ಮತ್ತು ಅವರಿಗಾಗಿ ನೀವು ESI ಕಟ್ಟುತ್ತಲೇ ಇರಬೇಕು."
+  - q: "ನಮ್ಮ ಸಿಬ್ಬಂದಿ 10ಕ್ಕಿಂತ ಕಡಿಮೆಯಾದರು. ಈಗಲೂ ESI ಬೇಕೇ?"
+    a: "ಹೌದು. ಒಮ್ಮೆ ESI ಅನ್ವಯಿಸಿದರೆ, ನಂತರ ಸಿಬ್ಬಂದಿ 10ಕ್ಕಿಂತ ಕಡಿಮೆಯಾದರೂ ಅದು ಮುಂದುವರಿಯುತ್ತದೆ."
+---
+{%- assign esi = site.data.facts.esi -%}
+<section class="section section--stacked tool-section" aria-labelledby="tool-heading">
+  <div class="container">
+    <h1 id="tool-heading">ESI ಅರ್ಹತೆ ಪರಿಶೀಲನೆ</h1>
+    <p class="tool-lead">ನಿಮ್ಮ ವ್ಯಾಪಾರ ESI (ಉದ್ಯೋಗಿಗಳ ರಾಜ್ಯ ವಿಮೆ) ನೋಂದಣಿ ಮಾಡಬೇಕೇ ಎಂದು ಪರಿಶೀಲಿಸಿ. ಒಬ್ಬ ಉದ್ಯೋಗಿ ESIನಲ್ಲಿ ಇರಬೇಕೇ ಎಂದೂ ಪರಿಶೀಲಿಸಬಹುದು. ಒಂದು ಪರಿಶೀಲನೆ ಅಥವಾ ಎರಡನ್ನೂ ಬಳಸಿ.</p>
+
+    <h2 id="checks-heading" class="visually-hidden">ನಿಮ್ಮ ವ್ಯಾಪಾರ ಅಥವಾ ಉದ್ಯೋಗಿಯನ್ನು ಪರಿಶೀಲಿಸಿ</h2>
+    <div class="tool-checks">
+      <section id="business-eligibility" class="tool-check" aria-labelledby="business-eligibility-heading">
+        <h3 id="business-eligibility-heading">ನಿಮ್ಮ ವ್ಯಾಪಾರಕ್ಕೆ ESI ಬೇಕೇ?</h3>
+        <form id="business-eligibility-form" class="tool-form" novalidate>
+          <div id="business-eligibility-fields"></div>
+          <button type="submit" class="btn btn--outline">ನನ್ನ ವ್ಯಾಪಾರವನ್ನು ಪರಿಶೀಲಿಸಿ</button>
+        </form>
+        <div class="tool-result" id="business-eligibility-results" aria-live="polite" hidden></div>
+        {% include result-call.html tool="eligibility" %}
+      </section>
+
+      <section id="employee-eligibility" class="tool-check" aria-labelledby="employee-eligibility-heading">
+        <h3 id="employee-eligibility-heading">ಈ ಉದ್ಯೋಗಿ ESIನಲ್ಲಿ ಇರಬೇಕೇ?</h3>
+        <form id="employee-eligibility-form" class="tool-form" novalidate>
+          <div id="employee-eligibility-fields"></div>
+          <button type="submit" class="btn btn--outline">ಈ ಉದ್ಯೋಗಿಯನ್ನು ಪರಿಶೀಲಿಸಿ</button>
+        </form>
+        <div class="tool-result" id="employee-eligibility-results" aria-live="polite" hidden></div>
+      </section>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="how-heading">
+  <div class="container">
+    <div class="prose">
+      <h2 id="how-heading">ESI ನಿಯಮಗಳು ಹೇಗಿವೆ</h2>
+      <h3>ನಿಮ್ಮ ವ್ಯಾಪಾರಕ್ಕೆ</h3>
+      <p>ನಿಮ್ಮ ವ್ಯಾಪಾರದಲ್ಲಿ <strong>{{ esi.min_employees }} ಅಥವಾ ಹೆಚ್ಚು ಉದ್ಯೋಗಿಗಳು</strong> ಇದ್ದರೆ ESI ನೋಂದಣಿ ಮಾಡಬೇಕು. ಈ ನಿಯಮ ಎಲ್ಲ ರಾಜ್ಯಗಳಲ್ಲೂ ಒಂದೇ. ಋತುಮಾನದ ಕಾರ್ಖಾನೆಗಳಿಗೆ ಇದು ಅನ್ವಯಿಸುವುದಿಲ್ಲ.</p>
+      <p>PFಗೆ ಎಣಿಸುವಂತೆಯೇ ನಿಮ್ಮ ಎಲ್ಲ ಸಿಬ್ಬಂದಿಯನ್ನು ಎಣಿಸಿ. ಅಪ್ರೆಂಟಿಸ್‌ಗಳು, ಮಾಲೀಕರು ಅಥವಾ ಪಾಲುದಾರರನ್ನು ಎಣಿಸಬೇಡಿ. ನಿಮ್ಮ ವ್ಯಾಪಾರ ಕಂಪನಿಯೇ? ನಿರ್ದೇಶಕರನ್ನು ಹೇಗೆ ಎಣಿಸಬೇಕು ಎಂದು ತಿಳಿಯಲು <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">ನಮಗೆ ಕರೆ ಮಾಡಿ</a>.</p>
+      <p><strong>ಒಮ್ಮೆ ESI ಅನ್ವಯಿಸಿದರೆ, ಅದು ಮುಂದುವರಿಯುತ್ತದೆ</strong>, ನಂತರ ನಿಮ್ಮ ಸಿಬ್ಬಂದಿ {{ esi.min_employees }}ಕ್ಕಿಂತ ಕಡಿಮೆಯಾದರೂ ಸಹ. ಕೆಲವು ಅಪಾಯಕಾರಿ ಕೆಲಸಗಳಿಗೆ, 1 ಉದ್ಯೋಗಿ ಇದ್ದರೂ ESI ಅನ್ವಯಿಸಬಹುದು. ಪರಿಶೀಲಿಸಲು <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">ನಮಗೆ ಕರೆ ಮಾಡಿ</a>.</p>
+      <h3>ಪ್ರತಿ ಉದ್ಯೋಗಿಗೆ</h3>
+      <p>ಉದ್ಯೋಗಿಯ ESI ವೇತನ <strong>ತಿಂಗಳಿಗೆ {{ esi.wage_ceiling_text }} ಅಥವಾ ಕಡಿಮೆ</strong> ಇದ್ದರೆ (ವಿಕಲಚೇತನ ವ್ಯಕ್ತಿಗೆ {{ esi.wage_ceiling_pwd_text }}), ಅವರು ESIನಲ್ಲಿ ಇರಲೇಬೇಕು.</p>
+      <p>ESI ವೇತನ ಎಂದರೆ ತಿಂಗಳ ಸಂಬಳದಿಂದ HRA (ಮನೆ ಬಾಡಿಗೆ ಭತ್ಯೆ), ಓವರ್‌ಟೈಮ್, ಬೋನಸ್, ಕಮಿಷನ್ ಮತ್ತು ಪ್ರಯಾಣ ಭತ್ಯೆಯನ್ನು ಬಿಟ್ಟು ಉಳಿದದ್ದು. ಆದರೆ ESI ವೇತನ ಒಟ್ಟು ಸಂಬಳದ ಕನಿಷ್ಠ ಅರ್ಧದಷ್ಟು ಇರಬೇಕು. ಅದಕ್ಕಿಂತ ಕಡಿಮೆ ಇದ್ದರೆ, ಕಡಿಮೆಯಾದ ಭಾಗವನ್ನು ESI ವೇತನಕ್ಕೆ ಸೇರಿಸಲಾಗುತ್ತದೆ.</p>
+      <p>ESI ಆರು ತಿಂಗಳ ಎರಡು ಅವಧಿಗಳಲ್ಲಿ ನಡೆಯುತ್ತದೆ: {{ esi.contribution_periods_text_kn }}. ಒಂದು ಅವಧಿಯ ನಡುವೆ ಉದ್ಯೋಗಿಯ ಸಂಬಳ ಮಿತಿ ದಾಟಿದರೆ, ಆ ಅವಧಿ ಮುಗಿಯುವವರೆಗೆ ಅವರು ESIನಲ್ಲೇ ಇರುತ್ತಾರೆ.</p>
+      <h3>ತುಂಬಾ ಕಡಿಮೆ ಸಂಬಳದ ಸಿಬ್ಬಂದಿ</h3>
+      <p>ದಿನಕ್ಕೆ ತುಂಬಾ ಕಡಿಮೆ ಸಂಬಳ ಪಡೆಯುವ ಸಿಬ್ಬಂದಿ ತಮ್ಮ {{ esi.employee_rate_pct }}% ಪಾಲನ್ನು ಕಟ್ಟುವುದಿಲ್ಲ. ಆದರೆ ನಿಮ್ಮ {{ esi.employer_rate_pct }}% ಪಾಲನ್ನು ನೀವು ಕಟ್ಟಲೇಬೇಕು. ಇದು ಅನ್ವಯಿಸುತ್ತದೆಯೇ ಎಂದು ತಿಳಿಯಲು <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">ನಮಗೆ ಕರೆ ಮಾಡಿ</a>.</p>
+      <p class="note"><strong>ಗಮನಿಸಿ:</strong> ಈ ಪರಿಶೀಲನೆ ಸಾಮಾನ್ಯ ESI ನಿಯಮಗಳನ್ನು ಆಧರಿಸಿದ ಮಾರ್ಗದರ್ಶನ ಮಾತ್ರ. ನಿಮ್ಮ ವ್ಯಾಪಾರಕ್ಕೆ ಇದು ಅಂತಿಮ ಉತ್ತರವಲ್ಲ. ಒಂದಕ್ಕಿಂತ ಹೆಚ್ಚು ರಾಜ್ಯಗಳಲ್ಲಿ ಸಿಬ್ಬಂದಿ ಅಥವಾ ಗುತ್ತಿಗೆ ಕೆಲಸಗಾರರು ಇರುವಂತಹ ಕೆಲವು ಸಂದರ್ಭಗಳನ್ನು ಇನ್ನಷ್ಟು ಹತ್ತಿರದಿಂದ ನೋಡಬೇಕಾಗುತ್ತದೆ. <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">ನಮಗೆ ಕರೆ ಮಾಡಿ</a>, ನಾವು ಪರಿಶೀಲಿಸುತ್ತೇವೆ. {{ site.data.facts.tools_checked_kn }}ರ ನಿಯಮಗಳ ಪ್ರಕಾರ ಪರಿಶೀಲಿಸಲಾಗಿದೆ.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--surface section--stacked" aria-labelledby="more-heading">
+  <div class="container">
+    <h2 id="more-heading">PF ಮತ್ತು ESI ಬಗ್ಗೆ ಇನ್ನಷ್ಟು ಸಹಾಯ</h2>
+    <div class="card-grid card-grid--panel">
+      {% include tool-card.html key="esi-contribution" %}
+      {% include tool-card.html key="epf-eligibility" %}
+    </div>
+    <div class="link-groups link-groups--wide">
+      <div class="link-group">
+        <p class="link-group__label">ಮಾರ್ಗದರ್ಶಿಗಳು:</p>
+        <ul class="link-list">
+          <li>{% include link.html path="blogs/esi-applicability-threshold" label="ESI: ಯಾರು ನೋಂದಣಿ ಮಾಡಬೇಕು" %}</li>
+        </ul>
+      </div>
+      <div class="link-group">
+        <p class="link-group__label">ನಮ್ಮ ಸೇವೆಗಳು:</p>
+        <ul class="link-list">
+          <li>{% include link.html path="esi-registration" label="ಉದ್ಯೋಗದಾತರಿಗೆ ESI ನೋಂದಣಿ" %}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% include faq.html items=page.faq schema=true %}
+
+{% include closing-call.html line="ESI ನಿಮ್ಮ ವ್ಯಾಪಾರಕ್ಕೆ ಅನ್ವಯಿಸುತ್ತದೆಯೇ ಎಂದು ಖಚಿತವಿಲ್ಲವೇ? ನಮಗೆ ಕರೆ ಮಾಡಿ, ನಾವು ಪರಿಶೀಲಿಸುತ್ತೇವೆ." %}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Same rules and logic as /esi-eligibility-checker (Kannada text only).
+    // Code on Social Security, 2020: 10 or more employees in every state
+    // (except seasonal factories). Last checked 2026-09-27.
+    var ESI_EMPLOYEE_THRESHOLD = 10;
+
+    var ESI_CEILING = 21000;
+    var ESI_CEILING_PWD = 25000;
+    // The low-pay exemption amount is not confirmed under the Code, so the
+    // checker doesn't check it (owner decision 2026-09-28; brief section 11).
+    var CALL = '<a href="tel:+918217542975" data-call-location="result">ನಮಗೆ ಕರೆ ಮಾಡಿ</a>';
+    var TEXT = { select: 'ಆರಿಸಿ…', more: 'ಇನ್ನಷ್ಟು (ಬೇಕಿದ್ದರೆ)', fillIn: 'ದಯವಿಟ್ಟು ಇದನ್ನು ತುಂಬಿ.', minValue: function (min) { return min + ' ಅಥವಾ ಹೆಚ್ಚು ನಮೂದಿಸಿ.'; }, checkAgain: 'ಮತ್ತೆ ಪರಿಶೀಲಿಸಿ' };
+    var YES_NO = [
+      { value: 'yes', label: 'ಹೌದು' },
+      { value: 'no', label: 'ಇಲ್ಲ' }
+    ];
+
+    initEligibilityCalculator('business-eligibility', {
+      text: TEXT,
+      cardTitle: 'ನಿಮ್ಮ ವ್ಯಾಪಾರದ ಫಲಿತಾಂಶ',
+      fields: [
+        {
+          id: 'current-employees',
+          type: 'number',
+          label: 'ಈಗ ನಿಮ್ಮ ವ್ಯಾಪಾರದಲ್ಲಿ ಎಷ್ಟು ಉದ್ಯೋಗಿಗಳಿದ್ದಾರೆ?',
+          help: 'ಎಲ್ಲ ಸಿಬ್ಬಂದಿಯನ್ನು ಎಣಿಸಿ: ತಾತ್ಕಾಲಿಕ ಮತ್ತು ದಿನಗೂಲಿ ಕೆಲಸಗಾರರು, ಗುತ್ತಿಗೆದಾರರು ನಿಮ್ಮಲ್ಲಿ ಕೆಲಸಕ್ಕೆ ಕಳುಹಿಸುವ ಕೆಲಸಗಾರರು ಮತ್ತು ಹೆಚ್ಚು ಸಂಬಳದ ಸಿಬ್ಬಂದಿ ಸೇರಿ. ಅಪ್ರೆಂಟಿಸ್‌ಗಳು, ಮಾಲೀಕರು ಅಥವಾ ಪಾಲುದಾರರನ್ನು ಎಣಿಸಬೇಡಿ.',
+          min: 1,
+          errorRequired: 'ಉದ್ಯೋಗಿಗಳ ಸಂಖ್ಯೆಯನ್ನು ನಮೂದಿಸಿ.',
+          errorMin: '0ಕ್ಕಿಂತ ಹೆಚ್ಚಿನ ಸಂಖ್ಯೆಯನ್ನು ನಮೂದಿಸಿ.'
+        },
+        {
+          id: 'seasonal-factory',
+          type: 'radio',
+          legend: 'ನಿಮ್ಮ ವ್ಯಾಪಾರ ಋತುಮಾನದ ಕಾರ್ಖಾನೆಯೇ?',
+          options: YES_NO,
+          help: 'ಋತುಮಾನದ ಕಾರ್ಖಾನೆ ವರ್ಷದ ಒಂದು ಭಾಗದಲ್ಲಿ ಮಾತ್ರ ಕೆಲಸ ಮಾಡುತ್ತದೆ, ಉದಾಹರಣೆಗೆ ಬೆಳೆಯ ಹಂಗಾಮಿನಲ್ಲಿ ಮಾತ್ರ.',
+          errorRequired: 'ಹೌದು ಅಥವಾ ಇಲ್ಲ ಆರಿಸಿ.'
+        }
+      ],
+      evaluate: function (a) {
+        if (a['seasonal-factory'] === 'yes') {
+          return {
+            kind: 'neutral',
+            headline: 'ESI ಅನ್ವಯಿಸುವುದಿಲ್ಲ: ಋತುಮಾನದ ಕಾರ್ಖಾನೆ.',
+            reason: 'ಋತುಮಾನದ ಕಾರ್ಖಾನೆಗಳಿಗೆ ESI ಅನ್ವಯಿಸುವುದಿಲ್ಲ.',
+            crosslink: 'ನಿಮ್ಮ ಕಾರ್ಖಾನೆ ಋತುಮಾನದ್ದೇ ಎಂದು ಖಚಿತವಿಲ್ಲವೇ? ' + CALL + ', ನಾವು ಪರಿಶೀಲಿಸುತ್ತೇವೆ.'
+          };
+        }
+        var threshold = ESI_EMPLOYEE_THRESHOLD;
+        if (a['current-employees'] >= threshold) {
+          return {
+            kind: 'positive',
+            headline: 'ESI ಅನ್ವಯಿಸುತ್ತದೆ. ನಿಮ್ಮ ವ್ಯಾಪಾರ ನೋಂದಣಿ ಮಾಡಬೇಕು.',
+            reason: 'ನಿಮ್ಮ ವ್ಯಾಪಾರದಲ್ಲಿ ' + a['current-employees'] + ' ಉದ್ಯೋಗಿಗಳಿದ್ದಾರೆ, ಅಂದರೆ ' + threshold + ' ಅಥವಾ ಹೆಚ್ಚು. ಹಾಗಾಗಿ ESI ನೋಂದಣಿ ಮಾಡಬೇಕು.',
+            note: 'ಈ ನಿಯಮ ಎಲ್ಲ ರಾಜ್ಯಗಳಲ್ಲೂ ಒಂದೇ.',
+            crosslink: 'ನಾವು ನಿಮ್ಮ ನೋಂದಣಿ ಮಾಡಿ, ನಂತರ ಪ್ರತಿ ತಿಂಗಳು ಫೈಲ್ ಮಾಡಬಹುದು. <a href="tel:+918217542975" data-call-location="result">+91 82175 42975ಗೆ ಕರೆ ಮಾಡಿ</a>. <a href="/kn/esi-registration">ಉದ್ಯೋಗದಾತರಿಗೆ ESI ನೋಂದಣಿ</a> ಬಗ್ಗೆ ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ.'
+          };
+        }
+        return {
+          kind: 'neutral',
+          headline: 'ESI ಇನ್ನೂ ಅನ್ವಯಿಸುವುದಿಲ್ಲ.',
+          reason: 'ನಿಮ್ಮ ವ್ಯಾಪಾರದಲ್ಲಿ ' + a['current-employees'] + ' ಉದ್ಯೋಗಿಗಳಿದ್ದಾರೆ, ಅಂದರೆ ' + threshold + 'ಕ್ಕಿಂತ ಕಡಿಮೆ. ಹಾಗಾಗಿ ಈಗ ESI ನೋಂದಣಿ ಬೇಕಿಲ್ಲ.',
+          note: 'ಆದರೆ ನಿಮ್ಮ ವ್ಯಾಪಾರದಲ್ಲಿ ಹಿಂದೆ ಯಾವಾಗಲಾದರೂ ' + threshold + ' ಅಥವಾ ಹೆಚ್ಚು ಉದ್ಯೋಗಿಗಳು ಇದ್ದರೆ, ESI ಈಗಲೂ ಅನ್ವಯಿಸುತ್ತದೆ: ಒಮ್ಮೆ ESI ಅನ್ವಯಿಸಿದರೆ, ಅದು ಮುಂದುವರಿಯುತ್ತದೆ. ಕೆಲವು ಅಪಾಯಕಾರಿ ಕೆಲಸಗಳಿಗೆ, 1 ಉದ್ಯೋಗಿ ಇದ್ದರೂ ESI ಅನ್ವಯಿಸಬಹುದು. ಪರಿಶೀಲಿಸಲು ' + CALL + '.',
+          crosslink: 'ವ್ಯಾಪಾರ ಬೆಳೆಯುತ್ತಿದೆಯೇ? ' + threshold + ' ಉದ್ಯೋಗಿಗಳಾದಾಗ, <a href="/kn/esi-registration">ನಾವು ನಿಮ್ಮ ನೋಂದಣಿ ಮಾಡಬಹುದು</a>.'
+        };
+      }
+    });
+
+    initEligibilityCalculator('employee-eligibility', {
+      text: TEXT,
+      cardTitle: 'ಈ ಉದ್ಯೋಗಿಯ ಫಲಿತಾಂಶ',
+      fields: [
+        {
+          id: 'gross-wages',
+          type: 'number',
+          label: 'ಈ ಉದ್ಯೋಗಿಯ ESI ವೇತನ ಎಷ್ಟು? (ತಿಂಗಳಿಗೆ ₹)',
+          help: 'ESI ವೇತನ ಎಂದರೆ ತಿಂಗಳ ಸಂಬಳದಿಂದ HRA (ಮನೆ ಬಾಡಿಗೆ ಭತ್ಯೆ), ಓವರ್‌ಟೈಮ್, ಬೋನಸ್, ಕಮಿಷನ್ ಮತ್ತು ಪ್ರಯಾಣ ಭತ್ಯೆಯನ್ನು ಬಿಟ್ಟು ಉಳಿದದ್ದು. ಇವು ಸಂಬಳದ ಅರ್ಧಕ್ಕಿಂತ ಹೆಚ್ಚಿವೆಯೇ? ಹಾಗಿದ್ದರೆ, ಹೆಚ್ಚಾದ ಭಾಗವನ್ನು ಮತ್ತೆ ಸೇರಿಸಿ. ಗೊತ್ತಿಲ್ಲವೇ? ' + CALL + '.',
+          min: 1,
+          errorRequired: 'ESI ವೇತನವನ್ನು ನಮೂದಿಸಿ.',
+          errorMin: '0ಕ್ಕಿಂತ ಹೆಚ್ಚಿನ ಸಂಖ್ಯೆಯನ್ನು ನಮೂದಿಸಿ.'
+        },
+        {
+          id: 'is-pwd',
+          type: 'radio',
+          legend: 'ಈ ಉದ್ಯೋಗಿ ವಿಕಲಚೇತನ ವ್ಯಕ್ತಿಯೇ?',
+          options: YES_NO,
+          errorRequired: 'ಒಂದನ್ನು ಆರಿಸಿ.'
+        }
+      ],
+      evaluate: function (a) {
+        var ceiling = a['is-pwd'] === 'yes' ? ESI_CEILING_PWD : ESI_CEILING;
+        var pwd = a['is-pwd'] === 'yes' ? ' (ವಿಕಲಚೇತನ ವ್ಯಕ್ತಿಗೆ ಇರುವ ಮಿತಿ)' : '';
+        var limit = '₹' + ceiling.toLocaleString('en-IN');
+        var wages = '₹' + a['gross-wages'].toLocaleString('en-IN');
+        if (a['gross-wages'] <= ceiling) {
+          return {
+            kind: 'positive',
+            headline: 'ESIನಲ್ಲಿ ಇರಲೇಬೇಕು.',
+            reason: 'ESI ವೇತನ ' + wages + ', ಅಂದರೆ ' + limit + ' ಅಥವಾ ಕಡಿಮೆ' + pwd + '. ಹಾಗಾಗಿ ನಿಮ್ಮ ವ್ಯಾಪಾರಕ್ಕೆ ESI ಅನ್ವಯಿಸಿದರೆ, ಈ ಉದ್ಯೋಗಿ ESIನಲ್ಲಿ ಇರಲೇಬೇಕು.',
+            note: null,
+            crosslink: 'ಪ್ರತಿ ತಿಂಗಳ ಮೊತ್ತ ನೋಡಿ: <a href="/kn/esi-contribution-calculator">ESI ವಂತಿಗೆ ಲೆಕ್ಕಾಚಾರ</a>.'
+          };
+        }
+        return {
+          kind: 'negative',
+          headline: 'ಈ ಉದ್ಯೋಗಿಗೆ ESI ಅನ್ವಯಿಸುವುದಿಲ್ಲ.',
+          reason: 'ESI ವೇತನ ' + wages + ', ಅಂದರೆ ' + limit + 'ಕ್ಕಿಂತ ಹೆಚ್ಚು' + pwd + '. ಹಾಗಾಗಿ ಈ ಸಂಬಳದಲ್ಲಿ ಈ ಉದ್ಯೋಗಿ ESIನಲ್ಲಿ ಇರುವುದಿಲ್ಲ.',
+          note: 'ಅವರ ಸಂಬಳ ಈಗಷ್ಟೇ ಮಿತಿ ದಾಟಿತೇ? ESI ಆರು ತಿಂಗಳ ಎರಡು ಅವಧಿಗಳಲ್ಲಿ ನಡೆಯುತ್ತದೆ: ಏಪ್ರಿಲ್‌ನಿಂದ ಸೆಪ್ಟೆಂಬರ್, ಮತ್ತು ಅಕ್ಟೋಬರ್‌ನಿಂದ ಮಾರ್ಚ್. ಆ ಅವಧಿ ಮುಗಿಯುವವರೆಗೆ ಅವರು ESIನಲ್ಲೇ ಇರುತ್ತಾರೆ.',
+          crosslink: null
+        };
+      }
+    });
+
+    EligibilityChecker.scrollToHash();
+  });
+</script>

@@ -10,12 +10,17 @@
 # esi-registration, industries/*.html (FAQ answers, meta descriptions and the IT hero: "₹25,000",
 # "₹21,000", "20 or more", "10 or more", "17 September 2026", contribution periods), and the tool
 # pages (FAQ answers, meta descriptions and the text inside the tool scripts, e.g. EPF_WAGE_CEILING = 25000).
+# Kannada pages (kn/) type the same facts by hand in Kannada too: grep the same numbers there.
 law: "Code on Social Security, 2020"
 law_in_force: "21 November 2025"
+# Kannada pages use the _kn versions; change both together.
+law_kn: "ಸಾಮಾಜಿಕ ಭದ್ರತಾ ಸಂಹಿತೆ, 2020"
+law_in_force_kn: "21 ನವೆಂಬರ್ 2025"
 # Shown on the tools hub and every tool page ("checked against the rules as of").
 # Change it when brief section 11 is rechecked. Each January, also update the year
 # in the tool page titles and meta descriptions ("2026").
 tools_checked: "27 September 2026"
+tools_checked_kn: "27 ಸೆಪ್ಟೆಂಬರ್ 2026"
 epf:
   min_employees: 20
   wage_ceiling: 25000
@@ -39,3 +44,4 @@ esi:
   due_day: 15            # of the following month
   contribution_periods: ["April–September", "October–March"]
   contribution_periods_text: "April to September, and October to March"
+  contribution_periods_text_kn: "ಏಪ್ರಿಲ್‌ನಿಂದ ಸೆಪ್ಟೆಂಬರ್, ಮತ್ತು ಅಕ್ಟೋಬರ್‌ನಿಂದ ಮಾರ್ಚ್"

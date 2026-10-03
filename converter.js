@@ -92,6 +92,9 @@
   document.addEventListener('DOMContentLoaded', function () {
     var form = document.getElementById('converter-form');
     if (!form) return;
+    // The Kannada page sets window.converterText with its own messages.
+    var text = window.converterText || {};
+    Object.keys(MESSAGES).forEach(function (k) { if (text[k]) MESSAGES[k] = text[k]; });
     // Start loading SheetJS as soon as a file is chosen
     document.getElementById('fileInput').addEventListener('change', function () {
       loadSheetJS().catch(function () {});

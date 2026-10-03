@@ -351,8 +351,12 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
   - Kannada: stopgap strings for the router and short steps, logged in `docs/kannada-review.md`.
 
 ### Next (strategy section 9.3, English first; Kannada last)
-0. **Start here (next session): the Kannada home page is done (`7251e67`, `docs/kn-home-copy.md`). Next: build
-   the Kannada tools hub + 7 tools**, then the rest in the order of item 2 below.
+0. **Start here (next session): the Kannada tools hub + 7 tools are done (`docs/kn-tools-copy.md`). Next: the 3
+   Kannada city pages**, then the rest in the order of item 2 below. Tool scripts now take an optional `text` setting
+   (Kannada words; English pages pass nothing and are unchanged, checked with `node audit/check/tool-text.mjs en`
+   before/after). Kannada dates/law name: `_kn` keys in `_data/facts.yml`. Open from the tools compliance review
+   (English-level, owner to decide, both languages together): PF checker "if you both agree" vs the settled "in
+   writing" wording; a narrower seasonal-factory help line; converter "monthly PF return" vs the settled ECR wording.
    **Kannada header fixed (2026-10-03, owner-approved):** the logo no longer shrinks (`flex-shrink: 0`); Kannada desktop
    nav links use `--space-1` side padding; in the desktop nav only, the "(ಇಂಗ್ಲಿಷ್‌ನಲ್ಲಿ)" marker is read by screen readers
    but not shown (too wide; the phone menu and page links still show it). English header unchanged. Kannada phase in progress. Glossary approved by the owner (`docs/kannada-glossary.md` 6a: ಉದ್ಯೋಗದಾತರು, ಸಂಬಳ with ವೇತನ only in set names (ಮೂಲ ವೇತನ, PF/ESI ವೇತನ), ವಂತಿಗೆ, ಕೊನೆಯ ದಿನಾಂಕ, ಚಲನ್ (PF ಪಾವತಿ ಚೀಟಿ), ಡ್ಯಾಮೇಜಸ್, never ಅನುಸರಣೆ (fallback ನಿಯಮ ಪಾಲನೆ), all-Kannada tool names). Step 1 done: `kn.yml` matches the final `en.yml` (`docs/kn-shared-copy.md`, owner-approved). Step 2 done: Kannada PF/ESI service and PF/ESI registration pages (`docs/kn-service-registration-copy.md`, compliance-reviewed, owner-approved). Settled: casual = ತಾತ್ಕಾಲಿಕ ಮತ್ತು ದಿನಗೂಲಿ; "if the rules cover them" = ನಿಯಮಗಳು ಅವರಿಗೆ ಅನ್ವಯಿಸಿದರೆ; ESI cash benefit = ಹಣದ ಸಹಾಯ (never ಸಂಬಳ); no bracket after ಋತುಮಾನದ ಕಾರ್ಖಾನೆ; closing lines "…ನಮಗೆ ಬಿಡಿ"; big word "Anytime" = ಬೇಕಾದಾಗ; "15th" = `{{ x.due_day }}ನೇ`. Kannada pages write every page-text link with `link.html` (falls back to English with the marker). Home done (step 3). Next: tools (then cities, industries, guides, About/Contact/legal), same flow: copy doc, compliance reviewer, owner approval, build, checks, commit. Section close-ups: `node audit/check/shot-sections.mjs <path> <name> <sg-id,...>`. Earlier status (before the Kannada phase): Launch-check steps 1-3 and A1
@@ -488,8 +492,8 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
    page). Still `page_type: legal`, no call button, no closing band. Privacy now says: phone-number taps are counted
    (Analytics `phone_call_click`), the converter keeps files in the browser, and the Contact map loads from Google only
    after "Show the map". Terms merged "Privacy" and "Analytics". **Launch check:** the old `kn/contact-us.html` embeds the
-   map on load and `kn/epf-excel-to-text-converter.html` loads SheetJS from cdnjs, so Privacy is only fully true once the
-   Kannada pages are rebuilt; check both in phase 9. Settled facts: founder retired, past tense only, no job title; email
+   map on load (the Kannada converter was rebuilt 2026-10-03 and now loads SheetJS from `/assets`), so Privacy is only fully
+   true once Kannada Contact is rebuilt; check it in phase 9. Settled facts: founder retired, past tense only, no job title; email
    in the footer only; no invite to visit the office; Privacy has no promise about call data.
    **Industries hub + 5 industry pages v2 (2026-10-03, built and committed):** copy in `docs/industries-copy-v2.md`
    (compliance-reviewed, owner-approved "proceed as recommended"; the built pages are the final text). Industry page order:
@@ -538,10 +542,11 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
      `kn/esi-consultancy-service`, `kn/pf-registration`, `kn/esi-registration` (`docs/kn-service-registration-copy.md`).
      Also rebuilt earlier: `kn/style-guide`, bilingual `404`. Step 3 `kn/index` (home, `docs/kn-home-copy.md`; FAQ 3
      "ಬರಬಹುದು" for "can visit", FAQ 5 "…PF ಅಥವಾ ESI ನೋಂದಣಿ ಇದೆ", "Where we work" = `t.footer.places`).
-   - **Still to build, in this order:** tools hub + 7 tools (tool text lives in each page's inline
-     config; no logic change; the converter must load SheetJS from `/assets` like English); 3 city pages; industry hub
+     Step 4 tools hub + 7 tools (`docs/kn-tools-copy.md`; "ನೀವು ಮತ್ತು ಅವರು ಇಬ್ಬರೂ ಒಪ್ಪಿದರೆ" for "if you both agree"; tool
+     text passed to the scripts as `text:`/`rateLines`; no case endings stuck to changing amounts).
+   - **Still to build, in this order:** 3 city pages; industry hub
      + 5 industries (`kn/industries/`); blog index + 11 posts (`kn/blogs/`); About, Contact (map behind "Show the map",
-     like English), Privacy, Terms. Old `kn/` pages still live: about-us, contact-us, 3 cities, converter, privacy,
+     like English), Privacy, Terms. Old `kn/` pages still live: about-us, contact-us, 3 cities, privacy,
      terms; replace each in full (they have old header/footer, Kannada-script acronyms, "ಅನುಸರಣೆ").
    - **Flow per page group:** (1) `docs/kn-<group>-copy.md`: English (final) vs current Kannada vs new Kannada, owner
      questions at the end; (2) compliance reviewer on the draft, apply its wording; (3) owner approval; (4) build:

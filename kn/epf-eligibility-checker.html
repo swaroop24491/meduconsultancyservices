@@ -1,0 +1,245 @@
+---
+layout: base
+lang: kn
+page_type: tool
+last_modified: 2026-10-03
+title: "PF ಅರ್ಹತೆ ಪರಿಶೀಲನೆ (EPF) 2026 | ಮೆದು ಕನ್ಸಲ್ಟೆನ್ಸಿ"
+description: "ನಿಮ್ಮ ವ್ಯಾಪಾರಕ್ಕೆ ಅಥವಾ ಉದ್ಯೋಗಿಗೆ PF ಅನ್ವಯಿಸುತ್ತದೆಯೇ? ಉಚಿತ PF ಅರ್ಹತೆ ಪರಿಶೀಲನೆ, 17 ಸೆಪ್ಟೆಂಬರ್ 2026ರಿಂದ ಜಾರಿಯಾದ ₹25,000 PF ವೇತನ ಮಿತಿಯ ಪ್ರಕಾರ."
+scripts: [/eligibility-checker.js]
+tool: { name: PF ಅರ್ಹತೆ ಪರಿಶೀಲನೆ }
+breadcrumb:
+  - { name: ಉಚಿತ ಸಾಧನಗಳು, path: epf-esi-tools-calculators }
+  - { name: PF ಅರ್ಹತೆ ಪರಿಶೀಲನೆ }
+faq:
+  - q: "ನಮ್ಮ ಸಿಬ್ಬಂದಿ 20ಕ್ಕಿಂತ ಕಡಿಮೆಯಾದರು. ಈಗಲೂ PF ಬೇಕೇ?"
+    a: "ಹೌದು. ಒಮ್ಮೆ PF ಅನ್ವಯಿಸಿದರೆ, ನಂತರ ಸಿಬ್ಬಂದಿ 20ಕ್ಕಿಂತ ಕಡಿಮೆಯಾದರೂ ಅದು ಮುಂದುವರಿಯುತ್ತದೆ. ಪ್ರತಿ ತಿಂಗಳು PF ಕಟ್ಟುತ್ತಲೇ ಇರಬೇಕು."
+  - q: "PF ವೇತನ ₹25,000ಕ್ಕಿಂತ ಹೆಚ್ಚಿರುವ ಉದ್ಯೋಗಿ PFನಲ್ಲಿ ಇರಬೇಕೇ?"
+    a: 'ಕೆಲವು ಸಂದರ್ಭಗಳಲ್ಲಿ ಮಾತ್ರ. ಹಿಂದಿನ ಕೆಲಸದಲ್ಲಿ PFನಲ್ಲಿ ಇದ್ದರೆ, ಸಾಮಾನ್ಯವಾಗಿ PFನಲ್ಲೇ ಮುಂದುವರಿಯುತ್ತಾರೆ. ಹೊಸ ಉದ್ಯೋಗಿ, ನೀವು ಮತ್ತು ಅವರು ಇಬ್ಬರೂ ಒಪ್ಪಿದರೆ ಸೇರಬಹುದು. ಅಂತರರಾಷ್ಟ್ರೀಯ ಕೆಲಸಗಾರರೂ ಸಾಮಾನ್ಯವಾಗಿ PFನಲ್ಲಿ ಇರಲೇಬೇಕು. ಪರಿಶೀಲಿಸಲು <a href="tel:+918217542975" data-call-location="faq">ನಮಗೆ ಕರೆ ಮಾಡಿ</a>.'
+  - q: "PF ವೇತನ ಎಂದರೇನು?"
+    a: "PF ವೇತನ ಎಂದರೆ ಮೂಲ ವೇತನ ಮತ್ತು DA (ತುಟ್ಟಿ ಭತ್ಯೆ), ಪೂರ್ತಿ ಸಂಬಳ ಅಲ್ಲ. ಆದರೆ PF ವೇತನ ಒಟ್ಟು ಸಂಬಳದ ಕನಿಷ್ಠ ಅರ್ಧದಷ್ಟು ಇರಬೇಕು. ಅದಕ್ಕಿಂತ ಕಡಿಮೆ ಇದ್ದರೆ, ಕಡಿಮೆಯಾದ ಭಾಗವನ್ನು PF ವೇತನಕ್ಕೆ ಸೇರಿಸಲಾಗುತ್ತದೆ. ಇದನ್ನು ನಾವು ನಿಮಗಾಗಿ ಲೆಕ್ಕ ಹಾಕುತ್ತೇವೆ."
+---
+{%- assign epf = site.data.facts.epf -%}
+<section class="section section--stacked tool-section" aria-labelledby="tool-heading">
+  <div class="container">
+    <h1 id="tool-heading">PF ಅರ್ಹತೆ ಪರಿಶೀಲನೆ</h1>
+    <p class="tool-lead">ನಿಮ್ಮ ವ್ಯಾಪಾರ PF (ಭವಿಷ್ಯ ನಿಧಿ, EPF ಎಂದೂ ಕರೆಯುತ್ತಾರೆ) ನೋಂದಣಿ ಮಾಡಬೇಕೇ ಎಂದು ಪರಿಶೀಲಿಸಿ. ಒಬ್ಬ ಉದ್ಯೋಗಿ PFನಲ್ಲಿ ಇರಬೇಕೇ ಎಂದೂ ಪರಿಶೀಲಿಸಬಹುದು. ಒಂದು ಪರಿಶೀಲನೆ ಅಥವಾ ಎರಡನ್ನೂ ಬಳಸಿ.</p>
+
+    <h2 id="checks-heading" class="visually-hidden">ನಿಮ್ಮ ವ್ಯಾಪಾರ ಅಥವಾ ಉದ್ಯೋಗಿಯನ್ನು ಪರಿಶೀಲಿಸಿ</h2>
+    <div class="tool-checks">
+      <section id="business-eligibility" class="tool-check" aria-labelledby="business-eligibility-heading">
+        <h3 id="business-eligibility-heading">ನಿಮ್ಮ ವ್ಯಾಪಾರಕ್ಕೆ PF ಬೇಕೇ?</h3>
+        <form id="business-eligibility-form" class="tool-form" novalidate>
+          <div id="business-eligibility-fields"></div>
+          <button type="submit" class="btn btn--outline">ನನ್ನ ವ್ಯಾಪಾರವನ್ನು ಪರಿಶೀಲಿಸಿ</button>
+        </form>
+        <div class="tool-result" id="business-eligibility-results" aria-live="polite" hidden></div>
+        {% include result-call.html tool="eligibility" %}
+      </section>
+
+      <section id="employee-eligibility" class="tool-check" aria-labelledby="employee-eligibility-heading">
+        <h3 id="employee-eligibility-heading">ಈ ಉದ್ಯೋಗಿ PFನಲ್ಲಿ ಇರಬೇಕೇ?</h3>
+        <form id="employee-eligibility-form" class="tool-form" novalidate>
+          <div id="employee-eligibility-fields"></div>
+          <button type="submit" class="btn btn--outline">ಈ ಉದ್ಯೋಗಿಯನ್ನು ಪರಿಶೀಲಿಸಿ</button>
+        </form>
+        <div class="tool-result" id="employee-eligibility-results" aria-live="polite" hidden></div>
+      </section>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="how-heading">
+  <div class="container">
+    <div class="prose">
+      <h2 id="how-heading">PF ನಿಯಮಗಳು ಹೇಗಿವೆ</h2>
+      <h3>ನಿಮ್ಮ ವ್ಯಾಪಾರಕ್ಕೆ</h3>
+      <p>ನಿಮ್ಮ ವ್ಯಾಪಾರದಲ್ಲಿ <strong>{{ epf.min_employees }} ಅಥವಾ ಹೆಚ್ಚು ಉದ್ಯೋಗಿಗಳು</strong> ಇದ್ದರೆ, ಯಾವುದೇ ಉದ್ಯಮವಾಗಿದ್ದರೂ PF ನೋಂದಣಿ ಮಾಡಬೇಕು. ನಿಮ್ಮ ಎಲ್ಲ ಸಿಬ್ಬಂದಿಯನ್ನು ಎಣಿಸಿ: ತಾತ್ಕಾಲಿಕ ಮತ್ತು ದಿನಗೂಲಿ ಕೆಲಸಗಾರರು, ಗುತ್ತಿಗೆದಾರರು ನಿಮ್ಮಲ್ಲಿ ಕೆಲಸಕ್ಕೆ ಕಳುಹಿಸುವ ಕೆಲಸಗಾರರು ಮತ್ತು ಹೆಚ್ಚು ಸಂಬಳದ ಸಿಬ್ಬಂದಿ ಸೇರಿ. ಅಪ್ರೆಂಟಿಸ್‌ಗಳು, ಮಾಲೀಕರು ಅಥವಾ ಪಾಲುದಾರರನ್ನು ಎಣಿಸಬೇಡಿ. ನಿಮ್ಮ ವ್ಯಾಪಾರ ಕಂಪನಿಯೇ? ನಿರ್ದೇಶಕರನ್ನು ಹೇಗೆ ಎಣಿಸಬೇಕು ಎಂದು ತಿಳಿಯಲು <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">ನಮಗೆ ಕರೆ ಮಾಡಿ</a>.</p>
+      <p><strong>ಒಮ್ಮೆ PF ಅನ್ವಯಿಸಿದರೆ, ಅದು ಮುಂದುವರಿಯುತ್ತದೆ</strong>, ನಂತರ ನಿಮ್ಮ ಸಿಬ್ಬಂದಿ {{ epf.min_employees }}ಕ್ಕಿಂತ ಕಡಿಮೆಯಾದರೂ ಸಹ.</p>
+      <h3>ಪ್ರತಿ ಉದ್ಯೋಗಿಗೆ</h3>
+      <p>ಉದ್ಯೋಗಿಯ PF ವೇತನ <strong>ತಿಂಗಳಿಗೆ {{ epf.wage_ceiling_text }} ಅಥವಾ ಕಡಿಮೆ</strong> ಇದ್ದರೆ, ಅವರು PFನಲ್ಲಿ ಇರಲೇಬೇಕು. ಈ ಮಿತಿ {{ epf.wage_ceiling_from_kn }}ರಂದು {{ epf.wage_ceiling_old_text }}ದಿಂದ ಏರಿತು.</p>
+      <p>{{ epf.wage_ceiling_text }}ಕ್ಕಿಂತ ಹೆಚ್ಚು ಇದ್ದರೆ: ಹಿಂದಿನ ಕೆಲಸದಲ್ಲಿ PFನಲ್ಲಿ ಇದ್ದ ಉದ್ಯೋಗಿ ಸಾಮಾನ್ಯವಾಗಿ PFನಲ್ಲೇ ಮುಂದುವರಿಯುತ್ತಾರೆ. ಹಿಂದೆಂದೂ PFನಲ್ಲಿ ಇರದ ಹೊಸ ಉದ್ಯೋಗಿ, ನೀವು ಮತ್ತು ಅವರು ಇಬ್ಬರೂ ಒಪ್ಪಿದರೆ ಸೇರಬಹುದು. ಅಂತರರಾಷ್ಟ್ರೀಯ ಕೆಲಸಗಾರರು ಸಂಬಳ ಎಷ್ಟೇ ಇದ್ದರೂ ಸಾಮಾನ್ಯವಾಗಿ PFನಲ್ಲಿ ಇರಲೇಬೇಕು. ಭಾರತ ಮತ್ತು ಅವರ ದೇಶದ ನಡುವಿನ ಒಪ್ಪಂದದ ಪ್ರಕಾರ ಕೆಲವರು ಇದರಿಂದ ಹೊರಗಿರುತ್ತಾರೆ. ಪರಿಶೀಲಿಸಲು <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">ನಮಗೆ ಕರೆ ಮಾಡಿ</a>.</p>
+      <p class="note"><strong>ಗಮನಿಸಿ:</strong> ಈ ಪರಿಶೀಲನೆ ಸಾಮಾನ್ಯ PF ನಿಯಮಗಳನ್ನು ಆಧರಿಸಿದ ಮಾರ್ಗದರ್ಶನ ಮಾತ್ರ. ನಿಮ್ಮ ವ್ಯಾಪಾರಕ್ಕೆ ಇದು ಅಂತಿಮ ಉತ್ತರವಲ್ಲ. ಒಂದಕ್ಕಿಂತ ಹೆಚ್ಚು ರಾಜ್ಯಗಳಲ್ಲಿ ಸಿಬ್ಬಂದಿ, ಗುತ್ತಿಗೆ ಕೆಲಸಗಾರರು ಅಥವಾ ಅಪ್ರೆಂಟಿಸ್‌ಗಳು ಇರುವಂತಹ ಕೆಲವು ಸಂದರ್ಭಗಳನ್ನು ಇನ್ನಷ್ಟು ಹತ್ತಿರದಿಂದ ನೋಡಬೇಕಾಗುತ್ತದೆ. <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">ನಮಗೆ ಕರೆ ಮಾಡಿ</a>, ನಾವು ಪರಿಶೀಲಿಸುತ್ತೇವೆ. {{ site.data.facts.tools_checked_kn }}ರ ನಿಯಮಗಳ ಪ್ರಕಾರ ಪರಿಶೀಲಿಸಲಾಗಿದೆ.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--surface section--stacked" aria-labelledby="more-heading">
+  <div class="container">
+    <h2 id="more-heading">PF ಮತ್ತು ESI ಬಗ್ಗೆ ಇನ್ನಷ್ಟು ಸಹಾಯ</h2>
+    <div class="card-grid card-grid--panel">
+      {% include tool-card.html key="epf-contribution" %}
+      {% include tool-card.html key="esi-eligibility" %}
+    </div>
+    <div class="link-groups link-groups--wide">
+      <div class="link-group">
+        <p class="link-group__label">ಮಾರ್ಗದರ್ಶಿಗಳು:</p>
+        <ul class="link-list">
+          <li>{% include link.html path="blogs/epf-applicability-threshold" label="PF: ಯಾರು ನೋಂದಣಿ ಮಾಡಬೇಕು" %}</li>
+        </ul>
+      </div>
+      <div class="link-group">
+        <p class="link-group__label">ನಮ್ಮ ಸೇವೆಗಳು:</p>
+        <ul class="link-list">
+          <li>{% include link.html path="pf-registration" label="ಉದ್ಯೋಗದಾತರಿಗೆ PF ನೋಂದಣಿ" %}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% include faq.html items=page.faq schema=true %}
+
+{% include closing-call.html line="PF ನಿಮ್ಮ ವ್ಯಾಪಾರಕ್ಕೆ ಅನ್ವಯಿಸುತ್ತದೆಯೇ ಎಂದು ಖಚಿತವಿಲ್ಲವೇ? ನಮಗೆ ಕರೆ ಮಾಡಿ, ನಾವು ಪರಿಶೀಲಿಸುತ್ತೇವೆ." %}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Same rules and logic as /epf-eligibility-checker (Kannada text only).
+    // Code on Social Security, 2020; Employees' Provident Funds Scheme, 2026.
+    // Wage ceiling ₹25,000 from 17 September 2026 (Gazette S.O. 5109(E));
+    // ₹15,000 before that. Last checked 2026-09-27.
+    var EPF_WAGE_CEILING = 25000;
+    var EPF_HEADCOUNT_THRESHOLD = 20;
+    var CALL = '<a href="tel:+918217542975" data-call-location="result">ನಮಗೆ ಕರೆ ಮಾಡಿ</a>';
+    // Shown only when the September 2026 limit change matters (PF wages above ₹15,000, up to ₹25,000).
+    var SEPT_NOTE = 'ಸೆಪ್ಟೆಂಬರ್ 2026ರ ಸಂಬಳಕ್ಕೆ ಲೆಕ್ಕ ಹಾಕುತ್ತಿದ್ದೀರಾ? ಮೊದಲು ' + CALL + '. ಆ ತಿಂಗಳಿಗೆ ಯಾವ ಮಿತಿ (₹15,000 ಅಥವಾ ₹25,000) ಬಳಸಬೇಕು ಎಂದು PF ಇಲಾಖೆ ಇನ್ನೂ ತಿಳಿಸಿಲ್ಲ.';
+    var ceilingText = '₹' + EPF_WAGE_CEILING.toLocaleString('en-IN');
+    var TEXT = { select: 'ಆರಿಸಿ…', more: 'ಇನ್ನಷ್ಟು (ಬೇಕಿದ್ದರೆ)', fillIn: 'ದಯವಿಟ್ಟು ಇದನ್ನು ತುಂಬಿ.', minValue: function (min) { return min + ' ಅಥವಾ ಹೆಚ್ಚು ನಮೂದಿಸಿ.'; }, checkAgain: 'ಮತ್ತೆ ಪರಿಶೀಲಿಸಿ' };
+    var YES_NO_UNSURE = [
+      { value: 'yes', label: 'ಹೌದು' },
+      { value: 'no', label: 'ಇಲ್ಲ' },
+      { value: 'unsure', label: 'ಗೊತ್ತಿಲ್ಲ' }
+    ];
+
+    initEligibilityCalculator('business-eligibility', {
+      text: TEXT,
+      cardTitle: 'ನಿಮ್ಮ ವ್ಯಾಪಾರದ ಫಲಿತಾಂಶ',
+      fields: [
+        {
+          id: 'current-employees',
+          type: 'number',
+          label: 'ಈಗ ನಿಮ್ಮ ವ್ಯಾಪಾರದಲ್ಲಿ ಎಷ್ಟು ಉದ್ಯೋಗಿಗಳಿದ್ದಾರೆ?',
+          help: 'ಎಲ್ಲ ಸಿಬ್ಬಂದಿಯನ್ನು ಎಣಿಸಿ: ತಾತ್ಕಾಲಿಕ ಮತ್ತು ದಿನಗೂಲಿ ಕೆಲಸಗಾರರು, ಗುತ್ತಿಗೆದಾರರು ನಿಮ್ಮಲ್ಲಿ ಕೆಲಸಕ್ಕೆ ಕಳುಹಿಸುವ ಕೆಲಸಗಾರರು ಮತ್ತು ಹೆಚ್ಚು ಸಂಬಳದ ಸಿಬ್ಬಂದಿ ಸೇರಿ. ಅಪ್ರೆಂಟಿಸ್‌ಗಳು, ಮಾಲೀಕರು ಅಥವಾ ಪಾಲುದಾರರನ್ನು ಎಣಿಸಬೇಡಿ.',
+          min: 1,
+          errorRequired: 'ಉದ್ಯೋಗಿಗಳ ಸಂಖ್ಯೆಯನ್ನು ನಮೂದಿಸಿ.',
+          errorMin: '0ಕ್ಕಿಂತ ಹೆಚ್ಚಿನ ಸಂಖ್ಯೆಯನ್ನು ನಮೂದಿಸಿ.'
+        },
+        {
+          id: 'ever-reached-20',
+          type: 'radio',
+          legend: 'ನಿಮ್ಮ ವ್ಯಾಪಾರದಲ್ಲಿ ಯಾವಾಗಲಾದರೂ 20 ಅಥವಾ ಹೆಚ್ಚು ಉದ್ಯೋಗಿಗಳು ಇದ್ದರೇ?',
+          options: YES_NO_UNSURE,
+          errorRequired: 'ಒಂದನ್ನು ಆರಿಸಿ.'
+        }
+      ],
+      evaluate: function (a) {
+        if (a['current-employees'] >= EPF_HEADCOUNT_THRESHOLD || a['ever-reached-20'] === 'yes') {
+          var note = null;
+          if (a['ever-reached-20'] === 'yes' && a['current-employees'] < EPF_HEADCOUNT_THRESHOLD) {
+            note = 'ಈಗ ನಿಮ್ಮಲ್ಲಿ ' + EPF_HEADCOUNT_THRESHOLD + 'ಕ್ಕಿಂತ ಕಡಿಮೆ ಸಿಬ್ಬಂದಿ ಇದ್ದರೂ PF ಅನ್ವಯಿಸುತ್ತದೆ. ಒಮ್ಮೆ PF ಅನ್ವಯಿಸಿದರೆ, ಅದು ಮುಂದುವರಿಯುತ್ತದೆ.';
+          }
+          return {
+            kind: 'positive',
+            headline: 'PF ಅನ್ವಯಿಸುತ್ತದೆ. ನಿಮ್ಮ ವ್ಯಾಪಾರ ನೋಂದಣಿ ಮಾಡಬೇಕು.',
+            reason: 'ನಿಮ್ಮ ವ್ಯಾಪಾರದಲ್ಲಿ ' + EPF_HEADCOUNT_THRESHOLD + ' ಅಥವಾ ಹೆಚ್ಚು ಉದ್ಯೋಗಿಗಳು ಇದ್ದಾರೆ, ಅಥವಾ ಹಿಂದೆ ಇದ್ದರು. ಹಾಗಾಗಿ PF ನೋಂದಣಿ ಮಾಡಬೇಕು.',
+            note: note,
+            crosslink: 'ನಾವು ನಿಮ್ಮ ನೋಂದಣಿ ಮಾಡಿ, ನಂತರ ಪ್ರತಿ ತಿಂಗಳು ಫೈಲ್ ಮಾಡಬಹುದು. <a href="tel:+918217542975" data-call-location="result">+91 82175 42975ಗೆ ಕರೆ ಮಾಡಿ</a>. <a href="/kn/pf-registration">ಉದ್ಯೋಗದಾತರಿಗೆ PF ನೋಂದಣಿ</a> ಬಗ್ಗೆ ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ.'
+          };
+        }
+        if (a['ever-reached-20'] === 'unsure') {
+          return {
+            kind: 'uncertain',
+            headline: 'ಇನ್ನೂ ಖಚಿತವಿಲ್ಲ.',
+            reason: 'ನಿಮ್ಮ ವ್ಯಾಪಾರದಲ್ಲಿ ಯಾವಾಗಲಾದರೂ ' + EPF_HEADCOUNT_THRESHOLD + ' ಅಥವಾ ಹೆಚ್ಚು ಉದ್ಯೋಗಿಗಳು ಇದ್ದರೇ ಎಂಬುದರ ಮೇಲೆ ಇದು ಅವಲಂಬಿಸಿದೆ. ನಿಮ್ಮ ಹಳೆಯ ಸಂಬಳದ ದಾಖಲೆಗಳಲ್ಲಿ ಇದು ತಿಳಿಯುತ್ತದೆ.',
+            crosslink: CALL + ', ನಿಮ್ಮೊಂದಿಗೆ ನಾವು ಪರಿಶೀಲಿಸುತ್ತೇವೆ.'
+          };
+        }
+        return {
+          kind: 'neutral',
+          headline: 'PF ಇನ್ನೂ ಅನ್ವಯಿಸುವುದಿಲ್ಲ.',
+          reason: 'ನಿಮ್ಮಲ್ಲಿ ' + EPF_HEADCOUNT_THRESHOLD + 'ಕ್ಕಿಂತ ಕಡಿಮೆ ಉದ್ಯೋಗಿಗಳಿದ್ದಾರೆ, ಮತ್ತು ಹಿಂದೆಂದೂ ' + EPF_HEADCOUNT_THRESHOLD + ' ಅಥವಾ ಹೆಚ್ಚು ಇರಲಿಲ್ಲ. ಹಾಗಾಗಿ ಈಗ PF ನೋಂದಣಿ ಬೇಕಿಲ್ಲ.',
+          crosslink: 'ವ್ಯಾಪಾರ ಬೆಳೆಯುತ್ತಿದೆಯೇ? ' + EPF_HEADCOUNT_THRESHOLD + ' ಉದ್ಯೋಗಿಗಳಾದಾಗ, <a href="/kn/pf-registration">ನಾವು ನಿಮ್ಮ ನೋಂದಣಿ ಮಾಡಬಹುದು</a>.'
+        };
+      }
+    });
+
+    initEligibilityCalculator('employee-eligibility', {
+      text: TEXT,
+      cardTitle: 'ಈ ಉದ್ಯೋಗಿಯ ಫಲಿತಾಂಶ',
+      fields: [
+        {
+          id: 'basic-da',
+          type: 'number',
+          label: 'ಈ ಉದ್ಯೋಗಿಯ PF ವೇತನ ಎಷ್ಟು? (ತಿಂಗಳಿಗೆ ₹)',
+          help: 'PF ವೇತನ ಎಂದರೆ ಮೂಲ ವೇತನ ಮತ್ತು DA (ತುಟ್ಟಿ ಭತ್ಯೆ), ಪೂರ್ತಿ ಸಂಬಳ ಅಲ್ಲ. HRA (ಮನೆ ಬಾಡಿಗೆ ಭತ್ಯೆ) ಮುಂತಾದ ಬೇರೆ ಭತ್ಯೆಗಳು ಸಂಬಳದ ಅರ್ಧಕ್ಕಿಂತ ಹೆಚ್ಚಿವೆಯೇ? ಹಾಗಿದ್ದರೆ, ಹೆಚ್ಚಾದ ಭಾಗವನ್ನು ಸೇರಿಸಿ. ಗೊತ್ತಿಲ್ಲವೇ? ' + CALL + '.',
+          min: 1,
+          errorRequired: 'PF ವೇತನವನ್ನು ನಮೂದಿಸಿ.',
+          errorMin: '0ಕ್ಕಿಂತ ಹೆಚ್ಚಿನ ಸಂಖ್ಯೆಯನ್ನು ನಮೂದಿಸಿ.'
+        },
+        {
+          id: 'already-member',
+          type: 'radio',
+          legend: 'ಹಿಂದಿನ ಕೆಲಸದಲ್ಲಿ ಈ ಉದ್ಯೋಗಿ PFನಲ್ಲಿ ಇದ್ದರೇ?',
+          help: 'ಇದ್ದರೆ, ಅವರಿಗೆ UAN (ಜೀವನಪೂರ್ತಿ ಒಂದೇ ಇರುವ PF ಖಾತೆ ಸಂಖ್ಯೆ) ಇರುತ್ತದೆ.',
+          options: YES_NO_UNSURE,
+          errorRequired: 'ಒಂದನ್ನು ಆರಿಸಿ.'
+        },
+        {
+          id: 'international-worker',
+          type: 'radio',
+          legend: 'ಈ ಉದ್ಯೋಗಿ ಅಂತರರಾಷ್ಟ್ರೀಯ ಕೆಲಸಗಾರರೇ?',
+          help: 'ಉದಾಹರಣೆಗೆ, ಭಾರತದಲ್ಲಿ ನಿಮ್ಮಲ್ಲಿ ಕೆಲಸ ಮಾಡುವ ವಿದೇಶಿ ಪ್ರಜೆ.',
+          options: [
+            { value: 'yes', label: 'ಹೌದು' },
+            { value: 'no', label: 'ಇಲ್ಲ' }
+          ],
+          errorRequired: 'ಒಂದನ್ನು ಆರಿಸಿ.'
+        }
+      ],
+      evaluate: function (a) {
+        if (a['international-worker'] === 'yes') {
+          return {
+            kind: 'positive',
+            headline: 'ಸಾಮಾನ್ಯವಾಗಿ PFನಲ್ಲಿ ಇರಲೇಬೇಕು.',
+            reason: 'ಅಂತರರಾಷ್ಟ್ರೀಯ ಕೆಲಸಗಾರರು ಸಂಬಳ ಎಷ್ಟೇ ಇದ್ದರೂ ಸಾಮಾನ್ಯವಾಗಿ PFನಲ್ಲಿ ಇರಲೇಬೇಕು. ಭಾರತ ಮತ್ತು ಅವರ ದೇಶದ ನಡುವಿನ ಒಪ್ಪಂದದ ಪ್ರಕಾರ ಕೆಲವರು ಇದರಿಂದ ಹೊರಗಿರುತ್ತಾರೆ.',
+            crosslink: 'ಪರಿಶೀಲಿಸಲು ' + CALL + '.'
+          };
+        }
+        if (a['already-member'] === 'yes') {
+          return {
+            kind: 'positive',
+            headline: 'ಸಾಮಾನ್ಯವಾಗಿ PFನಲ್ಲೇ ಮುಂದುವರಿಯಬೇಕು.',
+            reason: 'ಈ ಉದ್ಯೋಗಿ ಹಿಂದೆ PFನಲ್ಲಿ ಇದ್ದರು. ಹಾಗಾಗಿ ಅವರ PF ವೇತನ ' + ceilingText + 'ಕ್ಕಿಂತ ಹೆಚ್ಚಿದ್ದರೂ, ಸಾಮಾನ್ಯವಾಗಿ ನಿಮ್ಮಲ್ಲೂ PFನಲ್ಲೇ ಮುಂದುವರಿಯುತ್ತಾರೆ.',
+            crosslink: 'ಖಚಿತವಿಲ್ಲದಿದ್ದರೆ ' + CALL + '.'
+          };
+        }
+        if (a['basic-da'] <= EPF_WAGE_CEILING) {
+          return {
+            kind: 'positive',
+            headline: 'PFನಲ್ಲಿ ಇರಲೇಬೇಕು.',
+            reason: 'PF ವೇತನ ₹' + a['basic-da'].toLocaleString('en-IN') + ', ಅಂದರೆ ' + ceilingText + ' ಅಥವಾ ಕಡಿಮೆ. ಹಾಗಾಗಿ ನಿಮ್ಮ ವ್ಯಾಪಾರಕ್ಕೆ PF ಅನ್ವಯಿಸಿದರೆ, ಈ ಉದ್ಯೋಗಿ PFನಲ್ಲಿ ಇರಲೇಬೇಕು.',
+            note: a['basic-da'] > 15000 ? SEPT_NOTE : null,
+            crosslink: 'ಪ್ರತಿ ತಿಂಗಳ ಮೊತ್ತ ನೋಡಿ: <a href="/kn/epf-contribution-calculator">PF ವಂತಿಗೆ ಲೆಕ್ಕಾಚಾರ</a>.'
+          };
+        }
+        // Same order as English (phase 4 review A2): "Not sure" about an old
+        // job only matters above the wage limit.
+        if (a['already-member'] === 'unsure') {
+          return {
+            kind: 'uncertain',
+            headline: 'ಇನ್ನೂ ಖಚಿತವಿಲ್ಲ.',
+            reason: 'ಅವರ PF ವೇತನ ' + ceilingText + 'ಕ್ಕಿಂತ ಹೆಚ್ಚು. ಹಾಗಾಗಿ ಹಿಂದಿನ ಕೆಲಸದಲ್ಲಿ ಅವರು PFನಲ್ಲಿ ಇದ್ದರೇ ಎಂಬುದರ ಮೇಲೆ ಇದು ಅವಲಂಬಿಸಿದೆ. ಅವರ UAN ಕೇಳಿ.',
+            crosslink: 'ಸಹಾಯ ಬೇಕೇ? ' + CALL + '.'
+          };
+        }
+        return {
+          kind: 'neutral',
+          headline: 'ಈ ಉದ್ಯೋಗಿಗೆ PF ಕಡ್ಡಾಯವಲ್ಲ.',
+          reason: 'PF ವೇತನ ₹' + a['basic-da'].toLocaleString('en-IN') + ', ಅಂದರೆ ' + ceilingText + 'ಕ್ಕಿಂತ ಹೆಚ್ಚು, ಮತ್ತು ಅವರು ಹಿಂದೆ PFನಲ್ಲಿ ಇರಲಿಲ್ಲ. ನೀವು ಮತ್ತು ಅವರು ಇಬ್ಬರೂ ಒಪ್ಪಿದರೆ ಅವರು PFಗೆ ಸೇರಬಹುದು. ಇದು ಕಡ್ಡಾಯವಲ್ಲ.',
+          crosslink: 'PFಗೆ ಎಷ್ಟು ಆಗುತ್ತದೆ ನೋಡಿ: <a href="/kn/epf-contribution-calculator">PF ವಂತಿಗೆ ಲೆಕ್ಕಾಚಾರ</a>.'
+        };
+      }
+    });
+
+    EligibilityChecker.scrollToHash();
+  });
+</script>

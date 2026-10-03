@@ -1,0 +1,136 @@
+---
+layout: base
+lang: kn
+page_type: tool
+last_modified: 2026-10-03
+title: "ESI ದಂಡ ಲೆಕ್ಕಾಚಾರ 2026 | ಮೆದು ಕನ್ಸಲ್ಟೆನ್ಸಿ"
+description: "ESI ತಡವಾಗಿ ಕಟ್ಟಿದ್ದೀರಾ? ತಡವಾದ ESIಗೆ ESIC ವಿಧಿಸಬಹುದಾದ ಬಡ್ಡಿ (ವರ್ಷಕ್ಕೆ 12%) ಮತ್ತು ಡ್ಯಾಮೇಜಸ್ ಲೆಕ್ಕ ಹಾಕಿ. ಉಚಿತ ESI ದಂಡ ಲೆಕ್ಕಾಚಾರ, 2026ರ ನಿಯಮಗಳ ಪ್ರಕಾರ."
+scripts: [/penalty-calculator.js]
+tool: { name: ESI ದಂಡ ಲೆಕ್ಕಾಚಾರ }
+breadcrumb:
+  - { name: ಉಚಿತ ಸಾಧನಗಳು, path: epf-esi-tools-calculators }
+  - { name: ESI ದಂಡ ಲೆಕ್ಕಾಚಾರ }
+faq:
+  - q: "ESI ಬಡ್ಡಿ PF ಬಡ್ಡಿಯಂತೆಯೇ ಇದೆಯೇ?"
+    a: "ಹೌದು. ಎರಡೂ ವರ್ಷಕ್ಕೆ 12%, ಕೊನೆಯ ದಿನಾಂಕದಿಂದ ನೀವು ಕಟ್ಟುವವರೆಗೆ ಪ್ರತಿ ದಿನಕ್ಕೂ ಎಣಿಸಲಾಗುತ್ತದೆ."
+  - q: "ESI ಡ್ಯಾಮೇಜಸ್ ಎಂದರೇನು?"
+    a: "ESI ತಡವಾಗಿ ಕಟ್ಟಿದಾಗ ESIC ವಿಧಿಸಬಹುದಾದ ದಂಡವೇ ಡ್ಯಾಮೇಜಸ್. ಇದು ಬಡ್ಡಿಯ ಜೊತೆಗೆ ಬರುತ್ತದೆ. ಎಷ್ಟು ತಡವಾಗಿದೆ ಎಂಬುದರ ಮೇಲೆ, ದರ ವರ್ಷಕ್ಕೆ 5%ರಿಂದ 25%ರವರೆಗೆ ಇರುತ್ತದೆ."
+  - q: "ESI ಡ್ಯಾಮೇಜಸ್ ಅನ್ನು PF ಡ್ಯಾಮೇಜಸ್‌ನಂತೆಯೇ ಲೆಕ್ಕ ಹಾಕುತ್ತಾರೆಯೇ?"
+    a: "ಇಲ್ಲ. PF ಡ್ಯಾಮೇಜಸ್‌ಗೆ ಅದರದೇ ನಿಯಮವಿದೆ. ESIಗೆ, ಎಷ್ಟು ತಡವಾಗಿದೆ ಎಂಬುದರ ಮೇಲೆ ಈ ಲೆಕ್ಕಾಚಾರ ವರ್ಷಕ್ಕೆ 5%, 10%, 15% ಅಥವಾ 25% ಬಳಸುತ್ತದೆ."
+---
+{%- assign esi = site.data.facts.esi -%}
+<section class="section section--stacked tool-section" aria-labelledby="tool-heading">
+  <div class="container">
+    <h1 id="tool-heading">ESI ದಂಡ ಲೆಕ್ಕಾಚಾರ</h1>
+    <p class="tool-lead">ESI (ಉದ್ಯೋಗಿಗಳ ರಾಜ್ಯ ವಿಮೆ) ತಡವಾಗಿ ಕಟ್ಟಿದ್ದೀರಾ? ESIC (ESI ಇಲಾಖೆ) ವಿಧಿಸಬಹುದಾದ ಹೆಚ್ಚುವರಿ ಮೊತ್ತವನ್ನು ಲೆಕ್ಕ ಹಾಕಿ.</p>
+
+    <div class="tool tool--split">
+      <form id="penalty-form" class="tool-form" novalidate aria-label="ESI ದಂಡ ಲೆಕ್ಕಾಚಾರ">
+        <div class="field">
+          <label for="amount">ಬಾಕಿ ESI ಮೊತ್ತ (₹)</label>
+          <input type="number" id="amount" name="amount" min="1" step="1" inputmode="numeric" required aria-describedby="amount-help amount-error">
+          <p id="amount-help" class="field__help">ಆ ತಿಂಗಳ ಪೂರ್ತಿ ESI ಮೊತ್ತ: ತಡವಾಗಿ ಕಟ್ಟಿದ್ದು (ಅಥವಾ ಇನ್ನೂ ಕಟ್ಟದಿರುವುದು), ನಿಮ್ಮ ಪಾಲು ಮತ್ತು ಉದ್ಯೋಗಿಯ ಪಾಲು ಸೇರಿ.</p>
+          <p id="amount-error" class="field__error" aria-live="polite"></p>
+        </div>
+        <div class="field">
+          <label for="wage-month">ಸಂಬಳದ ತಿಂಗಳು</label>
+          <input type="month" id="wage-month" name="wage-month" required aria-describedby="wage-month-help due-date-line wage-month-error">
+          <p id="wage-month-help" class="field__help">ಯಾವ ತಿಂಗಳ ಸಂಬಳ ಎಂಬುದು, ನೀವು ಕಟ್ಟಿದ ತಿಂಗಳು ಅಲ್ಲ.</p>
+          <p id="due-date-line" class="field__help field__output">ಕೊನೆಯ ದಿನಾಂಕ (ಮುಂದಿನ ತಿಂಗಳ {{ esi.due_day }}ನೇ ತಾರೀಖು): <output id="due-date" for="wage-month" aria-live="polite"></output></p>
+          <p id="wage-month-error" class="field__error" aria-live="polite"></p>
+        </div>
+        <div class="field">
+          <label for="payment-date">ನೀವು ಕಟ್ಟಿದ, ಅಥವಾ ಕಟ್ಟಲಿರುವ ದಿನಾಂಕ</label>
+          <input type="date" id="payment-date" name="payment-date" required aria-describedby="payment-date-error">
+          <p id="payment-date-error" class="field__error" aria-live="polite"></p>
+        </div>
+        <button type="submit" class="btn btn--outline">ಲೆಕ್ಕ ಹಾಕಿ</button>
+      </form>
+
+      <div class="tool-result" id="calc-results" aria-live="polite"></div>
+
+      {% include result-call.html tool="penalty" %}
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="how-heading">
+  <div class="container">
+    <div class="prose">
+      <h2 id="how-heading">ESI ತಡವಾಗಿ ಕಟ್ಟಿದ್ದಕ್ಕೆ ಆಗುವ ಖರ್ಚು ಹೇಗೆ ಲೆಕ್ಕ ಹಾಕಲಾಗುತ್ತದೆ</h2>
+      <p>ESI ಅನ್ನು ಮುಂದಿನ ತಿಂಗಳ {{ esi.due_day }}ನೇ ತಾರೀಖಿನೊಳಗೆ ಕಟ್ಟಬೇಕು. ತಡವಾಗಿ ಕಟ್ಟಿದರೆ, ಬಾಕಿ ESI ಜೊತೆಗೆ ESIC ಎರಡು ಹೆಚ್ಚುವರಿ ಮೊತ್ತಗಳನ್ನು ವಿಧಿಸಬಹುದು: <strong>ಬಡ್ಡಿ</strong> ಮತ್ತು <strong>ಡ್ಯಾಮೇಜಸ್</strong> (ತಡವಾಗಿ ಕಟ್ಟಿದ್ದಕ್ಕೆ ವಿಧಿಸುವ ಹೆಚ್ಚುವರಿ ದಂಡ). ಈ ಲೆಕ್ಕಾಚಾರ ಎರಡನ್ನೂ ಲೆಕ್ಕ ಹಾಕುತ್ತದೆ, ಹಾಗಾಗಿ ನೀವು ಸುಮಾರು ಎಷ್ಟು ಕಟ್ಟಬೇಕಾಗಬಹುದು ಎಂದು ತಿಳಿಯುತ್ತದೆ.</p>
+      <h3>ಬಡ್ಡಿ</h3>
+      <p>ಬಡ್ಡಿ ಬಾಕಿ ಮೊತ್ತದ ಮೇಲೆ ವರ್ಷಕ್ಕೆ 12%. ಕೊನೆಯ ದಿನಾಂಕದಿಂದ ನೀವು ಕಟ್ಟುವ ದಿನದವರೆಗೆ ಪ್ರತಿ ದಿನಕ್ಕೂ ಇದನ್ನು ಎಣಿಸಲಾಗುತ್ತದೆ.</p>
+      <h3>ಡ್ಯಾಮೇಜಸ್</h3>
+      <p>ಡ್ಯಾಮೇಜಸ್ ಎಂದರೆ ಬಡ್ಡಿಯ ಜೊತೆಗೆ ವಿಧಿಸುವ ದಂಡ. ಅದನ್ನು ವಿಧಿಸಬೇಕೇ ಎಂದು ESIC ನಿರ್ಧರಿಸುತ್ತದೆ. ತಡ ಹೆಚ್ಚಾದಂತೆ ವರ್ಷದ ದರ ಏರುತ್ತದೆ: 5% (2 ತಿಂಗಳಿಗಿಂತ ಕಡಿಮೆ), 10% (2ರಿಂದ 4 ತಿಂಗಳು), 15% (4ರಿಂದ 6 ತಿಂಗಳು), 25% (6 ತಿಂಗಳು ಅಥವಾ ಹೆಚ್ಚು).</p>
+      <p class="note"><strong>ಗಮನಿಸಿ:</strong> ಈ ಲೆಕ್ಕಾಚಾರ ಅಂದಾಜು ಮೊತ್ತ ನೀಡುತ್ತದೆ. ಇದು ಅಂತಿಮ ಮೊತ್ತವಲ್ಲ. ನಿಮ್ಮ ವಿಷಯವನ್ನು ನೋಡಿದ ನಂತರ, ಡ್ಯಾಮೇಜಸ್ ವಿಧಿಸಬೇಕೇ ಮತ್ತು ಅಂತಿಮ ಮೊತ್ತ ಎಷ್ಟು ಎಂದು ESIC ನಿರ್ಧರಿಸುತ್ತದೆ. {{ site.data.facts.tools_checked_kn }}ರ ನಿಯಮಗಳ ಪ್ರಕಾರ ಪರಿಶೀಲಿಸಲಾಗಿದೆ.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--surface section--stacked" aria-labelledby="more-heading">
+  <div class="container">
+    <h2 id="more-heading">PF ಮತ್ತು ESI ಬಗ್ಗೆ ಇನ್ನಷ್ಟು ಸಹಾಯ</h2>
+    <div class="card-grid card-grid--panel">
+      {% include tool-card.html key="epf-penalty" %}
+      {% include tool-card.html key="esi-contribution" %}
+    </div>
+    <div class="link-groups link-groups--wide">
+      <div class="link-group">
+        <p class="link-group__label">ಮಾರ್ಗದರ್ಶಿಗಳು:</p>
+        <ul class="link-list">
+          <li>{% include link.html path="blogs/esi-late-payment-penalty" label="ESI ತಡವಾಗಿ ಕಟ್ಟಿದರೆ ಎಷ್ಟು ಆಗುತ್ತದೆ" %}</li>
+          <li>{% include link.html path="blogs/common-esi-compliance-mistakes" label="ESIನಲ್ಲಿ ಸಾಮಾನ್ಯವಾಗಿ ಆಗುವ ತಪ್ಪುಗಳು ಮತ್ತು ಅವುಗಳನ್ನು ತಪ್ಪಿಸುವುದು ಹೇಗೆ" %}</li>
+        </ul>
+      </div>
+      <div class="link-group">
+        <p class="link-group__label">ನಮ್ಮ ಸೇವೆಗಳು:</p>
+        <ul class="link-list">
+          <li>{% include link.html path="esi-consultancy-service" label="ESI ಮಾಸಿಕ ಫೈಲಿಂಗ್" %}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% include faq.html items=page.faq schema=true %}
+
+{% include closing-call.html line="ಇನ್ನು ಮುಂದೆ ತಡವಾಗಿ ಕಟ್ಟುವುದೇ ಬೇಡ. ಪ್ರತಿ ತಿಂಗಳು, ಸಮಯಕ್ಕೆ ಸರಿಯಾಗಿ ನಿಮ್ಮ ESI ಫೈಲ್ ಮಾಡುತ್ತೇವೆ." %}
+
+<script>
+  // Waits for DOMContentLoaded so the deferred penalty-calculator.js has run.
+  // Same calculation as /esi-penalty-calculator; only the words are Kannada.
+  document.addEventListener('DOMContentLoaded', function () {
+    var RATE = 'ದರ: ';
+    initPenaltyCalculator('esi', {
+      interestLabel: 'ಬಡ್ಡಿ (ವರ್ಷಕ್ಕೆ 12%)',
+      damagesLabel: 'ಡ್ಯಾಮೇಜಸ್',
+      tableCaption: 'ESI ತಡವಾಗಿ ಕಟ್ಟಿದ್ದಕ್ಕೆ ಆಗುವ ಖರ್ಚು',
+      text: {
+        months: ['ಜನವರಿ', 'ಫೆಬ್ರವರಿ', 'ಮಾರ್ಚ್', 'ಏಪ್ರಿಲ್', 'ಮೇ', 'ಜೂನ್', 'ಜುಲೈ', 'ಆಗಸ್ಟ್', 'ಸೆಪ್ಟೆಂಬರ್', 'ಅಕ್ಟೋಬರ್', 'ನವೆಂಬರ್', 'ಡಿಸೆಂಬರ್'],
+        call: 'ನಮಗೆ ಕರೆ ಮಾಡಿ',
+        amountRequired: 'ಬಾಕಿ ಮೊತ್ತವನ್ನು ನಮೂದಿಸಿ.',
+        amountMin: '₹0ಕ್ಕಿಂತ ಹೆಚ್ಚಿನ ಮೊತ್ತವನ್ನು ನಮೂದಿಸಿ.',
+        monthRequired: 'ಸಂಬಳದ ತಿಂಗಳನ್ನು ಆರಿಸಿ.',
+        dateRequired: 'ನೀವು ಕಟ್ಟಿದ, ಅಥವಾ ಕಟ್ಟಲಿರುವ ದಿನಾಂಕವನ್ನು ಆರಿಸಿ.',
+        onTimeTitle: 'ಸಮಯಕ್ಕೆ ಸರಿಯಾಗಿ ಕಟ್ಟಿದ್ದೀರಿ. ಹೆಚ್ಚುವರಿ ಏನೂ ಕಟ್ಟಬೇಕಿಲ್ಲ.',
+        onTimeText: function (due) { return 'ನಿಮ್ಮ ಪಾವತಿ ದಿನಾಂಕ ಕೊನೆಯ ದಿನಾಂಕದಂದು (' + due + ') ಅಥವಾ ಅದಕ್ಕಿಂತ ಮೊದಲು ಇದೆ. ಬಡ್ಡಿ ಅಥವಾ ಡ್ಯಾಮೇಜಸ್ ಇಲ್ಲ.'; },
+        dueDate: 'ಕೊನೆಯ ದಿನಾಂಕ:',
+        daysLate: 'ತಡವಾದ ದಿನಗಳು:',
+        countedAs: function (months) { return ' (ಡ್ಯಾಮೇಜಸ್‌ಗೆ ' + months + ' ತಿಂಗಳು ಎಂದು ಎಣಿಸಲಾಗಿದೆ)'; },
+        colWhat: 'ವಿವರ',
+        colAmount: 'ಮೊತ್ತ',
+        unpaid: 'ಬಾಕಿ ಮೊತ್ತ',
+        total: 'ಒಟ್ಟು (ಅಂದಾಜು)',
+        rateLines: {
+          'Rate: 5% a year, for a delay under 2 months.': RATE + '2 ತಿಂಗಳಿಗಿಂತ ಕಡಿಮೆ ತಡವಾದರೆ ವರ್ಷಕ್ಕೆ 5%.',
+          'Rate: 10% a year, for a delay from 2 months up to 4 months.': RATE + '2 ತಿಂಗಳಿಂದ 4 ತಿಂಗಳವರೆಗೆ ತಡವಾದರೆ ವರ್ಷಕ್ಕೆ 10%.',
+          'Rate: 15% a year, for a delay from 4 months up to 6 months.': RATE + '4 ತಿಂಗಳಿಂದ 6 ತಿಂಗಳವರೆಗೆ ತಡವಾದರೆ ವರ್ಷಕ್ಕೆ 15%.',
+          'Rate: 25% a year, for a delay of 6 months or more.': RATE + '6 ತಿಂಗಳು ಅಥವಾ ಹೆಚ್ಚು ತಡವಾದರೆ ವರ್ಷಕ್ಕೆ 25%.'
+        },
+        unusualNote: function (call) { return 'ಇಷ್ಟು ಹೆಚ್ಚು ಡ್ಯಾಮೇಜಸ್ ಸಾಮಾನ್ಯವಲ್ಲ. ಪರಿಶೀಲಿಸಲು ' + call + '.'; },
+        cappedNote: 'ಡ್ಯಾಮೇಜಸ್ ಬಾಕಿ ಮೊತ್ತಕ್ಕಿಂತ ಹೆಚ್ಚು ಆಗುವಂತಿಲ್ಲ. ಹಾಗಾಗಿ ಅದು ಬಾಕಿ ಮೊತ್ತದ 100%ಕ್ಕೆ ನಿಲ್ಲುತ್ತದೆ.'
+      }
+    });
+  });
+</script>

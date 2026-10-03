@@ -64,6 +64,24 @@
       .replace(/"/g, '&quot;');
   }
 
+  // Words the script writes itself. A page can pass its own in config.text
+  // (the Kannada pages do); English pages pass nothing and get these.
+  var DEFAULT_TEXT = {
+    select: 'Select…',
+    more: 'More (optional)',
+    fillIn: 'Please fill this in.',
+    minValue: function (min) { return 'Enter a value of ' + min + ' or more.'; },
+    checkAgain: 'Check again'
+  };
+
+  function textFor(config) {
+    var t = {};
+    Object.keys(DEFAULT_TEXT).forEach(function (k) {
+      t[k] = config.text && config.text[k] !== undefined ? config.text[k] : DEFAULT_TEXT[k];
+    });
+    return t;
+  }
+
   function fieldIds(prefix, id) {
     return {
       input: prefix + '-' + id,
@@ -72,7 +90,7 @@
     };
   }
 
-  function renderField(prefix, field) {
+  function renderField(prefix, field, T) {
     var ids = fieldIds(prefix, field.id);
     var describedBy = [];
     if (field.help) describedBy.push(ids.help);
@@ -102,7 +120,7 @@
     }
 
     if (field.type === 'select') {
-      var opts = '<option value="">Select…</option>' + field.options.map(function (opt) {
+      var opts = '<option value="">' + escapeHtml(T.select) + '</option>' + field.options.map(function (opt) {
         return '<option value="' + escapeHtml(opt.value) + '"' +
           (opt.selected ? ' selected' : '') + '>' + escapeHtml(opt.label) + '</option>';
       }).join('');
@@ -129,13 +147,13 @@
     );
   }
 
-  function renderFields(prefix, fields) {
+  function renderFields(prefix, fields, T) {
     var required = fields.filter(function (f) { return !f.advanced; });
     var advanced = fields.filter(function (f) { return f.advanced; });
-    var html = required.map(function (f) { return renderField(prefix, f); }).join('');
+    var html = required.map(function (f) { return renderField(prefix, f, T); }).join('');
     if (advanced.length) {
-      html += '<details class="field-more"><summary>More (optional)</summary>' +
-        advanced.map(function (f) { return renderField(prefix, f); }).join('') + '</details>';
+      html += '<details class="field-more"><summary>' + escapeHtml(T.more) + '</summary>' +
+        advanced.map(function (f) { return renderField(prefix, f, T); }).join('') + '</details>';
     }
     return html;
   }
@@ -171,7 +189,7 @@
     }
   }
 
-  function validateFields(prefix, fields) {
+  function validateFields(prefix, fields, T) {
     var valid = true;
     var answers = {};
     fields.forEach(function (field) {
@@ -181,7 +199,7 @@
       var isEmpty = value === '' || value === undefined || (typeof value === 'number' && isNaN(value));
       if (isEmpty) {
         if (!field.advanced && field.required !== false) {
-          setError(prefix, field, field.errorRequired || 'Please fill this in.');
+          setError(prefix, field, field.errorRequired || T.fillIn);
           valid = false;
         }
         answers[field.id] = field.type === 'number' ? undefined : '';
@@ -189,7 +207,7 @@
       }
 
       if (field.type === 'number' && field.min !== undefined && value < field.min) {
-        setError(prefix, field, field.errorMin || ('Enter a value of ' + field.min + ' or more.'));
+        setError(prefix, field, field.errorMin || T.minValue(field.min));
         valid = false;
       }
 
@@ -239,13 +257,14 @@
 
     var fieldsContainer = document.getElementById(id + '-fields');
     var resultsEl = document.getElementById(id + '-results');
+    var T = textFor(config);
 
-    fieldsContainer.innerHTML = renderFields(id, config.fields);
+    fieldsContainer.innerHTML = renderFields(id, config.fields, T);
     resultsEl.setAttribute('tabindex', '-1');
 
     form.addEventListener('submit', function (event) {
       event.preventDefault();
-      var result = validateFields(id, config.fields);
+      var result = validateFields(id, config.fields, T);
       if (!result.valid) {
         resultsEl.hidden = true;
         resultsEl.innerHTML = '';
@@ -257,7 +276,7 @@
 
     function renderResult(verdict) {
       var html = statusCard(verdict.kind, config.cardTitle, verdict.headline, verdict.reason, verdict.note, verdict.crosslink);
-      html += '<p><button type="button" class="btn-link" data-restart>Check again</button></p>';
+      html += '<p><button type="button" class="btn-link" data-restart>' + escapeHtml(T.checkAgain) + '</button></p>';
       resultsEl.innerHTML = html;
       resultsEl.hidden = false;
       showResult(resultsEl);
