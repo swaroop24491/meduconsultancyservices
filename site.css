@@ -1037,7 +1037,8 @@ main > .guide-article { padding-top: 0; border-top-color: transparent; }
 .section--surface .card-grid--panel > .card { box-shadow: none; }
 
 /* Tool and link cards in a panel grid: icon beside the name, text below,
-   the whole card is the link. Border only, no shadow (border turns green on hover). */
+   the whole card is the link. Border only, no shadow. On hover: soft green
+   background and green border; no lift and no underline. */
 .card-grid.card-grid--panel > .card--link.link-row {
     grid-template-columns: auto minmax(0, 1fr) auto;
     grid-template-areas: "icon name arrow" "text text text";
@@ -1048,12 +1049,11 @@ main > .guide-article { padding-top: 0; border-top-color: transparent; }
     background: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-lg);
-    transition: border-color 0.15s, transform 0.15s;
+    transition: background-color 0.15s, border-color 0.15s;
 }
-.card-grid.card-grid--panel > .card--link.link-row:hover { border-color: var(--color-brand); }
-@media (prefers-reduced-motion: no-preference) {
-    .card-grid.card-grid--panel > .card--link.link-row:hover { transform: translateY(-2px); }
-}
+.card-grid.card-grid--panel > .card--link.link-row:hover { background: var(--color-tint); border-color: var(--color-brand); }
+.card-grid.card-grid--panel > .card--link.link-row:hover .link-row__name { text-decoration: none; }
+.card-grid.card-grid--panel > .card--link.link-row:hover .icon-badge { background: var(--color-surface); }
 /* Link cards without an icon (guide cards): name sits at the left edge */
 .card-grid.card-grid--panel > .card--link.link-row:not(:has(> .icon-badge)) {
     grid-template-columns: minmax(0, 1fr) auto;
