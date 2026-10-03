@@ -1,0 +1,9 @@
+{%- comment -%}
+  An arrow link in page text that follows the page language.
+  include link.html path="pf-registration" label="PF registration"
+  On Kannada pages it goes to the Kannada page when it exists, otherwise to the English
+  page with "(ಇಂಗ್ಲಿಷ್‌ನಲ್ಲಿ)" (D9). English pages link to /path as usual.
+  arrow=false gives a plain text link (inside a sentence).
+{%- endcomment -%}
+{%- include resolve-link.html path=include.path -%}
+<a{% if include.arrow != false %} class="link-arrow"{% endif %} href="{{ href }}"{% if link_en %} hreflang="en"{% endif %}>{{ include.label }}{% if link_en %}<span class="link-lang"> {{ t.english_marker }}</span>{% endif %}{% if include.arrow != false %}&#8288;{% include icon.html name="arrow" size="18" %}{% endif %}</a>

@@ -116,6 +116,9 @@
     <div class="sg-demo" lang="{{ lang }}">{% include call-button.html location="style-guide" %}</div>
     <p class="sg-note">Links to other pages use an arrow link. When it is the only link in its paragraph ("About us →", the hero fork) it gets a 44px tap target; inside a sentence it stays inline:</p>
     <div class="sg-demo" lang="{{ lang }}"><a class="link-arrow" href="{{ base }}pf-registration">{{ t.two_paths.register.links[0].label }}&#8288;{% include icon.html name="arrow" size="18" %}</a></div>
+    <p class="sg-note">On Kannada pages, write page-text links with <code>link.html</code>: it goes to the Kannada page when it exists, otherwise to the English page marked "(ಇಂಗ್ಲಿಷ್‌ನಲ್ಲಿ)", so links fix themselves as Kannada pages are built. <code>arrow=false</code> gives a plain link inside a sentence.</p>
+    <pre class="sg-code"><code>{% raw %}{% include link.html path="pf-registration" label="PF registration" %}{% endraw %}</code></pre>
+    <div class="sg-demo" lang="{{ lang }}">{% assign _demo = t.tools[2] %}{% include link.html path=_demo.path label=_demo.name %}</div>
   </div>
 </section>
 

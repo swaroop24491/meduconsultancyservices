@@ -252,7 +252,8 @@ main > .section--surface + .section--surface { border-top-color: var(--color-bor
 .nowrap { white-space: nowrap; }
 
 /* ---------- Link notes ---------- */
-.link-lang { font-weight: var(--weight-regular); font-size: var(--text-sm); }
+/* white-space: pre keeps the space before "(ಇಂಗ್ಲಿಷ್‌ನಲ್ಲಿ)" when the link is a flex box (header, standalone arrow links) */
+.link-lang { font-weight: var(--weight-regular); font-size: var(--text-sm); white-space: pre; }
 .link-current { font-weight: var(--weight-medium); color: var(--color-text-muted); display: inline-flex; align-items: center; min-height: var(--tap-link); }
 
 /* ---------- Links with an arrow ---------- */
