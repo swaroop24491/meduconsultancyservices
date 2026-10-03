@@ -351,11 +351,12 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
   - Kannada: stopgap strings for the router and short steps, logged in `docs/kannada-review.md`.
 
 ### Next (strategy section 9.3, English first; Kannada last)
-0. **Start here (next session): the Kannada tools hub + 7 tools are done (`0747f6e`, `docs/kn-tools-copy.md`). Next: the 3
-   Kannada city pages** (`kn/epf-esi-consultancy-mangalore`, `-udupi`, `-bangalore`; the old pre-redesign pages are replaced
-   in full; translate the final English city pages, copy history in `docs/city-pages-copy-v2.md` and phase 9 step 2:
-   no "Who's behind it"), then the rest in the order of item 2 below. Same flow: `docs/kn-cities-copy.md`, compliance
-   reviewer, owner approval, build, checks, log, commit. Tool scripts now take an optional `text` setting
+0. **Start here (next session): the Kannada city pages are done (`docs/kn-cities-copy.md`; Bangalore FAQ 3 changed in both
+   languages to "We handle your PF and ESI work with…"; local PF/ESI offices = ಕಚೇರಿ, the departments = ಇಲಾಖೆ). Next: the
+   Kannada industry hub + 5 industries** (`kn/industries/`, new pages; translate the final English pages,
+   `docs/industries-copy-v2.md`), then the rest in the order of item 2 below. Same flow: `docs/kn-industries-copy.md`,
+   compliance reviewer, owner approval, build, checks, log, commit. (`check-page.mjs` reports the page body under the sticky
+   bar on city pages in both languages: a test quirk, not a page problem.) Tool scripts now take an optional `text` setting
    (Kannada words; English pages pass nothing and are unchanged, checked with `node audit/check/tool-text.mjs en`
    before/after). Kannada dates/law name: `_kn` keys in `_data/facts.yml`. Open from the tools compliance review
    (English-level, owner asked, no answer yet; change both languages together, tool text = reviewed change): PF checker
@@ -366,7 +367,7 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
    it). Later the same day (owner: "looks cluttered"): **Industries removed from the desktop nav** (`nav.links` in en/kn.yml;
    still in the phone menu and footer); more space after the logo (`.site-nav` margin-left `--space-6`) and between links
    (gap `--space-4`, same padding in both languages; Kannada fits on one line at 1200px). Kannada call buttons: the
-   phone number uses `--font-body` (the Kannada font sat the digits high). Kannada phase in progress. Glossary approved by the owner (`docs/kannada-glossary.md` 6a: ಉದ್ಯೋಗದಾತರು, ಸಂಬಳ with ವೇತನ only in set names (ಮೂಲ ವೇತನ, PF/ESI ವೇತನ), ವಂತಿಗೆ, ಕೊನೆಯ ದಿನಾಂಕ, ಚಲನ್ (PF ಪಾವತಿ ಚೀಟಿ), ಡ್ಯಾಮೇಜಸ್, never ಅನುಸರಣೆ (fallback ನಿಯಮ ಪಾಲನೆ), all-Kannada tool names). Step 1 done: `kn.yml` matches the final `en.yml` (`docs/kn-shared-copy.md`, owner-approved). Step 2 done: Kannada PF/ESI service and PF/ESI registration pages (`docs/kn-service-registration-copy.md`, compliance-reviewed, owner-approved). Settled: casual = ತಾತ್ಕಾಲಿಕ ಮತ್ತು ದಿನಗೂಲಿ; "if the rules cover them" = ನಿಯಮಗಳು ಅವರಿಗೆ ಅನ್ವಯಿಸಿದರೆ; ESI cash benefit = ಹಣದ ಸಹಾಯ (never ಸಂಬಳ); no bracket after ಋತುಮಾನದ ಕಾರ್ಖಾನೆ; closing lines "…ನಮಗೆ ಬಿಡಿ"; big word "Anytime" = ಬೇಕಾದಾಗ; "15th" = `{{ x.due_day }}ನೇ`. Kannada pages write every page-text link with `link.html` (falls back to English with the marker). Home done (step 3). Tools done (step 4). Next: cities (then industries, guides, About/Contact/legal), same flow: copy doc, compliance reviewer, owner approval, build, checks, commit. Section close-ups: `node audit/check/shot-sections.mjs <path> <name> <sg-id,...>`. Earlier status (before the Kannada phase): Launch-check steps 1-3 and A1
+   phone number uses `--font-body` (the Kannada font sat the digits high). Kannada phase in progress. Glossary approved by the owner (`docs/kannada-glossary.md` 6a: ಉದ್ಯೋಗದಾತರು, ಸಂಬಳ with ವೇತನ only in set names (ಮೂಲ ವೇತನ, PF/ESI ವೇತನ), ವಂತಿಗೆ, ಕೊನೆಯ ದಿನಾಂಕ, ಚಲನ್ (PF ಪಾವತಿ ಚೀಟಿ), ಡ್ಯಾಮೇಜಸ್, never ಅನುಸರಣೆ (fallback ನಿಯಮ ಪಾಲನೆ), all-Kannada tool names). Step 1 done: `kn.yml` matches the final `en.yml` (`docs/kn-shared-copy.md`, owner-approved). Step 2 done: Kannada PF/ESI service and PF/ESI registration pages (`docs/kn-service-registration-copy.md`, compliance-reviewed, owner-approved). Settled: casual = ತಾತ್ಕಾಲಿಕ ಮತ್ತು ದಿನಗೂಲಿ; "if the rules cover them" = ನಿಯಮಗಳು ಅವರಿಗೆ ಅನ್ವಯಿಸಿದರೆ; ESI cash benefit = ಹಣದ ಸಹಾಯ (never ಸಂಬಳ); no bracket after ಋತುಮಾನದ ಕಾರ್ಖಾನೆ; closing lines "…ನಮಗೆ ಬಿಡಿ"; big word "Anytime" = ಬೇಕಾದಾಗ; "15th" = `{{ x.due_day }}ನೇ`. Kannada pages write every page-text link with `link.html` (falls back to English with the marker). Home done (step 3). Tools done (step 4). Cities done (step 5). Next: industries (then guides, About/Contact/legal), same flow: copy doc, compliance reviewer, owner approval, build, checks, commit. Section close-ups: `node audit/check/shot-sections.mjs <path> <name> <sg-id,...>`. Earlier status (before the Kannada phase): Launch-check steps 1-3 and A1
    are done and committed (last: `9808a5e` A1 PF damages). Before building, check whether the fluent-speaker review
    of `docs/kannada-glossary.md` / `docs/kannada-review.md` has happened; if not, ask the owner how to proceed. Owner
    items still open for launch (not blockers for the Kannada build): B3 gazette S.O. 2351(E), A1 egazette G.S.R.
@@ -550,10 +551,11 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
      Also rebuilt earlier: `kn/style-guide`, bilingual `404`. Step 3 `kn/index` (home, `docs/kn-home-copy.md`; FAQ 3
      "ಬರಬಹುದು" for "can visit", FAQ 5 "…PF ಅಥವಾ ESI ನೋಂದಣಿ ಇದೆ", "Where we work" = `t.footer.places`).
      Step 4 tools hub + 7 tools (`docs/kn-tools-copy.md`; "ನೀವು ಮತ್ತು ಅವರು ಇಬ್ಬರೂ ಒಪ್ಪಿದರೆ" for "if you both agree"; tool
-     text passed to the scripts as `text:`/`rateLines`; no case endings stuck to changing amounts).
-   - **Still to build, in this order:** 3 city pages; industry hub
+     text passed to the scripts as `text:`/`rateLines`; no case endings stuck to changing amounts). Step 5 the 3 city pages
+     (`docs/kn-cities-copy.md`).
+   - **Still to build, in this order:** industry hub
      + 5 industries (`kn/industries/`); blog index + 11 posts (`kn/blogs/`); About, Contact (map behind "Show the map",
-     like English), Privacy, Terms. Old `kn/` pages still live: about-us, contact-us, 3 cities, privacy,
+     like English), Privacy, Terms. Old `kn/` pages still live: about-us, contact-us, privacy,
      terms; replace each in full (they have old header/footer, Kannada-script acronyms, "ಅನುಸರಣೆ").
    - **Flow per page group:** (1) `docs/kn-<group>-copy.md`: English (final) vs current Kannada vs new Kannada, owner
      questions at the end; (2) compliance reviewer on the draft, apply its wording; (3) owner approval; (4) build:
