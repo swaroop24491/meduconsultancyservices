@@ -351,7 +351,12 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
   - Kannada: stopgap strings for the router and short steps, logged in `docs/kannada-review.md`.
 
 ### Next (strategy section 9.3, English first; Kannada last)
-0. **Where we stopped (2026-10-03):** home, service, registration, city, About, Contact, Privacy and Terms v2 are done and committed on `feature/revamp`.
+0. **Where we stopped (2026-10-03, end of session):** every English page is now v2, committed on `feature/revamp`:
+   home, PF/ESI service, PF/ESI registration, 3 cities, About, Contact, Privacy, Terms, industries hub + 5, tools hub + 7
+   tools, guides index + 11 posts. **Not pushed:** `feature/revamp` has no upstream; about 10 commits since the last push
+   (industries, tools, guides). Push only when the owner asks. **Next session: the launch check (phase 9, item 3 below),
+   then the Kannada phase (item 2).** Open owner decisions to bring up then: city "Who's behind it" form (a), router
+   `situations.monthly.text` (b), optional city detail (c), schools detail (E4), per-industry numbers (G4).
    **PF page v2 (final, owner-approved):** copy in `docs/epf-service-copy-v2.md` (round 1 + owner changes +
    round 2; compliance-reviewed; the built page is the final text). Order: hero (H1 "We file your PF every
    month, before the due date.", lead with takeover, `fork=` "Not registered yet? PF registration →",
@@ -485,10 +490,6 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
    "Guides:" / "Our services:" link groups, cities note kept). Index: "Guides by situation" white band with panel link
    cards in `.tool-group`s (like the tools hub), tools as panel cards. New panel rules: icon-less link cards, and exactly
    4 panel cards show 2 by 2. "Guide article" is on the style guide. Article width `--container-article` (48rem) with 18px text (owner: the 42rem column looked narrow). **Next: the launch check (phase 9), then Kannada.**
-   **Earlier note (owner, 2026-10-03): tools hub and the 7 tool pages, v2** (same v2 spirit: copy doc old vs new in
-   `docs/tools-copy-v2.md`, compliance reviewer, owner approval, build, check at all widths, commit). Start from the phase 4
-   copy docs and the tool page conventions (phase 4 below). Tool text and calculation logic don't change as part of the
-   redesign: any change is a separate reviewed update with before/after cases. Then the launch check (phase 9), then Kannada.
    Contact checks: `node audit/check/shot-contact.mjs` (widths, axe, Google requests before/after the tap).
    **Committed (owner, 2026-10-03: "commit and push all changes"):** the 3 city pages have a "Who's behind it"
    `founder-note stat=true bg="tint"` above "More help". Decision (a) is still open on its form: keep the stat or not,
@@ -499,7 +500,8 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
    approves with short messages ("go with the recommendations", "proceed as recommended").
 1. Phase 8 is done (see above). Deferred from phase 7 (after the launch check,
    before Kannada): make each PF/ESI twin post more distinct (inspection 87%, late-payment 82%, threshold 75%
-   similar) and merge the short one-paragraph sections; `.link-arrow` tap targets (26px) as a separate
+   similar; needs copy changes, owner approval and the compliance reviewer); the short one-paragraph sections no longer
+   look choppy since guides v2 put each post in one article, so merging them is optional; `.link-arrow` tap targets (26px) as a separate
    style-guide-first change; real `published:` dates for posts.
    Open from phase 4: the 100% cap on old-slab penalty damages (a reviewed update once the Code's
    section is confirmed, 9.4 #1/#2; the result shows a "call us" note for now).
