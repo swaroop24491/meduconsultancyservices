@@ -184,6 +184,9 @@ footer:
     - { label: Terms and conditions, path: terms-and-conditions }
   contact: Contact
   address: "3rd Floor, Padil Gate Building, Padil, Mangaluru, Karnataka 575007"
+  # Address block (Contact, legal pages): name + 2 lines
+  address_name: "Medu Consultancy"
+  address_lines: ["3rd Floor, Padil Gate Building, Padil", "Mangaluru, Karnataka 575007"]
   rights: "Medu Consultancy. All rights reserved."
 
 # "Why businesses choose us" (why-us.html: home and city pages)
@@ -200,3 +203,6 @@ map:
   note: The map loads from Google when you tap the button.
   button: Show the map
   title: Map of our office in Padil, Mangaluru
+
+# Month names for dates built from front matter (legal pages "Last updated")
+months: [January, February, March, April, May, June, July, August, September, October, November, December]

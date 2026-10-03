@@ -351,17 +351,12 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
   - Kannada: stopgap strings for the router and short steps, logged in `docs/kannada-review.md`.
 
 ### Next (strategy section 9.3, English first; Kannada last)
-0. **Start here (next session): Kannada About, Contact, Privacy, Terms — the last 4 Kannada pages.** Everything else in
-   Kannada is built and committed on `feature/revamp` (not pushed): shared text, 4 service/registration pages, home, tools hub
-   + 7 tools, 3 cities, industry hub + 5 industries, guides index + 11 posts (last commits on 2026-10-03: cities `feedd71`
-   `0bde2bc`, industries `022b2bf` `41275ee`, guides `92cdecc` + SEO fixes). For the 4 pages: replace the old `kn/about-us`,
-   `kn/contact-us`, `kn/privacy-policy`, `kn/terms-and-conditions` in full (old header/footer, Kannada-script acronyms,
-   ಅನುಸರಣೆ, links to English guides); translate the final English pages (`docs/about-contact-legal-copy-v2.md` sections
-   1-4); Contact keeps the map behind "Show the map" (`map-tap.html`, `t.map` already in kn.yml); Privacy/Terms use the
-   `.legal` layout, `page_type: legal`, no closing band. Once Kannada Contact is rebuilt, Privacy's "map loads only after
-   the tap" is true in both languages (launch check item). Same flow: `docs/kn-about-contact-legal-copy.md`, compliance
-   reviewer, owner approval, build (restart the Jekyll container if a new folder is created), checks, log in
-   `docs/kannada-review.md`, commit, SEO/Kannada reviewer. Then the launch check (phase 9), which should also cover: brief
+0. **Start here (next session): the launch check (phase 9).** Every Kannada page is now built and committed on
+   `feature/revamp` (not pushed); the last 4 (About, Contact, Privacy, Terms) on 2026-10-03 from
+   `docs/kn-about-contact-legal-copy.md` (compliance-reviewed, owner-approved). Kannada Contact loads the map only after
+   "ನಕ್ಷೆ ತೋರಿಸಿ" (checked: no Google requests before the tap), so Privacy's map line is true in both languages. Shared keys
+   added: `footer.address_name`/`address_lines` and `months` (legal "Last updated" date in Kannada). SEO/Kannada reviewer on
+   these 4 still to run. Then the launch check (phase 9), which should also cover: brief
    s11 has no row for ESI damages (5–25% yearly) or ESI interest (12%); `og:type` "article" for posts (site-wide); the
    English ESI threshold post leaves maternity out of its first ESI line (owner may want both languages changed); the
    English ESI post's "Seasonal factories (open only part of the year)" bracket (Kannada drops it, settled).
@@ -572,9 +567,7 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
      text passed to the scripts as `text:`/`rateLines`; no case endings stuck to changing amounts). Step 5 the 3 city pages
      (`docs/kn-cities-copy.md`). Step 6 industry hub + 5 industries (`docs/kn-industries-copy.md`). Step 7 guides index +
      11 posts (`docs/kn-blogs-a-copy.md`, `docs/kn-blogs-bc-copy.md`).
-   - **Still to build, in this order:** About, Contact (map behind "Show the map",
-     like English), Privacy, Terms. Old `kn/` pages still live: about-us, contact-us, privacy,
-     terms; replace each in full (they have old header/footer, Kannada-script acronyms, "ಅನುಸರಣೆ").
+   - Step 8 About, Contact, Privacy, Terms: done 2026-10-03 (`docs/kn-about-contact-legal-copy.md`). All Kannada pages built.
    - **Flow per page group:** (1) `docs/kn-<group>-copy.md`: English (final) vs current Kannada vs new Kannada, owner
      questions at the end; (2) compliance reviewer on the draft, apply its wording; (3) owner approval; (4) build:
      copy the English page, `lang: kn`, translate front matter (title, description, breadcrumb, service, faq) and body;

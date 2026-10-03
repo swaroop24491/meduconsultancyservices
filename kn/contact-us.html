@@ -1,329 +1,57 @@
-<!DOCTYPE html>
-<html lang="kn">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+---
+layout: base
+lang: kn
+page_type: contact
+last_modified: 2026-10-03
+title: "ಮೆದು ಕನ್ಸಲ್ಟೆನ್ಸಿಯನ್ನು ಸಂಪರ್ಕಿಸಿ | ಕರೆ ಮಾಡಿ: +91 82175 42975"
+description: "PF ಮತ್ತು ESI ಸಹಾಯಕ್ಕಾಗಿ +91 82175 42975 ಸಂಖ್ಯೆಗೆ ಕರೆ ಮಾಡಿ. ಇಂಗ್ಲಿಷ್, ಕನ್ನಡ ಅಥವಾ ಹಿಂದಿಯಲ್ಲಿ ಮಾತನಾಡಿ. ಕಚೇರಿ: ಪಡೀಲ್, ಮಂಗಳೂರು."
+breadcrumb:
+  - { name: ಸಂಪರ್ಕಿಸಿ }
+---
+{%- include i18n.html -%}
+{% include hero.html heading="ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ" lead="ನಮ್ಮನ್ನು ಬೇಗ ತಲುಪಲು ಫೋನ್ ಕರೆಯೇ ಸುಲಭ ದಾರಿ. PF ಮತ್ತು ESI ನಿಮ್ಮ ವ್ಯಾಪಾರಕ್ಕೆ ಅನ್ವಯಿಸುತ್ತದೆಯೇ ಎಂದು ನಾವು ಹೇಳುತ್ತೇವೆ." proof=false %}
 
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-<meta name="author" content="Medu Consultancy">
-<meta name="robots" content="index, follow">
-<meta name="googlebot" content="index, follow">
-<meta name="theme-color" content="#FFDB58">
+<section class="section section--surface section--stacked" aria-labelledby="reach-heading">
+  <div class="container">
+    <h2 id="reach-heading">ನಮ್ಮನ್ನು ಹೇಗೆ ಸಂಪರ್ಕಿಸುವುದು</h2>
+    <div class="card-grid card-grid--panel">
+      <div class="card">
+        <span class="icon-badge">{% include icon.html name="call" size="24" %}</span>
+        <h3>ಫೋನ್</h3>
+        <p class="col-word"><a href="tel:{{ site.data.site.phone_tel }}" data-call-location="contact-card">{{ site.data.site.phone_display }}</a></p>
+        <p>ನೀವು ನಮ್ಮೊಂದಿಗೆ ಇಂಗ್ಲಿಷ್ ಅಥವಾ ಕನ್ನಡದಲ್ಲಿ ಮಾತನಾಡಬಹುದು. ಹಿಂದಿಯಲ್ಲೂ ನಾವು ಸಹಾಯ ಮಾಡುತ್ತೇವೆ.</p>
+      </div>
+      <div class="card">
+        <span class="icon-badge">{% include icon.html name="pin" size="24" %}</span>
+        <h3>ನಮ್ಮ ಕಚೇರಿ</h3>
+        <address>{{ t.footer.address_name }}<br>{{ t.footer.address_lines[0] }}<br>{{ t.footer.address_lines[1] }}</address>
+        <p><a class="link-arrow" href="{{ site.data.site.map_url }}" rel="noopener">Google Mapsನಲ್ಲಿ ತೆರೆಯಿರಿ&#8288;{% include icon.html name="arrow" size="18" %}</a></p>
+      </div>
+      <div class="card">
+        <span class="icon-badge">{% include icon.html name="home" size="24" %}</span>
+        <h3>ಕಚೇರಿಗೆ ಬರುವ ಅಗತ್ಯವಿಲ್ಲ</h3>
+        <p>ನೀವು ಎಂದಿಗೂ ನಮ್ಮ ಕಚೇರಿಗೆ ಬರಬೇಕಾಗಿಲ್ಲ. ನಾವು ಫೋನ್ ಮತ್ತು ಇಮೇಲ್ ಮೂಲಕ ಕೆಲಸ ಮಾಡುತ್ತೇವೆ. ಮಂಗಳೂರು, ಉಡುಪಿ ಮತ್ತು ಬೆಂಗಳೂರಿನ ವ್ಯಾಪಾರಗಳೊಂದಿಗೆ ನಾವು ಕೆಲಸ ಮಾಡುತ್ತೇವೆ, ಮತ್ತು ಅಗತ್ಯವಿದ್ದರೆ ನಾವು ನಿಮ್ಮಲ್ಲಿಗೆ ಬರಬಹುದು.</p>
+        {% include city-links.html descriptive=true label=false %}
+      </div>
+    </div>
+    {% include map-tap.html %}
+  </div>
+</section>
 
-    <title>ಸಂಪರ್ಕಿಸಿ | ಮೆದು ಕನ್ಸಲ್ಟೆನ್ಸಿ</title>
-    <meta name="description" content="ಇಪಿಎಫ್ ಮತ್ತು ಇಎಸ್ಐ ಅನುಸರಣೆಯ ಬಗ್ಗೆ ತಜ್ಞರ ನೆರವಿಗಾಗಿ ಮೆದು ಕನ್ಸಲ್ಟೆನ್ಸಿಯನ್ನು ಸಂಪರ್ಕಿಸಿ. ತ್ವರಿತ ವಿಚಾರಣೆಗಳಿಗೆ 8217542975 ಗೆ ಕರೆ ಮಾಡಿ.">
-    <link rel="canonical" href="https://www.meduconsultancy.com/kn/contact-us" />
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Medu Consultancy">
-    <meta property="og:title" content="ಸಂಪರ್ಕಿಸಿ | ಮೆದು ಕನ್ಸಲ್ಟೆನ್ಸಿ">
-    <meta property="og:description" content="ಇಪಿಎಫ್ ಮತ್ತು ಇಎಸ್ಐ ಅನುಸರಣೆಯ ಬಗ್ಗೆ ತಜ್ಞರ ನೆರವಿಗಾಗಿ ಮೆದು ಕನ್ಸಲ್ಟೆನ್ಸಿಯನ್ನು ಸಂಪರ್ಕಿಸಿ. ತ್ವರಿತ ವಿಚಾರಣೆಗಳಿಗೆ 8217542975 ಗೆ ಕರೆ ಮಾಡಿ.">
-    <meta property="og:url" content="https://www.meduconsultancy.com/kn/contact-us">
-    <meta property="og:image" content="https://www.meduconsultancy.com/android-chrome-512x512.png">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="ಸಂಪರ್ಕಿಸಿ | ಮೆದು ಕನ್ಸಲ್ಟೆನ್ಸಿ">
-    <meta name="twitter:description" content="ಇಪಿಎಫ್ ಮತ್ತು ಇಎಸ್ಐ ಅನುಸರಣೆಯ ಬಗ್ಗೆ ತಜ್ಞರ ನೆರವಿಗಾಗಿ ಮೆದು ಕನ್ಸಲ್ಟೆನ್ಸಿಯನ್ನು ಸಂಪರ್ಕಿಸಿ. ತ್ವರಿತ ವಿಚಾರಣೆಗಳಿಗೆ 8217542975 ಗೆ ಕರೆ ಮಾಡಿ.">
-    <meta name="twitter:image" content="https://www.meduconsultancy.com/android-chrome-512x512.png">
-
-    <link rel="alternate" hreflang="en" href="https://www.meduconsultancy.com/contact-us" />
-    <link rel="alternate" hreflang="kn" href="https://www.meduconsultancy.com/kn/contact-us" />
-    <link rel="alternate" hreflang="x-default" href="https://www.meduconsultancy.com/contact-us" />
-
-    <script type="application/ld+json">
-        {
-          "@context": "http://schema.org",
-          "@type": "WebPage",
-          "url": "https://www.meduconsultancy.com/kn/contact-us",
-          "inLanguage": "kn",
-          "name": "ಸಂಪರ್ಕಿಸಿ | ಮೆದು ಕನ್ಸಲ್ಟೆನ್ಸಿ | ನಂಬಿಕೆಯ ಪಿಎಫ್ ಮತ್ತು ಇಎಸ್ಐ ಸಲಹೆಗಾರರು",
-          "description": "ಇಪಿಎಫ್ ಮತ್ತು ಇಎಸ್ಐ ಅನುಸರಣೆಯ ಬಗ್ಗೆ ತಜ್ಞರ ನೆರವಿಗಾಗಿ ಮೆದು ಕನ್ಸಲ್ಟೆನ್ಸಿಯನ್ನು ಸಂಪರ್ಕಿಸಿ. ತ್ವರಿತ ವಿಚಾರಣೆಗಳಿಗೆ 8217542975 ಗೆ ಕರೆ ಮಾಡಿ.",
-          "mainEntity": {
-            "@type": "LocalBusiness",
-            "name": "Medu Consultancy",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "3rd Floor, Padil Gate Building, Padil",
-              "addressLocality": "Mangalore",
-              "addressRegion": "Karnataka",
-              "postalCode": "575007",
-              "addressCountry": "IN"
-            },
-            "telephone": "+91-8217542975",
-            "contactPoint": {
-              "@type": "ContactPoint",
-              "contactType": "Customer Service",
-              "telephone": "+91-8217542975",
-              "availableLanguage": ["kn", "en"]
-            },
-            "serviceArea": {
-              "@type": "Place",
-              "name": "Karnataka"
-            }
-          },
-          "breadcrumb": {
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "ಮುಖಪುಟ",
-                "item": "https://www.meduconsultancy.com/kn/"
-              },
-              {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "ಸಂಪರ್ಕಿಸಿ",
-                "item": "https://www.meduconsultancy.com/kn/contact-us"
-              }
-            ]
-          },
-          "contactPage": {
-            "@type": "ContactPage",
-            "url": "https://www.meduconsultancy.com/kn/contact-us",
-            "name": "ಮೆದು ಕನ್ಸಲ್ಟೆನ್ಸಿಯನ್ನು ಸಂಪರ್ಕಿಸಿ",
-            "description": "ನಿಮ್ಮ ಇಪಿಎಫ್ ಮತ್ತು ಇಎಸ್ಐ ಅನುಸರಣೆ ಅಗತ್ಯಗಳಿಗೆ ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ. ತಜ್ಞರ ನೆರವು ಮತ್ತು ತ್ವರಿತ ಪ್ರತಿಕ್ರಿಯೆ ಪಡೆಯಿರಿ."
-          }
-        }
-      </script>
-
-    <link rel="stylesheet" href="/styles.css">
-    <link rel="stylesheet" href="/contactuspage.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Kannada:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap&icon_names=call,mail" />
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4MEQF5W0XX"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-4MEQF5W0XX');
-    </script>
-</head>
-<body>
-    <a class="skip-link" href="#main-content">ಮುಖ್ಯ ವಿಷಯಕ್ಕೆ ಹೋಗಿ</a>
-
-    <!-- Header with Logo, Phone, and Navigation -->
-    <header>
-        <div class="container header-content">
-            <div class="logo">
-                <a href="/kn/"><img src="/images/logo-new.svg" width="200" height="45" alt="ಮೆದು ಕನ್ಸಲ್ಟೆನ್ಸಿ ಲೋಗೋ"></a>
-            </div>
-            <nav class="header-nav" aria-label="ಮುಖ್ಯ">
-                <ul>
-                    <li>
-                        <a class="active" aria-current="page" href="/kn/contact-us">ಸಂಪರ್ಕ</a>
-                    </li>
-                    <li>
-                        <a href="/kn/epf-consultancy-service">ಇಪಿಎಫ್ ಸಲಹೆ</a>
-                    </li>
-                    <li>
-                        <a href="/kn/esi-consultancy-service">ಇಎಸ್ಐ ಸಲಹೆ</a>
-                    </li>
-                    <li>
-                        <a href="/epf-esi-tools-calculators">ಟೂಲ್‌ಗಳು</a>
-                    </li>
-                </ul>
-            </nav>
-            <div class="header-links">
-                <a href="tel:+918217542975" class="phone"><span class="material-symbols-outlined" aria-hidden="true">
-                    call
-                    </span> 8217542975</a>
-                <a class="lang-switch" href="/contact-us" hreflang="en" aria-label="View this page in English">English</a>
-            </div>
-
-            <!-- Hamburger Icon -->
-            <div class="hamburger" id="hamburger-icon">
-                <div id="menuToggle">
-                    <input type="checkbox" id="menuCheckbox" aria-label="ಮೆನು ತೆರೆಯಿರಿ" />
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <nav class="mobile-nav" aria-label="ಮೆನು"><ul id="menu">
-                      <li>
-                        <a href="/kn/" class="nav-link">ಮುಖಪುಟ</a>
-                      </li>
-                      <li>
-                        <a href="/kn/about-us" class="nav-link">ನಮ್ಮ ಬಗ್ಗೆ</a>
-                      </li>
-                      <li>
-                        <a href="/kn/contact-us" class="nav-link">ಸಂಪರ್ಕಿಸಿ</a>
-                      </li>
-
-                      <li>
-                        <a href="/blogs" class="nav-link">ಬ್ಲಾಗ್‌ಗಳು</a>
-                      </li>
-                      <li>
-                        <a href="/kn/epf-consultancy-service" class="nav-link">ಇಪಿಎಫ್ ಸಲಹೆ</a>
-                      </li>
-                      <li>
-                        <a href="/kn/esi-consultancy-service" class="nav-link">ಇಎಸ್ಐ ಸಲಹೆ</a>
-                      </li>
-                      <li>
-                        <a href="/epf-esi-tools-calculators" class="nav-link">ಟೂಲ್‌ಗಳು ಮತ್ತು ಕ್ಯಾಲ್ಕುಲೇಟರ್‌ಗಳು</a>
-                      </li>
-                      <li>
-                        <a href="/kn/epf-excel-to-text-converter" class="nav-link">ಇಪಿಎಫ್ ಎಕ್ಸೆಲ್‌ನಿಂದ ಟೆಕ್ಸ್ಟ್ ಪರಿವರ್ತಕ</a>
-                      </li>
-                      <li>
-                        <a href="/contact-us" class="nav-link lang-switch" hreflang="en" aria-label="View this page in English">English</a>
-                      </li>
-                      <li>
-                        <div class="contact-us">
-                            <address>
-                                <p>
-                                    <a href="tel:+918217542975" class="phone">
-                                        <span class="material-symbols-outlined" aria-hidden="true">
-                                        call
-                                        </span>
-                                        8217542975</a>
-                                </p>
-                                <p><a href="mailto:hello.meduconsultancy@gmail.com" class="email">
-                                    <span class="material-symbols-outlined" aria-hidden="true">
-                                        mail
-                                        </span>
-                                        hello.meduconsultancy@gmail.com</a></p>
-                            </address>
-                            <address class="office-address">
-                                <h4>ನಮ್ಮ ಕಚೇರಿ ವಿಳಾಸ</h4>
-                                <p>
-                                    3ನೇ ಮಹಡಿ, ಪಡೀಲ್ ಗೇಟ್ ಬಿಲ್ಡಿಂಗ್,<br>
-                                    ಪಡೀಲ್, ಮಂಗಳೂರು,<br>
-                                    ಕರ್ನಾಟಕ 575007
-                                </p>
-                            </address>
-                        </div>
-                      </li>
-                    </ul></nav>
-                  </div>
-            </div>
-        </div>
-    </header>
-
-    <div class="header-space"></div>
-    <main id="main-content" tabindex="-1">
-    <section>
-        <div class="container">
-            <section class="contact-us contact-us-page">
-                <h1>ಸಂಪರ್ಕಿಸಿ</h1>
-                <p class="subhead">ತ್ವರಿತ ವಿಚಾರಣೆಗಳಿಗೆ ನೇರವಾಗಿ 8217542975 ಗೆ ಕರೆ ಮಾಡಿ. ನಿಮಗೆ ಸಹಾಯ ಮಾಡಲು ನಾವು ಸಿದ್ಧರಿದ್ದೇವೆ!</p>
-                <div class="contact-us-pane">
-                    <div>
-                        <address>
-                            <p>
-                                <a href="tel:+918217542975" class="phone">
-                                    <span class="material-symbols-outlined" aria-hidden="true">
-                                    call
-                                    </span>
-                                    8217542975</a>
-                            </p>
-                            <p><a href="mailto:hello.meduconsultancy@gmail.com" class="email">
-                                <span class="material-symbols-outlined" aria-hidden="true">
-                                    mail
-                                    </span>
-                                    hello.meduconsultancy@gmail.com</a></p>
-                        </address>
-                        <address class="office-address">
-                            <h2>ನಮ್ಮ ಕಚೇರಿ ವಿಳಾಸ</h2>
-                            <p>
-                                3ನೇ ಮಹಡಿ, ಪಡೀಲ್ ಗೇಟ್ ಬಿಲ್ಡಿಂಗ್,<br>
-                                ಪಡೀಲ್, ಮಂಗಳೂರು,<br>
-                                ಕರ್ನಾಟಕ 575007
-                            </p>
-                        </address>
-                    </div>
-                    <div>
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.5728298337367!2d74.8834522!3d12.870844!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba3594f3d91e041%3A0xdd0789a0263e2bf9!2sMedu%20Consultancy%20Services(PF%20%26%20ESI%20Consultants)!5e0!3m2!1sen!2sin!4v1736442481401!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="ಪಡೀಲ್ ಗೇಟ್ ಬಿಲ್ಡಿಂಗ್, ಪಡೀಲ್, ಮಂಗಳೂರಿನಲ್ಲಿರುವ ಮೆದು ಕನ್ಸಲ್ಟೆನ್ಸಿ ಕಚೇರಿಯನ್ನು ತೋರಿಸುವ ಗೂಗಲ್ ನಕ್ಷೆ"></iframe>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </section>
-
-
-    <!-- Footer Section -->
-    </main>
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="about-us">
-                    <p>ನಾವು ಮೆದು ಕನ್ಸಲ್ಟೆನ್ಸಿ - ಸಣ್ಣ ಮತ್ತು ಮಧ್ಯಮ ಗಾತ್ರದ ವ್ಯಾಪಾರಗಳಿಗೆ ಇಪಿಎಫ್ ಮತ್ತು ಇಎಸ್ಐ ಅನುಸರಣೆಯಲ್ಲಿ ನೆರವಾಗುವ ನಂಬಿಕೆಯ ಪಿಎಫ್ ಮತ್ತು ಇಎಸ್ಐ ಸಲಹೆಗಾರರು. ಪಿಎಫ್ ನೋಂದಣಿ, ಇಎಸ್ಐ ನೋಂದಣಿ, ಮಾಸಿಕ ಪಿಎಫ್ ಫೈಲಿಂಗ್ ಮತ್ತು ಮಾಸಿಕ ಇಎಸ್ಐ ಫೈಲಿಂಗ್ ಸೇರಿದಂತೆ ನಮ್ಮ ತಂಡ ನಿಮಗೆ ವೈಯಕ್ತಿಕ ಸೇವೆ ನೀಡುತ್ತದೆ. ನೀವು ಬೆಳವಣಿಗೆಯತ್ತ ಗಮನ ಕೊಡುತ್ತಿರುವಾಗ ನಿಮ್ಮ ವ್ಯಾಪಾರ ಎಲ್ಲ ನಿಯಮಗಳಿಗೆ ಅನುಗುಣವಾಗಿ ಇರುವಂತೆ ನಾವು ನೋಡಿಕೊಳ್ಳುತ್ತೇವೆ.</p>
-                </div>
-
-                <div class="quick-links link-list">
-                    <h3>ತ್ವರಿತ ಲಿಂಕ್‌ಗಳು</h3>
-                    <ul>
-                        <li><a href="/kn/">ಮುಖಪುಟ</a></li>
-                        <li><a href="/kn/about-us">ನಮ್ಮ ಬಗ್ಗೆ</a></li>
-                        <li><a href="/kn/contact-us">ಸಂಪರ್ಕಿಸಿ</a></li>
-<li><a href="/blogs">ಬ್ಲಾಗ್‌ಗಳು</a></li>
-<li><a href="/kn/privacy-policy">ಗೌಪ್ಯತಾ ನೀತಿ</a></li>
-<li><a href="/kn/terms-and-conditions">ನಿಯಮಗಳು ಮತ್ತು ಷರತ್ತುಗಳು</a></li>
-                    </ul>
-                </div>
-                <div class="services-offered link-list">
-                    <h3>ನಮ್ಮ ಸೇವೆಗಳು</h3>
-                    <ul>
-                        <li><a href="/kn/epf-consultancy-service">ಇಪಿಎಫ್ ಅನುಸರಣೆ</a></li>
-                       <li><a href="/kn/esi-consultancy-service">ಇಎಸ್ಐ ಅನುಸರಣೆ</a></li>
-    <li><a href="/epf-esi-tools-calculators">ಟೂಲ್‌ಗಳು ಮತ್ತು ಕ್ಯಾಲ್ಕುಲೇಟರ್‌ಗಳು</a></li>
-    <li><a href="/kn/epf-excel-to-text-converter">ಇಪಿಎಫ್ ಎಕ್ಸೆಲ್‌ನಿಂದ ಟೆಕ್ಸ್ಟ್ ಪರಿವರ್ತಕ</a></li>
-                    </ul>
-                </div>
-                <div class="contact-us">
-                    <h3>ಸಂಪರ್ಕಿಸಿ</h3>
-                    <address>
-                        <p>
-                            <a href="tel:+918217542975" class="phone">
-                                <span class="material-symbols-outlined" aria-hidden="true">
-                                call
-                                </span>
-                                8217542975</a>
-                        </p>
-                        <p><a href="mailto:hello.meduconsultancy@gmail.com" class="email">
-                            <span class="material-symbols-outlined" aria-hidden="true">
-                                mail
-                                </span>
-                                hello.meduconsultancy@gmail.com</a></p>
-                    </address>
-                    <address class="office-address">
-                        <h4>ನಮ್ಮ ಕಚೇರಿ ವಿಳಾಸ</h4>
-                        <p>
-                            3ನೇ ಮಹಡಿ, ಪಡೀಲ್ ಗೇಟ್ ಬಿಲ್ಡಿಂಗ್,<br>
-                            ಪಡೀಲ್, ಮಂಗಳೂರು,<br>
-                            ಕರ್ನಾಟಕ 575007
-                        </p>
-                    </address>
-                </div>
-            </div>
-            <section class="quick-links link-list location-list">
-              <h3>ಸ್ಥಳಗಳು</h3>
-              <ul>
-                <li>
-                  <a href="/kn/epf-esi-consultancy-mangalore">ಮಂಗಳೂರು</a>
-                </li>
-                <li>
-                  <a href="/kn/epf-esi-consultancy-udupi">ಉಡುಪಿ</a>
-                </li>
-                <li>
-                  <a href="/kn/epf-esi-consultancy-bangalore">ಬೆಂಗಳೂರು</a>
-                </li>
-              </ul>
-            </section>
-<div class="rights">
-                <p>&#169; 2026 ಮೆದು ಕನ್ಸಲ್ಟೆನ್ಸಿ. ಎಲ್ಲ ಹಕ್ಕುಗಳನ್ನು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="/script.js" defer></script>
-</body>
-</html>
+<section class="section section--tint section--stacked" aria-labelledby="call-heading">
+  <div class="container">
+    <h2 id="call-heading">ನೀವು ಕರೆ ಮಾಡಿದಾಗ ಏನಾಗುತ್ತದೆ</h2>
+    <ol class="steps steps--timeline">
+      <li><strong>ನಿಮ್ಮ ವ್ಯಾಪಾರದ ಬಗ್ಗೆ ಕೆಲವು ಪ್ರಶ್ನೆಗಳನ್ನು ಕೇಳುತ್ತೇವೆ.</strong> PF ಮತ್ತು ESI ಅನ್ವಯಿಸುತ್ತದೆಯೇ ಎಂದು ನಾವು ಹೇಳುತ್ತೇವೆ.</li>
+      <li><strong>ಯಾವ ದಾಖಲೆಗಳು ಬೇಕು ಎಂದು ನಾವು ಹೇಳುತ್ತೇವೆ.</strong> ನೀವು ಅವುಗಳನ್ನು ಕಳುಹಿಸಿ.</li>
+    </ol>
+    <div class="prose">
+      <p>ಸಾಧ್ಯವಾದರೆ, ಈ ಎರಡು ವಿಷಯಗಳನ್ನು ಸಿದ್ಧವಾಗಿಡಿ:</p>
+      <ul class="check-list">
+        <li>ನಿಮ್ಮಲ್ಲಿ ಎಷ್ಟು ಜನ ಕೆಲಸ ಮಾಡುತ್ತಾರೆ.</li>
+        <li>ನಿಮ್ಮ ವ್ಯಾಪಾರಕ್ಕೆ PF ಅಥವಾ ESI ಕೋಡ್ ಸಂಖ್ಯೆ ಇದ್ದರೆ, ಆ ಸಂಖ್ಯೆ.</li>
+      </ul>
+    </div>
+    {% include call-block.html location="contact" %}
+  </div>
+</section>

@@ -1,336 +1,62 @@
-<!DOCTYPE html>
-<html lang="kn">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+---
+layout: base
+lang: kn
+page_type: legal
+last_modified: 2026-10-03
+title: "ನಿಯಮಗಳು ಮತ್ತು ಷರತ್ತುಗಳು | ಮೆದು ಕನ್ಸಲ್ಟೆನ್ಸಿ"
+description: "ಮೆದು ಕನ್ಸಲ್ಟೆನ್ಸಿ ವೆಬ್‌ಸೈಟ್, ಅದರ ಮಾರ್ಗದರ್ಶಿಗಳು ಮತ್ತು ಉಚಿತ ಸಾಧನಗಳನ್ನು ಬಳಸುವ ನಿಯಮಗಳು."
+breadcrumb:
+  - { name: ನಿಯಮಗಳು ಮತ್ತು ಷರತ್ತುಗಳು }
+---
+{%- include i18n.html -%}
+{%- assign month = page.last_modified | date: "%-m" | minus: 1 -%}
+<section class="section section--stacked legal-head" aria-labelledby="page-heading">
+  <div class="container">
+    <h1 id="page-heading">ನಿಯಮಗಳು ಮತ್ತು ಷರತ್ತುಗಳು</h1>
+    <p class="legal-head__lead">ಈ ವೆಬ್‌ಸೈಟ್‌ನ ಮಾರ್ಗದರ್ಶಿಗಳು ಮತ್ತು ಸಾಧನಗಳು ಸಾಮಾನ್ಯ ಮಾಹಿತಿ ನೀಡುತ್ತವೆ, ಕಾನೂನು ಸಲಹೆ ಅಲ್ಲ. ಈ ವೆಬ್‌ಸೈಟ್ ಬಳಸುವ ನಿಯಮಗಳು ಕೆಳಗಿವೆ.</p>
+    <p class="note">ಕೊನೆಯದಾಗಿ ಬದಲಾಯಿಸಿದ ದಿನಾಂಕ: {{ page.last_modified | date: "%-d" }} {{ t.months[month] }} {{ page.last_modified | date: "%Y" }}</p>
+  </div>
+</section>
 
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-<meta name="author" content="Medu Consultancy">
-<meta name="robots" content="index, follow">
-<meta name="googlebot" content="index, follow">
-<meta name="theme-color" content="#FFDB58">
+<section class="section section--surface section--stacked" aria-label="ನಿಯಮಗಳು ಮತ್ತು ಷರತ್ತುಗಳು">
+  <div class="container">
+    <div class="legal">
+      <div class="legal__item">
+        <h2>ಈ ವೆಬ್‌ಸೈಟ್ ಬಳಕೆ</h2>
+        <p>ಈ ವೆಬ್‌ಸೈಟ್ ಬಳಸುವ ಮೂಲಕ, ನೀವು ಈ ನಿಯಮಗಳಿಗೆ ಒಪ್ಪುತ್ತೀರಿ. ನೀವು ಒಪ್ಪದಿದ್ದರೆ, ದಯವಿಟ್ಟು ವೆಬ್‌ಸೈಟ್ ಬಳಸಬೇಡಿ.</p>
+      </div>
 
-    <title>ನಿಯಮಗಳು ಮತ್ತು ಷರತ್ತುಗಳು</title>
-    <meta name="description" content="ಮೆದು ಕನ್ಸಲ್ಟೆನ್ಸಿ ಸರ್ವೀಸಸ್‌ನ ನಿಯಮಗಳು ಮತ್ತು ಷರತ್ತುಗಳನ್ನು ಓದಿ. ನಮ್ಮ ವೆಬ್‌ಸೈಟ್ ಮತ್ತು ಸೇವೆಗಳನ್ನು ಬಳಸುವ ನಿಯಮಗಳು ಹಾಗೂ ಮಾರ್ಗಸೂಚಿಗಳನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಿ.">
-    <link rel="canonical" href="https://www.meduconsultancy.com/kn/terms-and-conditions" />
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Medu Consultancy">
-    <meta property="og:title" content="ನಿಯಮಗಳು ಮತ್ತು ಷರತ್ತುಗಳು">
-    <meta property="og:description" content="ಮೆದು ಕನ್ಸಲ್ಟೆನ್ಸಿ ಸರ್ವೀಸಸ್‌ನ ನಿಯಮಗಳು ಮತ್ತು ಷರತ್ತುಗಳನ್ನು ಓದಿ. ನಮ್ಮ ವೆಬ್‌ಸೈಟ್ ಮತ್ತು ಸೇವೆಗಳನ್ನು ಬಳಸುವ ನಿಯಮಗಳು ಹಾಗೂ ಮಾರ್ಗಸೂಚಿಗಳನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಿ.">
-    <meta property="og:url" content="https://www.meduconsultancy.com/kn/terms-and-conditions">
-    <meta property="og:image" content="https://www.meduconsultancy.com/android-chrome-512x512.png">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="ನಿಯಮಗಳು ಮತ್ತು ಷರತ್ತುಗಳು">
-    <meta name="twitter:description" content="ಮೆದು ಕನ್ಸಲ್ಟೆನ್ಸಿ ಸರ್ವೀಸಸ್‌ನ ನಿಯಮಗಳು ಮತ್ತು ಷರತ್ತುಗಳನ್ನು ಓದಿ. ನಮ್ಮ ವೆಬ್‌ಸೈಟ್ ಮತ್ತು ಸೇವೆಗಳನ್ನು ಬಳಸುವ ನಿಯಮಗಳು ಹಾಗೂ ಮಾರ್ಗಸೂಚಿಗಳನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಿ.">
-    <meta name="twitter:image" content="https://www.meduconsultancy.com/android-chrome-512x512.png">
+      <div class="legal__item">
+        <h2>ನಾವು ಏನು ಮಾಡುತ್ತೇವೆ</h2>
+        <p>ಮೆದು ಕನ್ಸಲ್ಟೆನ್ಸಿ (ಮೆದು ಕನ್ಸಲ್ಟೆನ್ಸಿ ಸರ್ವೀಸಸ್) ವ್ಯಾಪಾರಗಳಿಗೆ PF ಮತ್ತು ESI ಕೆಲಸದಲ್ಲಿ ಸಹಾಯ ಮಾಡುತ್ತದೆ. PF ಎಂದರೆ ಭವಿಷ್ಯ ನಿಧಿ; ಇದನ್ನು EPF ಎಂದೂ ಕರೆಯುತ್ತಾರೆ. ESI ಎಂದರೆ ಉದ್ಯೋಗಿಗಳ ರಾಜ್ಯ ವಿಮೆ. ವೆಬ್‌ಸೈಟ್‌ನಲ್ಲಿ ಉಚಿತ ಸಾಧನಗಳು ಮತ್ತು ಮಾರ್ಗದರ್ಶಿಗಳೂ ಇವೆ.</p>
+      </div>
 
-    <link rel="alternate" hreflang="en" href="https://www.meduconsultancy.com/terms-and-conditions" />
-    <link rel="alternate" hreflang="kn" href="https://www.meduconsultancy.com/kn/terms-and-conditions" />
-    <link rel="alternate" hreflang="x-default" href="https://www.meduconsultancy.com/terms-and-conditions" />
+      <div class="legal__item">
+        <h2>ಕಾನೂನು ಸಲಹೆ ಅಲ್ಲ</h2>
+        <p>ಈ ವೆಬ್‌ಸೈಟ್‌ನ ಮಾರ್ಗದರ್ಶಿಗಳು ಮತ್ತು ಸಾಧನಗಳು ಸಾಮಾನ್ಯ ಮಾಹಿತಿ ನೀಡುತ್ತವೆ. ಅವು ಕಾನೂನು ಸಲಹೆ ಅಲ್ಲ. ಸಾಧನಗಳು ಅಂದಾಜು ಮೊತ್ತವನ್ನು ನೀಡುತ್ತವೆ, ನಿಖರ ಮೊತ್ತವನ್ನಲ್ಲ. ನಿಮ್ಮ ವ್ಯಾಪಾರದ ಬಗ್ಗೆ ತಿಳಿಯಲು, ನಮಗೆ ಕರೆ ಮಾಡಿ ಅಥವಾ ತಜ್ಞರನ್ನು ಕೇಳಿ.</p>
+      </div>
 
-    <script type="application/ld+json">
-        {
-            "@context": "http://schema.org",
-            "@type": "WebPage",
-            "url": "https://www.meduconsultancy.com/kn/terms-and-conditions",
-            "inLanguage": "kn",
-            "name": "ನಿಯಮಗಳು ಮತ್ತು ಷರತ್ತುಗಳು",
-            "description": "ಮೆದು ಕನ್ಸಲ್ಟೆನ್ಸಿ ಸರ್ವೀಸಸ್‌ನ ನಿಯಮಗಳು ಮತ್ತು ಷರತ್ತುಗಳನ್ನು ಓದಿ. ನಮ್ಮ ವೆಬ್‌ಸೈಟ್ ಮತ್ತು ಸೇವೆಗಳನ್ನು ಬಳಸುವ ನಿಯಮಗಳು ಹಾಗೂ ಮಾರ್ಗಸೂಚಿಗಳನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಿ.",
-            "mainEntity": {
-                "@type": "LocalBusiness",
-                "name": "Medu Consultancy",
-                "address": {
-                    "@type": "PostalAddress",
-                    "streetAddress": "3rd Floor, Padil Gate Building, Padil",
-                    "addressLocality": "Mangalore",
-                    "addressRegion": "Karnataka",
-                    "postalCode": "575007",
-                    "addressCountry": "IN"
-                },
-                "telephone": "+91-8217542975",
-                "contactPoint": {
-                    "@type": "ContactPoint",
-                    "contactType": "Customer Service",
-                    "telephone": "+91-8217542975",
-                    "availableLanguage": ["kn", "en"]
-                },
-                "serviceArea": {
-                    "@type": "Place",
-                    "name": "Karnataka"
-                }
-            },
-            "breadcrumb": {
-                "@type": "BreadcrumbList",
-                "itemListElement": [
-                    {
-                        "@type": "ListItem",
-                        "position": 1,
-                        "name": "ಮುಖಪುಟ",
-                        "item": "https://www.meduconsultancy.com/kn/"
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 2,
-                        "name": "ನಿಯಮಗಳು ಮತ್ತು ಷರತ್ತುಗಳು",
-                        "item": "https://www.meduconsultancy.com/kn/terms-and-conditions"
-                    }
-                ]
-            },
-            "aboutPage": {
-                "@type": "AboutPage",
-                "url": "https://www.meduconsultancy.com/kn/terms-and-conditions",
-                "name": "ನಿಯಮಗಳು ಮತ್ತು ಷರತ್ತುಗಳು - ಮೆದು ಕನ್ಸಲ್ಟೆನ್ಸಿ",
-                "description": "ಮೆದು ಕನ್ಸಲ್ಟೆನ್ಸಿ ಸರ್ವೀಸಸ್‌ನ ವೆಬ್‌ಸೈಟ್ ಮತ್ತು ಸೇವೆಗಳನ್ನು ಬಳಸುವ ನಿಯಮಗಳು ಹಾಗೂ ಮಾರ್ಗಸೂಚಿಗಳನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಿ."
-            }
-        }
-        </script>
-    <link rel="stylesheet" href="/styles.css">
-    <link rel="stylesheet" href="/aboutuspage.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Kannada:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <div class="legal__item">
+        <h2>ಗೌಪ್ಯತೆ</h2>
+        <p>ವೆಬ್‌ಸೈಟ್ ಹೇಗೆ ಬಳಕೆಯಾಗುತ್ತಿದೆ ಎಂದು ನೋಡಲು ನಾವು Google Analytics ಮತ್ತು Google Search Console ಬಳಸುತ್ತೇವೆ. ಇವು ಏನನ್ನು ಸಂಗ್ರಹಿಸುತ್ತವೆ ಎಂದು ನಮ್ಮ {% include link.html path="privacy-policy" label="ಗೌಪ್ಯತಾ ನೀತಿ" arrow=false %} ವಿವರಿಸುತ್ತದೆ.</p>
+      </div>
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap&icon_names=call,mail,location_on" />
+      <div class="legal__item">
+        <h2>ನಮ್ಮ ಜವಾಬ್ದಾರಿ</h2>
+        <p>ಈ ವೆಬ್‌ಸೈಟ್ ಅನ್ನು ಸರಿಯಾಗಿ ಮತ್ತು ಹೊಸ ಮಾಹಿತಿಯೊಂದಿಗೆ ಇಡಲು ನಾವು ಪ್ರಯತ್ನಿಸುತ್ತೇವೆ. PF ಮತ್ತು ESI ನಿಯಮಗಳು ಬದಲಾಗುತ್ತವೆ, ಹಾಗಾಗಿ ಇದು ಯಾವಾಗಲೂ ಪೂರ್ಣವಾಗಿರುತ್ತದೆ ಎಂದು ನಾವು ಭರವಸೆ ನೀಡಲಾಗದು. ದಯವಿಟ್ಟು ಈ ವೆಬ್‌ಸೈಟ್ ಅನ್ನು ಮಾತ್ರ ನಂಬಿ ದೊಡ್ಡ ನಿರ್ಧಾರಗಳನ್ನು ತೆಗೆದುಕೊಳ್ಳಬೇಡಿ. ಇದನ್ನು ನಂಬಿ ನಿಮಗೆ ಹಣದ ನಷ್ಟವಾದರೆ, ಅದಕ್ಕೆ ನಾವು ಜವಾಬ್ದಾರರಲ್ಲ.</p>
+      </div>
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4MEQF5W0XX"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+      <div class="legal__item">
+        <h2>ಈ ನಿಯಮಗಳಲ್ಲಿ ಬದಲಾವಣೆಗಳು</h2>
+        <p>ನಾವು ಈ ನಿಯಮಗಳನ್ನು ಬದಲಾಯಿಸಬಹುದು. ದಯವಿಟ್ಟು ಆಗಾಗ ಈ ಪುಟವನ್ನು ನೋಡಿ.</p>
+      </div>
 
-      gtag('config', 'G-4MEQF5W0XX');
-    </script>
-</head>
-<body>
-    <a class="skip-link" href="#main-content">ಮುಖ್ಯ ವಿಷಯಕ್ಕೆ ಹೋಗಿ</a>
-
-    <!-- Header with Logo, Phone, and Navigation -->
-    <header>
-        <div class="container header-content">
-            <div class="logo">
-                <a href="/kn/"><img src="/images/logo-new.svg" width="200" height="45" alt="ಮೆದು ಕನ್ಸಲ್ಟೆನ್ಸಿ ಲೋಗೋ"></a>
-            </div>
-            <nav class="header-nav" aria-label="ಮುಖ್ಯ">
-                <ul>
-                    <li>
-                        <a href="/kn/contact-us">ಸಂಪರ್ಕ</a>
-                    </li>
-                    <li>
-                        <a href="/kn/epf-consultancy-service">ಇಪಿಎಫ್ ಸಲಹೆ</a>
-                    </li>
-                    <li>
-                        <a href="/kn/esi-consultancy-service">ಇಎಸ್ಐ ಸಲಹೆ</a>
-                    </li>
-                    <li>
-                        <a href="/epf-esi-tools-calculators">ಟೂಲ್‌ಗಳು</a>
-                    </li>
-                </ul>
-            </nav>
-            <div class="header-links">
-                <a href="tel:+918217542975" class="phone"><span class="material-symbols-outlined" aria-hidden="true">
-                    call
-                    </span> 8217542975</a>
-                <a class="lang-switch" href="/terms-and-conditions" hreflang="en" aria-label="View this page in English">English</a>
-            </div>
-
-            <!-- Hamburger Icon -->
-            <div class="hamburger" id="hamburger-icon">
-                <div id="menuToggle">
-                    <input type="checkbox" id="menuCheckbox" aria-label="ಮೆನು ತೆರೆಯಿರಿ" />
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <nav class="mobile-nav" aria-label="ಮೆನು"><ul id="menu">
-                        <li>
-                            <a href="/kn/" class="nav-link">ಮುಖಪುಟ</a>
-                        </li>
-                      <li>
-                        <a href="/kn/about-us" class="nav-link">ನಮ್ಮ ಬಗ್ಗೆ</a>
-                      </li>
-                      <li>
-                        <a href="/kn/contact-us" class="nav-link">ಸಂಪರ್ಕಿಸಿ</a>
-                      </li>
-
-                      <li>
-                        <a href="/blogs" class="nav-link">ಬ್ಲಾಗ್‌ಗಳು</a>
-                      </li>
-                      <li>
-                        <a href="/kn/epf-consultancy-service" class="nav-link">ಇಪಿಎಫ್ ಸಲಹೆ</a>
-                      </li>
-                      <li>
-                        <a href="/kn/esi-consultancy-service" class="nav-link">ಇಎಸ್ಐ ಸಲಹೆ</a>
-                      </li>
-                      <li>
-                        <a href="/epf-esi-tools-calculators" class="nav-link">ಟೂಲ್‌ಗಳು ಮತ್ತು ಕ್ಯಾಲ್ಕುಲೇಟರ್‌ಗಳು</a>
-                      </li>
-                      <li>
-                        <a href="/kn/epf-excel-to-text-converter" class="nav-link">ಇಪಿಎಫ್ ಎಕ್ಸೆಲ್‌ನಿಂದ ಟೆಕ್ಸ್ಟ್ ಪರಿವರ್ತಕ</a>
-                      </li>
-                      <li>
-                        <a href="/terms-and-conditions" class="nav-link lang-switch" hreflang="en" aria-label="View this page in English">English</a>
-                      </li>
-                      <li>
-                        <div class="contact-us">
-                            <address>
-                                <p>
-                                    <a href="tel:+918217542975" class="phone">
-                                        <span class="material-symbols-outlined" aria-hidden="true">
-                                        call
-                                        </span>
-                                        8217542975</a>
-                                </p>
-                                <p><a href="mailto:hello.meduconsultancy@gmail.com" class="email">
-                                    <span class="material-symbols-outlined" aria-hidden="true">
-                                        mail
-                                        </span>
-                                        hello.meduconsultancy@gmail.com</a></p>
-                            </address>
-                            <address class="office-address">
-                                <h4>ನಮ್ಮ ಕಚೇರಿ ವಿಳಾಸ</h4>
-                                <p>
-                                    3ನೇ ಮಹಡಿ, ಪಡೀಲ್ ಗೇಟ್ ಬಿಲ್ಡಿಂಗ್,<br>
-                                    ಪಡೀಲ್, ಮಂಗಳೂರು,<br>
-                                    ಕರ್ನಾಟಕ 575007
-                                </p>
-                            </address>
-                        </div>
-                      </li>
-                    </ul></nav>
-                  </div>
-            </div>
-        </div>
-    </header>
-
-    <div class="header-space"></div>
-    <main id="main-content" tabindex="-1">
-    <section>
-        <div class="container">
-            <div class="terms-section">
-                <h1>ನಿಯಮಗಳು ಮತ್ತು ಷರತ್ತುಗಳು</h1>
-
-                <h2>1. ಪರಿಚಯ</h2>
-                <p>ಮೆದು ಕನ್ಸಲ್ಟೆನ್ಸಿ ಸರ್ವೀಸಸ್‌ಗೆ ಸ್ವಾಗತ. ನಮ್ಮ ವೆಬ್‌ಸೈಟ್ (<a href="https://www.meduconsultancy.com">www.meduconsultancy.com</a>) ಅನ್ನು ಬಳಸುವ ಮೂಲಕ, ಈ ಕೆಳಗಿನ ನಿಯಮಗಳು ಮತ್ತು ಷರತ್ತುಗಳನ್ನು ಪಾಲಿಸಲು ನೀವು ಒಪ್ಪುತ್ತೀರಿ. ಒಪ್ಪದಿದ್ದರೆ, ದಯವಿಟ್ಟು ನಮ್ಮ ವೆಬ್‌ಸೈಟ್ ಮತ್ತು ಸೇವೆಗಳನ್ನು ಬಳಸಬೇಡಿ.</p>
-
-                <h2>2. ಒದಗಿಸುವ ಸೇವೆಗಳು</h2>
-                <p>ಮೆದು ಕನ್ಸಲ್ಟೆನ್ಸಿ ಸರ್ವೀಸಸ್ ಉದ್ಯೋಗಿಗಳ ಭವಿಷ್ಯ ನಿಧಿ (ಇಪಿಎಫ್) ಮತ್ತು ಉದ್ಯೋಗಿಗಳ ರಾಜ್ಯ ವಿಮೆ (ಇಎಸ್ಐ) ಅನುಸರಣೆಗೆ ಸಲಹೆ ನೀಡುತ್ತದೆ. ಇಪಿಎಫ್ ಮತ್ತು ಇಎಸ್ಐ ಸಂಬಂಧಿತ ಕೆಲಸಗಳಿಗೆ ನೆರವಾಗುವ ಉಚಿತ ಆನ್‌ಲೈನ್ ಸಾಧನಗಳನ್ನೂ ನಾವು ಒದಗಿಸುತ್ತೇವೆ.</p>
-
-                <h2>3. ಕಾನೂನು ಸಲಹೆ ಅಲ್ಲ</h2>
-                <p>ಈ ವೆಬ್‌ಸೈಟ್‌ನಲ್ಲಿರುವ ಮಾಹಿತಿ ಕೇವಲ ಮಾಹಿತಿ ಉದ್ದೇಶಕ್ಕಾಗಿ ಮಾತ್ರ; ಇದನ್ನು ಕಾನೂನು ಸಲಹೆ ಎಂದು ಪರಿಗಣಿಸಬಾರದು. ನಿರ್ದಿಷ್ಟ ಕಾನೂನು ಮಾರ್ಗದರ್ಶನಕ್ಕಾಗಿ ಅರ್ಹ ವೃತ್ತಿಪರರನ್ನು ಸಂಪರ್ಕಿಸಿ.</p>
-
-                <h2>4. ಗೌಪ್ಯತಾ ನೀತಿ</h2>
-                <p>ನಮ್ಮ ವೆಬ್‌ಸೈಟ್‌ನ ನಿಮ್ಮ ಬಳಕೆ ನಮ್ಮ <a href="/kn/privacy-policy">ಗೌಪ್ಯತಾ ನೀತಿ</a>ಗೂ ಒಳಪಟ್ಟಿದೆ. ನಿಮ್ಮ ದತ್ತಾಂಶವನ್ನು ನಾವು ಹೇಗೆ ನಿಭಾಯಿಸುತ್ತೇವೆ ಎಂಬುದನ್ನು ಅದು ವಿವರಿಸುತ್ತದೆ.</p>
-
-                <h2>5. ಮೂರನೇ ವ್ಯಕ್ತಿಯ ಸೇವೆಗಳು</h2>
-                <p>ವೆಬ್‌ಸೈಟ್ ಟ್ರಾಫಿಕ್ ವಿಶ್ಲೇಷಿಸಲು ನಾವು ಗೂಗಲ್ ಅನಾಲಿಟಿಕ್ಸ್ ಮತ್ತು ಗೂಗಲ್ ಸರ್ಚ್ ಕನ್ಸೋಲ್‌ನಂತಹ ಮೂರನೇ ವ್ಯಕ್ತಿಯ ಸಾಧನಗಳನ್ನು ಬಳಸುತ್ತೇವೆ. ನಮ್ಮ ಸೈಟ್ ಬಳಸುವ ಮೂಲಕ, ಈ ಸೇವೆಗಳು ಅನಾಮಧೇಯ ದತ್ತಾಂಶವನ್ನು ಸಂಗ್ರಹಿಸಬಹುದು ಎಂಬುದನ್ನು ನೀವು ಒಪ್ಪುತ್ತೀರಿ.</p>
-
-                <h2>6. ಹೊಣೆಗಾರಿಕೆಯ ಮಿತಿ</h2>
-                <p>ನಿಖರ ಮಾಹಿತಿ ನೀಡಲು ನಾವು ಪ್ರಯತ್ನಿಸುತ್ತೇವೆ; ಆದರೆ ಪೂರ್ಣತೆ ಅಥವಾ ನಿಖರತೆಗೆ ನಾವು ಖಾತರಿ ನೀಡುವುದಿಲ್ಲ. ನಮ್ಮ ವೆಬ್‌ಸೈಟ್‌ನ ಮಾಹಿತಿಯನ್ನು ನಂಬಿ ಉಂಟಾದ ಯಾವುದೇ ನಷ್ಟಕ್ಕೆ ನಾವು ಜವಾಬ್ದಾರರಲ್ಲ.</p>
-
-                <h2>7. ನಿಯಮಗಳಲ್ಲಿ ಬದಲಾವಣೆಗಳು</h2>
-                <p>ಈ ನಿಯಮಗಳು ಮತ್ತು ಷರತ್ತುಗಳನ್ನು ಯಾವಾಗ ಬೇಕಾದರೂ ನವೀಕರಿಸುವ ಹಕ್ಕನ್ನು ಮೆದು ಕನ್ಸಲ್ಟೆನ್ಸಿ ಸರ್ವೀಸಸ್ ಕಾಯ್ದಿರಿಸಿಕೊಳ್ಳುತ್ತದೆ. ಬದಲಾವಣೆಗಳಿಗಾಗಿ ಆಗಾಗ ಇವುಗಳನ್ನು ಪರಿಶೀಲಿಸಿ.</p>
-
-                <h2>8. ಸಂಪರ್ಕ ಮಾಹಿತಿ</h2>
-                <p>ಯಾವುದೇ ಪ್ರಶ್ನೆಗಳಿಗೆ, ದಯವಿಟ್ಟು ನಮ್ಮನ್ನು ಈ ವಿಳಾಸದಲ್ಲಿ ಸಂಪರ್ಕಿಸಿ:</p>
-                <div class="policy-contact">
-                    <div class="policy-contact-row">
-                        <span class="material-symbols-outlined" aria-hidden="true">location_on</span>
-                        <span>3ನೇ ಮಹಡಿ, ಪಡೀಲ್ ಗೇಟ್ ಬಿಲ್ಡಿಂಗ್, ಪಡೀಲ್, ಮಂಗಳೂರು, ಕರ್ನಾಟಕ 575007</span>
-                    </div>
-                    <div class="policy-contact-row">
-                        <span class="material-symbols-outlined" aria-hidden="true">mail</span>
-                        <a href="mailto:hello.meduconsultancy@gmail.com">hello.meduconsultancy@gmail.com</a>
-                    </div>
-                    <div class="policy-contact-row">
-                        <span class="material-symbols-outlined" aria-hidden="true">call</span>
-                        <a href="tel:+918217542975">+91-8217542975</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Footer Section -->
-    </main>
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="about-us">
-                    <p>ನಾವು ಮೆದು ಕನ್ಸಲ್ಟೆನ್ಸಿ - ಸಣ್ಣ ಮತ್ತು ಮಧ್ಯಮ ಗಾತ್ರದ ವ್ಯಾಪಾರಗಳಿಗೆ ಇಪಿಎಫ್ ಮತ್ತು ಇಎಸ್ಐ ಅನುಸರಣೆಯಲ್ಲಿ ನೆರವಾಗುವ ನಂಬಿಕೆಯ ಪಿಎಫ್ ಮತ್ತು ಇಎಸ್ಐ ಸಲಹೆಗಾರರು. ಪಿಎಫ್ ನೋಂದಣಿ, ಇಎಸ್ಐ ನೋಂದಣಿ, ಮಾಸಿಕ ಪಿಎಫ್ ಫೈಲಿಂಗ್ ಮತ್ತು ಮಾಸಿಕ ಇಎಸ್ಐ ಫೈಲಿಂಗ್ ಸೇರಿದಂತೆ ನಮ್ಮ ತಂಡ ನಿಮಗೆ ವೈಯಕ್ತಿಕ ಸೇವೆ ನೀಡುತ್ತದೆ. ನೀವು ಬೆಳವಣಿಗೆಯತ್ತ ಗಮನ ಕೊಡುತ್ತಿರುವಾಗ ನಿಮ್ಮ ವ್ಯಾಪಾರ ಎಲ್ಲ ನಿಯಮಗಳಿಗೆ ಅನುಗುಣವಾಗಿ ಇರುವಂತೆ ನಾವು ನೋಡಿಕೊಳ್ಳುತ್ತೇವೆ.</p>
-                </div>
-
-                <div class="quick-links link-list">
-                    <h3>ತ್ವರಿತ ಲಿಂಕ್‌ಗಳು</h3>
-                    <ul>
-                        <li><a href="/kn/">ಮುಖಪುಟ</a></li>
-                        <li><a href="/kn/about-us">ನಮ್ಮ ಬಗ್ಗೆ</a></li>
-                        <li><a href="/kn/contact-us">ಸಂಪರ್ಕಿಸಿ</a></li>
-<li><a href="/blogs">ಬ್ಲಾಗ್‌ಗಳು</a></li>
-<li><a href="/kn/privacy-policy">ಗೌಪ್ಯತಾ ನೀತಿ</a></li>
-<li><a href="/kn/terms-and-conditions">ನಿಯಮಗಳು ಮತ್ತು ಷರತ್ತುಗಳು</a></li>
-                    </ul>
-                </div>
-                <div class="services-offered link-list">
-                    <h3>ನಮ್ಮ ಸೇವೆಗಳು</h3>
-                    <ul>
-                        <li><a href="/kn/epf-consultancy-service">ಇಪಿಎಫ್ ಅನುಸರಣೆ</a></li>
-                       <li><a href="/kn/esi-consultancy-service">ಇಎಸ್ಐ ಅನುಸರಣೆ</a></li>
-    <li><a href="/epf-esi-tools-calculators">ಟೂಲ್‌ಗಳು ಮತ್ತು ಕ್ಯಾಲ್ಕುಲೇಟರ್‌ಗಳು</a></li>
-    <li><a href="/kn/epf-excel-to-text-converter">ಇಪಿಎಫ್ ಎಕ್ಸೆಲ್‌ನಿಂದ ಟೆಕ್ಸ್ಟ್ ಪರಿವರ್ತಕ</a></li>
-                    </ul>
-                </div>
-                <div class="contact-us">
-                    <h3>ಸಂಪರ್ಕಿಸಿ</h3>
-                    <address>
-                        <p>
-                            <a href="tel:+918217542975" class="phone">
-                                <span class="material-symbols-outlined" aria-hidden="true">
-                                call
-                                </span>
-                                8217542975</a>
-                        </p>
-                        <p><a href="mailto:hello.meduconsultancy@gmail.com" class="email">
-                            <span class="material-symbols-outlined" aria-hidden="true">
-                                mail
-                                </span>
-                                hello.meduconsultancy@gmail.com</a></p>
-                    </address>
-                    <address class="office-address">
-                        <h4>ನಮ್ಮ ಕಚೇರಿ ವಿಳಾಸ</h4>
-                        <p>
-                            3ನೇ ಮಹಡಿ, ಪಡೀಲ್ ಗೇಟ್ ಬಿಲ್ಡಿಂಗ್,<br>
-                            ಪಡೀಲ್, ಮಂಗಳೂರು,<br>
-                            ಕರ್ನಾಟಕ 575007
-                        </p>
-                    </address>
-                </div>
-            </div>
-            <section class="quick-links link-list location-list">
-              <h3>ಸ್ಥಳಗಳು</h3>
-              <ul>
-                <li>
-                  <a href="/kn/epf-esi-consultancy-mangalore">ಮಂಗಳೂರು</a>
-                </li>
-                <li>
-                  <a href="/kn/epf-esi-consultancy-udupi">ಉಡುಪಿ</a>
-                </li>
-                <li>
-                  <a href="/kn/epf-esi-consultancy-bangalore">ಬೆಂಗಳೂರು</a>
-                </li>
-              </ul>
-            </section>
-<div class="rights">
-                <p>&#169; 2026 ಮೆದು ಕನ್ಸಲ್ಟೆನ್ಸಿ. ಎಲ್ಲ ಹಕ್ಕುಗಳನ್ನು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="/script.js" defer></script>
-</body>
-</html>
+      <div class="legal__item">
+        <h2>ಪ್ರಶ್ನೆಗಳಿವೆಯೇ?</h2>
+        <p>ಕರೆ ಮಾಡಿ: <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="legal">{{ site.data.site.phone_display }}</a>.</p>
+        <address>{{ t.footer.address_name }}<br>{{ t.footer.address_lines[0] }}<br>{{ t.footer.address_lines[1] }}</address>
+        <p class="legal__other">{% include link.html path="privacy-policy" label="ನಮ್ಮ ಗೌಪ್ಯತಾ ನೀತಿಯನ್ನು ಓದಿ" %}</p>
+      </div>
+    </div>
+  </div>
+</section>
