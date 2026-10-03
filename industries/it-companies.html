@@ -2,7 +2,7 @@
 layout: base
 lang: en
 page_type: industry
-last_modified: 2026-10-02
+last_modified: 2026-10-03
 title: "PF & ESI for IT Companies: ₹25,000 Rule | Medu Consultancy"
 description: "The PF wage limit is now ₹25,000, and the 50% wages rule can raise PF wages. We work out your PF and file every month. Call +91 82175 42975."
 breadcrumb:
@@ -24,39 +24,50 @@ faq:
 ---
 {%- assign esi = site.data.facts.esi -%}
 {%- assign epf = site.data.facts.epf -%}
-{% include hero.html heading="PF and ESI for IT companies" lead="PF rules have changed. The wage limit is now ₹25,000. And some allowances now count as PF wages (the pay PF is worked out on). We check your PF and file PF and ESI every month." %}
+{% include hero.html heading="We file PF and ESI for IT companies, every month." lead="PF rules have changed. The PF wage limit is now ₹25,000, and some allowances now count towards PF wages. We check which of your staff must be in PF." proof="strip" %}
 
-<section class="section" aria-labelledby="apply-heading">
+<section class="section section--surface section--stacked" aria-labelledby="apply-heading">
   <div class="container">
     <h2 id="apply-heading">How PF and ESI apply to your staff</h2>
     <p class="section-lead">PF (Provident Fund, also called EPF) applies once you have {{ epf.min_employees }} or more employees. ESI (Employees' State Insurance) applies once you have {{ esi.min_employees }} or more.</p>
-    <div class="card-grid">
+    <div class="card-grid card-grid--columns">
       <div class="card">
+        <p class="col-word">{{ epf.wage_ceiling_text }}</p>
         <h3>The new {{ epf.wage_ceiling_text }} PF limit</h3>
         <p>From {{ epf.wage_ceiling_from }}, PF is a must for employees whose PF wages are {{ epf.wage_ceiling_text }} a month or less. It was {{ epf.wage_ceiling_old_text }} before. PF wages are mainly basic pay plus DA (dearness allowance), not the full salary. So many more of your staff must now be in PF.</p>
       </div>
       <div class="card">
+        <p class="col-word">50%</p>
         <h3>The 50% wages rule</h3>
         <p>Many IT salaries have low basic pay and big allowances. If these allowances are more than half the salary, part of them now counts as PF wages too. So PF wages, and the PF you pay, can go up. We work out the right PF wages for you each month.</p>
       </div>
       <div class="card">
+        <p class="col-word">Stays in PF</p>
         <h3>"Can I stop my PF?"</h3>
         <p>An employee who is already in PF stays in PF, even when their salary goes above {{ epf.wage_ceiling_text }}. Is a new joiner earning above {{ epf.wage_ceiling_text }}? Check if they had PF at an old job. If yes, they usually stay in PF. <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a> to check.</p>
       </div>
-      <div class="card">
-        <h3>ESI</h3>
-        <p>ESI applies to your company once you have {{ esi.min_employees }} or more employees. But only staff earning {{ esi.wage_ceiling_text }} a month or less in ESI wages are in ESI. For a person with a disability, the limit is {{ esi.wage_ceiling_pwd_text }}. In IT companies, this is usually office support staff.</p>
-      </div>
+    </div>
+    <div class="prose">
+      <p><strong>ESI:</strong> only staff with ESI wages of {{ esi.wage_ceiling_text }} a month or less are in ESI ({{ esi.wage_ceiling_pwd_text }} for a person with a disability). In IT companies, this is usually office support staff.</p>
     </div>
   </div>
 </section>
 
-<section class="section" aria-labelledby="join-heading">
-  <div class="container">
+<section class="section section--tint" aria-labelledby="join-heading">
+  <div class="container stack">
     <div class="prose">
       <h2 id="join-heading">When staff don't want to join</h2>
       <p>Some employees ask to leave PF to take home more pay. If they are in PF, they can't simply stop.</p>
       <p>Tell them what they get. PF builds savings with interest, a pension and life insurance. It moves with them to the next job through their UAN (their PF account number).</p>
+    </div>
+    <div class="link-groups">
+      <div class="link-group">
+        <p class="link-group__label">Share these with your staff:</p>
+        <ul class="link-list">
+          <li><a class="link-arrow" href="/blogs/epf-benefits-for-employees">What do you get from PF?&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+          <li><a class="link-arrow" href="/blogs/esi-benefits-for-employees">What do you get from ESI?&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
@@ -64,37 +75,37 @@ faq:
 <section class="section" aria-labelledby="handle-heading">
   <div class="container stack">
     <div class="prose">
-      <h2 id="handle-heading">What we handle for you</h2>
+      <h2 id="handle-heading">What we do for you</h2>
+      <p>You send us salary details. We do the PF and ESI work.</p>
       <ul class="check-list">
-        <li>Register your company for PF and ESI, if you are new to it.</li>
-        <li>Check which staff now come under PF with the {{ epf.wage_ceiling_text }} limit.</li>
-        <li>Work out PF wages with the 50% rule, each month.</li>
-        <li>Check new joiners' past PF membership.</li>
-        <li>Add every new employee to PF, and to ESI if they qualify. We guide them to get their UAN (their PF account number) with a quick face scan on the UMANG app (the government's mobile app).</li>
-        <li>Each month, you send us salary details. We file PF and ESI before the due date (the {{ epf.due_day }}th of the next month) and email you the confirmation and challans (the payment slips).</li>
-        <li>Keep your PF and ESI records ready for inspections.</li>
+        <li>We register your company for PF and ESI, if it isn't registered yet.</li>
+        <li>We check which staff now come under PF with the {{ epf.wage_ceiling_text }} limit.</li>
+        <li>We work out PF wages with the 50% rule, each month.</li>
+        <li>We check if new joiners were in PF at an old job.</li>
+        <li>We add new employees to PF when the rules cover them. We add them to ESI if their ESI wages are {{ esi.wage_ceiling_text }} a month or less ({{ esi.wage_ceiling_pwd_text }} for a person with a disability). Staff who already have a UAN (a PF account number for life) keep it. Others get one by a face scan on the UMANG app (the government's mobile app). We guide them.</li>
+        <li>Each month, we file your PF and ESI returns, and mark the date when staff leave. We email you the challans (the payment slips). Pay them by the {{ epf.due_day }}th of the next month, or send us the amount and we pay it.</li>
+        <li>We keep your PF and ESI records ready for inspections.</li>
+        <li>Already filing PF and ESI yourself? We take over once you share the documents we need.</li>
       </ul>
-      <p>Our founder worked 35 years at EPFO (the PF office), so we can explain the new rules in plain words.</p>
       <p>We work with IT companies in <a href="/epf-esi-consultancy-mangalore">Mangalore</a>, <a href="/epf-esi-consultancy-udupi">Udupi</a> and <a href="/epf-esi-consultancy-bangalore">Bangalore</a>. We have team members in Bangalore, backed by our Mangaluru office. No office visits needed. We handle everything over phone and email.</p>
     </div>
     {% include call-block.html location="handle" %}
   </div>
 </section>
 
-<section class="section" aria-labelledby="related-heading">
-  <div class="container stack">
-    <h2 id="related-heading">Related tools and pages</h2>
-    <div class="card-grid">
+<section class="section section--surface section--stacked" aria-labelledby="more-heading">
+  <div class="container">
+    <h2 id="more-heading">More help with PF and ESI</h2>
+    <div class="card-grid card-grid--panel">
       {% include tool-card.html key="epf-eligibility" %}
       {% include tool-card.html key="epf-contribution" %}
       {% include tool-card.html key="converter" %}
     </div>
-    <div class="link-groups">
+    <div class="link-groups link-groups--wide">
       <div class="link-group">
-        <p class="link-group__label">Share with your staff</p>
+        <p class="link-group__label">Guides:</p>
         <ul class="link-list">
-          <li><a class="link-arrow" href="/blogs/epf-benefits-for-employees">What do you get from PF?&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
-          <li><a class="link-arrow" href="/blogs/esi-benefits-for-employees">What do you get from ESI?&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+          <li><a class="link-arrow" href="/blogs/epf-applicability-threshold">PF: who must register&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
         </ul>
       </div>
       {% include service-links.html %}

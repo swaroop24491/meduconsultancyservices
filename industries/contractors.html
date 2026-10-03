@@ -2,7 +2,7 @@
 layout: base
 lang: en
 page_type: industry
-last_modified: 2026-10-02
+last_modified: 2026-10-03
 title: "PF & ESI Compliance for Contractors | Medu Consultancy"
 description: "Workers join and leave every month. We register them, mark exits and file PF and ESI on time, with challans your clients can check. Call +91 82175 42975."
 breadcrumb:
@@ -24,39 +24,48 @@ faq:
 ---
 {%- assign esi = site.data.facts.esi -%}
 {%- assign epf = site.data.facts.epf -%}
-{% include hero.html heading="PF and ESI for contractors" lead="Your workers join and leave all the time, across many sites. We keep every worker's PF and ESI right each month. We send you the challans (payment slips) to show your clients." %}
+{% include hero.html heading="We file PF and ESI for contractors, every month." lead="Your workers join and leave all the time, across many sites. We keep every worker's PF and ESI right. We send you the payment slips to show your clients." proof="strip" %}
 
-<section class="section" aria-labelledby="apply-heading">
+<section class="section section--surface section--stacked" aria-labelledby="apply-heading">
   <div class="container">
     <h2 id="apply-heading">How PF and ESI apply to your workers</h2>
     <p class="section-lead">As a contractor, you are the employer of your workers. PF (Provident Fund, also called EPF) applies once you have {{ epf.min_employees }} or more employees. ESI (Employees' State Insurance) applies once you have {{ esi.min_employees }} or more. Then you register your workers and pay both every month. Smaller contractor? <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a> to check.</p>
-    <div class="card-grid">
+    <div class="card-grid card-grid--columns">
       <div class="card">
+        <p class="col-word">Every month</p>
         <h3>Workers join and leave every month</h3>
-        <p>Each new worker usually needs a UAN (their PF account number) and an IP number (their ESI number). Each worker who leaves must be marked as left. If one is missed, their records go wrong. This causes trouble later.</p>
+        <p>Most new workers need a UAN (their PF account number) and an IP number (their ESI number). A worker with a UAN from an old job keeps it. Others get one by a face scan on the UMANG app (the government's mobile app). We guide them.</p>
+        <p>Each worker who leaves must be marked as left, with the date. If one is missed, their records go wrong.</p>
       </div>
       <div class="card">
+        <p class="col-word">Challans</p>
         <h3>Your clients check your PF and ESI</h3>
         <p>The company that hires you is called the main employer (in law, the "principal employer"). If you don't pay PF and ESI for your workers, the main employer can be asked to pay. So many clients ask for your challans (PF and ESI payment slips) before they clear your bills. Filing on time helps you get paid on time.</p>
       </div>
       <div class="card">
+        <p class="col-word">Every site</p>
         <h3>Workers at many sites</h3>
         <p>Count and cover every worker, at every site. Workers at a far site are still your employees.</p>
-      </div>
-      <div class="card">
-        <h3>New workers and their UAN</h3>
-        <p>New workers get their UAN with a quick face scan on the UMANG app (the government's mobile app). We guide them. If a worker already has a UAN from an old job, we use that one.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section" aria-labelledby="join-heading">
-  <div class="container">
+<section class="section section--tint" aria-labelledby="join-heading">
+  <div class="container stack">
     <div class="prose">
       <h2 id="join-heading">When workers don't want to join</h2>
       <p>Many workers want full cash pay and ask to skip PF or ESI. If the law covers them, they must join. You can't leave them out.</p>
       <p>Tell them what they get. PF builds savings, a pension and life insurance. It moves with them to their next job through their UAN. ESI gives them and their family free medical care, and cash help if they are hurt at work.</p>
+    </div>
+    <div class="link-groups">
+      <div class="link-group">
+        <p class="link-group__label">Share these with your staff:</p>
+        <ul class="link-list">
+          <li><a class="link-arrow" href="/blogs/epf-benefits-for-employees">What do you get from PF?&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+          <li><a class="link-arrow" href="/blogs/esi-benefits-for-employees">What do you get from ESI?&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
@@ -64,35 +73,36 @@ faq:
 <section class="section" aria-labelledby="handle-heading">
   <div class="container stack">
     <div class="prose">
-      <h2 id="handle-heading">What we handle for you</h2>
+      <h2 id="handle-heading">What we do for you</h2>
+      <p>You send us salary details. We do the PF and ESI work.</p>
       <ul class="check-list">
-        <li>Register your business for PF and ESI, if you are new to it.</li>
-        <li>Every month, add new workers to PF and ESI, and mark the ones who left.</li>
-        <li>Guide new workers through the UAN face scan (the government's UMANG app). We create their IP number.</li>
-        <li>Each month, you send us salary details for every site. We file PF and ESI before the due date (the {{ epf.due_day }}th of the next month) and email you the confirmation and challans to share with your clients.</li>
-        <li>Keep your PF and ESI records ready for inspections.</li>
+        <li>We register your business for PF and ESI, if it isn't registered yet.</li>
+        <li>Every month, we add new workers to PF and ESI, and mark the date when workers leave.</li>
+        <li>We guide new workers without a UAN through the face scan, and create their IP number.</li>
+        <li>Each month, you send us salary details for every site. We file your PF and ESI returns and email you the challans to share with your clients. Pay them by the {{ epf.due_day }}th of the next month, or send us the amount and we pay it.</li>
+        <li>We keep your PF and ESI records ready for inspections.</li>
+        <li>Already filing PF and ESI yourself? We take over once you share the documents we need.</li>
       </ul>
-      <p>Our founder worked 35 years at EPFO (the PF office), so we keep your records the way the PF office expects.</p>
       <p>We work with contractors in <a href="/epf-esi-consultancy-mangalore">Mangalore</a>, <a href="/epf-esi-consultancy-udupi">Udupi</a> and <a href="/epf-esi-consultancy-bangalore">Bangalore</a>. No office visits needed. We handle everything over phone and email.</p>
     </div>
     {% include call-block.html location="handle" %}
   </div>
 </section>
 
-<section class="section" aria-labelledby="related-heading">
-  <div class="container stack">
-    <h2 id="related-heading">Related tools and pages</h2>
-    <div class="card-grid">
+<section class="section section--surface section--stacked" aria-labelledby="more-heading">
+  <div class="container">
+    <h2 id="more-heading">More help with PF and ESI</h2>
+    <div class="card-grid card-grid--panel">
       {% include tool-card.html key="epf-contribution" %}
       {% include tool-card.html key="esi-contribution" %}
       {% include tool-card.html key="converter" %}
     </div>
-    <div class="link-groups">
+    <div class="link-groups link-groups--wide">
       <div class="link-group">
-        <p class="link-group__label">Share with your staff</p>
+        <p class="link-group__label">Guides:</p>
         <ul class="link-list">
-          <li><a class="link-arrow" href="/blogs/epf-benefits-for-employees">What do you get from PF?&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
-          <li><a class="link-arrow" href="/blogs/esi-benefits-for-employees">What do you get from ESI?&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+          <li><a class="link-arrow" href="/blogs/common-epf-compliance-mistakes">Common PF mistakes and how to avoid them&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+          <li><a class="link-arrow" href="/blogs/common-esi-compliance-mistakes">Common ESI mistakes and how to avoid them&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
         </ul>
       </div>
       {% include service-links.html %}

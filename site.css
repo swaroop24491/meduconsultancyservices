@@ -1042,6 +1042,7 @@ html[lang="kn"] .hero h1 { line-height: 1.4; }
 .link-groups .link-list { margin-top: var(--space-2); }
 .card-grid + .link-list { margin-top: var(--space-6); }
 .card-grid + .link-groups { margin-top: var(--space-7); }
+.card-grid + .prose { margin-top: var(--space-6); }
 .row-links li, .link-groups .link-list li, .card-grid + .link-list li { border-top: 1px solid var(--color-border); padding-block: 0; }
 .row-links a.link-arrow, .link-groups a.link-arrow, .card-grid + .link-list a.link-arrow {
     display: flex;
