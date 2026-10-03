@@ -351,7 +351,7 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
   - Kannada: stopgap strings for the router and short steps, logged in `docs/kannada-review.md`.
 
 ### Next (strategy section 9.3, English first; Kannada last)
-0. **Kannada phase started (2026-10-03).** Glossary approved by the owner (`docs/kannada-glossary.md` 6a: ಉದ್ಯೋಗದಾತರು, ಸಂಬಳ with ವೇತನ only in set names (ಮೂಲ ವೇತನ, PF/ESI ವೇತನ), ವಂತಿಗೆ, ಕೊನೆಯ ದಿನಾಂಕ, ಚಲನ್ (PF ಪಾವತಿ ಚೀಟಿ), ಡ್ಯಾಮೇಜಸ್, never ಅನುಸರಣೆ (fallback ನಿಯಮ ಪಾಲನೆ), all-Kannada tool names). Step 1 done: `kn.yml` matches the final `en.yml` (`docs/kn-shared-copy.md`, owner-approved). Step 2 done: Kannada PF/ESI service and PF/ESI registration pages (`docs/kn-service-registration-copy.md`, compliance-reviewed, owner-approved). Settled: casual = ತಾತ್ಕಾಲಿಕ ಮತ್ತು ದಿನಗೂಲಿ; "if the rules cover them" = ನಿಯಮಗಳು ಅವರಿಗೆ ಅನ್ವಯಿಸಿದರೆ; ESI cash benefit = ಹಣದ ಸಹಾಯ (never ಸಂಬಳ); no bracket after ಋತುಮಾನದ ಕಾರ್ಖಾನೆ; closing lines "…ನಮಗೆ ಬಿಡಿ"; big word "Anytime" = ಬೇಕಾದಾಗ; "15th" = `{{ x.due_day }}ನೇ`. Kannada pages write every page-text link with `link.html` (falls back to English with the marker). Next: home (then tools, cities, industries, guides, About/Contact/legal), same flow: copy doc, compliance reviewer, owner approval, build, checks, commit. Section close-ups: `node audit/check/shot-sections.mjs <path> <name> <sg-id,...>`. Earlier note: **Start here (next session, owner 2026-10-03): the Kannada phase (item 2 below).** Launch-check steps 1-3 and A1
+0. **Start here (next session, owner 2026-10-03): build the Kannada home page next**, then the rest in the order of item 2 below. Kannada phase in progress. Glossary approved by the owner (`docs/kannada-glossary.md` 6a: ಉದ್ಯೋಗದಾತರು, ಸಂಬಳ with ವೇತನ only in set names (ಮೂಲ ವೇತನ, PF/ESI ವೇತನ), ವಂತಿಗೆ, ಕೊನೆಯ ದಿನಾಂಕ, ಚಲನ್ (PF ಪಾವತಿ ಚೀಟಿ), ಡ್ಯಾಮೇಜಸ್, never ಅನುಸರಣೆ (fallback ನಿಯಮ ಪಾಲನೆ), all-Kannada tool names). Step 1 done: `kn.yml` matches the final `en.yml` (`docs/kn-shared-copy.md`, owner-approved). Step 2 done: Kannada PF/ESI service and PF/ESI registration pages (`docs/kn-service-registration-copy.md`, compliance-reviewed, owner-approved). Settled: casual = ತಾತ್ಕಾಲಿಕ ಮತ್ತು ದಿನಗೂಲಿ; "if the rules cover them" = ನಿಯಮಗಳು ಅವರಿಗೆ ಅನ್ವಯಿಸಿದರೆ; ESI cash benefit = ಹಣದ ಸಹಾಯ (never ಸಂಬಳ); no bracket after ಋತುಮಾನದ ಕಾರ್ಖಾನೆ; closing lines "…ನಮಗೆ ಬಿಡಿ"; big word "Anytime" = ಬೇಕಾದಾಗ; "15th" = `{{ x.due_day }}ನೇ`. Kannada pages write every page-text link with `link.html` (falls back to English with the marker). Next: home (then tools, cities, industries, guides, About/Contact/legal), same flow: copy doc, compliance reviewer, owner approval, build, checks, commit. Section close-ups: `node audit/check/shot-sections.mjs <path> <name> <sg-id,...>`. Earlier status (before the Kannada phase): Launch-check steps 1-3 and A1
    are done and committed (last: `9808a5e` A1 PF damages). Before building, check whether the fluent-speaker review
    of `docs/kannada-glossary.md` / `docs/kannada-review.md` has happened; if not, ask the owner how to proceed. Owner
    items still open for launch (not blockers for the Kannada build): B3 gazette S.O. 2351(E), A1 egazette G.S.R.
@@ -527,11 +527,25 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
    standalone `.link-arrow` tap targets 44px; real post dates in `date_published:`.)
    Open from phase 4: the 100% cap on old-slab penalty damages (a reviewed update once the Code's
    section is confirmed, 9.4 #1/#2; the result shows a "call us" note for now).
-2. **Kannada phase (next; owner 2026-10-03: "continue with Kannada pages in a new session"):** first a fluent speaker reviews
-   `docs/kannada-glossary.md` and `docs/kannada-review.md`; then every Kannada page is
-   built from the final English page (EN + KN pairs, D9), including the EPF/ESI service
-   and registration pages. The old `kn/` pages are replaced then (e.g. the old Kannada
-   ESI page still says "gross salary"). Run the SEO/Kannada reviewer on each.
+2. **Kannada phase (in progress since 2026-10-03).** The glossary was approved by the owner (no separate fluent-speaker
+   pass first; all Kannada text is still logged in `docs/kannada-review.md` for a later fluent read). Every Kannada page is
+   a translation of the final, built English page: nothing added or left out.
+   - **Done:** step 1 shared text (`kn.yml` matches `en.yml`, `docs/kn-shared-copy.md`); step 2 `kn/epf-consultancy-service`,
+     `kn/esi-consultancy-service`, `kn/pf-registration`, `kn/esi-registration` (`docs/kn-service-registration-copy.md`).
+     Also rebuilt earlier: `kn/style-guide`, bilingual `404`.
+   - **Still to build, in this order:** home (`kn/index`); tools hub + 7 tools (tool text lives in each page's inline
+     config; no logic change; the converter must load SheetJS from `/assets` like English); 3 city pages; industry hub
+     + 5 industries (`kn/industries/`); blog index + 11 posts (`kn/blogs/`); About, Contact (map behind "Show the map",
+     like English), Privacy, Terms. Old `kn/` pages still live: index, about-us, contact-us, 3 cities, converter, privacy,
+     terms; replace each in full (they have old header/footer, Kannada-script acronyms, "ಅನುಸರಣೆ").
+   - **Flow per page group:** (1) `docs/kn-<group>-copy.md`: English (final) vs current Kannada vs new Kannada, owner
+     questions at the end; (2) compliance reviewer on the draft, apply its wording; (3) owner approval; (4) build:
+     copy the English page, `lang: kn`, translate front matter (title, description, breadcrumb, service, faq) and body;
+     facts from `_data/facts.yml`; every page-text link through `link.html`; FAQ links between built Kannada pages go to
+     `/kn/...`; (5) build, sitemap check, JSON-LD (`audit/check/jsonld.py`), scan rendered text for leftover English,
+     `check-page.mjs` at 5 widths, review 390/1440 screenshots; (6) log in `docs/kannada-review.md`, commit. Run the
+     SEO/Kannada reviewer on each group.
+   - Jekyll 3 note: include parameters can't take `a[2].b`; `assign` first.
 3. Launch check (phase 9): internal-link crawl of `_site` (the industry pages are
    already linked from rebuilt pages), all six reviewers, strategy 9.4 verified by the
    compliance reviewer (incl. #10: remove the ESI "stay to the end of the period" line
