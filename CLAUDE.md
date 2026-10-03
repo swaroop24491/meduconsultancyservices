@@ -474,7 +474,14 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
    (white, `card-grid--panel` per question group) → "Kept up to date" (tint, founder line kept) → FAQ (+ "Can you do this
    for us every month?") → closing; two paths removed. Tool pages: tool and "How … worked out" unchanged; "Related tools
    and pages" → "More help with PF and ESI" (converter: "with PF"), white, 2 panel tool cards + "Guides:"/"Our services:"
-   link groups (same links as before). No tool text or logic changed. Next: the launch check (phase 9), then Kannada.
+   link groups (same links as before). No tool text or logic changed. Owner: the tool pages' top still looked old, so
+   (CSS only, scoped to `[data-page-type="tool"]`; blog posts keep the plain head) the H1/lead are hero-sized, the `.tool`
+   (or each `.tool-check`) is a white rounded panel (edge to edge under 560px) and the result call box is tint. The
+   result call box keeps its compact proof line (only proof on tool pages; owner can still ask to remove it).
+   **Next session (owner, 2026-10-03): the guides (blog index + 11 posts), v2** (same v2 spirit and workflow: copy doc
+   old vs new in `docs/guides-copy-v2.md`, compliance reviewer where facts are touched, owner approval, build, check at
+   all widths, commit). Posts share `.tool-section`/`.tool-lead`/`result-call` with tools: scope any change. Then the
+   launch check (phase 9), then Kannada.
    **Earlier note (owner, 2026-10-03): tools hub and the 7 tool pages, v2** (same v2 spirit: copy doc old vs new in
    `docs/tools-copy-v2.md`, compliance reviewer, owner approval, build, check at all widths, commit). Start from the phase 4
    copy docs and the tool page conventions (phase 4 below). Tool text and calculation logic don't change as part of the
