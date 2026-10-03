@@ -1,0 +1,13 @@
+{%- comment -%}
+  Map on tap: a light panel; the Google map loads only after the tap, so no Google
+  scripts load before. Hidden without JavaScript (script.js shows it); keep an
+  "Open in Google Maps" link nearby for that case. include map-tap.html
+{%- endcomment -%}
+{%- include i18n.html -%}
+<div class="map-tap" data-map-src="{{ site.data.site.map_embed_url }}" data-map-title="{{ t.map.title }}" hidden>
+  <div class="map-tap__inner">
+    {% include icon.html name="pin" size="32" %}
+    <p>{{ t.map.note }}</p>
+    <button type="button" class="btn btn--outline">{{ t.map.button }}</button>
+  </div>
+</div>

@@ -1064,6 +1064,8 @@ html[lang="kn"] .hero h1 { line-height: 1.4; }
 }
 .steps.steps--timeline strong { display: block; font-size: var(--text-lg); color: var(--color-heading); }
 .steps--timeline + .call-block { margin-top: var(--space-7); }
+.steps--timeline + .prose { margin-top: var(--space-7); }
+.steps--timeline + .prose + .call-block { margin-top: var(--space-6); }
 @media (min-width: 1024px) {
     .steps.steps--timeline { grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: var(--space-5); }
     .steps.steps--timeline li:nth-child(n) { padding: calc(var(--badge-step) + var(--space-4)) 0 0; }
@@ -1152,6 +1154,8 @@ ul.fact-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); 
     color: var(--color-brand);
 }
 html[lang="kn"] .col-word { letter-spacing: 0; }
+/* In a panel card (contact "Phone"), smaller so the number stays on one line */
+.card-grid--panel .col-word { font-size: clamp(1.5rem, 1.1rem + 0.8vw, 1.875rem); white-space: nowrap; }
 /* Side by side, a smaller size keeps each big word on one line, so the
    headings under them line up across the columns */
 @media (min-width: 960px) {
@@ -1161,3 +1165,23 @@ html[lang="kn"] .col-word { letter-spacing: 0; }
 /* ---------- Icons above columns ---------- */
 .icon-badge--lg { width: 48px; height: 48px; }
 .card-grid--columns .icon-badge { margin-bottom: var(--space-2); }
+
+/* ---------- Map on tap ----------
+   A light panel with a faint map grid; the Google map replaces it after the tap. */
+.map-tap {
+    display: grid;
+    margin-top: var(--space-5);
+    height: clamp(16rem, 8rem + 20vw, 28rem);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background-color: var(--color-tint);
+    background-image: linear-gradient(var(--color-tint-line) 1px, transparent 1px), linear-gradient(90deg, var(--color-tint-line) 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+.map-tap[hidden] { display: none; }
+.map-tap__inner { place-self: center; display: grid; justify-items: center; gap: var(--space-3); padding: var(--space-5); text-align: center; }
+.map-tap__inner .icon { color: var(--color-brand); }
+.map-tap__inner p { margin: 0; font-size: var(--text-sm); color: var(--color-text); }
+.map-tap__inner .btn--outline { justify-self: center; background: var(--color-surface); }
+.map-tap iframe { display: block; width: 100%; height: 100%; border: 0; }

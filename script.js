@@ -316,4 +316,24 @@
       }
     });
   });
+
+  /* -------------------------------------------------------------------------
+     Map on tap (contact page): load the Google map only after the tap, then
+     move focus to it.
+     ------------------------------------------------------------------------- */
+  document.querySelectorAll('.map-tap[data-map-src]').forEach(function (box) {
+    var button = box.querySelector('button');
+    if (!button) {
+      return;
+    }
+    box.hidden = false;
+    button.addEventListener('click', function () {
+      var frame = document.createElement('iframe');
+      frame.src = box.getAttribute('data-map-src');
+      frame.title = box.getAttribute('data-map-title');
+      frame.setAttribute('loading', 'lazy');
+      box.replaceChildren(frame);
+      frame.focus();
+    });
+  });
 })();

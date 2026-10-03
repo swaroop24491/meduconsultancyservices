@@ -2,41 +2,57 @@
 layout: base
 lang: en
 page_type: contact
-last_modified: 2026-10-02
-title: "Call Medu Consultancy | +91 82175 42975"
-description: "Call us on +91 82175 42975. We tell you what PF and ESI apply to your business. Office: Padil, Mangaluru."
+last_modified: 2026-10-03
+title: "Contact Medu Consultancy | Call +91 82175 42975"
+description: "Call us on +91 82175 42975 for help with PF and ESI. Talk to us in English, Kannada or Hindi. Office: Padil, Mangaluru."
 breadcrumb:
   - { name: Contact }
 ---
 {%- include i18n.html -%}
 {%- assign a = site.data.site.address -%}
-{% include hero.html heading="Call us" lead="Call us on +91 82175 42975. Talk to us in English or Kannada. We can help you in Hindi too." %}
+{% include hero.html heading="Contact us" lead="The quickest way to reach us is a phone call. We tell you if PF and ESI apply to your business." proof=false %}
 
-<section class="section" aria-labelledby="call-heading">
-  <div class="container stack">
+<section class="section section--surface section--stacked" aria-labelledby="reach-heading">
+  <div class="container">
+    <h2 id="reach-heading">How to reach us</h2>
+    <div class="card-grid card-grid--panel">
+      <div class="card">
+        <span class="icon-badge">{% include icon.html name="call" size="24" %}</span>
+        <h3>Phone</h3>
+        <p class="col-word"><a href="tel:{{ site.data.site.phone_tel }}" data-call-location="contact-card">{{ site.data.site.phone_display }}</a></p>
+        <p>You can talk to us in English or Kannada, and we can help you in Hindi too.</p>
+      </div>
+      <div class="card">
+        <span class="icon-badge">{% include icon.html name="pin" size="24" %}</span>
+        <h3>Our office</h3>
+        <address>{{ site.data.site.name }}<br>{{ a.street }}<br>{{ a.locality }}, {{ a.region }} {{ a.postal_code }}</address>
+        <p><a class="link-arrow" href="{{ site.data.site.map_url }}" rel="noopener">Open in Google Maps&#8288;{% include icon.html name="arrow" size="18" %}</a></p>
+      </div>
+      <div class="card">
+        <span class="icon-badge">{% include icon.html name="home" size="24" %}</span>
+        <h3>No office visits needed</h3>
+        <p>You never need to visit us. We work by phone and email. We work with businesses in Mangalore, Udupi and Bangalore, and we can visit you if needed.</p>
+        {% include city-links.html descriptive=true label=false %}
+      </div>
+    </div>
+    {% include map-tap.html %}
+  </div>
+</section>
+
+<section class="section section--tint section--stacked" aria-labelledby="call-heading">
+  <div class="container">
+    <h2 id="call-heading">What happens when you call</h2>
+    <ol class="steps steps--timeline">
+      <li><strong>We ask a few questions about your business.</strong> We tell you if PF and ESI apply.</li>
+      <li><strong>We tell you which documents we need.</strong> You send them.</li>
+    </ol>
     <div class="prose">
-      <h2 id="call-heading">What happens when you call</h2>
-      <ol class="steps">
-        <li><strong>We ask a few questions about your business.</strong> We tell you what applies.</li>
-        <li><strong>We tell you which documents we need.</strong> You send them.</li>
-      </ol>
       <p>If you can, keep two things ready:</p>
       <ul class="check-list">
         <li>How many people work for you.</li>
         <li>Your PF or ESI number, if you have one.</li>
       </ul>
     </div>
-    {% include filing-promise.html %}
-  </div>
-</section>
-
-<section class="section" aria-labelledby="office-heading">
-  <div class="container stack">
-    <div class="prose">
-      <h2 id="office-heading">Our office</h2>
-      <p>Our office is in Mangaluru. You do not need to visit us. We also work with businesses in <a href="/epf-esi-consultancy-mangalore">Mangalore</a>, <a href="/epf-esi-consultancy-udupi">Udupi</a> and <a href="/epf-esi-consultancy-bangalore">Bangalore</a>.</p>
-      <address>{{ site.data.site.name }}<br>{{ a.street }}<br>{{ a.locality }}, {{ a.region }} {{ a.postal_code }}</address>
-      <p><a class="link-arrow" href="{{ site.data.site.map_url }}" rel="noopener">Open in Google Maps&#8288;{% include icon.html name="arrow" size="18" %}</a></p>
-    </div>
+    {% include call-block.html location="contact" %}
   </div>
 </section>

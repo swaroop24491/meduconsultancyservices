@@ -207,6 +207,12 @@
   <div class="sg-demo" lang="{{ lang }}">{% include no-office.html %}</div></div>
 </div>
 
+<div id="sg-map" class="sg-component">
+  <div class="container"><p class="sg-component__name">Map on tap</p><p class="sg-note">Contact page. A light panel with a faint map grid; the Google map (<code>map_embed_url</code> in <code>_data/site.yml</code>) loads only after the visitor taps "Show the map", so nothing is sent to Google before that and the page stays fast. After the tap, focus moves to the map. Hidden without JavaScript, so keep an "Open in Google Maps" link nearby. Text in <code>t.map</code>. Never pair it with "visit us" or "directions" (brief section 8).</p>
+  <pre class="sg-code"><code>{% raw %}{% include map-tap.html %}{% endraw %}</code></pre>
+  <div class="sg-demo" lang="{{ lang }}">{% include map-tap.html %}</div></div>
+</div>
+
 <div id="sg-situations" class="sg-component">
   <div class="container"><p class="sg-component__name">Situation router</p><p class="sg-note">"What do you need help with?": four choices (register, file every month, not sure, paid late), each with links; the last two start with a call row. Home and city pages; replaces two paths there.</p>
   <pre class="sg-code"><code>{% raw %}{% include situation-cards.html %}{% endraw %}</code></pre></div>
