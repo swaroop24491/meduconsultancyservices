@@ -458,19 +458,25 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
    map on load and `kn/epf-excel-to-text-converter.html` loads SheetJS from cdnjs, so Privacy is only fully true once the
    Kannada pages are rebuilt; check both in phase 9. Settled facts: founder retired, past tense only, no job title; email
    in the footer only; no invite to visit the office; Privacy has no promise about call data.
-   **Next session: Industries hub and the 5 industry pages, v2** (same v2 spirit as the other pages: copy doc old vs new,
-   compliance reviewer, owner approval, build, check at all widths, commit). Start from the open founder-line item below.
-   Then the launch check (phase 9), then the Kannada phase.
+   **Industries hub + 5 industry pages v2 (2026-10-03, built and committed):** copy in `docs/industries-copy-v2.md`
+   (compliance-reviewed, owner-approved "proceed as recommended"; the built pages are the final text). Industry page order:
+   hero (H1 "We file PF and ESI for <industry>, every month.", `proof="strip"`) → "How PF and ESI apply to your staff/workers"
+   (white, 3 `.col-word` columns with the industry's own points; 4-card pages merged to 3; IT adds an ESI line under them) →
+   "When staff don't want to join" (tint, 2 lines + "Share these with your staff:" PF/ESI benefit links) → "What we do for
+   you" (check-list with the settled wording + takeover line + cities line + call block) → "More help with PF and ESI"
+   (white; tool cards, 1-2 guides per industry, services, other industries) → FAQ → closing. **Founder line removed from
+   all 5** (owner; the proof strip carries "35 years"). Hospitals: the "pay goes above ₹21,000" card removed; FAQ 3 now has
+   the ESI service page wording (9.4 #10 fallback in the copy doc). Compliance: never "every worker/staff member" gets
+   UAN/IP or is added to PF/ESI ("if the rules cover them"). Hub: proof strip, white industry cards, "once the rules apply
+   to you". New CSS: `.card-grid + .prose` spacing. Still open: schools thin (E4), per-industry numbers (G4): owner input only.
+   **Next session: the launch check (phase 9)**, then the Kannada phase.
    Contact checks: `node audit/check/shot-contact.mjs` (widths, axe, Google requests before/after the tap).
    **Committed (owner, 2026-10-03: "commit and push all changes"):** the 3 city pages have a "Who's behind it"
    `founder-note stat=true bg="tint"` above "More help". Decision (a) is still open on its form: keep the stat or not,
    given the big "35 years" under "Why businesses choose us".
    **Hero size (2026-10-03, owner):** hero H1 uses its own `--text-hero` token (max 56px, was `--text-display` 72px);
    `.hero__text:only-child` spans the full grid when there is no proof column; proof-strip numbers max 44px.
-   Open from earlier (owner to decide): the 5 industry pages say "Our founder worked 35 years at EPFO (the
-   PF office), so we know/keep/can explain..." (factories:76, hospitals:77, contractors:75, schools:68,
-   it-companies:77); compliance rates it medium (could read as current inside knowledge); propose old vs
-   new if wanted. `check-page.mjs` now skips the FAQ step on pages with no FAQ. The owner
+   `check-page.mjs` now skips the FAQ step on pages with no FAQ. The owner
    approves with short messages ("go with the recommendations", "proceed as recommended").
 1. Phase 8 is done (see above). Deferred from phase 7 (after the launch check,
    before Kannada): make each PF/ESI twin post more distinct (inspection 87%, late-payment 82%, threshold 75%
