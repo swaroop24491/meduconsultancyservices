@@ -12,13 +12,13 @@ breadcrumb:
   - { name: PF penalty calculator }
 faq:
   - q: What are PF damages?
-    a: Damages are a fine EPFO can charge when you pay PF late. They are on top of the interest. For payments due from 14 June 2024, damages are 1% of the unpaid amount for each month late.
+    a: Damages are a fine EPFO can charge when you pay PF late. They are on top of the interest. For payments due from 14 June 2024, damages are 0.25% to 1% of the unpaid amount for each month late. The later you pay, the higher the rate.
   - q: How much interest is charged on late PF?
     a: 12% a year on the unpaid amount, counted for each day from the due date until the day you pay. Interest is charged on every late payment.
   - q: Are damages always charged?
     a: EPFO decides whether to charge damages, and how much. That is why the calculator's damages figure is an estimate, not a final amount.
   - q: What changed on 14 June 2024?
-    a: For PF due from 14 June 2024, damages are 1% of the unpaid amount for each month late, up to 100% of it. Before that, the rate went up in steps, from 5% to 25% a year.
+    a: "For PF due from 14 June 2024, damages are a monthly rate, based on how late you pay: 0.25% a month if you are less than 2 months late, 0.5% a month if you are 2 months late or more but less than 4, and 1% a month if you are 4 months late or more. They can't be more than the unpaid amount. Before 14 June 2024, the rate went up in steps, from 5% to 25% a year."
 ---
 {%- assign epf = site.data.facts.epf -%}
 <section class="section section--stacked tool-section" aria-labelledby="tool-heading">
@@ -66,7 +66,7 @@ faq:
       <h3>Damages</h3>
       <p>Damages are a fine on top of the interest. The rate depends on when the payment was due:</p>
       <ul>
-        <li><strong>Due on or after 14 June 2024:</strong> 1% of the unpaid amount for each month late. Part of a month counts as a full month. Damages can't be more than the unpaid amount.</li>
+        <li><strong>Due on or after 14 June 2024:</strong> a monthly rate, based on how late you pay. Less than 2 months late: 0.25% a month. 2 months or more, but less than 4: 0.5% a month. 4 months or more: 1% a month. In this estimate, part of a month counts as a full month. Damages can't be more than the unpaid amount.</li>
         <li><strong>Due before 14 June 2024:</strong> a yearly rate that goes up the longer you are late: 5% (under 2 months), 10% (2 to 4 months), 15% (4 to 6 months), 25% (6 months or more).</li>
       </ul>
       <p>Was your PF due before 14 June 2024, and paid after it? The rules for this are not clear. <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a> to check.</p>

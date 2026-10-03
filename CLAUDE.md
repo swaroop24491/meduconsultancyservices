@@ -369,8 +369,12 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
    the 15th. Or send us the amount and we pay it."; ECR "the monthly list of each employee's wages and PF, sent to the
    PF office"; directors "call us to check how to count them" for PF and ESI. Still open for launch: B3 gazette copy,
    B4 September check, B6 hedged facts, B8 owner input (see the findings doc).
-   (4) the PF damages rule (EPF Scheme 2026 para 23, compliance finding A1) as its own reviewed logic update once the
-   owner confirms it. Then the Kannada phase (item 2). Site sweep: `node audit/check/sweep.mjs` (every page, 5 widths,
+   (4) PF damages rule A1: **done** (2026-10-03, `docs/tool-logic-a1.md`, `docs/a1-damages-copy.md`, compliance-reviewed,
+   owner-approved). EPF Scheme 2026 para 23, applied back to dues from 14 June 2024: under 2 months 0.25% a month, 2 months
+   or more but less than 4: 0.5%, 4 months or more: 1%; cap = arrears; part of a month counts as a full month ("in this
+   estimate"); exactly 60/120 days take the higher band. Never write "2 to 4 months" for PF damages (overlaps "4 or more").
+   Still to confirm from the egazette copy of G.S.R. 525(E): scope, part month, one rate vs stepped; `tools_checked`
+   stays 27 September 2026 until then. Then the Kannada phase (item 2). Site sweep: `node audit/check/sweep.mjs` (every page, 5 widths,
    axe, JSON-LD, console). **Owner, 2026-10-03: tool pages stay tool-first; don't add a "what Medu does" line at the top.**
    **PF page v2 (final, owner-approved):** copy in `docs/epf-service-copy-v2.md` (round 1 + owner changes +
    round 2; compliance-reviewed; the built page is the final text). Order: hero (H1 "We file your PF every

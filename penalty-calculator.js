@@ -19,8 +19,12 @@
  *      is, counting a month as 30 days: under 2 months (under 60 days) 5%
  *      p.a.; 2 to under 4 months (60-119 days) 10%; 4 to under 6 months
  *      (120-179 days) 15%; 6 months or more (180+ days) 25%. For EPF defaults on or after 14 June 2024,
- *      it is a flat 1% per month (or part month), capped at 100% of the
- *      arrears.
+ *      it is EPF Scheme 2026 para 23 (G.S.R. 525(E), 29 June 2026; para
+ *      23(2) applies it back to 14 June 2024): a monthly rate by how late,
+ *      under 2 months 0.25%, 2 to under 4 months 0.5%, 4 months or more 1%,
+ *      for each month or part month, capped at 100% of the arrears. The
+ *      Scheme leaves exactly 2 and 4 months between bands; like the slabs,
+ *      they go in the higher band.
  *
  * This file has two parts: pure calculation (PenaltyCalculator, reusable
  * and unit-testable on its own) and DOM wiring (initPenaltyCalculator,
@@ -36,7 +40,6 @@
   var INTEREST_RATE_ANNUAL = 0.12; // 12% p.a., both schemes
 
   var EPF_RATE_CHANGE_DATE = new Date(2024, 5, 14); // 14 June 2024
-  var EPF_POST_CHANGE_MONTHLY_RATE = 0.01; // 1% per month/part-month
   var EPF_DAMAGES_CAP_RATIO = 1.0; // statutory ceiling: 100% of arrears
 
   function round2(n) {
@@ -67,6 +70,15 @@
     return { rate: 0.25, label: 'a delay of 6 months or more' };
   }
 
+  function epfMonthlyBandFor(delayDays) {
+    // EPF Scheme 2026 para 23: the band uses the actual delay in 30-day
+    // months; the rate is then charged for every month or part month.
+    var months = delayDays / 30;
+    if (months < 2) return { rate: 0.0025, percent: '0.25', label: 'a delay under 2 months' };
+    if (months < 4) return { rate: 0.005, percent: '0.5', label: 'a delay of 2 months or more, but less than 4' };
+    return { rate: 0.01, percent: '1', label: 'a delay of 4 months or more' };
+  }
+
   function calculateInterest(amount, delayDays) {
     return round2(amount * INTEREST_RATE_ANNUAL * (delayDays / 365));
   }
@@ -93,13 +105,14 @@
         usesRoundedMonths: false
       };
     }
-    var raw = amount * EPF_POST_CHANGE_MONTHLY_RATE * delayMonths;
+    var band = epfMonthlyBandFor(delayDays);
+    var raw = amount * band.rate * delayMonths;
     var cap = amount * EPF_DAMAGES_CAP_RATIO;
     var capped = raw > cap;
     return {
       amount: round2(Math.min(raw, cap)),
-      ruleLabel: 'New rate (from 14 June 2024): 1% a month',
-      bracketLabel: delayMonths + ' month' + (delayMonths === 1 ? '' : 's') + ' late',
+      ruleLabel: 'Rate from 14 June 2024: ' + band.percent + '% a month',
+      bracketLabel: band.label,
       capped: capped,
       usesRoundedMonths: true
     };
