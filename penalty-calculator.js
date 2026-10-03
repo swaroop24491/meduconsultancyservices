@@ -4,8 +4,8 @@
  * Legal sources (verify these are still current before relying on this for
  * an actual EPFO/ESIC matter - rates last checked 2026-09-27):
  *   Code on Social Security, 2020 (in force from 21 November 2025). It
- *   replaced the EPF Act, 1952 and the ESI Act, 1948; section numbers that
- *   replace the old Act sections are still being verified.
+ *   replaced the EPF Act, 1952 and the ESI Act, 1948. Interest: s.127;
+ *   damages, never more than the arrears: s.128.
  *   Interest and damages on late contributions (formerly EPF Act s.7Q/14B
  *   and ESI Act s.85B). EPF damages rates as changed from 14 June 2024;
  *   ESI slabs as in the ESI (General) Regulations (Reg. 31-A/31C), which
@@ -25,6 +25,8 @@
  *      for each month or part month, capped at 100% of the arrears. The
  *      Scheme leaves exactly 2 and 4 months between bands; like the slabs,
  *      they go in the higher band.
+ *      Slab damages (ESI, and EPF before 14 June 2024) are also capped at
+ *      100% of the arrears (Code s.128).
  *
  * This file has two parts: pure calculation (PenaltyCalculator, reusable
  * and unit-testable on its own) and DOM wiring (initPenaltyCalculator,
@@ -40,7 +42,7 @@
   var INTEREST_RATE_ANNUAL = 0.12; // 12% p.a., both schemes
 
   var EPF_RATE_CHANGE_DATE = new Date(2024, 5, 14); // 14 June 2024
-  var EPF_DAMAGES_CAP_RATIO = 1.0; // statutory ceiling: 100% of arrears
+  var DAMAGES_CAP_RATIO = 1.0; // Code s.128: damages never more than the arrears (PF and ESI)
 
   function round2(n) {
     return Math.round(n * 100) / 100;
@@ -83,31 +85,40 @@
     return round2(amount * INTEREST_RATE_ANNUAL * (delayDays / 365));
   }
 
-  function calculateEsiDamages(amount, delayDays) {
+  function slabDamages(amount, delayDays) {
+    // Yearly slab rate on the actual days late, capped at the arrears (Code
+    // on Social Security s.128: damages not more than the arrears).
     var slab = slabFor(delayDays);
+    var raw = amount * slab.rate * (delayDays / 365);
+    var cap = amount * DAMAGES_CAP_RATIO;
+    return { slab: slab, amount: round2(Math.min(raw, cap)), capped: raw > cap };
+  }
+
+  function calculateEsiDamages(amount, delayDays) {
+    var d = slabDamages(amount, delayDays);
     return {
-      amount: round2(amount * slab.rate * (delayDays / 365)),
-      ruleLabel: 'Rate: ' + (slab.rate * 100) + '% a year',
-      bracketLabel: slab.label,
-      capped: false,
+      amount: d.amount,
+      ruleLabel: 'Rate: ' + (d.slab.rate * 100) + '% a year',
+      bracketLabel: d.slab.label,
+      capped: d.capped,
       usesRoundedMonths: false
     };
   }
 
   function calculateEpfDamages(amount, delayDays, delayMonths, dueDate) {
     if (dueDate < EPF_RATE_CHANGE_DATE) {
-      var slab = slabFor(delayDays);
+      var d = slabDamages(amount, delayDays);
       return {
-        amount: round2(amount * slab.rate * (delayDays / 365)),
-        ruleLabel: 'Old rate (before 14 June 2024): ' + (slab.rate * 100) + '% a year',
-        bracketLabel: slab.label,
-        capped: false,
+        amount: d.amount,
+        ruleLabel: 'Old rate (before 14 June 2024): ' + (d.slab.rate * 100) + '% a year',
+        bracketLabel: d.slab.label,
+        capped: d.capped,
         usesRoundedMonths: false
       };
     }
     var band = epfMonthlyBandFor(delayDays);
     var raw = amount * band.rate * delayMonths;
-    var cap = amount * EPF_DAMAGES_CAP_RATIO;
+    var cap = amount * DAMAGES_CAP_RATIO;
     var capped = raw > cap;
     return {
       amount: round2(Math.min(raw, cap)),
@@ -225,7 +236,6 @@
     total: 'Total (estimate)',
     rateLines: {},
     unclearNote: function (call) { return 'Your PF was due before 14 June 2024 and paid after it. The rules for this are not clear, so this figure may change. ' + call + ' to check.'; },
-    unusualNote: function (call) { return 'Damages this high are unusual. ' + call + ' to check.'; },
     cappedNote: 'Damages can\'t be more than the unpaid amount. So they stop at 100% of it.'
   };
 
@@ -363,14 +373,9 @@
       html += '<p class="result-note">' + (T.rateLines[rateLine] || rateLine) + '</p>';
 
       // Text-only notes (the amounts above don't change). Strategy 9.4 #18: PF
-      // due before the 14 June 2024 change but paid after it. 9.4 #1/#2: the old
-      // slabs have no cap here, so very long delays can give damages above the
-      // unpaid amount; the cap under the Code is not yet confirmed.
+      // due before the 14 June 2024 change but paid after it.
       if (scheme === 'epf' && result.dueDate < EPF_RATE_CHANGE_DATE && paymentDate >= EPF_RATE_CHANGE_DATE) {
         html += '<p class="result-note">' + T.unclearNote(CALL) + '</p>';
-      }
-      if (!result.damages.capped && result.damages.amount > result.principal) {
-        html += '<p class="result-note">' + T.unusualNote(CALL) + '</p>';
       }
 
       if (result.damages.capped) {
