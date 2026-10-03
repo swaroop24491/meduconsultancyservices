@@ -20,7 +20,6 @@ nav:
   links:
     - { label: PF ಸೇವೆ, path: epf-consultancy-service }
     - { label: ESI ಸೇವೆ, path: esi-consultancy-service }
-    - { label: ಉದ್ಯಮಗಳು, path: industries/ }
     - { label: ಉಚಿತ ಸಾಧನಗಳು, path: epf-esi-tools-calculators }
     - { label: ಮಾರ್ಗದರ್ಶಿಗಳು, path: blogs/ }
     - { label: ನಮ್ಮ ಬಗ್ಗೆ, path: about-us }

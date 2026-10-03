@@ -17,7 +17,6 @@ nav:
   links:
     - { label: PF services, path: epf-consultancy-service }
     - { label: ESI services, path: esi-consultancy-service }
-    - { label: Industries, path: industries/ }
     - { label: Free tools, path: epf-esi-tools-calculators }
     - { label: Guides, path: blogs/ }
     - { label: About, path: about-us }
