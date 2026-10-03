@@ -484,7 +484,7 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
    mid-post call box tint); "Related tools and pages" → "More help with PF and ESI" (white stacked band, panel tool cards,
    "Guides:" / "Our services:" link groups, cities note kept). Index: "Guides by situation" white band with panel link
    cards in `.tool-group`s (like the tools hub), tools as panel cards. New panel rules: icon-less link cards, and exactly
-   4 panel cards show 2 by 2. "Guide article" is on the style guide. **Next: the launch check (phase 9), then Kannada.**
+   4 panel cards show 2 by 2. "Guide article" is on the style guide. Article width `--container-article` (48rem) with 18px text (owner: the 42rem column looked narrow). **Next: the launch check (phase 9), then Kannada.**
    **Earlier note (owner, 2026-10-03): tools hub and the 7 tool pages, v2** (same v2 spirit: copy doc old vs new in
    `docs/tools-copy-v2.md`, compliance reviewer, owner approval, build, check at all widths, commit). Start from the phase 4
    copy docs and the tool page conventions (phase 4 below). Tool text and calculation logic don't change as part of the

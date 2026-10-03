@@ -65,6 +65,7 @@
     /* Layout and shape */
     --container: 72rem;
     --container-text: 42rem;         /* comfortable reading width */
+    --container-article: 48rem;      /* guide article reading width (18px text) */
     --radius-sm: 6px;
     --radius: 12px;
     --radius-lg: 16px;               /* panel cards */
@@ -866,8 +867,10 @@ html[lang="kn"] .hero h1 { line-height: 1.4; }
    blocks, tint like the tool pages. */
 main > .guide-article { padding-top: 0; border-top-color: transparent; }
 .guide-article .prose > h2 { margin-top: var(--space-7); }
+.guide-article .prose { max-width: var(--container-article); font-size: var(--text-lg); }
+[data-page-type="post"] .tool-lead { max-width: var(--container-article); }
 .guide-article .prose > h2:first-child { margin-top: 0; }
-.guide-article .result-call { max-width: var(--container-text); margin-block: var(--space-7); background: var(--color-tint); border-radius: var(--radius-lg); }
+.guide-article .result-call { max-width: var(--container-article); margin-block: var(--space-7); background: var(--color-tint); border-radius: var(--radius-lg); }
 
 .tool-form { display: grid; gap: var(--space-5); max-width: 32rem; }
 /* The scripts fill a wrapper div with the fields */
