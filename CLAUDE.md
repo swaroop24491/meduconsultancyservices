@@ -357,7 +357,8 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
    approval, build, checks, log, commit, SEO/Kannada reviewer. Settled on the industry pages: "principal employer" =
    ಮುಖ್ಯ ಉದ್ಯೋಗದಾತರು (ಕಾನೂನಿನಲ್ಲಿ "principal employer"); CBSE affiliation = ಸಂಯೋಜನೆ (affiliation); PF/ESI wage limit =
    PF/ESI ವೇತನ ಮಿತಿ; staff benefit links "PFನಿಂದ ನಿಮಗೆ ಏನು ಸಿಗುತ್ತದೆ?" / "ESIನಿಂದ…"; `link.html arrow=false` for links inside
-   a sentence (the include no longer ends with a newline, so no space before a comma). (`check-page.mjs` reports the
+   a sentence (the include no longer ends with a newline, so no space before a comma). Lists containing "ತಾತ್ಕಾಲಿಕ ಮತ್ತು
+   ದಿನಗೂಲಿ" join the outer list with ಹಾಗೂ. SEO/Kannada round on the industry pages done and applied. (`check-page.mjs` reports the
    page body under the sticky bar on these pages in both languages: a test quirk, not a page problem.) Tool scripts now take an optional `text` setting
    (Kannada words; English pages pass nothing and are unchanged, checked with `node audit/check/tool-text.mjs en`
    before/after). Kannada dates/law name: `_kn` keys in `_data/facts.yml`. Open from the tools compliance review
