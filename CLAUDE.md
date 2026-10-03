@@ -351,10 +351,20 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
   - Kannada: stopgap strings for the router and short steps, logged in `docs/kannada-review.md`.
 
 ### Next (strategy section 9.3, English first; Kannada last)
-0. **Start here (next session): the Kannada guides (index + 11 posts) are done (`docs/kn-blogs-a-copy.md`,
-   `docs/kn-blogs-bc-copy.md`). Next: Kannada About, Contact, Privacy, Terms** (replace the old `kn/` pages in full;
-   translate `docs/about-contact-legal-copy-v2.md`'s final English pages; Contact map behind "Show the map"). Same flow:
-   copy doc, compliance reviewer, owner approval, build, checks, log, commit, SEO/Kannada reviewer. Then the launch check.
+0. **Start here (next session): Kannada About, Contact, Privacy, Terms — the last 4 Kannada pages.** Everything else in
+   Kannada is built and committed on `feature/revamp` (not pushed): shared text, 4 service/registration pages, home, tools hub
+   + 7 tools, 3 cities, industry hub + 5 industries, guides index + 11 posts (last commits on 2026-10-03: cities `feedd71`
+   `0bde2bc`, industries `022b2bf` `41275ee`, guides `92cdecc` + SEO fixes). For the 4 pages: replace the old `kn/about-us`,
+   `kn/contact-us`, `kn/privacy-policy`, `kn/terms-and-conditions` in full (old header/footer, Kannada-script acronyms,
+   ಅನುಸರಣೆ, links to English guides); translate the final English pages (`docs/about-contact-legal-copy-v2.md` sections
+   1-4); Contact keeps the map behind "Show the map" (`map-tap.html`, `t.map` already in kn.yml); Privacy/Terms use the
+   `.legal` layout, `page_type: legal`, no closing band. Once Kannada Contact is rebuilt, Privacy's "map loads only after
+   the tap" is true in both languages (launch check item). Same flow: `docs/kn-about-contact-legal-copy.md`, compliance
+   reviewer, owner approval, build (restart the Jekyll container if a new folder is created), checks, log in
+   `docs/kannada-review.md`, commit, SEO/Kannada reviewer. Then the launch check (phase 9), which should also cover: brief
+   s11 has no row for ESI damages (5–25% yearly) or ESI interest (12%); `og:type` "article" for posts (site-wide); the
+   English ESI threshold post leaves maternity out of its first ESI line (owner may want both languages changed); the
+   English ESI post's "Seasonal factories (open only part of the year)" bracket (Kannada drops it, settled).
    Settled on the guides: "very low daily pay" = ದಿನದ ಸಂಬಳ ತುಂಬಾ ಕಡಿಮೆ ಇರುವ ಸಿಬ್ಬಂದಿ (never ದಿನಗೂಲಿ there); damages first
    use "ಡ್ಯಾಮೇಜಸ್ (ದಂಡದಂತಹ ಹೆಚ್ಚುವರಿ ಮೊತ್ತ)"; "Rules checked on" = "{{ tools_checked_kn }}ರಂದು ನಿಯಮಗಳನ್ನು ಪರಿಶೀಲಿಸಲಾಗಿದೆ".
    Launch item from the guides review: brief s11 has no row for ESI damages (5–25% yearly) or ESI interest (12%).
