@@ -284,7 +284,7 @@ p > a.link-arrow:only-child { display: inline-flex; align-items: center; min-hei
     gap: var(--space-2);
     min-height: var(--header-h);
 }
-.site-header__logo { margin-right: auto; min-width: 0; }
+.site-header__logo { margin-right: auto; flex-shrink: 0; }
 .site-header__logo img { width: 128px; height: auto; }
 .site-header__inner > .lang-switch,
 .menu-toggle { flex-shrink: 0; }
@@ -392,6 +392,17 @@ body.menu-open .site-header__inner > .lang-switch { visibility: hidden; }
     }
     .site-nav a:hover { color: var(--color-brand); }
     .site-nav a[aria-current="page"] { color: var(--color-brand); text-decoration: underline; text-underline-offset: 0.4em; }
+    /* Kannada labels are wider: tighter spacing keeps the nav on one line. The
+       "(in English)" marker is too wide for the desktop nav, so it is read by
+       screen readers only there (the menu and page links still show it). */
+    html[lang="kn"] .site-nav a { padding-inline: var(--space-1); }
+    .site-nav .link-lang {
+        position: absolute;
+        width: 1px; height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        white-space: nowrap;
+    }
     .menu-toggle, .mobile-nav, body.menu-open .mobile-nav { display: none; }
 }
 
