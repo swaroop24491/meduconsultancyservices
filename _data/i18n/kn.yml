@@ -1,8 +1,8 @@
 # Shared Kannada strings. Same keys as en.yml.
 # Log every new or changed string in docs/kannada-review.md for a fluent speaker.
 # PF, ESI and EPF are written in English letters (decision D12).
-# STATUS: all strings below except the language switch, the menu labels already
-# on the live site, the legal page names and the address are DRAFTS awaiting review.
+# STATUS: matched to the final en.yml and the approved glossary on 2026-10-03
+# (docs/kn-shared-copy.md, owner-approved). Logged in docs/kannada-review.md for a fluent read.
 lang_switch_label: English
 lang_switch_aria: View this page in English
 lang_switch_home_aria: English home page (this page is only in Kannada)
@@ -45,9 +45,9 @@ proof:
   # num is shown large in heroes; text is the one-line version (compact proof line)
   items:
     - { num: "25+", label: ವರ್ಷಗಳ ಅನುಭವ, text: 25+ ವರ್ಷಗಳ ಅನುಭವ }
-    - { num: "35 ವರ್ಷ", label: ಸ್ಥಾಪಕರು EPFOನಲ್ಲಿ ಕೆಲಸ ಮಾಡಿದ್ದಾರೆ, text: ಸ್ಥಾಪಕರು EPFOನಲ್ಲಿ 35 ವರ್ಷ ಕೆಲಸ ಮಾಡಿದ್ದಾರೆ }
+    - { num: "35 ವರ್ಷ", label: ನಮ್ಮ ಸ್ಥಾಪಕರು EPFOನಲ್ಲಿ ಕೆಲಸ ಮಾಡಿದ್ದಾರೆ, text: ಸ್ಥಾಪಕರು EPFOನಲ್ಲಿ 35 ವರ್ಷ ಕೆಲಸ ಮಾಡಿದ್ದಾರೆ }
     - { num: "100+", label: ಗ್ರಾಹಕರು, text: 100+ ಗ್ರಾಹಕರು }
-    - { num: "3,500+", label: ಉದ್ಯೋಗಿಗಳ PF ಮತ್ತು ESI ನಿರ್ವಹಣೆ, text: "3,500+ ಉದ್ಯೋಗಿಗಳ PF ಮತ್ತು ESI ನಿರ್ವಹಣೆ" }
+    - { num: "3,500+", label: ಉದ್ಯೋಗಿಗಳ PF ಮತ್ತು ESI ನಾವು ನೋಡಿಕೊಳ್ಳುತ್ತೇವೆ, text: "3,500+ ಉದ್ಯೋಗಿಗಳ PF ಮತ್ತು ESI ನಾವು ನೋಡಿಕೊಳ್ಳುತ್ತೇವೆ" }
 
 filing_promise: ನಾವು PF ಅಥವಾ ESI ಕೊನೆಯ ದಿನಾಂಕವನ್ನು ಎಂದೂ ತಪ್ಪಿಸುವುದಿಲ್ಲ.
 
@@ -61,7 +61,7 @@ two_paths:
       - { label: ESI ನೋಂದಣಿ, path: esi-registration }
   monthly:
     title: ಪ್ರತಿ ತಿಂಗಳು ನಾವು ಫೈಲ್ ಮಾಡುತ್ತೇವೆ
-    text: ನಿರಂತರ ಸೇವೆ. ಪ್ರತಿ ತಿಂಗಳು ನೀವು ಸಂಬಳದ ವಿವರ ಕಳುಹಿಸಿ, ಫೈಲಿಂಗ್ ನಾವು ಮಾಡುತ್ತೇವೆ. ಈಗಾಗಲೇ ನೋಂದಣಿ ಆಗಿದೆಯೇ? ಮುಂದಿನ ಕೊನೆಯ ದಿನಾಂಕದಿಂದ ನಾವು ಕೆಲಸ ವಹಿಸಿಕೊಳ್ಳುತ್ತೇವೆ.
+    text: ಪ್ರತಿ ತಿಂಗಳು ನಡೆಯುವ ಸೇವೆ. ನೀವು ಸಂಬಳದ ವಿವರ ಕಳುಹಿಸಿ, ಫೈಲಿಂಗ್ ನಾವು ಮಾಡುತ್ತೇವೆ. ಈಗಾಗಲೇ ನೋಂದಣಿ ಆಗಿದೆಯೇ? ನಮಗೆ ಬೇಕಾದ ದಾಖಲೆಗಳನ್ನು ನೀವು ಕಳುಹಿಸಿದ ನಂತರ, ನಿಮ್ಮ ಫೈಲಿಂಗ್ ಅನ್ನು ನಾವು ವಹಿಸಿಕೊಳ್ಳುತ್ತೇವೆ.
     links:
       - { label: PF ಮಾಸಿಕ ಫೈಲಿಂಗ್, path: epf-consultancy-service }
       - { label: ESI ಮಾಸಿಕ ಫೈಲಿಂಗ್, path: esi-consultancy-service }
@@ -71,53 +71,60 @@ two_paths:
 how_we_work:
   heading: ನಾವು ಕೆಲಸ ಮಾಡುವ ರೀತಿ
   steps:
-    - { title: ನಮಗೆ ಕರೆ ಮಾಡಿ., text: ನಿಮ್ಮ ವ್ಯಾಪಾರಕ್ಕೆ ಏನು ಅನ್ವಯಿಸುತ್ತದೆ ಎಂದು ನಾವು ನೋಡುತ್ತೇವೆ. }
+    - { title: ನಮಗೆ ಕರೆ ಮಾಡಿ., text: ನಿಮ್ಮ ವ್ಯಾಪಾರಕ್ಕೆ PF ಮತ್ತು ESI ಅನ್ವಯಿಸುತ್ತದೆಯೇ ಎಂದು ನಾವು ನೋಡುತ್ತೇವೆ. }
     - { title: ಯಾವ ದಾಖಲೆಗಳು ಬೇಕು ಎಂದು ನಾವು ಹೇಳುತ್ತೇವೆ., text: ನೀವು ಅವುಗಳನ್ನು ಕಳುಹಿಸಿ. }
-    - { title: ನಿಮ್ಮ ವ್ಯಾಪಾರ ಮತ್ತು ಸಿಬ್ಬಂದಿಯನ್ನು ನಾವು ಸಿದ್ಧಪಡಿಸುತ್ತೇವೆ., text: PF ಅಥವಾ ESI ಹೊಸದೇ? ಮೊದಲು ನಾವು ನೋಂದಣಿ ಮಾಡುತ್ತೇವೆ. }
-    - { title: ಪ್ರತಿ ತಿಂಗಳು ನೀವು ಸಂಬಳದ ವಿವರ ಕಳುಹಿಸಿ, text: ನಾವು ಫೈಲ್ ಮಾಡುತ್ತೇವೆ. }
-    - { title: ದೃಢೀಕರಣ ಮತ್ತು ಚಲನ್‌ಗಳನ್ನು ನಿಮಗೆ ಇಮೇಲ್ ಮಾಡುತ್ತೇವೆ, text: (ಚಲನ್ ಎಂದರೆ ಪಾವತಿ ಚೀಟಿ). }
-  # Stopgap (same keys as en.yml): steps 1, 2 and 4 of the full list; rewrite in the Kannada phase
-  short_heading: ನಾವು ಕೆಲಸ ಮಾಡುವ ರೀತಿ
+    - { title: ನಿಮ್ಮ ವ್ಯಾಪಾರ ಮತ್ತು ಸಿಬ್ಬಂದಿಯ ಖಾತೆಗಳನ್ನು ನಾವು ಸಿದ್ಧಮಾಡುತ್ತೇವೆ., text: "PF ಅಥವಾ ESI ನಿಮಗೆ ಹೊಸದೇ? ಮೊದಲು ನಾವು ನೋಂದಣಿ ಮಾಡುತ್ತೇವೆ." }
+    - { title: "ಪ್ರತಿ ತಿಂಗಳು ನೀವು ಸಂಬಳದ ವಿವರ ಕಳುಹಿಸಿ,", text: ನಾವು ಫೈಲ್ ಮಾಡುತ್ತೇವೆ. }
+    - { title: ದೃಢೀಕರಣ ಮತ್ತು ಚಲನ್‌ಗಳನ್ನು ನಿಮಗೆ ಇಮೇಲ್ ಮಾಡುತ್ತೇವೆ, text: (ಪಾವತಿ ಚೀಟಿಗಳು). }
+  # Home only (how-we-work.html short=true): 3 steps, no filing promise
+  short_heading: ಇದು ಹೇಗೆ ನಡೆಯುತ್ತದೆ
   short_steps:
-    - { title: ನಮಗೆ ಕರೆ ಮಾಡಿ., text: ನಿಮ್ಮ ವ್ಯಾಪಾರಕ್ಕೆ ಏನು ಅನ್ವಯಿಸುತ್ತದೆ ಎಂದು ನಾವು ನೋಡುತ್ತೇವೆ. }
-    - { title: ಯಾವ ದಾಖಲೆಗಳು ಬೇಕು ಎಂದು ನಾವು ಹೇಳುತ್ತೇವೆ., text: ನೀವು ಅವುಗಳನ್ನು ಕಳುಹಿಸಿ. }
-    - { title: ಪ್ರತಿ ತಿಂಗಳು ನೀವು ಸಂಬಳದ ವಿವರ ಕಳುಹಿಸಿ, text: ನಾವು ಫೈಲ್ ಮಾಡುತ್ತೇವೆ. }
+    - { title: ನಮಗೆ ಕರೆ ಮಾಡಿ., text: ನಿಮ್ಮ ವ್ಯಾಪಾರಕ್ಕೆ PF ಮತ್ತು ESI ಅನ್ವಯಿಸುತ್ತದೆಯೇ ಎಂದು ನಾವು ನೋಡುತ್ತೇವೆ. ಕೇಳುವುದು ಉಚಿತ. }
+    - { title: ನಾವು ಕೇಳುವ ದಾಖಲೆಗಳನ್ನು ಕಳುಹಿಸಿ., text: "ನೋಂದಣಿ ಆಗಿಲ್ಲದಿದ್ದರೆ, ನಿಮ್ಮ ವ್ಯಾಪಾರವನ್ನು ನಾವು ನೋಂದಣಿ ಮಾಡುತ್ತೇವೆ. ಈಗಾಗಲೇ ನೋಂದಣಿ ಆಗಿದೆಯೇ? ನಿಮ್ಮ ಫೈಲಿಂಗ್ ಅನ್ನು ನಾವು ವಹಿಸಿಕೊಳ್ಳುತ್ತೇವೆ." }
+    - { title: ಪ್ರತಿ ತಿಂಗಳು ಸಂಬಳದ ವಿವರ ಕಳುಹಿಸಿ., text: "ನಾವು ಫೈಲ್ ಮಾಡಿ, ದೃಢೀಕರಣ ಮತ್ತು ಚಲನ್‌ಗಳನ್ನು (ಪಾವತಿ ಚೀಟಿಗಳು) ನಿಮಗೆ ಇಮೇಲ್ ಮಾಡುತ್ತೇವೆ." }
 
-no_office: ಕಚೇರಿಗೆ ಬರುವ ಅಗತ್ಯವಿಲ್ಲ. ಎಲ್ಲವನ್ನೂ ಫೋನ್ ಮತ್ತು ಇಮೇಲ್ ಮೂಲಕ ನಾವು ನೋಡಿಕೊಳ್ಳುತ್ತೇವೆ.
+founder:
+  heading: ನಮ್ಮ ಸ್ಥಾಪಕರು
+  stat_label: ನಮ್ಮ ಸ್ಥಾಪಕರು EPFOನಲ್ಲಿ (PF ಇಲಾಖೆ) ಕೆಲಸ ಮಾಡಿದ್ದಾರೆ
 
-cities_label: "ಈ ಊರುಗಳ ವ್ಯಾಪಾರಗಳೊಂದಿಗೆ ಕೆಲಸ ಮಾಡುತ್ತೇವೆ:"
+no_office: ಕಚೇರಿಗೆ ಬರುವ ಅಗತ್ಯವಿಲ್ಲ. ನಾವು ಫೋನ್ ಮತ್ತು ಇಮೇಲ್ ಮೂಲಕ ಕೆಲಸ ಮಾಡುತ್ತೇವೆ.
+
+cities_label: "ಊರುಗಳು:"
 services_label: "ನಮ್ಮ ಸೇವೆಗಳು:"
 cities:
-  - { name: ಮಂಗಳೂರು, anchor: ಮಂಗಳೂರಿನಲ್ಲಿ PF ಮತ್ತು ESI, path: epf-esi-consultancy-mangalore }
-  - { name: ಉಡುಪಿ, anchor: ಉಡುಪಿಯಲ್ಲಿ PF ಮತ್ತು ESI, path: epf-esi-consultancy-udupi }
-  - { name: ಬೆಂಗಳೂರು, anchor: ಬೆಂಗಳೂರಿನಲ್ಲಿ PF ಮತ್ತು ESI, path: epf-esi-consultancy-bangalore }
+  - { name: ಮಂಗಳೂರು, anchor: ಮಂಗಳೂರಿನಲ್ಲಿ PF ಮತ್ತು ESI, path: epf-esi-consultancy-mangalore, line: ನಮ್ಮ ಕಚೇರಿ ಮತ್ತು ಮುಖ್ಯ ತಂಡ ಮಂಗಳೂರಿನಲ್ಲಿದೆ. }
+  - { name: ಉಡುಪಿ, anchor: ಉಡುಪಿಯಲ್ಲಿ PF ಮತ್ತು ESI, path: epf-esi-consultancy-udupi, line: ಉಡುಪಿಯ ವ್ಯಾಪಾರಗಳೊಂದಿಗೆ ನಮ್ಮ ಮಂಗಳೂರು ಕಚೇರಿಯಿಂದ ಕೆಲಸ ಮಾಡುತ್ತೇವೆ. ಅಗತ್ಯವಿದ್ದರೆ ನಾವು ನಿಮ್ಮಲ್ಲಿಗೆ ಬರುತ್ತೇವೆ. }
+  - { name: ಬೆಂಗಳೂರು, anchor: ಬೆಂಗಳೂರಿನಲ್ಲಿ PF ಮತ್ತು ESI, path: epf-esi-consultancy-bangalore, line: ಬೆಂಗಳೂರಿನಲ್ಲಿ ನಮ್ಮ ತಂಡದ ಸದಸ್ಯರಿದ್ದಾರೆ. ಅವರ ಜೊತೆ ನಮ್ಮ ಮಂಗಳೂರು ಕಚೇರಿ ಇದೆ. }
+# Hidden start of each city card's link text (decision D7). Kannada ends with a colon:
+# "PF ಮತ್ತು ESI ಸಲಹೆಗಾರರು: ಮಂಗಳೂರು"
+city_card_prefix: "PF ಮತ್ತು ESI ಸಲಹೆಗಾರರು:"
 
+# Home router: one choice per visitor situation. call: true adds a call row first.
 situations:
-  heading: ನಿಮ್ಮ ಪರಿಸ್ಥಿತಿ ಯಾವುದು?
-  # Same keys as en.yml; register/monthly reuse two_paths text (draft, Kannada phase)
+  heading: ನಿಮಗೆ ಯಾವ ಸಹಾಯ ಬೇಕು?
   register:
-    title: ನೋಂದಣಿ ಮಾಡಿಸಿ
-    text: ಒಂದು ಸಲದ ಕೆಲಸ. ನಿಮ್ಮ ವ್ಯಾಪಾರವನ್ನು PF, ESI ಅಥವಾ ಎರಡಕ್ಕೂ ನಾವು ನೋಂದಣಿ ಮಾಡುತ್ತೇವೆ.
+    title: ನಾವು PF ಅಥವಾ ESIಗೆ ನೋಂದಣಿ ಮಾಡಿಸಬೇಕು
+    text: ನಿಮ್ಮ ವ್ಯಾಪಾರವನ್ನು PF, ESI ಅಥವಾ ಎರಡಕ್ಕೂ ನಾವು ನೋಂದಣಿ ಮಾಡುತ್ತೇವೆ. ನಂತರ ಪ್ರತಿ ತಿಂಗಳ ಫೈಲಿಂಗ್ ಕೂಡ ನಾವು ಮಾಡಬಹುದು.
     links:
       - { label: PF ನೋಂದಣಿ, path: pf-registration }
       - { label: ESI ನೋಂದಣಿ, path: esi-registration }
   monthly:
-    title: ಪ್ರತಿ ತಿಂಗಳು ನಾವು ಫೈಲ್ ಮಾಡುತ್ತೇವೆ
-    text: ಪ್ರತಿ ತಿಂಗಳು ನೀವು ಸಂಬಳದ ವಿವರ ಕಳುಹಿಸಿ, ಫೈಲಿಂಗ್ ನಾವು ಮಾಡುತ್ತೇವೆ. ಈಗಾಗಲೇ ನೋಂದಣಿ ಆಗಿದೆಯೇ? ಮುಂದಿನ ಕೊನೆಯ ದಿನಾಂಕದಿಂದ ನಾವು ಕೆಲಸ ವಹಿಸಿಕೊಳ್ಳುತ್ತೇವೆ.
+    title: ಪ್ರತಿ ತಿಂಗಳು ಫೈಲಿಂಗ್ ಮಾಡಲು ನಮಗೆ ಯಾರಾದರೂ ಬೇಕು
+    text: ಪ್ರತಿ ತಿಂಗಳು ನೀವು ಸಂಬಳದ ವಿವರ ಕಳುಹಿಸಿ, ಫೈಲಿಂಗ್ ನಾವು ಮಾಡುತ್ತೇವೆ. ಈಗಾಗಲೇ ನೋಂದಣಿ ಆಗಿದೆಯೇ? ನಮಗೆ ಬೇಕಾದ ದಾಖಲೆಗಳನ್ನು ನೀವು ಕಳುಹಿಸಿದ ನಂತರ, ಮುಂದಿನ ಕೊನೆಯ ದಿನಾಂಕದಿಂದ ನಾವು ಕೆಲಸ ವಹಿಸಿಕೊಳ್ಳುತ್ತೇವೆ.
     links:
       - { label: PF ಮಾಸಿಕ ಫೈಲಿಂಗ್, path: epf-consultancy-service }
       - { label: ESI ಮಾಸಿಕ ಫೈಲಿಂಗ್, path: esi-consultancy-service }
   unsure:
+    title: PF ಅಥವಾ ESI ನಮಗೆ ಅನ್ವಯಿಸುತ್ತದೆಯೇ ಎಂದು ಗೊತ್ತಿಲ್ಲ
+    text: 20 ಅಥವಾ ಹೆಚ್ಚು ಸಿಬ್ಬಂದಿ ಇದ್ದರೆ PF (ಸಿಬ್ಬಂದಿಗೆ ಉಳಿತಾಯ ಮತ್ತು ಪಿಂಚಣಿ) ಅನ್ವಯಿಸುತ್ತದೆ. 10 ಅಥವಾ ಹೆಚ್ಚು ಸಿಬ್ಬಂದಿ ಇದ್ದರೆ ESI (ಸಿಬ್ಬಂದಿಗೆ ವೈದ್ಯಕೀಯ ಚಿಕಿತ್ಸೆ ಮತ್ತು ಅನಾರೋಗ್ಯದ ಸಮಯದ ಸಂಬಳ) ಅನ್ವಯಿಸುತ್ತದೆ. ನಮಗೆ ಕರೆ ಮಾಡಿ, ನಾವು ನೋಡಿ ಹೇಳುತ್ತೇವೆ. ಕೇಳುವುದು ಉಚಿತ. ಅಥವಾ ನಮ್ಮ ಪರಿಶೀಲನೆ ಸಾಧನಗಳನ್ನು ಬಳಸಿ.
     call: true
-    title: ಈಗಷ್ಟೇ 10 ಅಥವಾ 20 ಸಿಬ್ಬಂದಿ ದಾಟಿದ್ದೀರಾ?
-    text: PF ಅಥವಾ ESI ಈಗ ನಿಮಗೆ ಅನ್ವಯಿಸುತ್ತದೆಯೇ ಎಂದು ನೋಡಿ.
     links:
       - { label: PF ಪರಿಶೀಲಿಸಿ, path: epf-eligibility-checker }
       - { label: ESI ಪರಿಶೀಲಿಸಿ, path: esi-eligibility-checker }
   behind:
+    title: ನಾವು ತಡವಾಗಿ ಕಟ್ಟಿದ್ದೇವೆ ಅಥವಾ ಫೈಲಿಂಗ್ ಬಾಕಿ ಇದೆ
+    text: ನಮಗೆ ಕರೆ ಮಾಡಿ. ಇನ್ನು ಮುಂದೆ ಸಮಯಕ್ಕೆ ಸರಿಯಾಗಿ ನಾವು ಫೈಲ್ ಮಾಡುತ್ತೇವೆ. ತಡವಾಗಿ ಕಟ್ಟಿದರೆ ಸುಮಾರು ಎಷ್ಟು ಆಗುತ್ತದೆ ಎಂದೂ ನೋಡಬಹುದು.
     call: true
-    title: ಫೈಲಿಂಗ್ ಬಾಕಿ ಇದೆಯೇ?
-    text: ತಡವಾಗಿ ಕಟ್ಟಿದರೆ ಎಷ್ಟು ಆಗುತ್ತದೆ ಎಂದು ನೋಡಿ. ಇನ್ನು ಮುಂದೆ ಸಮಯಕ್ಕೆ ಸರಿಯಾಗಿ ನಾವು ಫೈಲ್ ಮಾಡುತ್ತೇವೆ.
     links:
       - { label: PF ದಂಡ ಲೆಕ್ಕಾಚಾರ, path: epf-penalty-calculator }
       - { label: ESI ದಂಡ ಲೆಕ್ಕಾಚಾರ, path: esi-penalty-calculator }
@@ -128,20 +135,20 @@ industries:
   also_heading: ಇವರೊಂದಿಗೂ ಕೆಲಸ ಮಾಡುತ್ತೇವೆ
   primary:
     - { key: hospitals, name: ಆಸ್ಪತ್ರೆಗಳು, anchor: ಆಸ್ಪತ್ರೆಗಳಿಗೆ PF ಮತ್ತು ESI, icon: hospital, text: "ನರ್ಸ್‌ಗಳು, ಸಹಾಯಕ ಸಿಬ್ಬಂದಿ ಮತ್ತು ಏಜೆನ್ಸಿ ಕೆಲಸಗಾರರು." }
-    - { key: contractors, name: ಗುತ್ತಿಗೆದಾರರು, anchor: ಗುತ್ತಿಗೆದಾರರಿಗೆ PF ಮತ್ತು ESI, icon: contractor, text: "ಆಗಾಗ ಸೇರುವ ಮತ್ತು ಬಿಡುವ ಕೆಲಸಗಾರರು, ಬೇರೆ ಬೇರೆ ಸೈಟ್‌ಗಳಲ್ಲಿ." }
-    - { key: factories, name: ಕಾರ್ಖಾನೆಗಳು, anchor: ಕಾರ್ಖಾನೆಗಳಿಗೆ PF ಮತ್ತು ESI, icon: factory, text: "ಗುತ್ತಿಗೆ ಕೆಲಸಗಾರರು, ಓವರ್‌ಟೈಮ್ ಮತ್ತು ತಪಾಸಣೆಗಳು." }
+    - { key: contractors, name: ಗುತ್ತಿಗೆದಾರರು, anchor: ಗುತ್ತಿಗೆದಾರರಿಗೆ PF ಮತ್ತು ESI, icon: contractor, text: "ಆಗಾಗ ಸೇರುವ ಮತ್ತು ಬಿಡುವ ಸಿಬ್ಬಂದಿ, ಬೇರೆ ಬೇರೆ ಸೈಟ್‌ಗಳಲ್ಲಿ." }
+    - { key: factories, name: ಕಾರ್ಖಾನೆಗಳು, anchor: ಕಾರ್ಖಾನೆಗಳಿಗೆ PF ಮತ್ತು ESI, icon: factory, text: "ಗುತ್ತಿಗೆ ಮತ್ತು ತಾತ್ಕಾಲಿಕ ಕೆಲಸಗಾರರು, ಸಂಬಳದ ಬದಲಾವಣೆಗಳು ಮತ್ತು ತಪಾಸಣೆಗಳು." }
     - { key: schools, name: ಶಾಲೆಗಳು, anchor: ಶಾಲೆಗಳಿಗೆ PF ಮತ್ತು ESI, icon: school, text: "ಶಿಕ್ಷಕರು, ಶಿಕ್ಷಕೇತರ ಸಿಬ್ಬಂದಿ ಮತ್ತು CBSE ಪರಿಶೀಲನೆ." }
-    - { key: it-companies, name: IT ಕಂಪನಿಗಳು, anchor: IT ಕಂಪನಿಗಳಿಗೆ PF ಮತ್ತು ESI, icon: it, text: "ಹೊಸ ₹25,000 PF ಮಿತಿ ಮತ್ತು ಸಂಬಳ ರಚನೆ." }
+    - { key: it-companies, name: IT ಕಂಪನಿಗಳು, anchor: IT ಕಂಪನಿಗಳಿಗೆ PF ಮತ್ತು ESI, icon: it, text: "ಹೊಸ ₹25,000 PF ವೇತನ ಮಿತಿ ಮತ್ತು 50% ನಿಯಮ." }
   also: ಎಸ್ಟೇಟ್‌ಗಳು, ಭದ್ರತಾ ಏಜೆನ್ಸಿಗಳು, ಹೌಸ್‌ಕೀಪಿಂಗ್ ಏಜೆನ್ಸಿಗಳು, ವಿತರಕರು ಮತ್ತು ಸರಬರಾಜುದಾರರು, ಸ್ಥಳೀಯ ಅಂಗಡಿಗಳು, ಹೋಟೆಲ್‌ಗಳು ಮತ್ತು ರೆಸ್ಟೋರೆಂಟ್‌ಗಳು.
 
 tools:
-  - { key: epf-eligibility, path: epf-eligibility-checker, icon: help, name: PF ಅರ್ಹತೆ ಪರಿಶೀಲನೆ, text: ನಿಮ್ಮ ವ್ಯಾಪಾರಕ್ಕೆ ಅಥವಾ ಉದ್ಯೋಗಿಗೆ PF ಅನ್ವಯಿಸುತ್ತದೆಯೇ? }
-  - { key: esi-eligibility, path: esi-eligibility-checker, icon: help, name: ESI ಅರ್ಹತೆ ಪರಿಶೀಲನೆ, text: ನಿಮ್ಮ ವ್ಯಾಪಾರಕ್ಕೆ ಅಥವಾ ಉದ್ಯೋಗಿಗೆ ESI ಅನ್ವಯಿಸುತ್ತದೆಯೇ? }
-  - { key: epf-penalty, path: epf-penalty-calculator, icon: schedule, name: PF ದಂಡ ಲೆಕ್ಕಾಚಾರ, text: PF ತಡವಾಗಿ ಕಟ್ಟಿದರೆ ಎಷ್ಟು ಆಗುತ್ತದೆ? }
-  - { key: esi-penalty, path: esi-penalty-calculator, icon: schedule, name: ESI ದಂಡ ಲೆಕ್ಕಾಚಾರ, text: ESI ತಡವಾಗಿ ಕಟ್ಟಿದರೆ ಎಷ್ಟು ಆಗುತ್ತದೆ? }
-  - { key: epf-contribution, path: epf-contribution-calculator, icon: calculator, name: PF ಕೊಡುಗೆ ಲೆಕ್ಕಾಚಾರ, text: ಪ್ರತಿ ತಿಂಗಳು ನೀವು ಮತ್ತು ನಿಮ್ಮ ಉದ್ಯೋಗಿ ಎಷ್ಟು PF ಕಟ್ಟಬೇಕು? }
-  - { key: esi-contribution, path: esi-contribution-calculator, icon: calculator, name: ESI ಕೊಡುಗೆ ಲೆಕ್ಕಾಚಾರ, text: ಪ್ರತಿ ತಿಂಗಳು ನೀವು ಮತ್ತು ನಿಮ್ಮ ಉದ್ಯೋಗಿ ಎಷ್ಟು ESI ಕಟ್ಟಬೇಕು? }
-  - { key: converter, path: epf-excel-to-text-converter, icon: file, name: EPF ಎಕ್ಸೆಲ್‌ನಿಂದ ಟೆಕ್ಸ್ಟ್ ಪರಿವರ್ತಕ, text: "ನಿಮ್ಮ ECR (ಮಾಸಿಕ PF ರಿಟರ್ನ್) ಎಕ್ಸೆಲ್ ಶೀಟ್ ಅನ್ನು EPFOಗೆ ಬೇಕಾದ ಟೆಕ್ಸ್ಟ್ ಫೈಲ್ ಆಗಿ ಬದಲಿಸಿ." }
+  - { key: epf-eligibility, path: epf-eligibility-checker, icon: help, name: PF ಅರ್ಹತೆ ಪರಿಶೀಲನೆ, text: "ನಿಮ್ಮ ವ್ಯಾಪಾರಕ್ಕೆ ಅಥವಾ ಉದ್ಯೋಗಿಗೆ PF ಅನ್ವಯಿಸುತ್ತದೆಯೇ?" }
+  - { key: esi-eligibility, path: esi-eligibility-checker, icon: help, name: ESI ಅರ್ಹತೆ ಪರಿಶೀಲನೆ, text: "ನಿಮ್ಮ ವ್ಯಾಪಾರಕ್ಕೆ ಅಥವಾ ಉದ್ಯೋಗಿಗೆ ESI ಅನ್ವಯಿಸುತ್ತದೆಯೇ?" }
+  - { key: epf-penalty, path: epf-penalty-calculator, icon: schedule, name: PF ದಂಡ ಲೆಕ್ಕಾಚಾರ, text: "PF ತಡವಾಗಿ ಕಟ್ಟಿದರೆ ಎಷ್ಟು ಆಗುತ್ತದೆ?" }
+  - { key: esi-penalty, path: esi-penalty-calculator, icon: schedule, name: ESI ದಂಡ ಲೆಕ್ಕಾಚಾರ, text: "ESI ತಡವಾಗಿ ಕಟ್ಟಿದರೆ ಎಷ್ಟು ಆಗುತ್ತದೆ?" }
+  - { key: epf-contribution, path: epf-contribution-calculator, icon: calculator, name: PF ವಂತಿಗೆ ಲೆಕ್ಕಾಚಾರ, text: "ಪ್ರತಿ ತಿಂಗಳು ನೀವು ಮತ್ತು ನಿಮ್ಮ ಉದ್ಯೋಗಿ ಎಷ್ಟು PF ಕಟ್ಟಬೇಕು?" }
+  - { key: esi-contribution, path: esi-contribution-calculator, icon: calculator, name: ESI ವಂತಿಗೆ ಲೆಕ್ಕಾಚಾರ, text: "ಪ್ರತಿ ತಿಂಗಳು ನೀವು ಮತ್ತು ನಿಮ್ಮ ಉದ್ಯೋಗಿ ಎಷ್ಟು ESI ಕಟ್ಟಬೇಕು?" }
+  - { key: converter, path: epf-excel-to-text-converter, icon: file, name: EPF ಎಕ್ಸೆಲ್‌ನಿಂದ ಟೆಕ್ಸ್ಟ್ ಪರಿವರ್ತಕ, text: "ನಿಮ್ಮ ECR (ಮಾಸಿಕ PF ರಿಟರ್ನ್) ಎಕ್ಸೆಲ್ ಶೀಟ್ ಅನ್ನು PF ಇಲಾಖೆಗೆ (EPFO) ಬೇಕಾದ ಟೆಕ್ಸ್ಟ್ ಫೈಲ್ ಆಗಿ ಬದಲಿಸಿ." }
 
 faq_heading: ಸಾಮಾನ್ಯ ಪ್ರಶ್ನೆಗಳು
 
@@ -149,13 +156,13 @@ testimonials:
   heading: ಗ್ರಾಹಕರು ಹೇಳುವುದು
 
 result_call:
-  eligibility: ಇದು ನಿಮಗೆ ಅನ್ವಯಿಸುತ್ತದೆಯೇ? ನಾವು ನೋಂದಣಿ ಮಾಡಿ, ನಂತರ ಪ್ರತಿ ತಿಂಗಳು ಫೈಲ್ ಮಾಡುತ್ತೇವೆ.
-  penalty: ಇನ್ನು ಮುಂದೆ ಎಲ್ಲವೂ ಸಮಯಕ್ಕೆ ಸರಿಯಾಗಿ ನಡೆಯಲು ನಮ್ಮೊಂದಿಗೆ ಮಾತನಾಡಿ.
+  eligibility: ಈಗ ಅಥವಾ ಸದ್ಯದಲ್ಲೇ ನೋಂದಣಿ ಮಾಡಿಸಬೇಕೆ? ನಾವು ನೋಂದಣಿ ಮಾಡಿ, ನಂತರ ಪ್ರತಿ ತಿಂಗಳು ಫೈಲ್ ಮಾಡಬಹುದು.
+  penalty: ಹಿಂದೆ ತಡವಾಗಿ ಕಟ್ಟಿದ್ದೀರಾ? ಮತ್ತೆ ಹೀಗಾಗದಂತೆ ಪ್ರತಿ ತಿಂಗಳು ನಾವು ಫೈಲ್ ಮಾಡಬಹುದು.
   contribution: ಇದನ್ನು ಪ್ರತಿ ತಿಂಗಳು ಲೆಕ್ಕ ಹಾಕಿ ನಾವೇ ಫೈಲ್ ಮಾಡಬೇಕೆ?
   converter: ಪ್ರತಿ ತಿಂಗಳು ನೀವೇ ಫೈಲ್ ಮಾಡುತ್ತಿದ್ದೀರಾ? ಅದನ್ನು ನಾವು ನಿಮಗಾಗಿ ಮಾಡಬಹುದು.
 
 closing_call:
-  default: ನಿಮ್ಮ ವ್ಯಾಪಾರದ ಬಗ್ಗೆ ತಿಳಿಸಿ. ನಿಮಗೆ ಏನು ಅನ್ವಯಿಸುತ್ತದೆ ಎಂದು ನಾವು ಹೇಳುತ್ತೇವೆ.
+  default: ನಿಮ್ಮ ವ್ಯಾಪಾರದ ಬಗ್ಗೆ ತಿಳಿಸಿ. PF ಮತ್ತು ESI ನಿಮಗೆ ಅನ್ವಯಿಸುತ್ತದೆಯೇ ಎಂದು ನಾವು ಹೇಳುತ್ತೇವೆ.
 
 footer:
   services: ಸೇವೆಗಳು
@@ -184,15 +191,15 @@ footer:
   address: "3ನೇ ಮಹಡಿ, ಪಡೀಲ್ ಗೇಟ್ ಬಿಲ್ಡಿಂಗ್, ಪಡೀಲ್, ಮಂಗಳೂರು, ಕರ್ನಾಟಕ 575007"
   rights: "ಮೆದು ಕನ್ಸಲ್ಟೆನ್ಸಿ. ಎಲ್ಲ ಹಕ್ಕುಗಳನ್ನು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ."
 
-# "Why businesses choose us" (why-us.html). STOPGAP: English until the Kannada phase (logged in docs/kannada-review.md)
+# "Why businesses choose us" (why-us.html: home and city pages)
 why:
-  heading: Why businesses choose us
+  heading: ವ್ಯಾಪಾರಗಳು ನಮ್ಮನ್ನು ಏಕೆ ಆರಿಸುತ್ತವೆ
   about: ನಮ್ಮ ಬಗ್ಗೆ
-  founder_photo_alt: Medu Thirumaleshwara Bhat, founder of Medu Consultancy
+  founder_photo_alt: ಮೆದು ಕನ್ಸಲ್ಟೆನ್ಸಿಯ ಸ್ಥಾಪಕರು, ಮೆದು ತಿರುಮಲೇಶ್ವರ ಭಟ್
   items:
-    - { word: 35 years, title: Our founder worked 35 years at EPFO, text: "Medu Thirumaleshwara Bhat started Medu Consultancy in 2000. He worked at EPFO (the PF office) for 35 years. He taught us the PF rules." }
-    - { word: Every due date, title: We never miss a PF or ESI due date., text: "PF and ESI for each month's salaries must be paid by the 15th of the next month. We track these dates for every client." }
-    - { word: 3 languages, title: "Talk to us in English, Kannada or Hindi", text: "You can talk to us in English or Kannada, and we can help you in Hindi too. Our website is in English and Kannada." }
+    - { word: 35 ವರ್ಷ, title: ನಮ್ಮ ಸ್ಥಾಪಕರು EPFOನಲ್ಲಿ 35 ವರ್ಷ ಕೆಲಸ ಮಾಡಿದ್ದಾರೆ, text: "ಮೆದು ತಿರುಮಲೇಶ್ವರ ಭಟ್ ಅವರು 2000ರಲ್ಲಿ ಮೆದು ಕನ್ಸಲ್ಟೆನ್ಸಿ ಆರಂಭಿಸಿದರು. ಅವರು EPFOನಲ್ಲಿ (PF ಇಲಾಖೆ) 35 ವರ್ಷ ಕೆಲಸ ಮಾಡಿದ್ದರು. PF ನಿಯಮಗಳನ್ನು ಅವರು ನಮಗೆ ಕಲಿಸಿದರು." }
+    - { word: ಸಮಯಕ್ಕೆ ಸರಿಯಾಗಿ, title: ನಾವು PF ಅಥವಾ ESI ಕೊನೆಯ ದಿನಾಂಕವನ್ನು ಎಂದೂ ತಪ್ಪಿಸುವುದಿಲ್ಲ., text: "ಪ್ರತಿ ತಿಂಗಳ ಸಂಬಳದ PF ಮತ್ತು ESI ಅನ್ನು ಮುಂದಿನ ತಿಂಗಳ 15ನೇ ತಾರೀಖಿನೊಳಗೆ ಕಟ್ಟಬೇಕು. ಪ್ರತಿ ಗ್ರಾಹಕರಿಗೂ ಈ ದಿನಾಂಕಗಳನ್ನು ನಾವು ಗಮನಿಸುತ್ತೇವೆ." }
+    - { word: 3 ಭಾಷೆಗಳು, title: "ಇಂಗ್ಲಿಷ್, ಕನ್ನಡ ಅಥವಾ ಹಿಂದಿಯಲ್ಲಿ ಮಾತನಾಡಿ", text: "ನೀವು ನಮ್ಮೊಂದಿಗೆ ಇಂಗ್ಲಿಷ್ ಅಥವಾ ಕನ್ನಡದಲ್ಲಿ ಮಾತನಾಡಬಹುದು. ಹಿಂದಿಯಲ್ಲೂ ನಾವು ಸಹಾಯ ಮಾಡುತ್ತೇವೆ. ನಮ್ಮ ವೆಬ್‌ಸೈಟ್ ಇಂಗ್ಲಿಷ್ ಮತ್ತು ಕನ್ನಡದಲ್ಲಿದೆ." }
 
 map:
   note: ನೀವು ಬಟನ್ ಒತ್ತಿದಾಗ ನಕ್ಷೆ Google ನಿಂದ ಲೋಡ್ ಆಗುತ್ತದೆ.
