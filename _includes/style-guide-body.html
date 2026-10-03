@@ -344,6 +344,20 @@ Home "Who we work with, and where": one section--groups section, an H3 per group
   <div class="sg-demo" lang="{{ lang }}">{% include result-call.html tool="contribution" %}</div></div>
 </div>
 
+<div id="sg-legal" class="sg-component">
+  <div class="container"><p class="sg-component__name">Legal page</p><p class="sg-note">Privacy policy and Terms and conditions use exactly this markup, so they look the same. A short head on cream (<code>.legal-head</code>: H1, one summary line, the date), then one white band with numbered points (<code>.legal</code> &gt; <code>.legal__item</code>, the number comes from CSS). The last point is "Questions?": the phone link, the address and an arrow link to the other legal page. No call button and no closing band (<code>page_type: legal</code>).</p>
+  <pre class="sg-code"><code>&lt;section class="section section--stacked legal-head" aria-labelledby="page-heading"&gt;…&lt;h1&gt;…&lt;p class="legal-head__lead"&gt;…&lt;p class="note"&gt;Last updated …&lt;/section&gt;
+&lt;section class="section section--surface section--stacked" aria-label="…"&gt;
+  &lt;div class="container"&gt;&lt;div class="legal"&gt;
+    &lt;div class="legal__item"&gt;&lt;h2&gt;What we collect&lt;/h2&gt;&lt;p&gt;…&lt;/p&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/div&gt;
+&lt;/section&gt;</code></pre>
+  <div class="sg-demo"><div class="legal">
+    <div class="legal__item"><h2>What we collect</h2><p>Sample text for the first point. A short paragraph in plain English.</p></div>
+    <div class="legal__item"><h2>Questions?</h2><p>Call <a href="tel:{{ site.data.site.phone_tel }}">{{ site.data.site.phone_display }}</a>.</p></div>
+  </div></div></div>
+</div>
+
 <div id="sg-faq" class="sg-component">
   <div class="container"><p class="sg-component__name">FAQ</p><p class="sg-note">Accessible accordion (script.js): questions are buttons inside headings, one open at a time. <code>schema=true</code> also outputs FAQPage JSON-LD. Each question lives on one page only. Sample questions below.</p>
   <pre class="sg-code"><code>{% raw %}{% include faq.html items=page.faq schema=true %}{% endraw %}</code></pre></div>

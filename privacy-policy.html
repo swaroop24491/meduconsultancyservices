@@ -2,47 +2,68 @@
 layout: base
 lang: en
 page_type: legal
-last_modified: 2026-10-02
+last_modified: 2026-10-03
 title: "Privacy Policy | Medu Consultancy"
 description: "What information the Medu Consultancy website collects, and how it is used."
 breadcrumb:
   - { name: Privacy policy }
 ---
-<section class="section section--stacked tool-section" aria-labelledby="page-heading">
+<section class="section section--stacked legal-head" aria-labelledby="page-heading">
   <div class="container">
-    <h1 id="page-heading">Privacy Policy</h1>
+    <h1 id="page-heading">Privacy policy</h1>
+    <p class="legal-head__lead">This website has no forms, and we do not sell your information. This page explains what the website collects, and why.</p>
     <p class="note">Last updated {{ page.last_modified | date: "%-d %B %Y" }}</p>
   </div>
 </section>
 
-<section class="section" aria-labelledby="body-heading">
+<section class="section section--surface section--stacked" aria-label="Privacy policy">
   <div class="container">
-    <div class="prose">
-      <h2 id="body-heading">How this website uses information</h2>
-      <p>This page explains what information this website collects and how we use it. The website is run by Medu Consultancy (Medu Consultancy Services), Mangaluru.</p>
+    <div class="legal">
+      <div class="legal__item">
+        <h2>Who runs this website</h2>
+        <p>Medu Consultancy (Medu Consultancy Services), Mangaluru, runs this website.</p>
+      </div>
 
-      <h3>What we collect</h3>
-      <p>This website has no forms. We do not ask for your name, email or any financial details here.</p>
-      <p>Like most websites, it notes a few things about your visit: your internet address (IP address), your browser, your device, and which pages you open. Google Analytics, a free Google tool, does this for us. We also use Google Search Console, another Google tool, to see which searches bring people here.</p>
+      <div class="legal__item">
+        <h2>What we collect</h2>
+        <p>This website has no forms. We do not ask for your name, email or any financial details here.</p>
+        <p>Like most websites, it notes a few things about your visit: your internet address (IP address), your browser, your device, and which pages you open. It also counts taps on our phone number. Google Analytics, a free Google tool, does this for us. We also use Google Search Console, another Google tool, to see which searches bring people here.</p>
+        <p>The Excel to Text converter works inside your browser. Your file is not sent to us or anyone else.</p>
+      </div>
 
-      <h3>How we use it</h3>
-      <p>We use this to count visits, to see which pages people open, and to make the website better.</p>
+      <div class="legal__item">
+        <h2>How we use it</h2>
+        <p>We use this to count visits, to see which pages people open, and to make the website better.</p>
+      </div>
 
-      <h3>Sharing and security</h3>
-      <p>We do not sell or rent your information. Google receives the information above for analytics. The website also loads fonts from Google, so Google may see your IP address when a page loads. No website can be fully secure.</p>
+      <div class="legal__item">
+        <h2>Sharing and security</h2>
+        <p>We do not sell or rent your information. Google receives the information above for analytics. The website also loads fonts from Google, so Google may see your IP address when a page loads.</p>
+        <p>The map on our Contact page also comes from Google. It loads only if you tap "Show the map". Until then, nothing is sent to Google for the map.</p>
+        <p>No website can be fully secure.</p>
+      </div>
 
-      <h3>Cookies</h3>
-      <p>The website uses cookies. These are small files saved in your browser to count visits. You can block or delete cookies in your browser settings.</p>
+      <div class="legal__item">
+        <h2>Cookies</h2>
+        <p>The website uses cookies. These are small files saved in your browser to count visits. You can block or delete cookies in your browser settings.</p>
+      </div>
 
-      <h3>Links to other websites</h3>
-      <p>Our website may link to other websites. We are not responsible for how they use your information.</p>
+      <div class="legal__item">
+        <h2>Links to other websites</h2>
+        <p>Our website may link to other websites. We are not responsible for how they use your information.</p>
+      </div>
 
-      <h3>Changes to this page</h3>
-      <p>We may change this page. The date at the top shows when it last changed.</p>
+      <div class="legal__item">
+        <h2>Changes to this page</h2>
+        <p>We may change this page. The date at the top shows when it last changed.</p>
+      </div>
 
-      <h3>Contact us</h3>
-      <p>Call <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="legal">{{ site.data.site.phone_display }}</a>.</p>
-      <address>{{ site.data.site.name }}<br>{{ site.data.site.address.street }}<br>{{ site.data.site.address.locality }}, {{ site.data.site.address.region }} {{ site.data.site.address.postal_code }}</address>
+      <div class="legal__item">
+        <h2>Questions?</h2>
+        <p>Call <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="legal">{{ site.data.site.phone_display }}</a>.</p>
+        <address>{{ site.data.site.name }}<br>{{ site.data.site.address.street }}<br>{{ site.data.site.address.locality }}, {{ site.data.site.address.region }} {{ site.data.site.address.postal_code }}</address>
+        <p class="legal__other"><a class="link-arrow" href="/terms-and-conditions">Read our Terms and conditions&#8288;{% include icon.html name="arrow" size="18" %}</a></p>
+      </div>
     </div>
   </div>
 </section>

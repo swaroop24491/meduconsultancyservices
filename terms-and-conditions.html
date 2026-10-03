@@ -2,46 +2,59 @@
 layout: base
 lang: en
 page_type: legal
-last_modified: 2026-10-02
+last_modified: 2026-10-03
 title: "Terms and Conditions | Medu Consultancy"
 description: "The terms for using the Medu Consultancy website, its guides and free tools."
 breadcrumb:
   - { name: Terms and conditions }
 ---
-<section class="section section--stacked tool-section" aria-labelledby="page-heading">
+<section class="section section--stacked legal-head" aria-labelledby="page-heading">
   <div class="container">
-    <h1 id="page-heading">Terms and Conditions</h1>
+    <h1 id="page-heading">Terms and conditions</h1>
+    <p class="legal-head__lead">The guides and tools on this website give general information, not legal advice. Below are the rules for using this website.</p>
     <p class="note">Last updated {{ page.last_modified | date: "%-d %B %Y" }}</p>
   </div>
 </section>
 
-<section class="section" aria-labelledby="body-heading">
+<section class="section section--surface section--stacked" aria-label="Terms and conditions">
   <div class="container">
-    <div class="prose">
-      <h2 id="body-heading">Using this website</h2>
-      <p>By using this website, you agree to these terms. If you do not agree, please do not use the website.</p>
+    <div class="legal">
+      <div class="legal__item">
+        <h2>Using this website</h2>
+        <p>By using this website, you agree to these terms. If you do not agree, please do not use the website.</p>
+      </div>
 
-      <h3>What we do</h3>
-      <p>Medu Consultancy (Medu Consultancy Services) helps businesses with PF and ESI. PF is the Provident Fund, also called EPF. ESI is Employees' State Insurance. The website also has free tools and guides.</p>
+      <div class="legal__item">
+        <h2>What we do</h2>
+        <p>Medu Consultancy (Medu Consultancy Services) helps businesses with PF and ESI. PF is the Provident Fund, also called EPF. ESI is Employees' State Insurance. The website also has free tools and guides.</p>
+      </div>
 
-      <h3>Not legal advice</h3>
-      <p>The guides and tools on this website give general information. They are not legal advice. The tools give estimates, not exact amounts. For your own business, call us or ask an expert.</p>
+      <div class="legal__item">
+        <h2>Not legal advice</h2>
+        <p>The guides and tools on this website give general information. They are not legal advice. The tools give estimates, not exact amounts. For your own business, call us or ask an expert.</p>
+      </div>
 
-      <h3>Privacy</h3>
-      <p>Please also read our <a href="/privacy-policy">Privacy Policy</a>.</p>
+      <div class="legal__item">
+        <h2>Privacy</h2>
+        <p>We use Google Analytics and Google Search Console to see how the website is used. Our <a href="/privacy-policy">Privacy policy</a> explains what this collects.</p>
+      </div>
 
-      <h3>Analytics</h3>
-      <p>We use Google Analytics and Google Search Console to see how the website is used. See the Privacy Policy.</p>
+      <div class="legal__item">
+        <h2>Our responsibility</h2>
+        <p>We try to keep this website correct and up to date. The rules for PF and ESI change, so we cannot promise it is always complete. Please do not make big decisions using only this website. If you lose money by relying on it, we are not responsible.</p>
+      </div>
 
-      <h3>Our responsibility</h3>
-      <p>We try to keep this website correct and up to date. The rules for PF and ESI change, so we cannot promise it is always complete. Please do not make big decisions using only this website. If you lose money by relying on it, we are not responsible.</p>
+      <div class="legal__item">
+        <h2>Changes to these terms</h2>
+        <p>We may change these terms. Please look at this page now and then.</p>
+      </div>
 
-      <h3>Changes to these terms</h3>
-      <p>We may change these terms. Please look at this page now and then.</p>
-
-      <h3>Contact us</h3>
-      <p>Questions? Call <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="legal">{{ site.data.site.phone_display }}</a>.</p>
-      <address>{{ site.data.site.name }}<br>{{ site.data.site.address.street }}<br>{{ site.data.site.address.locality }}, {{ site.data.site.address.region }} {{ site.data.site.address.postal_code }}</address>
+      <div class="legal__item">
+        <h2>Questions?</h2>
+        <p>Call <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="legal">{{ site.data.site.phone_display }}</a>.</p>
+        <address>{{ site.data.site.name }}<br>{{ site.data.site.address.street }}<br>{{ site.data.site.address.locality }}, {{ site.data.site.address.region }} {{ site.data.site.address.postal_code }}</address>
+        <p class="legal__other"><a class="link-arrow" href="/privacy-policy">Read our Privacy policy&#8288;{% include icon.html name="arrow" size="18" %}</a></p>
+      </div>
     </div>
   </div>
 </section>
