@@ -295,7 +295,7 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
   `pf-esi-benefits-for-employers` (old URLs redirect via `redirect_from`; `sitemap.xml` skips redirect
   stubs). The two unlinked guides were rewritten and their links restored (9.4 #22/#22b done); staff
   links added to the industry hub and 5 pages. Post conventions: `page_type: post`, front matter
-  `headline` (and optional `published`); header = `section--stacked tool-section` with H1, `.tool-lead`
+  `headline` and `date_published` (not `published`, which Jekyll reserves); header = `section--stacked tool-section` with H1, `.tool-lead`
   short answer, `.note` byline "Rules checked on {{ site.data.facts.tools_checked }}"; body = one
   `.prose` section per H2; one mid-post `result-call.html line="..."` (new optional `line=`); "Related
   tools and pages" (tool cards + link list + one line linking the 3 city pages); `closing-call`.
@@ -351,12 +351,14 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
   - Kannada: stopgap strings for the router and short steps, logged in `docs/kannada-review.md`.
 
 ### Next (strategy section 9.3, English first; Kannada last)
-0. **Where we stopped (2026-10-03, end of session):** every English page is now v2, committed on `feature/revamp`:
-   home, PF/ESI service, PF/ESI registration, 3 cities, About, Contact, Privacy, Terms, industries hub + 5, tools hub + 7
-   tools, guides index + 11 posts. **Not pushed:** `feature/revamp` has no upstream; about 10 commits since the last push
-   (industries, tools, guides). Push only when the owner asks. **Next session: the launch check (phase 9, item 3 below),
-   then the Kannada phase (item 2).** Open owner decisions to bring up then: city "Who's behind it" form (a), router
-   `situations.monthly.text` (b), optional city detail (c), schools detail (E4), per-industry numbers (G4).
+0. **Where we stopped (2026-10-03):** every English page is v2 on `feature/revamp` (pushed; now tracks
+   `origin/feature/revamp`; push only when the owner asks). **Launch check (phase 9) in progress:** automated checks +
+   all six reviewers done; merged findings and the plan in `docs/phase9-review-findings.md` (A blockers, B owner
+   decisions, C before launch, D later). Owner order: (1) design/code/SEO fixes with no copy change: **done** (see
+   that doc's "Step 1 done"); (2) owner answers on section B; (3) copy fixes as old/new for approval, compliance on facts;
+   (4) the PF damages rule (EPF Scheme 2026 para 23, compliance finding A1) as its own reviewed logic update once the
+   owner confirms it. Then the Kannada phase (item 2). Site sweep: `node audit/check/sweep.mjs` (every page, 5 widths,
+   axe, JSON-LD, console). **Owner, 2026-10-03: tool pages stay tool-first; don't add a "what Medu does" line at the top.**
    **PF page v2 (final, owner-approved):** copy in `docs/epf-service-copy-v2.md` (round 1 + owner changes +
    round 2; compliance-reviewed; the built page is the final text). Order: hero (H1 "We file your PF every
    month, before the due date.", lead with takeover, `fork=` "Not registered yet? PF registration →",
@@ -501,8 +503,8 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
 1. Phase 8 is done (see above). Deferred from phase 7 (after the launch check,
    before Kannada): make each PF/ESI twin post more distinct (inspection 87%, late-payment 82%, threshold 75%
    similar; needs copy changes, owner approval and the compliance reviewer); the short one-paragraph sections no longer
-   look choppy since guides v2 put each post in one article, so merging them is optional; `.link-arrow` tap targets (26px) as a separate
-   style-guide-first change; real `published:` dates for posts.
+   look choppy since guides v2 put each post in one article, so merging them is optional. (Done in phase 9 step 1:
+   standalone `.link-arrow` tap targets 44px; real post dates in `date_published:`.)
    Open from phase 4: the 100% cap on old-slab penalty damages (a reviewed update once the Code's
    section is confirmed, 9.4 #1/#2; the result shows a "call us" note for now).
 2. **Kannada phase (last, before launch):** first a fluent speaker reviews

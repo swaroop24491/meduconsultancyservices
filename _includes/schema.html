@@ -6,7 +6,7 @@
                                           cities_official when left out)
     service.audience: "Hospitals and clinics"     (industry pages: BusinessAudience)
     tool: { name: "..." }                          (page_type tool: WebApplication)
-    headline / published: (page_type post: BlogPosting; headline defaults to title, published to last_modified)
+    headline / date_published: (page_type post: BlogPosting; headline defaults to title, date_published to last_modified; not "published", which Jekyll reserves)
   page_type tools (the hub) is a CollectionPage with an ItemList of the tools.
   page_type industries (the industry hub) is a CollectionPage.
   Every page has a short business entity (name, url, phone) under the shared @id; the full
@@ -38,7 +38,7 @@
 ,{"@type":"Person","@id":"{{ site_url }}/#founder","name":"{{ site.data.site.founder }}"}
 {%- endif -%}
 {%- if page.page_type == "post" -%}
-,{"@type":"BlogPosting","headline":{{ page.headline | default: page.title | jsonify }},"description":{{ page.description | jsonify }},"mainEntityOfPage":{"@id":"{{ page_url }}#webpage"},"dateModified":"{{ page.last_modified | date: '%Y-%m-%d' }}","datePublished":"{{ page.published | default: page.last_modified | date: '%Y-%m-%d' }}","inLanguage":"{% if lang == 'kn' %}kn-IN{% else %}en-IN{% endif %}","author":{"@id":"{{ biz }}"},"publisher":{"@id":"{{ biz }}"}}
+,{"@type":"BlogPosting","headline":{{ page.headline | default: page.title | jsonify }},"description":{{ page.description | jsonify }},"mainEntityOfPage":{"@id":"{{ page_url }}#webpage"},"dateModified":"{{ page.last_modified | date: '%Y-%m-%d' }}","datePublished":"{{ page.date_published | default: page.last_modified | date: '%Y-%m-%d' }}","inLanguage":"{% if lang == 'kn' %}kn-IN{% else %}en-IN{% endif %}","author":{"@id":"{{ biz }}"},"publisher":{"@id":"{{ biz }}"}}
 {%- endif -%}
 {%- if page.page_type == "tools" -%}
 ,{"@type":"ItemList","@id":"{{ page_url }}#tools","itemListElement":[{% for tool in t.tools %}{% include resolve-link.html path=tool.path %}{"@type":"ListItem","position":{{ forloop.index }},"name":{{ tool.name | jsonify }},"url":"{{ site_url }}{{ href }}"}{% unless forloop.last %},{% endunless %}{% endfor %}]}

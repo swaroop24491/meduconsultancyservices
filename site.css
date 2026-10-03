@@ -40,6 +40,7 @@
     --text-h3: 1.25rem;
     --text-lead: 1.25rem;            /* hero lead */
     --text-h2: clamp(1.75rem, 1.2rem + 2vw, 2.75rem);
+    --text-h2-article: clamp(1.5rem, 1.3rem + 0.8vw, 1.75rem);  /* H2 inside a guide article (18px text) */
     --text-display: clamp(2.5rem, 1.3rem + 4.4vw, 4.5rem);  /* founder stat, big numbers */
     --text-hero: clamp(2.125rem, 1.5rem + 2.6vw, 3.5rem);    /* hero H1 */
     --text-h1: clamp(2rem, 1.2rem + 3.2vw, 3.5rem);
@@ -262,6 +263,9 @@ main > .section--surface + .section--surface { border-top-color: var(--color-bor
 .link-arrow { font-weight: var(--weight-medium); }
 .link-arrow .icon { display: inline-block; vertical-align: -0.2em; margin-left: 0.2em; transition: transform 0.15s; }
 .link-arrow:hover .icon { transform: translateX(3px); }
+/* A standalone arrow link (the only link in its paragraph, e.g. "About us →", the hero fork)
+   gets a 44px tap target; arrow links inside a sentence stay inline. */
+p > a.link-arrow:only-child { display: inline-flex; align-items: center; min-height: var(--tap-link); }
 
 /* ---------- Header ---------- */
 .site-header { background: var(--color-bg); border-bottom: 1px solid var(--color-border); }
@@ -401,7 +405,7 @@ body.menu-open .site-header__inner > .lang-switch { visibility: hidden; }
 }
 body { padding-bottom: calc(var(--tap-min) + var(--space-4) + env(safe-area-inset-bottom)); }
 body.menu-open .sticky-call { display: none; }
-/* Hidden (slid down, not focusable) while the hero call button is on screen (script.js) */
+/* Hidden (slid down, not focusable) while a call button in the page is on screen (script.js) */
 .sticky-call--hidden { transform: translateY(100%); visibility: hidden; }
 @media (prefers-reduced-motion: no-preference) {
     .sticky-call { transition: transform 0.2s ease, visibility 0.2s; }
@@ -409,12 +413,14 @@ body.menu-open .sticky-call { display: none; }
 /* Landscape phones and 200% zoom: keep the bar to about 15% of the screen */
 @media (max-height: 420px) {
     .sticky-call { padding-block: var(--space-1) calc(var(--space-1) + env(safe-area-inset-bottom)); }
-    .sticky-call .btn { min-height: 40px; padding-block: 0; font-size: var(--text-base); }
-    body { padding-bottom: calc(40px + var(--space-2) + env(safe-area-inset-bottom)); }
+    .sticky-call .btn { min-height: var(--tap-min); padding-block: 0; font-size: var(--text-base); }
+    body { padding-bottom: calc(var(--tap-min) + var(--space-2) + env(safe-area-inset-bottom)); }
 }
 /* Keyboard focus and in-page links never land under the sticky bar */
 html { scroll-padding-bottom: calc(var(--tap-min) + var(--space-5) + env(safe-area-inset-bottom)); }
-@media (min-width: 769px) {
+/* Wide screens show the header call button instead. Landscape phones (wide but
+   short) keep the bar: their header isn't sticky, so it is the only call button. */
+@media (min-width: 769px) and (min-height: 421px) {
     .sticky-call { display: none; }
     body { padding-bottom: 0; }
     html { scroll-padding-bottom: 0; }
@@ -681,7 +687,7 @@ html[lang="kn"] .proof-line__num { letter-spacing: 0; }
     background: var(--color-sand);
     border-radius: var(--radius);
 }
-.result-call__line { font-size: var(--text-lg); font-weight: var(--weight-semibold); color: var(--color-heading); }
+.result-call__line { font-size: var(--text-lg); font-weight: var(--weight-medium); color: var(--color-heading); }
 .result-call__button { margin-top: var(--space-4); }
 .result-call .proof-line { margin-top: var(--space-4); }
 
@@ -866,9 +872,11 @@ html[lang="kn"] .hero h1 { line-height: 1.4; }
    more space above each H2; the mid-post call box sits between two .prose
    blocks, tint like the tool pages. */
 main > .guide-article { padding-top: 0; border-top-color: transparent; }
-.guide-article .prose > h2 { margin-top: var(--space-7); }
+.guide-article .prose > h2 { margin-top: var(--space-7); font-size: var(--text-h2-article); }
 .guide-article .prose { max-width: var(--container-article); font-size: var(--text-lg); }
-[data-page-type="post"] .tool-lead { max-width: var(--container-article); }
+[data-page-type="post"] .tool-lead { max-width: var(--container-article); margin-top: var(--space-5); }
+/* Post head: the article follows closely, not a full section gap below the byline */
+[data-page-type="post"] .tool-section { padding-bottom: var(--space-7); }
 .guide-article .prose > h2:first-child { margin-top: 0; }
 .guide-article .result-call { max-width: var(--container-article); margin-block: var(--space-7); background: var(--color-tint); border-radius: var(--radius-lg); }
 

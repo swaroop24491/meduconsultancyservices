@@ -3,14 +3,15 @@
   Next to the compact industry links, wrap both in <div class="link-groups">.
   descriptive=true uses link text like "PF and ESI in Mangalore" (where the links stand alone);
   the default is the short city name (compact lists under a label). label=false leaves out the
-  "Cities:" label (where a heading already says it, e.g. About "3 cities").
+  "Cities:" label (where a heading already says it, e.g. About "3 cities") and shows the links as
+  full-width arrow rows, like the row links in two paths.
 {%- endcomment -%}
 {%- include i18n.html -%}
 <div class="link-group">
   {%- if include.label != false %}
   <p class="link-group__label">{{ t.cities_label }}</p>
   {%- endif %}
-  <ul class="link-list">
+  <ul class="link-list{% if include.label == false %} row-links{% endif %}">
     {%- for l in t.cities %}
     <li>{% include resolve-link.html path=l.path %}<a class="link-arrow" href="{{ href }}"{% if link_en %} hreflang="en"{% endif %}>{% if include.descriptive %}{{ l.anchor }}{% else %}{{ l.name }}{% endif %}{% if link_en %}<span class="link-lang"> {{ t.english_marker }}</span>{% endif %}&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
     {%- endfor %}

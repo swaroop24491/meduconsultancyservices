@@ -91,16 +91,30 @@
   var footer = document.querySelector('footer');
   var stickyCall = document.querySelector('.sticky-call');
 
-  /* Phones: hide the sticky call bar while the hero's own call button is on
-     screen, so the first screen shows one call button, not two. Rebuilt pages
-     only (old pages have no sticky bar; tool pages have no hero button). */
-  var heroCall = document.querySelector('.hero__call');
-  if (stickyCall && heroCall && 'IntersectionObserver' in window) {
-    var heroRect = heroCall.getBoundingClientRect();
-    stickyCall.classList.toggle('sticky-call--hidden', heroRect.top < window.innerHeight && heroRect.bottom > 0);
-    new IntersectionObserver(function (entries) {
-      stickyCall.classList.toggle('sticky-call--hidden', entries[0].isIntersecting);
-    }).observe(heroCall);
+  /* Phones: hide the sticky call bar while any call button in the page (hero,
+     tool result box, call block, closing band, or the header's on landscape
+     phones) is on screen, so the screen shows one call button, not two.
+     Rebuilt pages only (old pages have no sticky bar). */
+  var pageCalls = document.querySelectorAll('main .btn--call, .site-header__call');
+  if (stickyCall && pageCalls.length && 'IntersectionObserver' in window) {
+    var visibleCalls = [];
+    var updateSticky = function () {
+      stickyCall.classList.toggle('sticky-call--hidden', visibleCalls.length > 0);
+    };
+    Array.prototype.forEach.call(pageCalls, function (btn) {
+      var r = btn.getBoundingClientRect();
+      if (r.width && r.top < window.innerHeight && r.bottom > 0) visibleCalls.push(btn);
+    });
+    updateSticky();
+    var callObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var i = visibleCalls.indexOf(entry.target);
+        if (entry.isIntersecting && i === -1) visibleCalls.push(entry.target);
+        if (!entry.isIntersecting && i !== -1) visibleCalls.splice(i, 1);
+      });
+      updateSticky();
+    });
+    Array.prototype.forEach.call(pageCalls, function (btn) { callObserver.observe(btn); });
   }
 
   var isMenuOpen = function () {
