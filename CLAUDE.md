@@ -351,7 +351,12 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
   - Kannada: stopgap strings for the router and short steps, logged in `docs/kannada-review.md`.
 
 ### Next (strategy section 9.3, English first; Kannada last)
-0. **Where we stopped (2026-10-03):** every English page is v2 on `feature/revamp` (pushed; now tracks
+0. **Start here (next session, owner 2026-10-03): the Kannada phase (item 2 below).** Launch-check steps 1-3 and A1
+   are done and committed (last: `9808a5e` A1 PF damages). Before building, check whether the fluent-speaker review
+   of `docs/kannada-glossary.md` / `docs/kannada-review.md` has happened; if not, ask the owner how to proceed. Owner
+   items still open for launch (not blockers for the Kannada build): B3 gazette S.O. 2351(E), A1 egazette G.S.R.
+   525(E) check, B4 September check on launch day, B5 ESI recheck 20 Nov 2026, B6 hedged facts, B8 owner input.
+   **Where we stopped (2026-10-03):** every English page is v2 on `feature/revamp` (pushed; now tracks
    `origin/feature/revamp`; push only when the owner asks). **Launch check (phase 9) in progress:** automated checks +
    all six reviewers done; merged findings and the plan in `docs/phase9-review-findings.md` (A blockers, B owner
    decisions, C before launch, D later). Owner order: (1) design/code/SEO fixes with no copy change: **done** (see
@@ -522,7 +527,7 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
    standalone `.link-arrow` tap targets 44px; real post dates in `date_published:`.)
    Open from phase 4: the 100% cap on old-slab penalty damages (a reviewed update once the Code's
    section is confirmed, 9.4 #1/#2; the result shows a "call us" note for now).
-2. **Kannada phase (last, before launch):** first a fluent speaker reviews
+2. **Kannada phase (next; owner 2026-10-03: "continue with Kannada pages in a new session"):** first a fluent speaker reviews
    `docs/kannada-glossary.md` and `docs/kannada-review.md`; then every Kannada page is
    built from the final English page (EN + KN pairs, D9), including the EPF/ESI service
    and registration pages. The old `kn/` pages are replaced then (e.g. the old Kannada
