@@ -355,7 +355,9 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
    `origin/feature/revamp`; push only when the owner asks). **Launch check (phase 9) in progress:** automated checks +
    all six reviewers done; merged findings and the plan in `docs/phase9-review-findings.md` (A blockers, B owner
    decisions, C before launch, D later). Owner order: (1) design/code/SEO fixes with no copy change: **done** (see
-   that doc's "Step 1 done"); (2) owner answers on section B; (3) copy fixes as old/new for approval, compliance on facts;
+   that doc's "Step 1 done"); (2) owner answers on section B: **done** ("Step 2 done": city founder note out, takeover
+   wording, "if PF and ESI apply" site-wide, ESI end-of-period line kept pending the owner's gazette copy of S.O.
+   2351(E)); (3) copy fixes as old/new for approval, compliance on facts;
    (4) the PF damages rule (EPF Scheme 2026 para 23, compliance finding A1) as its own reviewed logic update once the
    owner confirms it. Then the Kannada phase (item 2). Site sweep: `node audit/check/sweep.mjs` (every page, 5 widths,
    axe, JSON-LD, console). **Owner, 2026-10-03: tool pages stay tool-first; don't add a "what Medu does" line at the top.**
@@ -415,11 +417,10 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
    (home router `situations.monthly.text` still says "from your next due date": owner to decide). No local business
    mix / client numbers / city history given (not guessed): ~50-55% shared text remains. At 1440px the city H1 wraps
    to 5 lines (narrow hero column); left as is.
-   Pending owner decisions from the city pages: (a) add "Who's behind it" (`founder-note stat=true bg="tint"`,
-   line "For over 25 years, our team has filed PF and ESI every month for our clients.") above "More help" on the 3
-   city pages? Owner asked, then stopped the edit; it would repeat the founder and the big "35 years" under "Why
-   businesses choose us", so ask: full, without the stat, or leave out. (b) Router `situations.monthly.text` (home +
-   city pages): change to "…once you share the documents we need" to match two paths? (c) Optional city detail.
+   City decisions, settled 2026-10-03 (phase 9 step 2, owner "proceed as recommended"): (a) **no "Who's behind it"
+   on the city pages** (it repeated the founder and "35 years"; removed); (b) router `situations.monthly.text` now
+   "Already registered? Once you share the documents we need, we take over from your next due date." Still open:
+   (c) city detail from the owner; city text is still ~67-74% shared with both other city pages (5-word measure).
    **About v2 (2026-10-02/03, built and committed, final):** copy in `docs/about-contact-legal-copy-v2.md` section 1
    (compliance-reviewed, owner-approved, plus the owner changes logged at the end of section 1; the built page is the
    final text). Order: hero (H1 "About Medu Consultancy"; lead "Medu Thirumaleshwara Bhat started Medu Consultancy in
@@ -451,7 +452,8 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
      (`map_embed_url` in `_data/site.yml`) loads only after "Show the map" is tapped (tested: no Google requests
      before the tap), then focus moves to it; hidden without JavaScript. Text in `t.map` (kn stopgap logged). New `pin`
      icon. `.card-grid--panel .col-word` is smaller and stays on one line.
-   - Compliance wording: "We tell you **if** PF and ESI apply" (never "what PF and ESI apply" / "what applies"); card
+   - Compliance wording: "We tell you **if** PF and ESI apply" (never "what PF and ESI apply" / "what applies";
+     site-wide since phase 9 step 2, incl. the shared closing default and How we work step 1); card
      3 "You never need to visit us. We work by phone and email." (not "We handle everything"). Keep the no-visits card
      next to the office card; never "visit us", "directions" or "come to our office".
    **Privacy and Terms v2 (2026-10-03, built and committed, final):** copy in `docs/about-contact-legal-copy-v2.md`
@@ -493,9 +495,7 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
    cards in `.tool-group`s (like the tools hub), tools as panel cards. New panel rules: icon-less link cards, and exactly
    4 panel cards show 2 by 2. "Guide article" is on the style guide. Article width `--container-article` (48rem) with 18px text (owner: the 42rem column looked narrow). **Next: the launch check (phase 9), then Kannada.**
    Contact checks: `node audit/check/shot-contact.mjs` (widths, axe, Google requests before/after the tap).
-   **Committed (owner, 2026-10-03: "commit and push all changes"):** the 3 city pages have a "Who's behind it"
-   `founder-note stat=true bg="tint"` above "More help". Decision (a) is still open on its form: keep the stat or not,
-   given the big "35 years" under "Why businesses choose us".
+   (The city "Who's behind it" note committed earlier on 2026-10-03 was removed in phase 9 step 2; decision (a) above.)
    **Hero size (2026-10-03, owner):** hero H1 uses its own `--text-hero` token (max 56px, was `--text-display` 72px);
    `.hero__text:only-child` spans the full grid when there is no proof column; proof-strip numbers max 44px.
    `check-page.mjs` now skips the FAQ step on pages with no FAQ. The owner

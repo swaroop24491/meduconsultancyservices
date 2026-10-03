@@ -68,7 +68,7 @@ two_paths:
 how_we_work:
   heading: How we work
   steps:
-    - { title: Call us., text: We check what applies to your business. }
+    - { title: Call us., text: We check if PF and ESI apply to your business. }
     - { title: We tell you which documents we need., text: You send them. }
     - { title: We set up your business and staff., text: New to PF or ESI? We register you first. }
     - { title: "Each month, you send salary details", text: and we file. }
@@ -76,7 +76,7 @@ how_we_work:
   # Home only (how-we-work.html short=true): 3 steps, no filing promise
   short_heading: How it works
   short_steps:
-    - { title: Call us., text: We check what applies to your business. Asking is free. }
+    - { title: Call us., text: We check if PF and ESI apply to your business. Asking is free. }
     - { title: Send us the documents we ask for., text: "We register your business if it isn't registered yet. Already registered? We take over your filing." }
     - { title: "Each month, send us salary details.", text: We file and email you the confirmation and challans (the payment slips). }
 
@@ -106,7 +106,7 @@ situations:
       - { label: ESI registration, path: esi-registration }
   monthly:
     title: We want someone to file every month
-    text: Each month you send salary details and we do the filing. Already registered? We take over from your next due date.
+    text: Each month you send salary details and we do the filing. Already registered? Once you share the documents we need, we take over from your next due date.
     links:
       - { label: PF monthly filing, path: epf-consultancy-service }
       - { label: ESI monthly filing, path: esi-consultancy-service }
@@ -158,7 +158,7 @@ result_call:
   converter: Filing every month yourself? We can do it for you.
 
 closing_call:
-  default: Tell us about your business. We'll tell you what applies.
+  default: Tell us about your business. We'll tell you if PF and ESI apply.
 
 footer:
   services: Services
