@@ -251,7 +251,17 @@ main > .section--surface + .section--surface { border-top-color: var(--color-bor
 /* The Kannada font sits digits high in the line: phone numbers in buttons use
    the Latin font so they stay centred */
 html[lang="kn"] .btn .nowrap,
-html[lang="kn"] .site-header__call span { font-family: var(--font-body); }
+html[lang="kn"] .site-header__call span,
+html[lang="kn"] .col-word a[href^="tel:"] { font-family: var(--font-body); }
+/* Kannada "ಕರೆ ಮಾಡಿ" and the Latin digits sit on one baseline (the Kannada
+   font's taller box put the word 2-3px high when centred) */
+html[lang="kn"] .btn--call { align-items: baseline; align-content: center; }
+html[lang="kn"] .btn--call .btn__label { align-items: baseline; }
+html[lang="kn"] .btn--call .icon { align-self: center; }
+/* Under 360px the Kannada call button would wrap to 2 lines */
+@media (max-width: 359px) {
+    html[lang="kn"] .btn--call { font-size: var(--text-base); padding-inline: var(--space-4); }
+}
 /* The phone number never breaks across lines; "Call" may wrap above it */
 .nowrap { white-space: nowrap; }
 
@@ -864,6 +874,8 @@ html[lang="kn"] .hero h1 { line-height: 1.4; }
    Scoped to tool pages, so blog posts keep their own head. */
 [data-page-type="tool"] .tool-section h1,
 [data-page-type="post"] .tool-section h1 { font-size: var(--text-hero); line-height: 1.1; }
+html[lang="kn"] [data-page-type="tool"] .tool-section h1,
+html[lang="kn"] [data-page-type="post"] .tool-section h1 { line-height: var(--leading-heading); }
 [data-page-type="tool"] .tool-lead,
 [data-page-type="post"] .tool-lead { font-size: var(--text-lead); color: var(--color-text-muted); }
 [data-page-type="tool"] .tool,

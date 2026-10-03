@@ -31,7 +31,13 @@
 {%- endif %}
 {%- endunless %}
 
-    <meta property="og:type" content="website">
+    <meta property="og:type" content="{% if page.page_type == 'post' %}article{% else %}website{% endif %}">
+{%- if page.page_type == 'post' and page.date_published %}
+    <meta property="article:published_time" content="{{ page.date_published | date: '%Y-%m-%d' }}">
+{%- if page.last_modified %}
+    <meta property="article:modified_time" content="{{ page.last_modified | date: '%Y-%m-%d' }}">
+{%- endif %}
+{%- endif %}
     <meta property="og:site_name" content="{{ site.data.site.name }}">
     <meta property="og:locale" content="{% if lang == 'kn' %}kn_IN{% else %}en_IN{% endif %}">
 {%- if has_alt %}

@@ -111,7 +111,7 @@
 <section class="section" aria-labelledby="sg-call">
   <div class="container">
     <h2 id="sg-call">Call button</h2>
-    <p class="sg-note">The only call to action on the site. Always shows the full number and links to <code>tel:+918217542975</code>. <code>location</code> is sent to Google Analytics with each click. <code>block=true</code> makes it full width (menu, sticky bar, cards).</p>
+    <p class="sg-note">The only call to action on the site. Always shows the full number and links to <code>tel:+918217542975</code>. <code>location</code> is sent to Google Analytics with each click. <code>block=true</code> makes it full width (menu, sticky bar, cards). On Kannada pages the number uses the Latin font (also the big number on Contact), "ಕರೆ ಮಾಡಿ" sits on the number's baseline, and under 360px the button text is a step smaller so it stays on one line.</p>
     <pre class="sg-code"><code>{% raw %}{% include call-button.html location="hero" %}{% endraw %}</code></pre>
     <div class="sg-demo" lang="{{ lang }}">{% include call-button.html location="style-guide" %}</div>
     <p class="sg-note">Links to other pages use an arrow link. When it is the only link in its paragraph ("About us →", the hero fork) it gets a 44px tap target; inside a sentence it stays inline:</p>
