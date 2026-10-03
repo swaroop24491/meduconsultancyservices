@@ -841,8 +841,10 @@ html[lang="kn"] .hero h1 { line-height: 1.4; }
 /* v2 tool pages: hero-sized head; the tool sits in one white panel (each
    check in its own panel on the checkers); the result call box is tint.
    Scoped to tool pages, so blog posts keep their own head. */
-[data-page-type="tool"] .tool-section h1 { font-size: var(--text-hero); line-height: 1.1; }
-[data-page-type="tool"] .tool-lead { font-size: var(--text-lead); color: var(--color-text-muted); }
+[data-page-type="tool"] .tool-section h1,
+[data-page-type="post"] .tool-section h1 { font-size: var(--text-hero); line-height: 1.1; }
+[data-page-type="tool"] .tool-lead,
+[data-page-type="post"] .tool-lead { font-size: var(--text-lead); color: var(--color-text-muted); }
 [data-page-type="tool"] .tool,
 [data-page-type="tool"] .tool-check {
     margin-top: var(--space-7);
@@ -859,6 +861,13 @@ html[lang="kn"] .hero h1 { line-height: 1.4; }
     [data-page-type="tool"] .tool, [data-page-type="tool"] .tool-check { margin-inline: calc(-1 * var(--gutter)); border-radius: 0; padding-inline: var(--gutter); }
 }
 .tool-checks + .result-call { max-width: var(--container-text); }
+/* Guide article (v2 posts): every H2 of a post in one reading column, with
+   more space above each H2; the mid-post call box sits between two .prose
+   blocks, tint like the tool pages. */
+main > .guide-article { padding-top: 0; border-top-color: transparent; }
+.guide-article .prose > h2 { margin-top: var(--space-7); }
+.guide-article .prose > h2:first-child { margin-top: 0; }
+.guide-article .result-call { max-width: var(--container-text); margin-block: var(--space-7); background: var(--color-tint); border-radius: var(--radius-lg); }
 
 .tool-form { display: grid; gap: var(--space-5); max-width: 32rem; }
 /* The scripts fill a wrapper div with the fields */
@@ -1041,6 +1050,15 @@ html[lang="kn"] .hero h1 { line-height: 1.4; }
 .card-grid.card-grid--panel > .card--link.link-row:hover { border-color: var(--color-brand); }
 @media (prefers-reduced-motion: no-preference) {
     .card-grid.card-grid--panel > .card--link.link-row:hover { transform: translateY(-2px); }
+}
+/* Link cards without an icon (guide cards): name sits at the left edge */
+.card-grid.card-grid--panel > .card--link.link-row:not(:has(> .icon-badge)) {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas: "name arrow" "text text";
+}
+/* Exactly 4 panel cards: 2 by 2 (never 3 + 1) */
+@media (min-width: 640px) {
+    .card-grid.card-grid--panel:has(> :nth-child(4):last-child) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 /* ---------- Two paths as a flow ----------

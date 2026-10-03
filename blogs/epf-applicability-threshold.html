@@ -2,7 +2,7 @@
 layout: base
 lang: en
 page_type: post
-last_modified: 2026-10-02
+last_modified: 2026-10-03
 title: "Do You Need PF? The 20-Staff Rule | Medu Consultancy"
 headline: "Do you need to register for PF?"
 description: "Does PF apply to your business? Yes, with 20 or more staff. Who counts, who must join, and the ₹25,000 pay limit."
@@ -19,7 +19,7 @@ breadcrumb:
   </div>
 </section>
 
-<section class="section" aria-labelledby="rule-heading">
+<section class="section section--stacked guide-article">
   <div class="container">
     <div class="prose">
       <h2 id="rule-heading">The 20-staff rule</h2>
@@ -27,13 +27,6 @@ breadcrumb:
       <p>Once PF applies, it stays, even if your staff later drop below {{ epf.min_employees }}.</p>
       <p>Have fewer than {{ epf.min_employees }} staff? PF does not have to apply yet. <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a> and we will check your case.</p>
       <p>Hire extra staff for a busy season? Count them too. If you reach {{ epf.min_employees }}, call us to check how PF applies to you.</p>
-    </div>
-  </div>
-</section>
-
-<section class="section" aria-labelledby="count-heading">
-  <div class="container">
-    <div class="prose">
       <h2 id="count-heading">Who counts towards the 20</h2>
       <p><strong>Count all of these:</strong></p>
       <ul class="check-list">
@@ -46,42 +39,40 @@ breadcrumb:
       <p>Paid directors? Call us to check how to count them. LLP? Call us to check.</p>
     </div>
     {% include result-call.html line="Just reached 20 staff? Call us. We register your business for PF." %}
-  </div>
-</section>
-
-<section class="section" aria-labelledby="join-heading">
-  <div class="container">
     <div class="prose">
       <h2 id="join-heading">Which staff must join PF</h2>
       <p>PF is a must for staff whose PF wages are {{ epf.wage_ceiling_text }} a month or less. This is the new limit from {{ epf.wage_ceiling_from }}. Before that it was {{ epf.wage_ceiling_old_text }}.</p>
       <p>PF wages are basic pay plus DA (extra pay that rises with prices), not the full salary. If other allowances are more than half the salary, add the extra part.</p>
       <p>Above {{ epf.wage_ceiling_text }}? A new joiner can still choose to join. Staff who are already members stay members.</p>
       <p>Wage rules changing? <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a>. We check this for you.</p>
-    </div>
-  </div>
-</section>
-
-<section class="section" aria-labelledby="late-heading">
-  <div class="container">
-    <div class="prose">
       <h2 id="late-heading">If you register late</h2>
       <p>If you should have registered earlier, you may have to pay the PF for the earlier months, with interest and a fine. Register as soon as it applies. <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a> and we register you.</p>
     </div>
   </div>
 </section>
 
-<section class="section" aria-labelledby="related-heading">
+<section class="section section--surface section--stacked" aria-labelledby="more-heading">
   <div class="container">
-    <h2 id="related-heading">Related tools and pages</h2>
-    <div class="card-grid">
+    <h2 id="more-heading">More help with PF and ESI</h2>
+    <div class="card-grid card-grid--panel">
       {% include tool-card.html key="epf-eligibility" %}
     </div>
-    <ul class="link-list">
-      <li><a class="link-arrow" href="/blogs/esi-applicability-threshold">ESI: who must register&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
-      <li><a class="link-arrow" href="/pf-registration">PF registration&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
-      <li><a class="link-arrow" href="/blogs/epf-late-payment-penalty">What paying PF late costs&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
-      <li><a class="link-arrow" href="/blogs/">All guides&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
-    </ul>
+    <div class="link-groups link-groups--wide">
+      <div class="link-group">
+        <p class="link-group__label">Guides:</p>
+        <ul class="link-list">
+          <li><a class="link-arrow" href="/blogs/esi-applicability-threshold">ESI: who must register&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+          <li><a class="link-arrow" href="/blogs/epf-late-payment-penalty">What paying PF late costs&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+          <li><a class="link-arrow" href="/blogs/">All guides&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+        </ul>
+      </div>
+      <div class="link-group">
+        <p class="link-group__label">Our services:</p>
+        <ul class="link-list">
+          <li><a class="link-arrow" href="/pf-registration">PF registration&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+        </ul>
+      </div>
+    </div>
     <p class="note">We help businesses in <a href="/epf-esi-consultancy-mangalore">Mangalore</a>, <a href="/epf-esi-consultancy-udupi">Udupi</a> and <a href="/epf-esi-consultancy-bangalore">Bangalore</a>.</p>
   </div>
 </section>

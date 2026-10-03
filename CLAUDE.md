@@ -478,10 +478,13 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
    (CSS only, scoped to `[data-page-type="tool"]`; blog posts keep the plain head) the H1/lead are hero-sized, the `.tool`
    (or each `.tool-check`) is a white rounded panel (edge to edge under 560px) and the result call box is tint. The
    result call box keeps its compact proof line (only proof on tool pages; owner can still ask to remove it).
-   **Next session (owner, 2026-10-03): the guides (blog index + 11 posts), v2** (same v2 spirit and workflow: copy doc
-   old vs new in `docs/guides-copy-v2.md`, compliance reviewer where facts are touched, owner approval, build, check at
-   all widths, commit). Posts share `.tool-section`/`.tool-lead`/`result-call` with tools: scope any change. Then the
-   launch check (phase 9), then Kannada.
+   **Guides v2 (2026-10-03, built and committed):** plan in `docs/guides-copy-v2.md` (owner: "proceed as recommended").
+   Layout only, no post wording changed (no compliance run needed). Posts: tool-style head, hero-sized on
+   `[data-page-type="post"]`; the whole body is one `.guide-article` (stacked, one reading column, no lines between H2s;
+   mid-post call box tint); "Related tools and pages" → "More help with PF and ESI" (white stacked band, panel tool cards,
+   "Guides:" / "Our services:" link groups, cities note kept). Index: "Guides by situation" white band with panel link
+   cards in `.tool-group`s (like the tools hub), tools as panel cards. New panel rules: icon-less link cards, and exactly
+   4 panel cards show 2 by 2. "Guide article" is on the style guide. **Next: the launch check (phase 9), then Kannada.**
    **Earlier note (owner, 2026-10-03): tools hub and the 7 tool pages, v2** (same v2 spirit: copy doc old vs new in
    `docs/tools-copy-v2.md`, compliance reviewer, owner approval, build, check at all widths, commit). Start from the phase 4
    copy docs and the tool page conventions (phase 4 below). Tool text and calculation logic don't change as part of the

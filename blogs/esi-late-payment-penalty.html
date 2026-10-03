@@ -2,7 +2,7 @@
 layout: base
 lang: en
 page_type: post
-last_modified: 2026-10-02
+last_modified: 2026-10-03
 title: "Paying ESI Late: Interest and Damages | Medu Consultancy"
 headline: "What happens if you pay ESI late?"
 description: "Paid ESI late? ESIC can charge 12% a year interest plus damages. How both work, with a ₹50,000 example."
@@ -19,36 +19,15 @@ breadcrumb:
   </div>
 </section>
 
-<section class="section" aria-labelledby="due-heading">
+<section class="section section--stacked guide-article">
   <div class="container">
     <div class="prose">
       <h2 id="due-heading">When ESI is due</h2>
       <p>ESI for a month is due by the {{ f.due_day }}th of the next month. Pay after that date and it is late.</p>
-    </div>
-  </div>
-</section>
-
-<section class="section" aria-labelledby="interest-heading">
-  <div class="container">
-    <div class="prose">
       <h2 id="interest-heading">Interest</h2>
       <p>Interest is 12% a year on the unpaid amount. It is counted for each day, from the due date until the day you pay. It is charged on every late payment.</p>
-    </div>
-  </div>
-</section>
-
-<section class="section" aria-labelledby="damages-heading">
-  <div class="container">
-    <div class="prose">
       <h2 id="damages-heading">Damages</h2>
       <p>Damages are a fine on top of the interest. ESIC decides whether to charge them. The yearly rate goes up the longer you are late: 5% (under 2 months), 10% (2 to 4 months), 15% (4 to 6 months), 25% (6 months or more).</p>
-    </div>
-  </div>
-</section>
-
-<section class="section" aria-labelledby="example-heading">
-  <div class="container">
-    <div class="prose">
       <h2 id="example-heading">Example: ₹50,000 paid 66 days late</h2>
       <p>You owe ₹50,000 of ESI. You pay 66 days late. That is in the "2 to 4 months" band, so damages are 10% a year.</p>
       <ul class="check-list">
@@ -60,21 +39,9 @@ breadcrumb:
       <p>These are estimates. ESIC decides the final amount.</p>
     </div>
     {% include result-call.html line="Paid late before? Call us. We file every month and track the due date for you." %}
-  </div>
-</section>
-
-<section class="section" aria-labelledby="inspect-heading">
-  <div class="container">
     <div class="prose">
       <h2 id="inspect-heading">If an inspection finds it</h2>
       <p>An inspection can find late payments. You may then have to pay the unpaid amount, interest and damages together. Read <a href="/blogs/esi-inspection-guide">what happens in an ESI inspection</a>.</p>
-    </div>
-  </div>
-</section>
-
-<section class="section" aria-labelledby="avoid-heading">
-  <div class="container">
-    <div class="prose">
       <h2 id="avoid-heading">How to avoid it</h2>
       <ul class="check-list">
         <li>Pay your ESI by the {{ f.due_day }}th every month.</li>
@@ -86,18 +53,28 @@ breadcrumb:
   </div>
 </section>
 
-<section class="section" aria-labelledby="related-heading">
+<section class="section section--surface section--stacked" aria-labelledby="more-heading">
   <div class="container">
-    <h2 id="related-heading">Related tools and pages</h2>
-    <div class="card-grid">
+    <h2 id="more-heading">More help with PF and ESI</h2>
+    <div class="card-grid card-grid--panel">
       {% include tool-card.html key="esi-penalty" %}
       {% include tool-card.html key="esi-contribution" %}
     </div>
-    <ul class="link-list">
-      <li><a class="link-arrow" href="/blogs/esi-applicability-threshold">ESI: who must register&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
-      <li><a class="link-arrow" href="/esi-consultancy-service">ESI monthly filing&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
-      <li><a class="link-arrow" href="/blogs/">All guides&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
-    </ul>
+    <div class="link-groups link-groups--wide">
+      <div class="link-group">
+        <p class="link-group__label">Guides:</p>
+        <ul class="link-list">
+          <li><a class="link-arrow" href="/blogs/esi-applicability-threshold">ESI: who must register&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+          <li><a class="link-arrow" href="/blogs/">All guides&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+        </ul>
+      </div>
+      <div class="link-group">
+        <p class="link-group__label">Our services:</p>
+        <ul class="link-list">
+          <li><a class="link-arrow" href="/esi-consultancy-service">ESI monthly filing&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+        </ul>
+      </div>
+    </div>
     <p class="note">We help businesses in <a href="/epf-esi-consultancy-mangalore">Mangalore</a>, <a href="/epf-esi-consultancy-udupi">Udupi</a> and <a href="/epf-esi-consultancy-bangalore">Bangalore</a>.</p>
   </div>
 </section>

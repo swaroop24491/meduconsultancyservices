@@ -94,7 +94,7 @@
 <section class="section" aria-labelledby="sg-prose">
   <div class="container">
     <h2 id="sg-prose">Text, check list and sections</h2>
-    <p class="sg-note">Sections are <code>&lt;section class="section"&gt;</code> with a container. Cream is the base; <code>section--surface</code> (white), <code>section--tint</code> (soft green) and <code>section--deep</code> (deep green, the closing call) are available. Other parts: white panel cards (<code>card-grid--panel</code>), the two-paths flow, the How we work timeline, the founder feature (<code>founder-note.html</code>; <code>stat=true</code> on white, <code>bg="tint"</code> on soft green; the founder photo shows under the text once <code>founder_photo</code> is set in <code>_data/site.yml</code>), a fact pair (<code>.fact-pair</code>), and the hero proof facts as a full-width row (<code>hero.html proof="strip"</code>). Each page is composed on its own with design-reviewer input. From 1024px sections <strong>split</strong>: the H2 in a left column, everything else in a wider right column (this page shows it). <code>section--stacked</code> keeps the H2 on top at full width, for columns. One section = one H2. Running text goes in <code>.prose</code> (reading width; an H2 inside it still goes to the left column). Lists of what we do use <code>.check-list</code>. Several blocks under one H2 use <code>.stack</code>.</p>
+    <p class="sg-note">Sections are <code>&lt;section class="section"&gt;</code> with a container. Cream is the base; <code>section--surface</code> (white), <code>section--tint</code> (soft green) and <code>section--deep</code> (deep green, the closing call) are available. Other parts: white panel cards (<code>card-grid--panel</code>; exactly 4 cards show 2 by 2; link cards may have no icon, like the guide cards on <code>/blogs/</code>), the two-paths flow, the How we work timeline, the founder feature (<code>founder-note.html</code>; <code>stat=true</code> on white, <code>bg="tint"</code> on soft green; the founder photo shows under the text once <code>founder_photo</code> is set in <code>_data/site.yml</code>), a fact pair (<code>.fact-pair</code>), and the hero proof facts as a full-width row (<code>hero.html proof="strip"</code>). Each page is composed on its own with design-reviewer input. From 1024px sections <strong>split</strong>: the H2 in a left column, everything else in a wider right column (this page shows it). <code>section--stacked</code> keeps the H2 on top at full width, for columns. One section = one H2. Running text goes in <code>.prose</code> (reading width; an H2 inside it still goes to the left column). Lists of what we do use <code>.check-list</code>. Several blocks under one H2 use <code>.stack</code>.</p>
     <div class="sg-demo" lang="{{ lang }}">
       <div class="prose">
         <p>{{ t.two_paths.monthly.text }} {{ t.no_office }}</p>
@@ -356,6 +356,21 @@ Home "Who we work with, and where": one section--groups section, an H3 per group
     <div class="legal__item"><h2>What we collect</h2><p>Sample text for the first point. A short paragraph in plain English.</p></div>
     <div class="legal__item"><h2>Questions?</h2><p>Call <a href="tel:{{ site.data.site.phone_tel }}">{{ site.data.site.phone_display }}</a>.</p></div>
   </div></div></div>
+</div>
+
+<div id="sg-guide" class="sg-component">
+  <div class="container"><p class="sg-component__name">Guide article</p><p class="sg-note">Blog posts (<code>page_type: post</code>). The head is the tool head (<code>.tool-section</code>: H1, <code>.tool-lead</code> short answer, "Rules checked on" note), hero-sized on posts. Then the whole post is one article in a single reading column (<code>.guide-article</code>, stacked, no lines between H2s). The mid-post call box sits between two <code>.prose</code> blocks and is tint. Then "More help with PF and ESI" as a white band (panel tool cards + "Guides:" / "Our services:" link groups + the cities note), then the closing call.</p>
+  <pre class="sg-code"><code>&lt;section class="section section--stacked guide-article"&gt;
+  &lt;div class="container"&gt;
+    &lt;div class="prose"&gt;&lt;h2&gt;…&lt;/h2&gt;&lt;p&gt;…&lt;/p&gt;&lt;h2&gt;…&lt;/h2&gt;…&lt;/div&gt;
+    {% raw %}{% include result-call.html line="..." %}{% endraw %}
+    &lt;div class="prose"&gt;&lt;h2&gt;…&lt;/h2&gt;…&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+  <div class="sg-demo guide-article"><div class="prose">
+    <h2>First heading</h2><p>Sample text for the first part of a guide. Short sentences in plain English.</p>
+    <h2>Second heading</h2><p>Sample text. The call box comes after the main answer.</p>
+  </div>{% include result-call.html line="Sample call line. Call us." %}</div></div>
 </div>
 
 <div id="sg-faq" class="sg-component">
