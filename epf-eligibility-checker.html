@@ -2,7 +2,7 @@
 layout: base
 lang: en
 page_type: tool
-last_modified: 2026-09-28
+last_modified: 2026-10-03
 title: "PF Eligibility Checker (EPF) 2026 | Medu Consultancy"
 description: "Does PF apply to your business or an employee? Free PF eligibility checker, updated for the ₹25,000 wage limit from 17 September 2026."
 scripts: [/eligibility-checker.js]
@@ -63,17 +63,27 @@ faq:
   </div>
 </section>
 
-<section class="section" aria-labelledby="related-heading">
+<section class="section section--surface section--stacked" aria-labelledby="more-heading">
   <div class="container">
-    <h2 id="related-heading">Related tools and pages</h2>
-    <div class="card-grid">
+    <h2 id="more-heading">More help with PF and ESI</h2>
+    <div class="card-grid card-grid--panel">
       {% include tool-card.html key="epf-contribution" %}
       {% include tool-card.html key="esi-eligibility" %}
     </div>
-    <ul class="link-list">
-      <li><a class="link-arrow" href="/pf-registration">PF registration for employers&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
-      <li><a class="link-arrow" href="/blogs/epf-applicability-threshold">PF: who must register&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
-    </ul>
+    <div class="link-groups link-groups--wide">
+      <div class="link-group">
+        <p class="link-group__label">Guides:</p>
+        <ul class="link-list">
+          <li><a class="link-arrow" href="/blogs/epf-applicability-threshold">PF: who must register&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+        </ul>
+      </div>
+      <div class="link-group">
+        <p class="link-group__label">Our services:</p>
+        <ul class="link-list">
+          <li><a class="link-arrow" href="/pf-registration">PF registration for employers&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+        </ul>
+      </div>
+    </div>
   </div>
 </section>
 

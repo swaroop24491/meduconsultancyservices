@@ -2,7 +2,7 @@
 layout: base
 lang: en
 page_type: tools
-last_modified: 2026-09-28
+last_modified: 2026-10-03
 title: "Free PF & ESI Calculators | Medu Consultancy"
 description: "Free PF and ESI calculators for employers. Check if PF or ESI applies, work out monthly amounts and late payment costs. Updated for 2026 rules."
 breadcrumb:
@@ -14,44 +14,46 @@ faq:
     a: 'No. The tools give a close estimate based on the current rules. The final amount comes from EPFO (the PF office) or ESIC (the ESI office). <a href="tel:+918217542975" data-call-location="faq">Call us</a> and we''ll check your case.'
   - q: Do you save what I type?
     a: No. The calculators work in your browser. Nothing you type is sent to us or saved.
+  - q: Can you do this for us every month?
+    a: 'Yes. We register businesses for PF and ESI, and file both every month. We serve businesses in Mangalore, Udupi and Bangalore. See <a href="/epf-consultancy-service">PF monthly filing</a> and <a href="/esi-consultancy-service">ESI monthly filing</a>.'
 ---
-{% include hero.html heading="Free PF and ESI calculators" lead="Check if PF or ESI applies to you. Work out what you pay each month, or what paying late costs. Free, with no sign-up." proof="compact" %}
+{% include hero.html heading="Free PF and ESI calculators" lead="Check if PF or ESI applies to you. Work out what you pay each month, or what paying late costs. Free, with no sign-up." proof=false %}
 
-<section class="section" aria-labelledby="which-heading">
+<section class="section section--surface section--stacked" aria-labelledby="which-heading">
   <div class="container">
     <h2 id="which-heading">Which tool do you need?</h2>
     <p class="section-lead">PF (Provident Fund, also called EPF) and ESI (Employees' State Insurance) are paid every month for your staff. Pick your question.</p>
     <div class="tool-group">
       <h3>Does PF or ESI apply to us?</h3>
-      <div class="card-grid">
+      <div class="card-grid card-grid--panel">
         {% include tool-card.html key="epf-eligibility" %}
         {% include tool-card.html key="esi-eligibility" %}
       </div>
     </div>
     <div class="tool-group">
       <h3>How much do we pay each month?</h3>
-      <div class="card-grid">
+      <div class="card-grid card-grid--panel">
         {% include tool-card.html key="epf-contribution" %}
         {% include tool-card.html key="esi-contribution" %}
       </div>
     </div>
     <div class="tool-group">
       <h3>What will paying late cost?</h3>
-      <div class="card-grid">
+      <div class="card-grid card-grid--panel">
         {% include tool-card.html key="epf-penalty" %}
         {% include tool-card.html key="esi-penalty" %}
       </div>
     </div>
     <div class="tool-group">
       <h3>We file PF ourselves</h3>
-      <div class="card-grid">
+      <div class="card-grid card-grid--panel">
         {% include tool-card.html key="converter" %}
       </div>
     </div>
   </div>
 </section>
 
-<section class="section" aria-labelledby="updated-heading">
+<section class="section section--tint" aria-labelledby="updated-heading">
   <div class="container">
     <div class="prose">
       <h2 id="updated-heading">Kept up to date</h2>
@@ -61,8 +63,6 @@ faq:
     </div>
   </div>
 </section>
-
-{% include two-paths.html %}
 
 {% include faq.html items=page.faq schema=true %}
 

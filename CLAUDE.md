@@ -469,7 +469,13 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
    the ESI service page wording (9.4 #10 fallback in the copy doc). Compliance: never "every worker/staff member" gets
    UAN/IP or is added to PF/ESI ("if the rules cover them"). Hub: proof strip, white industry cards, "once the rules apply
    to you". New CSS: `.card-grid + .prose` spacing. Still open: schools thin (E4), per-industry numbers (G4): owner input only.
-   **Next session (owner, 2026-10-03): tools hub and the 7 tool pages, v2** (same v2 spirit: copy doc old vs new in
+   **Tools hub + 7 tool pages v2 (2026-10-03, built and committed):** copy in `docs/tools-copy-v2.md` (owner: "proceed
+   as recommended"). Hub: hero `proof=false` (owner: trust indicators repetitive there) → "Which tool do you need?"
+   (white, `card-grid--panel` per question group) → "Kept up to date" (tint, founder line kept) → FAQ (+ "Can you do this
+   for us every month?") → closing; two paths removed. Tool pages: tool and "How … worked out" unchanged; "Related tools
+   and pages" → "More help with PF and ESI" (converter: "with PF"), white, 2 panel tool cards + "Guides:"/"Our services:"
+   link groups (same links as before). No tool text or logic changed. Next: the launch check (phase 9), then Kannada.
+   **Earlier note (owner, 2026-10-03): tools hub and the 7 tool pages, v2** (same v2 spirit: copy doc old vs new in
    `docs/tools-copy-v2.md`, compliance reviewer, owner approval, build, check at all widths, commit). Start from the phase 4
    copy docs and the tool page conventions (phase 4 below). Tool text and calculation logic don't change as part of the
    redesign: any change is a separate reviewed update with before/after cases. Then the launch check (phase 9), then Kannada.
