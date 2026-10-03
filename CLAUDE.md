@@ -357,7 +357,18 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
    decisions, C before launch, D later). Owner order: (1) design/code/SEO fixes with no copy change: **done** (see
    that doc's "Step 1 done"); (2) owner answers on section B: **done** ("Step 2 done": city founder note out, takeover
    wording, "if PF and ESI apply" site-wide, ESI end-of-period line kept pending the owner's gazette copy of S.O.
-   2351(E)); (3) copy fixes as old/new for approval, compliance on facts;
+   2351(E)); (3) copy fixes: **done** (`docs/phase9-copy-fixes.md`, compliance-reviewed, owner-approved; the built
+   pages are the final text). Settled wording from it, reuse everywhere: founder line "He taught us the PF rules."
+   (never "how the PF office works/reads…"); joining PF above ₹25,000 "if you and they both agree in writing" (Scheme
+   para 9(4), brief s11); 50% rule "PF/ESI wages must be at least half the total pay. If they come to less, the
+   difference is added to PF/ESI wages." (page text; tool help unchanged); first mention "PF (Provident Fund, also
+   called EPF) gives your staff savings and a pension" / "ESI (Employees' State Insurance) gives your staff medical
+   care, and pay when they can't work because of sickness, injury or maternity" (short: "medical care and sick pay");
+   "We'll check who must be in PF and ESI" and "if the rules cover them" on every "add staff" line; "We work by phone
+   and email" (never "We handle everything"); 15th: "We get the payment slip (challan) ready in time, so you can pay by
+   the 15th. Or send us the amount and we pay it."; ECR "the monthly list of each employee's wages and PF, sent to the
+   PF office"; directors "call us to check how to count them" for PF and ESI. Still open for launch: B3 gazette copy,
+   B4 September check, B6 hedged facts, B8 owner input (see the findings doc).
    (4) the PF damages rule (EPF Scheme 2026 para 23, compliance finding A1) as its own reviewed logic update once the
    owner confirms it. Then the Kannada phase (item 2). Site sweep: `node audit/check/sweep.mjs` (every page, 5 widths,
    axe, JSON-LD, console). **Owner, 2026-10-03: tool pages stay tool-first; don't add a "what Medu does" line at the top.**

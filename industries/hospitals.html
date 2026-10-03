@@ -35,7 +35,7 @@ faq:
         <p class="col-word">{{ esi.wage_ceiling_text }}</p>
         <h3>Nurses and support staff</h3>
         <p>Many nurses, ward staff and helpers earn {{ esi.wage_ceiling_text }} a month or less in ESI wages, so they must be in ESI.</p>
-        <p>ESI wages are the month's pay minus some items, like HRA (house rent allowance) and overtime. If these items are more than half the pay, part of them counts again. Shift and night-duty allowances usually count. So ESI wages can change each month.</p>
+        <p>ESI wages are the month's pay minus some items, like HRA (house rent allowance) and overtime. But ESI wages must be at least half the total pay. If they come to less, the difference is added to ESI wages. Shift and night-duty allowances usually count. So ESI wages can change each month.</p>
       </div>
       <div class="card">
         <p class="col-word">Agency</p>
@@ -77,14 +77,14 @@ faq:
       <p>You send us salary details. We do the PF and ESI work.</p>
       <ul class="check-list">
         <li>We register your hospital for PF and ESI, if it isn't registered yet.</li>
-        <li>We add new staff to PF and ESI. Staff who already have a UAN (a PF account number for life) keep it. Others get one by a face scan on the UMANG app (the government's mobile app). We guide them. We create their IP number (their ESI number).</li>
+        <li>We add new staff to PF and ESI, if the rules cover them. Staff who already have a UAN (a PF account number for life) keep it. Others get one by a face scan on the UMANG app (the government's mobile app). We guide them. We create their IP number (their ESI number).</li>
         <li>We work out ESI wages each month, as shift pay changes.</li>
-        <li>Each month, we file your PF and ESI returns, and mark the date when staff leave. We email you the challans (the payment slips). Pay them by the {{ epf.due_day }}th of the next month, or send us the amount and we pay it.</li>
+        <li>Each month, we file your PF and ESI returns (the monthly list of each employee's wages and the PF or ESI on them, sent to the PF and ESI offices), and mark the date when staff leave. We email you the challans (the payment slips). Pay them by the {{ epf.due_day }}th of the next month, or send us the amount and we pay it.</li>
         <li>We keep your PF and ESI records ready for inspections.</li>
         <li>We help your staff with ESI claims and their PF details.</li>
         <li>Already filing PF and ESI yourself? We take over once you share the documents we need.</li>
       </ul>
-      <p>We work with hospitals and clinics in <a href="/epf-esi-consultancy-mangalore">Mangalore</a>, <a href="/epf-esi-consultancy-udupi">Udupi</a> and <a href="/epf-esi-consultancy-bangalore">Bangalore</a>. No office visits needed. We handle everything over phone and email.</p>
+      <p>We work with hospitals and clinics in <a href="/epf-esi-consultancy-mangalore">Mangalore</a>, <a href="/epf-esi-consultancy-udupi">Udupi</a> and <a href="/epf-esi-consultancy-bangalore">Bangalore</a>. No office visits needed. We work by phone and email.</p>
     </div>
     {% include call-block.html location="handle" %}
   </div>
@@ -104,6 +104,7 @@ faq:
         <ul class="link-list">
           <li><a class="link-arrow" href="/blogs/esi-applicability-threshold">ESI: who must register&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
           <li><a class="link-arrow" href="/blogs/esi-inspection-guide">What happens in an ESI inspection&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+          <li><a class="link-arrow" href="/blogs/pf-esi-benefits-for-employers">What your business gets from PF and ESI&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
         </ul>
       </div>
       {% include service-links.html %}
@@ -114,4 +115,4 @@ faq:
 
 {% include faq.html items=page.faq schema=true %}
 
-{% include closing-call.html line="Tell us about your hospital. We'll make sure every employee who should be in PF and ESI is covered." %}
+{% include closing-call.html line="Tell us about your hospital. We'll check who must be in PF and ESI." %}

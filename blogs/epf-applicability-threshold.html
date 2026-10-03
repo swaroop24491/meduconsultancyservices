@@ -26,7 +26,7 @@ breadcrumb:
       <h2 id="rule-heading">The 20-staff rule</h2>
       <p>PF (Provident Fund, also called EPF) applies to any business with {{ epf.min_employees }} or more staff, in any industry. Exactly {{ epf.min_employees }} counts.</p>
       <p>Once PF applies, it stays, even if your staff later drop below {{ epf.min_employees }}.</p>
-      <p>Have fewer than {{ epf.min_employees }} staff? PF does not have to apply yet. <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a> and we will check your case.</p>
+      <p>Have fewer than {{ epf.min_employees }} staff? You don't have to register for PF yet. <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a> and we will check your case.</p>
       <p>Hire extra staff for a busy season? Count them too. If you reach {{ epf.min_employees }}, call us to check how PF applies to you.</p>
       <h2 id="count-heading">Who counts towards the 20</h2>
       <p><strong>Count all of these:</strong></p>
@@ -36,15 +36,15 @@ breadcrumb:
         <li>Staff sent by a contractor</li>
         <li>Staff who earn more than ₹25,000 a month (the PF pay limit)</li>
       </ul>
-      <p><strong>Do not count:</strong> apprentices, the owner (if you are a sole proprietor) and the partners of a partnership firm.</p>
-      <p>Paid directors? Call us to check how to count them. LLP? Call us to check.</p>
+      <p><strong>Do not count:</strong> apprentices, the owner (if one person owns the business) and the partners of a partnership firm.</p>
+      <p>Paid directors? Call us to check how to count them. Is your business an LLP (limited liability partnership)? Call us to check.</p>
     </div>
     {% include result-call.html line="Just reached 20 staff? Call us. We register your business for PF." %}
     <div class="prose">
       <h2 id="join-heading">Which staff must join PF</h2>
       <p>PF is a must for staff whose PF wages are {{ epf.wage_ceiling_text }} a month or less. This is the new limit from {{ epf.wage_ceiling_from }}. Before that it was {{ epf.wage_ceiling_old_text }}.</p>
-      <p>PF wages are basic pay plus DA (extra pay that rises with prices), not the full salary. If other allowances are more than half the salary, add the extra part.</p>
-      <p>Above {{ epf.wage_ceiling_text }}? A new joiner can still choose to join. Staff who are already members stay members.</p>
+      <p>PF wages are basic pay plus DA (extra pay that rises with prices), not the full salary. But PF wages must be at least half the total pay. If they come to less, the difference is added to PF wages.</p>
+      <p>Above {{ epf.wage_ceiling_text }}? A new joiner can still join, if you and the employee both agree in writing. Staff who are already members stay members.</p>
       <p>Wage rules changing? <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a>. We check this for you.</p>
       <h2 id="late-heading">If you register late</h2>
       <p>If you should have registered earlier, you may have to pay the PF for the earlier months, with interest and a fine. Register as soon as it applies. <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a> and we register you.</p>

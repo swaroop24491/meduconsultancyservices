@@ -12,7 +12,7 @@ breadcrumb:
   - { name: ESI contribution calculator }
 faq:
   - q: What are ESI wages?
-    a: "The month's pay without some items: HRA (house rent allowance), overtime, bonus, commission and travel allowance. If those items are more than half the pay, the part above half is added back. This is the wages rule in the Code on Social Security, 2020."
+    a: "The month's pay without some items: HRA (house rent allowance), overtime, bonus, commission and travel allowance. But ESI wages must be at least half the total pay. If they come to less, the difference is added to ESI wages. This is the wages rule in the Code on Social Security, 2020."
   - q: Do staff on very low pay pay ESI?
     a: 'They don''t pay their own 0.75% share. You still pay your 3.25%. <a href="tel:+918217542975" data-call-location="faq">Call us</a> to check if this applies to your staff.'
   - q: How much is ESI in total?
@@ -43,7 +43,7 @@ faq:
       <h2 id="how-heading">How ESI is worked out</h2>
       <p>ESI is <strong>{{ esi.total_rate_pct }}% of ESI wages</strong> each month. The employee pays <strong>{{ esi.employee_rate_pct }}%</strong>, which you take from their salary. You pay <strong>{{ esi.employer_rate_pct }}%</strong>.</p>
       <p>ESI is paid for employees whose ESI wages are {{ esi.wage_ceiling_text }} a month or less ({{ esi.wage_ceiling_pwd_text }} for a person with a disability).</p>
-      <p>ESI wages are the month's pay minus HRA (house rent allowance), overtime, bonus, commission and travel allowance. Are these items more than half the pay? Then the extra part is added back.</p>
+      <p>ESI wages are the month's pay minus HRA (house rent allowance), overtime, bonus, commission and travel allowance. But ESI wages must be at least half the total pay. If they come to less, the difference is added to ESI wages.</p>
       <p>Staff on very low daily pay don't pay their own {{ esi.employee_rate_pct }}% share. You still pay your {{ esi.employer_rate_pct }}%. <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a> to check if this applies.</p>
       <p>ESI is due by the {{ esi.due_day }}th of the next month.</p>
       <p class="note"><strong>Note:</strong> This calculator gives an estimate. The final figure can differ slightly because of rounding. Checked against the rules as of {{ site.data.facts.tools_checked }}.</p>

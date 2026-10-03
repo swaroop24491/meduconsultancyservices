@@ -2,7 +2,7 @@
 layout: base
 lang: en
 page_type: registration
-last_modified: 2026-10-02
+last_modified: 2026-10-03
 title: "PF Registration for Employers in Mangalore | Medu Consultancy"
 description: "20 or more staff? We register your business for PF in Mangalore, Udupi and Bangalore, and set up your staff. Call +91 82175 42975."
 breadcrumb:
@@ -19,7 +19,7 @@ faq:
   - q: What documents do you need?
     a: 'It depends on your type of business. <a href="tel:+918217542975" data-call-location="faq">Call us</a> and we''ll tell you exactly what to send.'
   - q: Which staff must be in PF?
-    a: "Once PF applies to your business, staff whose PF wages are ₹25,000 a month or less must be in PF. PF wages are mainly basic pay plus DA (dearness allowance), not the full salary. If other allowances are more than half the salary, the part above half also counts as PF wages. We work this out for you. Staff with PF wages above ₹25,000: if they were never in PF, joining is optional. If they are already in PF, they stay in PF."
+    a: "Once PF applies to your business, staff whose PF wages are ₹25,000 a month or less must be in PF. PF wages are mainly basic pay plus DA (dearness allowance), not the full salary. But PF wages must be at least half the total pay. If they come to less, the difference is added to PF wages. We work this out for you. Staff with PF wages above ₹25,000: if they were never in PF, they can join if you and they both agree in writing. If they are already in PF, they stay in PF."
   - q: Which PF limit applies to September 2026 salaries?
     a: 'The limit went up from ₹15,000 to ₹25,000 on 17 September 2026. For September 2026 salaries, the PF office has not yet said which limit to use. <a href="tel:+918217542975" data-call-location="faq">Call us</a> and we''ll tell you what to do.'
   - q: Do we need ESI registration too?
@@ -37,9 +37,9 @@ faq:
       <h2 id="applies-heading">Does your business need PF registration?</h2>
       <ul class="fact-pair">
         <li><span class="fact-pair__num">{{ epf.min_employees }}</span> <span class="fact-pair__label">employees or more</span></li>
-        <li><span class="fact-pair__num">{{ epf.wage_ceiling_text }}</span> <span class="fact-pair__label">staff with PF wages up to this a month must join</span></li>
+        <li><span class="fact-pair__num">{{ epf.wage_ceiling_text }}</span> <span class="fact-pair__label">a month or less in PF wages: these staff must join</span></li>
       </ul>
-      <p>Your business must register for PF when it has <strong>{{ epf.min_employees }} or more employees</strong>, in any industry.</p>
+      <p>PF (Provident Fund, also called EPF) gives your staff savings and a pension. Your business must register for PF when it has <strong>{{ epf.min_employees }} or more employees</strong>, in any industry.</p>
       <p>Count all your staff:</p>
       <ul class="check-list">
         <li>temporary and casual staff</li>
@@ -81,9 +81,9 @@ faq:
         <p class="col-word">Then</p>
         <h3>We add your staff</h3>
         <ul class="check-list">
-          <li>We add your staff to PF.</li>
+          <li>We add your staff to PF, if the rules cover them.</li>
           <li>Staff who already have a UAN (a PF account number for life) keep it.</li>
-          <li>Others get one by a face scan on the UMANG app. We guide them.</li>
+          <li>Others get one by a face scan on the UMANG app (the government's mobile app). We guide them.</li>
         </ul>
       </div>
     </div>
@@ -99,7 +99,7 @@ faq:
       <h2 id="after-heading">After registration</h2>
       <p>PF must be paid every month, by the {{ epf.due_day }}th of the next month.</p>
       <p>Each month, the employee pays 12% of their PF wages, and you pay 12%. You take the employee's part from their salary. Part of your share goes to the employee's pension (EPS, the Employees' Pension Scheme). We work out the exact amounts.</p>
-      <p>We can do this work for you every month. You send us salary details. We file your monthly PF return (the ECR) and email you the challan (the PF payment slip). Pay it by the {{ epf.due_day }}th of the next month, or send us the amount and we pay it.</p>
+      <p>We can do this work for you every month. You send us salary details. We file your monthly PF return (the ECR: the monthly list of each employee's wages and PF, sent to the PF office) and email you the challan (the PF payment slip). Pay it by the {{ epf.due_day }}th of the next month, or send us the amount and we pay it.</p>
       <p><a class="link-arrow" href="/epf-consultancy-service">PF monthly filing&#8288;{% include icon.html name="arrow" size="18" %}</a></p>
     </div>
     {% include call-block.html location="after-registration" %}

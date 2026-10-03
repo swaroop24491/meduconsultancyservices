@@ -16,7 +16,7 @@ faq:
   - q: Do contract workers count towards our 10 or 20 workers?
     a: "Yes. Count workers a contractor sends to you, and casual workers too. Apprentices (trainees under the Apprentices Act) are not counted."
   - q: Does overtime count for ESI?
-    a: "Overtime is left out of ESI wages. But if HRA, overtime and similar items are more than half the pay, part of them is added back. We work this out for you each month."
+    a: "Overtime is left out of ESI wages. But ESI wages must be at least half the total pay. If they come to less, the difference is added to ESI wages. We work this out for you each month."
   - q: What should we keep ready for a PF or ESI inspection?
     a: "Wage registers, attendance, records of contract workers, and your contractors' PF and ESI challans. We keep your PF and ESI records ready and support you during the inspection."
   - q: Does ESI apply to seasonal factories?
@@ -39,7 +39,7 @@ faq:
       <div class="card">
         <p class="col-word">Wages</p>
         <h3>Wages that change</h3>
-        <p>Many factory workers earn {{ esi.wage_ceiling_text }} a month or less in ESI wages, so they must be in ESI. Overtime is left out of ESI wages. But if HRA (house rent allowance), overtime and similar items are more than half the pay, part of them is added back.</p>
+        <p>Many factory workers earn {{ esi.wage_ceiling_text }} a month or less in ESI wages, so they must be in ESI. Overtime is left out of ESI wages. HRA (house rent allowance) is left out too. But ESI wages must be at least half the total pay. If they come to less, the difference is added to ESI wages.</p>
         <p>When minimum wages go up, pay goes up. So PF and ESI amounts go up too. We work this out each month.</p>
       </div>
       <div class="card">
@@ -78,13 +78,13 @@ faq:
       <ul class="check-list">
         <li>We register your factory for PF and ESI, if it isn't registered yet.</li>
         <li>We count every worker correctly, including casual and contract workers.</li>
-        <li>We add new workers to PF and ESI. Workers who already have a UAN (a PF account number for life) keep it. Others get one by a face scan on the UMANG app (the government's mobile app). We guide them. We create their IP number (their ESI number).</li>
+        <li>We add new workers to PF and ESI, if the rules cover them. Workers who already have a UAN (a PF account number for life) keep it. Others get one by a face scan on the UMANG app (the government's mobile app). We guide them. We create their IP number (their ESI number).</li>
         <li>We mark the date when workers leave, and update PF and ESI when wages change.</li>
-        <li>Each month, we file your PF and ESI returns. We email you the challans (the payment slips). Pay them by the {{ epf.due_day }}th of the next month, or send us the amount and we pay it.</li>
+        <li>Each month, we file your PF and ESI returns (the monthly list of each employee's wages and the PF or ESI on them, sent to the PF and ESI offices). We email you the challans (the payment slips). Pay them by the {{ epf.due_day }}th of the next month, or send us the amount and we pay it.</li>
         <li>We keep your PF and ESI records ready for inspections, and help you during them.</li>
         <li>Already filing PF and ESI yourself? We take over once you share the documents we need.</li>
       </ul>
-      <p>We work with factories in <a href="/epf-esi-consultancy-mangalore">Mangalore</a>, <a href="/epf-esi-consultancy-udupi">Udupi</a> and <a href="/epf-esi-consultancy-bangalore">Bangalore</a>. No office visits needed. We handle everything over phone and email.</p>
+      <p>We work with factories in <a href="/epf-esi-consultancy-mangalore">Mangalore</a>, <a href="/epf-esi-consultancy-udupi">Udupi</a> and <a href="/epf-esi-consultancy-bangalore">Bangalore</a>. No office visits needed. We work by phone and email.</p>
     </div>
     {% include call-block.html location="handle" %}
   </div>
@@ -104,6 +104,7 @@ faq:
         <ul class="link-list">
           <li><a class="link-arrow" href="/blogs/pf-inspection-guide">What happens in a PF inspection&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
           <li><a class="link-arrow" href="/blogs/esi-inspection-guide">What happens in an ESI inspection&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+          <li><a class="link-arrow" href="/blogs/pf-esi-benefits-for-employers">What your business gets from PF and ESI&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
         </ul>
       </div>
       {% include service-links.html %}
@@ -114,4 +115,4 @@ faq:
 
 {% include faq.html items=page.faq schema=true %}
 
-{% include closing-call.html line="Tell us about your factory. We'll make sure every worker is covered." %}
+{% include closing-call.html line="Tell us about your factory. We'll check who must be in PF and ESI." %}

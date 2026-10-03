@@ -21,11 +21,11 @@ service:
     - Letters to the ESI office
 faq:
   - q: When is ESI due each month?
-    a: By the 15th of the next month. For example, ESI on March salaries is due by 15 April. Send us the salary details as early as you can, and we file before the due date.
+    a: By the 15th of the next month. For example, ESI on March salaries must be paid by 15 April. Send us the salary details early. We get the payment slip (challan) ready in time, so you can pay by the 15th. Or send us the amount and we pay it.
   - q: Do contract and casual workers count towards 10?
     a: Yes. Count all your staff, including casual workers and workers a contractor sends to work for you. Staff on high salaries count too. Apprentices are not counted. The owner and partners are not counted either. If your business is a company, call us to check how to count directors.
   - q: Which staff must be in ESI?
-    a: Once ESI applies to your business, staff whose ESI wages are ₹21,000 a month or less must be in ESI. For a person with a disability, the limit is ₹25,000. ESI wages are the month's pay without some items, like HRA (house rent allowance) and overtime. If those items are more than half the pay, the part above half counts as ESI wages. We work this out for you.
+    a: Once ESI applies to your business, staff whose ESI wages are ₹21,000 a month or less must be in ESI. For a person with a disability, the limit is ₹25,000. ESI wages are the month's pay without some items, like HRA (house rent allowance) and overtime. But ESI wages must be at least half the total pay. If they come to less, the difference is added to ESI wages. We work this out for you.
   - q: What if an employee's pay goes above ₹21,000?
     a: "ESI works in two six-month periods: April to September, and October to March. If an employee's ESI wages go above ₹21,000 during a period, they stay in ESI until it ends. You keep paying ESI for them until then."
   - q: Can ESI apply with fewer than 10 employees?
@@ -49,9 +49,9 @@ faq:
       <h2 id="applies-heading">Does ESI apply to your business?</h2>
       <ul class="fact-pair">
         <li><span class="fact-pair__num">{{ esi.min_employees }}</span> <span class="fact-pair__label">employees or more</span></li>
-        <li><span class="fact-pair__num">{{ esi.wage_ceiling_text }}</span> <span class="fact-pair__label">staff with ESI wages up to this a month must join</span></li>
+        <li><span class="fact-pair__num">{{ esi.wage_ceiling_text }}</span> <span class="fact-pair__label">a month or less in ESI wages: these staff must join</span></li>
       </ul>
-      <p>ESI applies if your business has <strong>{{ esi.min_employees }} or more employees</strong>. This is the same in every state. It does not apply to seasonal factories. Once ESI applies, it stays, even if your staff drop below {{ esi.min_employees }}.</p>
+      <p>ESI (Employees' State Insurance) gives your staff medical care, and pay when they can't work because of sickness, injury or maternity. It applies if your business has <strong>{{ esi.min_employees }} or more employees</strong>. This is the same in every state. It does not apply to seasonal factories. Once ESI applies, it stays, even if your staff drop below {{ esi.min_employees }}.</p>
       <p>Staff with ESI wages up to {{ esi.wage_ceiling_text }} a month must be in ESI. ESI wages are the month's pay without some items, like HRA (house rent allowance) and overtime. <strong>We check this for you.</strong></p>
       <p><a class="link-arrow" href="/esi-registration">ESI registration&#8288;{% include icon.html name="arrow" size="18" %}</a></p>
     </div>
@@ -68,7 +68,7 @@ faq:
         <h3>When you start</h3>
         <ul class="check-list">
           <li>We register your business for ESI, if it isn't registered yet.</li>
-          <li>We add your current staff to ESI. Staff who already have an IP number (each employee's ESI number, which stays the same for life) keep it. We create one for the others.</li>
+          <li>We add your current staff to ESI, if the rules cover them. Staff who already have an IP number (each employee's ESI number, which stays the same for life) keep it. We create one for the others.</li>
           <li>Already registered? Once you share the documents we need, we file from your next due date.</li>
         </ul>
       </div>
@@ -114,6 +114,7 @@ faq:
           <li><a class="link-arrow" href="/blogs/esi-applicability-threshold">ESI: who must register&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
           <li><a class="link-arrow" href="/blogs/esi-late-payment-penalty">What paying ESI late costs&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
           <li><a class="link-arrow" href="/blogs/esi-inspection-guide">What happens in an ESI inspection&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+          <li><a class="link-arrow" href="/blogs/pf-esi-benefits-for-employers">What your business gets from PF and ESI&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
         </ul>
       </div>
       {% include industry-links.html compact=true %}

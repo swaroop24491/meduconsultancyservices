@@ -2,7 +2,7 @@
 layout: base
 lang: en
 page_type: registration
-last_modified: 2026-10-02
+last_modified: 2026-10-03
 title: "ESI Registration for Employers in Mangalore | Medu Consultancy"
 description: "10 or more staff? We register your business for ESI in Mangalore, Udupi and Bangalore, and add your staff. Call +91 82175 42975."
 breadcrumb:
@@ -19,7 +19,7 @@ faq:
   - q: What documents do you need?
     a: 'It depends on your type of business. <a href="tel:+918217542975" data-call-location="faq">Call us</a> and we''ll tell you exactly what to send.'
   - q: Which staff must be in ESI?
-    a: Once ESI applies to your business, staff whose ESI wages are ₹21,000 a month or less must be in ESI. For a person with a disability, the limit is ₹25,000. ESI wages are the month's pay without some items, like HRA (house rent allowance) and overtime. If those items are more than half the pay, the part above half counts as ESI wages. We work this out for you.
+    a: Once ESI applies to your business, staff whose ESI wages are ₹21,000 a month or less must be in ESI. For a person with a disability, the limit is ₹25,000. ESI wages are the month's pay without some items, like HRA (house rent allowance) and overtime. But ESI wages must be at least half the total pay. If they come to less, the difference is added to ESI wages. We work this out for you.
   - q: Do we need PF registration too?
     a: 'You need PF when you have 20 or more employees, counted the same way as for ESI. Once PF applies, it stays. We can register you for both. See <a href="/pf-registration">PF registration for employers</a>.'
   - q: How much does it cost?
@@ -35,9 +35,9 @@ faq:
       <h2 id="applies-heading">Does your business need ESI registration?</h2>
       <ul class="fact-pair">
         <li><span class="fact-pair__num">{{ esi.min_employees }}</span> <span class="fact-pair__label">employees or more</span></li>
-        <li><span class="fact-pair__num">{{ esi.wage_ceiling_text }}</span> <span class="fact-pair__label">staff with ESI wages up to this a month must join</span></li>
+        <li><span class="fact-pair__num">{{ esi.wage_ceiling_text }}</span> <span class="fact-pair__label">a month or less in ESI wages: these staff must join</span></li>
       </ul>
-      <p>Your business must register for ESI when it has <strong>{{ esi.min_employees }} or more employees</strong>. This is the same in every state. ESI does not apply to seasonal factories.</p>
+      <p>ESI (Employees' State Insurance) gives your staff medical care, and pay when they can't work because of sickness, injury or maternity. Your business must register for ESI when it has <strong>{{ esi.min_employees }} or more employees</strong>. This is the same in every state. ESI does not apply to seasonal factories.</p>
       <p>Count all your staff:</p>
       <ul class="check-list">
         <li>temporary and casual staff</li>
@@ -80,7 +80,7 @@ faq:
         <p class="col-word">Then</p>
         <h3>We add your staff</h3>
         <ul class="check-list">
-          <li>We add your staff to ESI on the ESIC website.</li>
+          <li>We add your staff to ESI on the ESIC website, if the rules cover them.</li>
           <li>Staff who already have an IP number (each employee's ESI number, which stays the same for life) keep it.</li>
           <li>We create one for the others.</li>
         </ul>

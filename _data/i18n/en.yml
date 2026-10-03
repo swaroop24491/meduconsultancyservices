@@ -84,7 +84,7 @@ founder:
   heading: Who's behind it
   stat_label: our founder worked at EPFO (the PF office)
 
-no_office: No office visits needed. We handle everything over phone and email.
+no_office: No office visits needed. We work by phone and email.
 
 cities_label: "Cities:"
 services_label: "Our services:"
@@ -112,7 +112,7 @@ situations:
       - { label: ESI monthly filing, path: esi-consultancy-service }
   unsure:
     title: Not sure if PF or ESI applies to us
-    text: PF applies with 20 or more staff. ESI applies with 10 or more. Call us and we check for you. Asking is free. Or use our checkers.
+    text: PF (savings and a pension for staff) applies with 20 or more staff. ESI (medical care and sick pay for staff) applies with 10 or more. Call us and we check for you. Asking is free. Or use our checkers.
     call: true
     links:
       - { label: Check PF, path: epf-eligibility-checker }
@@ -134,7 +134,7 @@ industries:
     - { key: contractors, name: Contractors, anchor: PF and ESI for contractors, icon: contractor, text: "Staff who join and leave often, across sites." }
     - { key: factories, name: Factories, anchor: PF and ESI for factories, icon: factory, text: "Contract and casual workers, wage changes and inspections." }
     - { key: schools, name: Schools, anchor: PF and ESI for schools, icon: school, text: "Teaching and non-teaching staff, and CBSE checks." }
-    - { key: it-companies, name: IT companies, anchor: PF and ESI for IT companies, icon: it, text: "The new ₹25,000 PF wage limit and how salaries are set up." }
+    - { key: it-companies, name: IT companies, anchor: PF and ESI for IT companies, icon: it, text: "The new ₹25,000 PF wage limit and the 50% wages rule." }
   also: Estates, security agencies, housekeeping agencies, distributors and suppliers, local shops, hotels and restaurants.
 
 tools:
@@ -193,7 +193,7 @@ why:
   about: About us
   founder_photo_alt: Medu Thirumaleshwara Bhat, founder of Medu Consultancy
   items:
-    - { word: 35 years, title: Our founder worked 35 years at EPFO, text: "Medu Thirumaleshwara Bhat started Medu Consultancy in 2000. He worked at EPFO (the PF office) for 35 years. We learned how the PF office works from him." }
+    - { word: 35 years, title: Our founder worked 35 years at EPFO, text: "Medu Thirumaleshwara Bhat started Medu Consultancy in 2000. He worked at EPFO (the PF office) for 35 years. He taught us the PF rules." }
     - { word: Every due date, title: We never miss a PF or ESI due date., text: "PF and ESI for each month's salaries must be paid by the 15th of the next month. We track these dates for every client." }
     - { word: 3 languages, title: "Talk to us in English, Kannada or Hindi", text: "You can talk to us in English or Kannada, and we can help you in Hindi too. Our website is in English and Kannada." }
 

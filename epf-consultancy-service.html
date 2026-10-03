@@ -21,11 +21,11 @@ service:
     - Letters to the PF office
 faq:
   - q: When is PF due each month?
-    a: By the 15th of the next month. For example, PF on March salaries is due by 15 April. Send us the salary details as early as you can, and we file before the due date.
+    a: By the 15th of the next month. For example, PF on March salaries must be paid by 15 April. Send us the salary details early. We get the payment slip (challan) ready in time, so you can pay by the 15th. Or send us the amount and we pay it.
   - q: Do contract and casual workers count towards 20?
     a: Yes. Count all your staff, including casual workers and workers a contractor sends to work for you. Staff on high salaries count too. Apprentices are not counted. The owner and partners are not counted either. If your business is a company, call us to check how to count directors.
   - q: Which staff must be in PF?
-    a: "Once PF applies to your business, staff whose PF wages are ₹25,000 a month or less must be in PF. PF wages are mainly basic pay plus DA (dearness allowance), not the full salary. If other allowances are more than half the salary, the part above half also counts as PF wages. We work this out for you. Staff with PF wages above ₹25,000: if they were never in PF, joining is optional. If they are already in PF, they stay in PF."
+    a: "Once PF applies to your business, staff whose PF wages are ₹25,000 a month or less must be in PF. PF wages are mainly basic pay plus DA (dearness allowance), not the full salary. But PF wages must be at least half the total pay. If they come to less, the difference is added to PF wages. We work this out for you. Staff with PF wages above ₹25,000: if they were never in PF, they can join if you and they both agree in writing. If they are already in PF, they stay in PF."
   - q: Which PF limit applies to September 2026 salaries?
     a: 'The limit went up from ₹15,000 to ₹25,000 on 17 September 2026. For September 2026 salaries, the PF office has not yet said which limit to use. <a href="tel:+918217542975" data-call-location="faq">Call us</a> and we''ll tell you what to do.'
   - q: Do you pay the PF amount for us?
@@ -47,9 +47,9 @@ faq:
       <h2 id="applies-heading">Does PF apply to your business?</h2>
       <ul class="fact-pair">
         <li><span class="fact-pair__num">{{ epf.min_employees }}</span> <span class="fact-pair__label">employees or more</span></li>
-        <li><span class="fact-pair__num">{{ epf.wage_ceiling_text }}</span> <span class="fact-pair__label">staff with PF wages up to this a month must join</span></li>
+        <li><span class="fact-pair__num">{{ epf.wage_ceiling_text }}</span> <span class="fact-pair__label">a month or less in PF wages: these staff must join</span></li>
       </ul>
-      <p>PF applies if your business has <strong>{{ epf.min_employees }} or more employees</strong>, in any industry. Once PF applies, it stays, even if your staff drop below {{ epf.min_employees }}.</p>
+      <p>PF (Provident Fund, also called EPF) gives your staff savings and a pension. It applies if your business has <strong>{{ epf.min_employees }} or more employees</strong>, in any industry. Once PF applies, it stays, even if your staff drop below {{ epf.min_employees }}.</p>
       <p>Staff with PF wages (mainly basic pay plus DA, dearness allowance) up to {{ epf.wage_ceiling_text }} a month must be in PF. <strong>We check this for you.</strong></p>
       <p><a class="link-arrow" href="/pf-registration">PF registration&#8288;{% include icon.html name="arrow" size="18" %}</a></p>
     </div>
@@ -66,7 +66,7 @@ faq:
         <h3>When you start</h3>
         <ul class="check-list">
           <li>We register your business for PF, if it isn't registered yet.</li>
-          <li>We add your current staff to PF. Staff who already have a UAN (a PF account number for life) keep it. Others get one by a face scan on the UMANG app. We guide them.</li>
+          <li>We add your current staff to PF, if the rules cover them. Staff who already have a UAN (a PF account number for life) keep it. Others get one by a face scan on the UMANG app (the government's mobile app). We guide them.</li>
           <li>Already registered? Once you share the documents we need, we file from your next due date.</li>
         </ul>
       </div>
@@ -74,7 +74,7 @@ faq:
         <p class="col-word">Monthly</p>
         <h3>Every month</h3>
         <ul class="check-list">
-          <li>We file your monthly PF return (the ECR) on time.</li>
+          <li>We file your monthly PF return (the ECR: the monthly list of each employee's wages and PF, sent to the PF office) on time.</li>
           <li>We add staff who join, and mark the date when staff leave.</li>
           <li>We email you the challan (the PF payment slip). Pay it by the {{ epf.due_day }}th of the next month, or send us the amount and we pay it.</li>
         </ul>
@@ -94,7 +94,7 @@ faq:
   </div>
 </section>
 
-{% capture founder %}<p>Medu Thirumaleshwara Bhat started Medu Consultancy in 2000. He worked at EPFO (the PF office) for 35 years. He taught us the PF rules and how the PF office reads your monthly returns and records. That is how we keep your PF filing right.</p><p><a class="link-arrow" href="/about-us">About us&#8288;{% include icon.html name="arrow" size="18" %}</a></p>{% endcapture %}
+{% capture founder %}<p>Medu Thirumaleshwara Bhat started Medu Consultancy in 2000. He worked at EPFO (the PF office) for 35 years. He taught us the PF rules. That is how we keep your PF filing right.</p><p><a class="link-arrow" href="/about-us">About us&#8288;{% include icon.html name="arrow" size="18" %}</a></p>{% endcapture %}
 {% include founder-note.html text=founder stat=true bg="tint" %}
 
 <section class="section section--surface section--stacked" aria-labelledby="more-heading">
@@ -112,6 +112,7 @@ faq:
           <li><a class="link-arrow" href="/blogs/epf-applicability-threshold">PF: who must register&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
           <li><a class="link-arrow" href="/blogs/epf-late-payment-penalty">What paying PF late costs&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
           <li><a class="link-arrow" href="/blogs/pf-inspection-guide">What happens in a PF inspection&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+          <li><a class="link-arrow" href="/blogs/pf-esi-benefits-for-employers">What your business gets from PF and ESI&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
         </ul>
       </div>
       {% include industry-links.html compact=true %}

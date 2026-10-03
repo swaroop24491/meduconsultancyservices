@@ -16,13 +16,13 @@ faq:
   - q: Does CBSE check PF and ESI?
     a: "CBSE's rules ask its schools to follow PF, ESI and labour laws for their staff. Keep your challans and records ready for affiliation and renewal."
   - q: Do drivers, cleaners and helpers need PF and ESI?
-    a: "Yes, if they are your employees. They count towards the 10 and 20 limits, and many are within the ESI wage limit."
+    a: "Yes, if they are your employees and the rules cover them. They count towards the 10 and 20 limits, and many are within the ESI wage limit."
   - q: Our school has fewer than 20 staff. Do we need PF?
     a: 'PF applies at 20 or more employees, and ESI at 10 or more. Count all staff, including non-teaching and casual staff. Not sure? Check with our <a href="/epf-eligibility-checker">PF eligibility checker</a>, or <a href="tel:+918217542975" data-call-location="faq">call us</a>.'
 ---
 {%- assign esi = site.data.facts.esi -%}
 {%- assign epf = site.data.facts.epf -%}
-{% include hero.html heading="We file PF and ESI for schools, every month." lead="PF and ESI cover teachers and non-teaching staff alike. CBSE also asks its schools to follow these rules. We add your staff to PF and ESI, and keep your records ready." proof="strip" %}
+{% include hero.html heading="We file PF and ESI for schools, every month." lead="PF and ESI cover teachers and non-teaching staff alike. CBSE also asks its schools to follow these rules. We add your staff to PF and ESI if the rules cover them, and keep your records ready." proof="strip" %}
 
 <section class="section section--surface section--stacked" aria-labelledby="apply-heading">
   <div class="container">
@@ -75,12 +75,12 @@ faq:
       <ul class="check-list">
         <li>We register your school for PF and ESI, if it isn't registered yet.</li>
         <li>We add teachers and staff to PF and ESI, if the rules cover them. Staff who already have a UAN (a PF account number for life) keep it. Others get one by a face scan on the UMANG app (the government's mobile app). We guide them. We create their IP number (their ESI number).</li>
-        <li>Each month, we file your PF and ESI returns, and mark the date when staff leave. We email you the challans (the payment slips). Pay them by the {{ epf.due_day }}th of the next month, or send us the amount and we pay it.</li>
+        <li>Each month, we file your PF and ESI returns (the monthly list of each employee's wages and the PF or ESI on them, sent to the PF and ESI offices), and mark the date when staff leave. We email you the challans (the payment slips). Pay them by the {{ epf.due_day }}th of the next month, or send us the amount and we pay it.</li>
         <li>We keep your PF and ESI records ready for CBSE and for inspections.</li>
         <li>We help your staff with their PF and ESI details.</li>
         <li>Already filing PF and ESI yourself? We take over once you share the documents we need.</li>
       </ul>
-      <p>We work with schools in <a href="/epf-esi-consultancy-mangalore">Mangalore</a>, <a href="/epf-esi-consultancy-udupi">Udupi</a> and <a href="/epf-esi-consultancy-bangalore">Bangalore</a>. No office visits needed. We handle everything over phone and email.</p>
+      <p>We work with schools in <a href="/epf-esi-consultancy-mangalore">Mangalore</a>, <a href="/epf-esi-consultancy-udupi">Udupi</a> and <a href="/epf-esi-consultancy-bangalore">Bangalore</a>. No office visits needed. We work by phone and email.</p>
     </div>
     {% include call-block.html location="handle" %}
   </div>
@@ -100,6 +100,7 @@ faq:
         <ul class="link-list">
           <li><a class="link-arrow" href="/blogs/epf-applicability-threshold">PF: who must register&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
           <li><a class="link-arrow" href="/blogs/esi-applicability-threshold">ESI: who must register&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+          <li><a class="link-arrow" href="/blogs/pf-esi-benefits-for-employers">What your business gets from PF and ESI&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
         </ul>
       </div>
       {% include service-links.html %}
@@ -110,4 +111,4 @@ faq:
 
 {% include faq.html items=page.faq schema=true %}
 
-{% include closing-call.html line="Tell us about your school. We'll make sure every teacher and staff member is in PF and ESI." %}
+{% include closing-call.html line="Tell us about your school. We'll check who must be in PF and ESI." %}
