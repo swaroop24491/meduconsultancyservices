@@ -356,7 +356,13 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
    `docs/kn-about-contact-legal-copy.md` (compliance-reviewed, owner-approved). Kannada Contact loads the map only after
    "ನಕ್ಷೆ ತೋರಿಸಿ" (checked: no Google requests before the tap), so Privacy's map line is true in both languages. Shared keys
    added: `footer.address_name`/`address_lines` and `months` (legal "Last updated" date in Kannada). SEO/Kannada reviewer run
-   and applied (no comma before ಮತ್ತು in the About H2 and Privacy; Contact title kept). Then the launch check (phase 9), which should also cover: brief
+   and applied (no comma before ಮತ್ತು in the About H2 and Privacy; Contact title kept; commits `ae49593`, `a71df2c`).
+   **Launch check plan:** strategy 9.3 item 3 below (internal-link crawl of `_site`, `node audit/check/sweep.mjs`, all six
+   reviewers on both languages, strategy 9.4 re-verified by the compliance reviewer, `docs/phase9-review-findings.md` for
+   what is already done). Owner items still open: B3 gazette copy of S.O. 2351(E) (ESI end-of-period line, 9.4 #10), A1
+   egazette G.S.R. 525(E) check (then `tools_checked`), B4 September check on launch day, B5 ESI recheck 20 Nov 2026, B6
+   hedged facts, B8 owner input, city-specific detail (text overlap), schools detail (E4), per-industry numbers (G4),
+   photos, fluent-speaker read of `docs/kannada-review.md`. The launch check should also cover: brief
    s11 has no row for ESI damages (5–25% yearly) or ESI interest (12%); `og:type` "article" for posts (site-wide); the
    English ESI threshold post leaves maternity out of its first ESI line (owner may want both languages changed); the
    English ESI post's "Seasonal factories (open only part of the year)" bracket (Kannada drops it, settled).
@@ -380,7 +386,7 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
    it). Later the same day (owner: "looks cluttered"): **Industries removed from the desktop nav** (`nav.links` in en/kn.yml;
    still in the phone menu and footer); more space after the logo (`.site-nav` margin-left `--space-6`) and between links
    (gap `--space-4`, same padding in both languages; Kannada fits on one line at 1200px). Kannada call buttons: the
-   phone number uses `--font-body` (the Kannada font sat the digits high). Kannada phase in progress. Glossary approved by the owner (`docs/kannada-glossary.md` 6a: ಉದ್ಯೋಗದಾತರು, ಸಂಬಳ with ವೇತನ only in set names (ಮೂಲ ವೇತನ, PF/ESI ವೇತನ), ವಂತಿಗೆ, ಕೊನೆಯ ದಿನಾಂಕ, ಚಲನ್ (PF ಪಾವತಿ ಚೀಟಿ), ಡ್ಯಾಮೇಜಸ್, never ಅನುಸರಣೆ (fallback ನಿಯಮ ಪಾಲನೆ), all-Kannada tool names). Step 1 done: `kn.yml` matches the final `en.yml` (`docs/kn-shared-copy.md`, owner-approved). Step 2 done: Kannada PF/ESI service and PF/ESI registration pages (`docs/kn-service-registration-copy.md`, compliance-reviewed, owner-approved). Settled: casual = ತಾತ್ಕಾಲಿಕ ಮತ್ತು ದಿನಗೂಲಿ; "if the rules cover them" = ನಿಯಮಗಳು ಅವರಿಗೆ ಅನ್ವಯಿಸಿದರೆ; ESI cash benefit = ಹಣದ ಸಹಾಯ (never ಸಂಬಳ); no bracket after ಋತುಮಾನದ ಕಾರ್ಖಾನೆ; closing lines "…ನಮಗೆ ಬಿಡಿ"; big word "Anytime" = ಬೇಕಾದಾಗ; "15th" = `{{ x.due_day }}ನೇ`. Kannada pages write every page-text link with `link.html` (falls back to English with the marker). Home done (step 3). Tools done (step 4). Cities done (step 5). Industries done (step 6). Guides done (step 7). Next: About/Contact/legal, same flow: copy doc, compliance reviewer, owner approval, build, checks, commit. Section close-ups: `node audit/check/shot-sections.mjs <path> <name> <sg-id,...>`. Earlier status (before the Kannada phase): Launch-check steps 1-3 and A1
+   phone number uses `--font-body` (the Kannada font sat the digits high). Kannada phase done (2026-10-03). Glossary approved by the owner (`docs/kannada-glossary.md` 6a: ಉದ್ಯೋಗದಾತರು, ಸಂಬಳ with ವೇತನ only in set names (ಮೂಲ ವೇತನ, PF/ESI ವೇತನ), ವಂತಿಗೆ, ಕೊನೆಯ ದಿನಾಂಕ, ಚಲನ್ (PF ಪಾವತಿ ಚೀಟಿ), ಡ್ಯಾಮೇಜಸ್, never ಅನುಸರಣೆ (fallback ನಿಯಮ ಪಾಲನೆ), all-Kannada tool names). Step 1 done: `kn.yml` matches the final `en.yml` (`docs/kn-shared-copy.md`, owner-approved). Step 2 done: Kannada PF/ESI service and PF/ESI registration pages (`docs/kn-service-registration-copy.md`, compliance-reviewed, owner-approved). Settled: casual = ತಾತ್ಕಾಲಿಕ ಮತ್ತು ದಿನಗೂಲಿ; "if the rules cover them" = ನಿಯಮಗಳು ಅವರಿಗೆ ಅನ್ವಯಿಸಿದರೆ; ESI cash benefit = ಹಣದ ಸಹಾಯ (never ಸಂಬಳ); no bracket after ಋತುಮಾನದ ಕಾರ್ಖಾನೆ; closing lines "…ನಮಗೆ ಬಿಡಿ"; big word "Anytime" = ಬೇಕಾದಾಗ; "15th" = `{{ x.due_day }}ನೇ`. Kannada pages write every page-text link with `link.html` (falls back to English with the marker). Home done (step 3). Tools done (step 4). Cities done (step 5). Industries done (step 6). Guides done (step 7). About/Contact/legal done (step 8). Section close-ups: `node audit/check/shot-sections.mjs <path> <name> <sg-id,...>`. Earlier status (before the Kannada phase): Launch-check steps 1-3 and A1
    are done and committed (last: `9808a5e` A1 PF damages). Before building, check whether the fluent-speaker review
    of `docs/kannada-glossary.md` / `docs/kannada-review.md` has happened; if not, ask the owner how to proceed. Owner
    items still open for launch (not blockers for the Kannada build): B3 gazette S.O. 2351(E), A1 egazette G.S.R.
@@ -556,7 +562,7 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
    standalone `.link-arrow` tap targets 44px; real post dates in `date_published:`.)
    Open from phase 4: the 100% cap on old-slab penalty damages (a reviewed update once the Code's
    section is confirmed, 9.4 #1/#2; the result shows a "call us" note for now).
-2. **Kannada phase (in progress since 2026-10-03).** The glossary was approved by the owner (no separate fluent-speaker
+2. **Kannada phase (done 2026-10-03; all 38 Kannada pages built).** The glossary was approved by the owner (no separate fluent-speaker
    pass first; all Kannada text is still logged in `docs/kannada-review.md` for a later fluent read). Every Kannada page is
    a translation of the final, built English page: nothing added or left out.
    - **Done:** step 1 shared text (`kn.yml` matches `en.yml`, `docs/kn-shared-copy.md`); step 2 `kn/epf-consultancy-service`,
