@@ -351,7 +351,7 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
   - Kannada: stopgap strings for the router and short steps, logged in `docs/kannada-review.md`.
 
 ### Next (strategy section 9.3, English first; Kannada last)
-0. **Where we stopped (2026-10-03):** home, service, registration, city, About and Contact v2 are done and committed on `feature/revamp`.
+0. **Where we stopped (2026-10-03):** home, service, registration, city, About, Contact, Privacy and Terms v2 are done and committed on `feature/revamp`.
    **PF page v2 (final, owner-approved):** copy in `docs/epf-service-copy-v2.md` (round 1 + owner changes +
    round 2; compliance-reviewed; the built page is the final text). Order: hero (H1 "We file your PF every
    month, before the due date.", lead with takeover, `fork=` "Not registered yet? PF registration →",
@@ -447,12 +447,20 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
    - Compliance wording: "We tell you **if** PF and ESI apply" (never "what PF and ESI apply" / "what applies"); card
      3 "You never need to visit us. We work by phone and email." (not "We handle everything"). Keep the no-visits card
      next to the office card; never "visit us", "directions" or "come to our office".
-   **Next: Privacy, then Terms** (same v2 spirit; legal pages keep `page_type: legal` and no closing call). Add each as
-   section 3/4 of `docs/about-contact-legal-copy-v2.md` (old vs new), compliance reviewer, owner approval, build, check
-   at all widths, commit. **Privacy must now say the Contact map loads from Google only if you tap it** (verified:
-   nothing is sent before the tap). Phase 8 history: `docs/phase8-copy.md`, `docs/phase8-review-findings.md`. Settled
-   facts: founder retired, past tense only, no job title; email in the footer only; no invite to visit the office;
-   Privacy has no promise about call data. Then the launch check (phase 9), then the Kannada phase.
+   **Privacy and Terms v2 (2026-10-03, built and committed, final):** copy in `docs/about-contact-legal-copy-v2.md`
+   sections 3 + 4 (compliance-reviewed, owner-approved; the built pages are the final text). Owner: "these should look like
+   one and simple". Both use the same new `.legal` layout (on the style guide, "Legal page"): `.legal-head` on cream (H1
+   in sentence case, one `.legal-head__lead` summary line, "Last updated" note), then one white band with numbered
+   `.legal__item` points (H2s, number from CSS), last point "Questions?" (phone, address, arrow link to the other legal
+   page). Still `page_type: legal`, no call button, no closing band. Privacy now says: phone-number taps are counted
+   (Analytics `phone_call_click`), the converter keeps files in the browser, and the Contact map loads from Google only
+   after "Show the map". Terms merged "Privacy" and "Analytics". **Launch check:** the old `kn/contact-us.html` embeds the
+   map on load and `kn/epf-excel-to-text-converter.html` loads SheetJS from cdnjs, so Privacy is only fully true once the
+   Kannada pages are rebuilt; check both in phase 9. Settled facts: founder retired, past tense only, no job title; email
+   in the footer only; no invite to visit the office; Privacy has no promise about call data.
+   **Next session: Industries hub and the 5 industry pages, v2** (same v2 spirit as the other pages: copy doc old vs new,
+   compliance reviewer, owner approval, build, check at all widths, commit). Start from the open founder-line item below.
+   Then the launch check (phase 9), then the Kannada phase.
    Contact checks: `node audit/check/shot-contact.mjs` (widths, axe, Google requests before/after the tap).
    **Committed (owner, 2026-10-03: "commit and push all changes"):** the 3 city pages have a "Who's behind it"
    `founder-note stat=true bg="tint"` above "More help". Decision (a) is still open on its form: keep the stat or not,
@@ -462,8 +470,7 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
    Open from earlier (owner to decide): the 5 industry pages say "Our founder worked 35 years at EPFO (the
    PF office), so we know/keep/can explain..." (factories:76, hospitals:77, contractors:75, schools:68,
    it-companies:77); compliance rates it medium (could read as current inside knowledge); propose old vs
-   new if wanted. Check-page script times out on pages with no FAQ (industries hub, contact) after 390px:
-   a script limit, not a page bug. Then the launch check (phase 9), then the Kannada phase. The owner
+   new if wanted. `check-page.mjs` now skips the FAQ step on pages with no FAQ. The owner
    approves with short messages ("go with the recommendations", "proceed as recommended").
 1. Phase 8 is done (see above). Deferred from phase 7 (after the launch check,
    before Kannada): make each PF/ESI twin post more distinct (inspection 87%, late-payment 82%, threshold 75%
