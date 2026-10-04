@@ -197,10 +197,10 @@ the first wrong field.
 
 ## Reviews
 
-Eight read-only reviewer agents in `.claude/agents/` (marketing, service, business owner, compliance,
-design, SEO/Kannada, information architect, product manager) report findings; fixes happen in the main
-session after the owner approves. Run the compliance reviewer on any change to legal facts, numbers or
-tool logic; run the relevant reviewers for a new page or a big change; not for small edits. The owner
+Two read-only reviewer agents in `.claude/agents/` (compliance, design) report findings; fixes happen
+in the main session after the owner approves. Run the compliance reviewer on any change to legal facts,
+numbers or tool logic; run the design reviewer for a new page or a big design change; not for small
+edits. The owner
 approves with short messages ("proceed as recommended").
 
 ## Git
