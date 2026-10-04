@@ -351,7 +351,19 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
   - Kannada: stopgap strings for the router and short steps, logged in `docs/kannada-review.md`.
 
 ### Next (strategy section 9.3, English first; Kannada last)
-0. **Start here (next session): the launch check (phase 9).** Every Kannada page is now built and committed on
+0. **Start here (next session): launch check round 2 is done (2026-10-04); what is left is owner input and launch-day
+   checks.** Round 2 ran every automated check and all six reviewers on both languages (`docs/phase9-review-findings.md`
+   "Round 2"), then 3 steps, all committed: (1) Kannada call-button baseline, Kannada tool/post H1 leading, posts
+   `og:type` article, guides index CollectionPage (`a97df97`); (2) damages capped at the unpaid amount for old PF rates and
+   ESI too (Code s.128; `docs/tool-logic-r2a1.md`; `dc5e946`); (3) copy fixes EN + KN (`docs/phase9-r2-copy.md`;
+   `2e44889`). Owner: "35 years" twice is fine; ಮೆದು is the right Kannada spelling. Settled: penalty bands are written
+   "2 months or more, but less than 4" everywhere (text and tool results); Kannada tool messages say ಬರೆಯಿರಿ (never
+   ನಮೂದಿಸಿ); Kannada 50% rule "ಕಡಿಮೆ ಇರುವಷ್ಟು ಮೊತ್ತವನ್ನು PF/ESI ವೇತನಕ್ಕೆ ಸೇರಿಸಬೇಕು"; "confirmation" = ರಸೀದಿ. Still open:
+   B3 gazette S.O. 2351(E) (if not confirmed, switch every ESI end-of-period line together: list in the copy doc B14-1),
+   B4 September check on launch day, B5 ESI recheck 20 Nov 2026, A1 egazette G.S.R. 525(E) then `tools_checked`, R2-C18
+   redirect stubs after the first live build, owner input (city detail, schools, per-industry numbers, photos),
+   fluent-speaker read of `docs/kannada-review.md`, the D lists. Not pushed. The earlier notes follow.
+   Every Kannada page is now built and committed on
    `feature/revamp` (not pushed); the last 4 (About, Contact, Privacy, Terms) on 2026-10-03 from
    `docs/kn-about-contact-legal-copy.md` (compliance-reviewed, owner-approved). Kannada Contact loads the map only after
    "ನಕ್ಷೆ ತೋರಿಸಿ" (checked: no Google requests before the tap), so Privacy's map line is true in both languages. Shared keys
