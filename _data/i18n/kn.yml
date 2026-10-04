@@ -92,7 +92,6 @@ cities_label: "ಊರುಗಳು:"
 services_label: "ನಮ್ಮ ಸೇವೆಗಳು:"
 cities:
   - { name: ಮಂಗಳೂರು, anchor: ಮಂಗಳೂರಿನಲ್ಲಿ PF ಮತ್ತು ESI, path: epf-esi-consultancy-mangalore, line: ನಮ್ಮ ಕಚೇರಿ ಮತ್ತು ಮುಖ್ಯ ತಂಡ ಮಂಗಳೂರಿನಲ್ಲಿವೆ. }
-  - { name: ಉಡುಪಿ, anchor: ಉಡುಪಿಯಲ್ಲಿ PF ಮತ್ತು ESI, path: epf-esi-consultancy-udupi, line: ಉಡುಪಿಯ ವ್ಯಾಪಾರಗಳೊಂದಿಗೆ ನಮ್ಮ ಮಂಗಳೂರು ಕಚೇರಿಯಿಂದ ಕೆಲಸ ಮಾಡುತ್ತೇವೆ. ಅಗತ್ಯವಿದ್ದರೆ ನಾವು ನಿಮ್ಮಲ್ಲಿಗೆ ಬರಬಹುದು. }
   - { name: ಬೆಂಗಳೂರು, anchor: ಬೆಂಗಳೂರಿನಲ್ಲಿ PF ಮತ್ತು ESI, path: epf-esi-consultancy-bangalore, line: "ಬೆಂಗಳೂರಿನಲ್ಲಿ ನಮ್ಮ ತಂಡದ ಸದಸ್ಯರಿದ್ದಾರೆ, ಮತ್ತು ಮಂಗಳೂರಿನ ನಮ್ಮ ಕಚೇರಿ ಅವರ ಬೆಂಬಲಕ್ಕಿದೆ." }
 # Hidden start of each city card's link text (decision D7). Kannada ends with a colon:
 # "PF ಮತ್ತು ESI ಸಲಹೆಗಾರರು: ಮಂಗಳೂರು"
@@ -173,7 +172,6 @@ footer:
   places: ನಾವು ಕೆಲಸ ಮಾಡುವ ಊರುಗಳು
   places_links:
     - { label: ಮಂಗಳೂರು, path: epf-esi-consultancy-mangalore }
-    - { label: ಉಡುಪಿ, path: epf-esi-consultancy-udupi }
     - { label: ಬೆಂಗಳೂರು, path: epf-esi-consultancy-bangalore }
   more: ಸಹಾಯ ಮತ್ತು ಮಾರ್ಗದರ್ಶಿಗಳು
   more_links:

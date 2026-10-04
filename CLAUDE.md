@@ -169,7 +169,7 @@ legal facts. If a request conflicts with it, ask before acting.
 - Commit one page, or one small group of pages, at a time.
 
 ### Planned site changes (from the brief and `docs/strategy.md`)
-- City pages are now 3 (Mangalore, Udupi, Bangalore); the other 19 were removed. Udupi is to be removed next (owner, 2026-10-04), leaving 2.
+- City pages are now 2 (Mangalore, Bangalore); the other 20 were removed. Udupi was removed on 2026-10-04 (owner: no traction there): it is not named anywhere on the site, and `/epf-esi-consultancy-udupi` (+ `/kn/`) redirect to the Mangalore page via `redirect_from`.
 - New pages: PF registration and ESI registration; an "Industries we serve" hub
   (`/industries/`) and one page each for hospitals, contractors, factories, schools
   and IT companies; "EPF benefits for employees", "ESI benefits for employees" and
@@ -178,7 +178,7 @@ legal facts. If a request conflicts with it, ask before acting.
 
 ## Writing style / audience
 
-Copy targets small-business owners and HR/accounts staff in Mangalore, Udupi and
+Copy targets small-business owners and HR/accounts staff in Mangalore and
 Bangalore, many with only basic English. Use short sentences and everyday words,
 avoid jargon, and lead with the plain benefit rather than the mechanism. Full
 rules are in section 9 of `docs/business-brief.md`.
@@ -351,12 +351,7 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
   - Kannada: stopgap strings for the router and short steps, logged in `docs/kannada-review.md`.
 
 ### Next (strategy section 9.3, English first; Kannada last)
-0. **Start here (next session): remove the Udupi city page (owner, 2026-10-04: "we don't have traction there").**
-   Remove `epf-esi-consultancy-udupi.html` and `kn/epf-esi-consultancy-udupi.html`, and every link to them (city cards,
-   city links, footer, FAQs, guides' city lines, JSON-LD `areaServed`/`Service`), in both languages. Ask the owner
-   first: should the old URL redirect (e.g. to the Mangalore page), and does Udupi stay in the service area wording
-   ("Mangalore, Udupi and Bangalore", "3 cities", nearby towns, visit lines) or go from the site entirely? Then update
-   the brief, strategy and this file (city pages become 2). The open items from launch check round 2 (below) are set
+0. **Udupi removed (2026-10-04, done):** both Udupi pages deleted, old URLs redirect to the Mangalore page, Udupi taken out of every page, `site.yml` cities, `en.yml`/`kn.yml` city cards and footer, About "2 cities", home title/FAQ; brief and strategy updated, Kannada changes logged. The open items from launch check round 2 (below) are set
    aside for now (owner: "lets ignore all above"); don't work on them unless the owner brings them back.
    Launch check round 2 (2026-10-04) for reference: round 2 ran every automated check and all six reviewers on both languages (`docs/phase9-review-findings.md`
    "Round 2"), then 3 steps, all committed: (1) Kannada call-button baseline, Kannada tool/post H1 leading, posts
@@ -673,11 +668,10 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
 - Languages: "You can talk to us in English or Kannada, and we can help you in Hindi too."
   Never single out one language (no "we speak Kannada" headings): owner, it can put off
   speakers of other languages. The website is in English and Kannada.
-- Udupi: served from the Mangaluru office; "We can visit you if needed." Clients never need
-  to visit us. Bangalore: "We have team members in Bangalore, backed by our Mangaluru office."
+- Udupi is no longer served or named (owner, 2026-10-04). Clients never need to visit us. Bangalore: "We have team members in Bangalore, backed by our Mangaluru office."
   (owner 2026-09-28: the old "Local support in Bangalore, backed by our Mangaluru team" read
   as no support at all). The 2 Bangalore team members can also visit clients if needed, same
-  as Udupi (owner, 2026-09-28) — registration and monthly filing are still done by the
+  as Mangalore (owner, 2026-09-28) — registration and monthly filing are still done by the
   Mangaluru team for every client.
 - The filing promise sits next to call buttons (How we work, After registration, closing;
   not the hero). Don't repeat it

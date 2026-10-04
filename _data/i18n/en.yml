@@ -89,7 +89,6 @@ cities_label: "Cities:"
 services_label: "Our services:"
 cities:
   - { name: Mangalore, anchor: PF and ESI in Mangalore, path: epf-esi-consultancy-mangalore, line: Our office and main team are in Mangaluru. }
-  - { name: Udupi, anchor: PF and ESI in Udupi, path: epf-esi-consultancy-udupi, line: We work with Udupi businesses from our Mangaluru office. We can visit you if needed. }
   - { name: Bangalore, anchor: PF and ESI in Bangalore, path: epf-esi-consultancy-bangalore, line: "We have team members in Bangalore, backed by our Mangaluru office." }
 # Hidden start of each city card's link text (decision D7)
 city_card_prefix: PF and ESI consultant in
@@ -169,7 +168,6 @@ footer:
   places: Where we work
   places_links:
     - { label: Mangalore, path: epf-esi-consultancy-mangalore }
-    - { label: Udupi, path: epf-esi-consultancy-udupi }
     - { label: Bangalore, path: epf-esi-consultancy-bangalore }
   more: Help and guides
   more_links:

@@ -21,7 +21,7 @@ Read `docs/business-brief.md`, especially section 11 (facts the site must state 
 4. **EPF wage ceiling:** ₹25,000 from 17 September 2026. Flag any ₹15,000 presented as current, and derived old values (₹1,800, ₹1,250, ₹1,249.50).
 5. **ESI wage ceiling:** ₹21,000 (₹25,000 for persons with disabilities). Flag any claim that it has increased.
 6. **Contribution rates and due dates:** as in section 11.
-7. **Business facts:** 25+ years (not 20+), founder 35 years at EPFO, 100+ clients, 3,500+ employees, no Bangalore office, no local Udupi team.
+7. **Business facts:** 25+ years (not 20+), founder 35 years at EPFO, 100+ clients, 3,500+ employees, no Bangalore office. Udupi is no longer served or named on the site (owner, 2026-10-04).
 8. **Unverifiable claims:** any legal statement you can't match to section 11 - flag it as "needs verification" with the exact text.
 
 ## Report format

@@ -23,9 +23,9 @@ map_embed_url: "https://maps.google.com/maps?q=12.870844,74.8834522&z=17&output=
 founder: Medu Thirumaleshwara Bhat
 # Languages we speak on the phone (owner, 2026-09-27)
 languages: [Kannada, English, Hindi]
-cities: [Mangalore, Udupi, Bangalore]
+cities: [Mangalore, Bangalore]
 # Official spellings for structured data (decision D3)
-cities_official: [Mangaluru, Udupi, Bengaluru]
+cities_official: [Mangaluru, Bengaluru]
 proof:
   years: "25+"
   clients: "100+"
