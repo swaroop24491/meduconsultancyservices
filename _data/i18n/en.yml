@@ -1,5 +1,5 @@
 # Shared English strings. Kannada versions are in kn.yml under the same keys.
-# Text comes from docs/business-brief.md and docs/strategy.md section 4.1.
+# Text follows docs/business-brief.md (tone: section 9).
 lang_switch_label: ಕನ್ನಡ
 lang_switch_aria: View this page in Kannada
 lang_switch_home_aria: Kannada home page (this page is only in English)

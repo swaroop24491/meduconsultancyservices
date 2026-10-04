@@ -1,8 +1,6 @@
 # Shared Kannada strings. Same keys as en.yml.
-# Log every new or changed string in docs/kannada-review.md for a fluent speaker.
+# Kannada word choices: see "Kannada" in CLAUDE.md.
 # PF, ESI and EPF are written in English letters (decision D12).
-# STATUS: matched to the final en.yml and the approved glossary on 2026-10-03
-# (docs/kn-shared-copy.md, owner-approved). Logged in docs/kannada-review.md for a fluent read.
 lang_switch_label: English
 lang_switch_aria: View this page in English
 lang_switch_home_aria: English home page (this page is only in Kannada)

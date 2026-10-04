@@ -4,39 +4,29 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-Static site for Medu Consultancy, a PF (EPF) & ESI compliance consultancy based in
-Mangaluru, Karnataka. Deployed on GitHub Pages at the custom domain
-`www.meduconsultancy.com` (see `CNAME`). **GitHub Pages builds it with Jekyll** on
-every push; there is no other build step, bundler or package manager.
+Website for Medu Consultancy, a PF (EPF) and ESI consultancy in Mangaluru, Karnataka. It serves
+businesses in Mangalore and Bangalore. Deployed on GitHub Pages at `www.meduconsultancy.com`
+(see `CNAME`). **GitHub Pages builds it with Jekyll** on every push; there is no other build step,
+bundler or package manager.
 
-The site is moving to Jekyll page by page (redesign, see below):
-- **Rebuilt pages** have front matter (`layout: base`, `lang`, `title`, `description`,
-  `page_type`) and get the head, header, sticky call bar and footer from
-  `_layouts/base.html`. They use `site.css` only (not `styles.css`). Components are
-  includes in `_includes/`, shown with their exact usage on `/style-guide` and
-  `/kn/style-guide` (noindex). Business details are in `_data/site.yml`, legal facts
-  in `_data/facts.yml`, icons in `_data/icons.yml`, and all component text in
-  `_data/i18n/en.yml` + `kn.yml` (same keys). Links are built from the page
-  language, so the same include works on English and Kannada pages.
-- **Pages not yet rebuilt** have no front matter. Jekyll copies them unchanged, so each
-  is still a complete `.html` file with the header/nav and footer copy-pasted into it.
+Every page is in English (root URLs) and Kannada (`kn/`, same paths). Pages: home, about, contact,
+PF and ESI monthly filing (`epf-consultancy-service`, `esi-consultancy-service`), PF and ESI
+registration, 2 city pages (`epf-esi-consultancy-mangalore`, `-bangalore`), an industry hub and 5
+industry pages (`industries/`), a tools hub and 7 tools, guides (`blogs/`: index + 11 posts), privacy,
+terms, a bilingual 404, and the style guide (`/style-guide`, `/kn/style-guide`, noindex).
 
-Pages: core pages (home, about, contact, EPF and ESI service pages), free tools and
-calculators (tools hub plus EPF/ESI penalty calculators, eligibility checkers,
-contribution calculators and the EPF Excel to Text converter), city landing pages
-(`epf-esi-consultancy-<city>.html`), and `blogs/` (index plus posts). A parallel
-Kannada tree under `kn/` mirrors the English pages. English and Kannada counterparts
-are linked via `hreflang` alternate tags and a header `lang-switch` link.
+**Read `docs/business-brief.md` before any page, content or design work.** It is the source of truth
+for the business, audience, services, tone (section 9), locations (section 10) and legal facts
+(section 11). If a request conflicts with it, ask before acting. `docs/` and `audit/` are git-ignored.
 
-GitHub Pages publishes everything committed to this repo, and turns Markdown files
-into pages. Never commit internal documents, notes or screenshots. They live in
-`docs/` and `audit/`, which are git-ignored. Any other internal file (like this one
-and `README.md`) must be listed under `exclude:` in `_config.yml`.
+GitHub Pages publishes everything committed and turns Markdown into pages. Never commit internal
+notes or screenshots (keep them in `docs/` or `audit/`). Any other internal file (like this one and
+`README.md`) must be listed under `exclude:` in `_config.yml`.
 
-## Working in this repo
+## Preview and checks
 
-There is no lint/test tooling. Preview with Jekyll in Docker (the same versions
-GitHub Pages uses, from `Gemfile`), then open http://localhost:4000:
+No lint/test tooling. Preview with Jekyll in Docker (the versions GitHub Pages uses, from `Gemfile`),
+then open http://localhost:4000 (start Docker Desktop first if needed: `open -a Docker`):
 
 ```sh
 docker run --rm -p 4000:4000 -v "$PWD":/srv -v medu-gems:/usr/local/bundle -w /srv \
@@ -44,667 +34,180 @@ docker run --rm -p 4000:4000 -v "$PWD":/srv -v medu-gems:/usr/local/bundle -w /s
   sh -c "bundle install --quiet && bundle exec jekyll serve --host 0.0.0.0"
 ```
 
-Extensionless URLs (`/about-us`) work in the preview as on GitHub Pages. Use this
-preview when reviewing pages with Claude in Chrome, and for the `check-page.mjs` screenshots. The build output goes to `_site/` (not
-committed).
+Extensionless URLs (`/about-us`) work as on GitHub Pages. Build output is `_site/` (not committed).
+The watcher misses files added in a new folder and deleted data: restart the container
+(`docker restart <id>`) after those.
 
-- **Liquid in inline JS**: Jekyll processes every file with front matter. Wrap any
-  inline script containing `{{`, `}}`, `{%` or `%}` in `{% raw %}...{% endraw %}`.
-- **Redirects** for removed URLs use `jekyll-redirect-from` (`redirect_from:` in the
-  new page's front matter).
+- **Sitemap**: `sitemap.xml` is generated from the pages (skips the 404, `noindex` pages and redirect
+  stubs; hreflang pairs; `lastmod` from `last_modified`). Never edit URLs into it. After template or page
+  changes: `python3 -c "import xml.dom.minidom; xml.dom.minidom.parse('_site/sitemap.xml'); print('OK')"`
+- **Check scripts** (local only, in `audit/check/`, git-ignored; setup at the top of `check-page.mjs`):
+  - `node audit/check/check-page.mjs audit/screenshots <path> <name>`: 320/390/768/1024/1440px,
+    horizontal scroll, axe (WCAG 2.1 A/AA), keyboard (menu, FAQ, focus under the sticky bar), and
+    390/1440 screenshots. It reports page text under the sticky bar on some pages: a test quirk.
+  - `node audit/check/sweep.mjs`: every page at 5 widths, axe, JSON-LD, console.
+  - `python3 audit/check/jsonld.py _site/<page>.html ...`: JSON-LD parses.
+  - Tool cases: `*-cases.js`, `converter-compare.js`, `use-*.mjs`; `tool-text.mjs en|kn`.
+  - `shot-sections.mjs <path> <name> <sg-id,...>` for section close-ups; `shot-contact.mjs` for the map.
+- After any page change, take 390px and 1440px screenshots and review them before saying it's done.
 
-- **Sitemap**: `sitemap.xml` is generated by Jekyll from the pages (every page except
-  the 404 and `noindex` pages; hreflang pairs only where both languages exist; `lastmod`
-  from front matter `last_modified`). Don't edit URLs into it by hand. After changing
-  the template or adding pages, build and validate the output:
-  `python3 -c "import xml.dom.minidom; xml.dom.minidom.parse('_site/sitemap.xml'); print('OK')"`
-- **Rebuilt pages**: set `last_modified: YYYY-MM-DD` in front matter when the content changes.
-- **Site-wide nav/footer changes**: on rebuilt pages, edit the include once. On pages
-  not yet rebuilt the header and footer are duplicated in every file, so a nav/footer/service-list/locations-list change must be applied
-  identically across all pages, English and Kannada. Prefer a scripted
-  find-and-replace (e.g. `perl -0pi -e 's/.../.../s'` slurp mode) over hand-editing
-  each file, and verify the replacement count matches the expected file count
-  afterward.
-- **Tools**: calculation logic in the tool pages must not change as part of design
-  or content work. Any logic change is a separate, reviewed update with
-  before/after test cases.
+## How the site is built
 
-## Page structure
+- `_layouts/base.html`: head, header, sticky call bar, footer. Every page has front matter.
+- Front matter: `layout: base`, `lang` (en/kn), `page_type` (home, service, registration, city,
+  industries, industry, tools, tool, blog, post, about, contact, legal, other), `title`, `description`,
+  `last_modified: YYYY-MM-DD` (update when content changes), `breadcrumb: [{ name }]`, optional
+  `service: { type, name, offers, area }`, `faq: [{ q, a }]` (answers may hold simple links),
+  `redirect_from:` (jekyll-redirect-from), `scripts:` and `tool: { name }` (tools),
+  `headline` and `date_published` (posts; not `published`, which Jekyll reserves).
+- `_data/site.yml`: business details (address, geo, map, founder, languages, cities, proof numbers,
+  `gbp_url`, `founder_photo`). `_data/facts.yml`: legal facts (with `_kn` versions for Kannada; its
+  header lists where facts are also typed by hand). `_data/icons.yml`: inline SVG icons.
+  `_data/i18n/en.yml` + `kn.yml`: all component text, same keys.
+- `_includes/`: components, each shown with its exact usage on `/style-guide`
+  (`style-guide-body.html`). Links in includes go through `resolve-link.html`/`link.html`: links are built
+  from the page language; on Kannada pages a missing Kannada page falls back to English, marked
+  "(ಇಂಗ್ಲಿಷ್‌ನಲ್ಲಿ)". The language switch and hreflang appear only when the other page exists.
+- `_includes/head.html`: favicons, canonical, hreflang (en/kn/x-default), og tags (no og:image, owner
+  decision; posts are `og:type` article), Google Fonts (Poppins 400/500/600; Noto Sans Kannada on `kn/`
+  or `kannada_font: true`), `site.css`, Google Analytics `G-4MEQF5W0XX`. `noindex` pages omit
+  canonical/hreflang/og:url.
+- `_includes/schema.html`: JSON-LD (WebSite, WebPage or the page type's own type, business entity at
+  `https://www.meduconsultancy.com/#business` (full on home and contact), BreadcrumbList, Service,
+  WebApplication for tools, BlogPosting for posts, CollectionPage for hubs, founder `Person` defined once
+  and referenced by `@id`). FAQPage comes from `faq.html schema=true`. No microdata.
+- `site.css`: all styles; tokens in the `:root` block at the top. `style-guide.css`: style guide only.
+- `script.js` (every page, `defer`): FAQ accordion, mobile menu (`<button data-menu-toggle>`), hides the
+  phone sticky call bar while the hero call button is on screen, and sends the `phone_call_click` Google
+  Analytics event on `tel:` links.
+- Tool scripts: `eligibility-checker.js`, `contribution-calculator.js`, `penalty-calculator.js`,
+  `converter.js` (lazy-loads SheetJS 0.20.3 from `/assets`). Each page passes its config inline; Kannada
+  pages pass the Kannada words as `text:`.
+- **Liquid in inline JS**: wrap any inline script containing `{{`, `}}`, `{%` or `%}` in
+  `{% raw %}...{% endraw %}`. Jekyll 3 include parameters can't take `a[2].b`: `assign` first.
+- Old, unused files are still in the repo (`styles.css`, `servicepage.css`, `contactuspage.css`,
+  `homepage.css`, `aboutuspage.css`, `citypage.css`, `calculator.css`, most of `images/`): no page loads them.
 
-Pages not yet rebuilt share `styles.css`; rebuilt pages use `site.css`. Every page
-loads `script.js` (via `defer`; it powers the FAQ accordion, the mobile menu with
-their accessibility behaviour, and the `phone_call_click` Google Analytics event on
-`tel:` links). `script.js` supports both the old checkbox menu and the rebuilt
-pages' `<button data-menu-toggle>`, and both old and heading-wrapped FAQ buttons, so
-changes to it must be tested on an old page and a rebuilt page. Service detail pages use `<body class="service-page">` with
-`servicepage.css`; `contactuspage.css` styles `contact-us.html`.
+## Design
 
-On pages not yet rebuilt, the mobile menu's `<nav class="mobile-nav">` must stay in
-its current position in the header: the hamburger CSS uses `:nth-last-child`
-selectors that break if it moves. The rebuilt header (`_includes/header.html`) has
-no such constraint.
-
-Head on rebuilt pages (`_includes/head.html`): favicons, canonical, `hreflang`
-(en/kn/x-default, only where the other-language page exists), og tags, Google Fonts
-(Poppins 400/500/600; Noto Sans Kannada on `kn/` only), `site.css`, and Google
-Analytics (`G-4MEQF5W0XX`). JSON-LD comes from `_includes/schema.html` (WebSite,
-WebPage, short business entity under `https://www.meduconsultancy.com/#business`,
-BreadcrumbList and Service from front matter) plus FAQPage from `faq.html schema=true`.
-No microdata. Icons are inline SVG (`_includes/icon.html`), not the Material Symbols font.
-
-Pages not yet rebuilt still have their own copy-pasted head (LocalBusiness JSON-LD,
-microdata FAQs, Material Symbols font).
-
-There are **no contact forms** and no WhatsApp. Every call-to-action is
-`tel:+918217542975`.
+- Build with the design system only: colours, spacing and type sizes from the `site.css` variables,
+  components from the includes shown on the style guide. No one-off styles on a page. Components are
+  locked: changing one is a deliberate, style-guide-first change that affects every page using it.
+- Tokens: logo green `#006d3c` (links, accents, call button); mustard `#fede00` for small highlights
+  only (never text on cream); cream page base, white `section--surface`, `section--tint`, `--color-sand`,
+  deep green `section--deep`; red only for real warnings. Contrast ratios are noted in `:root`.
+- Light and clean; when in doubt, remove it. No fixed layout rules (owner): pages are composed from the
+  components, guided by the design reviewer. Reference for the feel: claude.com/product/claude-code.
+- No hero illustrations, mock cards or stock photos of people. Icons are inline SVG (`icon.html`); new
+  infographics are inline `<svg>`, flat Material-Symbols style (`viewBox="0 -960 960 960"`, one
+  `<path>`, fill only).
+- Headings, titles, link names and FAQ questions weight 500; 600 only for buttons, footer titles and
+  bold words. Hero H1 uses `--text-hero`. The closing call is a deep green band.
+- Header is sticky (not under 421px tall). Up to 768px: logo, language switch, menu; the sticky call
+  bar is the call button. From 769px the header shows the call button with the full number. Industries
+  is not in the desktop nav (phone menu and footer only).
+- Tool pages stay tool-first: no "what Medu does" line at the top. Legal pages (`page_type: legal`) use
+  the `.legal` layout, no call button, no closing band. Contact loads the Google map only after
+  "Show the map" (`map-tap.html`).
 
 ## Accessibility
 
-The website must be accessible to everyone: meet WCAG 2.1 AA (colour contrast,
-keyboard navigation, visible focus, alt text, proper headings and landmarks).
-Keep existing accessibility features working on every edit and new page.
+Meet WCAG 2.1 AA: contrast, keyboard navigation, visible focus, alt text, headings and landmarks.
+Keep existing accessibility features working on every edit. Tap targets 44px. Results that update as
+you type are not `aria-live`; after a tool button, a valid result gets focus, an invalid form focuses
+the first wrong field.
 
-## Visual conventions
-
-Current palette: page background `rgb(248,244,240)` (cream), green `#028940`,
-blue `#305cde` for primary CTA buttons, red `#c1121f` for warnings and the
-header phone number, body text and headings `#333`. The logo uses
-green and mustard. Pages not yet rebuilt keep this palette; don't change their
-colours outside the redesign.
-
-Rebuilt pages use the redesign tokens in the `:root` block at the top of
-`site.css`: logo green `#006d3c` for links, headings accents and the call button;
-mustard `#fede00` for small highlights only (never text on cream); cream page
-base, with white, soft green `--color-tint`, warm sand `--color-sand` and deep green `--color-brand-deep`
-available to the page design; red only for genuine warnings. Contrast ratios are noted there. Use the variables, never raw values.
-
-Layout: section variety redesign in progress (owner, 2026-10-02: the earlier all-cream,
-same-layout look was accidental). Pages are composed one by one from the components on
-`/style-guide`, guided by design-reviewer input, **not by fixed layout rules** (owner: don't
-write design rules). Only constraint: light and clean. Reference for the feel:
-claude.com/product/claude-code. The closing call is a deep green band (owner decision
-2026-10-02, brief section 9 updated). No hero illustrations or example/mock cards (owner
-removed both on the pilot: "don't add any value"). Pilot: home and `epf-consultancy-service`.
-- Headings, titles, link names and FAQ questions are weight 500; 600 only for buttons,
-  footer titles and bold words in text.
-- The header is sticky (owner change, replacing D6), except on screens under 421px tall.
-
-Infographics are hand-authored inline `<svg>` (not external image files), flat
-Material-Symbols style (`viewBox="0 -960 960 960"`, single `<path>`, fill only),
-using the site palette.
-
-## Website redesign
-
-A redesign of the whole site is in progress.
-
-**Read `docs/business-brief.md` before any page, content or design work.** It is
-the source of truth for the business, audience, services, tone, locations and
-legal facts. If a request conflicts with it, ask before acting.
+## Content rules
 
 ### Never
-- Change legal facts (thresholds, wage ceilings, rates, due dates, law references)
-  unless they match section 11 of the brief. Flag anything that doesn't match.
-- Change tool calculation logic as part of design or content work.
-- Add WhatsApp, contact forms, callback forms, pricing, or client names/logos.
+- Change legal facts (thresholds, wage ceilings, rates, due dates, law references) unless they match
+  brief section 11. Flag anything that doesn't match. Run the compliance reviewer on any change to
+  facts, numbers or tool logic.
+- Change tool calculation logic as part of design or content work. A logic change is a separate,
+  reviewed update with before/after test cases. Tool text (questions, help, results) is a reviewed change.
+- Add WhatsApp, contact forms, callback forms, pricing, client names/logos, or a share image.
 - Show the email address anywhere except the footer.
-- Offer notice, arrears or VISHWAS help as a service.
-- Use stock photos of people.
+- Offer notice, arrears or VISHWAS help as a service (no VISHWAS on tool pages).
 - Change page copy without showing the old and new text for approval first.
+- Name Udupi (dropped 2026-10-04; old Udupi URLs redirect to the Mangalore page).
 
 ### Always
-- The phone call (+91 82175 42975) is the only call-to-action.
-- Write in simple, basic English: short sentences, everyday words, and every
-  compliance term explained the first time it appears.
-- Every page will exist in English and Kannada (`kn/`). **Kannada pages are built last**
-  (owner decision 2026-09-27): build every English page first, then all Kannada pages
-  together from the final English text, before launch. Until then, leave the old `kn/`
-  pages alone (urgent fact fixes only). Mark all Kannada text for review by a fluent
-  speaker.
-- Design clean, clutter-free and light. When in doubt, remove it.
-- Build with the shared design system: colours, spacing and type sizes come from
-  CSS variables in `site.css`, and components use the exact includes shown on the
-  style guide page (`/style-guide`). No one-off styles on individual pages.
-- After any page change, take screenshots at 390px and 1440px width with Claude in Chrome
-  and review them before saying the work is done.
+- The phone call (`tel:+918217542975`, shown "+91 82175 42975") is the only call-to-action. Results
+  link to the phone first. No links to `/contact-us` from tools.
+- Simple, basic English: short sentences, everyday words, every compliance term explained the first
+  time it appears. Write for both owners and HR/accounts staff.
+- Every change in both languages: the Kannada page is a translation of the final English page, nothing
+  added or left out.
 - Commit one page, or one small group of pages, at a time.
 
-### Planned site changes (from the brief and `docs/strategy.md`)
-- City pages are now 2 (Mangalore, Bangalore); the other 20 were removed. Udupi was removed on 2026-10-04 (owner: no traction there): it is not named anywhere on the site, and `/epf-esi-consultancy-udupi` (+ `/kn/`) redirect to the Mangalore page via `redirect_from`.
-- New pages: PF registration and ESI registration; an "Industries we serve" hub
-  (`/industries/`) and one page each for hospitals, contractors, factories, schools
-  and IT companies; "EPF benefits for employees", "ESI benefits for employees" and
-  "PF and ESI benefits for employers" posts (replacing the 4 old benefits posts, with
-  redirects). All in English and Kannada. Full page list: strategy section 1.4.
+### Settled wording (reuse exactly)
+- Filing promise: "We never miss a PF or ESI due date." Next to call buttons, not in the hero. Never
+  "no client has paid a late fine or interest" or "late-filing penalty".
+- Proof: "25+ years in practice · Founder worked 35 years at EPFO · 100+ clients · 3,500+ employees
+  covered"; in heroes number + label ("35 years" / "our founder worked at EPFO").
+- Founder (Medu Thirumaleshwara Bhat) has retired: "He worked at EPFO for 35 years", past tense only,
+  no job title, "CEO" or "leads". "He taught us the PF rules." Never "how the PF office works" after his
+  EPFO years. He worked at EPFO, not ESIC. Founded 2000; don't claim it started in Mangaluru.
+- Team: "6 people". "We have team members in Bangalore, backed by our Mangaluru office." Mangalore and
+  Bangalore clients: "We can visit you if needed"; clients never need to visit us (never "visit us",
+  "directions", "come to our office"). Don't say the Bangalore team will attend an inspection.
+- Languages: "You can talk to us in English or Kannada, and we can help you in Hindi too." Never single
+  out one language.
+- "We tell you if PF and ESI apply" (never "what applies"). "We work by phone and email" (never "We
+  handle everything").
+- First mentions: "PF (Provident Fund, also called EPF) gives your staff savings and a pension"; "ESI
+  (Employees' State Insurance) gives your staff medical care, and pay when they can't work because of
+  sickness, injury or maternity" (short: "medical care and sick pay"). No bracketed explanations in hero
+  lines; titles use "PF".
+- The 15th is the payment deadline: "We get the payment slip (challan) ready in time, so you can pay by
+  the 15th. Or send us the amount and we pay it." Never "we file before the 15th". Challan = "the PF/ESI
+  payment slip". ECR = "the monthly list of each employee's wages and PF, sent to the PF office".
+- Adding staff: "We'll check who must be in PF and ESI", "if the rules cover them" (never "every
+  worker"). "Mark the date when staff leave". "Move their PF to a new job, or withdraw their PF money".
+  Takeover "once you share the documents we need".
+- Joining PF above ₹25,000: "if you and they both agree in writing". 50% rule: "PF/ESI wages must be at
+  least half the total pay. If they come to less, the difference is added to PF/ESI wages."
+- PF wages = basic pay plus DA (dearness allowance), not the full salary. ESI uses "ESI wages", never
+  "gross wages" or "total pay".
+- Who counts towards 20/10: all staff incl. casual, contractor-sent and high-salary staff; not
+  apprentices, the proprietor or partners; directors: "call us to check how to count them". "Once PF/ESI
+  applies, it stays". ESI "does not apply to seasonal factories" where 10-or-more is stated.
+- Registration: no public document list ("We tell you which documents we need when you call"); "takes
+  just a few hours" only with "once we have all your documents". New UANs come from the employee's face
+  scan on the UMANG app ("We guide them"); we create IP numbers on the ESIC portal.
+- Penalties: bands written "2 months or more, but less than 4" (never "2 to 4 months"); results say
+  "Total (estimate)". The tools' checked date is `tools_checked` in `facts.yml`; update the "2026" in tool
+  titles each January.
 
-## Writing style / audience
+## Kannada
 
-Copy targets small-business owners and HR/accounts staff in Mangalore and
-Bangalore, many with only basic English. Use short sentences and everyday words,
-avoid jargon, and lead with the plain benefit rather than the mechanism. Full
-rules are in section 9 of `docs/business-brief.md`.
+- Everyday Kannada, short sentences, ನೀವು. All acronyms in English letters (PF, ESI, EPF, EPFO, ESIC,
+  UAN, IP, ECR, KYC, DA, HRA…); case endings attach directly (PFಗೆ, ESIಯ, EPFOನಲ್ಲಿ). Western digits,
+  Indian grouping. Name: ಮೆದು ಕನ್ಸಲ್ಟೆನ್ಸಿ; cities ಮಂಗಳೂರು, ಬೆಂಗಳೂರು.
+- Terms: employer ಉದ್ಯೋಗದಾತರು; pay ಸಂಬಳ (ವೇತನ only in set names: ಮೂಲ ವೇತನ, PF/ESI ವೇತನ, ಕನಿಷ್ಠ ವೇತನ,
+  PF/ESI ವೇತನ ಮಿತಿ); contribution ವಂತಿಗೆ; due date ಕೊನೆಯ ದಿನಾಂಕ; challan ಚಲನ್ (PF ಪಾವತಿ ಚೀಟಿ);
+  damages ಡ್ಯಾಮೇಜಸ್, first use "ಡ್ಯಾಮೇಜಸ್ (ದಂಡದಂತಹ ಹೆಚ್ಚುವರಿ ಮೊತ್ತ)"; penalty ದಂಡ; interest ಬಡ್ಡಿ;
+  staff benefits ಸೌಲಭ್ಯಗಳು (ಲಾಭ only for a business gain); ESI cash benefit ಹಣದ ಸಹಾಯ (never ಸಂಬಳ);
+  casual ತಾತ್ಕಾಲಿಕ ಮತ್ತು ದಿನಗೂಲಿ; principal employer ಮುಖ್ಯ ಉದ್ಯೋಗದಾತರು; seasonal factory ಋತುಮಾನದ ಕಾರ್ಖಾನೆ
+  (no bracket); confirmation ರಸೀದಿ; inspection ತಪಾಸಣೆ; "Anytime" ಬೇಕಾದಾಗ. Never ಅನುಸರಣೆ: say what is
+  done (fallback ನಿಯಮ ಪಾಲನೆ). Tool names all Kannada (ಉಚಿತ ಸಾಧನಗಳು, ಲೆಕ್ಕಾಚಾರ, ಪರಿಶೀಲನೆ). Tool messages
+  say ಬರೆಯಿರಿ (never ನಮೂದಿಸಿ).
+- Phrases: "if the rules cover them" ನಿಯಮಗಳು ಅವರಿಗೆ ಅನ್ವಯಿಸಿದರೆ; 50% rule "ಕಡಿಮೆ ಇರುವಷ್ಟು ಮೊತ್ತವನ್ನು
+  PF/ESI ವೇತನಕ್ಕೆ ಸೇರಿಸಬೇಕು"; "15th" `{{ x.due_day }}ನೇ`; "Rules checked on" "{{ tools_checked_kn }}ರಂದು
+  ನಿಯಮಗಳನ್ನು ಪರಿಶೀಲಿಸಲಾಗಿದೆ". No comma before ಮತ್ತು; a list that already contains "ತಾತ್ಕಾಲಿಕ ಮತ್ತು
+  ದಿನಗೂಲಿ" joins its outer items with ಹಾಗೂ.
+- Build: every page-text link through `link.html` (`arrow=false` inside a sentence); links between
+  Kannada pages go to `/kn/...`; facts from the `_kn` keys. Call-button digits use `--font-body`.
 
-### Reviews
-Six reviewer subagents live in `.claude/agents/` (marketing, service,
-business owner, compliance, design, SEO/Kannada). They are read-only and
-report findings; fixes happen in the main session after approval.
-- Run all six for the site audit, when a page type is finished, and before
-  launch.
-- Run the compliance reviewer on any change that touches legal facts,
-  numbers or tool logic.
-- Don't run reviewers for small edits like typo fixes.
-## Redesign status and how to continue
+## Reviews
 
-Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
-(decision D11). Only urgent fact fixes go to `main` before that.
+Eight read-only reviewer agents in `.claude/agents/` (marketing, service, business owner, compliance,
+design, SEO/Kannada, information architect, product manager) report findings; fixes happen in the main
+session after the owner approves. Run the compliance reviewer on any change to legal facts, numbers or
+tool logic; run the relevant reviewers for a new page or a big change; not for small edits. The owner
+approves with short messages ("proceed as recommended").
 
-### Planning documents (all in `docs/`, git-ignored)
-- `business-brief.md` - source of truth (business, services, tone, legal facts in section 11).
-- `strategy.md` - the plan: site map, section plan per page type (section 4), mobile call
-  pattern (5), SEO (6), Kannada (7), build approach (8), order of work (9), facts to
-  verify before launch (9.4), and decisions D1-D14 (section 10, **all decided**).
-- `audit.md` - the site audit the strategy is based on.
-- `kannada-glossary.md` - Kannada terms (draft, waiting for fluent-speaker review).
-- `kannada-review.md` - log of every new or changed Kannada string, with English meaning.
-- `pilot-epf-service-copy.md` - the approved EPF service page copy (old vs new): the model
-  for how page copy is proposed.
-- `pilot-review-findings.md` - the six-reviewer findings on the pilot and what was done.
-- `esi-service-copy.md`, `pf-registration-copy.md`, `esi-registration-copy.md` - approved
-  phase 2 copy; `phase2-review-findings.md` - six-reviewer findings on phase 2, the owner's
-  decisions and the changes made after the copy docs (the built pages are the final text).
-- Phase 4 (tools): `tools-hub-copy.md` (+ shared rules for tool pages), `eligibility-checkers-copy.md`,
-  `penalty-calculators-copy.md`, `contribution-calculators-copy.md`, `converter-copy.md`;
-  `phase4-review-findings.md` (six-reviewer findings, owner decisions, how they were applied);
-  tool logic records with before/after cases: `tool-logic-176.md`, `tool-logic-a2.md`, `tool-logic-a4.md`.
+## Git
 
-### Done
-- Phase 0: Jekyll scaffold; tool logic/text update (converter fix, EPF text, ESI checker,
-  September 2026 note); design tokens; design system and style guide (EN + KN);
-  Kannada glossary drafted (not yet reviewed).
-- Pilot (phase 1): English EPF service page rebuilt (`epf-consultancy-service.html`),
-  reviewed by all six reviewers, fixes applied. Components are now locked: new pages
-  reuse them; changing a component is a deliberate, style-guide-first change.
-- Phase 2 (English, 2026-09-27): ESI service page rebuilt; new PF registration and ESI
-  registration pages. Copy in `docs/esi-service-copy.md`, `docs/pf-registration-copy.md`,
-  `docs/esi-registration-copy.md` (each compliance-reviewed and owner-approved). Six-reviewer
-  review applied (`docs/phase2-review-findings.md`); later copy changes are recorded there.
-- Phase 3 (English, 2026-09-27): home page rebuilt (`docs/home-copy.md`); six-reviewer review
-  applied (`docs/phase3-review-findings.md`). New `city-cards.html` include; full business
-  entity (with the Google Business Profile as `sameAs`) on home and contact via `schema.html`.
-  Owner: no share image (og:image). Later owner change (language card wording) is in section F
-  of the findings; the built page is the final text.
-- Layout redesign (2026-09-27, UI only, after phase 3): new look for the whole design system,
-  inspired by segmental.ai, with several design-reviewer rounds and owner choices. The rules
-  are under "Layout" in Visual conventions; the style guide shows every component. The five
-  rebuilt pages use it. Proof facts are now `{ num, label, text }` in `en.yml`/`kn.yml` (Kannada
-  split logged in `docs/kannada-review.md`). `card--brand` was removed. New pages (tools next)
-  must use this layout: check them against the style guide and the phone line rule.
-- Phase 4 (English, 2026-09-28): tools hub + 7 tools rebuilt (copy docs above, compliance-reviewed,
-  owner-approved); six-reviewer review applied (`docs/phase4-review-findings.md`). New design-system
-  "Tool parts" (fields, result table, result card, due-date line, tool steps/status, tool groups) on the
-  style guide. Reviewed tool updates: ₹176 check removed from the ESI tools; PF checker checks the wage
-  before "Not sure"; one after-the-button behaviour in every tool script; converter lazy-loads a fixed
-  SheetJS 0.20.3 from `/assets`. Three guides unlinked until rewritten (9.4 #22b).
-- Phase 5 (English, 2026-09-28): the 3 city pages rebuilt (Mangalore, Udupi, Bangalore). Copy in
-  `docs/city-pages-copy.md` (compliance-reviewed, owner-approved: same industry shortlist on all
-  three cities, no Mangalore office photo yet). Two six-reviewer rounds applied
-  (`docs/phase5-review-findings.md`), plus owner-directed structural changes between them:
-  - **Round 1:** switched from the compact two-paths component to the full one (compact was
-    silently dropping the registration links), fixed a Mangalore team-location overclaim, added
-    per-city `Service` JSON-LD (`schema.html` takes an optional `service.area` override).
-  - **Owner changes:** removed "Your local PF and ESI offices" and "Areas we cover" (their content
-    — nearby towns, which EPFO/ESIC office covers you — still lives in each page's FAQ); moved
-    "Two ways to work with us" up, right after the hero; added back "How we work", "Who's behind
-    it" and a fuller "Free PF and ESI tools and guides" section (all three now: Hero → Two ways →
-    How we serve you here → How we work → Who's behind it → Businesses we work with here → Tools
-    and guides → FAQ → closing).
-  - **Round 2:** removed the "mistakes" guide links the tools section had picked up (strategy 9.4
-    #22/#22b keep both unlinked until rewritten); reworded Bangalore throughout to say the 2 local
-    team members can visit clients if needed (owner-confirmed), replacing vague "local support"
-    wording; hero leads now state the actual offer, not just location; removed 6 em dashes; merged
-    duplicate Mangalore FAQs; dropped a repeated "no visits needed" line; added nearby towns to
-    Mangalore/Udupi's `Service` schema.
-  - Open: the SEO reviewer's high-priority finding that ~70% of the three pages' text is now
-    identical (How we work / Who's behind it / tools are shared blocks) — needs owner-supplied
-    local detail per city (e.g. which kinds of businesses are most common there), not guessed.
-    Also a pre-existing, low-severity bug: the `.link-arrow` icon (e.g. "About us →") can wrap
-    onto its own line at 1024px; a CSS-only fix didn't work in testing, real fix needs a markup
-    change at every call site.
-
-- Phase 6 (English, built 2026-09-28): industry hub (`industries/index.html`) + 5 industry pages
-  (`industries/<key>.html`). Copy in `docs/industries-copy.md` (compliance-reviewed, owner-approved; the
-  built pages are the final text). Staff-benefits links wait for phase 7.
-  **Six-reviewer round run 2026-09-29** (marketing, service, business owner, compliance, design,
-  SEO/Kannada): no wrong facts, no out-of-scope offers, no accessibility failures; the 5 pages pass the
-  doorway-page rule (39–58% shared text vs ~70% on the city pages). Findings in `docs/phase6-review-findings.md`.
-  **Owner: "go with the recommendations" — applied 2026-09-29:** IT page reworded off salary-structure
-  design; plain-English fixes ("eligible/opt out" and others); schools hero/CBSE wording corrected;
-  new titles (hospitals, contractors, schools, IT, hub) and "principal employer" on contractors; city
-  names in body text now link to the 3 city pages; a founder/EPFO line per page; `service-links.html`
-  moved into "Related tools and pages" next to the other-industry links (both `descriptive=true`);
-  hub hero now explains PF/ESI and its "Staff don't want to join?" section folded in; hub schema gained
-  an `ItemList`; `Service.audienceType` added. Site-wide fixes alongside: header marks a nav section
-  current on child pages, not just the exact URL (`header.html`); hero proof facts no longer wrap
-  ("35 years") from 1024–1199px (`site.css`). Brief section 5's out-of-date overtime lines corrected to
-  match section 11. New facts to verify: strategy 9.4 #27–33.
-  **Still open (owner input needed, not guessed):** schools is the thinnest of the 5 pages and could use
-  a real school-specific point (E4 in the findings doc); per-industry client counts (G4).
-
-- Phase 7 (English, 2026-10-02): blog index + 11 posts rebuilt (copy docs `docs/blog-*-copy.md`, each
-  compliance-reviewed and owner-approved; six-reviewer round in `docs/phase7-review-findings.md`, applied).
-  The 4 old benefits posts are replaced by `epf-benefits-for-employees`, `esi-benefits-for-employees`,
-  `pf-esi-benefits-for-employers` (old URLs redirect via `redirect_from`; `sitemap.xml` skips redirect
-  stubs). The two unlinked guides were rewritten and their links restored (9.4 #22/#22b done); staff
-  links added to the industry hub and 5 pages. Post conventions: `page_type: post`, front matter
-  `headline` and `date_published` (not `published`, which Jekyll reserves); header = `section--stacked tool-section` with H1, `.tool-lead`
-  short answer, `.note` byline "Rules checked on {{ site.data.facts.tools_checked }}"; body = one
-  `.prose` section per H2; one mid-post `result-call.html line="..."` (new optional `line=`); "Related
-  tools and pages" (tool cards + link list + one line linking the 3 city pages); `closing-call`.
-  `schema.html` emits BlogPosting. No FAQ block on posts. Staff posts speak to the employee (brief §5
-  exception) but their call boxes speak to the employer. Benefit descriptions are generic and unverified
-  (strategy 9.4); late-payment rates/caps still match the tools (9.4 #1/#2/#25).
-
-- Phase 8 (English, 2026-10-02): About, Contact, Privacy, Terms and the bilingual 404 rebuilt (copy and owner
-  answers in `docs/phase8-copy.md`; compliance reviewer run on the copy, wording tightened). **The founder has
-  retired (owner, 2026-10-02): say "He worked at EPFO for 35 years", past tense only; no "leads" or job title.**
-  Founder wording pass done (see "Where we stopped"). Privacy has no promise about call data. Contact
-  uses a plain "Open in Google Maps" link. Legal pages: `page_type: legal`, no closing call. `schema.html` gives
-  `AboutPage` (+ founder `Person`, no job title) and `ContactPage`. Six-reviewer round done and applied (`docs/phase8-review-findings.md`): About is hero (proof on) → Who we are → full two-paths → closing; 404 has the Kannada line above 5 link rows (`kannada_font: true` loads the Kannada font on an English page); `head.html` omits canonical/hreflang/og:url when `noindex`; the founder `Person` is defined once and referenced by `@id`.
-
-- Section variety pilot (2026-10-02, committed `c651a8e`): home + EPF service page recomposed over
-  three design-reviewer rounds. The owner made it the starting point for the fresh plan below.
-  - Components: bigger type (`--text-display` hero H1, `--text-lead`, larger `--text-h2`); tokens
-    `--color-brand-deep`, `--color-tint-line`, `--radius-lg`, `--shadow-card`, `--badge-step`.
-    Section backgrounds `section--surface` (white), `section--tint`, `section--deep`; a line only
-    between two plain cream sections. Hero `proof="strip"` (full-width row of the 4 facts).
-  - Shared includes changed (affect all pages using them): `closing-call.html` (deep green, bigger
-    heading), `how-we-work.html` (tint band, filled-circle timeline), `two-paths.html` (two white
-    cards joined by an arrow, row links, "(this page)" in muted text). Link groups and guide lists are
-    full-width arrow rows (44px). Footer phone link 44px.
-  - New: `founder-note.html` ("Who's behind it"; `stat=true` adds a big "35 years"), `card-grid--panel`
-    (white rounded cards; compact tool cards), `.fact-pair`, `icon-badge--lg`; icons `sync`, `bank`,
-    `calendar`, `chat`.
-- **Fresh plan for home + EPF page (2026-10-02):** five reviewers (product manager, marketing, design,
-  information architect, business owner) merged in `docs/home-epf-fresh-plan.md`, with the owner's
-  decisions in its section 7. Core idea: each page tells one short story; fewer routing blocks, links low
-  on the page, big type instead of pictures. Two new reviewer agents: `information-architect`,
-  `product-manager`.
-- **Home v2 (2026-10-02, built and committed):** copy in `docs/home-copy-v2.md` (compliance-reviewed,
-  owner-approved, plus the owner's later changes listed at its top; the built page is the final text).
-  - Order: hero (H1 "We file your PF and ESI on time, every month.", `proof="strip"`) → "What do you need
-    help with?" (`situation-cards.html`: 4 choices, register / file every month / not sure / paid late;
-    the last two start with a call row; replaces "Two ways" + "Which one sounds like you?" on home) →
-    "Why businesses choose us" (3 columns with `.col-word` big words: "35 years" founder, "Every due
-    date" filing promise, "3 languages") → `how-we-work.html short=true bg="none"` ("How it works", 3 steps,
-    call button, no promise, plain cream: owner found the green band odd here) → "Who we work with, and
-    where" (`section--groups`: `industry-links.html inner=true` + `city-cards.html`) → FAQ (adds "Can you
-    take over?" and "How much does it cost?" with "Asking is free") → closing call.
-  - Owner removed during the build: the separate filing-promise band (`statement.html` stays on the style
-    guide, unused) and a "Phone and email / No need to visit us" column.
-  - **Filing promise shortened everywhere (owner, 2026-10-02): "We never miss a PF or ESI due date."**
-    Never use "no client has paid a late fine or interest" on the site (brief sections 6/7 updated; EPF and
-    ESI meta descriptions now say "We never miss a due date.").
-  - Shared label changed: hero proof "35 years / our founder worked at EPFO" (was "our founder at EPFO").
-  - Owner facts: enquiries are free; taking over works like starting (we tell you the documents, you
-    share them); both owners and HR staff call, so write for both. No extra hotels/shops line.
-  - Old tagline "Simplifying EPF & ESI compliance" is no longer on the site (brief section 1 updated).
-  - Fixed on the way: in card-grid--columns the first column lost its top line from 960 to 1023px.
-  - Kannada: stopgap strings for the router and short steps, logged in `docs/kannada-review.md`.
-
-### Next (strategy section 9.3, English first; Kannada last)
-0. **Udupi removed (2026-10-04, done):** both Udupi pages deleted, old URLs redirect to the Mangalore page, Udupi taken out of every page, `site.yml` cities, `en.yml`/`kn.yml` city cards and footer, About "2 cities", home title/FAQ; brief and strategy updated, Kannada changes logged. The open items from launch check round 2 (below) are set
-   aside for now (owner: "lets ignore all above"); don't work on them unless the owner brings them back.
-   Launch check round 2 (2026-10-04) for reference: round 2 ran every automated check and all six reviewers on both languages (`docs/phase9-review-findings.md`
-   "Round 2"), then 3 steps, all committed: (1) Kannada call-button baseline, Kannada tool/post H1 leading, posts
-   `og:type` article, guides index CollectionPage (`a97df97`); (2) damages capped at the unpaid amount for old PF rates and
-   ESI too (Code s.128; `docs/tool-logic-r2a1.md`; `dc5e946`); (3) copy fixes EN + KN (`docs/phase9-r2-copy.md`;
-   `2e44889`). Owner: "35 years" twice is fine; ಮೆದು is the right Kannada spelling. Settled: penalty bands are written
-   "2 months or more, but less than 4" everywhere (text and tool results); Kannada tool messages say ಬರೆಯಿರಿ (never
-   ನಮೂದಿಸಿ); Kannada 50% rule "ಕಡಿಮೆ ಇರುವಷ್ಟು ಮೊತ್ತವನ್ನು PF/ESI ವೇತನಕ್ಕೆ ಸೇರಿಸಬೇಕು"; "confirmation" = ರಸೀದಿ. Still open:
-   B3 gazette S.O. 2351(E) (if not confirmed, switch every ESI end-of-period line together: list in the copy doc B14-1),
-   B4 September check on launch day, B5 ESI recheck 20 Nov 2026, A1 egazette G.S.R. 525(E) then `tools_checked`, R2-C18
-   redirect stubs after the first live build, owner input (city detail, schools, per-industry numbers, photos),
-   fluent-speaker read of `docs/kannada-review.md`, the D lists. Not pushed. The earlier notes follow.
-   Every Kannada page is now built and committed on
-   `feature/revamp` (not pushed); the last 4 (About, Contact, Privacy, Terms) on 2026-10-03 from
-   `docs/kn-about-contact-legal-copy.md` (compliance-reviewed, owner-approved). Kannada Contact loads the map only after
-   "ನಕ್ಷೆ ತೋರಿಸಿ" (checked: no Google requests before the tap), so Privacy's map line is true in both languages. Shared keys
-   added: `footer.address_name`/`address_lines` and `months` (legal "Last updated" date in Kannada). SEO/Kannada reviewer run
-   and applied (no comma before ಮತ್ತು in the About H2 and Privacy; Contact title kept; commits `ae49593`, `a71df2c`).
-   **Launch check plan:** strategy 9.3 item 3 below (internal-link crawl of `_site`, `node audit/check/sweep.mjs`, all six
-   reviewers on both languages, strategy 9.4 re-verified by the compliance reviewer, `docs/phase9-review-findings.md` for
-   what is already done). Owner items still open: B3 gazette copy of S.O. 2351(E) (ESI end-of-period line, 9.4 #10), A1
-   egazette G.S.R. 525(E) check (then `tools_checked`), B4 September check on launch day, B5 ESI recheck 20 Nov 2026, B6
-   hedged facts, B8 owner input, city-specific detail (text overlap), schools detail (E4), per-industry numbers (G4),
-   photos, fluent-speaker read of `docs/kannada-review.md`. The launch check should also cover: brief
-   s11 has no row for ESI damages (5–25% yearly) or ESI interest (12%); `og:type` "article" for posts (site-wide); the
-   English ESI threshold post leaves maternity out of its first ESI line (owner may want both languages changed); the
-   English ESI post's "Seasonal factories (open only part of the year)" bracket (Kannada drops it, settled).
-   Settled on the guides: "very low daily pay" = ದಿನದ ಸಂಬಳ ತುಂಬಾ ಕಡಿಮೆ ಇರುವ ಸಿಬ್ಬಂದಿ (never ದಿನಗೂಲಿ there); damages first
-   use "ಡ್ಯಾಮೇಜಸ್ (ದಂಡದಂತಹ ಹೆಚ್ಚುವರಿ ಮೊತ್ತ)"; "Rules checked on" = "{{ tools_checked_kn }}ರಂದು ನಿಯಮಗಳನ್ನು ಪರಿಶೀಲಿಸಲಾಗಿದೆ".
-   Launch item from the guides review: brief s11 has no row for ESI damages (5–25% yearly) or ESI interest (12%).
-   **Preview note:** the Jekyll watcher doesn't see files added inside a newly created folder; restart the container
-   (`docker restart <id>`) after creating a new folder. (Industry-page notes:) "principal employer" =
-   ಮುಖ್ಯ ಉದ್ಯೋಗದಾತರು (ಕಾನೂನಿನಲ್ಲಿ "principal employer"); CBSE affiliation = ಸಂಯೋಜನೆ (affiliation); PF/ESI wage limit =
-   PF/ESI ವೇತನ ಮಿತಿ; staff benefit links "PFನಿಂದ ನಿಮಗೆ ಏನು ಸಿಗುತ್ತದೆ?" / "ESIನಿಂದ…"; `link.html arrow=false` for links inside
-   a sentence (the include no longer ends with a newline, so no space before a comma). Lists containing "ತಾತ್ಕಾಲಿಕ ಮತ್ತು
-   ದಿನಗೂಲಿ" join the outer list with ಹಾಗೂ. (`check-page.mjs` reports the page body under the sticky bar on these pages in
-   both languages: a test quirk, not a page problem.) Tool scripts now take an optional `text` setting
-   (Kannada words; English pages pass nothing and are unchanged, checked with `node audit/check/tool-text.mjs en`
-   before/after). Kannada dates/law name: `_kn` keys in `_data/facts.yml`. Open from the tools compliance review
-   (English-level, owner asked, no answer yet; change both languages together, tool text = reviewed change): PF checker
-   "if you both agree" (3 places) vs the settled "in writing" wording; a narrower seasonal-factory help line; converter
-   "monthly PF return" vs the settled ECR wording. Details at the end of `docs/kn-tools-copy.md`.
-   **Header (2026-10-03, owner):** the logo no longer shrinks (`flex-shrink: 0`); in the desktop nav only, the
-   "(ಇಂಗ್ಲಿಷ್‌ನಲ್ಲಿ)" marker is read by screen readers but not shown (too wide; the phone menu and page links still show
-   it). Later the same day (owner: "looks cluttered"): **Industries removed from the desktop nav** (`nav.links` in en/kn.yml;
-   still in the phone menu and footer); more space after the logo (`.site-nav` margin-left `--space-6`) and between links
-   (gap `--space-4`, same padding in both languages; Kannada fits on one line at 1200px). Kannada call buttons: the
-   phone number uses `--font-body` (the Kannada font sat the digits high). Kannada phase done (2026-10-03). Glossary approved by the owner (`docs/kannada-glossary.md` 6a: ಉದ್ಯೋಗದಾತರು, ಸಂಬಳ with ವೇತನ only in set names (ಮೂಲ ವೇತನ, PF/ESI ವೇತನ), ವಂತಿಗೆ, ಕೊನೆಯ ದಿನಾಂಕ, ಚಲನ್ (PF ಪಾವತಿ ಚೀಟಿ), ಡ್ಯಾಮೇಜಸ್, never ಅನುಸರಣೆ (fallback ನಿಯಮ ಪಾಲನೆ), all-Kannada tool names). Step 1 done: `kn.yml` matches the final `en.yml` (`docs/kn-shared-copy.md`, owner-approved). Step 2 done: Kannada PF/ESI service and PF/ESI registration pages (`docs/kn-service-registration-copy.md`, compliance-reviewed, owner-approved). Settled: casual = ತಾತ್ಕಾಲಿಕ ಮತ್ತು ದಿನಗೂಲಿ; "if the rules cover them" = ನಿಯಮಗಳು ಅವರಿಗೆ ಅನ್ವಯಿಸಿದರೆ; ESI cash benefit = ಹಣದ ಸಹಾಯ (never ಸಂಬಳ); no bracket after ಋತುಮಾನದ ಕಾರ್ಖಾನೆ; closing lines "…ನಮಗೆ ಬಿಡಿ"; big word "Anytime" = ಬೇಕಾದಾಗ; "15th" = `{{ x.due_day }}ನೇ`. Kannada pages write every page-text link with `link.html` (falls back to English with the marker). Home done (step 3). Tools done (step 4). Cities done (step 5). Industries done (step 6). Guides done (step 7). About/Contact/legal done (step 8). Section close-ups: `node audit/check/shot-sections.mjs <path> <name> <sg-id,...>`. Earlier status (before the Kannada phase): Launch-check steps 1-3 and A1
-   are done and committed (last: `9808a5e` A1 PF damages). Before building, check whether the fluent-speaker review
-   of `docs/kannada-glossary.md` / `docs/kannada-review.md` has happened; if not, ask the owner how to proceed. Owner
-   items still open for launch (not blockers for the Kannada build): B3 gazette S.O. 2351(E), A1 egazette G.S.R.
-   525(E) check, B4 September check on launch day, B5 ESI recheck 20 Nov 2026, B6 hedged facts, B8 owner input.
-   **Where we stopped (2026-10-03):** every English page is v2 on `feature/revamp` (pushed; now tracks
-   `origin/feature/revamp`; push only when the owner asks). **Launch check (phase 9) in progress:** automated checks +
-   all six reviewers done; merged findings and the plan in `docs/phase9-review-findings.md` (A blockers, B owner
-   decisions, C before launch, D later). Owner order: (1) design/code/SEO fixes with no copy change: **done** (see
-   that doc's "Step 1 done"); (2) owner answers on section B: **done** ("Step 2 done": city founder note out, takeover
-   wording, "if PF and ESI apply" site-wide, ESI end-of-period line kept pending the owner's gazette copy of S.O.
-   2351(E)); (3) copy fixes: **done** (`docs/phase9-copy-fixes.md`, compliance-reviewed, owner-approved; the built
-   pages are the final text). Settled wording from it, reuse everywhere: founder line "He taught us the PF rules."
-   (never "how the PF office works/reads…"); joining PF above ₹25,000 "if you and they both agree in writing" (Scheme
-   para 9(4), brief s11); 50% rule "PF/ESI wages must be at least half the total pay. If they come to less, the
-   difference is added to PF/ESI wages." (page text; tool help unchanged); first mention "PF (Provident Fund, also
-   called EPF) gives your staff savings and a pension" / "ESI (Employees' State Insurance) gives your staff medical
-   care, and pay when they can't work because of sickness, injury or maternity" (short: "medical care and sick pay");
-   "We'll check who must be in PF and ESI" and "if the rules cover them" on every "add staff" line; "We work by phone
-   and email" (never "We handle everything"); 15th: "We get the payment slip (challan) ready in time, so you can pay by
-   the 15th. Or send us the amount and we pay it."; ECR "the monthly list of each employee's wages and PF, sent to the
-   PF office"; directors "call us to check how to count them" for PF and ESI. Still open for launch: B3 gazette copy,
-   B4 September check, B6 hedged facts, B8 owner input (see the findings doc).
-   (4) PF damages rule A1: **done** (2026-10-03, `docs/tool-logic-a1.md`, `docs/a1-damages-copy.md`, compliance-reviewed,
-   owner-approved). EPF Scheme 2026 para 23, applied back to dues from 14 June 2024: under 2 months 0.25% a month, 2 months
-   or more but less than 4: 0.5%, 4 months or more: 1%; cap = arrears; part of a month counts as a full month ("in this
-   estimate"); exactly 60/120 days take the higher band. Never write "2 to 4 months" for PF damages (overlaps "4 or more").
-   Still to confirm from the egazette copy of G.S.R. 525(E): scope, part month, one rate vs stepped; `tools_checked`
-   stays 27 September 2026 until then. Then the Kannada phase (item 2). Site sweep: `node audit/check/sweep.mjs` (every page, 5 widths,
-   axe, JSON-LD, console). **Owner, 2026-10-03: tool pages stay tool-first; don't add a "what Medu does" line at the top.**
-   **PF page v2 (final, owner-approved):** copy in `docs/epf-service-copy-v2.md` (round 1 + owner changes +
-   round 2; compliance-reviewed; the built page is the final text). Order: hero (H1 "We file your PF every
-   month, before the due date.", lead with takeover, `fork=` "Not registered yet? PF registration →",
-   `proof="strip"`) → short "Does PF apply?" (fact pair + 2 lines + PF registration link) → "What we do for
-   you" (white band, 3 `card-grid--columns` with `.col-word` big words Once / Monthly / Anytime, titles When
-   you start / Every month / When you need help, short "We…" check-list lines, call block) → founder note
-   `stat=true bg="tint"` (PF-specific line) → "More help with PF" (white; 3 tool cards + `link-groups--wide`:
-   guides, industries, cities, "Need ESI too?") → FAQ (8; PF wages/50% rule, September 2026 and the counting
-   rule live here) → closing. No two-paths or How we work on this page.
-   - The owner built, then removed, three sections ("Every month: you send, we do, you get" with a big
-     "15th", "Moving your PF filing to us", "Also included") and asked for "What we do for you" back,
-     rewritten to be easy to understand. Lesson: fewer sections; one clear list of what we do, grouped by
-     *when*. `.big-line` stays on the style guide, unused. The owner declined bringing back the removed
-     FAQs and keeps the second "PF registration" link.
-   - Compliance wording to reuse (ESI too): the 15th is the *payment* deadline ("Pay it by the 15th of the
-     next month, or send us the amount and we pay it"; never "we file before the 15th"); "mark the date
-     when staff leave" (not "remove"); staff with a UAN keep it; "move their PF to a new job, or withdraw
-     their PF money" (not "take out"); takeover only "once you share the documents we need".
-   - Design-reviewer pass on home + PF done and applied: white bands on home (Why, Who and where); no lines
-     at white bands; no shadow on panel link cards; `link-groups--wide` 4 columns only from 1200px (2 from
-     560px); "Cities:" label (Kannada logged); hero fork arrow kept with its text. On phones the sticky call
-     bar hides while the hero call button is on screen (`script.js`, `.sticky-call--hidden`; tested on
-     rebuilt, tool and old pages). Left as is: icon badges on home's industry cards; `.link-arrow` tap targets.
-   **ESI page v2 (2026-10-02, built and committed):** same shape and components as the PF page; copy in
-   `docs/esi-service-copy-v2.md` (compliance-reviewed, owner-approved; the built page is the final text).
-   ESI-specific: the "Does ESI apply?" body keeps "It does not apply to seasonal factories" (compliance: "10 or
-   more" is too broad without it); IP numbers "we create one for the others" (no face scan); founder line rests on
-   the firm's 25+ years of ESI and PF filing (he worked at EPFO, not ESIC; no "since then"); FAQ 9 incl. "pay goes
-   above ₹21,000" (9.4 #10: if unconfirmed at launch, use the "Call us and we'll tell you how long you keep paying
-   ESI for them" fallback in the copy doc; same for hospitals). Design-reviewer pass: no high/medium.
-   Fixed after it: the fact-pair label touched its bottom line because `ul[class] { padding: 0 }` beat
-   `.fact-pair`'s padding-bottom; the selector is now `ul.fact-pair` (PF and ESI pages).
-   **PF registration v2 (2026-10-02, built and committed):** copy in `docs/pf-registration-copy-v2.md`
-   (compliance-reviewed, owner-approved; the built page is the final text). Order: hero (H1 "We register your
-   business for PF, and add your staff.", `fork=` "Already registered? PF monthly filing →", `proof="strip"`) →
-   "Does your business need PF registration?" (fact pair + counting rules kept in the body + 1 wages line +
-   checker link) → "What we do for you" (white, 3 `.col-word` columns First / Next / Then) → founder note
-   `stat=true bg="tint"` (registration line: "So we know which documents and details a new PF registration
-   needs.") → After registration (payment wording + PF monthly filing link + call block) → "More help with PF"
-   (2 tool cards + link groups, "Need ESI too? ESI registration") → FAQ 6 → closing. No two-paths. New 9.4 #34/#35.
-   **ESI registration v2 (2026-10-02, built and committed):** same shape as PF registration v2; copy in
-   `docs/esi-registration-copy-v2.md` (compliance-reviewed, owner-approved). ESI-specific: body keeps "same in every
-   state", seasonal factories and the risky-work line; founder line rests on the team's registration work (he worked
-   at EPFO, not ESIC); FAQ 5; meta now "...and add your staff". New 9.4 #36/#37 (17-digit code, IP numbers).
-   **City pages v2 (2026-10-02, built and committed):** copy in `docs/city-pages-copy-v2.md` (compliance-reviewed,
-   owner-approved; the built pages are the final text). Order on all 3: hero (H1 "We file PF and ESI for <city>
-   businesses, every month.", city lead, `proof="strip"`) → "What do you need help with?" (`situation-cards.html`,
-   replaces two paths) → "Why businesses choose us" (new shared `why-us.html`, moved from home; replaces the founder
-   note) → "How we work with you in <city>" (3 `.col-word` columns written per city + call block) → "More help with PF
-   and ESI" (2 checker cards, 2 guides, industry links) → local FAQ (2-3) → closing. How we work and "Businesses we
-   work with here" removed. (Owner confirmed the firm did PF and ESI from ~2000.)
-   Owner: Mangalore clients can be visited if needed too; don't say the Bangalore team will be there during an
-   inspection. Shared `two_paths.monthly.text` now "We take over your filing once you share the documents we need"
-   (home router `situations.monthly.text` still says "from your next due date": owner to decide). No local business
-   mix / client numbers / city history given (not guessed): ~50-55% shared text remains. At 1440px the city H1 wraps
-   to 5 lines (narrow hero column); left as is.
-   City decisions, settled 2026-10-03 (phase 9 step 2, owner "proceed as recommended"): (a) **no "Who's behind it"
-   on the city pages** (it repeated the founder and "35 years"; removed); (b) router `situations.monthly.text` now
-   "Already registered? Once you share the documents we need, we take over from your next due date." Still open:
-   (c) city detail from the owner; city text is still ~67-74% shared with both other city pages (5-word measure).
-   **About v2 (2026-10-02/03, built and committed, final):** copy in `docs/about-contact-legal-copy-v2.md` section 1
-   (compliance-reviewed, owner-approved, plus the owner changes logged at the end of section 1; the built page is the
-   final text). Order: hero (H1 "About Medu Consultancy"; lead "Medu Thirumaleshwara Bhat started Medu Consultancy in
-   2000. He worked at the Employees' Provident Fund Organisation (EPFO) for 35 years. His work built the firm we are
-   today. For over 25 years, our team has filed PF and ESI every month for our clients."; `proof="strip"`) → "Our team,
-   and where we work" (white, 3 `.col-word` columns: 6 people / 3 cities + `city-links.html descriptive=true
-   label=false` / 3 languages) → full two paths → closing.
-   - The owner tried, then removed, a founder note ("Who's behind it") and an "Our mission" section (looked odd as a
-     two-line split section). Lesson: About stays short; don't add them back. No founder photo slot on About now.
-   - The owner pasted the old About text (founder "brings 35 years", "our CEO, leads the company", "seamless",
-     "complexities", "full regulatory compliance"); it clashes with settled rules, so it was asked and a plain version
-     used. Never use "CEO", "leads", present-tense founder lines or those phrases. Never "how the PF office works"
-     right after his EPFO years (compliance: reads as current inside knowledge).
-   - Component changes: `founder-note.html stat=true` now has the founder photo slot (shows once
-     `site.data.site.founder_photo` is set; alt from `t.why.founder_photo_alt`); `city-links.html label=false`. Both on
-     the style guide. `statement.html` is still unused.
-   - Shared fix (compliance): `why.items[1].text` now "...must be paid by the 15th of the next month. We track these
-     dates for every client." (was "...and file before them"); kn.yml stopgap updated, logged in `kannada-review.md`.
-   - Team size stays "6 people" (owner confirmed "a team of 6" after the retirement). Not confirmed: that the firm
-     *started in Mangaluru* (brief says only 2000), so don't claim it.
-   **Contact v2 (2026-10-03, built and committed, final):** copy in `docs/about-contact-legal-copy-v2.md` section 2
-   (compliance-reviewed, owner-approved; the built page is the final text). Owner: "it should look like a contact us
-   page". Order: hero (H1 "Contact us", lead "The quickest way to reach us is a phone call. We tell you if PF and ESI
-   apply to your business.", `proof=false`) → "How to reach us" (white, 3 `card-grid--panel` cards with icon badges:
-   Phone with the number as a big `.col-word` tel link + languages line / Our office with the address and "Open in
-   Google Maps" / No office visits needed + `city-links.html descriptive=true label=false`; then `map-tap.html`) →
-   "What happens when you call" (tint, 2-step timeline, what to keep ready, call block). No closing band.
-   - New component `map-tap.html` (on the style guide): a light panel with a map grid; the Google map
-     (`map_embed_url` in `_data/site.yml`) loads only after "Show the map" is tapped (tested: no Google requests
-     before the tap), then focus moves to it; hidden without JavaScript. Text in `t.map` (kn stopgap logged). New `pin`
-     icon. `.card-grid--panel .col-word` is smaller and stays on one line.
-   - Compliance wording: "We tell you **if** PF and ESI apply" (never "what PF and ESI apply" / "what applies";
-     site-wide since phase 9 step 2, incl. the shared closing default and How we work step 1); card
-     3 "You never need to visit us. We work by phone and email." (not "We handle everything"). Keep the no-visits card
-     next to the office card; never "visit us", "directions" or "come to our office".
-   **Privacy and Terms v2 (2026-10-03, built and committed, final):** copy in `docs/about-contact-legal-copy-v2.md`
-   sections 3 + 4 (compliance-reviewed, owner-approved; the built pages are the final text). Owner: "these should look like
-   one and simple". Both use the same new `.legal` layout (on the style guide, "Legal page"): `.legal-head` on cream (H1
-   in sentence case, one `.legal-head__lead` summary line, "Last updated" note), then one white band with numbered
-   `.legal__item` points (H2s, number from CSS), last point "Questions?" (phone, address, arrow link to the other legal
-   page). Still `page_type: legal`, no call button, no closing band. Privacy now says: phone-number taps are counted
-   (Analytics `phone_call_click`), the converter keeps files in the browser, and the Contact map loads from Google only
-   after "Show the map". Terms merged "Privacy" and "Analytics". **Launch check:** the old `kn/contact-us.html` embeds the
-   map on load (the Kannada converter was rebuilt 2026-10-03 and now loads SheetJS from `/assets`), so Privacy is only fully
-   true once Kannada Contact is rebuilt; check it in phase 9. Settled facts: founder retired, past tense only, no job title; email
-   in the footer only; no invite to visit the office; Privacy has no promise about call data.
-   **Industries hub + 5 industry pages v2 (2026-10-03, built and committed):** copy in `docs/industries-copy-v2.md`
-   (compliance-reviewed, owner-approved "proceed as recommended"; the built pages are the final text). Industry page order:
-   hero (H1 "We file PF and ESI for <industry>, every month.", `proof="strip"`) → "How PF and ESI apply to your staff/workers"
-   (white, 3 `.col-word` columns with the industry's own points; 4-card pages merged to 3; IT adds an ESI line under them) →
-   "When staff don't want to join" (tint, 2 lines + "Share these with your staff:" PF/ESI benefit links) → "What we do for
-   you" (check-list with the settled wording + takeover line + cities line + call block) → "More help with PF and ESI"
-   (white; tool cards, 1-2 guides per industry, services, other industries) → FAQ → closing. **Founder line removed from
-   all 5** (owner; the proof strip carries "35 years"). Hospitals: the "pay goes above ₹21,000" card removed; FAQ 3 now has
-   the ESI service page wording (9.4 #10 fallback in the copy doc). Compliance: never "every worker/staff member" gets
-   UAN/IP or is added to PF/ESI ("if the rules cover them"). Hub: proof strip, white industry cards, "once the rules apply
-   to you". New CSS: `.card-grid + .prose` spacing. Still open: schools thin (E4), per-industry numbers (G4): owner input only.
-   **Tools hub + 7 tool pages v2 (2026-10-03, built and committed):** copy in `docs/tools-copy-v2.md` (owner: "proceed
-   as recommended"). Hub: hero `proof=false` (owner: trust indicators repetitive there) → "Which tool do you need?"
-   (white, `card-grid--panel` per question group) → "Kept up to date" (tint, founder line kept) → FAQ (+ "Can you do this
-   for us every month?") → closing; two paths removed. Tool pages: tool and "How … worked out" unchanged; "Related tools
-   and pages" → "More help with PF and ESI" (converter: "with PF"), white, 2 panel tool cards + "Guides:"/"Our services:"
-   link groups (same links as before). No tool text or logic changed. Owner: the tool pages' top still looked old, so
-   (CSS only, scoped to `[data-page-type="tool"]`; blog posts keep the plain head) the H1/lead are hero-sized, the `.tool`
-   (or each `.tool-check`) is a white rounded panel (edge to edge under 560px) and the result call box is tint. The
-   result call box keeps its compact proof line (only proof on tool pages; owner can still ask to remove it).
-   **Guides v2 (2026-10-03, built and committed):** plan in `docs/guides-copy-v2.md` (owner: "proceed as recommended").
-   Layout only, no post wording changed (no compliance run needed). Posts: tool-style head, hero-sized on
-   `[data-page-type="post"]`; the whole body is one `.guide-article` (stacked, one reading column, no lines between H2s;
-   mid-post call box tint); "Related tools and pages" → "More help with PF and ESI" (white stacked band, panel tool cards,
-   "Guides:" / "Our services:" link groups, cities note kept). Index: "Guides by situation" white band with panel link
-   cards in `.tool-group`s (like the tools hub), tools as panel cards. New panel rules: icon-less link cards, and exactly
-   4 panel cards show 2 by 2. "Guide article" is on the style guide. Article width `--container-article` (48rem) with 18px text (owner: the 42rem column looked narrow). **Next: the launch check (phase 9), then Kannada.**
-   Contact checks: `node audit/check/shot-contact.mjs` (widths, axe, Google requests before/after the tap).
-   (The city "Who's behind it" note committed earlier on 2026-10-03 was removed in phase 9 step 2; decision (a) above.)
-   **Hero size (2026-10-03, owner):** hero H1 uses its own `--text-hero` token (max 56px, was `--text-display` 72px);
-   `.hero__text:only-child` spans the full grid when there is no proof column; proof-strip numbers max 44px.
-   `check-page.mjs` now skips the FAQ step on pages with no FAQ. The owner
-   approves with short messages ("go with the recommendations", "proceed as recommended").
-1. Phase 8 is done (see above). Deferred from phase 7 (after the launch check,
-   before Kannada): make each PF/ESI twin post more distinct (inspection 87%, late-payment 82%, threshold 75%
-   similar; needs copy changes, owner approval and the compliance reviewer); the short one-paragraph sections no longer
-   look choppy since guides v2 put each post in one article, so merging them is optional. (Done in phase 9 step 1:
-   standalone `.link-arrow` tap targets 44px; real post dates in `date_published:`.)
-   Open from phase 4: the 100% cap on old-slab penalty damages (a reviewed update once the Code's
-   section is confirmed, 9.4 #1/#2; the result shows a "call us" note for now).
-2. **Kannada phase (done 2026-10-03; all 38 Kannada pages built).** The glossary was approved by the owner (no separate fluent-speaker
-   pass first; all Kannada text is still logged in `docs/kannada-review.md` for a later fluent read). Every Kannada page is
-   a translation of the final, built English page: nothing added or left out.
-   - **Done:** step 1 shared text (`kn.yml` matches `en.yml`, `docs/kn-shared-copy.md`); step 2 `kn/epf-consultancy-service`,
-     `kn/esi-consultancy-service`, `kn/pf-registration`, `kn/esi-registration` (`docs/kn-service-registration-copy.md`).
-     Also rebuilt earlier: `kn/style-guide`, bilingual `404`. Step 3 `kn/index` (home, `docs/kn-home-copy.md`; FAQ 3
-     "ಬರಬಹುದು" for "can visit", FAQ 5 "…PF ಅಥವಾ ESI ನೋಂದಣಿ ಇದೆ", "Where we work" = `t.footer.places`).
-     Step 4 tools hub + 7 tools (`docs/kn-tools-copy.md`; "ನೀವು ಮತ್ತು ಅವರು ಇಬ್ಬರೂ ಒಪ್ಪಿದರೆ" for "if you both agree"; tool
-     text passed to the scripts as `text:`/`rateLines`; no case endings stuck to changing amounts). Step 5 the 3 city pages
-     (`docs/kn-cities-copy.md`). Step 6 industry hub + 5 industries (`docs/kn-industries-copy.md`). Step 7 guides index +
-     11 posts (`docs/kn-blogs-a-copy.md`, `docs/kn-blogs-bc-copy.md`).
-   - Step 8 About, Contact, Privacy, Terms: done 2026-10-03 (`docs/kn-about-contact-legal-copy.md`). All Kannada pages built.
-   - **Flow per page group:** (1) `docs/kn-<group>-copy.md`: English (final) vs current Kannada vs new Kannada, owner
-     questions at the end; (2) compliance reviewer on the draft, apply its wording; (3) owner approval; (4) build:
-     copy the English page, `lang: kn`, translate front matter (title, description, breadcrumb, service, faq) and body;
-     facts from `_data/facts.yml`; every page-text link through `link.html`; FAQ links between built Kannada pages go to
-     `/kn/...`; (5) build, sitemap check, JSON-LD (`audit/check/jsonld.py`), scan rendered text for leftover English,
-     `check-page.mjs` at 5 widths, review 390/1440 screenshots; (6) log in `docs/kannada-review.md`, commit. Run the
-     SEO/Kannada reviewer on each group.
-   - Jekyll 3 note: include parameters can't take `a[2].b`; `assign` first.
-3. Launch check (phase 9): internal-link crawl of `_site` (the industry pages are
-   already linked from rebuilt pages), all six reviewers, strategy 9.4 verified by the
-   compliance reviewer (incl. #10: remove the ESI "stay to the end of the period" line
-   if not confirmed). Owner input still needed: city-specific detail to reduce the
-   text overlap across the 3 city pages (phase 5, see "Done" above), any photos.
-
-### Workflow for each page
-1. Read the brief, strategy section 4 for the page type, and the old page.
-2. Write the new copy in `docs/<page>-copy.md`: old vs new per section, facts only from
-   brief section 11, every term explained on first use, questions for the owner.
-3. Run the compliance reviewer on the draft; apply its wording; then get owner approval.
-4. Build the page from components. Page-specific text goes in the page; facts come from
-   `_data/facts.yml`; shared text from `_data/i18n/`. Anything new that pages would reuse
-   goes into `site.css` + an include + the style guide, never as a one-off style.
-5. Check at 320, 390, 768, 1024 and 1440px: no horizontal scroll, axe (WCAG 2.1 A/AA)
-   clean, keyboard (menu, FAQ, focus not under the sticky bar), JSON-LD parses, sitemap
-   valid. Review 390px and 1440px screenshots (saved in `audit/screenshots/`).
-   `node audit/check/check-page.mjs audit/screenshots <path> <name>` does the width, axe,
-   keyboard and screenshot part (git-ignored; setup steps at the top of the file).
-6. Commit the page on its own. (Kannada comes in the final phase; log Kannada text in
-   `docs/kannada-review.md` then.)
-7. When a page type is finished, run all six reviewers and bring the merged findings
-   to the owner before fixing.
-
-### Conventions settled during the pilot
-- Front matter for rebuilt pages: `layout: base`, `lang`, `page_type`, `title`,
-  `description`, `last_modified`, `breadcrumb: [{ name: ... }]`, optional
-  `service: { type, name, offers: [...] }` and `faq: [{ q, a }]` (answers may contain
-  simple links; the JSON-LD strips HTML).
-- Links in includes go through `_includes/resolve-link.html`: on Kannada pages a
-  missing Kannada page falls back to the English one, marked "(ಇಂಗ್ಲಿಷ್‌ನಲ್ಲಿ)".
-  The language switch and hreflang appear only when the other-language page exists.
-- Section components still take `bg=` but pages don't use it (one background; see
-  Layout under Visual conventions). Text sections use `.prose`; service lists use
-  `.check-list`.
-- `industry-links.html compact=true` and `city-links.html` use short names; add
-  `descriptive=true` ("PF and ESI in Mangalore") only where the links stand alone.
-- The two paths link to the current page shows as "(this page)", not a link.
-- Header on phones (up to 768px): logo, language switch, menu. No header call button:
-  the sticky call bar is the call button there. From 769px the header shows the call
-  button with the full number.
-- Filing promise (shared, brief section 6): "We never miss a PF or ESI due date. While
-  with us, no client has paid a late fine or interest." Never say "late-filing penalty".
-  **Owner, 2026-10-02: shortened everywhere to "We never miss a PF or ESI due date." Don't use the
-  "no client has paid a late fine or interest" sentence on the site.**
-- Proof line (brief section 7): "25+ years in practice · Founder worked 35 years at
-  EPFO · 100+ clients · 3,500+ employees covered". In heroes each shows as number + label
-  ("35 years" / "our founder at EPFO", owner-approved 2026-09-27).
-- Challan is explained as "the PF payment slip" (or ESI) on first use; the shared
-  How we work step says "(the payment slips)".
-- We can pay PF and ESI on the client's behalf, or the client pays using our challan.
-- Kannada: all acronyms in English letters (PF, ESI, EPF, UAN, ECR, KYC, EPFO, ESIC,
-  DA, HRA…), decision D12. No "ಅನುಸರಣೆ"; say what is done instead.
-- Titles use "PF". The hero line has no explanations in brackets (no "PF (Provident Fund,
-  also called EPF)"), and the hero has no filing promise: owner decisions 2026-09-27.
-- Registration pages: no public document list ("We tell you which documents we need when
-  you call"); registration "takes just a few hours" only with "once we have all your
-  documents". New UANs come from the employee's face scan on the UMANG app ("We guide
-  them"); IP numbers we create ourselves on the ESIC portal.
-- ESI uses "ESI wages" (the Code definition: HRA, overtime etc. left out, 50% add-back),
-  never "gross wages" or "total pay".
-- Who counts towards 20/10: all staff incl. casual, contractor-sent and high-salary staff;
-  not apprentices, the owner (proprietor) or partners; directors: "call us to check".
-  "Once PF/ESI applies, it stays" (not "once registered").
-- Registration pages: one "What we do" section (intro line + 2 content cards), no
-  How we work block; call button and filing promise in "After registration".
-- Facts in front matter (FAQ answers, meta descriptions) are typed by hand; the list of
-  places to grep is at the top of `_data/facts.yml`.
-
-### Conventions settled during phase 3 (home)
-- Languages: "You can talk to us in English or Kannada, and we can help you in Hindi too."
-  Never single out one language (no "we speak Kannada" headings): owner, it can put off
-  speakers of other languages. The website is in English and Kannada.
-- Udupi is no longer served or named (owner, 2026-10-04). Clients never need to visit us. Bangalore: "We have team members in Bangalore, backed by our Mangaluru office."
-  (owner 2026-09-28: the old "Local support in Bangalore, backed by our Mangaluru team" read
-  as no support at all). The 2 Bangalore team members can also visit clients if needed, same
-  as Mangalore (owner, 2026-09-28) — registration and monthly filing are still done by the
-  Mangaluru team for every client.
-- The filing promise sits next to call buttons (How we work, After registration, closing;
-  not the hero). Don't repeat it
-  word for word as body text; say something new instead (e.g. the due-date card on home).
-- City links as link rows: `city-cards.html` (whole row is the link; visible name is the city,
-  link text "PF and ESI consultant in <city>" via a hidden prefix, D7).
-- Business details for the JSON-LD live in `_data/site.yml` (geo, map, founder, languages,
-  `gbp_url` for `sameAs`, `founder_photo`); the full entity prints on `page_type` home and contact.
-- No share image (og:image), owner decision.
-- New or changed English strings in `_data/i18n/en.yml` without Kannada yet are logged in
-  `docs/kannada-review.md` for the Kannada phase.
-
-### Conventions settled during phase 4 (tools)
-- Tool page: plain H1 + `.tool-lead`, no hero call button, no visible H2 inside `.tool-section`; the tool;
-  the result call box (line + call button + compact proof, no filing promise: the closing call has it);
-  "How … is worked out" (`.prose`, ends with `.note`: "Checked against the rules as of
-  {{ site.data.facts.tools_checked }}"); "Related tools and pages" (2 tool cards + link list); FAQ;
-  closing call. Front matter adds `scripts:` and `tool: { name }` (WebApplication JSON-LD).
-- Tool text (questions, help, results) lives in each page's inline config and the tool scripts. Changing
-  it is a reviewed text change; changing what a tool calculates is a separate reviewed logic update with
-  before/after cases (`audit/check/*-cases.js`, `converter-compare.js`) and the compliance reviewer.
-- After the button, every tool: valid → focus and scroll to the result; invalid → focus the first wrong
-  field. Results that update as you type are not `aria-live`.
-- Results link to the phone first ("Call +91 82175 42975"), then a page. No links to `/contact-us`.
-- PF wages / ESI wages help: "PF wages are basic pay plus DA (dearness allowance), not the full salary.
-  Are other allowances… more than half the salary? Then add the extra part." (ESI: "the month's pay minus
-  HRA…, overtime, bonus, commission and travel allowance…"). Never "gross wages".
-- Penalty results say "Total (estimate)". No VISHWAS anywhere on tool pages.
-- The tools' "checked" date is `tools_checked` in `_data/facts.yml`; update the "2026" in tool titles each
-  January.
-- Test scripts for the preview are in `audit/check/` (git-ignored): `check-page.mjs`, `use-*.mjs`,
-  `focus-check.mjs`, `jsonld.py`.
-
-### Local preview
-The Docker command above runs the preview. If Docker Desktop isn't running, start it
-first (`open -a Docker`). The `medu-gems` volume caches the gems between runs.
+Redesign work is on `feature/revamp`, which merges to `main` once, at launch. Push only when the owner
+asks. Site-wide changes (nav, footer, shared text) are made once in the include or `_data/i18n/`.
