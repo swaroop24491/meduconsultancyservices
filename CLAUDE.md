@@ -43,8 +43,7 @@ The watcher misses files added in a new folder and deleted data: restart the con
   changes: `python3 -c "import xml.dom.minidom; xml.dom.minidom.parse('_site/sitemap.xml'); print('OK')"`
 - **Check scripts** (local only, in `audit/check/`, git-ignored; setup at the top of `check-page.mjs`):
   - `node audit/check/check-page.mjs audit/screenshots <path> <name>`: 320/390/768/1024/1440px,
-    horizontal scroll, axe (WCAG 2.1 A/AA), keyboard (menu, FAQ, focus under the sticky bar), and
-    390/1440 screenshots. It reports page text under the sticky bar on some pages: a test quirk.
+    horizontal scroll, axe (WCAG 2.1 A/AA), keyboard (menu, FAQ), and 390/1440 screenshots.
   - `node audit/check/sweep.mjs`: every page at 5 widths, axe, JSON-LD, console.
   - `python3 audit/check/jsonld.py _site/<page>.html ...`: JSON-LD parses.
   - Tool cases: `*-cases.js`, `converter-compare.js`, `use-*.mjs`; `tool-text.mjs en|kn`.
@@ -53,7 +52,7 @@ The watcher misses files added in a new folder and deleted data: restart the con
 
 ## How the site is built
 
-- `_layouts/base.html`: head, header, sticky call bar, footer. Every page has front matter.
+- `_layouts/base.html`: head, header, footer. Every page has front matter.
 - Front matter: `layout: base`, `lang` (en/kn), `page_type` (home, service, registration, city,
   industries, industry, tools, tool, blog, post, about, contact, legal, other), `title`, `description`,
   `last_modified: YYYY-MM-DD` (update when content changes), `breadcrumb: [{ name }]`, optional
@@ -77,8 +76,7 @@ The watcher misses files added in a new folder and deleted data: restart the con
   WebApplication for tools, BlogPosting for posts, CollectionPage for hubs, founder `Person` defined once
   and referenced by `@id`). FAQPage comes from `faq.html schema=true`. No microdata.
 - `site.css`: all styles; tokens in the `:root` block at the top. `style-guide.css`: style guide only.
-- `script.js` (every page, `defer`): FAQ accordion, mobile menu (`<button data-menu-toggle>`), hides the
-  phone sticky call bar while the hero call button is on screen, and sends the `phone_call_click` Google
+- `script.js` (every page, `defer`): FAQ accordion, mobile menu (`<button data-menu-toggle>`), and sends the `phone_call_click` Google
   Analytics event on `tel:` links.
 - Tool scripts: `eligibility-checker.js`, `contribution-calculator.js`, `penalty-calculator.js`,
   `converter.js` (lazy-loads SheetJS 0.20.3 from `/assets`). Each page passes its config inline; Kannada
@@ -101,9 +99,9 @@ The watcher misses files added in a new folder and deleted data: restart the con
   `<path>`, fill only).
 - Headings, titles, link names and FAQ questions weight 500; 600 only for buttons, footer titles and
   bold words. Hero H1 uses `--text-hero`. The closing call is a deep green band.
-- Header is sticky (not under 421px tall). Up to 768px: logo, language switch, menu; the sticky call
-  bar is the call button. From 769px the header shows the call button with the full number. Industries
-  is not in the desktop nav (phone menu and footer only).
+- Header is sticky (not under 421px tall). Up to 768px: logo, language switch, a round phone-icon call
+  button, menu; no sticky call bar (owner, 2026-10-04). From 769px the header call button shows the
+  full number. Industries is not in the desktop nav (phone menu and footer only).
 - Tool pages stay tool-first: no "what Medu does" line at the top. Legal pages (`page_type: legal`) use
   the `.legal` layout, no call button, no closing band. Contact loads the Google map only after
   "Show the map" (`map-tap.html`).

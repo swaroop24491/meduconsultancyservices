@@ -33,7 +33,7 @@
         <li><a href="#sg-testimonials">Testimonial slot</a></li>
         <li><a href="#sg-photo">Photo slot</a></li>
         <li><a href="#sg-closing">Closing call</a></li>
-        <li><a href="#sg-chrome">Header, menu, sticky bar and footer</a></li>
+        <li><a href="#sg-chrome">Header, menu and footer</a></li>
       </ul>
     </nav>
   </div>
@@ -111,7 +111,7 @@
 <section class="section" aria-labelledby="sg-call">
   <div class="container">
     <h2 id="sg-call">Call button</h2>
-    <p class="sg-note">The only call to action on the site. Always shows the full number and links to <code>tel:+918217542975</code>. <code>location</code> is sent to Google Analytics with each click. <code>block=true</code> makes it full width (menu, sticky bar, cards). On Kannada pages the number uses the Latin font (also the big number on Contact), "ಕರೆ ಮಾಡಿ" sits on the number's baseline, and under 360px the button text is a step smaller so it stays on one line.</p>
+    <p class="sg-note">The only call to action on the site. Always shows the full number and links to <code>tel:+918217542975</code>. <code>location</code> is sent to Google Analytics with each click. <code>block=true</code> makes it full width (menu, cards). On Kannada pages the number uses the Latin font (also the big number on Contact), "ಕರೆ ಮಾಡಿ" sits on the number's baseline, and under 360px the button text is a step smaller so it stays on one line.</p>
     <pre class="sg-code"><code>{% raw %}{% include call-button.html location="hero" %}{% endraw %}</code></pre>
     <div class="sg-demo" lang="{{ lang }}">{% include call-button.html location="style-guide" %}</div>
     <p class="sg-note">Links to other pages use an arrow link. When it is the only link in its paragraph ("About us →", the hero fork) it gets a 44px tap target; inside a sentence it stays inline:</p>
@@ -402,12 +402,11 @@ Home "Who we work with, and where": one section--groups section, an H3 per group
 
 <section class="section" aria-labelledby="sg-chrome">
   <div class="container container--text">
-    <h2 id="sg-chrome">Header, menu, sticky bar and footer</h2>
+    <h2 id="sg-chrome">Header, menu and footer</h2>
     <p>These are on this page, added by the layout (<code>_layouts/base.html</code>), so every rebuilt page gets them without extra markup.</p>
     <ul class="sg-list">
-      <li><strong>Header:</strong> logo, main links, language switch and call button with the full number on desktop. From 769px to 1199px: logo, language switch, call button with the full number and the menu button. On phones (up to 768px): logo, language switch and the menu button only; the sticky call bar is the call button there. The header stays at the top while scrolling (owner change 2026-09-27, replacing D6), except on screens under 421px tall; focus and in-page links scroll clear of it.</li>
+      <li><strong>Header:</strong> logo, main links, language switch and call button with the full number on desktop. From 769px to 1199px: logo, language switch, call button with the full number and the menu button. On phones (up to 768px): logo, language switch, a round phone-icon call button (the number is read by screen readers) and the menu button. There is no sticky call bar (owner change 2026-10-04). The header stays at the top while scrolling (owner change 2026-09-27, replacing D6), except on screens under 421px tall; focus and in-page links scroll clear of it.</li>
       <li><strong>Menu (phones):</strong> call button first, then links, then the language switch. No email. Focus stays inside while open; Escape closes it.</li>
-      <li><strong>Sticky call bar (phones, and landscape phones up to 420px tall):</strong> full-width call button fixed to the bottom, hidden while the menu is open, and slid away while another call button (hero, tool result box, call block, closing band, or the header on landscape phones) is on screen, so only one shows at a time (<code>script.js</code>). The page has bottom padding so it never hides content.</li>
       <li><strong>Footer:</strong> services, places, tools and guides, company links, address, phone and email. The footer is the only place the email appears. No headings in the header or footer.</li>
     </ul>
     <p>Structured data (JSON-LD) is added by the layout from front matter: <code>breadcrumb</code> and <code>service</code> (see <code>_includes/schema.html</code>). FAQ JSON-LD comes from <code>faq.html schema=true</code>.</p>

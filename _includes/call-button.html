@@ -1,6 +1,6 @@
 {%- comment -%}
   The one call button. include call-button.html location="hero" block=true
-  location: where it sits, sent to Google Analytics (header, sticky, hero, result, post, closing, menu)
+  location: where it sits, sent to Google Analytics (header, hero, result, post, closing, menu)
 {%- endcomment -%}
 {%- include i18n.html -%}
 <a class="btn btn--call{% if include.block %} btn--block{% endif %}" href="tel:{{ site.data.site.phone_tel }}" data-call-location="{{ include.location | default: 'other' }}">

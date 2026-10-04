@@ -319,9 +319,21 @@ p > a.link-arrow:only-child { display: inline-flex; align-items: center; min-hei
 .lang-switch:hover { border-color: var(--color-brand); color: var(--color-brand); }
 .lang-switch[lang="kn"] { font-family: var(--font-kn); }
 
-/* Header call button: desktop and tablet only. On phones (up to 768px) the
-   sticky call bar shows the full number, so the header has no call button. */
-.site-header__call { display: none; padding-inline: var(--space-4); white-space: nowrap; flex-shrink: 0; }
+/* Header call button. On phones (up to 768px) it is a round phone icon; the
+   number is read by screen readers only. From 769px it shows the full number. */
+.site-header__call {
+    width: var(--tap-min);
+    height: var(--tap-min);
+    padding: 0;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+.site-header__call span {
+    position: absolute;
+    width: 1px; height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+}
 
 .menu-toggle {
     display: inline-flex;
@@ -376,14 +388,23 @@ body.menu-open .site-header__call,
 body.menu-open .site-header__inner > .lang-switch { visibility: hidden; }
 .menu-backdrop { display: none; }
 
+/* Under 360px the logo, language switch, call icon and menu button only fit
+   when tightened (the menu icon's own padding sits in the gutter) */
+@media (max-width: 359px) {
+    .site-header__inner { gap: var(--space-1); }
+    .site-header__logo img { width: 116px; }
+    .site-header__inner > .lang-switch { padding-inline: var(--space-2); }
+    .menu-toggle { margin-right: calc(-1 * var(--space-2)); }
+}
+
 @media (min-width: 400px) {
     .site-header__logo img { width: 150px; }
     .site-header__inner { gap: var(--space-3); }
 }
 
-/* From 769px the sticky bar is gone, so the header shows the full number */
 @media (min-width: 769px) {
-    .site-header__call { display: inline-flex; }
+    .site-header__call { width: auto; height: auto; padding-inline: var(--space-4); }
+    .site-header__call span { position: static; width: auto; height: auto; overflow: visible; clip: auto; }
 }
 
 @media (min-width: 1200px) {
@@ -415,38 +436,6 @@ body.menu-open .site-header__inner > .lang-switch { visibility: hidden; }
         white-space: nowrap;
     }
     .menu-toggle, .mobile-nav, body.menu-open .mobile-nav { display: none; }
-}
-
-/* ---------- Sticky call bar (mobile only) ---------- */
-.sticky-call {
-    position: fixed;
-    left: 0; right: 0; bottom: 0;
-    z-index: 800;
-    padding: var(--space-2) var(--gutter) calc(var(--space-2) + env(safe-area-inset-bottom));
-    background: var(--color-bg);
-    border-top: 1px solid var(--color-border);
-}
-body { padding-bottom: calc(var(--tap-min) + var(--space-4) + env(safe-area-inset-bottom)); }
-body.menu-open .sticky-call { display: none; }
-/* Hidden (slid down, not focusable) while a call button in the page is on screen (script.js) */
-.sticky-call--hidden { transform: translateY(100%); visibility: hidden; }
-@media (prefers-reduced-motion: no-preference) {
-    .sticky-call { transition: transform 0.2s ease, visibility 0.2s; }
-}
-/* Landscape phones and 200% zoom: keep the bar to about 15% of the screen */
-@media (max-height: 420px) {
-    .sticky-call { padding-block: var(--space-1) calc(var(--space-1) + env(safe-area-inset-bottom)); }
-    .sticky-call .btn { min-height: var(--tap-min); padding-block: 0; font-size: var(--text-base); }
-    body { padding-bottom: calc(var(--tap-min) + var(--space-2) + env(safe-area-inset-bottom)); }
-}
-/* Keyboard focus and in-page links never land under the sticky bar */
-html { scroll-padding-bottom: calc(var(--tap-min) + var(--space-5) + env(safe-area-inset-bottom)); }
-/* Wide screens show the header call button instead. Landscape phones (wide but
-   short) keep the bar: their header isn't sticky, so it is the only call button. */
-@media (min-width: 769px) and (min-height: 421px) {
-    .sticky-call { display: none; }
-    body { padding-bottom: 0; }
-    html { scroll-padding-bottom: 0; }
 }
 
 /* ---------- Footer ---------- */
