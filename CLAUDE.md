@@ -76,8 +76,8 @@ The watcher misses files added in a new folder and deleted data: restart the con
   WebApplication for tools, BlogPosting for posts, CollectionPage for hubs, founder `Person` defined once
   and referenced by `@id`). FAQPage comes from `faq.html schema=true`. No microdata.
 - `site.css`: all styles; tokens in the `:root` block at the top. `style-guide.css`: style guide only.
-- `script.js` (every page, `defer`): FAQ accordion, mobile menu (`<button data-menu-toggle>`), and sends the `phone_call_click` Google
-  Analytics event on `tel:` links.
+- `script.js` (every page, `defer`): FAQ accordion, mobile menu (`<button data-menu-toggle>`), and
+  sends the `phone_call_click` Google Analytics event on `tel:` links.
 - Tool scripts: `eligibility-checker.js`, `contribution-calculator.js`, `penalty-calculator.js`,
   `converter.js` (lazy-loads SheetJS 0.20.3 from `/assets`). Each page passes its config inline; Kannada
   pages pass the Kannada words as `text:`.
@@ -100,7 +100,7 @@ The watcher misses files added in a new folder and deleted data: restart the con
 - Headings, titles, link names and FAQ questions weight 500; 600 only for buttons, footer titles and
   bold words. Hero H1 uses `--text-hero`. The closing call is a deep green band.
 - Header is sticky (not under 421px tall). Up to 768px: logo, language switch, a round phone-icon call
-  button, menu; no sticky call bar (owner, 2026-10-04). From 769px the header call button shows the
+  button, menu; no sticky call bar (owner decision). From 769px the header call button shows the
   full number. Industries is not in the desktop nav (phone menu and footer only).
 - Tool pages stay tool-first: no "what Medu does" line at the top. Legal pages (`page_type: legal`) use
   the `.legal` layout, no call button, no closing band. Contact loads the Google map only after
@@ -125,7 +125,7 @@ the first wrong field.
 - Show the email address anywhere except the footer.
 - Offer notice, arrears or VISHWAS help as a service (no VISHWAS on tool pages).
 - Change page copy without showing the old and new text for approval first.
-- Name Udupi (dropped 2026-10-04; old Udupi URLs redirect to the Mangalore page).
+- Name Udupi (no longer served; old Udupi URLs redirect to the Mangalore page).
 
 ### Always
 - The phone call (`tel:+918217542975`, shown "+91 82175 42975") is the only call-to-action. Results
@@ -200,8 +200,7 @@ the first wrong field.
 Two read-only reviewer agents in `.claude/agents/` (compliance, design) report findings; fixes happen
 in the main session after the owner approves. Run the compliance reviewer on any change to legal facts,
 numbers or tool logic; run the design reviewer for a new page or a big design change; not for small
-edits. The owner
-approves with short messages ("proceed as recommended").
+edits. The owner approves with short messages ("proceed as recommended").
 
 ## Git
 
