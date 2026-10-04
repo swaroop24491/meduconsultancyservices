@@ -205,30 +205,7 @@ approves with short messages ("proceed as recommended").
 
 ## Git
 
-Redesign work is on `feature/revamp`, which merges to `main` once, at launch. Push only when the owner
-asks. Site-wide changes (nav, footer, shared text) are made once in the include or `_data/i18n/`.
-
-## Launch plan (not done yet; go live only when the owner says so)
-
-GitHub Pages builds the live site from `main`, so launch is a fast-forward of `main` to
-`feature/revamp` and a push. Checked on 2026-10-04: `main` has no commits the branch lacks (clean
-fast-forward); every page on live `main` still resolves after the merge (as a page or a
-`redirect_from` stub); live `main` was `4d085dc` (the rollback point). Recheck both before launching.
-
-1. **Before:** clean working tree; restart the preview and rebuild; sitemap parses;
-   `node audit/check/sweep.mjs` passes. Owner confirms GitHub → Settings → Pages is "Deploy from a
-   branch: main / (root)" with the custom domain and HTTPS.
-2. **Push the branch:** `git push origin feature/revamp`.
-3. **Merge and push:** `git checkout main && git pull --ff-only && git merge --ff-only feature/revamp`,
-   then `git push origin main`.
-4. **Watch the build:** GitHub → Actions → "pages build and deployment" (about 1-3 minutes).
-5. **Check the live site:** home and `/kn/`, a service page, a tool (run it once), the converter
-   (SheetJS loads from `/assets`), the Contact map tap, a guide; redirects (`/epf-esi-consultancy-udupi`
-   to Mangalore, an old benefits post to its new post); `/sitemap.xml` and `/robots.txt` load;
-   `CLAUDE.md`, `README.md`, `docs/` and `audit/` return 404; 390px and 1440px screenshots of home.
-6. **After (owner):** resubmit the sitemap in Google Search Console; check the Google Business Profile
-   website link.
-7. **Then:** `main` is the live branch; new work branches from it. Update the "Git" section above.
-
-**Rollback** (owner approval first): `git push --force-with-lease origin 4d085dc:main`, or `git revert`
-the range; Pages rebuilds the old site.
+`main` is the live branch: GitHub Pages rebuilds the site on every push to it (GitHub → Actions →
+"pages build and deployment", about 1-3 minutes). Work on a branch from `main` and push only when
+the owner asks. Site-wide changes (nav, footer, shared text) are made once in the include or
+`_data/i18n/`.

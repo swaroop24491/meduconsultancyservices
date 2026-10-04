@@ -8,7 +8,7 @@
   <div class="container container--text">
     <p class="sg-eyebrow">Internal page · not indexed</p>
     <h1>Style guide</h1>
-    <p>Every shared part of the redesigned site, built once. Pages use these parts with the exact include shown under each one. Colours, spacing and type sizes come only from the tokens in <code>site.css</code>. No one-off styles on individual pages.</p>
+    <p>Every shared part of the site, built once. Pages use these parts with the exact include shown under each one. Colours, spacing and type sizes come only from the tokens in <code>site.css</code>. No one-off styles on individual pages.</p>
     <p>Text comes from <code>_data/i18n/en.yml</code> and <code>kn.yml</code>. This page is also at <a href="{{ alt_path }}">{% if lang == "kn" %}English{% else %}Kannada{% endif %}</a>, which shows every component in that language.</p>
     <nav aria-label="Style guide contents" class="sg-toc">
       <ul>
@@ -403,7 +403,7 @@ Home "Who we work with, and where": one section--groups section, an H3 per group
 <section class="section" aria-labelledby="sg-chrome">
   <div class="container container--text">
     <h2 id="sg-chrome">Header, menu and footer</h2>
-    <p>These are on this page, added by the layout (<code>_layouts/base.html</code>), so every rebuilt page gets them without extra markup.</p>
+    <p>These are on this page, added by the layout (<code>_layouts/base.html</code>), so every page gets them without extra markup.</p>
     <ul class="sg-list">
       <li><strong>Header:</strong> logo, main links, language switch and call button with the full number on desktop. From 769px to 1199px: logo, language switch, call button with the full number and the menu button. On phones (up to 768px): logo, language switch, a round phone-icon call button (the number is read by screen readers) and the menu button. There is no sticky call bar (owner change 2026-10-04). The header stays at the top while scrolling (owner change 2026-09-27, replacing D6), except on screens under 421px tall; focus and in-page links scroll clear of it.</li>
       <li><strong>Menu (phones):</strong> call button first, then links, then the language switch. No email. Focus stays inside while open; Escape closes it.</li>

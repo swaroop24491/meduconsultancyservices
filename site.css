@@ -3,7 +3,7 @@
    Components use the tokens below, never raw values. */
 
 /* ---------- Design tokens ----------
-   Colours, type, spacing and shapes for rebuilt pages. Use these variables,
+   Colours, type, spacing and shapes. Use these variables,
    never raw values, in components.
    Contrast (WCAG): text #333 on cream 11.5:1; green on cream 5.9:1, on white
    6.5:1; white on green 6.5:1; text #333 on mustard 9.4:1. Mustard on cream

@@ -25,7 +25,7 @@
   }
 
   /* The panel follows the button, or follows the heading that wraps the
-     button (rebuilt pages: <h3 class="accordion-heading"><button>). */
+     button (<h3 class="accordion-heading"><button>). */
   function getPanel(button) {
     var parent = button.parentElement;
     var panel = parent && parent.classList.contains('accordion-heading')
