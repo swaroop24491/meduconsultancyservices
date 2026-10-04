@@ -1,5 +1,4 @@
-/* site.css - design system for rebuilt pages (redesign).
-   Pages not yet rebuilt use styles.css and are not affected by this file.
+/* site.css - the design system for every page.
    Every component here is shown on /style-guide with its exact markup.
    Components use the tokens below, never raw values. */
 

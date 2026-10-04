@@ -85,8 +85,6 @@ The watcher misses files added in a new folder and deleted data: restart the con
   pages pass the Kannada words as `text:`.
 - **Liquid in inline JS**: wrap any inline script containing `{{`, `}}`, `{%` or `%}` in
   `{% raw %}...{% endraw %}`. Jekyll 3 include parameters can't take `a[2].b`: `assign` first.
-- Old, unused files are still in the repo (`styles.css`, `servicepage.css`, `contactuspage.css`,
-  `homepage.css`, `aboutuspage.css`, `citypage.css`, `calculator.css`, most of `images/`): no page loads them.
 
 ## Design
 
