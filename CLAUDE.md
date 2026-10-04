@@ -169,7 +169,7 @@ legal facts. If a request conflicts with it, ask before acting.
 - Commit one page, or one small group of pages, at a time.
 
 ### Planned site changes (from the brief and `docs/strategy.md`)
-- City pages are now 3 (Mangalore, Udupi, Bangalore); the other 19 were removed.
+- City pages are now 3 (Mangalore, Udupi, Bangalore); the other 19 were removed. Udupi is to be removed next (owner, 2026-10-04), leaving 2.
 - New pages: PF registration and ESI registration; an "Industries we serve" hub
   (`/industries/`) and one page each for hospitals, contractors, factories, schools
   and IT companies; "EPF benefits for employees", "ESI benefits for employees" and
@@ -351,8 +351,14 @@ Work happens on the `feature/revamp` branch. It merges to `main` once, at launch
   - Kannada: stopgap strings for the router and short steps, logged in `docs/kannada-review.md`.
 
 ### Next (strategy section 9.3, English first; Kannada last)
-0. **Start here (next session): launch check round 2 is done (2026-10-04); what is left is owner input and launch-day
-   checks.** Round 2 ran every automated check and all six reviewers on both languages (`docs/phase9-review-findings.md`
+0. **Start here (next session): remove the Udupi city page (owner, 2026-10-04: "we don't have traction there").**
+   Remove `epf-esi-consultancy-udupi.html` and `kn/epf-esi-consultancy-udupi.html`, and every link to them (city cards,
+   city links, footer, FAQs, guides' city lines, JSON-LD `areaServed`/`Service`), in both languages. Ask the owner
+   first: should the old URL redirect (e.g. to the Mangalore page), and does Udupi stay in the service area wording
+   ("Mangalore, Udupi and Bangalore", "3 cities", nearby towns, visit lines) or go from the site entirely? Then update
+   the brief, strategy and this file (city pages become 2). The open items from launch check round 2 (below) are set
+   aside for now (owner: "lets ignore all above"); don't work on them unless the owner brings them back.
+   Launch check round 2 (2026-10-04) for reference: round 2 ran every automated check and all six reviewers on both languages (`docs/phase9-review-findings.md`
    "Round 2"), then 3 steps, all committed: (1) Kannada call-button baseline, Kannada tool/post H1 leading, posts
    `og:type` article, guides index CollectionPage (`a97df97`); (2) damages capped at the unpaid amount for old PF rates and
    ESI too (Code s.128; `docs/tool-logic-r2a1.md`; `dc5e946`); (3) copy fixes EN + KN (`docs/phase9-r2-copy.md`;
