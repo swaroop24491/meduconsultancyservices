@@ -131,7 +131,7 @@ faq:
             { value: 'yes', label: 'Yes' },
             { value: 'no', label: 'No' }
           ],
-          help: 'A seasonal factory works only part of the year, for example only during a crop season.',
+          help: 'A seasonal factory only does certain seasonal work, such as cotton ginning or making sugar or gur.',
           errorRequired: 'Choose Yes or No.'
         }
       ],
@@ -173,7 +173,7 @@ faq:
           id: 'gross-wages',
           type: 'number',
           label: "What are this employee's ESI wages? (₹ a month)",
-          help: "ESI wages are the month's pay minus HRA (house rent allowance), overtime, bonus, commission and travel allowance. Are these items more than half the pay? Then add back the extra part. Not sure? " + CALL + '.',
+          help: "ESI wages are the month's pay minus HRA (house rent allowance), overtime, bonus, commission and travel allowance. Are these items more than half the pay? Then add the amount above half to ESI wages. Not sure? " + CALL + '.',
           min: 1,
           errorRequired: 'Enter the ESI wages.',
           errorMin: 'Enter a number more than 0.'
@@ -206,7 +206,7 @@ faq:
           kind: 'negative',
           headline: 'ESI does not apply to this employee.',
           reason: 'ESI wages of ₹' + a['gross-wages'].toLocaleString('en-IN') + ' are above ' + limit + '. So this employee is not in ESI at this pay.',
-          note: 'Did their pay only just go above the limit? ESI works in two six-month periods: April to September, and October to March. They stay in ESI until the period ends.',
+          note: 'Was this employee already in ESI, and their pay went above the limit during the period? Then they stay in ESI, and you keep paying ESI for them, until the period ends (end of September or end of March). Not sure? ' + CALL + '.',
           crosslink: null
         };
       }

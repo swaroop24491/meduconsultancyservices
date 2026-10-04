@@ -143,7 +143,7 @@ tools:
   - { key: esi-penalty, path: esi-penalty-calculator, icon: schedule, name: ESI penalty calculator, text: What will paying ESI late cost? }
   - { key: epf-contribution, path: epf-contribution-calculator, icon: calculator, name: PF contribution calculator, text: How much PF do you and your employee pay each month? }
   - { key: esi-contribution, path: esi-contribution-calculator, icon: calculator, name: ESI contribution calculator, text: How much ESI do you and your employee pay each month? }
-  - { key: converter, path: epf-excel-to-text-converter, icon: file, name: EPF Excel to Text converter, text: "Turn your ECR (monthly PF return) Excel sheet into the text file the PF office (EPFO) needs." }
+  - { key: converter, path: epf-excel-to-text-converter, icon: file, name: EPF Excel to Text converter, text: "Turn your ECR Excel sheet (the monthly list of wages and PF) into the text file the PF office (EPFO) needs." }
 
 faq_heading: Common questions
 

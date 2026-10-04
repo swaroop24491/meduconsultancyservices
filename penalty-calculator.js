@@ -67,8 +67,8 @@
     // of exactly 60 days is 2 months and falls in the 10% slab.
     var months = delayDays / 30;
     if (months < 2) return { rate: 0.05, label: 'a delay under 2 months' };
-    if (months < 4) return { rate: 0.10, label: 'a delay from 2 months up to 4 months' };
-    if (months < 6) return { rate: 0.15, label: 'a delay from 4 months up to 6 months' };
+    if (months < 4) return { rate: 0.10, label: 'a delay of 2 months or more, but less than 4' };
+    if (months < 6) return { rate: 0.15, label: 'a delay of 4 months or more, but less than 6' };
     return { rate: 0.25, label: 'a delay of 6 months or more' };
   }
 
@@ -229,7 +229,7 @@
     onTimeText: function (due) { return 'Your payment date is on or before the due date (' + due + '). No interest or damages.'; },
     dueDate: 'Due date:',
     daysLate: 'Days late:',
-    countedAs: function (months) { return ' (counted as ' + months + ' month' + (months === 1 ? '' : 's') + ' for damages)'; },
+    countedAs: function (months) { return ' (part months count as full: ' + months + ' month' + (months === 1 ? '' : 's') + ' for damages)'; },
     colWhat: 'What',
     colAmount: 'Amount',
     unpaid: 'Unpaid amount',

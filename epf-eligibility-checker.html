@@ -14,7 +14,7 @@ faq:
   - q: Our staff dropped below 20. Do we still need PF?
     a: Yes. Once PF applies, it stays, even if your staff later drop below 20. You keep paying PF every month.
   - q: Does an employee with PF wages above ₹25,000 need PF?
-    a: 'Only in some cases. If they were in PF in an old job, they usually stay in PF. A new employee can join if you both agree. International workers usually must be in PF too. <a href="tel:+918217542975" data-call-location="faq">Call us</a> to check.'
+    a: 'Only in some cases. If they were in PF in an old job, they usually stay in PF. A new employee can join if you and they both agree in writing. International workers usually must be in PF too. <a href="tel:+918217542975" data-call-location="faq">Call us</a> to check.'
   - q: What are PF wages?
     a: PF wages are basic pay plus DA (dearness allowance), not the full salary. But PF wages must be at least half the total pay. If they come to less, the difference is added to PF wages. We work this out for you.
 ---
@@ -57,7 +57,7 @@ faq:
       <p><strong>Once PF applies, it stays</strong>, even if your staff later drop below {{ epf.min_employees }}.</p>
       <h3>For each employee</h3>
       <p>An employee must be in PF when their PF wages are <strong>{{ epf.wage_ceiling_text }} a month or less</strong>. This limit went up from {{ epf.wage_ceiling_old_text }} on {{ epf.wage_ceiling_from }}.</p>
-      <p>Above {{ epf.wage_ceiling_text }}: an employee who was in PF in an old job usually stays in PF. A new employee who was never in PF can join if you both agree. International workers usually must be in PF, whatever their salary. Some are left out under an agreement between India and their home country. <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a> to check.</p>
+      <p>Above {{ epf.wage_ceiling_text }}: an employee who was in PF in an old job usually stays in PF. A new employee who was never in PF can join if you and they both agree in writing. International workers usually must be in PF, whatever their salary. Some are left out under an agreement between India and their home country. <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a> to check.</p>
       <p class="note"><strong>Note:</strong> This checker is a guide based on the general PF rules. It is not a final answer for your business. Some cases need a closer look, like staff in more than one state, contract workers or apprentices. <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a> and we'll check. Checked against the rules as of {{ site.data.facts.tools_checked }}.</p>
     </div>
   </div>
@@ -167,7 +167,7 @@ faq:
           id: 'basic-da',
           type: 'number',
           label: "What are this employee's PF wages? (₹ a month)",
-          help: 'PF wages are basic pay plus DA (dearness allowance), not the full salary. Are other allowances, like HRA (house rent allowance), more than half the salary? Then add the extra part. Not sure? ' + CALL + '.',
+          help: 'PF wages are basic pay plus DA (dearness allowance), not the full salary. Are other allowances, like HRA (house rent allowance), more than half the salary? Then add the amount above half to PF wages. Not sure? ' + CALL + '.',
           min: 1,
           errorRequired: 'Enter the PF wages.',
           errorMin: 'Enter a number more than 0.'
@@ -236,7 +236,7 @@ faq:
         return {
           kind: 'neutral',
           headline: 'PF is optional for this employee.',
-          reason: 'PF wages of ₹' + a['basic-da'].toLocaleString('en-IN') + ' are above ' + ceilingText + ', and they were not in PF before. They can join PF if you both agree. It is not required.',
+          reason: 'PF wages of ₹' + a['basic-da'].toLocaleString('en-IN') + ' are above ' + ceilingText + ', and they were not in PF before. They can join PF if you and they both agree in writing. It is not required.',
           crosslink: 'See what PF would cost: <a href="/epf-contribution-calculator">PF contribution calculator</a>.'
         };
       }

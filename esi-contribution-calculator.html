@@ -103,7 +103,7 @@ faq:
           id: 'gross-wages',
           type: 'number',
           label: 'ESI wages (₹ a month)',
-          help: "ESI wages are the month's pay minus HRA (house rent allowance), overtime, bonus, commission and travel allowance. Are these items more than half the pay? Then add back the extra part. Not sure? " + CALL + '.',
+          help: "ESI wages are the month's pay minus HRA (house rent allowance), overtime, bonus, commission and travel allowance. Are these items more than half the pay? Then add the amount above half to ESI wages. Not sure? " + CALL + '.',
           min: 1,
           errorRequired: 'Enter the ESI wages.',
           errorMin: 'Enter a number more than 0.'
@@ -129,7 +129,7 @@ faq:
             applicable: false,
             headline: 'No ESI: ESI wages are above ' + limit + pwd,
             message: 'ESI wages of ₹' + a['gross-wages'].toLocaleString('en-IN') + ' are above ' + limit + pwd + '. So no ESI is paid for this employee.',
-            note: 'Did their pay only just go above the limit? ESI works in two six-month periods: April to September, and October to March. They stay in ESI, and you keep paying, until the period ends.'
+            note: 'Was this employee already in ESI, and their pay went above the limit during the period? Then they stay in ESI, and you keep paying ESI for them, until the period ends (end of September or end of March). Not sure? ' + CALL + '.'
           };
         }
 

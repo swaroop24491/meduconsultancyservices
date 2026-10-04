@@ -24,7 +24,7 @@ faq:
 <section class="section section--stacked tool-section" aria-labelledby="tool-heading">
   <div class="container">
     <h1 id="tool-heading">PF ವಂತಿಗೆ ಲೆಕ್ಕಾಚಾರ</h1>
-    <p class="tool-lead">ಉದ್ಯೋಗಿಯ PF ವೇತನವನ್ನು ನಮೂದಿಸಿ. ಉದ್ಯೋಗಿ ಎಷ್ಟು PF (ಭವಿಷ್ಯ ನಿಧಿ) ಕಟ್ಟುತ್ತಾರೆ, ನೀವು ಎಷ್ಟು ಕಟ್ಟುತ್ತೀರಿ, ಮತ್ತು ಅವರ ಪಿಂಚಣಿಗೆ ಎಷ್ಟು ಹೋಗುತ್ತದೆ ಎಂದು ನೋಡಿ.</p>
+    <p class="tool-lead">ಉದ್ಯೋಗಿಯ PF ವೇತನವನ್ನು ಬರೆಯಿರಿ. ಉದ್ಯೋಗಿ ಎಷ್ಟು PF (ಭವಿಷ್ಯ ನಿಧಿ) ಕಟ್ಟುತ್ತಾರೆ, ನೀವು ಎಷ್ಟು ಕಟ್ಟುತ್ತೀರಿ, ಮತ್ತು ಅವರ ಪಿಂಚಣಿಗೆ ಎಷ್ಟು ಹೋಗುತ್ತದೆ ಎಂದು ನೋಡಿ.</p>
 
     <div class="tool tool--split">
       <form id="contribution-form" class="tool-form" novalidate aria-label="PF ವಂತಿಗೆ ಲೆಕ್ಕಾಚಾರ">
@@ -97,16 +97,16 @@ faq:
     }
 
     initContributionCalculator('epf', {
-      text: { more: 'ಇನ್ನಷ್ಟು (ಬೇಕಿದ್ದರೆ)', fillIn: 'ದಯವಿಟ್ಟು ಇದನ್ನು ತುಂಬಿ.', minValue: function (min) { return min + ' ಅಥವಾ ಹೆಚ್ಚು ನಮೂದಿಸಿ.'; }, colWhat: 'ವಿವರ', colAmount: 'ಮೊತ್ತ' },
+      text: { more: 'ಇನ್ನಷ್ಟು (ಬೇಕಿದ್ದರೆ)', fillIn: 'ದಯವಿಟ್ಟು ಇದನ್ನು ತುಂಬಿ.', minValue: function (min) { return min + ' ಅಥವಾ ಹೆಚ್ಚು ಬರೆಯಿರಿ.'; }, colWhat: 'ವಿವರ', colAmount: 'ಮೊತ್ತ' },
       fields: [
         {
           id: 'basic-da',
           type: 'number',
           label: 'PF ವೇತನ (ತಿಂಗಳಿಗೆ ₹)',
-          help: 'PF ವೇತನ ಎಂದರೆ ಮೂಲ ವೇತನ ಮತ್ತು DA (ತುಟ್ಟಿ ಭತ್ಯೆ), ಪೂರ್ತಿ ಸಂಬಳ ಅಲ್ಲ. HRA (ಮನೆ ಬಾಡಿಗೆ ಭತ್ಯೆ) ಮುಂತಾದ ಬೇರೆ ಭತ್ಯೆಗಳು ಸಂಬಳದ ಅರ್ಧಕ್ಕಿಂತ ಹೆಚ್ಚಿವೆಯೇ? ಹಾಗಿದ್ದರೆ, ಹೆಚ್ಚಾದ ಭಾಗವನ್ನು ಸೇರಿಸಿ. ಗೊತ್ತಿಲ್ಲವೇ? ' + CALL + '.',
+          help: 'PF ವೇತನ ಎಂದರೆ ಮೂಲ ವೇತನ ಮತ್ತು DA (ತುಟ್ಟಿ ಭತ್ಯೆ), ಪೂರ್ತಿ ಸಂಬಳ ಅಲ್ಲ. HRA (ಮನೆ ಬಾಡಿಗೆ ಭತ್ಯೆ) ಮುಂತಾದ ಬೇರೆ ಭತ್ಯೆಗಳು ಸಂಬಳದ ಅರ್ಧಕ್ಕಿಂತ ಹೆಚ್ಚಿವೆಯೇ? ಹಾಗಿದ್ದರೆ, ಅರ್ಧಕ್ಕಿಂತ ಹೆಚ್ಚಾಗಿರುವ ಮೊತ್ತವನ್ನು PF ವೇತನಕ್ಕೆ ಸೇರಿಸಿ. ಗೊತ್ತಿಲ್ಲವೇ? ' + CALL + '.',
           min: 1,
-          errorRequired: 'PF ವೇತನವನ್ನು ನಮೂದಿಸಿ.',
-          errorMin: '0ಕ್ಕಿಂತ ಹೆಚ್ಚಿನ ಸಂಖ್ಯೆಯನ್ನು ನಮೂದಿಸಿ.'
+          errorRequired: 'PF ವೇತನವನ್ನು ಬರೆಯಿರಿ.',
+          errorMin: '0ಕ್ಕಿಂತ ಹೆಚ್ಚಿನ ಸಂಖ್ಯೆಯನ್ನು ಬರೆಯಿರಿ.'
         },
         {
           id: 'rate',
