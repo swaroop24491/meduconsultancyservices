@@ -928,6 +928,41 @@ main > .guide-article { padding-top: 0; border-top-color: transparent; }
     font-weight: var(--weight-semibold);
     cursor: pointer;
 }
+/* Date field in dd/mm/yyyy (script.js builds it from each <input type="date">):
+   a text field with a calendar button inside; the native date input stays
+   hidden under it, holding the value the tool scripts read. */
+.date-input { position: relative; display: block; }
+.field .date-input input[type="text"] { padding-right: calc(var(--tap-link) + var(--space-2)); }
+.date-input__pick {
+    position: absolute;
+    top: 50%;
+    right: 2px;
+    transform: translateY(-50%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--tap-link);
+    height: var(--tap-link);
+    padding: 0;
+    border: 0;
+    border-radius: var(--radius-sm);
+    background: none;
+    color: var(--color-brand);
+    cursor: pointer;
+}
+.date-input__pick:hover { color: var(--color-brand-dark); }
+.field .date-input__native {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    min-height: 0;
+    height: 1px;
+    padding: 0;
+    border: 0;
+    opacity: 0;
+    pointer-events: none;
+}
 /* A value the tool works out as you type (e.g. the due date), shown as text, not a box */
 .field__output:has(output:empty) { display: none; }
 .field__output output { font-weight: var(--weight-medium); color: var(--color-heading); }

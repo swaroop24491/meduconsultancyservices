@@ -291,7 +291,7 @@
        clicked; clicking the rest of the field just places a text caret.
        Make the whole field open the picker, since that's what people expect.
      ------------------------------------------------------------------------- */
-  document.querySelectorAll('input[type="date"], input[type="month"]').forEach(function (input) {
+  document.querySelectorAll('input[type="month"]').forEach(function (input) {
     if (!input.showPicker) {
       return;
     }
@@ -302,6 +302,127 @@
         /* showPicker() throws if the input is disabled/readonly - ignore. */
       }
     });
+  });
+
+  /* -------------------------------------------------------------------------
+     Date inputs in Indian format (dd/mm/yyyy)
+     - a native <input type="date"> shows the browser's own format (mm/dd/yyyy
+       in a US browser), and the page can't change that. So each one becomes
+       a dd/mm/yyyy text field with a calendar button (.date-input).
+     - the native input stays in the page, hidden, and keeps its id and its
+       "YYYY-MM-DD" value, so the tool scripts read it as before. The text
+       field writes to it; the calendar (showPicker) and scripts that set
+       .value write back to the text field. aria-invalid set on the native
+       input shows on the text field, and focusing it focuses the text field.
+     ------------------------------------------------------------------------- */
+  var isKn = document.documentElement.lang === 'kn';
+  var DATE_TEXT = {
+    format: isKn ? 'ದಿನ/ತಿಂಗಳು/ವರ್ಷ (dd/mm/yyyy) ರೀತಿಯಲ್ಲಿ ಬರೆಯಿರಿ.' : 'Write it as dd/mm/yyyy.',
+    pick: isKn ? 'ಕ್ಯಾಲೆಂಡರ್‌ನಲ್ಲಿ ದಿನಾಂಕ ಆಯ್ಕೆ ಮಾಡಿ' : 'Choose a date on the calendar'
+  };
+  var nativeValue = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value');
+
+  function isoToText(iso) {
+    var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || '');
+    return m ? m[3] + '/' + m[2] + '/' + m[1] : '';
+  }
+
+  // "dd/mm/yyyy" (also d/m/yyyy, or with - or .) to "YYYY-MM-DD"; '' if not a real date.
+  function textToIso(text) {
+    var m = /^(\d{1,2})[\/.-](\d{1,2})[\/.-](\d{4})$/.exec(text.trim());
+    if (!m) return '';
+    var d = Number(m[1]), mo = Number(m[2]), y = Number(m[3]);
+    var date = new Date(y, mo - 1, d);
+    if (date.getFullYear() !== y || date.getMonth() !== mo - 1 || date.getDate() !== d) return '';
+    return y + '-' + String(mo).padStart(2, '0') + '-' + String(d).padStart(2, '0');
+  }
+
+  // Typing only digits: put the slashes in (25102026 → 25/10/2026).
+  function addSlashes(text) {
+    if (/^\d+$/.test(text)) {
+      if (text.length > 4) return text.slice(0, 2) + '/' + text.slice(2, 4) + '/' + text.slice(4, 8);
+      if (text.length > 2) return text.slice(0, 2) + '/' + text.slice(2);
+      return text;
+    }
+    var m = /^(\d{2})\/(\d{2})(\d+)$/.exec(text); // 25/1026 → 25/10/26
+    return m ? m[1] + '/' + m[2] + '/' + m[3].slice(0, 4) : text;
+  }
+
+  document.querySelectorAll('input[type="date"]').forEach(function (native) {
+    var id = native.id;
+    var wrap = document.createElement('span');
+    wrap.className = 'date-input';
+    native.parentNode.insertBefore(wrap, native);
+
+    var text = document.createElement('input');
+    text.type = 'text';
+    text.id = id + '-text';
+    text.inputMode = 'numeric';
+    text.autocomplete = 'off';
+    text.placeholder = 'dd/mm/yyyy';
+    text.maxLength = 10;
+    var hint = document.createElement('span');
+    hint.className = 'visually-hidden';
+    hint.id = id + '-format';
+    hint.textContent = DATE_TEXT.format;
+    text.setAttribute('aria-describedby', (hint.id + ' ' + (native.getAttribute('aria-describedby') || '')).trim());
+    if (native.required) text.required = true;
+    text.value = isoToText(native.value);
+
+    var label = document.querySelector('label[for="' + id + '"]');
+    if (label) label.htmlFor = text.id;
+
+    wrap.appendChild(text);
+    wrap.appendChild(hint);
+    wrap.appendChild(native);
+    native.classList.add('date-input__native');
+    native.tabIndex = -1;
+    native.setAttribute('aria-hidden', 'true');
+
+    if (native.showPicker) {
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'date-input__pick';
+      btn.setAttribute('aria-label', DATE_TEXT.pick);
+      btn.innerHTML = '<svg class="icon" width="20" height="20" viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true" focusable="false"><path d="M200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-80h80v80h320v-80h80v80h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Zm0-480h560v-80H200v80Zm0 0v-80 80Z"/></svg>';
+      btn.addEventListener('click', function () {
+        try { native.showPicker(); } catch (err) { /* not allowed here: typing still works */ }
+      });
+      wrap.appendChild(btn);
+    }
+
+    // Scripts that set native.value (e.g. clearing a form) update the text field too.
+    Object.defineProperty(native, 'value', {
+      configurable: true,
+      get: function () { return nativeValue.get.call(native); },
+      set: function (v) {
+        nativeValue.set.call(native, v);
+        text.value = isoToText(nativeValue.get.call(native));
+      }
+    });
+
+    // Typing: the text event bubbles on to the form after the native value is set.
+    text.addEventListener('input', function () {
+      var formatted = addSlashes(text.value);
+      if (formatted !== text.value) text.value = formatted;
+      nativeValue.set.call(native, textToIso(text.value));
+    });
+    text.addEventListener('blur', function () {
+      var iso = textToIso(text.value);
+      if (iso) text.value = isoToText(iso); // 5/9/2026 → 05/09/2026
+    });
+
+    // The calendar: copy the picked date into the text field.
+    native.addEventListener('change', function () {
+      text.value = isoToText(nativeValue.get.call(native));
+    });
+    native.addEventListener('focus', function () { text.focus(); });
+
+    new MutationObserver(function () {
+      var bad = native.getAttribute('aria-invalid');
+      if (bad) text.setAttribute('aria-invalid', bad);
+      else text.removeAttribute('aria-invalid');
+    }).observe(native, { attributes: true, attributeFilter: ['aria-invalid'] });
   });
 
   /* -------------------------------------------------------------------------
