@@ -1,5 +1,5 @@
 /*
- * Payslip generator - /payslip-generator and /kn/payslip-generator.
+ * Payslip generator - /free-payslip-generator and /kn/free-payslip-generator.
  *
  * Everything happens in the browser: nothing is sent anywhere. The form is
  * static HTML on the page (labels in the page language); this script adds the
