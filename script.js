@@ -311,9 +311,10 @@
        a dd/mm/yyyy text field with a calendar button (.date-input).
      - the native input stays in the page, hidden, and keeps its id and its
        "YYYY-MM-DD" value, so the tool scripts read it as before. The text
-       field writes to it; the calendar (showPicker) and scripts that set
-       .value write back to the text field. aria-invalid set on the native
-       input shows on the text field, and focusing it focuses the text field.
+       field writes to it; the calendar (showPicker, opened by clicking the
+       field or its button) and scripts that set .value write back to the
+       text field. aria-invalid set on the native input shows on the text
+       field, and focusing it focuses the text field.
      ------------------------------------------------------------------------- */
   var isKn = document.documentElement.lang === 'kn';
   var DATE_TEXT = {
@@ -380,6 +381,11 @@
     native.setAttribute('aria-hidden', 'true');
 
     if (native.showPicker) {
+      // Clicking the field opens the calendar too (typing still works); the
+      // keyboard opens nothing, so tabbing through the form stays quiet.
+      text.addEventListener('click', function () {
+        try { native.showPicker(); } catch (err) { /* not allowed here: typing still works */ }
+      });
       var btn = document.createElement('button');
       btn.type = 'button';
       btn.className = 'date-input__pick';
