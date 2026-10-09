@@ -1,0 +1,305 @@
+---
+layout: base
+lang: kn
+page_type: tool
+last_modified: 2026-10-09
+title: "ಉಚಿತ ಸಂಬಳದ ಚೀಟಿ (ಪೇಸ್ಲಿಪ್) ತಯಾರಕ | ಮೆದು ಕನ್ಸಲ್ಟೆನ್ಸಿ"
+description: "ನಿಮ್ಮ ಉದ್ಯೋಗಿಗೆ ಕೆಲವೇ ನಿಮಿಷಗಳಲ್ಲಿ ಸಂಬಳದ ಚೀಟಿ ಮಾಡಿ, PDF ಆಗಿ ಉಳಿಸಿ. ಉಚಿತ, ಸೈನ್ ಅಪ್ ಬೇಕಿಲ್ಲ. ನೀವು ಬರೆಯುವುದು ನಿಮ್ಮ ಕಂಪ್ಯೂಟರ್‌ನಿಂದ ಹೊರಗೆ ಹೋಗುವುದಿಲ್ಲ."
+scripts: [/payslip-generator.js]
+tool: { name: ಸಂಬಳದ ಚೀಟಿ ತಯಾರಕ }
+breadcrumb:
+  - { name: ಉಚಿತ ಸಾಧನಗಳು, path: epf-esi-tools-calculators }
+  - { name: ಸಂಬಳದ ಚೀಟಿ ತಯಾರಕ }
+faq:
+  - q: "ಇದು ಉಚಿತವೇ?"
+    a: "ಹೌದು. ಸೈನ್ ಅಪ್ ಅಥವಾ ಲಾಗಿನ್ ಮಾಡಬೇಕಾಗಿಲ್ಲ."
+  - q: "ನಾನು ಬರೆದದ್ದನ್ನು ನೀವು ಉಳಿಸಿಕೊಳ್ಳುತ್ತೀರಾ?"
+    a: "ಇಲ್ಲ. ಸಂಬಳದ ಚೀಟಿ ನಿಮ್ಮ ಬ್ರೌಸರ್‌ನಲ್ಲೇ ತಯಾರಾಗುತ್ತದೆ. ಏನೂ ನಮಗೆ ಬರುವುದಿಲ್ಲ. \"ಕಂಪನಿಯ ವಿವರಗಳನ್ನು ನೆನಪಿಟ್ಟುಕೊಳ್ಳಿ\" ಆಯ್ಕೆ ಮಾಡಿದರೆ, ಕಂಪನಿಯ ವಿವರಗಳು ಮಾತ್ರ ನಿಮ್ಮದೇ ಕಂಪ್ಯೂಟರ್‌ನಲ್ಲಿ ಉಳಿಯುತ್ತವೆ."
+  - q: "ಇದು PF ಮತ್ತು ESIಯನ್ನು ಲೆಕ್ಕ ಹಾಕುತ್ತದೆಯೇ?"
+    a: 'ಹೌದು, "PF ಮತ್ತು ESIಯನ್ನು ನನಗಾಗಿ ಲೆಕ್ಕ ಹಾಕಿ" ಆಯ್ಕೆ ಮಾಡಿದರೆ. ಇದು ಹತ್ತಿರದ ಅಂದಾಜು ನೀಡುತ್ತದೆ. PF ಅಥವಾ ESI ಅನ್ವಯಿಸುತ್ತದೆಯೇ ಎಂದು ಖಚಿತವಿಲ್ಲವೇ? <a href="tel:+918217542975" data-call-location="faq">ನಮಗೆ ಕರೆ ಮಾಡಿ</a>.'
+  - q: "ಇದನ್ನು PDF ಆಗಿ ಉಳಿಸುವುದು ಹೇಗೆ?"
+    a: '"PDF ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ" ಒತ್ತಿ. ನಿಮ್ಮ ಬ್ರೌಸರ್‌ನ ಪ್ರಿಂಟ್ ವಿಂಡೋ ತೆರೆಯುತ್ತದೆ. ಪ್ರಿಂಟರ್ ಆಗಿ "Save as PDF" ಆಯ್ಕೆ ಮಾಡಿ.'
+  - q: "ಹಲವು ಉದ್ಯೋಗಿಗಳಿಗೆ ಸಂಬಳದ ಚೀಟಿ ಮಾಡಬಹುದೇ?"
+    a: 'ಹೌದು. ಒಂದು ಸಂಬಳದ ಚೀಟಿ ಆದ ನಂತರ "ಮುಂದಿನ ಉದ್ಯೋಗಿ ಆರಂಭಿಸಿ" ಒತ್ತಿ. ಕಂಪನಿಯ ವಿವರಗಳು ಹಾಗೂ ಗಳಿಕೆ ಮತ್ತು ಕಡಿತಗಳ ಹೆಸರುಗಳು ಹಾಗೆಯೇ ಇರುತ್ತವೆ.'
+---
+{%- assign tel = site.data.site.phone_tel -%}
+<section class="section section--stacked tool-section" aria-labelledby="tool-heading">
+  <div class="container">
+    <h1 id="tool-heading">ಸಂಬಳದ ಚೀಟಿ ತಯಾರಕ</h1>
+    <p class="tool-lead">ಉದ್ಯೋಗಿಗೆ ಸಂಬಳದ ಚೀಟಿ (ಪೇಸ್ಲಿಪ್) ಮಾಡಿ. ನೀವು ವಿವರಗಳನ್ನು ಬರೆದಂತೆ ಸಂಬಳದ ಚೀಟಿ ತುಂಬುತ್ತಾ ಹೋಗುತ್ತದೆ. ನಂತರ ಅದನ್ನು PDF ಆಗಿ ಉಳಿಸಿ. ನೀವು ಬರೆಯುವುದು ನಿಮ್ಮ ಕಂಪ್ಯೂಟರ್‌ನಿಂದ ಹೊರಗೆ ಹೋಗುವುದಿಲ್ಲ.</p>
+
+    <div class="tool tool--split tool--payslip">
+      <form id="payslip-form" class="tool-form" novalidate aria-labelledby="make-heading" data-tel="tel:{{ tel }}">
+        <h2 id="make-heading" class="visually-hidden">ಸಂಬಳದ ಚೀಟಿ ಮಾಡಿ</h2>
+        <ol class="tool-steps">
+          <li>
+            <h3>ಕಂಪನಿ</h3>
+            <div class="field">
+              <label for="ps-company">ಕಂಪನಿಯ ಹೆಸರು</label>
+              <input type="text" id="ps-company" autocomplete="organization" aria-describedby="ps-company-error">
+              <p class="field__error" id="ps-company-error" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="ps-address">ವಿಳಾಸ</label>
+              <input type="text" id="ps-address" autocomplete="street-address">
+            </div>
+            <div class="field">
+              <label for="ps-logo">ಲೋಗೋ (PNG ಅಥವಾ JPG, 1 MB ವರೆಗೆ)</label>
+              <input type="file" id="ps-logo" accept="image/png,image/jpeg" aria-describedby="ps-logo-error">
+              <p class="field__error" id="ps-logo-error" aria-live="polite"></p>
+              <p><button type="button" class="btn-link" id="ps-logo-remove" hidden>ಲೋಗೋ ತೆಗೆದುಹಾಕಿ</button></p>
+            </div>
+          </li>
+          <li>
+            <h3>ಉದ್ಯೋಗಿ</h3>
+            <div class="field">
+              <label for="ps-month">ಸಂಬಳದ ತಿಂಗಳು</label>
+              <input type="month" id="ps-month" aria-describedby="ps-month-error">
+              <p class="field__error" id="ps-month-error" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="ps-name">ಉದ್ಯೋಗಿಯ ಹೆಸರು</label>
+              <input type="text" id="ps-name" autocomplete="off" aria-describedby="ps-name-error">
+              <p class="field__error" id="ps-name-error" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="ps-id">ಉದ್ಯೋಗಿಯ ID</label>
+              <input type="text" id="ps-id" autocomplete="off" aria-describedby="ps-id-error">
+              <p class="field__error" id="ps-id-error" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="ps-pay-date">ಸಂಬಳ ಕೊಟ್ಟ ದಿನಾಂಕ</label>
+              <input type="date" id="ps-pay-date">
+            </div>
+            <div class="field">
+              <label for="ps-lop">ಸಂಬಳವಿಲ್ಲದ ದಿನಗಳು (LOP)</label>
+              <input type="number" id="ps-lop" inputmode="decimal" min="0" step="0.5" value="0" aria-describedby="ps-paid-help ps-lop-error">
+              <p class="field__help field__output" id="ps-paid-help">ಸಂಬಳ ಸಿಗುವ ದಿನಗಳು: <output id="ps-paid-out" for="ps-month ps-lop"></output></p>
+              <p class="field__error" id="ps-lop-error" aria-live="polite"></p>
+              <p><button type="button" class="btn-link" id="ps-paid-change">ಸಂಬಳ ಸಿಗುವ ದಿನಗಳನ್ನು ಬದಲಿಸಿ</button></p>
+            </div>
+            <div class="field" id="ps-paid-field" hidden>
+              <label for="ps-paid">ಸಂಬಳ ಸಿಗುವ ದಿನಗಳು</label>
+              <input type="number" id="ps-paid" inputmode="decimal" min="0" step="0.5">
+            </div>
+            <details class="field-more">
+              <summary>ಇನ್ನಷ್ಟು (ಬೇಕಿದ್ದರೆ)</summary>
+              <div class="tool-form">
+                <div class="field"><label for="ps-designation">ಹುದ್ದೆ</label><input type="text" id="ps-designation" autocomplete="off"></div>
+                <div class="field"><label for="ps-department">ವಿಭಾಗ</label><input type="text" id="ps-department" autocomplete="off"></div>
+                <div class="field"><label for="ps-joined">ಕೆಲಸಕ್ಕೆ ಸೇರಿದ ದಿನಾಂಕ</label><input type="date" id="ps-joined"></div>
+                <div class="field"><label for="ps-uan">UAN</label><input type="text" id="ps-uan" inputmode="numeric" autocomplete="off"></div>
+                <div class="field"><label for="ps-ip">ESI IP ಸಂಖ್ಯೆ</label><input type="text" id="ps-ip" inputmode="numeric" autocomplete="off"></div>
+                <div class="field"><label for="ps-pan">PAN</label><input type="text" id="ps-pan" autocomplete="off" autocapitalize="characters"></div>
+                <div class="field"><label for="ps-bank">ಬ್ಯಾಂಕ್ ಖಾತೆ</label><input type="text" id="ps-bank" autocomplete="off"></div>
+                <ul class="line-items" id="ps-details"></ul>
+                <p><button type="button" class="btn-link" id="ps-add-detail">ನಿಮ್ಮದೇ ವಿವರ ಸೇರಿಸಿ</button></p>
+              </div>
+            </details>
+          </li>
+          <li>
+            <h3>ಗಳಿಕೆಗಳು</h3>
+            <div class="line-items-head" aria-hidden="true"><span>ಹೆಸರು</span><span>ತಿಂಗಳಿಗೆ ₹</span></div>
+            <ul class="line-items" id="ps-earnings"></ul>
+            <p><button type="button" class="btn-link" id="ps-add-earning">ಗಳಿಕೆ ಸೇರಿಸಿ</button></p>
+            <datalist id="ps-earning-names">
+              <option value="ಮೂಲ ವೇತನ"></option>
+              <option value="DA (ತುಟ್ಟಿ ಭತ್ಯೆ)"></option>
+              <option value="HRA (ಮನೆ ಬಾಡಿಗೆ ಭತ್ಯೆ)"></option>
+              <option value="ವಿಶೇಷ ಭತ್ಯೆ"></option>
+              <option value="ಓವರ್‌ಟೈಮ್"></option>
+              <option value="ಬೋನಸ್"></option>
+            </datalist>
+          </li>
+          <li>
+            <h3>ಕಡಿತಗಳು</h3>
+            <div class="field">
+              <label class="radio"><input type="checkbox" id="ps-auto" aria-describedby="ps-auto-help"> PF ಮತ್ತು ESIಯನ್ನು ನನಗಾಗಿ ಲೆಕ್ಕ ಹಾಕಿ</label>
+              <p class="field__help" id="ps-auto-help">ಉದ್ಯೋಗಿಯ ಸಂಬಳದಿಂದ ಅವರ PF ಮತ್ತು ESIಯನ್ನು ನಾವು ತುಂಬುತ್ತೇವೆ. ಮೊತ್ತಗಳನ್ನು ನೀವು ಆಗಲೂ ಬದಲಿಸಬಹುದು.</p>
+            </div>
+            <div class="tool-form" id="ps-auto-fields" hidden>
+              <div class="field">
+                <label for="ps-pf-wages">PF ವೇತನ (ತಿಂಗಳಿಗೆ ₹)</label>
+                <input type="number" id="ps-pf-wages" inputmode="decimal" min="0" step="0.01" aria-describedby="ps-pf-wages-help">
+                <p class="field__help" id="ps-pf-wages-help">PF ವೇತನ ಎಂದರೆ ಮೂಲ ವೇತನ ಮತ್ತು DA (ತುಟ್ಟಿ ಭತ್ಯೆ), ಪೂರ್ತಿ ಸಂಬಳ ಅಲ್ಲ. HRA (ಮನೆ ಬಾಡಿಗೆ ಭತ್ಯೆ) ಮುಂತಾದ ಬೇರೆ ಭತ್ಯೆಗಳು ಸಂಬಳದ ಅರ್ಧಕ್ಕಿಂತ ಹೆಚ್ಚಿವೆಯೇ? ಹಾಗಿದ್ದರೆ, ಅರ್ಧಕ್ಕಿಂತ ಹೆಚ್ಚಾಗಿರುವ ಮೊತ್ತವನ್ನು PF ವೇತನಕ್ಕೆ ಸೇರಿಸಿ. ಗೊತ್ತಿಲ್ಲವೇ? <a href="tel:{{ tel }}" data-call-location="inline">ನಮಗೆ ಕರೆ ಮಾಡಿ</a>.</p>
+              </div>
+              <fieldset class="field">
+                <legend>PF ದರ</legend>
+                <div class="field__options">
+                  <label class="radio"><input type="radio" name="ps-pf-rate" value="12" checked> 12% (ಹೆಚ್ಚಿನ ವ್ಯಾಪಾರಗಳು)</label>
+                  <label class="radio"><input type="radio" name="ps-pf-rate" value="10"> 10% (ಕೆಲವು ವ್ಯಾಪಾರಗಳು ಮಾತ್ರ)</label>
+                </div>
+                <p class="field__help">10% ದರ ಸರ್ಕಾರ ಹೆಸರಿಸಿರುವ ಕೆಲವು ವ್ಯಾಪಾರಗಳಿಗೆ ಮಾತ್ರ. ಹೆಚ್ಚಿನ ವ್ಯಾಪಾರಗಳು 12% ಕಟ್ಟುತ್ತವೆ.</p>
+              </fieldset>
+              <fieldset class="field" id="ps-pf-full-field" hidden>
+                <legend>PF ವೇತನ ₹25,000ಕ್ಕಿಂತ ಹೆಚ್ಚಿದೆ. PFನಲ್ಲಿರುವ ಉದ್ಯೋಗಿಗೆ, ಇದರ ಮೇಲೆ PF ಕಡಿತ ಮಾಡಿ:</legend>
+                <div class="field__options">
+                  <label class="radio"><input type="radio" name="ps-pf-base" value="cap" checked> ₹25,000 (ಕನಿಷ್ಠ)</label>
+                  <label class="radio"><input type="radio" name="ps-pf-base" value="full"> ಪೂರ್ತಿ PF ವೇತನ (ನೀವು ಮತ್ತು ಉದ್ಯೋಗಿ ಇಬ್ಬರೂ ಲಿಖಿತವಾಗಿ ಒಪ್ಪಿದರೆ)</label>
+                </div>
+              </fieldset>
+              <div class="field">
+                <label for="ps-esi-wages">ESI ವೇತನ (ತಿಂಗಳಿಗೆ ₹)</label>
+                <input type="number" id="ps-esi-wages" inputmode="decimal" min="0" step="0.01" aria-describedby="ps-esi-wages-help">
+                <p class="field__help" id="ps-esi-wages-help">ESI ವೇತನ ಎಂದರೆ ತಿಂಗಳ ಸಂಬಳದಿಂದ HRA (ಮನೆ ಬಾಡಿಗೆ ಭತ್ಯೆ), ಓವರ್‌ಟೈಮ್, ಬೋನಸ್, ಕಮಿಷನ್ ಮತ್ತು ಪ್ರಯಾಣ ಭತ್ಯೆಯನ್ನು ಬಿಟ್ಟು ಉಳಿದದ್ದು. ಇವು ಸಂಬಳದ ಅರ್ಧಕ್ಕಿಂತ ಹೆಚ್ಚಿವೆಯೇ? ಹಾಗಿದ್ದರೆ, ಅರ್ಧಕ್ಕಿಂತ ಹೆಚ್ಚಾಗಿರುವ ಮೊತ್ತವನ್ನು ESI ವೇತನಕ್ಕೆ ಸೇರಿಸಿ. ಗೊತ್ತಿಲ್ಲವೇ? <a href="tel:{{ tel }}" data-call-location="inline">ನಮಗೆ ಕರೆ ಮಾಡಿ</a>.</p>
+              </div>
+              <label class="radio"><input type="checkbox" id="ps-pwd"> ಈ ಉದ್ಯೋಗಿ ವಿಕಲಚೇತನ ವ್ಯಕ್ತಿ</label>
+              <div id="ps-auto-notes"></div>
+            </div>
+            <div class="line-items-head" aria-hidden="true"><span>ಹೆಸರು</span><span>ತಿಂಗಳಿಗೆ ₹</span></div>
+            <ul class="line-items" id="ps-deductions"></ul>
+            <p><button type="button" class="btn-link" id="ps-add-deduction">ಕಡಿತ ಸೇರಿಸಿ</button></p>
+            <datalist id="ps-deduction-names">
+              <option value="PF"></option>
+              <option value="ESI"></option>
+              <option value="ವೃತ್ತಿ ತೆರಿಗೆ"></option>
+              <option value="ಆದಾಯ ತೆರಿಗೆ (TDS)"></option>
+              <option value="ಮುಂಗಡ"></option>
+              <option value="ಸಾಲ"></option>
+            </datalist>
+          </li>
+          <li>
+            <h3>ಸಂಬಳದ ಚೀಟಿ ಉಳಿಸಿ</h3>
+            <fieldset class="field">
+              <legend>ಸಂಬಳದ ಚೀಟಿಯ ಭಾಷೆ</legend>
+              <div class="field__options">
+                <label class="radio"><input type="radio" name="ps-slip-lang" value="kn" checked> ಕನ್ನಡ</label>
+                <label class="radio" lang="en"><input type="radio" name="ps-slip-lang" value="en"> English</label>
+              </div>
+            </fieldset>
+            <div class="field">
+              <label class="radio"><input type="checkbox" id="ps-remember" checked aria-describedby="ps-remember-help"> ಕಂಪನಿಯ ವಿವರಗಳನ್ನು ಈ ಕಂಪ್ಯೂಟರ್‌ನಲ್ಲಿ ನೆನಪಿಟ್ಟುಕೊಳ್ಳಿ</label>
+              <p class="field__help" id="ps-remember-help">ಕಂಪನಿಯ ಹೆಸರು, ವಿಳಾಸ, ಲೋಗೋ ಹಾಗೂ ಗಳಿಕೆ ಮತ್ತು ಕಡಿತಗಳ ಹೆಸರುಗಳನ್ನು ಮಾತ್ರ ಇಡಲಾಗುತ್ತದೆ. ಉದ್ಯೋಗಿಯ ವಿವರಗಳು ಅಥವಾ ಮೊತ್ತಗಳನ್ನು ಎಂದಿಗೂ ಇಡುವುದಿಲ್ಲ.</p>
+            </div>
+            <p class="payslip-jump"><a class="link-arrow" href="#payslip">ಸಂಬಳದ ಚೀಟಿ ನೋಡಿ&#8288;{% include icon.html name="arrow" size="18" %}</a></p>
+            <div class="field">
+              <button type="button" class="btn btn--outline" id="ps-download" aria-describedby="ps-download-help">PDF ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ</button>
+              <p class="field__help" id="ps-download-help">ನಿಮ್ಮ ಬ್ರೌಸರ್‌ನ ಪ್ರಿಂಟ್ ವಿಂಡೋ ತೆರೆಯುತ್ತದೆ. "Save as PDF" ಆಯ್ಕೆ ಮಾಡಿ.</p>
+            </div>
+            <p class="tool-status tool-status--error" id="ps-status" role="status"></p>
+            <p><button type="button" class="btn-link" id="ps-next">ಮುಂದಿನ ಉದ್ಯೋಗಿ ಆರಂಭಿಸಿ</button></p>
+            <p><button type="button" class="btn-link" id="ps-clear">ಎಲ್ಲವನ್ನೂ ಅಳಿಸಿ</button></p>
+          </li>
+        </ol>
+        <template id="ps-icon-remove">{% include icon.html name="close" size="20" %}</template>
+      </form>
+
+      <div class="payslip-side">
+        <h2 class="visually-hidden" id="payslip-heading">ಸಂಬಳದ ಚೀಟಿಯ ಮುನ್ನೋಟ</h2>
+        <div class="payslip" id="payslip" role="region" aria-labelledby="payslip-heading" tabindex="0"></div>
+      </div>
+
+      {% include result-call.html tool="payslip" %}
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="shows-heading">
+  <div class="container">
+    <div class="prose">
+      <h2 id="shows-heading">ಸಂಬಳದ ಚೀಟಿಯಲ್ಲಿ ಏನಿರುತ್ತದೆ</h2>
+      <p>ಸಂಬಳದ ಚೀಟಿಯಲ್ಲಿ ಸಾಮಾನ್ಯವಾಗಿ ಕಂಪನಿಯ ಹೆಸರು, ಉದ್ಯೋಗಿಯ ಹೆಸರು ಮತ್ತು ID, ತಿಂಗಳು, ಸಂಬಳ ಸಿಗುವ ದಿನಗಳು, ಪ್ರತಿ ಗಳಿಕೆ, ಪ್ರತಿ ಕಡಿತ ಹಾಗೂ ಕೈಗೆ ಸಿಗುವ ಸಂಬಳ (ಉದ್ಯೋಗಿಗೆ ಸಿಗುವ ಮೊತ್ತ) ಇರುತ್ತದೆ.</p>
+      <p>PF (ಭವಿಷ್ಯ ನಿಧಿ, EPF ಎಂದೂ ಕರೆಯುತ್ತಾರೆ) ನಿಮ್ಮ ಸಿಬ್ಬಂದಿಗೆ ಉಳಿತಾಯ ಮತ್ತು ಪಿಂಚಣಿ ನೀಡುತ್ತದೆ. ESI (ಉದ್ಯೋಗಿಗಳ ರಾಜ್ಯ ವಿಮೆ) ನಿಮ್ಮ ಸಿಬ್ಬಂದಿಗೆ ವೈದ್ಯಕೀಯ ಚಿಕಿತ್ಸೆ ಮತ್ತು ಅನಾರೋಗ್ಯದಲ್ಲಿ ಹಣದ ಸಹಾಯ ನೀಡುತ್ತದೆ. ನಿಯಮಗಳು ಉದ್ಯೋಗಿಗೆ ಅನ್ವಯಿಸಿದರೆ, PF ಮತ್ತು ESIಯಲ್ಲಿ ಅವರ ಪಾಲನ್ನು ಅವರ ಸಂಬಳದಿಂದ ಕಡಿತ ಮಾಡಿ, ಸಂಬಳದ ಚೀಟಿಯಲ್ಲಿ ಕಡಿತವಾಗಿ ತೋರಿಸಲಾಗುತ್ತದೆ.</p>
+      <p class="note"><strong>ಗಮನಿಸಿ:</strong> PF ಮತ್ತು ESI ಮೊತ್ತಗಳು ಅಂದಾಜು. {{ site.data.facts.tools_checked_kn }}ರಂದು ನಿಯಮಗಳನ್ನು ಪರಿಶೀಲಿಸಲಾಗಿದೆ.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--surface section--stacked" aria-labelledby="more-heading">
+  <div class="container">
+    <h2 id="more-heading">PF ಮತ್ತು ESI ಬಗ್ಗೆ ಇನ್ನಷ್ಟು ಸಹಾಯ</h2>
+    <div class="card-grid card-grid--panel">
+      {% include tool-card.html key="epf-contribution" %}
+      {% include tool-card.html key="esi-contribution" %}
+    </div>
+    <div class="link-groups link-groups--wide">
+      <div class="link-group">
+        <p class="link-group__label">ನಮ್ಮ ಸೇವೆಗಳು:</p>
+        <ul class="link-list">
+          <li>{% include link.html path="epf-consultancy-service" label="PF ಮಾಸಿಕ ಫೈಲಿಂಗ್" %}</li>
+          <li>{% include link.html path="esi-consultancy-service" label="ESI ಮಾಸಿಕ ಫೈಲಿಂಗ್" %}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% include faq.html items=page.faq schema=true %}
+
+{% include closing-call.html line="ಪ್ರತಿ ತಿಂಗಳು PF ಮತ್ತು ESI ಲೆಕ್ಕ ಹಾಕಲು ಇಷ್ಟವಿಲ್ಲವೇ? ಲೆಕ್ಕ ಹಾಕುವುದು, ಫೈಲ್ ಮಾಡುವುದು ನಮಗೆ ಬಿಡಿ." %}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var CALL = 'ನಮಗೆ ಕರೆ ಮಾಡಿ';
+    initPayslipGenerator({
+      lang: 'kn',
+      text: {
+        earningName: function (n) { return 'ಗಳಿಕೆ ' + n + ': ಹೆಸರು'; },
+        earningAmount: function (n) { return 'ಗಳಿಕೆ ' + n + ': ಮೊತ್ತ (₹)'; },
+        deductionName: function (n) { return 'ಕಡಿತ ' + n + ': ಹೆಸರು'; },
+        deductionAmount: function (n) { return 'ಕಡಿತ ' + n + ': ಮೊತ್ತ (₹)'; },
+        detailName: function (n) { return 'ವಿವರ ' + n + ': ಹೆಸರು'; },
+        detailValue: function (n) { return 'ವಿವರ ' + n + ': ಮಾಹಿತಿ'; },
+        remove: function (name) { return name + ' ತೆಗೆದುಹಾಕಿ'; },
+        unnamed: 'ಈ ಸಾಲು',
+        workedOut: 'ಲೆಕ್ಕ ಹಾಕಲಾಗಿದೆ',
+        needCompany: 'ಕಂಪನಿಯ ಹೆಸರು ಬರೆಯಿರಿ.',
+        needEmployee: 'ಉದ್ಯೋಗಿಯ ಹೆಸರು ಬರೆಯಿರಿ.',
+        needId: 'ಉದ್ಯೋಗಿಯ ID ಬರೆಯಿರಿ.',
+        needMonth: 'ಸಂಬಳದ ತಿಂಗಳು ಆಯ್ಕೆ ಮಾಡಿ.',
+        needEarning: 'ಕನಿಷ್ಠ ಒಂದು ಗಳಿಕೆ ಬರೆಯಿರಿ.',
+        notNegative: '0 ಅಥವಾ ಹೆಚ್ಚು ಬರೆಯಿರಿ.',
+        lopTooMany: 'ಸಂಬಳವಿಲ್ಲದ ದಿನಗಳು ತಿಂಗಳ ದಿನಗಳಿಗಿಂತ ಹೆಚ್ಚಿವೆ.',
+        logoType: 'PNG ಅಥವಾ JPG ಚಿತ್ರ ಆಯ್ಕೆ ಮಾಡಿ.',
+        logoSize: '1 MB ಅಥವಾ ಅದಕ್ಕಿಂತ ಚಿಕ್ಕ ಚಿತ್ರ ಆಯ್ಕೆ ಮಾಡಿ.',
+        checkErrors: 'ಕೆಲವು ವಿವರಗಳು ಬಾಕಿ ಇವೆ. ಮೇಲೆ ಗುರುತಿಸಿರುವ ಜಾಗಗಳನ್ನು ನೋಡಿ.',
+        pfSeptNote: 'ಸೆಪ್ಟೆಂಬರ್ 2026ರ ಸಂಬಳಕ್ಕೆ ಲೆಕ್ಕ ಹಾಕುತ್ತಿದ್ದೀರಾ? ಮೊದಲು CALL. ಆ ತಿಂಗಳಿಗೆ ಯಾವ ಮಿತಿ (₹15,000 ಅಥವಾ ₹25,000) ಬಳಸಬೇಕು ಎಂದು PF ಇಲಾಖೆ ಇನ್ನೂ ತಿಳಿಸಿಲ್ಲ.',
+        esiAboveNote: function (limit) {
+          return 'ESI ವೇತನ ' + limit + 'ಕ್ಕಿಂತ ಹೆಚ್ಚು, ಹಾಗಾಗಿ ESI ಮೊತ್ತವನ್ನು ಖಾಲಿ ಬಿಟ್ಟಿದ್ದೇವೆ. ಈ ಉದ್ಯೋಗಿ ಈಗಾಗಲೇ ESIನಲ್ಲಿ ಇದ್ದು, ಅವಧಿಯ ನಡುವೆ ಅವರ ಸಂಬಳ ಮಿತಿ ದಾಟಿತೇ? ಅವಧಿ ಮುಗಿಯುವವರೆಗೆ (ಸೆಪ್ಟೆಂಬರ್ ಅಥವಾ ಮಾರ್ಚ್ ಕೊನೆ) ಅವರು ESIನಲ್ಲೇ ಇರಬಹುದು. ಪರಿಶೀಲಿಸಲು CALL.';
+        },
+        beforeNote: 'ಈ ಸಾಧನ ಸೆಪ್ಟೆಂಬರ್ 2026ರಿಂದ PF ಮತ್ತು ESI ಲೆಕ್ಕ ಹಾಕುತ್ತದೆ. ಹಿಂದಿನ ತಿಂಗಳುಗಳಿಗೆ ಮೊತ್ತಗಳನ್ನು ನೀವೇ ಬರೆಯಿರಿ, ಅಥವಾ CALL.',
+        pfHalfNote: 'PF ವೇತನ ಒಟ್ಟು ಸಂಬಳದ ಕನಿಷ್ಠ ಅರ್ಧದಷ್ಟು ಇರಬೇಕು. ಅದಕ್ಕಿಂತ ಕಡಿಮೆ ಇದ್ದರೆ, ಕಡಿಮೆ ಇರುವಷ್ಟು ಮೊತ್ತವನ್ನು PF ವೇತನಕ್ಕೆ ಸೇರಿಸಬೇಕು. ಮೇಲಿನ PF ವೇತನವನ್ನು ಪರಿಶೀಲಿಸಿ. ಗೊತ್ತಿಲ್ಲವೇ? CALL.',
+        esiHalfNote: 'ESI ವೇತನ ಒಟ್ಟು ಸಂಬಳದ ಕನಿಷ್ಠ ಅರ್ಧದಷ್ಟು ಇರಬೇಕು. ಅದಕ್ಕಿಂತ ಕಡಿಮೆ ಇದ್ದರೆ, ಕಡಿಮೆ ಇರುವಷ್ಟು ಮೊತ್ತವನ್ನು ESI ವೇತನಕ್ಕೆ ಸೇರಿಸಬೇಕು. ಮೇಲಿನ ESI ವೇತನವನ್ನು ಪರಿಶೀಲಿಸಿ. ಗೊತ್ತಿಲ್ಲವೇ? CALL.',
+        printTitle: function (name, month) { return 'ಸಂಬಳದ ಚೀಟಿ - ' + name + ' - ' + month; },
+        callUs: CALL,
+        callUsStart: CALL
+      },
+      slipText: {
+        kn: {
+          title: 'ಸಂಬಳದ ಚೀಟಿ',
+          companyPlaceholder: 'ಕಂಪನಿಯ ಹೆಸರು',
+          employeeName: 'ಉದ್ಯೋಗಿಯ ಹೆಸರು',
+          employeeId: 'ಉದ್ಯೋಗಿಯ ID',
+          designation: 'ಹುದ್ದೆ',
+          department: 'ವಿಭಾಗ',
+          joined: 'ಕೆಲಸಕ್ಕೆ ಸೇರಿದ ದಿನಾಂಕ',
+          uan: 'UAN',
+          ip: 'ESI IP ಸಂಖ್ಯೆ',
+          pan: 'PAN',
+          bank: 'ಬ್ಯಾಂಕ್ ಖಾತೆ',
+          payDate: 'ಸಂಬಳ ಕೊಟ್ಟ ದಿನಾಂಕ',
+          paidDays: 'ಸಂಬಳ ಸಿಗುವ ದಿನಗಳು',
+          lopDays: 'ಸಂಬಳವಿಲ್ಲದ ದಿನಗಳು (LOP)',
+          earnings: 'ಗಳಿಕೆಗಳು',
+          deductions: 'ಕಡಿತಗಳು',
+          amount: 'ಮೊತ್ತ',
+          gross: 'ಒಟ್ಟು ಗಳಿಕೆ',
+          totalDeductions: 'ಒಟ್ಟು ಕಡಿತ',
+          net: 'ಕೈಗೆ ಸಿಗುವ ಸಂಬಳ',
+          netHint: 'ಒಟ್ಟು ಗಳಿಕೆಯಿಂದ ಒಟ್ಟು ಕಡಿತ ಕಳೆದ ಮೊತ್ತ',
+          words: 'ಕೈಗೆ ಸಿಗುವ ಸಂಬಳ ಅಕ್ಷರಗಳಲ್ಲಿ',
+          none: 'ಇಲ್ಲ',
+          months: ['ಜನವರಿ', 'ಫೆಬ್ರವರಿ', 'ಮಾರ್ಚ್', 'ಏಪ್ರಿಲ್', 'ಮೇ', 'ಜೂನ್', 'ಜುಲೈ', 'ಆಗಸ್ಟ್', 'ಸೆಪ್ಟೆಂಬರ್', 'ಅಕ್ಟೋಬರ್', 'ನವೆಂಬರ್', 'ಡಿಸೆಂಬರ್']
+        }
+      },
+      rowNames: {
+        kn: {
+          basic: 'ಮೂಲ ವೇತನ', da: 'DA (ತುಟ್ಟಿ ಭತ್ಯೆ)', hra: 'HRA (ಮನೆ ಬಾಡಿಗೆ ಭತ್ಯೆ)',
+          special: 'ವಿಶೇಷ ಭತ್ಯೆ', overtime: 'ಓವರ್‌ಟೈಮ್',
+          bonus: 'ಬೋನಸ್', commission: 'ಕಮಿಷನ್', travel: 'ಪ್ರಯಾಣ ಭತ್ಯೆ',
+          pf: 'PF', esi: 'ESI', pt: 'ವೃತ್ತಿ ತೆರಿಗೆ', tds: 'ಆದಾಯ ತೆರಿಗೆ (TDS)', advance: 'ಮುಂಗಡ', loan: 'ಸಾಲ'
+        }
+      }
+    });
+  });
+</script>
