@@ -28,6 +28,7 @@
         <li><a href="#sg-industries">Industry and city links</a></li>
         <li><a href="#sg-tools">Tool cards</a></li>
         <li><a href="#sg-tool-parts">Tool parts (fields, results)</a></li>
+        <li><a href="#sg-payslip">Payslip generator parts</a></li>
         <li><a href="#sg-result">Result call box</a></li>
         <li><a href="#sg-faq">FAQ</a></li>
         <li><a href="#sg-testimonials">Testimonial slot</a></li>
@@ -340,8 +341,41 @@ Home "Who we work with, and where": one section--groups section, an H3 per group
   </div>
 </div>
 
+<div id="sg-payslip" class="sg-component">
+  <div class="container"><p class="sg-component__name">Payslip generator parts</p><p class="sg-note">Only on <code>/payslip-generator</code> (<code>payslip-generator.js</code>). The layout is <code>.tool.tool--split.tool--payslip</code>: the form (<code>ol.tool-steps</code>) on the left, <code>.payslip-side</code> with the live <code>.payslip</code> on the right from 1024px (sticky when the screen is 800px tall or more), and the result call box under both. On phones the payslip comes after the form, with a "See the payslip" arrow link (<code>p.payslip-jump</code>, above the Download button, hidden from 1024px). The sticky sheet is never taller than the screen (it scrolls inside). <strong>Rows</strong> (<code>ul.line-items</code> &gt; <code>li.line-item</code>): name, amount, and a remove button with an accessible name ("Remove Basic pay"). Each input has a visually hidden label, and <code>.line-items-head</code> shows the column names. Below 560px a row takes two lines: the name with the remove button, then the amount under it, on the right. <code>.line-item__tag</code> ("Worked out") marks an amount the tool filled in. A checkbox uses the <code>.radio</code> box (also inside a <code>.field</code>, with its help text). <strong>The payslip</strong> (<code>.payslip</code>) is a plain sheet: a head with a green line, a details list, earnings and deductions tables side by side when there is room, and net pay on tint. The head keeps the company on the left and the month on the right; a long name or address wraps. <strong>Print:</strong> on this page only the payslip prints (A4, no page margin so the browser adds no title or URL; the sheet has 14mm padding), and the PDF is named "Payslip - name - month".</p>
+  <pre class="sg-code"><code>&lt;ul class="line-items"&gt;&lt;li class="line-item"&gt;&lt;label class="visually-hidden"&gt;…&lt;/label&gt;&lt;input type="text" class="line-item__name"&gt;
+  &lt;label class="visually-hidden"&gt;…&lt;/label&gt;&lt;input type="number" class="line-item__value"&gt;&lt;button class="line-item__remove" aria-label="Remove …"&gt;[icon]&lt;/button&gt;
+  &lt;p class="line-item__tag"&gt;Worked out&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;
+&lt;div class="payslip"&gt;&lt;div class="payslip__head"&gt;…&lt;/div&gt;&lt;dl class="payslip__details"&gt;…&lt;/dl&gt;&lt;div class="payslip__tables"&gt;&lt;table class="payslip__table"&gt;…&lt;/table&gt;…&lt;/div&gt;
+  &lt;div class="payslip__net"&gt;…&lt;/div&gt;&lt;p class="payslip__words"&gt;…&lt;/p&gt;&lt;/div&gt;</code></pre>
+  <div class="sg-demo tool tool--split tool--payslip">
+    <form class="tool-form" onsubmit="return false">
+      <div class="line-items-head" aria-hidden="true"><span>Name</span><span>₹ a month</span></div>
+      <ul class="line-items">
+        <li class="line-item"><label class="visually-hidden" for="sg-li1">Deduction 1: name</label><input type="text" class="line-item__name" id="sg-li1" value="PF"><label class="visually-hidden" for="sg-li1v">Deduction 1: amount (₹)</label><input type="number" class="line-item__value" id="sg-li1v" value="1440"><button type="button" class="line-item__remove" aria-label="Remove PF">{% include icon.html name="close" size="20" %}</button><p class="line-item__tag">Worked out</p></li>
+        <li class="line-item"><label class="visually-hidden" for="sg-li2">Deduction 2: name</label><input type="text" class="line-item__name" id="sg-li2" value="Professional tax"><label class="visually-hidden" for="sg-li2v">Deduction 2: amount (₹)</label><input type="number" class="line-item__value" id="sg-li2v" value="200"><button type="button" class="line-item__remove" aria-label="Remove Professional tax">{% include icon.html name="close" size="20" %}</button></li>
+      </ul>
+      <p><button type="button" class="btn-link">Add a deduction</button></p>
+      <div class="field"><label class="radio"><input type="checkbox" checked> Work out PF and ESI for me</label><p class="field__help">We fill in the employee's PF and ESI from their wages.</p></div>
+    </form>
+    <div class="payslip-side">
+      <div class="payslip" role="region" aria-label="Sample payslip" tabindex="0">
+        <div class="payslip__head"><div class="payslip__company"><div><p class="payslip__name">Test Traders</p><p class="payslip__address">Kankanady, Mangaluru 575002</p></div></div><p class="payslip__title"><span>Payslip for</span> <strong>October 2026</strong></p></div>
+        <dl class="payslip__details"><div><dt>Employee name</dt><dd>Asha Rao</dd></div><div><dt>Employee ID</dt><dd>E-104</dd></div><div><dt>Paid days</dt><dd>30</dd></div></dl>
+        <div class="payslip__tables">
+          <table class="payslip__table"><thead><tr><th scope="col">Earnings</th><th scope="col">Amount</th></tr></thead><tbody><tr><th scope="row">Basic pay</th><td>₹12,000.00</td></tr><tr><th scope="row">HRA (house rent allowance)</th><td>₹4,800.00</td></tr></tbody><tfoot><tr><th scope="row">Gross earnings</th><td>₹16,800.00</td></tr></tfoot></table>
+          <table class="payslip__table"><thead><tr><th scope="col">Deductions</th><th scope="col">Amount</th></tr></thead><tbody><tr><th scope="row">PF</th><td>₹1,440.00</td></tr><tr><th scope="row">Professional tax</th><td>₹200.00</td></tr></tbody><tfoot><tr><th scope="row">Total deductions</th><td>₹1,640.00</td></tr></tfoot></table>
+        </div>
+        <div class="payslip__net"><p><span class="payslip__net-label">Net pay</span><span class="payslip__net-hint">Gross earnings minus total deductions</span></p><p class="payslip__net-amount">₹15,160.00</p></div>
+        <p class="payslip__words"><span>Net pay in words:</span> Rupees Fifteen Thousand One Hundred Sixty Only</p>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
 <div id="sg-result" class="sg-component">
-  <div class="container"><p class="sg-component__name">Result call box</p><p class="sg-note">Static HTML placed right after a tool's result container (decision D4). Sand, like every call panel. The line, the call button and the compact proof line; no filing promise (the closing call on the same page carries it). One line per tool: <code>eligibility</code>, <code>penalty</code>, <code>contribution</code>, <code>converter</code>. Blog posts pass their own <code>line=</code> instead (the mid-post call box).</p>
+  <div class="container"><p class="sg-component__name">Result call box</p><p class="sg-note">Static HTML placed right after a tool's result container (decision D4). Sand, like every call panel. The line, the call button and the compact proof line; no filing promise (the closing call on the same page carries it). One line per tool: <code>eligibility</code>, <code>penalty</code>, <code>contribution</code>, <code>converter</code>, <code>payslip</code>. Blog posts pass their own <code>line=</code> instead (the mid-post call box).</p>
   <pre class="sg-code"><code>{% raw %}{% include result-call.html tool="contribution" %}
 {% include result-call.html line="Just reached 20 staff? Call us." %}{% endraw %}</code></pre>
   <div class="sg-demo" lang="{{ lang }}">{% include result-call.html tool="contribution" %}</div></div>
