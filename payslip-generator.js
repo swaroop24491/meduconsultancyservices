@@ -185,7 +185,6 @@
     workedOut: 'Worked out',
     needCompany: 'Enter the company name.',
     needEmployee: "Enter the employee's name.",
-    needId: "Enter the employee's ID.",
     needMonth: 'Choose the pay month.',
     needEarning: 'Enter at least one earning.',
     notNegative: 'Enter 0 or more.',
@@ -537,8 +536,8 @@
         [S.bank, els.bank.value.trim()]
       ];
       readRows(els.details).forEach(function (r) { if (r.name || r.value) details.push([r.name || '-', r.value]); });
-      // Name and ID always show (as a gap to fill); the rest only when filled in.
-      details = details.filter(function (d, i) { return i < 2 || d[1]; });
+      // Name always shows (as a gap to fill); the rest only when filled in.
+      details = details.filter(function (d, i) { return i < 1 || d[1]; });
 
       var html =
         '<div class="payslip__head">' +
@@ -600,7 +599,6 @@
       req(els.company, T.needCompany);
       req(els.month, T.needMonth);
       req(els.name, T.needEmployee);
-      req(els.id, T.needId);
 
       var lopBad = num(els.lop) < 0 ? T.notNegative
         : els.month.value && num(els.lop) > daysInMonth(els.month.value) ? T.lopTooMany : '';
