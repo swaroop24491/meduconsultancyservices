@@ -38,7 +38,7 @@
 {%- if page.tool -%}
 ,{"@type":"WebApplication","@id":"{{ page_url }}#app","name":{{ page.tool.name | jsonify }},"description":{{ page.description | jsonify }},"url":"{{ page_url }}","applicationCategory":"BusinessApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"inLanguage":"{% if lang == 'kn' %}kn-IN{% else %}en-IN{% endif %}","provider":{"@id":"{{ biz }}"}}
 {%- endif -%}
-{%- if page.page_type == "about" or page.page_type == "home" or page.page_type == "contact" -%}
+{%- if page.page_type == "about" or page.page_type == "home" or page.page_type == "contact" or page.full_business -%}
 ,{"@type":"Person","@id":"{{ site_url }}/#founder","name":"{{ site.data.site.founder }}"}
 {%- endif -%}
 {%- if page.page_type == "post" -%}
