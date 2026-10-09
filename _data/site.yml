@@ -20,6 +20,11 @@ geo: { lat: 12.870844, lng: 74.8834522 }
 # "Medu Consultancy (PF & ESI Consultants)", Padil, Mangaluru.
 gbp_url: "https://maps.google.com/?cid=15926849928148429817"
 map_url: "https://maps.google.com/?cid=15926849928148429817"
+# Bengaluru Google Business Profile (owner share link https://share.google/e4TEePbiUfWFBscvv,
+# resolved 2026-10-09): "Medu Consultancy", no street address shown; a different profile from
+# Mangaluru. Data only: not output in markup until a Bengaluru phone number exists (round two).
+bengaluru:
+  gbp_url: "https://maps.google.com/?cid=17307362169862021557"
 # Loaded only after the visitor taps "Show the map" (map-tap.html)
 map_embed_url: "https://maps.google.com/maps?q=12.870844,74.8834522&z=17&output=embed"
 founder: Medu Thirumaleshwara Bhat
