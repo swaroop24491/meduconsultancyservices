@@ -1,0 +1,228 @@
+---
+layout: base
+lang: en
+page_type: tool
+last_modified: 2026-10-09
+title: "Free Payslip Generator (Salary Slip) | Medu Consultancy"
+description: "Make a payslip for your employee in minutes and save it as a PDF. Free, no sign-up, and nothing you type leaves your computer."
+scripts: [/payslip-generator.js]
+tool: { name: Payslip generator }
+breadcrumb:
+  - { name: Free tools, path: epf-esi-tools-calculators }
+  - { name: Payslip generator }
+faq:
+  - q: Is this free?
+    a: Yes. You don't need to sign up or log in.
+  - q: Do you save what I type?
+    a: 'No. The payslip is made in your browser. Nothing is sent to us. If you tick "Remember the company details", only the company details are kept, on your own computer.'
+  - q: Does it work out PF and ESI?
+    a: 'Yes, if you turn on "Work out PF and ESI for me". It gives a close estimate. Not sure if PF or ESI applies? <a href="tel:+918217542975" data-call-location="faq">Call us</a>.'
+  - q: How do I save it as a PDF?
+    a: 'Press "Download PDF". Your browser''s print window opens. Choose "Save as PDF" as the printer.'
+  - q: Can I make payslips for several employees?
+    a: 'Yes. After one payslip, press "Start the next employee". The company details and the names of earnings and deductions stay.'
+---
+{%- assign tel = site.data.site.phone_tel -%}
+<section class="section section--stacked tool-section" aria-labelledby="tool-heading">
+  <div class="container">
+    <h1 id="tool-heading">Payslip generator</h1>
+    <p class="tool-lead">Make a payslip (salary slip) for an employee. Fill in the details and the payslip fills in as you type. Then save it as a PDF. Nothing you type leaves your computer.</p>
+
+    <div class="tool tool--split tool--payslip">
+      <form id="payslip-form" class="tool-form" novalidate aria-labelledby="make-heading" data-tel="tel:{{ tel }}">
+        <h2 id="make-heading" class="visually-hidden">Make the payslip</h2>
+        <ol class="tool-steps">
+          <li>
+            <h3>Company</h3>
+            <div class="field">
+              <label for="ps-company">Company name</label>
+              <input type="text" id="ps-company" autocomplete="organization" aria-describedby="ps-company-error">
+              <p class="field__error" id="ps-company-error" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="ps-address">Address</label>
+              <input type="text" id="ps-address" autocomplete="street-address">
+            </div>
+            <div class="field">
+              <label for="ps-logo">Logo (PNG or JPG, up to 1 MB)</label>
+              <input type="file" id="ps-logo" accept="image/png,image/jpeg" aria-describedby="ps-logo-error">
+              <p class="field__error" id="ps-logo-error" aria-live="polite"></p>
+              <p><button type="button" class="btn-link" id="ps-logo-remove" hidden>Remove the logo</button></p>
+            </div>
+          </li>
+          <li>
+            <h3>Employee</h3>
+            <div class="field">
+              <label for="ps-month">Pay month</label>
+              <input type="month" id="ps-month" aria-describedby="ps-month-error">
+              <p class="field__error" id="ps-month-error" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="ps-name">Employee name</label>
+              <input type="text" id="ps-name" autocomplete="off" aria-describedby="ps-name-error">
+              <p class="field__error" id="ps-name-error" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="ps-id">Employee ID</label>
+              <input type="text" id="ps-id" autocomplete="off" aria-describedby="ps-id-error">
+              <p class="field__error" id="ps-id-error" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="ps-pay-date">Pay date</label>
+              <input type="date" id="ps-pay-date">
+            </div>
+            <div class="field">
+              <label for="ps-lop">Days without pay (LOP)</label>
+              <input type="number" id="ps-lop" inputmode="decimal" min="0" step="0.5" value="0" aria-describedby="ps-paid-help ps-lop-error">
+              <p class="field__help field__output" id="ps-paid-help">Paid days: <output id="ps-paid-out" for="ps-month ps-lop"></output></p>
+              <p class="field__error" id="ps-lop-error" aria-live="polite"></p>
+              <p><button type="button" class="btn-link" id="ps-paid-change">Change paid days</button></p>
+            </div>
+            <div class="field" id="ps-paid-field" hidden>
+              <label for="ps-paid">Paid days</label>
+              <input type="number" id="ps-paid" inputmode="decimal" min="0" step="0.5">
+            </div>
+            <details class="field-more">
+              <summary>More (optional)</summary>
+              <div class="tool-form">
+                <div class="field"><label for="ps-designation">Designation</label><input type="text" id="ps-designation" autocomplete="off"></div>
+                <div class="field"><label for="ps-department">Department</label><input type="text" id="ps-department" autocomplete="off"></div>
+                <div class="field"><label for="ps-joined">Date of joining</label><input type="date" id="ps-joined"></div>
+                <div class="field"><label for="ps-uan">UAN</label><input type="text" id="ps-uan" inputmode="numeric" autocomplete="off"></div>
+                <div class="field"><label for="ps-ip">ESI IP number</label><input type="text" id="ps-ip" inputmode="numeric" autocomplete="off"></div>
+                <div class="field"><label for="ps-pan">PAN</label><input type="text" id="ps-pan" autocomplete="off" autocapitalize="characters"></div>
+                <div class="field"><label for="ps-bank">Bank account</label><input type="text" id="ps-bank" autocomplete="off"></div>
+                <ul class="line-items" id="ps-details"></ul>
+                <p><button type="button" class="btn-link" id="ps-add-detail">Add your own detail</button></p>
+              </div>
+            </details>
+          </li>
+          <li>
+            <h3>Earnings</h3>
+            <div class="line-items-head" aria-hidden="true"><span>Name</span><span>₹ a month</span></div>
+            <ul class="line-items" id="ps-earnings"></ul>
+            <p><button type="button" class="btn-link" id="ps-add-earning">Add an earning</button></p>
+            <datalist id="ps-earning-names">
+              <option value="Basic pay"></option>
+              <option value="DA (dearness allowance)"></option>
+              <option value="HRA (house rent allowance)"></option>
+              <option value="Special allowance"></option>
+              <option value="Overtime"></option>
+              <option value="Bonus"></option>
+            </datalist>
+          </li>
+          <li>
+            <h3>Deductions</h3>
+            <div class="field">
+              <label class="radio"><input type="checkbox" id="ps-auto" aria-describedby="ps-auto-help"> Work out PF and ESI for me</label>
+              <p class="field__help" id="ps-auto-help">We fill in the employee's PF and ESI from their wages. You can still change the amounts.</p>
+            </div>
+            <div class="tool-form" id="ps-auto-fields" hidden>
+              <div class="field">
+                <label for="ps-pf-wages">PF wages (₹ a month)</label>
+                <input type="number" id="ps-pf-wages" inputmode="decimal" min="0" step="0.01" aria-describedby="ps-pf-wages-help">
+                <p class="field__help" id="ps-pf-wages-help">PF wages are basic pay plus DA (dearness allowance), not the full salary. Are other allowances, like HRA (house rent allowance), more than half the salary? Then add the amount above half to PF wages. Not sure? <a href="tel:{{ tel }}" data-call-location="inline">Call us</a>.</p>
+              </div>
+              <fieldset class="field">
+                <legend>PF rate</legend>
+                <div class="field__options">
+                  <label class="radio"><input type="radio" name="ps-pf-rate" value="12" checked> 12% (most businesses)</label>
+                  <label class="radio"><input type="radio" name="ps-pf-rate" value="10"> 10% (only some businesses)</label>
+                </div>
+                <p class="field__help">The 10% rate is only for some businesses the government has named. Most businesses pay 12%.</p>
+              </fieldset>
+              <fieldset class="field" id="ps-pf-full-field" hidden>
+                <legend>PF wages are above ₹25,000. For an employee in PF, take PF on:</legend>
+                <div class="field__options">
+                  <label class="radio"><input type="radio" name="ps-pf-base" value="cap" checked> ₹25,000 (the minimum)</label>
+                  <label class="radio"><input type="radio" name="ps-pf-base" value="full"> the full PF wages (if you both agree in writing)</label>
+                </div>
+              </fieldset>
+              <div class="field">
+                <label for="ps-esi-wages">ESI wages (₹ a month)</label>
+                <input type="number" id="ps-esi-wages" inputmode="decimal" min="0" step="0.01" aria-describedby="ps-esi-wages-help">
+                <p class="field__help" id="ps-esi-wages-help">ESI wages are the month's pay minus HRA (house rent allowance), overtime, bonus, commission and travel allowance. Are these items more than half the pay? Then add the amount above half to ESI wages. Not sure? <a href="tel:{{ tel }}" data-call-location="inline">Call us</a>.</p>
+              </div>
+              <label class="radio"><input type="checkbox" id="ps-pwd"> This employee is a person with a disability</label>
+              <div id="ps-auto-notes"></div>
+            </div>
+            <div class="line-items-head" aria-hidden="true"><span>Name</span><span>₹ a month</span></div>
+            <ul class="line-items" id="ps-deductions"></ul>
+            <p><button type="button" class="btn-link" id="ps-add-deduction">Add a deduction</button></p>
+            <datalist id="ps-deduction-names">
+              <option value="PF"></option>
+              <option value="ESI"></option>
+              <option value="Professional tax"></option>
+              <option value="Income tax (TDS)"></option>
+              <option value="Advance"></option>
+              <option value="Loan"></option>
+            </datalist>
+          </li>
+          <li>
+            <h3>Save the payslip</h3>
+            <div class="field">
+              <label class="radio"><input type="checkbox" id="ps-remember" checked aria-describedby="ps-remember-help"> Remember the company details on this computer</label>
+              <p class="field__help" id="ps-remember-help">Only the company name, address, logo and the names of earnings and deductions are kept. Never the employee's details or amounts.</p>
+            </div>
+            <p class="payslip-jump"><a class="link-arrow" href="#payslip">See the payslip&#8288;{% include icon.html name="arrow" size="18" %}</a></p>
+            <div class="field">
+              <button type="button" class="btn btn--outline" id="ps-download" aria-describedby="ps-download-help">Download PDF</button>
+              <p class="field__help" id="ps-download-help">Your browser's print window opens. Choose "Save as PDF".</p>
+            </div>
+            <p class="tool-status tool-status--error" id="ps-status" role="status"></p>
+            <p><button type="button" class="btn-link" id="ps-next">Start the next employee</button></p>
+            <p><button type="button" class="btn-link" id="ps-clear">Clear all</button></p>
+          </li>
+        </ol>
+        <template id="ps-icon-remove">{% include icon.html name="close" size="20" %}</template>
+      </form>
+
+      <div class="payslip-side">
+        <h2 class="visually-hidden" id="payslip-heading">Payslip preview</h2>
+        <div class="payslip" id="payslip" role="region" aria-labelledby="payslip-heading" tabindex="0"></div>
+      </div>
+
+      {% include result-call.html tool="payslip" %}
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="shows-heading">
+  <div class="container">
+    <div class="prose">
+      <h2 id="shows-heading">What a payslip shows</h2>
+      <p>A payslip usually shows the company's name, the employee's name and ID, the month, the paid days, each earning and each deduction, and the net pay (what the employee gets).</p>
+      <p>PF (Provident Fund, also called EPF) gives your staff savings and a pension. ESI (Employees' State Insurance) gives your staff medical care and sick pay. If the rules cover an employee, their share of PF and ESI is taken from their salary and shown as a deduction.</p>
+      <p class="note"><strong>Note:</strong> The PF and ESI amounts are an estimate. Checked against the rules as of {{ site.data.facts.tools_checked }}.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--surface section--stacked" aria-labelledby="more-heading">
+  <div class="container">
+    <h2 id="more-heading">More help with PF and ESI</h2>
+    <div class="card-grid card-grid--panel">
+      {% include tool-card.html key="epf-contribution" %}
+      {% include tool-card.html key="esi-contribution" %}
+    </div>
+    <div class="link-groups link-groups--wide">
+      <div class="link-group">
+        <p class="link-group__label">Our services:</p>
+        <ul class="link-list">
+          <li><a class="link-arrow" href="/epf-consultancy-service">PF monthly filing&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+          <li><a class="link-arrow" href="/esi-consultancy-service">ESI monthly filing&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% include faq.html items=page.faq schema=true %}
+
+{% include closing-call.html line="Rather not work out PF and ESI every month? We'll do it and file it." %}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    initPayslipGenerator({ lang: 'en' });
+  });
+</script>

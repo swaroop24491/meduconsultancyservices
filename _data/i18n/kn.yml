@@ -144,6 +144,7 @@ tools:
   - { key: epf-contribution, path: epf-contribution-calculator, icon: calculator, name: PF ವಂತಿಗೆ ಲೆಕ್ಕಾಚಾರ, text: "ಪ್ರತಿ ತಿಂಗಳು ನೀವು ಮತ್ತು ನಿಮ್ಮ ಉದ್ಯೋಗಿ ಎಷ್ಟು PF ಕಟ್ಟಬೇಕು?" }
   - { key: esi-contribution, path: esi-contribution-calculator, icon: calculator, name: ESI ವಂತಿಗೆ ಲೆಕ್ಕಾಚಾರ, text: "ಪ್ರತಿ ತಿಂಗಳು ನೀವು ಮತ್ತು ನಿಮ್ಮ ಉದ್ಯೋಗಿ ಎಷ್ಟು ESI ಕಟ್ಟಬೇಕು?" }
   - { key: converter, path: epf-excel-to-text-converter, icon: file, name: EPF ಎಕ್ಸೆಲ್‌ನಿಂದ ಟೆಕ್ಸ್ಟ್ ಪರಿವರ್ತಕ, text: "ನಿಮ್ಮ ECR (ಸಂಬಳ ಮತ್ತು PFನ ಮಾಸಿಕ ಪಟ್ಟಿ) ಎಕ್ಸೆಲ್ ಶೀಟ್ ಅನ್ನು PF ಇಲಾಖೆಗೆ (EPFO) ಬೇಕಾದ ಟೆಕ್ಸ್ಟ್ ಫೈಲ್ ಆಗಿ ಬದಲಿಸಿ." }
+  - { key: payslip, path: payslip-generator, icon: receipt, name: ಸಂಬಳದ ಚೀಟಿ ತಯಾರಕ, text: "ಉದ್ಯೋಗಿಗೆ ಸಂಬಳದ ಚೀಟಿ (ಪೇಸ್ಲಿಪ್) ಮಾಡಿ, PDF ಆಗಿ ಉಳಿಸಿ. PF ಮತ್ತು ESIಯನ್ನು ನಿಮಗಾಗಿ ಲೆಕ್ಕ ಹಾಕಬಹುದು." }
 
 faq_heading: ಸಾಮಾನ್ಯ ಪ್ರಶ್ನೆಗಳು
 
@@ -155,6 +156,7 @@ result_call:
   penalty: ಹಿಂದೆ ತಡವಾಗಿ ಕಟ್ಟಿದ್ದೀರಾ? ಮತ್ತೆ ಹೀಗಾಗದಂತೆ ಪ್ರತಿ ತಿಂಗಳು ನಾವು ಫೈಲ್ ಮಾಡಬಹುದು.
   contribution: ಇದನ್ನು ಪ್ರತಿ ತಿಂಗಳು ಲೆಕ್ಕ ಹಾಕಿ ನಾವೇ ಫೈಲ್ ಮಾಡಬೇಕೆ?
   converter: ಪ್ರತಿ ತಿಂಗಳು ನೀವೇ ಫೈಲ್ ಮಾಡುತ್ತಿದ್ದೀರಾ? ಅದನ್ನು ನಾವು ನಿಮಗಾಗಿ ಮಾಡಬಹುದು.
+  payslip: ಪ್ರತಿ ತಿಂಗಳು ಸಂಬಳದ ಚೀಟಿ ಮಾಡುತ್ತೀರಾ? PF ಮತ್ತು ESIಯನ್ನು ನಾವು ನಿಮಗಾಗಿ ಫೈಲ್ ಮಾಡಬಹುದು.
 
 closing_call:
   default: ನಿಮ್ಮ ವ್ಯಾಪಾರದ ಬಗ್ಗೆ ತಿಳಿಸಿ. PF ಮತ್ತು ESI ನಿಮಗೆ ಅನ್ವಯಿಸುತ್ತದೆಯೇ ಎಂದು ನಾವು ಹೇಳುತ್ತೇವೆ.

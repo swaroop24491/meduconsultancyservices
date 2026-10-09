@@ -142,6 +142,7 @@ tools:
   - { key: epf-contribution, path: epf-contribution-calculator, icon: calculator, name: PF contribution calculator, text: How much PF do you and your employee pay each month? }
   - { key: esi-contribution, path: esi-contribution-calculator, icon: calculator, name: ESI contribution calculator, text: How much ESI do you and your employee pay each month? }
   - { key: converter, path: epf-excel-to-text-converter, icon: file, name: EPF Excel to Text converter, text: "Turn your ECR Excel sheet (the monthly list of wages and PF) into the text file the PF office (EPFO) needs." }
+  - { key: payslip, path: payslip-generator, icon: receipt, name: Payslip generator, text: "Make a payslip for an employee and save it as a PDF. PF and ESI can be worked out for you." }
 
 faq_heading: Common questions
 
@@ -153,6 +154,7 @@ result_call:
   penalty: Paid late before? We can file every month, so it doesn't happen again.
   contribution: Want us to work this out and file it every month?
   converter: Filing every month yourself? We can do it for you.
+  payslip: Making payslips every month? We can file PF and ESI for you.
 
 closing_call:
   default: Tell us about your business. We'll tell you if PF and ESI apply.
