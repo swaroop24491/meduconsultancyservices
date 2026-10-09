@@ -15,8 +15,10 @@ address:
   country: IN
 # From the Google Maps listing (contact page map)
 geo: { lat: 12.870844, lng: 74.8834522 }
-# Google Business Profile (owner, 2026-09-27); schema sameAs
-gbp_url: "https://share.google/qQhAjjQsb4Db5PmFQ"
+# Google Business Profile, Mangaluru (owner, 2026-09-27); schema sameAs. Stable Maps URL
+# (the share.google short link redirects to a search page). Checked 2026-10-09: this cid is
+# "Medu Consultancy (PF & ESI Consultants)", Padil, Mangaluru.
+gbp_url: "https://maps.google.com/?cid=15926849928148429817"
 map_url: "https://maps.google.com/?cid=15926849928148429817"
 # Loaded only after the visitor taps "Show the map" (map-tap.html)
 map_embed_url: "https://maps.google.com/maps?q=12.870844,74.8834522&z=17&output=embed"
