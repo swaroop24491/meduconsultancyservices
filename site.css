@@ -929,9 +929,10 @@ main > .guide-article { padding-top: 0; border-top-color: transparent; }
     font-weight: var(--weight-semibold);
     cursor: pointer;
 }
-/* Date field in dd/mm/yyyy (script.js builds it from each <input type="date">):
-   a text field with a calendar button inside; the native date input stays
-   hidden under it, holding the value the tool scripts read. */
+/* Date field in dd/mm/yyyy and month field in mm/yyyy (script.js builds them
+   from each <input type="date"> and <input type="month">): a text field with
+   a calendar button inside; the native input stays hidden under it, holding
+   the value the tool scripts read. The calendar (.date-pop) opens under it. */
 .date-input { position: relative; display: block; }
 .field .date-input input[type="text"] { padding-right: calc(var(--tap-link) + var(--space-2)); }
 .date-input__pick {
@@ -964,6 +965,85 @@ main > .guide-article { padding-top: 0; border-top-color: transparent; }
     opacity: 0;
     pointer-events: none;
 }
+/* The calendar: a white panel under the field, at least 280px wide so seven
+   day columns fit on a 320px phone. Dates use Cally (styled through its
+   ::part()s), months a 3 x 4 grid of our own. Chosen = green, today = green
+   ring, focus = the site's focus ring. */
+.date-pop {
+    position: absolute;
+    top: calc(100% + var(--space-1));
+    left: 0;
+    z-index: 20;
+    width: max(100%, 17.5rem);
+    max-width: 22rem;
+    padding: var(--space-3);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    background: var(--color-surface);
+    box-shadow: var(--shadow-card);
+}
+.date-pop[hidden] { display: none; }
+.date-pop calendar-date, .date-pop calendar-month { display: block; width: 100%; }
+.date-pop calendar-date::part(container) { gap: var(--space-2); }
+.date-pop calendar-date::part(button), .date-pop__nav {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--tap-link);
+    height: var(--tap-link);
+    padding: 0;
+    border: 0;
+    border-radius: var(--radius-sm);
+    background: none;
+    color: var(--color-brand);
+    cursor: pointer;
+}
+.date-pop calendar-date::part(button):hover, .date-pop__nav:hover { background: var(--color-tint); }
+.date-pop calendar-date::part(button):focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+.date-pop__selects { display: flex; justify-content: center; gap: var(--space-1); }
+.date-pop calendar-select-month::part(label), .date-pop calendar-select-year::part(label) {
+    position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
+}
+.date-pop calendar-select-month::part(select), .date-pop calendar-select-year::part(select) {
+    min-height: var(--tap-link);
+    padding: 0 var(--space-2);
+    border: 1px solid var(--color-border-strong);
+    border-radius: var(--radius-sm);
+    background: var(--color-surface);
+    color: var(--color-heading);
+    font: inherit;
+    font-weight: var(--weight-medium);
+    cursor: pointer;
+}
+.date-pop calendar-select-month::part(select):hover, .date-pop calendar-select-year::part(select):hover { border-color: var(--color-brand); }
+.date-pop calendar-select-month::part(select):focus-visible, .date-pop calendar-select-year::part(select):focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+.date-pop calendar-month { --color-accent: var(--color-brand); --color-text-on-accent: var(--color-on-brand); color: var(--color-text); }
+.date-pop calendar-month::part(heading) { display: none; }
+.date-pop calendar-month::part(table) { width: 100%; table-layout: fixed; font-size: var(--text-sm); }
+.date-pop calendar-month::part(th) { height: var(--space-6); font-weight: var(--weight-medium); color: var(--color-text-muted); }
+.date-pop calendar-month::part(day) { width: 100%; height: var(--tap-link); border-radius: var(--radius-sm); font-family: inherit; }
+.date-pop calendar-month::part(day):hover { background: var(--color-tint); }
+.date-pop calendar-month::part(today) { box-shadow: inset 0 0 0 1px var(--color-brand); font-weight: var(--weight-semibold); }
+.date-pop calendar-month::part(selected) { background: var(--color-brand); color: var(--color-on-brand); }
+.date-pop calendar-month::part(day):focus-visible { outline: 3px solid var(--color-focus); outline-offset: 0; background: none; color: var(--color-text); }
+.date-pop calendar-month::part(selected):focus-visible { background: var(--color-brand); color: var(--color-on-brand); }
+.date-pop__head { display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--space-2); }
+.date-pop__heading { margin: 0; font-weight: var(--weight-medium); color: var(--color-heading); }
+.month-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-1); }
+.month-grid__month {
+    min-height: var(--tap-min);
+    padding: 0;
+    border: 0;
+    border-radius: var(--radius-sm);
+    background: none;
+    color: var(--color-text);
+    font: inherit;
+    cursor: pointer;
+}
+.month-grid__month:hover { background: var(--color-tint); }
+@media (max-width: 359px) { .month-grid__month { font-size: var(--text-sm); } }  /* "September" fits at 320px */
+.month-grid__month[aria-current="date"] { box-shadow: inset 0 0 0 1px var(--color-brand); font-weight: var(--weight-semibold); }
+.month-grid__month[aria-pressed="true"] { background: var(--color-brand); color: var(--color-on-brand); }
 /* A value the tool works out as you type (e.g. the due date), shown as text, not a box */
 .field__output:has(output:empty) { display: none; }
 .field__output output { font-weight: var(--weight-medium); color: var(--color-heading); }

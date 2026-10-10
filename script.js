@@ -286,70 +286,225 @@
   });
 
   /* -------------------------------------------------------------------------
-     Date/month inputs
-     - native browsers only open the calendar popup when the tiny icon is
-       clicked; clicking the rest of the field just places a text caret.
-       Make the whole field open the picker, since that's what people expect.
-     ------------------------------------------------------------------------- */
-  document.querySelectorAll('input[type="month"]').forEach(function (input) {
-    if (!input.showPicker) {
-      return;
-    }
-    input.addEventListener('click', function () {
-      try {
-        input.showPicker();
-      } catch (err) {
-        /* showPicker() throws if the input is disabled/readonly - ignore. */
-      }
-    });
-  });
-
-  /* -------------------------------------------------------------------------
-     Date inputs in Indian format (dd/mm/yyyy)
-     - a native <input type="date"> shows the browser's own format (mm/dd/yyyy
-       in a US browser), and the page can't change that. So each one becomes
-       a dd/mm/yyyy text field with a calendar button (.date-input).
+     Date and month fields in Indian format (dd/mm/yyyy, mm/yyyy)
+     - a native <input type="date"> or "month" shows the browser's own format
+       (mm/dd/yyyy in a US browser) and its own calendar, which the page can't
+       style or put in Kannada (and Safari and Firefox on computers have no
+       month calendar). So each one becomes a text field with a calendar
+       button (.date-input).
      - the native input stays in the page, hidden, and keeps its id and its
-       "YYYY-MM-DD" value, so the tool scripts read it as before. The text
-       field writes to it; the calendar (showPicker, opened by clicking the
-       field or its button) and scripts that set .value write back to the
-       text field. aria-invalid set on the native input shows on the text
-       field, and focusing it focuses the text field.
+       "YYYY-MM-DD" / "YYYY-MM" value, so the tool scripts read it as before.
+       Typing or picking sets it and fires input and change on it; scripts
+       that set .value update the text field. aria-invalid set on the native
+       input shows on the text field, and focusing it focuses the text field.
+     - the calendar (.date-pop) opens under the field from the button (focus
+       moves into it) or a click on the field (focus stays, typing still
+       works). Dates use Cally (/assets/cally-0.9.2.js, MIT; month and day
+       names from the browser in English or Kannada); months use our own
+       12-month grid. Esc, a click outside or tabbing away closes it.
      ------------------------------------------------------------------------- */
   var isKn = document.documentElement.lang === 'kn';
+  var LOCALE = isKn ? 'kn-IN' : 'en-IN';
   var DATE_TEXT = {
-    format: isKn ? 'ದಿನ/ತಿಂಗಳು/ವರ್ಷ (dd/mm/yyyy) ರೀತಿಯಲ್ಲಿ ಬರೆಯಿರಿ.' : 'Write it as dd/mm/yyyy.',
-    pick: isKn ? 'ಕ್ಯಾಲೆಂಡರ್‌ನಲ್ಲಿ ದಿನಾಂಕ ಆಯ್ಕೆ ಮಾಡಿ' : 'Choose a date on the calendar'
+    dateFormat: isKn ? 'ದಿನ/ತಿಂಗಳು/ವರ್ಷ (dd/mm/yyyy) ರೀತಿಯಲ್ಲಿ ಬರೆಯಿರಿ.' : 'Write it as dd/mm/yyyy.',
+    monthFormat: isKn ? 'ತಿಂಗಳು/ವರ್ಷ (mm/yyyy) ರೀತಿಯಲ್ಲಿ ಬರೆಯಿರಿ.' : 'Write it as mm/yyyy.',
+    pickDate: isKn ? 'ಕ್ಯಾಲೆಂಡರ್‌ನಲ್ಲಿ ದಿನಾಂಕ ಆಯ್ಕೆ ಮಾಡಿ' : 'Choose a date on the calendar',
+    pickMonth: isKn ? 'ಕ್ಯಾಲೆಂಡರ್‌ನಲ್ಲಿ ತಿಂಗಳು ಆಯ್ಕೆ ಮಾಡಿ' : 'Choose a month on the calendar',
+    prevMonth: isKn ? 'ಹಿಂದಿನ ತಿಂಗಳು' : 'Previous month',
+    nextMonth: isKn ? 'ಮುಂದಿನ ತಿಂಗಳು' : 'Next month',
+    prevYear: isKn ? 'ಹಿಂದಿನ ವರ್ಷ' : 'Previous year',
+    nextYear: isKn ? 'ಮುಂದಿನ ವರ್ಷ' : 'Next year',
+    month: isKn ? 'ತಿಂಗಳು' : 'Month',
+    year: isKn ? 'ವರ್ಷ' : 'Year'
   };
+  var ICON = {
+    calendar: 'M200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-80h80v80h320v-80h80v80h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Zm0-480h560v-80H200v80Zm0 0v-80 80Z',
+    prev: 'M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z',
+    next: 'M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z'
+  };
+  function svg(name, attrs) {
+    return '<svg class="icon" width="20" height="20" viewBox="0 -960 960 960" fill="currentColor" focusable="false" ' +
+      (attrs || 'aria-hidden="true"') + '><path d="' + ICON[name] + '"/></svg>';
+  }
   var nativeValue = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value');
+  var pad2 = function (n) { return String(n).padStart(2, '0'); };
 
-  function isoToText(iso) {
-    var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || '');
-    return m ? m[3] + '/' + m[2] + '/' + m[1] : '';
-  }
-
-  // "dd/mm/yyyy" (also d/m/yyyy, or with - or .) to "YYYY-MM-DD"; '' if not a real date.
-  function textToIso(text) {
-    var m = /^(\d{1,2})[\/.-](\d{1,2})[\/.-](\d{4})$/.exec(text.trim());
-    if (!m) return '';
-    var d = Number(m[1]), mo = Number(m[2]), y = Number(m[3]);
-    var date = new Date(y, mo - 1, d);
-    if (date.getFullYear() !== y || date.getMonth() !== mo - 1 || date.getDate() !== d) return '';
-    return y + '-' + String(mo).padStart(2, '0') + '-' + String(d).padStart(2, '0');
-  }
-
-  // Typing only digits: put the slashes in (25102026 → 25/10/2026).
-  function addSlashes(text) {
-    if (/^\d+$/.test(text)) {
-      if (text.length > 4) return text.slice(0, 2) + '/' + text.slice(2, 4) + '/' + text.slice(4, 8);
-      if (text.length > 2) return text.slice(0, 2) + '/' + text.slice(2);
-      return text;
+  // Each kind: native value <-> text, digits-only typing gets its slashes, and the calendar.
+  var KINDS = {
+    date: {
+      placeholder: 'dd/mm/yyyy',
+      format: DATE_TEXT.dateFormat,
+      pick: DATE_TEXT.pickDate,
+      toText: function (iso) {
+        var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || '');
+        return m ? m[3] + '/' + m[2] + '/' + m[1] : '';
+      },
+      // "dd/mm/yyyy" (also d/m/yyyy, or with - or .) to "YYYY-MM-DD"; '' if not a real date.
+      toIso: function (text) {
+        var m = /^(\d{1,2})[\/.-](\d{1,2})[\/.-](\d{4})$/.exec(text.trim());
+        if (!m) return '';
+        var d = Number(m[1]), mo = Number(m[2]), y = Number(m[3]);
+        var date = new Date(y, mo - 1, d);
+        if (date.getFullYear() !== y || date.getMonth() !== mo - 1 || date.getDate() !== d) return '';
+        return y + '-' + pad2(mo) + '-' + pad2(d);
+      },
+      // 25102026 → 25/10/2026; 25/1026 → 25/10/26
+      addSlashes: function (text) {
+        if (/^\d+$/.test(text)) {
+          if (text.length > 4) return text.slice(0, 2) + '/' + text.slice(2, 4) + '/' + text.slice(4, 8);
+          if (text.length > 2) return text.slice(0, 2) + '/' + text.slice(2);
+          return text;
+        }
+        var m = /^(\d{2})\/(\d{2})(\d+)$/.exec(text);
+        return m ? m[1] + '/' + m[2] + '/' + m[3].slice(0, 4) : text;
+      },
+      picker: datePicker
+    },
+    month: {
+      placeholder: 'mm/yyyy',
+      format: DATE_TEXT.monthFormat,
+      pick: DATE_TEXT.pickMonth,
+      toText: function (iso) {
+        var m = /^(\d{4})-(\d{2})$/.exec(iso || '');
+        return m ? m[2] + '/' + m[1] : '';
+      },
+      // "mm/yyyy" (also m/yyyy, or with - or .) to "YYYY-MM"; '' if not a real month.
+      toIso: function (text) {
+        var m = /^(\d{1,2})[\/.-](\d{4})$/.exec(text.trim());
+        if (!m || Number(m[1]) < 1 || Number(m[1]) > 12) return '';
+        return m[2] + '-' + pad2(m[1]);
+      },
+      // 102026 → 10/2026
+      addSlashes: function (text) {
+        return /^\d{3,}$/.test(text) ? text.slice(0, 2) + '/' + text.slice(2, 6) : text;
+      },
+      picker: monthPicker
     }
-    var m = /^(\d{2})\/(\d{2})(\d+)$/.exec(text); // 25/1026 → 25/10/26
-    return m ? m[1] + '/' + m[2] + '/' + m[3].slice(0, 4) : text;
+  };
+
+  // Cally loads once, the first time a page has a date field.
+  var cally = null;
+  function loadCally() {
+    if (!cally) cally = import('/assets/cally-0.9.2.js');
+    return cally;
   }
 
-  document.querySelectorAll('input[type="date"]').forEach(function (native) {
+  function today() {
+    var d = new Date();
+    return d.getFullYear() + '-' + pad2(d.getMonth() + 1) + '-' + pad2(d.getDate());
+  }
+
+  // Each picker fills `pop` and returns { show(iso), focus() }; it calls pick(iso) on a choice.
+  function datePicker(pop, pick) {
+    loadCally();
+    var cal = document.createElement('calendar-date');
+    cal.setAttribute('locale', LOCALE);
+    cal.setAttribute('first-day-of-week', '0');
+    cal.innerHTML =
+      svg('prev', 'slot="previous" role="img" aria-label="' + DATE_TEXT.prevMonth + '"') +
+      svg('next', 'slot="next" role="img" aria-label="' + DATE_TEXT.nextMonth + '"') +
+      '<span slot="heading" class="date-pop__selects">' +
+        '<calendar-select-month format-month="short"><span slot="label">' + DATE_TEXT.month + '</span></calendar-select-month>' +
+        '<calendar-select-year max-years="40"><span slot="label">' + DATE_TEXT.year + '</span></calendar-select-year>' +
+      '</span>' +
+      '<calendar-month></calendar-month>';
+    pop.appendChild(cal);
+    cal.addEventListener('change', function () { pick(cal.value); });
+    return {
+      show: function (iso) {
+        loadCally().then(function () {
+          cal.value = iso || '';
+          cal.focusedDate = iso || today();
+        });
+      },
+      focus: function () {
+        loadCally().then(function () {
+          requestAnimationFrame(function () { cal.focus(); });
+        });
+      }
+    };
+  }
+
+  function monthPicker(pop, pick) {
+    var year = 0, selected = '', focusMonth = 0;
+    var longName = new Intl.DateTimeFormat(LOCALE, { month: 'long', year: 'numeric', timeZone: 'UTC' });
+    var monthName = new Intl.DateTimeFormat(LOCALE, { month: 'long', timeZone: 'UTC' });
+    var headId = pop.id + '-year';
+    pop.innerHTML =
+      '<div class="date-pop__head">' +
+        '<button type="button" class="date-pop__nav" data-step="-1" aria-label="' + DATE_TEXT.prevYear + '">' + svg('prev') + '</button>' +
+        '<p class="date-pop__heading" id="' + headId + '" aria-live="polite"></p>' +
+        '<button type="button" class="date-pop__nav" data-step="1" aria-label="' + DATE_TEXT.nextYear + '">' + svg('next') + '</button>' +
+      '</div>' +
+      '<div class="month-grid" role="group" aria-labelledby="' + headId + '"></div>';
+    var heading = pop.querySelector('.date-pop__heading');
+    var grid = pop.querySelector('.month-grid');
+    var buttons = [];
+    for (var i = 0; i < 12; i++) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'month-grid__month';
+      b.dataset.month = i + 1;
+      b.textContent = monthName.format(Date.UTC(2000, i, 1));
+      grid.appendChild(b);
+      buttons.push(b);
+    }
+
+    function render() {
+      heading.textContent = year;
+      var now = today().slice(0, 7);
+      buttons.forEach(function (btn, i) {
+        var iso = year + '-' + pad2(i + 1);
+        btn.setAttribute('aria-label', longName.format(Date.UTC(year, i, 1)));
+        btn.setAttribute('aria-pressed', iso === selected ? 'true' : 'false');
+        if (iso === now) btn.setAttribute('aria-current', 'date');
+        else btn.removeAttribute('aria-current');
+        btn.tabIndex = i === focusMonth ? 0 : -1;
+      });
+    }
+    function moveTo(month, keepFocus) {
+      // Arrow past January or December moves to the year before or after.
+      year += Math.floor(month / 12);
+      focusMonth = ((month % 12) + 12) % 12;
+      render();
+      if (keepFocus) buttons[focusMonth].focus();
+    }
+
+    pop.querySelectorAll('.date-pop__nav').forEach(function (nav) {
+      nav.addEventListener('click', function () {
+        year += Number(nav.dataset.step);
+        render();
+      });
+    });
+    grid.addEventListener('click', function (e) {
+      var btn = e.target.closest('.month-grid__month');
+      if (btn) pick(year + '-' + pad2(btn.dataset.month));
+    });
+    grid.addEventListener('keydown', function (e) {
+      var step = { ArrowLeft: -1, ArrowRight: 1, ArrowUp: -3, ArrowDown: 3 }[e.key];
+      if (e.key === 'Home') step = -focusMonth;
+      if (e.key === 'End') step = 11 - focusMonth;
+      if (e.key === 'PageUp') step = -12;
+      if (e.key === 'PageDown') step = 12;
+      if (step === undefined) return;
+      e.preventDefault();
+      moveTo(focusMonth + step, true);
+    });
+
+    return {
+      show: function (iso) {
+        selected = iso || '';
+        var start = selected || today().slice(0, 7);
+        year = Number(start.slice(0, 4));
+        focusMonth = Number(start.slice(5, 7)) - 1;
+        render();
+      },
+      focus: function () { buttons[focusMonth].focus(); }
+    };
+  }
+
+  document.querySelectorAll('input[type="date"], input[type="month"]').forEach(function (native) {
+    var kind = KINDS[native.type] || KINDS[native.getAttribute('type')];
     var id = native.id;
     var wrap = document.createElement('span');
     wrap.className = 'date-input';
@@ -360,42 +515,92 @@
     text.id = id + '-text';
     text.inputMode = 'numeric';
     text.autocomplete = 'off';
-    text.placeholder = 'dd/mm/yyyy';
-    text.maxLength = 10;
+    text.placeholder = kind.placeholder;
+    text.maxLength = kind.placeholder.length;
     var hint = document.createElement('span');
     hint.className = 'visually-hidden';
     hint.id = id + '-format';
-    hint.textContent = DATE_TEXT.format;
+    hint.textContent = kind.format;
     text.setAttribute('aria-describedby', (hint.id + ' ' + (native.getAttribute('aria-describedby') || '')).trim());
     if (native.required) text.required = true;
-    text.value = isoToText(native.value);
+    text.value = kind.toText(native.value);
 
     var label = document.querySelector('label[for="' + id + '"]');
     if (label) label.htmlFor = text.id;
 
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'date-input__pick';
+    btn.setAttribute('aria-label', kind.pick);
+    btn.setAttribute('aria-expanded', 'false');
+    btn.innerHTML = svg('calendar');
+
+    var pop = document.createElement('div');
+    pop.className = 'date-pop';
+    pop.id = id + '-calendar';
+    pop.hidden = true;
+    pop.setAttribute('role', 'dialog');
+    pop.setAttribute('aria-label', kind.pick);
+    btn.setAttribute('aria-controls', pop.id);
+
     wrap.appendChild(text);
     wrap.appendChild(hint);
     wrap.appendChild(native);
+    wrap.appendChild(btn);
+    wrap.appendChild(pop);
     native.classList.add('date-input__native');
     native.tabIndex = -1;
     native.setAttribute('aria-hidden', 'true');
 
-    if (native.showPicker) {
-      // Clicking the field opens the calendar too (typing still works); the
-      // keyboard opens nothing, so tabbing through the form stays quiet.
-      text.addEventListener('click', function () {
-        try { native.showPicker(); } catch (err) { /* not allowed here: typing still works */ }
-      });
-      var btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'date-input__pick';
-      btn.setAttribute('aria-label', DATE_TEXT.pick);
-      btn.innerHTML = '<svg class="icon" width="20" height="20" viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true" focusable="false"><path d="M200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-80h80v80h320v-80h80v80h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Zm0-480h560v-80H200v80Zm0 0v-80 80Z"/></svg>';
-      btn.addEventListener('click', function () {
-        try { native.showPicker(); } catch (err) { /* not allowed here: typing still works */ }
-      });
-      wrap.appendChild(btn);
+    // Set the value from typing or the calendar, and tell the tool script.
+    function setValue(iso) {
+      if (iso === nativeValue.get.call(native)) return;
+      nativeValue.set.call(native, iso);
+      native.dispatchEvent(new Event('input', { bubbles: true }));
+      native.dispatchEvent(new Event('change', { bubbles: true }));
     }
+
+    var picker = kind.picker(pop, function (iso) {
+      setValue(iso);
+      text.value = kind.toText(iso);
+      close();
+      text.focus();
+    });
+
+    function open(moveFocus) {
+      if (pop.hidden) {
+        picker.show(nativeValue.get.call(native));
+        pop.hidden = false;
+        btn.setAttribute('aria-expanded', 'true');
+      }
+      if (moveFocus) picker.focus();
+    }
+    function close() {
+      pop.hidden = true;
+      btn.setAttribute('aria-expanded', 'false');
+    }
+
+    btn.addEventListener('click', function () {
+      if (pop.hidden) open(true);
+      else close();
+    });
+    // Clicking the field opens the calendar too (typing still works); the
+    // keyboard opens nothing, so tabbing through the form stays quiet.
+    text.addEventListener('click', function () { open(false); });
+    wrap.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !pop.hidden) {
+        e.preventDefault();
+        var fromPop = pop.contains(document.activeElement);
+        close();
+        (fromPop ? btn : text).focus();
+      }
+    });
+    wrap.addEventListener('focusout', function (e) {
+      if (e.relatedTarget && !wrap.contains(e.relatedTarget)) close();
+    });
+    document.addEventListener('pointerdown', function (e) {
+      if (!pop.hidden && !wrap.contains(e.target)) close();
+    });
 
     // Scripts that set native.value (e.g. clearing a form) update the text field too.
     Object.defineProperty(native, 'value', {
@@ -403,24 +608,23 @@
       get: function () { return nativeValue.get.call(native); },
       set: function (v) {
         nativeValue.set.call(native, v);
-        text.value = isoToText(nativeValue.get.call(native));
+        text.value = kind.toText(nativeValue.get.call(native));
       }
     });
 
-    // Typing: the text event bubbles on to the form after the native value is set.
-    text.addEventListener('input', function () {
-      var formatted = addSlashes(text.value);
+    // Typing: the tool script hears it from the native input, not the text field.
+    text.addEventListener('input', function (e) {
+      e.stopPropagation();
+      var formatted = kind.addSlashes(text.value);
       if (formatted !== text.value) text.value = formatted;
-      nativeValue.set.call(native, textToIso(text.value));
+      var iso = kind.toIso(text.value);
+      setValue(iso);
+      if (iso && !pop.hidden) picker.show(iso);
     });
+    text.addEventListener('change', function (e) { e.stopPropagation(); });
     text.addEventListener('blur', function () {
-      var iso = textToIso(text.value);
-      if (iso) text.value = isoToText(iso); // 5/9/2026 → 05/09/2026
-    });
-
-    // The calendar: copy the picked date into the text field.
-    native.addEventListener('change', function () {
-      text.value = isoToText(nativeValue.get.call(native));
+      var iso = kind.toIso(text.value);
+      if (iso) text.value = kind.toText(iso); // 5/9/2026 → 05/09/2026
     });
     native.addEventListener('focus', function () { text.focus(); });
 
