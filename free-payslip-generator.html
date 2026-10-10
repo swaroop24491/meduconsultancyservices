@@ -2,7 +2,7 @@
 layout: base
 lang: en
 page_type: tool
-last_modified: 2026-10-09
+last_modified: 2026-10-10
 title: "Free Payslip Generator: Salary Slip PDF | Medu Consultancy"
 description: "Free payslip generator: make a salary slip for your employee in minutes and save it as a PDF. No sign-up, and nothing you type leaves your computer."
 scripts: [/payslip-generator.js]
@@ -15,8 +15,8 @@ faq:
     a: Yes. You don't need to sign up or log in.
   - q: Do you save what I type?
     a: 'No. The payslip is made in your browser. Nothing is sent to us. If you tick "Remember the company details", only the company details are kept, on your own computer.'
-  - q: Does it work out PF and ESI?
-    a: 'Yes, if you turn on "Work out PF and ESI for me". It gives a close estimate. Not sure if PF or ESI applies? <a href="tel:+918217542975" data-call-location="faq">Call us</a>.'
+  - q: Does it calculate PF and ESI?
+    a: 'Yes, if you turn on "Calculate PF and ESI for me". It gives a close estimate. Not sure if PF or ESI applies? <a href="tel:+918217542975" data-call-location="faq">Call us</a>.'
   - q: How do I save it as a PDF?
     a: 'Press "Download PDF". Your browser''s print window opens. Choose "Save as PDF" as the printer.'
   - q: Can I make payslips for several employees?
@@ -110,7 +110,7 @@ faq:
           <li>
             <h3>Deductions</h3>
             <div class="field">
-              <label class="radio"><input type="checkbox" id="ps-auto" aria-describedby="ps-auto-help"> Work out PF and ESI for me</label>
+              <label class="radio"><input type="checkbox" id="ps-auto" aria-describedby="ps-auto-help"> Calculate PF and ESI for me</label>
               <p class="field__help" id="ps-auto-help">We fill in the employee's PF and ESI from their wages. You can still change the amounts.</p>
             </div>
             <div class="tool-form" id="ps-auto-fields" hidden>
@@ -215,7 +215,7 @@ faq:
 
 {% include faq.html items=page.faq schema=true %}
 
-{% include closing-call.html line="Rather not work out PF and ESI every month? We'll do it and file it." %}
+{% include closing-call.html line="Rather not calculate PF and ESI every month? We'll do it and file it." %}
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {

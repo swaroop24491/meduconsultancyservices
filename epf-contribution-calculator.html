@@ -42,7 +42,7 @@ faq:
 <section class="section" aria-labelledby="how-heading">
   <div class="container">
     <div class="prose">
-      <h2 id="how-heading">How PF is worked out</h2>
+      <h2 id="how-heading">How PF is calculated</h2>
       <p>The employee pays <strong>{{ epf.employee_rate_pct }}%</strong> of their PF wages. You take it from their salary. All of it goes to their PF account.</p>
       <p>You also pay <strong>{{ epf.employer_rate_pct }}%</strong>. Part of it goes to the employee's pension, called <strong>EPS</strong> (the Employees' Pension Scheme): 8.33% of PF wages up to {{ epf.wage_ceiling_text }}. That is at most ₹2,083 a month. The rest of your {{ epf.employer_rate_pct }}% goes to their PF account.</p>
       <p>Some businesses the government has named pay 10% instead of 12%. Most businesses pay 12%.</p>
@@ -80,7 +80,7 @@ faq:
 
 {% include faq.html items=page.faq schema=true %}
 
-{% include closing-call.html line="Rather not work out PF every month? We'll do it and file it." %}
+{% include closing-call.html line="Rather not calculate PF every month? We'll do it and file it." %}
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
@@ -149,7 +149,7 @@ faq:
         var totalToEpfAccount = employeeContribution + employerEpf;
 
         var summary = [
-          'PF worked out on: <strong>' + formatBase(contributionBase, capSelected, basicDa) + '</strong>'
+          'PF calculated on: <strong>' + formatBase(contributionBase, capSelected, basicDa) + '</strong>'
         ];
 
         function formatBase(base, capped, full) {
@@ -176,7 +176,7 @@ faq:
             window.ContributionCalculator.formatINR(totalToEpfAccount) + " goes to the employee's PF account. The rest goes to their pension. You also pay two extra charges: EDLI (life insurance for the employee) and an admin charge. They are not in this table."
           ].concat(basicDa > 15000 ? [
             // The September 2026 limit change only matters above ₹15,000.
-            'Working out September 2026 pay? ' + CALL + ' first. The PF office has not yet said which limit (₹15,000 or ₹25,000) to use for that month.'
+            'Calculating September 2026 pay? ' + CALL + ' first. The PF office has not yet said which limit (₹15,000 or ₹25,000) to use for that month.'
           ] : [])
         };
       }

@@ -182,7 +182,7 @@
     detailValue: function (n) { return 'Detail ' + n + ': value'; },
     remove: function (name) { return 'Remove ' + name; },
     unnamed: 'this row',
-    workedOut: 'Worked out',
+    workedOut: 'Calculated',
     needCompany: 'Enter the company name.',
     needEmployee: "Enter the employee's name.",
     needMonth: 'Choose the pay month.',
@@ -193,11 +193,11 @@
     logoSize: 'Choose an image of 1 MB or less.',
     checkErrors: 'Some details are missing. Check the fields marked above.',
     // Notes under the PF/ESI auto-fill. CALL is replaced by the call link.
-    pfSeptNote: 'Working out September 2026 pay? CALL first. The PF office has not yet said which limit (₹15,000 or ₹25,000) to use for that month.',
+    pfSeptNote: 'Calculating September 2026 pay? CALL first. The PF office has not yet said which limit (₹15,000 or ₹25,000) to use for that month.',
     esiAboveNote: function (limit) {
       return 'ESI wages are above ' + limit + ', so we left ESI blank. Was this employee already in ESI, and their pay went above the limit during the period? They may stay in ESI until the period ends (end of September or end of March). CALL to check.';
     },
-    beforeNote: 'This tool works out PF and ESI from September 2026. For earlier months, enter the amounts yourself, or CALL.',
+    beforeNote: 'This tool calculates PF and ESI from September 2026. For earlier months, enter the amounts yourself, or CALL.',
     pfHalfNote: 'PF wages must be at least half the total pay. If they come to less, the difference is added to PF wages. Check the PF wages above. Not sure? CALL.',
     esiHalfNote: 'ESI wages must be at least half the total pay. If they come to less, the difference is added to ESI wages. Check the ESI wages above. Not sure? CALL.',
     printTitle: function (name, month) { return 'Payslip - ' + name + ' - ' + month; },

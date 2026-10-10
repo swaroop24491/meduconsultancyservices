@@ -40,7 +40,7 @@ faq:
 <section class="section" aria-labelledby="how-heading">
   <div class="container">
     <div class="prose">
-      <h2 id="how-heading">How ESI is worked out</h2>
+      <h2 id="how-heading">How ESI is calculated</h2>
       <p>ESI is <strong>{{ esi.total_rate_pct }}% of ESI wages</strong> each month. The employee pays <strong>{{ esi.employee_rate_pct }}%</strong>, which you take from their salary. You pay <strong>{{ esi.employer_rate_pct }}%</strong>.</p>
       <p>ESI is paid for employees whose ESI wages are {{ esi.wage_ceiling_text }} a month or less ({{ esi.wage_ceiling_pwd_text }} for a person with a disability).</p>
       <p>ESI wages are the month's pay minus HRA (house rent allowance), overtime, bonus, commission and travel allowance. But ESI wages must be at least half the total pay. If they come to less, the difference is added to ESI wages.</p>
@@ -77,7 +77,7 @@ faq:
 
 {% include faq.html items=page.faq schema=true %}
 
-{% include closing-call.html line="Rather not work out ESI every month? We'll do it and file it." %}
+{% include closing-call.html line="Rather not calculate ESI every month? We'll do it and file it." %}
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {

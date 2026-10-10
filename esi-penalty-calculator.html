@@ -4,7 +4,7 @@ lang: en
 page_type: tool
 last_modified: 2026-10-10
 title: "ESI Penalty Calculator 2026 | Medu Consultancy"
-description: "Paid ESI late? Work out the interest (12% a year) and damages ESIC can charge on late ESI payments. Free ESI penalty calculator, updated for 2026 rules."
+description: "Paid ESI late? Calculate the interest (12% a year) and damages ESIC can charge on late ESI payments. Free ESI penalty calculator, updated for 2026 rules."
 scripts: [/penalty-calculator.js]
 tool: { name: ESI penalty calculator }
 breadcrumb:
@@ -15,14 +15,14 @@ faq:
     a: Yes. Both are 12% a year, counted for each day from the due date until you pay.
   - q: What are ESI damages?
     a: Damages are a fine ESIC can charge when you pay ESI late. They are on top of the interest. The rate is 5% to 25% a year, depending on how late you are. They can't be more than the unpaid amount.
-  - q: Are ESI damages worked out like PF damages?
+  - q: Are ESI damages calculated like PF damages?
     a: No. PF damages have their own rule. For ESI, the calculator uses 5%, 10%, 15% or 25% a year, based on how late you are.
 ---
 {%- assign esi = site.data.facts.esi -%}
 <section class="section section--stacked tool-section" aria-labelledby="tool-heading">
   <div class="container">
     <h1 id="tool-heading">ESI penalty calculator</h1>
-    <p class="tool-lead">Paid ESI (Employees' State Insurance) late? Work out the extra amount ESIC (the ESI office) can charge.</p>
+    <p class="tool-lead">Paid ESI (Employees' State Insurance) late? Calculate the extra amount ESIC (the ESI office) can charge.</p>
 
     <div class="tool tool--split">
       <form id="penalty-form" class="tool-form" novalidate aria-label="ESI penalty calculator">
@@ -57,8 +57,8 @@ faq:
 <section class="section" aria-labelledby="how-heading">
   <div class="container">
     <div class="prose">
-      <h2 id="how-heading">How ESI late payment costs are worked out</h2>
-      <p>ESI is due by the {{ esi.due_day }}th of the next month. If you pay late, ESIC can charge two extra amounts on top of the unpaid ESI: <strong>interest</strong> and <strong>damages</strong> (a fine for paying late). This calculator works out both, so you know roughly what you may owe.</p>
+      <h2 id="how-heading">How ESI late payment costs are calculated</h2>
+      <p>ESI is due by the {{ esi.due_day }}th of the next month. If you pay late, ESIC can charge two extra amounts on top of the unpaid ESI: <strong>interest</strong> and <strong>damages</strong> (a fine for paying late). This calculator calculates both, so you know roughly what you may owe.</p>
       <h3>Interest</h3>
       <p>Interest is 12% a year on the unpaid amount. It is counted for each day from the due date until the day you pay.</p>
       <h3>Damages</h3>
