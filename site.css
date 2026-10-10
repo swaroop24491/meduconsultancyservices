@@ -1057,7 +1057,7 @@ main > .guide-article { padding-top: 0; border-top-color: transparent; }
 .tool-steps > li { counter-increment: tstep; }
 .tool-steps > li > * + * { margin-top: var(--space-3); }
 .tool-steps h3::before { content: counter(tstep) ". "; color: var(--color-brand); }
-/* Tool pages: each step heading is a tint strip with a green number badge,
+/* Tool pages: each step heading is a tint strip with a white number badge,
    so the converter and payslip forms read as clear sections. */
 [data-page-type="tool"] .tool-steps { gap: var(--space-7); }
 [data-page-type="tool"] .tool-steps > li > * + * { margin-top: var(--space-4); }
@@ -1079,10 +1079,10 @@ main > .guide-article { padding-top: 0; border-top-color: transparent; }
     width: var(--badge-sm);
     height: var(--badge-sm);
     border-radius: 50%;
-    background: var(--color-brand);
-    color: var(--color-on-brand);
+    background: var(--color-surface);
+    color: var(--color-brand);
     font-size: var(--text-base);
-    font-weight: var(--weight-semibold);
+    font-weight: var(--weight-medium);
 }
 .tool-status { font-weight: var(--weight-medium); color: var(--color-heading); }
 .tool-status:empty { display: none; }
