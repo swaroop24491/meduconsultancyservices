@@ -2,7 +2,7 @@
 layout: base
 lang: en
 page_type: tool
-last_modified: 2026-10-03
+last_modified: 2026-10-10
 title: "ESI Contribution Calculator 2026 | Medu Consultancy"
 description: "See how much ESI you and your employee pay each month: 3.25% and 0.75% of ESI wages. Free ESI calculator for employers, updated for 2026 rules."
 scripts: [/contribution-calculator.js]
@@ -22,7 +22,7 @@ faq:
 <section class="section section--stacked tool-section" aria-labelledby="tool-heading">
   <div class="container">
     <h1 id="tool-heading">ESI contribution calculator</h1>
-    <p class="tool-lead">Enter an employee's ESI wages. See how much ESI (Employees' State Insurance) the employee pays and how much you pay.</p>
+    <p class="tool-lead">Enter one employee's ESI wages. See how much ESI (Employees' State Insurance) the employee pays and how much you pay.</p>
 
     <div class="tool tool--split">
       <form id="contribution-form" class="tool-form" novalidate aria-label="ESI contribution calculator">
@@ -102,8 +102,8 @@ faq:
         {
           id: 'gross-wages',
           type: 'number',
-          label: 'ESI wages (₹ a month)',
-          help: "ESI wages are the month's pay minus HRA (house rent allowance), overtime, bonus, commission and travel allowance. Are these items more than half the pay? Then add the amount above half to ESI wages. Not sure? " + CALL + '.',
+          label: "One employee's ESI wages (₹ a month)",
+          help: "Enter one employee at a time, not the total for all your staff. ESI wages are the month's pay minus HRA (house rent allowance), overtime, bonus, commission and travel allowance. Are these items more than half the pay? Then add the amount above half to ESI wages. Not sure? " + CALL + '.',
           min: 1,
           errorRequired: 'Enter the ESI wages.',
           errorMin: 'Enter a number more than 0.'

@@ -2,7 +2,7 @@
 layout: base
 lang: en
 page_type: tool
-last_modified: 2026-10-03
+last_modified: 2026-10-10
 title: "PF Contribution Calculator (EPF) 2026 | Medu Consultancy"
 description: "See how much PF you and your employee pay each month, including the pension (EPS) part. Free PF calculator, updated for the ₹25,000 limit."
 scripts: [/contribution-calculator.js]
@@ -24,7 +24,7 @@ faq:
 <section class="section section--stacked tool-section" aria-labelledby="tool-heading">
   <div class="container">
     <h1 id="tool-heading">PF contribution calculator</h1>
-    <p class="tool-lead">Enter an employee's PF wages. See how much PF (Provident Fund) the employee pays, how much you pay, and how much goes to their pension.</p>
+    <p class="tool-lead">Enter one employee's PF wages. See how much PF (Provident Fund) the employee pays, how much you pay, and how much goes to their pension.</p>
 
     <div class="tool tool--split">
       <form id="contribution-form" class="tool-form" novalidate aria-label="PF contribution calculator">
@@ -105,8 +105,8 @@ faq:
         {
           id: 'basic-da',
           type: 'number',
-          label: 'PF wages (₹ a month)',
-          help: 'PF wages are basic pay plus DA (dearness allowance), not the full salary. Are other allowances, like HRA (house rent allowance), more than half the salary? Then add the amount above half to PF wages. Not sure? ' + CALL + '.',
+          label: "One employee's PF wages (₹ a month)",
+          help: 'Enter one employee at a time, not the total for all your staff. PF wages are basic pay plus DA (dearness allowance), not the full salary. Are other allowances, like HRA (house rent allowance), more than half the salary? Then add the amount above half to PF wages. Not sure? ' + CALL + '.',
           min: 1,
           errorRequired: 'Enter the PF wages.',
           errorMin: 'Enter a number more than 0.'

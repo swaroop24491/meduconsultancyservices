@@ -2,7 +2,7 @@
 layout: base
 lang: kn
 page_type: tool
-last_modified: 2026-10-03
+last_modified: 2026-10-10
 title: "ESI ದಂಡ ಲೆಕ್ಕಾಚಾರ 2026 | ಮೆದು ಕನ್ಸಲ್ಟೆನ್ಸಿ"
 description: "ESI ತಡವಾಗಿ ಕಟ್ಟಿದ್ದೀರಾ? ತಡವಾದ ESIಗೆ ESIC ವಿಧಿಸಬಹುದಾದ ಬಡ್ಡಿ (ವರ್ಷಕ್ಕೆ 12%) ಮತ್ತು ಡ್ಯಾಮೇಜಸ್ ಲೆಕ್ಕ ಹಾಕಿ. ಉಚಿತ ESI ದಂಡ ಲೆಕ್ಕಾಚಾರ, 2026ರ ನಿಯಮಗಳ ಪ್ರಕಾರ."
 scripts: [/penalty-calculator.js]
@@ -27,9 +27,9 @@ faq:
     <div class="tool tool--split">
       <form id="penalty-form" class="tool-form" novalidate aria-label="ESI ದಂಡ ಲೆಕ್ಕಾಚಾರ">
         <div class="field">
-          <label for="amount">ಬಾಕಿ ESI ಮೊತ್ತ (₹)</label>
+          <label for="amount">ಬಾಕಿ ESI ಮೊತ್ತ, ಎಲ್ಲಾ ಉದ್ಯೋಗಿಗಳದ್ದು (₹)</label>
           <input type="number" id="amount" name="amount" min="1" step="1" inputmode="numeric" required aria-describedby="amount-help amount-error">
-          <p id="amount-help" class="field__help">ಆ ತಿಂಗಳ ಪೂರ್ತಿ ESI ಮೊತ್ತ: ತಡವಾಗಿ ಕಟ್ಟಿದ್ದು (ಅಥವಾ ಇನ್ನೂ ಕಟ್ಟದಿರುವುದು), ನಿಮ್ಮ ಪಾಲು ಮತ್ತು ಉದ್ಯೋಗಿಯ ಪಾಲು ಸೇರಿ.</p>
+          <p id="amount-help" class="field__help">ಆ ತಿಂಗಳು ಎಲ್ಲಾ ಉದ್ಯೋಗಿಗಳಿಗೆ ಕಟ್ಟಬೇಕಿದ್ದ ಪೂರ್ತಿ ESI ಮೊತ್ತ: ತಡವಾಗಿ ಕಟ್ಟಿದ್ದು (ಅಥವಾ ಇನ್ನೂ ಕಟ್ಟದಿರುವುದು), ನಿಮ್ಮ ಪಾಲು ಮತ್ತು ಉದ್ಯೋಗಿಗಳ ಪಾಲು ಸೇರಿ.</p>
           <p id="amount-error" class="field__error" aria-live="polite"></p>
         </div>
         <div class="field">
