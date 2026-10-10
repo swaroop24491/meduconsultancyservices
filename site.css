@@ -1057,6 +1057,33 @@ main > .guide-article { padding-top: 0; border-top-color: transparent; }
 .tool-steps > li { counter-increment: tstep; }
 .tool-steps > li > * + * { margin-top: var(--space-3); }
 .tool-steps h3::before { content: counter(tstep) ". "; color: var(--color-brand); }
+/* Tool pages: each step heading is a tint strip with a green number badge,
+   so the converter and payslip forms read as clear sections. */
+[data-page-type="tool"] .tool-steps { gap: var(--space-7); }
+[data-page-type="tool"] .tool-steps > li > * + * { margin-top: var(--space-4); }
+[data-page-type="tool"] .tool-steps h3 {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    background: var(--color-tint);
+    border-radius: var(--radius);
+    font-size: var(--text-lg);
+}
+[data-page-type="tool"] .tool-steps h3::before {
+    content: counter(tstep);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: var(--badge-sm);
+    height: var(--badge-sm);
+    border-radius: 50%;
+    background: var(--color-brand);
+    color: var(--color-on-brand);
+    font-size: var(--text-base);
+    font-weight: var(--weight-semibold);
+}
 .tool-status { font-weight: var(--weight-medium); color: var(--color-heading); }
 .tool-status:empty { display: none; }
 .tool-status--error { color: var(--color-warning); }
