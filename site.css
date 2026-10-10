@@ -2,6 +2,26 @@
    Every component here is shown on /style-guide with its exact markup.
    Components use the tokens below, never raw values. */
 
+/* ---------- Fonts ----------
+   Inter 4.1 (OFL, assets/fonts/Inter-OFL.txt), self-hosted: Latin + ₹, weights 400-600
+   in one variable file. "Inter Fallback" is Arial scaled to Inter's size, so text
+   doesn't jump when Inter loads. Noto Sans Kannada comes from Google Fonts (head.html). */
+@font-face {
+    font-family: "Inter";
+    src: url("/assets/fonts/inter-4.1-latin-wght.woff2") format("woff2");
+    font-weight: 400 600;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Inter Fallback";
+    src: local("Arial"), local("ArialMT");
+    size-adjust: 105.4%;
+    ascent-override: 91.91%;
+    descent-override: 22.88%;
+    line-gap-override: 0%;
+}
+
 /* ---------- Design tokens ----------
    Colours, type, spacing and shapes. Use these variables,
    never raw values, in components.
@@ -31,8 +51,8 @@
     --color-focus: #1f1f1f;          /* focus ring, visible on cream, white and green */
 
     /* Type */
-    --font-body: "Poppins", sans-serif;
-    --font-kn: "Noto Sans Kannada", "Poppins", sans-serif;
+    --font-body: "Inter", "Inter Fallback", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --font-kn: "Noto Sans Kannada", "Inter", sans-serif;
     --text-sm: 0.875rem;
     --text-base: 1rem;
     --text-lg: 1.125rem;
@@ -913,6 +933,7 @@ main > .guide-article { padding-top: 0; border-top-color: transparent; }
     background: var(--color-surface);
     color: var(--color-text);
     font: inherit;
+    font-variant-numeric: tabular-nums;
 }
 .field input:hover, .field input:focus, .field select:hover, .field select:focus, .line-item input:hover, .line-item input:focus { border-color: var(--color-brand); }
 .field input[type="file"] { padding-block: var(--space-2); }
@@ -1023,7 +1044,7 @@ main > .guide-article { padding-top: 0; border-top-color: transparent; }
 .date-pop calendar-month::part(heading) { display: none; }
 .date-pop calendar-month::part(table) { width: 100%; table-layout: fixed; font-size: var(--text-sm); }
 .date-pop calendar-month::part(th) { height: var(--space-6); font-weight: var(--weight-medium); color: var(--color-text-muted); }
-.date-pop calendar-month::part(day) { width: 100%; height: var(--tap-link); border-radius: var(--radius-sm); font-family: inherit; }
+.date-pop calendar-month::part(day) { width: 100%; height: var(--tap-link); border-radius: var(--radius-sm); font-family: inherit; font-variant-numeric: tabular-nums; }
 .date-pop calendar-month::part(day):hover { background: var(--color-tint); }
 .date-pop calendar-month::part(today) { box-shadow: inset 0 0 0 1px var(--color-brand); font-weight: var(--weight-semibold); }
 .date-pop calendar-month::part(selected) { background: var(--color-brand); color: var(--color-on-brand); }
@@ -1048,7 +1069,7 @@ main > .guide-article { padding-top: 0; border-top-color: transparent; }
 .month-grid__month[aria-pressed="true"] { background: var(--color-brand); color: var(--color-on-brand); }
 /* A value the tool works out as you type (e.g. the due date), shown as text, not a box */
 .field__output:has(output:empty) { display: none; }
-.field__output output { font-weight: var(--weight-medium); color: var(--color-heading); }
+.field__output output { font-weight: var(--weight-medium); color: var(--color-heading); font-variant-numeric: tabular-nums; }
 .field input[aria-invalid="true"], .field[aria-invalid="true"] .radio { border-color: var(--color-warning); }
 .field > p + p { margin-top: 0; }
 .field__help { font-size: var(--text-sm); color: var(--color-text-muted); }

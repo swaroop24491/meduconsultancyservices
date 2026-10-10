@@ -68,7 +68,7 @@ The watcher misses files added in a new folder and deleted data: restart the con
   from the page language; on Kannada pages a missing Kannada page falls back to English, marked
   "(ಇಂಗ್ಲಿಷ್‌ನಲ್ಲಿ)". The language switch and hreflang appear only when the other page exists.
 - `_includes/head.html`: favicons, canonical, hreflang (en/kn/x-default), og tags (no og:image, owner
-  decision; posts are `og:type` article), Google Fonts (Poppins 400/500/600; Noto Sans Kannada on `kn/`
+  decision; posts are `og:type` article), Inter (self-hosted `assets/fonts`, 400-600, preloaded on English pages; Noto Sans Kannada from Google Fonts on `kn/`
   or `kannada_font: true`), `site.css`, Google Analytics `G-4MEQF5W0XX`. `noindex` pages omit
   canonical/hreflang/og:url.
 - `_includes/schema.html`: JSON-LD (WebSite, WebPage or the page type's own type, business entity at
