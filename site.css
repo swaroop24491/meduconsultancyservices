@@ -840,7 +840,7 @@ html[lang="kn"] .hero h1 { line-height: 1.4; }
 /* ---------- Tools (calculators, checkers, converter) ----------
    Tool pages start with a short head (H1 + one line) so the tool is on the
    first screen on phones. The tool scripts build the fields and results with
-   these classes. Inputs sit on cream with the strong border (3.5:1); errors
+   these classes. Inputs are white with the strong border (3.5:1 or more); errors
    are written out in words, never colour alone. */
 .tool-section { padding-top: var(--space-6); }
 .tool-section h1 { max-width: 20ch; }
@@ -857,29 +857,28 @@ html[lang="kn"] .hero h1 { line-height: 1.4; }
 .tool-checks { display: grid; gap: var(--space-7); margin-top: var(--space-5); }
 @media (min-width: 1024px) { .tool-checks { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--space-8); } }
 .tool-check > h3 { margin-bottom: var(--space-4); }
-/* v2 tool pages: hero-sized head; the tool sits in one white panel (each
-   check in its own panel on the checkers); the result call box is tint.
-   Scoped to tool pages, so blog posts keep their own head. */
-[data-page-type="tool"] .tool-section h1,
+/* Tool pages: a compact head (H2-sized H1, one muted line) so the tool leads;
+   the tool sits in one white outlined panel (each check in its own panel on
+   the checkers); the result call box is tint. Blog posts keep the hero head. */
+[data-page-type="tool"] .tool-section h1 { max-width: none; font-size: var(--text-h2); line-height: var(--leading-heading); letter-spacing: var(--tracking-heading); }
+[data-page-type="tool"] .tool-lead { margin-top: var(--space-3); font-size: var(--text-lg); color: var(--color-text-muted); }
 [data-page-type="post"] .tool-section h1 { font-size: var(--text-hero); line-height: 1.1; }
-html[lang="kn"] [data-page-type="tool"] .tool-section h1,
 html[lang="kn"] [data-page-type="post"] .tool-section h1 { line-height: var(--leading-heading); }
-[data-page-type="tool"] .tool-lead,
 [data-page-type="post"] .tool-lead { font-size: var(--text-lead); color: var(--color-text-muted); }
 [data-page-type="tool"] .tool,
 [data-page-type="tool"] .tool-check {
-    margin-top: var(--space-7);
-    padding: clamp(1.25rem, 0.75rem + 2vw, 2.5rem);
+    margin-top: var(--space-6);
+    padding: clamp(var(--space-5), 1rem + 1.5vw, var(--space-6));
     background: var(--color-surface);
+    border: 1px solid var(--color-border);
     border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-card);
 }
-[data-page-type="tool"] .tool-checks { margin-top: var(--space-7); column-gap: var(--space-6); row-gap: var(--space-6); }
+[data-page-type="tool"] .tool-checks { margin-top: var(--space-6); column-gap: var(--space-6); row-gap: var(--space-6); }
 [data-page-type="tool"] .tool-checks .tool-check { margin-top: 0; }
 [data-page-type="tool"] .result-call { background: var(--color-tint); border-radius: var(--radius-lg); }
 @media (max-width: 559px) {
     /* phones: the panel runs to the screen edge so fields keep their width */
-    [data-page-type="tool"] .tool, [data-page-type="tool"] .tool-check { margin-inline: calc(-1 * var(--gutter)); border-radius: 0; padding-inline: var(--gutter); }
+    [data-page-type="tool"] .tool, [data-page-type="tool"] .tool-check { margin-inline: calc(-1 * var(--gutter)); border-radius: 0; border-inline: 0; padding-inline: var(--gutter); }
 }
 .tool-checks + .result-call { max-width: var(--container-text); }
 /* Guide article (v2 posts): every H2 of a post in one reading column, with
@@ -894,10 +893,10 @@ main > .guide-article { padding-top: 0; border-top-color: transparent; }
 .guide-article .prose > h2:first-child { margin-top: 0; }
 .guide-article .result-call { max-width: var(--container-article); margin-block: var(--space-7); background: var(--color-tint); border-radius: var(--radius-lg); }
 
-.tool-form { display: grid; gap: var(--space-5); max-width: 32rem; }
+.tool-form { display: grid; gap: var(--space-6); max-width: 32rem; }
 /* The scripts fill a wrapper div with the fields */
 .tool-form > div:not(.field):empty { display: none; }
-.tool-form > div:not(.field) { display: grid; gap: var(--space-5); }
+.tool-form > div:not(.field) { display: grid; gap: var(--space-6); }
 
 .field { display: grid; gap: var(--space-2); min-width: 0; padding: 0; border: 0; }
 .field[hidden] { display: none; }
@@ -910,10 +909,11 @@ main > .guide-article { padding-top: 0; border-top-color: transparent; }
     padding: var(--space-2) var(--space-3);
     border: 1px solid var(--color-border-strong);
     border-radius: var(--radius-sm);
-    background: var(--color-bg);
+    background: var(--color-surface);
     color: var(--color-text);
     font: inherit;
 }
+.field input:hover, .field input:focus, .field select:hover, .field select:focus, .line-item input:hover, .line-item input:focus { border-color: var(--color-brand); }
 .field input[type="file"] { padding-block: var(--space-2); }
 .field input[type="file"]::file-selector-button {
     min-height: calc(var(--tap-min) - 2 * var(--space-2) - 2px);
@@ -971,18 +971,22 @@ main > .guide-article { padding-top: 0; border-top-color: transparent; }
 .field__help { font-size: var(--text-sm); color: var(--color-text-muted); }
 .field__error { font-size: var(--text-sm); font-weight: var(--weight-medium); color: var(--color-warning); }
 .field__error:empty { display: none; }
-.field__options { display: grid; gap: var(--space-2); }
+/* Choices sit side by side as light pills and wrap when they don't fit; the
+   radio circle marks each one, the pill is the tap area. */
+.field__options { display: flex; flex-wrap: wrap; gap: var(--space-2); }
 .radio {
     display: flex;
     align-items: center;
-    gap: var(--space-3);
+    gap: var(--space-2);
     min-height: var(--tap-min);
-    padding: var(--space-2) var(--space-3);
-    border: 1px solid var(--color-border-strong);
-    border-radius: var(--radius-sm);
+    padding: var(--space-2) var(--space-4) var(--space-2) var(--space-3);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-pill);
+    background: var(--color-surface);
     cursor: pointer;
 }
-.radio:has(input:checked) { border-color: var(--color-brand); box-shadow: inset 0 0 0 1px var(--color-brand); }
+.radio:hover { border-color: var(--color-border-strong); }
+.radio:has(input:checked) { border-color: var(--color-brand); background: var(--color-tint); }
 .radio input { width: 20px; height: 20px; margin: 0; flex-shrink: 0; accent-color: var(--color-brand); }
 .field-more summary { min-height: var(--tap-link); display: flex; align-items: center; color: var(--color-brand); font-weight: var(--weight-medium); cursor: pointer; }
 .field-more[open] summary { margin-bottom: var(--space-4); }
@@ -1086,7 +1090,7 @@ main > .guide-article { padding-top: 0; border-top-color: transparent; }
         overflow: auto;
     }
 }
-.field > label.radio { padding: var(--space-2) var(--space-3); font-weight: var(--weight-regular); color: var(--color-text); }
+.field > label.radio { padding: var(--space-2) var(--space-4) var(--space-2) var(--space-3); font-weight: var(--weight-regular); color: var(--color-text); }
 
 /* Editable rows (earnings, deductions, extra details): name, amount, remove.
    Each input has a visually hidden label; the column names sit above. */
