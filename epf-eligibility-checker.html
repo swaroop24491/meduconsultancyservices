@@ -30,7 +30,7 @@ faq:
         <h3 id="business-eligibility-heading">Does your business need PF?</h3>
         <form id="business-eligibility-form" class="tool-form" novalidate>
           <div id="business-eligibility-fields"></div>
-          <button type="submit" class="btn btn--outline">Check my business</button>
+          <button type="submit" class="btn btn--outline">Check my business {% include icon.html name="arrow" size="20" %}</button>
         </form>
         <div class="tool-result" id="business-eligibility-results" aria-live="polite" hidden></div>
         {% include result-call.html tool="eligibility" %}
@@ -40,7 +40,7 @@ faq:
         <h3 id="employee-eligibility-heading">Does this employee need PF?</h3>
         <form id="employee-eligibility-form" class="tool-form" novalidate>
           <div id="employee-eligibility-fields"></div>
-          <button type="submit" class="btn btn--outline">Check this employee</button>
+          <button type="submit" class="btn btn--outline">Check this employee {% include icon.html name="arrow" size="20" %}</button>
         </form>
         <div class="tool-result" id="employee-eligibility-results" aria-live="polite" hidden></div>
       </section>

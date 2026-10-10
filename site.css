@@ -994,7 +994,10 @@ main > .guide-article { padding-top: 0; border-top-color: transparent; }
     color: var(--color-brand);
     box-shadow: inset 0 0 0 2px var(--color-brand);
 }
-.btn--outline:hover { background: transparent; color: var(--color-brand-dark); box-shadow: inset 0 0 0 2px var(--color-brand-dark); }
+.btn--outline:hover { background: var(--color-tint); color: var(--color-brand-dark); box-shadow: inset 0 0 0 2px var(--color-brand-dark); }
+/* Buttons that show a result end in an arrow, which nudges right on hover like .link-arrow */
+.btn--outline .icon { transition: transform 0.15s; }
+.btn--outline:hover .icon { transform: translateX(3px); }
 /* A button that reads as a link (e.g. "Check again") */
 .btn-link {
     display: inline-flex;
@@ -1446,4 +1449,5 @@ html[lang="kn"] .col-word { letter-spacing: 0; }
 .map-tap__inner .icon { color: var(--color-brand); }
 .map-tap__inner p { margin: 0; font-size: var(--text-sm); color: var(--color-text); }
 .map-tap__inner .btn--outline { justify-self: center; background: var(--color-surface); }
+.map-tap__inner .btn--outline:hover { background: var(--color-tint); }
 .map-tap iframe { display: block; width: 100%; height: 100%; border: 0; }
