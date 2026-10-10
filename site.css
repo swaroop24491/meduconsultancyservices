@@ -65,7 +65,7 @@
     /* Layout and shape */
     --container: 72rem;
     --container-text: 42rem;         /* comfortable reading width */
-    --container-article: 48rem;      /* guide article reading width (18px text) */
+    --container-article: 54rem;      /* guide article reading width (18px text) */
     --container-lead: 60rem;         /* tool page lead line: 2 lines or fewer at desktop width */
     --radius-sm: 6px;
     --radius: 12px;
