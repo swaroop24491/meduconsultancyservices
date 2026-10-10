@@ -1057,19 +1057,12 @@ main > .guide-article { padding-top: 0; border-top-color: transparent; }
 .tool-steps > li { counter-increment: tstep; }
 .tool-steps > li > * + * { margin-top: var(--space-3); }
 .tool-steps h3::before { content: counter(tstep) ". "; color: var(--color-brand); }
-/* Tool pages: each step heading is a tint strip with a white number badge,
-   so the converter and payslip forms read as clear sections. */
-[data-page-type="tool"] .tool-steps { gap: var(--space-7); }
+/* Tool pages: each step heading has a pale green number circle, and a thin
+   line splits the steps, so the converter and payslip forms read as clear sections. */
+[data-page-type="tool"] .tool-steps { gap: var(--space-6); }
+[data-page-type="tool"] .tool-steps > li + li { padding-top: var(--space-6); border-top: 1px solid var(--color-border); }
 [data-page-type="tool"] .tool-steps > li > * + * { margin-top: var(--space-4); }
-[data-page-type="tool"] .tool-steps h3 {
-    display: flex;
-    align-items: center;
-    gap: var(--space-3);
-    padding: var(--space-3) var(--space-4);
-    background: var(--color-tint);
-    border-radius: var(--radius);
-    font-size: var(--text-lg);
-}
+[data-page-type="tool"] .tool-steps h3 { display: flex; align-items: center; gap: var(--space-3); }
 [data-page-type="tool"] .tool-steps h3::before {
     content: counter(tstep);
     display: inline-flex;
@@ -1079,7 +1072,7 @@ main > .guide-article { padding-top: 0; border-top-color: transparent; }
     width: var(--badge-sm);
     height: var(--badge-sm);
     border-radius: 50%;
-    background: var(--color-surface);
+    background: var(--color-tint);
     color: var(--color-brand);
     font-size: var(--text-base);
     font-weight: var(--weight-medium);
