@@ -17,7 +17,8 @@ breadcrumb:
     <h1 id="post-heading">PF ತಪಾಸಣೆಯಲ್ಲಿ ಏನಾಗುತ್ತದೆ?</h1>
     <p class="tool-lead">EPFO (PF ಇಲಾಖೆ) ಅಧಿಕಾರಿ ನಿಮ್ಮ ವ್ಯಾಪಾರಕ್ಕೆ ಬಂದು, ನಿಮ್ಮ PF ದಾಖಲೆಗಳನ್ನು ಪರಿಶೀಲಿಸುತ್ತಾರೆ, ಮತ್ತು ನಿಮ್ಮ ಸಿಬ್ಬಂದಿಗೆ ಪ್ರಶ್ನೆಗಳನ್ನು ಕೇಳಬಹುದು. ವರ್ಷವಿಡೀ ನಿಮ್ಮ ದಾಖಲೆಗಳನ್ನು ಸರಿಯಾಗಿ ಇಟ್ಟುಕೊಂಡರೆ, ಭೇಟಿ ತುಂಬಾ ಸುಲಭವಾಗುತ್ತದೆ.</p>
 
-    <p class="note">{{ site.data.facts.tools_checked_kn }}ರಂದು ನಿಯಮಗಳನ್ನು ಪರಿಶೀಲಿಸಲಾಗಿದೆ</p>
+    {%- assign month = page.last_modified | date: "%-m" | minus: 1 -%}
+    <p class="note">ಕೊನೆಯದಾಗಿ ಬದಲಾಯಿಸಿದ ದಿನಾಂಕ: {{ page.last_modified | date: "%-d" }} {{ t.months[month] }} {{ page.last_modified | date: "%Y" }} · {{ site.data.facts.tools_checked_kn }}ರಂದು ನಿಯಮಗಳನ್ನು ಪರಿಶೀಲಿಸಲಾಗಿದೆ</p>
   </div>
 </section>
 

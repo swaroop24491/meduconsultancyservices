@@ -17,7 +17,8 @@ breadcrumb:
     <h1 id="post-heading">ಉದ್ಯೋಗಿಗಳಿಗೆ PF ಸೌಲಭ್ಯಗಳು: ನಿಮಗೆ ಏನು ಸಿಗುತ್ತದೆ</h1>
     <p class="tool-lead">PF ನಿಮ್ಮ ಭವಿಷ್ಯಕ್ಕಾಗಿ ಒಂದು ಉಳಿತಾಯ ಖಾತೆ. ಪ್ರತಿ ತಿಂಗಳು ನಿಮ್ಮ ಸಂಬಳದಿಂದ ಹಣ ಅದಕ್ಕೆ ಹೋಗುತ್ತದೆ, ಮತ್ತು ನಿಮ್ಮ ಉದ್ಯೋಗದಾತರೂ ಹಣ ಸೇರಿಸುತ್ತಾರೆ. ಇದರಿಂದ ನಿಮಗೆ ಪಿಂಚಣಿ ಮತ್ತು ವಿಮೆಯೂ ಸಿಗಬಹುದು. ನಿಮ್ಮ ಉದ್ಯೋಗದಾತರ ವ್ಯಾಪಾರದಲ್ಲಿ {{ site.data.facts.epf.min_employees }} ಅಥವಾ ಹೆಚ್ಚು ಸಿಬ್ಬಂದಿ ಇದ್ದು, ನಿಮ್ಮ PF ವೇತನ {{ site.data.facts.epf.wage_ceiling_text }} ಅಥವಾ ಕಡಿಮೆ ಇದ್ದರೆ, ಸೇರುವುದು ಕಡ್ಡಾಯ.</p>
     <p class="note">ಉದ್ಯೋಗದಾತರೇ? ಈ ಪುಟವನ್ನು ನಿಮ್ಮ ಸಿಬ್ಬಂದಿಯೊಂದಿಗೆ ಹಂಚಿಕೊಳ್ಳಿ.</p>
-    <p class="note">{{ site.data.facts.tools_checked_kn }}ರಂದು ನಿಯಮಗಳನ್ನು ಪರಿಶೀಲಿಸಲಾಗಿದೆ</p>
+    {%- assign month = page.last_modified | date: "%-m" | minus: 1 -%}
+    <p class="note">ಕೊನೆಯದಾಗಿ ಬದಲಾಯಿಸಿದ ದಿನಾಂಕ: {{ page.last_modified | date: "%-d" }} {{ t.months[month] }} {{ page.last_modified | date: "%Y" }} · {{ site.data.facts.tools_checked_kn }}ರಂದು ನಿಯಮಗಳನ್ನು ಪರಿಶೀಲಿಸಲಾಗಿದೆ</p>
   </div>
 </section>
 

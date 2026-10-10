@@ -28,7 +28,8 @@ faq:
   <div class="container">
     <h1 id="post-heading">ECR ಅಪ್‌ಲೋಡ್‌ನಲ್ಲಿ ಸಾಮಾನ್ಯ ದೋಷಗಳು ಮತ್ತು ಅವುಗಳನ್ನು ಸರಿಪಡಿಸುವುದು ಹೇಗೆ</h1>
     <p class="tool-lead">ECR (Electronic Challan cum Return) ಎಂದರೆ ಪ್ರತಿ ಉದ್ಯೋಗಿಯ ಸಂಬಳ ಮತ್ತು PFನ ಮಾಸಿಕ ಪಟ್ಟಿ, PF ಇಲಾಖೆಗೆ ಕಳುಹಿಸುವುದು. ಇದನ್ನು EPFO ಉದ್ಯೋಗದಾತರ ಪೋರ್ಟಲ್‌ನಲ್ಲಿ ಟೆಕ್ಸ್ಟ್ ಫೈಲ್ ಆಗಿ ಅಪ್‌ಲೋಡ್ ಮಾಡುತ್ತೀರಿ. ಹೆಚ್ಚಿನ ಅಪ್‌ಲೋಡ್‌ಗಳು ಕೆಲವು ಸರಳ ಕಾರಣಗಳಿಂದ ವಿಫಲವಾಗುತ್ತವೆ. ಅವು ಇಲ್ಲಿವೆ, ಪ್ರತಿಯೊಂದಕ್ಕೂ ಪರಿಹಾರದೊಂದಿಗೆ.</p>
-    <p class="note">{{ site.data.facts.tools_checked_kn }}ರಂದು ನಿಯಮಗಳನ್ನು ಪರಿಶೀಲಿಸಲಾಗಿದೆ</p>
+    {%- assign month = page.last_modified | date: "%-m" | minus: 1 -%}
+    <p class="note">ಕೊನೆಯದಾಗಿ ಬದಲಾಯಿಸಿದ ದಿನಾಂಕ: {{ page.last_modified | date: "%-d" }} {{ t.months[month] }} {{ page.last_modified | date: "%Y" }} · {{ site.data.facts.tools_checked_kn }}ರಂದು ನಿಯಮಗಳನ್ನು ಪರಿಶೀಲಿಸಲಾಗಿದೆ</p>
   </div>
 </section>
 

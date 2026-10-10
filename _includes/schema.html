@@ -12,6 +12,8 @@
   page_type tools (the hub) is a CollectionPage with an ItemList of the tools.
   page_type industries (the industry hub) is a CollectionPage.
   page_type blog (the guides index) is a CollectionPage.
+  The page node (WebPage, AboutPage…) gets dateModified from last_modified (left out when a page has none);
+  guides show the same date as "Last updated".
   Every page has a short business entity (name, url, phone) under the shared @id; the full
   entity (address, founder, areaServed…) goes on home, contact and pages with
   full_business: true (Mangalore only; never on Bangalore, which has no office).
@@ -31,7 +33,7 @@
 {%- endif -%}
 },
 {"@type":"WebSite","@id":"{{ site_url }}/#website","url":"{{ site_url }}/","name":"{{ site.data.site.name }}","publisher":{"@id":"{{ biz }}"}},
-{"@type":"{% if page.page_type == 'tools' or page.page_type == 'industries' or page.page_type == 'blog' %}CollectionPage{% elsif page.page_type == 'about' %}AboutPage{% elsif page.page_type == 'contact' %}ContactPage{% else %}WebPage{% endif %}","@id":"{{ page_url }}#webpage","url":"{{ page_url }}","name":{{ page.title | jsonify }},"description":{{ page.description | jsonify }},"inLanguage":"{% if lang == 'kn' %}kn-IN{% else %}en-IN{% endif %}","isPartOf":{"@id":"{{ site_url }}/#website"},"about":{"@id":"{{ biz }}"}{% if page.tool %},"mainEntity":{"@id":"{{ page_url }}#app"}{% elsif page.page_type == 'tools' %},"mainEntity":{"@id":"{{ page_url }}#tools"}{% elsif page.page_type == 'industries' %},"mainEntity":{"@id":"{{ page_url }}#industries"}{% endif %}}
+{"@type":"{% if page.page_type == 'tools' or page.page_type == 'industries' or page.page_type == 'blog' %}CollectionPage{% elsif page.page_type == 'about' %}AboutPage{% elsif page.page_type == 'contact' %}ContactPage{% else %}WebPage{% endif %}","@id":"{{ page_url }}#webpage","url":"{{ page_url }}","name":{{ page.title | jsonify }},"description":{{ page.description | jsonify }},"inLanguage":"{% if lang == 'kn' %}kn-IN{% else %}en-IN{% endif %}"{% if page.last_modified %},"dateModified":"{{ page.last_modified | date: '%Y-%m-%d' }}"{% endif %},"isPartOf":{"@id":"{{ site_url }}/#website"},"about":{"@id":"{{ biz }}"}{% if page.tool %},"mainEntity":{"@id":"{{ page_url }}#app"}{% elsif page.page_type == 'tools' %},"mainEntity":{"@id":"{{ page_url }}#tools"}{% elsif page.page_type == 'industries' %},"mainEntity":{"@id":"{{ page_url }}#industries"}{% endif %}}
 {%- if page.breadcrumb -%}
 ,{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":{{ t.breadcrumb_home | jsonify }},"item":"{{ site_url }}{{ base }}"}{% for b in page.breadcrumb %},{"@type":"ListItem","position":{{ forloop.index | plus: 1 }},"name":{{ b.name | jsonify }}{% if b.path %},"item":"{{ site_url }}{{ base }}{{ b.path }}"{% elsif forloop.last %},"item":"{{ page_url }}"{% endif %}}{% endfor %}]}
 {%- endif -%}

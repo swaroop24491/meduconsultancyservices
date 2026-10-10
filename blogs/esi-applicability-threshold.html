@@ -16,7 +16,7 @@ breadcrumb:
   <div class="container">
     <h1 id="post-heading">Do you need to register for ESI?</h1>
     <p class="tool-lead">Yes, if your business has {{ esi.min_employees }} or more staff. Count everyone, including casual staff and staff sent by a contractor. Once ESI applies, it keeps applying, even if you later have fewer than {{ esi.min_employees }} staff.</p>
-    <p class="note">Rules checked on {{ site.data.facts.tools_checked }}</p>
+    <p class="note">Last updated {{ page.last_modified | date: "%-d %B %Y" }} · Rules checked on {{ site.data.facts.tools_checked }}</p>
   </div>
 </section>
 

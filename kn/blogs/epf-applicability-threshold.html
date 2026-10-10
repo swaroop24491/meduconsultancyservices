@@ -17,7 +17,8 @@ breadcrumb:
   <div class="container">
     <h1 id="post-heading">ನೀವು PF ನೋಂದಣಿ ಮಾಡಬೇಕೇ?</h1>
     <p class="tool-lead">ಹೌದು, ನಿಮ್ಮ ವ್ಯಾಪಾರದಲ್ಲಿ {{ epf.min_employees }} ಅಥವಾ ಹೆಚ್ಚು ಸಿಬ್ಬಂದಿ ಇದ್ದರೆ. ಎಲ್ಲರನ್ನೂ ಎಣಿಸಿ: ತಾತ್ಕಾಲಿಕ ಮತ್ತು ದಿನಗೂಲಿ ಸಿಬ್ಬಂದಿ ಹಾಗೂ ಗುತ್ತಿಗೆದಾರರು ಕಳುಹಿಸುವ ಸಿಬ್ಬಂದಿಯೂ ಸೇರಿ. ಒಮ್ಮೆ PF ಅನ್ವಯಿಸಿದರೆ, ನಂತರ ಸಿಬ್ಬಂದಿ {{ epf.min_employees }}ಕ್ಕಿಂತ ಕಡಿಮೆಯಾದರೂ ಅದು ಅನ್ವಯಿಸುತ್ತಲೇ ಇರುತ್ತದೆ.</p>
-    <p class="note">{{ site.data.facts.tools_checked_kn }}ರಂದು ನಿಯಮಗಳನ್ನು ಪರಿಶೀಲಿಸಲಾಗಿದೆ</p>
+    {%- assign month = page.last_modified | date: "%-m" | minus: 1 -%}
+    <p class="note">ಕೊನೆಯದಾಗಿ ಬದಲಾಯಿಸಿದ ದಿನಾಂಕ: {{ page.last_modified | date: "%-d" }} {{ t.months[month] }} {{ page.last_modified | date: "%Y" }} · {{ site.data.facts.tools_checked_kn }}ರಂದು ನಿಯಮಗಳನ್ನು ಪರಿಶೀಲಿಸಲಾಗಿದೆ</p>
   </div>
 </section>
 

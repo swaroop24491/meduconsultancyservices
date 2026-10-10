@@ -17,7 +17,8 @@ breadcrumb:
     <h1 id="post-heading">ಉದ್ಯೋಗಿಗಳಿಗೆ ESI ಸೌಲಭ್ಯಗಳು: ನಿಮಗೆ ಏನು ಸಿಗುತ್ತದೆ</h1>
     <p class="tool-lead">ESI (ಉದ್ಯೋಗಿಗಳ ರಾಜ್ಯ ವಿಮೆ) ನಿಮಗೆ ವೈದ್ಯಕೀಯ ಚಿಕಿತ್ಸೆ ನೀಡುತ್ತದೆ, ಮತ್ತು ನೀವು ಅನಾರೋಗ್ಯದಲ್ಲಿದ್ದಾಗ, ಗಾಯಗೊಂಡಾಗ ಅಥವಾ ಹೆರಿಗೆಯ ಸಮಯದಲ್ಲಿ ಹಣದ ಸಹಾಯ ನೀಡುತ್ತದೆ. ನೀವು ಸ್ವಲ್ಪ ಭಾಗ ಕಟ್ಟುತ್ತೀರಿ. ಹೆಚ್ಚಿನ ಖರ್ಚನ್ನು ನಿಮ್ಮ ಉದ್ಯೋಗದಾತರು ಕಟ್ಟುತ್ತಾರೆ. ನಿಮ್ಮ ಉದ್ಯೋಗದಾತರ ವ್ಯಾಪಾರದಲ್ಲಿ {{ site.data.facts.esi.min_employees }} ಅಥವಾ ಹೆಚ್ಚು ಸಿಬ್ಬಂದಿ ಇದ್ದು, ನಿಮ್ಮ ESI ವೇತನ {{ site.data.facts.esi.wage_ceiling_text }} ಅಥವಾ ಕಡಿಮೆ ಇದ್ದರೆ, ಸೇರುವುದು ಕಡ್ಡಾಯ.</p>
     <p class="note">ಉದ್ಯೋಗದಾತರೇ? ಈ ಪುಟವನ್ನು ನಿಮ್ಮ ಸಿಬ್ಬಂದಿಯೊಂದಿಗೆ ಹಂಚಿಕೊಳ್ಳಿ.</p>
-    <p class="note">{{ site.data.facts.tools_checked_kn }}ರಂದು ನಿಯಮಗಳನ್ನು ಪರಿಶೀಲಿಸಲಾಗಿದೆ</p>
+    {%- assign month = page.last_modified | date: "%-m" | minus: 1 -%}
+    <p class="note">ಕೊನೆಯದಾಗಿ ಬದಲಾಯಿಸಿದ ದಿನಾಂಕ: {{ page.last_modified | date: "%-d" }} {{ t.months[month] }} {{ page.last_modified | date: "%Y" }} · {{ site.data.facts.tools_checked_kn }}ರಂದು ನಿಯಮಗಳನ್ನು ಪರಿಶೀಲಿಸಲಾಗಿದೆ</p>
   </div>
 </section>
 

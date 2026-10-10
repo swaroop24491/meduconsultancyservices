@@ -17,7 +17,8 @@ breadcrumb:
     <h1 id="post-heading">PFನಲ್ಲಿ 6 ಸಾಮಾನ್ಯ ತಪ್ಪುಗಳು, ಮತ್ತು ಅವುಗಳನ್ನು ಸರಿಪಡಿಸುವುದು ಹೇಗೆ</h1>
     <p class="tool-lead">ಹೆಚ್ಚಿನ PF ಸಮಸ್ಯೆಗಳು ತಿಳಿಯದೆ ಆಗುವ ತಪ್ಪುಗಳು. ತಿಂಗಳುಗಳು ಕಳೆದಂತೆ ಅವು ದೊಡ್ಡದಾಗುತ್ತವೆ. ನಾವು ಹೆಚ್ಚಾಗಿ ನೋಡುವ ಆರು ತಪ್ಪುಗಳು ಇಲ್ಲಿವೆ, ಪ್ರತಿಯೊಂದಕ್ಕೂ ಒಂದು ಸರಳ ಪರಿಹಾರ.</p>
 
-    <p class="note">{{ site.data.facts.tools_checked_kn }}ರಂದು ನಿಯಮಗಳನ್ನು ಪರಿಶೀಲಿಸಲಾಗಿದೆ</p>
+    {%- assign month = page.last_modified | date: "%-m" | minus: 1 -%}
+    <p class="note">ಕೊನೆಯದಾಗಿ ಬದಲಾಯಿಸಿದ ದಿನಾಂಕ: {{ page.last_modified | date: "%-d" }} {{ t.months[month] }} {{ page.last_modified | date: "%Y" }} · {{ site.data.facts.tools_checked_kn }}ರಂದು ನಿಯಮಗಳನ್ನು ಪರಿಶೀಲಿಸಲಾಗಿದೆ</p>
   </div>
 </section>
 

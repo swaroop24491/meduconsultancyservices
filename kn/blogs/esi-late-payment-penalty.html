@@ -17,7 +17,8 @@ breadcrumb:
   <div class="container">
     <h1 id="post-heading">ESI ತಡವಾಗಿ ಕಟ್ಟಿದರೆ ಏನಾಗುತ್ತದೆ?</h1>
     <p class="tool-lead">ESIC (ಸರ್ಕಾರದ ESI ಇಲಾಖೆ) ನೀವು ಕಟ್ಟಬೇಕಿರುವ ESI ಜೊತೆಗೆ ಬಡ್ಡಿ ಮತ್ತು ಡ್ಯಾಮೇಜಸ್ (ದಂಡದಂತಹ ಹೆಚ್ಚುವರಿ ಮೊತ್ತ) ವಿಧಿಸಬಹುದು. ಬಡ್ಡಿ ವರ್ಷಕ್ಕೆ 12%. ಎಷ್ಟು ತಡವಾಗಿದೆ ಎಂಬುದರ ಮೇಲೆ, ಡ್ಯಾಮೇಜಸ್ ವರ್ಷಕ್ಕೆ 5%ರಿಂದ 25%ರವರೆಗೆ ಇರುತ್ತದೆ. ಅಂತಿಮ ಮೊತ್ತವನ್ನು ESIC ನಿರ್ಧರಿಸುತ್ತದೆ.</p>
-    <p class="note">{{ site.data.facts.tools_checked_kn }}ರಂದು ನಿಯಮಗಳನ್ನು ಪರಿಶೀಲಿಸಲಾಗಿದೆ</p>
+    {%- assign month = page.last_modified | date: "%-m" | minus: 1 -%}
+    <p class="note">ಕೊನೆಯದಾಗಿ ಬದಲಾಯಿಸಿದ ದಿನಾಂಕ: {{ page.last_modified | date: "%-d" }} {{ t.months[month] }} {{ page.last_modified | date: "%Y" }} · {{ site.data.facts.tools_checked_kn }}ರಂದು ನಿಯಮಗಳನ್ನು ಪರಿಶೀಲಿಸಲಾಗಿದೆ</p>
   </div>
 </section>
 
