@@ -66,6 +66,7 @@
     --container: 72rem;
     --container-text: 42rem;         /* comfortable reading width */
     --container-article: 48rem;      /* guide article reading width (18px text) */
+    --container-lead: 60rem;         /* tool page lead line: 2 lines or fewer at desktop width */
     --radius-sm: 6px;
     --radius: 12px;
     --radius-lg: 16px;               /* panel cards */
@@ -861,7 +862,7 @@ html[lang="kn"] .hero h1 { line-height: 1.4; }
    the tool sits in one white outlined panel (each check in its own panel on
    the checkers); the result call box is tint. Blog posts keep the hero head. */
 [data-page-type="tool"] .tool-section h1 { max-width: none; font-size: var(--text-h2); line-height: var(--leading-heading); letter-spacing: var(--tracking-heading); }
-[data-page-type="tool"] .tool-lead { margin-top: var(--space-3); font-size: var(--text-lg); color: var(--color-text-muted); }
+[data-page-type="tool"] .tool-lead { max-width: var(--container-lead); margin-top: var(--space-3); font-size: var(--text-lg); color: var(--color-text-muted); }
 [data-page-type="post"] .tool-section h1 { font-size: var(--text-hero); line-height: 1.1; }
 html[lang="kn"] [data-page-type="post"] .tool-section h1 { line-height: var(--leading-heading); }
 [data-page-type="post"] .tool-lead { font-size: var(--text-lead); color: var(--color-text-muted); }
