@@ -2,7 +2,7 @@
 layout: base
 lang: kn
 page_type: tool
-last_modified: 2026-10-03
+last_modified: 2026-10-10
 title: "EPF ಎಕ್ಸೆಲ್‌ನಿಂದ ಟೆಕ್ಸ್ಟ್ ಪರಿವರ್ತಕ (ECR) | ಮೆದು ಕನ್ಸಲ್ಟೆನ್ಸಿ"
 description: "ನಿಮ್ಮ EPF ECR ಎಕ್ಸೆಲ್ ಶೀಟ್ ಅನ್ನು EPFO ಪೋರ್ಟಲ್‌ಗೆ ಬೇಕಾದ ಟೆಕ್ಸ್ಟ್ ಫೈಲ್ ಆಗಿ ಕೆಲವೇ ಸೆಕೆಂಡುಗಳಲ್ಲಿ ಬದಲಿಸಿ. ಉಚಿತ, ಸೈನ್ ಅಪ್ ಬೇಕಿಲ್ಲ, ಮತ್ತು ನಿಮ್ಮ ಫೈಲ್ ನಿಮ್ಮ ಕಂಪ್ಯೂಟರ್‌ನಲ್ಲೇ ಇರುತ್ತದೆ."
 scripts: [/converter.js]
@@ -31,19 +31,19 @@ faq:
         <ol class="tool-steps">
           <li>
             <h3>ECR ಎಕ್ಸೆಲ್ ಶೀಟ್ ತುಂಬಿ</h3>
-            <p>ನಮ್ಮ ಎಕ್ಸೆಲ್ ನಮೂನೆಯನ್ನು ಬಳಸಿ, ಆಗ ಕಾಲಂಗಳು ಸರಿಯಾದ ಕ್ರಮದಲ್ಲಿ ಇರುತ್ತವೆ. ಶೀರ್ಷಿಕೆ ಸಾಲನ್ನು ಅಳಿಸಬೇಡಿ. ಪರಿವರ್ತಕ ಅದನ್ನು ತಾನೇ ಬಿಟ್ಟುಬಿಡುತ್ತದೆ.</p>
+            <p>ನಮ್ಮ ECR ಎಕ್ಸೆಲ್ ನಮೂನೆಯನ್ನು ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ ತುಂಬಿ. ಶೀರ್ಷಿಕೆ ಸಾಲನ್ನು ಅಳಿಸಬೇಡಿ.</p>
             <p><a class="link-arrow" href="/EPF_ECR_FORMAT.xlsx" download="EPF_ECR_FORMAT.xlsx">ECR ಎಕ್ಸೆಲ್ ನಮೂನೆ ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ&#8288;{% include icon.html name="arrow" size="18" %}</a></p>
           </li>
           <li>
-            <h3>ತುಂಬಿದ ಎಕ್ಸೆಲ್ ಫೈಲ್ ಆರಿಸಿ</h3>
+            <h3>ನಿಮ್ಮ ECR ಎಕ್ಸೆಲ್ ಫೈಲ್ ಅಪ್‌ಲೋಡ್ ಮಾಡಿ</h3>
             <div class="field">
-              <label for="fileInput">ನಿಮ್ಮ ECR ಎಕ್ಸೆಲ್ ಫೈಲ್ (.xls ಅಥವಾ .xlsx)</label>
+              <label for="fileInput">ECR ಎಕ್ಸೆಲ್ ಫೈಲ್ (.xls ಅಥವಾ .xlsx)</label>
               <input type="file" id="fileInput" accept=".xls,.xlsx" aria-describedby="converter-status">
             </div>
           </li>
           <li>
-            <h3>ಟೆಕ್ಸ್ಟ್ ಫೈಲ್ ಪಡೆಯಿರಿ</h3>
-            <button type="submit" class="btn btn--outline">ಬದಲಿಸಿ, ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ {% include icon.html name="arrow" size="20" %}</button>
+            <h3>ಟೆಕ್ಸ್ಟ್ ಫೈಲ್ ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ</h3>
+            <button type="submit" class="btn btn--outline">ಟೆಕ್ಸ್ಟ್ ಫೈಲ್ ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ {% include icon.html name="arrow" size="20" %}</button>
             <p class="tool-status" id="converter-status" role="status"></p>
           </li>
         </ol>
@@ -97,7 +97,7 @@ faq:
 <script>
   // Kannada messages for converter.js (same conversion as the English page).
   window.converterText = {
-    noFile: 'ಮೊದಲು ನಿಮ್ಮ ಎಕ್ಸೆಲ್ ಫೈಲ್ ಆರಿಸಿ.',
+    noFile: 'ಮೊದಲು ನಿಮ್ಮ ECR ಎಕ್ಸೆಲ್ ಫೈಲ್ ಅಪ್‌ಲೋಡ್ ಮಾಡಿ.',
     done: 'ಆಯಿತು. ಟೆಕ್ಸ್ಟ್ ಫೈಲ್‌ಗಾಗಿ ನಿಮ್ಮ Downloads ಫೋಲ್ಡರ್ ನೋಡಿ.',
     error: 'ಈ ಫೈಲ್ ಅನ್ನು ಓದಲು ಆಗಲಿಲ್ಲ. ಇದು .xls ಅಥವಾ .xlsx ಫೈಲ್ ಹೌದೇ ಎಂದು ನೋಡಿ.',
     loadError: 'ಪರಿವರ್ತಕ ಲೋಡ್ ಆಗಲಿಲ್ಲ. ನಿಮ್ಮ ಇಂಟರ್ನೆಟ್ ಸಂಪರ್ಕ ನೋಡಿ, ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.'

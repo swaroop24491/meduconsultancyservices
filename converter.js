@@ -14,7 +14,7 @@
   'use strict';
 
   var MESSAGES = {
-    noFile: 'Choose your Excel file first.',
+    noFile: 'Upload your ECR Excel file first.',
     done: 'Done. Check your Downloads folder for the text file.',
     error: "We couldn't read this file. Check that it is an .xls or .xlsx file.",
     loadError: "The converter didn't load. Check your internet connection and try again."
@@ -102,7 +102,7 @@
     form.addEventListener('submit', function (event) {
       event.preventDefault();
       if (!document.getElementById('fileInput').files[0]) {
-        convertEPF(); // shows "Choose your Excel file first."
+        convertEPF(); // shows "Upload your ECR Excel file first."
         return;
       }
       loadSheetJS().then(convertEPF, function () {

@@ -2,7 +2,7 @@
 layout: base
 lang: en
 page_type: tool
-last_modified: 2026-10-03
+last_modified: 2026-10-10
 title: "EPF Excel to Text Converter (ECR) | Medu Consultancy"
 description: "Turn your EPF ECR Excel sheet into the text file the EPFO portal needs, in seconds. Free, no sign-up, and your file stays on your computer."
 scripts: [/converter.js]
@@ -31,19 +31,19 @@ faq:
         <ol class="tool-steps">
           <li>
             <h3>Fill in the ECR Excel sheet</h3>
-            <p>Use our Excel format, so the columns are in the right order. Don't delete the heading row. The converter skips it for you.</p>
+            <p>Download our ECR Excel format and fill it in. Keep the heading row.</p>
             <p><a class="link-arrow" href="/EPF_ECR_FORMAT.xlsx" download="EPF_ECR_FORMAT.xlsx">Download the ECR Excel format&#8288;{% include icon.html name="arrow" size="18" %}</a></p>
           </li>
           <li>
-            <h3>Choose your filled Excel file</h3>
+            <h3>Upload your ECR Excel file</h3>
             <div class="field">
-              <label for="fileInput">Your ECR Excel file (.xls or .xlsx)</label>
+              <label for="fileInput">ECR Excel file (.xls or .xlsx)</label>
               <input type="file" id="fileInput" accept=".xls,.xlsx" aria-describedby="converter-status">
             </div>
           </li>
           <li>
-            <h3>Get the text file</h3>
-            <button type="submit" class="btn btn--outline">Convert and download {% include icon.html name="arrow" size="20" %}</button>
+            <h3>Download the text file</h3>
+            <button type="submit" class="btn btn--outline">Download text file {% include icon.html name="arrow" size="20" %}</button>
             <p class="tool-status" id="converter-status" role="status"></p>
           </li>
         </ol>
