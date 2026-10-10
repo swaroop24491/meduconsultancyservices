@@ -1004,12 +1004,14 @@ main > .guide-article { padding-top: 0; border-top-color: transparent; }
 .date-pop calendar-select-month::part(label), .date-pop calendar-select-year::part(label) {
     position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
 }
+/* The browser's own arrow sits against the border: ours (expand_more, logo green) gets room */
 .date-pop calendar-select-month::part(select), .date-pop calendar-select-year::part(select) {
+    appearance: none;
     min-height: var(--tap-link);
-    padding: 0 var(--space-2);
+    padding: 0 var(--space-6) 0 var(--space-3);
+    background: var(--color-surface) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 -960 960 960' fill='%23006d3c'%3E%3Cpath d='M480-345 240-585l56-56 184 184 184-184 56 56-240 240Z'/%3E%3C/svg%3E") no-repeat right var(--space-2) center / 20px 20px;
     border: 1px solid var(--color-border-strong);
     border-radius: var(--radius-sm);
-    background: var(--color-surface);
     color: var(--color-heading);
     font: inherit;
     font-weight: var(--weight-medium);
