@@ -1,6 +1,9 @@
 # Business details used across the site. Change them here, not in pages.
 name: Medu Consultancy
 alternate_name: Medu Consultancy Services
+# Business entity in the JSON-LD on every page (English on both languages: one entity, one description)
+description: "PF and ESI registration and monthly filing for businesses in Mangaluru and Bengaluru. Medu Consultancy works by phone and email, in English, Kannada and Hindi."
+knows_about: ["EPF (Employees' Provident Fund)", "ESI (Employees' State Insurance)", "PF registration", "ESI registration", "PF monthly filing", "ESI monthly filing"]
 url: "https://www.meduconsultancy.com"
 phone_display: "+91 82175 42975"
 phone_tel: "+918217542975"
