@@ -1,0 +1,170 @@
+---
+layout: base
+lang: en
+page_type: post
+last_modified: 2026-10-10
+date_published: 2026-10-10
+title: "ECR Upload Errors and How to Fix Them | Medu Consultancy"
+headline: "Common ECR upload errors, and how to fix them"
+description: "ECR file not accepted on the EPFO portal? The common ECR upload errors, from the #~# separator to UAN and wage mistakes, and how to fix each one."
+breadcrumb:
+  - { name: Guides, path: blogs/ }
+  - { name: "ECR upload errors" }
+faq:
+  - q: Where do I see why my ECR upload failed?
+    a: The portal shows the problem after you upload the file. Note the row or UAN it points to. Fix that row in your Excel sheet, make the text file again and upload it again.
+  - q: Does the name in the ECR have to match EPFO records exactly?
+    a: A small spelling difference usually does not stop the upload. The PF goes to the UAN, under the name in EPFO's records. If the name in EPFO's records is wrong, get it corrected there.
+  - q: I made a mistake after approving the ECR. What now?
+    a: "You can't upload a second regular ECR for the same month. Add missed staff with a supplementary return. Fix wrong figures with a revised return. You can lower amounts only before you start the payment. Not sure which one you need? <a href=\"tel:+918217542975\" data-call-location=\"faq\">Call us</a>."
+  - q: Is uploading the ECR the same as paying PF?
+    a: No. The ECR is the monthly return. After you approve it, the portal makes the challan (the PF payment slip). You still have to pay that challan by the 15th of the next month.
+  - q: What should EPS wages be for staff who are not in the pension scheme?
+    a: "Put 0 in EPS wages and 0 in the EPS amount. The full employer share then goes to EPF. Not sure if someone is in the pension scheme? <a href=\"tel:+918217542975\" data-call-location=\"faq\">Call us</a> to check."
+---
+{%- assign f = site.data.facts.epf -%}
+<section class="section section--stacked tool-section" aria-labelledby="post-heading">
+  <div class="container">
+    <h1 id="post-heading">Common ECR upload errors, and how to fix them</h1>
+    <p class="tool-lead">The ECR (Electronic Challan cum Return) is the monthly list of each employee's wages and PF, sent to the PF office. You upload it as a text file on the EPFO employer portal. Most uploads fail for a few simple reasons. Here they are, each with a fix.</p>
+    <p class="note">Rules checked on {{ site.data.facts.tools_checked }}</p>
+  </div>
+</section>
+
+<section class="section section--stacked guide-article">
+  <div class="container">
+    <div class="prose">
+      <h2 id="why-heading">Why ECR uploads fail</h2>
+      <p>The portal checks every row of your file before it accepts it. It checks the file format, each UAN (the employee's lifelong PF account number), the dates and the amounts. One wrong row can stop the whole file.</p>
+      <p>The portal shows what went wrong. The exact words can change, so below we describe each problem in plain words.</p>
+
+      <h2 id="checklist-heading">Quick checklist before you upload</h2>
+      <ul class="check-list">
+        <li>The file is a .txt file, not Excel or CSV.</li>
+        <li>Each employee is on one line, with the details split by <code>#~#</code>.</li>
+        <li>There is no heading row and no empty line.</li>
+        <li>Every UAN is correct, linked to Aadhaar, and added to your business on the portal.</li>
+        <li>New staff have a joining date. Staff who left have an exit date.</li>
+        <li>Wages and PF amounts match this month's salary sheet.</li>
+        <li>Each UAN appears only once.</li>
+        <li>Earlier months' ECRs are already filed.</li>
+      </ul>
+
+      <h2 id="errors-heading">The common errors, and how to fix them</h2>
+
+      <h3 id="e1-heading">1. Wrong file format or separator</h3>
+      <p><strong>What's wrong:</strong> the portal can't read the file at all, or says a line has the wrong number of fields.</p>
+      <p><strong>Why:</strong> the portal needs a plain text file. Each line has the same fields, in the same order, split by <code>#~#</code> (hash, tilde, hash). A comma, a tab or a missing field breaks the line.</p>
+      <p><strong>The fix:</strong> keep the columns in the right order: UAN, name, gross wages, EPF wages, EPS wages, EDLI wages, the employee's PF, the EPS amount, the employer's EPF amount, NCP days and refund of advances. Make the text file with our free <a href="/epf-excel-to-text-converter">EPF Excel to Text converter</a>. It joins the fields with <code>#~#</code> for you.</p>
+
+      <h3 id="e2-heading">2. Wrong UAN</h3>
+      <p><strong>What's wrong:</strong> the portal rejects a row because the UAN is not valid.</p>
+      <p><strong>Why:</strong> a digit is typed wrong, or two digits are swapped. Sometimes Excel changes a long number when you copy it.</p>
+      <p><strong>The fix:</strong> copy each UAN from the portal's list of your employees, not from old files. Names are different. The PF goes to the UAN, under the name in EPFO's records. A small spelling difference usually does not stop the upload. If the name in EPFO's records is wrong, get it corrected there.</p>
+
+      <h3 id="e3-heading">3. UAN not linked to Aadhaar (KYC not done)</h3>
+      <p><strong>What's wrong:</strong> the portal won't take PF for one employee.</p>
+      <p><strong>Why:</strong> EPFO needs each employee's UAN linked to their Aadhaar. KYC means the ID details, like Aadhaar, PAN and bank account, saved against the UAN. If the Aadhaar link is missing or not checked yet, that employee's row can fail.</p>
+      <p><strong>The fix:</strong> check the employee's KYC status on the employer portal. Ask the employee to finish any step that is pending. New staff get their UAN with a quick face scan on the UMANG app. We guide them.</p>
+
+      <h3 id="e4-heading">4. Employee not linked to your business</h3>
+      <p><strong>What's wrong:</strong> the UAN is valid, but the portal says it is not part of your business.</p>
+      <p><strong>Why:</strong> a new employee's UAN was never added to your business on the portal. This is common when someone brings a UAN from their old job.</p>
+      <p><strong>The fix:</strong> add the employee on the employer portal, with the date they joined. Then upload the ECR again.</p>
+
+      <h3 id="e5-heading">5. Wage mistakes: EPF wages, EPS wages and the wage limit</h3>
+      <p><strong>What's wrong:</strong> the wages in a row don't make sense together, or don't match the amounts.</p>
+      <p><strong>Why:</strong> the four wage columns mean different things:</p>
+      <ul>
+        <li><strong>Gross wages:</strong> the full pay for the month.</li>
+        <li><strong>EPF wages:</strong> PF wages, that is basic pay plus DA (dearness allowance), not the full salary. They can't be more than gross wages. PF wages must be at least half the total pay. If they come to less, the difference is added to PF wages.</li>
+        <li><strong>EPS wages:</strong> wages for the pension part, EPS (Employees' Pension Scheme). For most staff, these stop at the PF wage limit.</li>
+        <li><strong>EDLI wages:</strong> wages for EDLI (Employees' Deposit Linked Insurance), the staff insurance part. These also stop at the PF wage limit.</li>
+      </ul>
+      <p>The PF wage limit went up from {{ f.wage_ceiling_old_text }} to {{ f.wage_ceiling_text }} a month on {{ f.wage_ceiling_from }}. Payroll software that still uses the old limit gives wrong EPS and EDLI wages. Some staff are not in the pension scheme, for example most staff aged 58 or more. Their EPS wages are usually 0.</p>
+      <p><strong>The fix:</strong> check that your software uses the new limit for wages from October 2026. Earlier months use the old limit. Check who is in the pension scheme. For September 2026 wages, EPFO has not yet confirmed how to treat the change in the middle of the month. <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a> to check.</p>
+
+      <h3 id="e6-heading">6. PF amounts don't match the wages</h3>
+      <p><strong>What's wrong:</strong> the amounts in a row don't add up from the wages.</p>
+      <p><strong>Why:</strong> the employee pays {{ f.employee_rate_pct }}% of EPF wages. The employer also pays {{ f.employer_rate_pct }}%, split in two. 8.33% of EPS wages goes to EPS. The rest goes to EPF. A hand-typed amount, or a different way of rounding, gives a wrong figure.</p>
+      <p><strong>The fix:</strong> work out the amounts with a formula in Excel, not by hand. Use whole rupees. Check a few rows with our free <a href="/epf-contribution-calculator">PF contribution calculator</a>.</p>
+    </div>
+    {% include result-call.html line="Tired of fixing ECR errors? Call us. We prepare and file your PF every month." %}
+    <div class="prose">
+      <h3 id="e7-heading">7. Wrong NCP days</h3>
+      <p><strong>What's wrong:</strong> the NCP days in a row don't fit the month, or don't fit the wages.</p>
+      <p><strong>Why:</strong> NCP (non-contributory period) days are the days in the month the employee was not paid for, like unpaid leave. They can't be more than the days in the month. If someone had unpaid days, their wages should be lower too.</p>
+      <p><strong>The fix:</strong> take NCP days from your attendance record. Put 0 if the employee was paid for the full month.</p>
+
+      <h3 id="e8-heading">8. The same UAN twice</h3>
+      <p><strong>What's wrong:</strong> one employee appears in two rows, or was already filed for this month.</p>
+      <p><strong>Why:</strong> two salary sheets were joined, or a row was copied twice. An employee can be in only one regular or supplementary return for a month.</p>
+      <p><strong>The fix:</strong> sort the sheet by UAN and remove the extra row. If pay changed during the month, add it up into one row.</p>
+
+      <h3 id="e9-heading">9. Staff who have left, or a wrong exit date</h3>
+      <p><strong>What's wrong:</strong> the portal rejects a row for someone who has left.</p>
+      <p><strong>Why:</strong> the portal checks each employee's joining and exit dates against the wage month. If the exit date is before this month, they can't be in this month's ECR. A wrong exit date causes the same problem.</p>
+      <p><strong>The fix:</strong> include staff only for the months they worked. Mark the date when staff leave, so your list of current staff stays correct. If an exit date was entered wrongly, <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">call us</a>. It may need a request to the PF office.</p>
+
+      <h3 id="e10-heading">10. Empty lines or stray characters</h3>
+      <p><strong>What's wrong:</strong> the file looks right, but one line fails, often the last one.</p>
+      <p><strong>Why:</strong> an empty line at the end, a space before a number, or a comma, quote mark or tab copied in from another file.</p>
+      <p><strong>The fix:</strong> open the text file in Notepad before you upload. Every line should start with a UAN. Delete empty lines. Keep names to plain letters and spaces.</p>
+
+      <h3 id="e11-heading">11. ECR already filed for the month</h3>
+      <p><strong>What's wrong:</strong> the portal won't take a new ECR for a month you already filed. Or it won't take this month's ECR yet.</p>
+      <p><strong>Why:</strong> under EPFO's new ECR system (from September 2025 wages), each month has one regular return. You may also need to file earlier months first.</p>
+      <p><strong>The fix:</strong></p>
+      <ul>
+        <li><strong>Before you approve it:</strong> check the summary. If something is wrong, reject it, fix the file and upload it again.</li>
+        <li><strong>Missed some staff:</strong> add them with a supplementary return.</li>
+        <li><strong>Wrong figures:</strong> fix them with a revised return. You can lower amounts only before you start the payment.</li>
+        <li><strong>An earlier month is not filed:</strong> file that month first.</li>
+      </ul>
+
+      <h2 id="avoid-heading">How to avoid ECR errors next month</h2>
+      <p>Most errors start in the salary sheet, not on the portal. A simple monthly routine stops them:</p>
+      <ol>
+        <li>Add new staff and mark the date when staff leave, on the portal, before the month ends.</li>
+        <li>Fill in our ECR Excel format from your salary sheet, with formulas for the PF amounts.</li>
+        <li>Turn it into a text file with the <a href="/epf-excel-to-text-converter">EPF Excel to Text converter</a>. It keeps the columns in order, joins them with <code>#~#</code>, keeps UANs whole and drops empty rows. Your file stays on your computer.</li>
+        <li>Upload it a few days before the {{ f.due_day }}th. Then you have time to fix an error and still pay the challan by the {{ f.due_day }}th.</li>
+      </ol>
+      <p>The converter only changes the file format. It does not check your figures, so check the amounts first. For other mistakes that cost businesses money, read <a href="/blogs/common-epf-compliance-mistakes">6 common PF mistakes</a>.</p>
+
+      <h2 id="help-heading">Rather not deal with this every month?</h2>
+      <p>You send us the salary details. We prepare the ECR, check it and file it. We get the payment slip (challan) ready in time, so you can pay by the {{ f.due_day }}th. See our <a href="/epf-consultancy-service">PF monthly filing service</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--surface section--stacked" aria-labelledby="more-heading">
+  <div class="container">
+    <h2 id="more-heading">More help with PF and ESI</h2>
+    <div class="card-grid card-grid--panel">
+      {% include tool-card.html key="converter" %}
+      {% include tool-card.html key="epf-contribution" %}
+    </div>
+    <div class="link-groups link-groups--wide">
+      <div class="link-group">
+        <p class="link-group__label">Guides:</p>
+        <ul class="link-list">
+          <li><a class="link-arrow" href="/blogs/common-epf-compliance-mistakes">Common PF mistakes&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+          <li><a class="link-arrow" href="/blogs/epf-late-payment-penalty">What paying PF late costs&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+          <li><a class="link-arrow" href="/blogs/">All guides&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+        </ul>
+      </div>
+      <div class="link-group">
+        <p class="link-group__label">Our services:</p>
+        <ul class="link-list">
+          <li><a class="link-arrow" href="/epf-consultancy-service">PF monthly filing&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="note">We help businesses in <a href="/epf-esi-consultancy-mangalore">Mangalore</a> and <a href="/epf-esi-consultancy-bangalore">Bangalore</a>. See <a href="/industries/">PF and ESI for your industry</a>.</p>
+  </div>
+</section>
+
+{% include faq.html items=page.faq schema=true %}
+
+{% include closing-call.html line="Want your ECR filed without errors? Call us. We file your PF on time, every month." %}
