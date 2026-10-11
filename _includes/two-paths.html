@@ -39,7 +39,8 @@
       </article>
       {%- endfor %}
     </div>
-    <p class="paths-bridge">{{ p.bridge }} {{ p.bridge_call }} <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="two-paths">{{ t.call.short }} <span class="nowrap">{{ site.data.site.phone_display }}</span></a></p>
+    {%- include phone.html %}
+    <p class="paths-bridge">{{ p.bridge }} {{ p.bridge_call }} <a href="tel:{{ phone_tel }}" data-call-location="two-paths">{{ t.call.short }} <span class="nowrap">{{ phone_display }}</span></a></p>
   </div>
 </section>
 {%- endif -%}

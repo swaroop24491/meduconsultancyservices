@@ -1,9 +1,11 @@
 {%- comment -%}
   The one call button. include call-button.html location="hero" block=true
   location: where it sits, sent to Google Analytics (header, hero, result, post, closing, menu)
+  Number: the page's phone_city (phone.html); Mangaluru unless the page sets phone_city: bengaluru.
 {%- endcomment -%}
 {%- include i18n.html -%}
-<a class="btn btn--call{% if include.block %} btn--block{% endif %}" href="tel:{{ site.data.site.phone_tel }}" data-call-location="{{ include.location | default: 'other' }}">
+{%- include phone.html -%}
+<a class="btn btn--call{% if include.block %} btn--block{% endif %}" href="tel:{{ phone_tel }}" data-call-location="{{ include.location | default: 'other' }}">
   <span class="btn__label">{% include icon.html name="call" size="20" %}{{ t.call.short }}</span>
-  <span class="nowrap">{{ site.data.site.phone_display }}</span>
+  <span class="nowrap">{{ phone_display }}</span>
 </a>

@@ -17,8 +17,8 @@
         <h3>{{ c.title }}</h3>
         <p>{{ c.text }}</p>
         <ul class="link-list row-links">
-          {%- if c.call %}
-          <li><a class="link-arrow" href="tel:{{ site.data.site.phone_tel }}" data-call-location="situation">{{ t.call.short }} <span class="nowrap">{{ site.data.site.phone_display }}</span>&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+          {%- if c.call %}{% include phone.html %}
+          <li><a class="link-arrow" href="tel:{{ phone_tel }}" data-call-location="situation">{{ t.call.short }} <span class="nowrap">{{ phone_display }}</span>&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
           {%- endif %}
           {%- for l in c.links %}
           <li>{% include resolve-link.html path=l.path %}<a class="link-arrow" href="{{ href }}"{% if link_en %} hreflang="en"{% endif %}>{{ l.label }}{% if link_en %}<span class="link-lang"> {{ t.english_marker }}</span>{% endif %}&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
