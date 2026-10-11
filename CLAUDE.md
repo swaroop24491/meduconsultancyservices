@@ -60,7 +60,8 @@ The watcher misses files added in a new folder and deleted data: restart the con
   `redirect_from:` (jekyll-redirect-from), `scripts:` and `tool: { name }` (tools),
   `headline` and `date_published` (posts; not `published`, which Jekyll reserves).
 - `_data/site.yml`: business details (address, geo, map, founder, languages, cities, proof numbers,
-  `gbp_url`, `founder_photo`). `_data/facts.yml`: legal facts (with `_kn` versions for Kannada; its
+  `gbp_url`, `founder_photo`, `bengaluru.phone` (10 digits) and `bengaluru.gbp_url`; `_includes/phone.html`
+  builds the tel:, shown and JSON-LD forms from the page's `phone_city`). `_data/facts.yml`: legal facts (with `_kn` versions for Kannada; its
   header lists where facts are also typed by hand). `_data/icons.yml`: inline SVG icons.
   `_data/i18n/en.yml` + `kn.yml`: all component text, same keys.
 - `_includes/`: components, each shown with its exact usage on `/style-guide`
@@ -128,8 +129,12 @@ the first wrong field.
 - Name Udupi (no longer served; old Udupi URLs redirect to the Mangalore page).
 
 ### Always
-- The phone call (`tel:+918217542975`, shown "+91 82175 42975") is the only call-to-action. Results
-  link to the phone first. No links to `/contact-us` from tools.
+- The phone call is the only call-to-action. Two numbers: Mangalore (`tel:+918217542975`, shown
+  "+91 82175 42975") is the default everywhere, including the header, call buttons and the JSON-LD
+  `#business`. Bengaluru (`tel:+919380546128`, shown "+91 93805 46128") appears only on the Bangalore pages
+  (`phone_city: bengaluru`: header, every call button, meta description, a `#bengaluru` JSON-LD node), on
+  the contact pages (labelled, after Mangalore) and in the footer (both, Mangalore first). No Bengaluru
+  email, WhatsApp or address. Results link to the phone first. No links to `/contact-us` from tools.
 - Simple, basic English: short sentences, everyday words, every compliance term explained the first
   time it appears. Write for both owners and HR/accounts staff.
 - Every change in both languages: the Kannada page is a translation of the final English page, nothing
