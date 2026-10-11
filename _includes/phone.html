@@ -1,0 +1,21 @@
+{%- comment -%}
+  Sets phone_tel, phone_display and phone_ld (JSON-LD form) for a city; prints nothing.
+  include phone.html                  (the page's phone_city; Mangaluru when it has none)
+  include phone.html city="bengaluru" (a set city: the contact card and the footer)
+  Mangaluru is the default everywhere. Bengaluru (phone_city: bengaluru) only on the Bangalore pages.
+{%- endcomment -%}
+{%- assign _city = include.city | default: page.phone_city | default: "mangaluru" -%}
+{%- if _city == "bengaluru" -%}
+{%- assign _n = site.data.site.bengaluru.phone | append: "" -%}
+{%- else -%}
+{%- assign _n = site.data.site.phone_tel | remove_first: "+91" -%}
+{%- endif -%}
+{%- assign _a = _n | slice: 0, 5 -%}{%- assign _b = _n | slice: 5, 5 -%}
+{%- if _city == "bengaluru" -%}
+{%- assign phone_tel = "+91" | append: _n -%}
+{%- assign phone_display = "+91 " | append: _a | append: " " | append: _b -%}
+{%- else -%}
+{%- assign phone_tel = site.data.site.phone_tel -%}
+{%- assign phone_display = site.data.site.phone_display -%}
+{%- endif -%}
+{%- assign phone_ld = "+91-" | append: _a | append: "-" | append: _b -%}

@@ -25,8 +25,11 @@ gbp_url: "https://maps.google.com/?cid=15926849928148429817"
 map_url: "https://maps.google.com/?cid=15926849928148429817"
 # Bengaluru Google Business Profile (owner share link https://share.google/e4TEePbiUfWFBscvv,
 # resolved 2026-10-09): "Medu Consultancy", no street address shown; a different profile from
-# Mangaluru. Data only: not output in markup until a Bengaluru phone number exists (round two).
+# Mangaluru. sameAs of the Bengaluru node on the Bangalore pages (schema.html).
+# Bengaluru phone (owner, 2026-10-11): 10 digits only; _includes/phone.html builds the tel:, shown and
+# JSON-LD forms. Shown only on the Bangalore pages (phone_city: bengaluru), the contact pages and the footer.
 bengaluru:
+  phone: "9380546128"
   gbp_url: "https://maps.google.com/?cid=17307362169862021557"
 # Loaded only after the visitor taps "Show the map" (map-tap.html)
 map_embed_url: "https://maps.google.com/maps?q=12.870844,74.8834522&z=17&output=embed"
