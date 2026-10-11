@@ -17,7 +17,9 @@
       <div class="site-footer__group site-footer__contact">
         <p class="site-footer__title">{{ t.footer.contact }}</p>
         <address>
-          <p><a href="tel:{{ site.data.site.phone_tel }}" data-call-location="footer">{{ site.data.site.phone_display }}</a></p>
+          <p>{{ t.footer.phone_mangaluru }}: <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="footer">{{ site.data.site.phone_display }}</a></p>
+          {%- include phone.html city="bengaluru" %}
+          <p>{{ t.footer.phone_bengaluru }}: <a href="tel:{{ phone_tel }}" data-call-location="footer-bengaluru">{{ phone_display }}</a></p>
           <p><a href="mailto:{{ site.data.site.email }}">{{ site.data.site.email }}</a></p>
           <p>{{ t.footer.address }}</p>
         </address>
