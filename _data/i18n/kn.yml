@@ -184,6 +184,9 @@ footer:
     - { label: ಗೌಪ್ಯತಾ ನೀತಿ, path: privacy-policy }
     - { label: ನಿಯಮಗಳು ಮತ್ತು ಷರತ್ತುಗಳು, path: terms-and-conditions }
   contact: ಸಂಪರ್ಕಿಸಿ
+  # Phone labels (footer and the Contact page Phone card), Mangaluru first
+  phone_mangaluru: ಮಂಗಳೂರು ಕಚೇರಿ
+  phone_bengaluru: ಬೆಂಗಳೂರು ತಂಡ
   address: "3ನೇ ಮಹಡಿ, ಪಡೀಲ್ ಗೇಟ್ ಬಿಲ್ಡಿಂಗ್, ಪಡೀಲ್, ಮಂಗಳೂರು, ಕರ್ನಾಟಕ 575007"
   # Address block (Contact, legal pages): name + 2 lines
   address_name: "ಮೆದು ಕನ್ಸಲ್ಟೆನ್ಸಿ"

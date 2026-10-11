@@ -182,6 +182,9 @@ footer:
     - { label: Privacy policy, path: privacy-policy }
     - { label: Terms and conditions, path: terms-and-conditions }
   contact: Contact
+  # Phone labels (footer and the Contact page Phone card), Mangaluru first
+  phone_mangaluru: Mangaluru office
+  phone_bengaluru: Bangalore team
   address: "3rd Floor, Padil Gate Building, Padil, Mangaluru, Karnataka 575007"
   # Address block (Contact, legal pages): name + 2 lines
   address_name: "Medu Consultancy"

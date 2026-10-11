@@ -2,7 +2,7 @@
 layout: base
 lang: en
 page_type: contact
-last_modified: 2026-10-04
+last_modified: 2026-10-11
 title: "Contact Medu Consultancy | Call +91 82175 42975"
 description: "Call us on +91 82175 42975 for help with PF and ESI. Talk to us in English, Kannada or Hindi. Office: Padil, Mangaluru."
 breadcrumb:
@@ -19,7 +19,11 @@ breadcrumb:
       <div class="card">
         <span class="icon-badge">{% include icon.html name="call" size="24" %}</span>
         <h3>Phone</h3>
+        <p>{{ t.footer.phone_mangaluru }}:</p>
         <p class="col-word"><a href="tel:{{ site.data.site.phone_tel }}" data-call-location="contact-card">{{ site.data.site.phone_display }}</a></p>
+        {%- include phone.html city="bengaluru" %}
+        <p>{{ t.footer.phone_bengaluru }}:</p>
+        <p class="col-word"><a href="tel:{{ phone_tel }}" data-call-location="contact-card-bengaluru">{{ phone_display }}</a></p>
         <p>You can talk to us in English or Kannada, and we can help you in Hindi too.</p>
       </div>
       <div class="card">
