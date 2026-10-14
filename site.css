@@ -43,6 +43,8 @@
     --color-text-muted: #5c5c5c;     /* 6.1:1 on cream */
     --color-brand: #006d3c;          /* logo green: links, headings accents, call button */
     --color-brand-dark: #00552f;     /* hover and pressed */
+    --color-brand-light: #00804a;    /* top of the call button gradient: white text 5.0:1 */
+    --shadow-call: 0 4px 14px rgba(0, 109, 60, 0.28);  /* soft green glow under a hovered call button */
     --color-on-brand: #ffffff;       /* text on green */
     --color-accent: #fede00;         /* logo mustard: small highlights only */
     --color-warning: #c1121f;        /* genuine warnings only */
@@ -270,6 +272,20 @@ main > .section--surface + .section--surface { border-top-color: var(--color-bor
 .btn__label { display: inline-flex; align-items: center; gap: var(--space-2); white-space: nowrap; }
 /* The Kannada font sits digits high in the line: phone numbers in buttons use
    the Latin font so they stay centred */
+/* Green call buttons (call button, header call) have a soft top-to-bottom gradient;
+   on hover it deepens and a soft green shadow lifts the button. The white button
+   in the closing call band overrides it (its background resets the gradient). */
+.btn--call,
+.site-header__call {
+    background-image: linear-gradient(180deg, var(--color-brand-light), var(--color-brand));
+    transition: background-color 0.15s, box-shadow 0.15s;
+}
+.btn--call:hover,
+.site-header__call:hover {
+    background-image: linear-gradient(180deg, var(--color-brand), var(--color-brand-dark));
+    box-shadow: var(--shadow-call);
+}
+.section--deep .btn--call:hover { box-shadow: none; }
 html[lang="kn"] .btn .nowrap,
 html[lang="kn"] .site-header__call span,
 html[lang="kn"] .col-word a[href^="tel:"] { font-family: var(--font-body); }
