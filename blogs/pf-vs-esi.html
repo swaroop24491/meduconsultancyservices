@@ -1,0 +1,138 @@
+---
+layout: base
+lang: en
+page_type: post
+last_modified: 2026-10-16
+date_published: 2026-10-16
+title: "PF vs ESI: Differences for Employers | Medu Consultancy"
+headline: "PF vs ESI: the differences for employers in one table"
+description: "PF vs ESI for employers: who must register (20 or more / 10 or more staff), wage limits, who pays what, due dates and the government offices, in one table."
+breadcrumb:
+  - { name: Guides, path: blogs/ }
+  - { name: "PF vs ESI" }
+faq:
+  - q: What is the main difference between PF and ESI?
+    a: "PF (Provident Fund, also called EPF) gives your staff savings and a pension. ESI (Employees' State Insurance) gives your staff medical care, and pay when they can't work because of sickness, injury or maternity. PF applies to a business with 20 or more staff. ESI applies to a business with 10 or more staff, except seasonal factories."
+  - q: Do I need both PF and ESI?
+    a: "With 20 or more staff, PF applies, in any industry. ESI applies too, except in seasonal factories. With 10 to 19 staff, ESI applies, except in seasonal factories. PF applies once you reach 20. Not sure? <a href=\"tel:+918217542975\" data-call-location=\"faq\">Call us</a>. We tell you if PF and ESI apply."
+  - q: What are the PF and ESI wage limits?
+    a: "If PF and ESI cover your business, staff whose PF wages are ₹25,000 a month or less must be in PF (from 17 September 2026). Staff whose ESI wages are ₹21,000 a month or less (₹25,000 for a person with a disability) must be in ESI."
+  - q: How much do the employer and employee pay for PF and ESI?
+    a: "PF: the employee pays 12% of their PF wages. You pay 12%, split between their PF savings and the pension. ESI: most employees pay 0.75% of their ESI wages. You pay 3.25%. That is 4% in total. Staff on very low daily pay don't pay their share, but you still pay 3.25%."
+  - q: Are the PF and ESI due dates the same?
+    a: "Yes. Both must be paid every month, by the 15th of the next month. For example, PF and ESI on October salaries must be paid by 15 November."
+---
+{%- assign epf = site.data.facts.epf -%}
+{%- assign esi = site.data.facts.esi -%}
+<section class="section section--stacked tool-section" aria-labelledby="post-heading">
+  <div class="container">
+    <h1 id="post-heading">PF vs ESI: the differences for employers in one table</h1>
+    <p class="tool-lead">PF and ESI are two different schemes, run by two different government offices. They have different staff limits, wage limits and rates. Here is how they compare, side by side.</p>
+    <p class="note">Last updated {{ page.last_modified | date: "%-d %B %Y" }} · Rules checked on {{ site.data.facts.tools_checked }}</p>
+  </div>
+</section>
+
+<section class="section section--stacked guide-article">
+  <div class="container">
+    <div class="prose">
+      <h2 id="what-each-one-gives-your-heading">What each one gives your staff</h2>
+      <p>PF (Provident Fund, also called EPF) gives your staff savings and a pension. Read <a href="/blogs/epf-benefits-for-employees">PF benefits for employees</a>.</p>
+      <p>ESI (Employees' State Insurance) gives your staff medical care, and pay when they can't work because of sickness, injury or maternity. Read <a href="/blogs/esi-benefits-for-employees">ESI benefits for employees</a>.</p>
+      <p>You can share these two guides with your staff. Want to know what your business gets from PF and ESI? Read <a href="/blogs/pf-esi-benefits-for-employers">What does your business get from PF and ESI?</a></p>
+      <h2 id="the-table-pf-and-esi-sid-heading">The table: PF and ESI side by side</h2>
+      <p>PF and ESI rules now come from the {{ site.data.facts.law }}, in force from {{ site.data.facts.law_in_force }}.</p>
+      <table class="compare-table" role="table">
+        <caption class="visually-hidden">The table: PF and ESI side by side</caption>
+        <thead role="rowgroup"><tr role="row"><td role="cell"></td><th scope="col" role="columnheader">PF</th><th scope="col" role="columnheader">ESI</th></tr></thead>
+        <tbody role="rowgroup">
+          <tr role="row"><th scope="row" role="rowheader">What it gives your staff</th><td role="cell" data-label="PF">Savings and a pension</td><td role="cell" data-label="ESI">Medical care and sick pay</td></tr>
+          <tr role="row"><th scope="row" role="rowheader">When it applies to your business</th><td role="cell" data-label="PF">20 or more staff, in any industry</td><td role="cell" data-label="ESI">10 or more staff, in every state. ESI does not apply to seasonal factories. For some risky kinds of work, ESI can apply even with 1 employee. <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a> to check.</td></tr>
+          <tr role="row"><th scope="row" role="rowheader">Who counts</th><td role="cell" data-label="PF">All staff, including casual staff, staff sent by a contractor and staff above the wage limit. Not apprentices.</td><td role="cell" data-label="ESI">The same as PF (staff above the ESI wage limit also count)</td></tr>
+          <tr role="row"><th scope="row" role="rowheader">Once it applies</th><td role="cell" data-label="PF">It stays, even if your staff later drop below 20</td><td role="cell" data-label="ESI">It stays, even if your staff later drop below 10</td></tr>
+          <tr role="row"><th scope="row" role="rowheader">Wage limit</th><td role="cell" data-label="PF">PF wages of {{ epf.wage_ceiling_text }} a month or less (from {{ epf.wage_ceiling_from }})</td><td role="cell" data-label="ESI">ESI wages of {{ esi.wage_ceiling_text }} a month or less ({{ esi.wage_ceiling_pwd_text }} for a person with a disability)</td></tr>
+          <tr role="row"><th scope="row" role="rowheader">Wages it is worked out on</th><td role="cell" data-label="PF">PF wages: basic pay plus DA (dearness allowance), not the full salary</td><td role="cell" data-label="ESI">ESI wages: they leave out some pay items, such as HRA (house rent allowance) and overtime</td></tr>
+          <tr role="row"><th scope="row" role="rowheader">The 50% rule</th><td role="cell" data-label="PF">PF wages must be at least half the total pay. If they come to less, the difference is added to PF wages.</td><td role="cell" data-label="ESI">ESI wages must be at least half the total pay. If they come to less, the difference is added to ESI wages.</td></tr>
+          <tr role="row"><th scope="row" role="rowheader">Who pays what</th><td role="cell" data-label="PF">The employee pays 12% of their PF wages; you pay 12%, split between their PF savings and the pension (EPS)</td><td role="cell" data-label="ESI">Most employees pay 0.75% of their ESI wages; you pay 3.25% (4% in total). Staff on very low daily pay don't pay their share, but you still pay 3.25%.</td></tr>
+          <tr role="row"><th scope="row" role="rowheader">Due date</th><td role="cell" data-label="PF">By the {{ epf.due_day }}th of the next month</td><td role="cell" data-label="ESI">By the {{ esi.due_day }}th of the next month</td></tr>
+          <tr role="row"><th scope="row" role="rowheader">Government office</th><td role="cell" data-label="PF">EPFO (the government PF office)</td><td role="cell" data-label="ESI">ESIC (the government ESI office)</td></tr>
+          <tr role="row"><th scope="row" role="rowheader">Each employee's number</th><td role="cell" data-label="PF">UAN (their PF account number). New staff get their UAN with a quick face scan on the UMANG app.</td><td role="cell" data-label="ESI">IP (Insured Person) number, their ESI number</td></tr>
+        </tbody>
+      </table>
+      <p>For the full rules on who counts, read <a href="/blogs/epf-applicability-threshold">PF: who must register</a> and <a href="/blogs/esi-applicability-threshold">ESI: who must register</a>.</p>
+      <p>Two more points that the table can't show:</p>
+      <p><strong>Staff with PF wages above {{ epf.wage_ceiling_text }}:</strong></p>
+      <ul>
+        <li><strong>Already in PF:</strong> they stay in PF.</li>
+        <li><strong>New joiners above {{ epf.wage_ceiling_text }} who were never in PF:</strong> they can join PF if you and they both agree in writing.</li>
+        <li><strong>In PF at an old job?</strong> <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a> to check.</li>
+      </ul>
+      <p>Read more in <a href="/blogs/pf-wage-limit-25000">PF wage limit is now {{ epf.wage_ceiling_text }}</a>.</p>
+      <p><strong>ESI contribution periods:</strong> ESI has two contribution periods a year: {{ esi.contribution_periods_text }}. You still pay ESI every month, by the {{ esi.due_day }}th of the next month.</p>
+      <p>Working with us? We guide new staff through the UMANG face scan. We create IP numbers on the ESIC portal.</p>
+    </div>
+    {% include result-call.html line="Not sure if PF, ESI or both apply to you? Call us. We tell you if PF and ESI apply." %}
+    <div class="prose">
+      <h2 id="when-you-need-both-heading">When you need both</h2>
+      <p>Look at how many staff your business has.</p>
+      <ul>
+        <li><strong>10 to 19 staff:</strong> ESI applies, except in seasonal factories. PF applies once you reach 20.</li>
+        <li><strong>20 or more staff:</strong> PF applies, in any industry. ESI applies too, except in seasonal factories.</li>
+      </ul>
+      <p>Then look at each employee. PF and ESI each have their own wage limit, and PF wages and ESI wages are worked out in different ways. So one employee may need to be in PF, in ESI, or in both. Working with us? We'll check who must be in PF and ESI.</p>
+      <p>Just reached 10 or 20 staff? Read <a href="/blogs/pf-esi-reached-10-or-20-staff">Your business just reached 10 or 20 staff: what to do next</a>.</p>
+      <h2 id="registering-for-both-heading">Registering for both</h2>
+      <p>Working with us? We register your business for PF, ESI or both. We tell you which documents we need when you call. Once we have all your documents, it takes just a few hours. See <a href="/pf-registration">PF registration</a> and <a href="/esi-registration">ESI registration</a>.</p>
+      <p>After you register, both are paid every month by the {{ epf.due_day }}th. Working with us? Each month, we file the ECR (the monthly list of each employee's wages and PF, sent to the PF office) and your monthly ESI details. We get the payment slip (challan) ready in time, so you can pay by the {{ epf.due_day }}th. Or send us the amount and we pay it.</p>
+      <p>Paying late costs extra for both. Read <a href="/blogs/epf-late-payment-penalty">What happens if you pay PF late?</a> and <a href="/blogs/esi-late-payment-penalty">What happens if you pay ESI late?</a></p>
+      <h2 id="our-free-tools-for-each-heading">Our free tools for each</h2>
+      <ul>
+        <li><strong>Does it apply?</strong> <a href="/epf-eligibility-checker">PF eligibility checker</a> and <a href="/esi-eligibility-checker">ESI eligibility checker</a></li>
+        <li><strong>What you and your staff pay</strong> <a href="/epf-contribution-calculator">PF contribution calculator</a> and <a href="/esi-contribution-calculator">ESI contribution calculator</a></li>
+        <li><strong>Cost of paying late</strong> <a href="/epf-penalty-calculator">PF penalty calculator</a> and <a href="/esi-penalty-calculator">ESI penalty calculator</a></li>
+      </ul>
+      <p>Rather not do this yourself? We file PF and ESI for you every month. We work by phone and email. We can visit you if needed, in Mangalore and Bangalore. Our founder worked at EPFO for 35 years. He taught us the PF rules.</p>
+      <p>See our <a href="/epf-consultancy-service">PF monthly filing</a> and <a href="/esi-consultancy-service">ESI monthly filing</a> services.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--surface section--stacked" aria-labelledby="more-heading">
+  <div class="container">
+    <h2 id="more-heading">More help with PF and ESI</h2>
+    <div class="card-grid card-grid--panel">
+      {% include tool-card.html key="epf-eligibility" %}
+      {% include tool-card.html key="esi-eligibility" %}
+    </div>
+    <div class="link-groups link-groups--wide">
+      <div class="link-group">
+        <p class="link-group__label">Guides:</p>
+        <ul class="link-list">
+          <li><a class="link-arrow" href="/blogs/pf-esi-benefits-for-employers">What does your business get from PF and ESI?&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+          <li><a class="link-arrow" href="/blogs/pf-wage-limit-25000">PF wage limit is now {{ epf.wage_ceiling_text }}&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+          <li><a class="link-arrow" href="/blogs/pf-esi-reached-10-or-20-staff">Your business just reached 10 or 20 staff&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+          <li><a class="link-arrow" href="/blogs/epf-applicability-threshold">PF: who must register&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+          <li><a class="link-arrow" href="/blogs/esi-applicability-threshold">ESI: who must register&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+          <li><a class="link-arrow" href="/blogs/">All guides&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+        </ul>
+      </div>
+      <div class="link-group">
+        <p class="link-group__label">Our services:</p>
+        <ul class="link-list">
+          <li><a class="link-arrow" href="/pf-registration">PF registration&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+          <li><a class="link-arrow" href="/esi-registration">ESI registration&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+        </ul>
+      </div>
+      <div class="link-group">
+        <p class="link-group__label">Free tools:</p>
+        <ul class="link-list">
+          <li><a class="link-arrow" href="/epf-esi-tools-calculators">All free tools&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="note">We help businesses in <a href="/epf-esi-consultancy-mangalore">Mangalore</a> and <a href="/epf-esi-consultancy-bangalore">Bangalore</a>. See <a href="/industries/">PF and ESI for your industry</a>.</p>
+  </div>
+</section>
+
+{% include faq.html items=page.faq schema=true %}
+
+{% include closing-call.html line="PF, ESI or both? Call us. We file them on time, every month." %}
