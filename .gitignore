@@ -23,3 +23,5 @@ _site/
 .jekyll-cache/
 .jekyll-metadata
 .sass-cache/
+/drafts/
+/reports/

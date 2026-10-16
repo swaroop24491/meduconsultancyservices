@@ -16,5 +16,7 @@ exclude:
   - Gemfile.lock
   - docs/
   - audit/
+  - drafts/
+  - reports/
   - vendor/
   - node_modules/
