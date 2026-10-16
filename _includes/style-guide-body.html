@@ -30,6 +30,7 @@
         <li><a href="#sg-tool-parts">Tool parts (fields, results)</a></li>
         <li><a href="#sg-payslip">Payslip generator parts</a></li>
         <li><a href="#sg-result">Result call box</a></li>
+        <li><a href="#sg-compare">Compare table</a></li>
         <li><a href="#sg-faq">FAQ</a></li>
         <li><a href="#sg-testimonials">Testimonial slot</a></li>
         <li><a href="#sg-photo">Photo slot</a></li>
@@ -413,6 +414,24 @@ Home "Who we work with, and where": one section--groups section, an H3 per group
     <h2>First heading</h2><p>Sample text for the first part of a guide. Short sentences in plain English.</p>
     <h2>Second heading</h2><p>Sample text. The call box comes after the main answer.</p>
   </div>{% include result-call.html line="Sample call line. Call us." %}</div></div>
+</div>
+
+<div id="sg-compare" class="sg-component">
+  <div class="container"><p class="sg-component__name">Compare table</p><p class="sg-note">Guides only (first used on PF vs ESI). A row label and two columns of short, wrapping text, left-aligned; use <code>.result-table</code> for numbers instead. Always a <code>caption</code> (add <code>.visually-hidden</code> when the H2 just above already names the table), <code>th scope="col"</code> for the columns and <code>th scope="row"</code> for each row label. Up to 768px each row stacks: the label, then each cell with its column name (from <code>data-label</code>) in front. The explicit <code>role</code>s keep the table meaning when the rows stack. Keep cells to one or two short sentences. Text comparisons only: a set of links is a <code>.link-list</code>, not a table. Columns share the width equally (<code>table-layout: fixed</code>, row labels 26%); stacked rows use the article text size.</p>
+  <pre class="sg-code"><code>&lt;table class="compare-table" role="table"&gt;&lt;caption&gt;…&lt;/caption&gt;
+  &lt;thead role="rowgroup"&gt;&lt;tr role="row"&gt;&lt;td role="cell"&gt;&lt;/td&gt;&lt;th scope="col" role="columnheader"&gt;PF&lt;/th&gt;&lt;th scope="col" role="columnheader"&gt;ESI&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+  &lt;tbody role="rowgroup"&gt;&lt;tr role="row"&gt;&lt;th scope="row" role="rowheader"&gt;…&lt;/th&gt;&lt;td role="cell" data-label="PF"&gt;…&lt;/td&gt;&lt;td role="cell" data-label="ESI"&gt;…&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+  <div class="sg-demo guide-article"><div class="prose">
+    <table class="compare-table" role="table">
+      <caption>Sample comparison</caption>
+      <thead role="rowgroup"><tr role="row"><td role="cell"></td><th scope="col" role="columnheader">PF</th><th scope="col" role="columnheader">ESI</th></tr></thead>
+      <tbody role="rowgroup">
+        <tr role="row"><th scope="row" role="rowheader">What it gives your staff</th><td role="cell" data-label="PF">Savings and a pension</td><td role="cell" data-label="ESI">Medical care and sick pay</td></tr>
+        <tr role="row"><th scope="row" role="rowheader">Due date</th><td role="cell" data-label="PF">By the 15th of the next month</td><td role="cell" data-label="ESI">By the 15th of the next month</td></tr>
+      </tbody>
+    </table>
+  </div></div></div>
 </div>
 
 <div id="sg-faq" class="sg-component">

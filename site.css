@@ -929,6 +929,27 @@ main > .guide-article { padding-top: 0; border-top-color: transparent; }
 [data-page-type="post"] .tool-section { padding-bottom: var(--space-7); }
 .guide-article .prose > h2:first-child { margin-top: 0; }
 .guide-article .result-call { max-width: var(--container-article); margin-block: var(--space-7); background: var(--color-tint); border-radius: var(--radius-lg); }
+/* Compare table (guides): long text in 2 columns (PF / ESI) with a row label.
+   Text wraps and is left-aligned (unlike .result-table, which is for numbers).
+   Up to 768px each row stacks: the row label, then each cell with its column
+   name from data-label. The markup carries explicit table roles, so the
+   stacked layout keeps its table meaning for screen readers. */
+.compare-table { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: var(--text-base); }
+.compare-table caption { text-align: left; padding-bottom: var(--space-3); font-weight: var(--weight-medium); color: var(--color-heading); }
+.compare-table th, .compare-table td { padding: var(--space-3) var(--space-4) var(--space-3) 0; border-bottom: 1px solid var(--color-border); text-align: left; vertical-align: top; overflow-wrap: anywhere; }
+.compare-table th:last-child, .compare-table td:last-child { padding-right: 0; }
+.compare-table thead th, .compare-table thead td { padding-top: 0; font-weight: var(--weight-medium); color: var(--color-heading); border-bottom-color: var(--color-border-strong); }
+.compare-table thead td:first-child { width: 26%; }
+.compare-table tbody th { font-weight: var(--weight-medium); color: var(--color-heading); }
+@media (max-width: 768px) {
+    .compare-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+    .compare-table { font-size: inherit; }
+    .compare-table tr, .compare-table tbody th, .compare-table td { display: block; width: auto; padding-right: 0; }
+    .compare-table tr { padding-block: var(--space-3); border-bottom: 1px solid var(--color-border); }
+    .compare-table tbody th, .compare-table td { border-bottom: 0; padding-block: var(--space-1); }
+    /* The column name is shown, not read out: the cell already has its column header */
+    .compare-table td[data-label]::before { content: attr(data-label) ": "; content: attr(data-label) ": " / ""; font-weight: var(--weight-medium); color: var(--color-heading); }
+}
 
 .tool-form { display: grid; gap: var(--space-6); max-width: 32rem; }
 /* The scripts fill a wrapper div with the fields */
