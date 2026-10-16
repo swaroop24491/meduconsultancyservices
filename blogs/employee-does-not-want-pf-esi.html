@@ -1,0 +1,136 @@
+---
+layout: base
+lang: en
+page_type: post
+last_modified: 2026-10-16
+date_published: 2026-10-16
+title: "Employee Doesn't Want PF or ESI? | Medu Consultancy"
+headline: "When an employee doesn't want to join PF or ESI"
+description: "Can an employee refuse PF or ESI? If the rules cover them, they must join. Why staff say no, the ₹25,000 PF rule for new joiners, and how to explain it."
+breadcrumb:
+  - { name: Guides, path: blogs/ }
+  - { name: "Staff who don't want to join" }
+faq:
+  - q: Can an employee refuse to join PF or ESI?
+    a: "No, if the rules cover them. If PF covers your business, staff whose PF wages are ₹25,000 a month or less must be in PF. If ESI covers your business, staff whose ESI wages are ₹21,000 a month or less (₹25,000 for a person with a disability) must be in ESI. You can't leave them out, and they can't say no."
+  - q: Can an employee who is already in PF stop their PF?
+    a: "No. Staff who are already in PF stay in PF, even if their PF wages are above ₹25,000. They can't leave because their pay went up, or because they ask to."
+  - q: My new employee's PF wages are above ₹25,000. Must they join PF?
+    a: "Not by law. If they were never in PF, they can join PF if you and they both agree in writing. Were they in PF at an old job? <a href=\"tel:+918217542975\" data-call-location=\"faq\">Call us</a> to check before you decide."
+  - q: Why does an employee's take-home pay go down when they join?
+    a: "PF and ESI take the employee's share from their pay. For PF, the employee pays 12% of their PF wages, and you pay 12%. For ESI, most employees pay 0.75% of their ESI wages, and you pay 3.25%. Staff on very low daily pay don't pay their share, but you still pay 3.25%. The employee's PF share is their own savings."
+  - q: What can I share with staff who don't want to join?
+    a: "Share our guides <a href=\"/blogs/epf-benefits-for-employees\">PF benefits for employees</a> and <a href=\"/blogs/esi-benefits-for-employees\">ESI benefits for employees</a>. They explain, in simple words, what your staff get from PF and ESI."
+---
+{%- assign epf = site.data.facts.epf -%}
+{%- assign esi = site.data.facts.esi -%}
+<section class="section section--stacked tool-section" aria-labelledby="post-heading">
+  <div class="container">
+    <h1 id="post-heading">When an employee doesn't want to join PF or ESI</h1>
+    <p class="tool-lead">Some staff ask you not to add them to PF or ESI. Most often, they want more take-home pay. But if the rules cover them, they must join. Here is why staff say no, what the rules say, and how to talk to them about it.</p>
+    <p class="note">Last updated {{ page.last_modified | date: "%-d %B %Y" }} · Rules checked on {{ site.data.facts.tools_checked }}</p>
+  </div>
+</section>
+
+<section class="section section--stacked guide-article">
+  <div class="container">
+    <div class="prose">
+      <h2 id="why-staff-say-no-heading">Why staff say no</h2>
+      <p>PF (Provident Fund, also called EPF) gives your staff savings and a pension. ESI (Employees' State Insurance) gives your staff medical care, and pay when they can't work because of sickness, injury or maternity.</p>
+      <p>When staff say no to them, it is usually for a fair reason. For example:</p>
+      <ul>
+        <li><strong>They want more take-home pay.</strong> Their PF and ESI shares come out of their pay each month. When money is tight, that feels like a loss.</li>
+        <li><strong>They don't know what they get.</strong> Nobody has explained PF or ESI to them in simple words.</li>
+        <li><strong>They worry about the steps.</strong> A new employee who has never been in PF gets their UAN (their PF account number) with a quick face scan on the UMANG app. Some staff are unsure about this. Working with us? We guide them.</li>
+      </ul>
+      <p>These worries make sense. Listen to them, and answer them. But the answer can't be to leave them out.</p>
+      <h2 id="can-they-opt-out-heading">Can they opt out?</h2>
+      <p>No, if the rules cover them. For staff the rules cover, joining is not a choice for you or for them.</p>
+      <p>First, PF and ESI must cover your business. PF applies to a business with 20 or more staff, in any industry. ESI applies to a business with 10 or more staff, except seasonal factories. Once PF or ESI applies, it stays. Read <a href="/blogs/epf-applicability-threshold">Do you need to register for PF?</a> and <a href="/blogs/esi-applicability-threshold">Do you need to register for ESI?</a></p>
+      <p>Then, for each employee:</p>
+      <ul>
+        <li><strong>PF:</strong> staff whose PF wages are {{ epf.wage_ceiling_text }} a month or less must be in PF, if the rules cover them. PF wages are basic pay plus DA (dearness allowance), not the full salary.</li>
+        <li><strong>ESI:</strong> staff whose ESI wages are {{ esi.wage_ceiling_text }} a month or less ({{ esi.wage_ceiling_pwd_text }} for a person with a disability) must be in ESI, if the rules cover them. ESI wages leave out some pay items, such as HRA (house rent allowance) and overtime.</li>
+      </ul>
+      <p>PF wages must be at least half the total pay. If they come to less, the difference is added to PF wages. The same rule applies to ESI wages.</p>
+      <p>So you can't leave covered staff out, and they can't say no. Staff who are already in PF can't stop because they ask to. For how PF and ESI differ, read <a href="/blogs/pf-vs-esi">PF vs ESI: the differences for employers in one table</a>.</p>
+      <p>Working with us? We'll check who must be in PF and ESI.</p>
+    </div>
+    {% include result-call.html line="An employee doesn't want to join? Call us. We tell you if PF and ESI apply." %}
+    <div class="prose">
+      <h2 id="above-25-000-the-joint-w-heading">Above {{ epf.wage_ceiling_text }}: the joint written choice</h2>
+      <p>For PF, staff with PF wages above {{ epf.wage_ceiling_text }} are different:</p>
+      <ul>
+        <li><strong>Already in PF:</strong> they stay in PF, even if their PF wages are above {{ epf.wage_ceiling_text }}. They can't leave because their pay went up.</li>
+        <li><strong>New joiners above {{ epf.wage_ceiling_text }} who were never in PF:</strong> they can join PF if you and they both agree in writing.</li>
+        <li><strong>In PF at an old job?</strong> <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a> to check before you decide.</li>
+      </ul>
+      <p>Read more in <a href="/blogs/pf-wage-limit-25000">PF wage limit is now {{ epf.wage_ceiling_text }}: what employers must change</a>.</p>
+      <h2 id="how-to-explain-the-benef-heading">How to explain the benefits</h2>
+      <p>Start with what the money does. Tell them: "PF gives you savings and a pension. ESI gives you medical care and sick pay."</p>
+      <p>Be honest about take-home pay. PF and ESI take the employee's share from their pay:</p>
+      <ul>
+        <li><strong>PF:</strong> the employee pays 12% of their PF wages. You pay 12%, split between their PF savings and the pension (EPS).</li>
+        <li><strong>ESI:</strong> most employees pay 0.75% of their ESI wages. You pay 3.25%. Staff on very low daily pay don't pay their share, but you still pay 3.25%.</li>
+      </ul>
+      <p>Their take-home pay goes down by their PF share, and their ESI share if they are in ESI. But their PF share is their own savings, and ESI gives them medical care and sick pay.</p>
+      <p>A few tips:</p>
+      <ul>
+        <li><strong>Talk before the first payslip.</strong> Staff take it better when they hear it from you first, not from a smaller payslip.</li>
+        <li><strong>Say it is the rule, not your choice.</strong> If the rules cover them, you must add them.</li>
+        <li><strong>Keep it short.</strong> Don't try to explain every rule. Share a guide they can read at home, in English or Kannada.</li>
+      </ul>
+      <p>Want the business side? Read <a href="/blogs/pf-esi-benefits-for-employers">What does your business get from PF and ESI?</a> It explains what you gain from PF and ESI.</p>
+      <h2 id="guides-you-can-share-wit-heading">Guides you can share with staff</h2>
+      <p>These two guides are written for employees, in simple words. Every guide on our site is in English and Kannada.</p>
+      <ul>
+        <li><a href="/blogs/epf-benefits-for-employees">PF benefits for employees: what you get</a></li>
+        <li><a href="/blogs/esi-benefits-for-employees">ESI benefits for employees: what you get</a></li>
+      </ul>
+      <p>We hear about staff who don't want to join in many industries. See <a href="/industries/">PF and ESI for your industry</a>.</p>
+      <p>Rather not handle this alone? We file PF and ESI for you every month. We work by phone and email. We can visit you if needed, in Mangalore and Bangalore. You can talk to us in English or Kannada, and we can help you in Hindi too. Our founder worked at EPFO (the government PF office) for 35 years. He taught us the PF rules.</p>
+      <p>See our <a href="/epf-consultancy-service">PF monthly filing</a> and <a href="/esi-consultancy-service">ESI monthly filing</a> services.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--surface section--stacked" aria-labelledby="more-heading">
+  <div class="container">
+    <h2 id="more-heading">More help with PF and ESI</h2>
+    <div class="card-grid card-grid--panel">
+      {% include tool-card.html key="epf-eligibility" %}
+      {% include tool-card.html key="esi-eligibility" %}
+    </div>
+    <div class="link-groups link-groups--wide">
+      <div class="link-group">
+        <p class="link-group__label">Guides:</p>
+        <ul class="link-list">
+          <li><a class="link-arrow" href="/blogs/epf-benefits-for-employees">PF benefits for employees&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+          <li><a class="link-arrow" href="/blogs/esi-benefits-for-employees">ESI benefits for employees&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+          <li><a class="link-arrow" href="/blogs/pf-esi-benefits-for-employers">What does your business get from PF and ESI?&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+          <li><a class="link-arrow" href="/blogs/pf-wage-limit-25000">PF wage limit is now {{ epf.wage_ceiling_text }}&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+          <li><a class="link-arrow" href="/blogs/pf-vs-esi">PF vs ESI&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+          <li><a class="link-arrow" href="/blogs/">All guides&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+        </ul>
+      </div>
+      <div class="link-group">
+        <p class="link-group__label">Our services:</p>
+        <ul class="link-list">
+          <li><a class="link-arrow" href="/epf-consultancy-service">PF monthly filing&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+          <li><a class="link-arrow" href="/esi-consultancy-service">ESI monthly filing&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+        </ul>
+      </div>
+      <div class="link-group">
+        <p class="link-group__label">Free tools:</p>
+        <ul class="link-list">
+          <li><a class="link-arrow" href="/epf-esi-tools-calculators">All free tools&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="note">We help businesses in <a href="/epf-esi-consultancy-mangalore">Mangalore</a> and <a href="/epf-esi-consultancy-bangalore">Bangalore</a>. See <a href="/industries/">PF and ESI for your industry</a>.</p>
+  </div>
+</section>
+
+{% include faq.html items=page.faq schema=true %}
+
+{% include closing-call.html line="Staff unsure about PF or ESI? Call us. We tell you who must join." %}
