@@ -1,0 +1,115 @@
+---
+layout: base
+lang: en
+page_type: post
+last_modified: 2026-10-16
+date_published: 2026-10-16
+title: "PF Wage Limit Is Now ₹25,000 | Medu Consultancy"
+headline: "PF wage limit is now ₹25,000: what employers must change"
+description: "The PF wage limit went up from ₹15,000 to ₹25,000 on 17 September 2026. Which staff must now be in PF, and what employers need to change."
+breadcrumb:
+  - { name: Guides, path: blogs/ }
+  - { name: "PF wage limit ₹25,000" }
+faq:
+  - q: Who must be in PF now?
+    a: From 17 September 2026, staff whose PF wages are ₹25,000 a month or less must be in PF, if your business is covered by PF. Before that, the limit was ₹15,000.
+  - q: My employee's PF wages are more than ₹25,000. Do they need PF?
+    a: "If they are already in PF, they stay in PF. A new joiner above ₹25,000 can join PF if you and they both agree in writing. Were they in PF at an old job? <a href=\"tel:+918217542975\" data-call-location=\"faq\">Call us</a> to check."
+  - q: Is the ₹25,000 limit based on the full salary?
+    a: No. It is based on PF wages. PF wages are basic pay plus DA (dearness allowance), not the full salary. But PF wages must be at least half the total pay. If they come to less, the difference is added to PF wages.
+  - q: Which limit do I use for September 2026 salaries?
+    a: "EPFO (the government PF office) has not yet said how to work out PF for September 2026 salaries. <a href=\"tel:+918217542975\" data-call-location=\"faq\">Call us</a> and we will tell you what to do."
+  - q: Does the new limit change how I count my staff for the 20-staff rule?
+    a: "No. Staff whose PF wages are above ₹25,000 still count. Count all your staff, including casual staff and staff sent by a contractor. Don't count apprentices. For the full rules on who counts, read <a href=\"/blogs/epf-applicability-threshold\">PF: who must register</a>. PF applies to a business with 20 or more staff."
+---
+{%- assign epf = site.data.facts.epf -%}
+<section class="section section--stacked tool-section" aria-labelledby="post-heading">
+  <div class="container">
+    <h1 id="post-heading">PF wage limit is now ₹25,000: what employers must change</h1>
+    <p class="tool-lead">From {{ epf.wage_ceiling_from }}, the PF wage limit is {{ epf.wage_ceiling_text }} a month. It was {{ epf.wage_ceiling_old_text }}. So more of your staff may now need to be in PF. Here is who, and what to change.</p>
+    <p class="note">Last updated {{ page.last_modified | date: "%-d %B %Y" }} · Rules checked on {{ site.data.facts.tools_checked }}</p>
+  </div>
+</section>
+
+<section class="section section--stacked guide-article">
+  <div class="container">
+    <div class="prose">
+      <h2 id="changed-heading">What changed on 17 September 2026</h2>
+      <p>PF (Provident Fund, also called EPF) gives your staff savings and a pension. Staff whose PF wages are at or below a limit must be in PF, if the rules cover them. That limit is called the PF wage limit, or wage ceiling.</p>
+      <p>The limit was {{ epf.wage_ceiling_old_text }} a month from September 2014. The government raised it to {{ epf.wage_ceiling_text }} a month from {{ epf.wage_ceiling_from }}.</p>
+      <p>PF rules now come from the {{ site.data.facts.law }}, in force from {{ site.data.facts.law_in_force }}, and the EPF Scheme, 2026.</p>
+      <p>The employee pays {{ epf.employee_rate_pct }}% of their PF wages. You pay {{ epf.employer_rate_pct }}%, split between their PF savings and the pension (EPS). PF is due by the {{ epf.due_day }}th of the next month.</p>
+
+      <h2 id="who-heading">Which staff must now be in PF</h2>
+      <p>Staff whose PF wages are {{ epf.wage_ceiling_text }} a month or less must be in PF, if the rules cover them.</p>
+      <p>PF wages are basic pay plus DA (dearness allowance: extra pay that rises with prices). They are not the full salary. But PF wages must be at least half the total pay. If they come to less, the difference is added to PF wages.</p>
+      <p><strong>Example:</strong> an employee's basic pay plus DA is ₹20,000 a month, and their total pay is ₹35,000. Half of ₹35,000 is ₹17,500, so their PF wages are ₹20,000. That is more than the old {{ epf.wage_ceiling_old_text }} limit, so if they were not in PF, they did not have to join. It is less than {{ epf.wage_ceiling_text }}, so now they must be in PF. Each month, the employee pays ₹2,400 ({{ epf.employee_rate_pct }}%) and you pay ₹2,400 ({{ epf.employer_rate_pct }}%) as your PF share. This is an estimate. Check your own figures with our <a href="/epf-contribution-calculator">PF contribution calculator</a>.</p>
+      <p>Not sure if PF applies to your business at all? PF applies with {{ epf.min_employees }} or more staff. Read <a href="/blogs/epf-applicability-threshold">PF: who must register</a>.</p>
+
+      <h2 id="above-heading">Staff above ₹25,000: who can join, and who stays</h2>
+      <ul class="check-list">
+        <li><strong>Already in PF:</strong> they stay in PF, even if their PF wages are above {{ epf.wage_ceiling_text }}. They can't leave because their pay went up.</li>
+        <li><strong>New joiners above {{ epf.wage_ceiling_text }} who were never in PF:</strong> they can join PF if you and they both agree in writing.</li>
+        <li><strong>In PF at an old job?</strong> <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a> to check before you decide.</li>
+      </ul>
+      <p>Staff above the limit still count when you count your staff for the {{ epf.min_employees }}-staff rule.</p>
+    </div>
+    {% include result-call.html line="Not sure which of your staff must now be in PF? Call us. We check it for you." %}
+    <div class="prose">
+      <h2 id="change-heading">What to change in your payroll</h2>
+      <ol>
+        <li><strong>List your staff.</strong> Find everyone whose PF wages are {{ epf.wage_ceiling_text }} a month or less and who is not in PF yet.</li>
+        <li><strong>Add them to PF.</strong> We'll check who must be in PF, so you add the right people. Staff who don't have a UAN (their PF account number) yet get one with a quick face scan on the UMANG app. We guide them.</li>
+        <li><strong>Update your salary sheet or payroll software.</strong> Make sure it uses the {{ epf.wage_ceiling_text }} limit, not {{ epf.wage_ceiling_old_text }}.</li>
+        <li><strong>Check PF wages against the 50% rule.</strong> If basic pay plus DA is less than half the total pay, the difference is added to PF wages.</li>
+        <li><strong>Pay by the {{ epf.due_day }}th.</strong> Each month's PF must be paid by the {{ epf.due_day }}th of the next month. We get the payment slip (challan) ready in time, so you can pay by the {{ epf.due_day }}th.</li>
+        <li><strong>Tell your staff.</strong> Their take-home pay goes down by their PF share. But that money is their own savings. Share our guide on <a href="/blogs/epf-benefits-for-employees">what PF gives employees</a>.</li>
+      </ol>
+      <p>Do you run an IT company? Read <a href="/industries/it-companies">PF and ESI for IT companies</a>. It covers the {{ epf.wage_ceiling_text }} limit for IT salaries.</p>
+
+      <h2 id="sept-heading">September 2026 salaries: call us</h2>
+      <p>The new limit started on {{ epf.wage_ceiling_from }}, in the middle of the month. EPFO (the government PF office) has not yet said how to work out PF for September 2026 salaries. <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a> and we will tell you what to do.</p>
+
+      <h2 id="tools-heading">Check an employee with our free tools</h2>
+      <p>Use the <a href="/epf-eligibility-checker">PF eligibility checker</a> to see if PF applies to your business or to one employee. Use the <a href="/epf-contribution-calculator">PF contribution calculator</a> to see what you and your employee pay. See <a href="/epf-esi-tools-calculators">all our free PF and ESI tools</a>.</p>
+      <p>Rather not do this yourself? We file PF for you every month. See our <a href="/epf-consultancy-service">PF monthly filing service</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--surface section--stacked" aria-labelledby="more-heading">
+  <div class="container">
+    <h2 id="more-heading">More help with PF and ESI</h2>
+    <div class="card-grid card-grid--panel">
+      {% include tool-card.html key="epf-eligibility" %}
+      {% include tool-card.html key="epf-contribution" %}
+    </div>
+    <div class="link-groups link-groups--wide">
+      <div class="link-group">
+        <p class="link-group__label">Guides:</p>
+        <ul class="link-list">
+          <li><a class="link-arrow" href="/blogs/epf-applicability-threshold">PF: who must register&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+          <li><a class="link-arrow" href="/blogs/common-epf-compliance-mistakes">Common PF mistakes&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+          <li><a class="link-arrow" href="/blogs/">All guides&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+        </ul>
+      </div>
+      <div class="link-group">
+        <p class="link-group__label">Our services:</p>
+        <ul class="link-list">
+          <li><a class="link-arrow" href="/epf-consultancy-service">PF monthly filing&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+        </ul>
+      </div>
+      <div class="link-group">
+        <p class="link-group__label">Free tools:</p>
+        <ul class="link-list">
+          <li><a class="link-arrow" href="/epf-esi-tools-calculators">All free tools&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="note">We help businesses in <a href="/epf-esi-consultancy-mangalore">Mangalore</a> and <a href="/epf-esi-consultancy-bangalore">Bangalore</a>. See <a href="/industries/">PF and ESI for your industry</a>.</p>
+  </div>
+</section>
+
+{% include faq.html items=page.faq schema=true %}
+
+{% include closing-call.html line="Need help with PF under the new limit? Call us. We file your PF on time, every month." %}
