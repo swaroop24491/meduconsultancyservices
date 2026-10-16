@@ -12,7 +12,7 @@ bundler or package manager.
 Every page is in English (root URLs) and Kannada (`kn/`, same paths). Pages: home, about, contact,
 PF and ESI monthly filing (`epf-consultancy-service`, `esi-consultancy-service`), PF and ESI
 registration, 2 city pages (`epf-esi-consultancy-mangalore`, `-bangalore`), an industry hub and 5
-industry pages (`industries/`), a tools hub and 7 tools, guides (`blogs/`: index + 11 posts), privacy,
+industry pages (`industries/`), a tools hub and 7 tools, guides (`blogs/`: index + 19 posts), privacy,
 terms, a bilingual 404, and the style guide (`/style-guide`, `/kn/style-guide`, noindex).
 
 **Read `docs/business-brief.md` before any page, content or design work.** It is the source of truth
@@ -48,6 +48,10 @@ The watcher misses files added in a new folder and deleted data: restart the con
   - `python3 audit/check/jsonld.py _site/<page>.html ...`: JSON-LD parses.
   - Tool cases: `*-cases.js`, `converter-compare.js`, `use-*.mjs`; `tool-text.mjs en|kn`.
   - `shot-sections.mjs <path> <name> <sg-id,...>` for section close-ups; `shot-contact.mjs` for the map.
+  - `python3 audit/check/build_posts.py . <slug> ...`: turns a reviewed `drafts/<slug>/en.md` + `kn.md` into
+    `blogs/<slug>.html` + `kn/blogs/<slug>.html` (L01 pattern; drops links to slugs in its `UNLIVE` list).
+    After it: remove the hand-typed proof-line paragraph (the call box shows it), swap the law name, dates
+    and ESI periods for facts.yml keys, then run all checks and the compliance reviewer.
 - After any page change, take 390px and 1440px screenshots and review them before saying it's done.
 
 ## How the site is built
@@ -103,6 +107,8 @@ The watcher misses files added in a new folder and deleted data: restart the con
 - Header is sticky (not under 421px tall). Up to 768px: logo, language switch, a round phone-icon call
   button, menu; no sticky call bar (owner decision). From 769px the header call button shows the
   full number. Industries is not in the desktop nav (phone menu and footer only).
+- Guides with a text comparison use `.compare-table` (style guide `#sg-compare`; rows stack up to
+  768px). Numbers use `.result-table`; a set of links is a `.link-list`, never a table.
 - Tool pages stay tool-first: no "what Medu does" line at the top. Legal pages (`page_type: legal`) use
   the `.legal` layout, no call button, no closing band. Contact loads the Google map only after
   "Show the map" (`map-tap.html`).
@@ -199,6 +205,32 @@ the first wrong field.
   ದಿನಗೂಲಿ" joins its outer items with ಹಾಗೂ.
 - Build: every page-text link through `link.html` (`arrow=false` inside a sentence); links between
   Kannada pages go to `/kn/...`; facts from the `_kn` keys. Call-button digits use `--font-body`.
+
+## Blog programme (status 16 October 2026)
+
+Plan and working files are local only (git-ignored, excluded from the build): `reports/blog-plan.md`
+(ranked topics, outlines, section 6 rules, calendar), `reports/slug-map.csv`, `reports/drafts-summary.md`
+(open [VERIFY] items by source, owner decisions), `drafts/<slug>/` (en.md, kn.md, review.md) and
+`drafts/drafting-brief.md` (the brief given to drafting agents, with the reviewers' lessons).
+Process per post: draft EN → separate compliance review → fix every Red/Amber → KN from the final EN →
+build with `build_posts.py` → checks → owner approval → branch, commit, push only when asked.
+
+- Live (EN + KN): L01 `pf-wage-limit-25000`, L39 `pf-esi-reached-10-or-20-staff`, L40
+  `employee-does-not-want-pf-esi`, L26 `pf-esi-in-house-or-consultant`, L23 `pf-vs-esi`, L24
+  `pf-esi-monthly-checklist`, L25 `changing-pf-esi-consultant`. Guides hub group "Doing PF and ESI each month".
+- Drafted, blocked on sources: L15 `new-staff-uan-umang-face-scan` (5 EPFO items), L16
+  `esi-ip-number-new-employee` (2 ESIC items), L04 `code-on-social-security-pf-esi` (7 items, rules still
+  being notified). When one goes live, remove its slug from `UNLIVE` and restore the links other posts dropped.
+- Monthly (first week): refresh L24's "This month" block (EN + KN) after checking EPFO/ESIC circulars;
+  from 1 November drop the 31 October 2026 line. Fixed dates: 20 Nov 2026 recheck ESI Reg 31-C;
+  January 2027 tool titles to 2027.
+- Open owner decisions: "Rules checked on" date (`tools_checked` is 27 September 2026, older than the
+  3 October rows and the 13 October circular now on L01/L24/L25: recheck and update, or a date per post);
+  get the EPFO circular of 13 October 2026 (September wages due 31 October) from epfindia.gov.in and read
+  page 2; EPS/EDLI ₹25,000 into section 11 with a notification reference; source for "staff who already
+  have a UAN/IP number keep it" (on about 10 live pages); plan fixes B1 (ESI wage exclusions beyond HRA and
+  overtime on 3 posts and the payslip generator), E5 (not-legal-advice line), F1 (privacy policy).
+- Kannada for a fluent speaker: L26 closing line ("ನಾವೇ ಮಾಡಬೇಕೇ?"); ESIನಲ್ಲಿ vs ESIಯಲ್ಲಿ across pages.
 
 ## Reviews
 
