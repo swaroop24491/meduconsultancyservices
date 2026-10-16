@@ -1,0 +1,132 @@
+---
+layout: base
+lang: en
+page_type: post
+last_modified: 2026-10-16
+date_published: 2026-10-16
+title: "Reached 10 or 20 Staff? PF and ESI Steps | Medu Consultancy"
+headline: "Your business just reached 10 or 20 staff: what to do next"
+description: "Just reached 10 or 20 staff? How to register for PF and ESI, add your staff and pay by the 15th every month. We tell you if PF and ESI apply to your business."
+breadcrumb:
+  - { name: Guides, path: blogs/ }
+  - { name: "Reached 10 or 20 staff" }
+faq:
+  - q: When does my business need PF and ESI?
+    a: "ESI applies to a business with 10 or more staff. ESI does not apply to seasonal factories. PF applies to a business with 20 or more staff, in any industry. Register as soon as it applies. Not sure? <a href=\"tel:+918217542975\" data-call-location=\"faq\">Call us</a>. We tell you if PF and ESI apply."
+  - q: How long does PF or ESI registration take?
+    a: "Just a few hours, once we have all your documents. We tell you which documents we need when you call."
+  - q: Can you file PF and ESI every month after we register?
+    a: "Yes. After registration, you can move straight onto monthly filing. Each month, you send us salary details and we file. We email you the confirmation and challans. You can pay by the 15th, or send us the amount and we pay it."
+  - q: Do all my staff have to join PF and ESI?
+    a: "Only if the rules cover them. Staff whose PF wages are ₹25,000 a month or less must be in PF. Staff whose ESI wages are ₹21,000 a month or less (₹25,000 for a person with a disability) must be in ESI. We'll check who must be in PF and ESI."
+  - q: What if I should have registered earlier?
+    a: "Register as soon as it applies. <a href=\"tel:+918217542975\" data-call-location=\"faq\">Call us</a> to check your case. We register you, and then we file on time every month."
+---
+{%- assign epf = site.data.facts.epf -%}
+{%- assign esi = site.data.facts.esi -%}
+<section class="section section--stacked tool-section" aria-labelledby="post-heading">
+  <div class="container">
+    <h1 id="post-heading">Your business just reached 10 or 20 staff: what to do next</h1>
+    <p class="tool-lead">Your business is growing. With 10 or 20 staff, PF and ESI may now apply to you. Here are the next steps: check, register, add your staff and pay every month.</p>
+    <p class="note">Last updated {{ page.last_modified | date: "%-d %B %Y" }} · Rules checked on {{ site.data.facts.tools_checked }}</p>
+  </div>
+</section>
+
+<section class="section section--stacked guide-article">
+  <div class="container">
+    <div class="prose">
+      <h2 id="first-check-if-pf-and-es-heading">First, check if PF and ESI apply</h2>
+      <p>PF (Provident Fund, also called EPF) gives your staff savings and a pension. ESI (Employees' State Insurance) gives your staff medical care, and pay when they can't work because of sickness, injury or maternity.</p>
+      <ul>
+        <li><strong>10 or more staff:</strong> ESI applies. ESI does not apply to seasonal factories.</li>
+        <li><strong>20 or more staff:</strong> PF applies, in any industry.</li>
+      </ul>
+      <p>Count all your staff, including casual staff and staff sent by a contractor. For the full rules on who counts, read <a href="/blogs/epf-applicability-threshold">PF: who must register</a> and <a href="/blogs/esi-applicability-threshold">ESI: who must register</a>.</p>
+      <p>Or check your business with our free <a href="/epf-eligibility-checker">PF eligibility checker</a> and <a href="/esi-eligibility-checker">ESI eligibility checker</a>.</p>
+      <h2 id="register-your-business-heading">Register your business</h2>
+      <p>Register as soon as PF or ESI applies to you.</p>
+      <ul>
+        <li><strong>PF:</strong> we register your business with EPFO (the government PF office).</li>
+        <li><strong>ESI:</strong> we register your business with ESIC (the government ESI office).</li>
+      </ul>
+      <p>We tell you which documents we need when you call. The list depends on your type of business. Once we have all your documents, it takes just a few hours.</p>
+      <p>We work by phone and email. We can visit you if needed, in Mangalore and Bangalore. See <a href="/pf-registration">PF registration</a> and <a href="/esi-registration">ESI registration</a>.</p>
+    </div>
+    {% include result-call.html line="Just reached 10 or 20 staff? Call us. We register your business for PF and ESI." %}
+    <div class="prose">
+      <h2 id="add-your-staff-uan-and-i-heading">Add your staff (UAN and IP number)</h2>
+      <p>After registration, your staff are added to PF and ESI, if the rules cover them. We'll check who must be in PF and ESI.</p>
+      <p><strong>PF:</strong> staff whose PF wages are {{ epf.wage_ceiling_text }} a month or less must be in PF. PF wages are basic pay plus DA (dearness allowance), not the full salary. PF wages must be at least half the total pay. If they come to less, the difference is added to PF wages.</p>
+      <p>Staff with PF wages above {{ epf.wage_ceiling_text }}:</p>
+      <ul>
+        <li><strong>Already in PF:</strong> they stay in PF.</li>
+        <li><strong>New joiners above {{ epf.wage_ceiling_text }} who were never in PF:</strong> they can join PF if you and they both agree in writing.</li>
+        <li><strong>In PF at an old job?</strong> <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a> to check.</li>
+      </ul>
+      <p>Read more in <a href="/blogs/pf-wage-limit-25000">PF wage limit is now {{ epf.wage_ceiling_text }}</a>.</p>
+      <p><strong>ESI:</strong> staff whose ESI wages are {{ esi.wage_ceiling_text }} a month or less ({{ esi.wage_ceiling_pwd_text }} for a person with a disability) must be in ESI. ESI wages leave out some pay items, such as HRA (house rent allowance) and overtime. ESI wages must be at least half the total pay. If they come to less, the difference is added to ESI wages.</p>
+      <p>Each employee in PF needs a UAN (their PF account number). New staff get their UAN with a quick face scan on the UMANG app. We guide them.</p>
+      <p>Each employee in ESI needs an IP number (their ESI number). We create IP numbers on the ESIC portal.</p>
+      <p>When someone new joins later, we'll check who must be in PF and ESI again. Mark the date when staff leave.</p>
+      <h2 id="pay-by-the-15th-every-mo-heading">Pay by the {{ epf.due_day }}th, every month</h2>
+      <p>PF and ESI must be paid every month, by the {{ epf.due_day }}th of the next month. For example, PF and ESI on October salaries must be paid by 15 November.</p>
+      <ul>
+        <li><strong>PF:</strong> the employee pays 12% of their PF wages. You pay 12%, split between their PF savings and the pension.</li>
+        <li><strong>ESI:</strong> most employees pay 0.75% of their ESI wages. You pay 3.25%. Staff on very low daily pay don't pay their share, but you still pay 3.25%.</li>
+      </ul>
+      <p>Check the amounts with our free <a href="/epf-contribution-calculator">PF contribution calculator</a> and <a href="/esi-contribution-calculator">ESI contribution calculator</a>.</p>
+      <p>Each month, we file the ECR (the monthly list of each employee's wages and PF, sent to the PF office) and your monthly ESI details. We get the payment slip (challan) ready in time, so you can pay by the {{ epf.due_day }}th. Or send us the amount and we pay it.</p>
+      <h2 id="if-you-registered-late-heading">If you registered late</h2>
+      <p>Did you reach 10 or 20 staff some time ago, but did not register? Register as soon as it applies. <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a> to check your case. We register you, and then we file on time every month.</p>
+      <h2 id="how-we-help-heading">How we help</h2>
+      <p><a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a>. We tell you if PF and ESI apply to your business. Then:</p>
+      <ol>
+        <li><strong>We register your business</strong> for PF, ESI or both.</li>
+        <li><strong>We add your staff</strong>, if the rules cover them.</li>
+        <li><strong>We can file every month.</strong> You send us salary details. We file and email you the confirmation and challans.</li>
+      </ol>
+      <p>Our founder worked at EPFO for 35 years. He taught us the PF rules.</p>
+      <p>You can talk to us in English or Kannada, and we can help you in Hindi too. See our <a href="/epf-consultancy-service">PF monthly filing</a> and <a href="/esi-consultancy-service">ESI monthly filing</a> services.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--surface section--stacked" aria-labelledby="more-heading">
+  <div class="container">
+    <h2 id="more-heading">More help with PF and ESI</h2>
+    <div class="card-grid card-grid--panel">
+      {% include tool-card.html key="epf-eligibility" %}
+      {% include tool-card.html key="esi-eligibility" %}
+    </div>
+    <div class="link-groups link-groups--wide">
+      <div class="link-group">
+        <p class="link-group__label">Guides:</p>
+        <ul class="link-list">
+          <li><a class="link-arrow" href="/blogs/epf-applicability-threshold">PF: who must register&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+          <li><a class="link-arrow" href="/blogs/esi-applicability-threshold">ESI: who must register&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+          <li><a class="link-arrow" href="/blogs/epf-late-payment-penalty">What paying PF late costs&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+          <li><a class="link-arrow" href="/blogs/esi-late-payment-penalty">What paying ESI late costs&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+          <li><a class="link-arrow" href="/blogs/">All guides&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+        </ul>
+      </div>
+      <div class="link-group">
+        <p class="link-group__label">Our services:</p>
+        <ul class="link-list">
+          <li><a class="link-arrow" href="/pf-registration">PF registration&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+          <li><a class="link-arrow" href="/esi-registration">ESI registration&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+        </ul>
+      </div>
+      <div class="link-group">
+        <p class="link-group__label">Free tools:</p>
+        <ul class="link-list">
+          <li><a class="link-arrow" href="/epf-esi-tools-calculators">All free tools&#8288;{% include icon.html name="arrow" size="18" %}</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="note">We help businesses in <a href="/epf-esi-consultancy-mangalore">Mangalore</a> and <a href="/epf-esi-consultancy-bangalore">Bangalore</a>. See <a href="/industries/">PF and ESI for your industry</a>.</p>
+  </div>
+</section>
+
+{% include faq.html items=page.faq schema=true %}
+
+{% include closing-call.html line="Just reached 10 or 20 staff? Call us. We register you and file every month." %}
