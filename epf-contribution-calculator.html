@@ -15,7 +15,7 @@ faq:
   - q: What is EPS, and why is less than 12% in the PF account?
     a: "EPS is the Employees' Pension Scheme. Part of your 12% goes to it: 8.33% of PF wages, up to ₹2,083 a month (₹1,250 when the limit was ₹15,000). It pays the employee a pension later. So less of your share goes into their PF account."
   - q: Can we pay PF on the full salary if it is above ₹25,000?
-    a: Yes, if you and the employee both agree. Otherwise you pay PF on ₹25,000. For most staff, the pension part (EPS) stays at 8.33% of ₹25,000.
+    a: Yes, if you and the employee both agree. Otherwise you pay PF on ₹25,000. Staff who were in PF before may still get the pension part (EPS), at 8.33% of ₹25,000. It depends on when they joined PF and their PF wages then. Staff new to PF with PF wages above ₹25,000 don't get EPS, so all of your share goes to their PF account.
   - q: Who pays 10% instead of 12%?
     a: 'Only some businesses the government has named. Most businesses pay 12%. <a href="tel:+918217542975" data-call-location="faq">Call us</a> if you are not sure.'
   - q: Will this match the payslip exactly?
@@ -48,7 +48,7 @@ faq:
       <p>You also pay <strong>{{ epf.employer_rate_pct }}%</strong>. Part of it goes to the employee's pension, called <strong>EPS</strong> (the Employees' Pension Scheme): 8.33% of PF wages up to {{ epf.wage_ceiling_text }}. That is at most ₹2,083 a month. The rest of your {{ epf.employer_rate_pct }}% goes to their PF account.</p>
       <p>Some businesses the government has named pay 10% instead of 12%. Most businesses pay 12%.</p>
       <p>The PF wage limit is <strong>{{ epf.wage_ceiling_text }}</strong> from {{ epf.wage_ceiling_from }} (it was {{ epf.wage_ceiling_old_text }}). If an employee in PF has PF wages above {{ epf.wage_ceiling_text }}, you pay PF on at least {{ epf.wage_ceiling_text }}. You can pay on the full PF wages if you and the employee both agree.</p>
-      <p>This calculator always puts 8.33% of PF wages (up to {{ epf.wage_ceiling_text }}) into the pension. For staff aged 58 or more, or new staff with PF wages above {{ epf.wage_ceiling_text }}, this can be different. <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a> to check.</p>
+      <p>This calculator puts 8.33% of PF wages (up to {{ epf.wage_ceiling_text }}) into the pension. Staff new to PF with PF wages above {{ epf.wage_ceiling_text }} don't get the pension part: choose "No" when the calculator asks. For staff aged 58 or more, this can be different too. <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a> to check.</p>
       <p>PF (also called EPF) is due by the {{ epf.due_day }}th of the next month.</p>
       <p class="note"><strong>Note:</strong> This calculator gives an estimate. The final figure can differ slightly because of rounding. Rules checked on {{ page.rules_checked | date: "%-d %B %Y" }}.</p>
     </div>
@@ -133,6 +133,20 @@ faq:
           ],
           default: 'cap',
           visibleIf: function (a) { return typeof a['basic-da'] === 'number' && !isNaN(a['basic-da']) && a['basic-da'] > WAGE_CEILING; }
+        },
+        {
+          // Reviewed logic update (17 Oct 2026, EPFO wage-ceiling FAQs Q13): staff new to PF
+          // with PF wages above the limit get no EPS; all of the employer share goes to EPF.
+          id: 'eps-status',
+          type: 'radio',
+          legend: 'PF wages are above ₹25,000. Was this employee in PF before?',
+          options: [
+            { value: 'yes', label: 'Yes, they were in PF before (EPS may apply)' },
+            { value: 'no', label: 'No, they are new to PF (no EPS)' }
+          ],
+          default: 'yes',
+          help: 'For staff who were in PF before, the pension part (EPS) depends on when they joined PF and their PF wages then. Not sure? ' + CALL + '.',
+          visibleIf: function (a) { return typeof a['basic-da'] === 'number' && !isNaN(a['basic-da']) && a['basic-da'] > WAGE_CEILING; }
         }
       ],
       compute: function (a) {
@@ -143,7 +157,8 @@ faq:
         var contributionBase = capSelected ? capBase : basicDa;
 
         var employeeContribution = roundRupee(contributionBase * rate);
-        var employerEps = roundRupee(capBase * EPS_RATE);
+        var noEps = basicDa > WAGE_CEILING && a['eps-status'] === 'no';
+        var employerEps = noEps ? 0 : roundRupee(capBase * EPS_RATE);
         var employerEpf = roundRupee(contributionBase * rate) - employerEps;
         var employerTotal = employerEps + employerEpf;
         var totalMonthly = employeeContribution + employerTotal;
@@ -173,8 +188,11 @@ faq:
             { label: 'Total PF each month', amount: totalMonthly, emphasis: true }
           ],
           notes: [
-            'Of the ' + window.ContributionCalculator.formatINR(totalMonthly) + ' total, ' +
-            window.ContributionCalculator.formatINR(totalToEpfAccount) + " goes to the employee's PF account. The rest goes to their pension. You also pay two extra charges: EDLI (life insurance for the employee) and an admin charge. They are not in this table."
+            (noEps
+              ? 'All of the ' + window.ContributionCalculator.formatINR(totalMonthly) + " total goes to the employee's PF account. They don't get the pension part (EPS), because they are new to PF with PF wages above ₹25,000."
+              : 'Of the ' + window.ContributionCalculator.formatINR(totalMonthly) + ' total, ' +
+                window.ContributionCalculator.formatINR(totalToEpfAccount) + " goes to the employee's PF account. The rest goes to their pension.") +
+            ' You also pay two extra charges: EDLI (life insurance for the employee) and an admin charge. They are not in this table.'
           ].concat(basicDa > 15000 ? [
             // The September 2026 limit change only matters above ₹15,000.
             'September 2026 is a split month. EPFO\'s FAQs (answers to common questions) on the new limit say to work out PF for 1 to 16 September on the old ₹15,000 limit, and for 17 to 30 September on the new ₹25,000 limit, in one ECR (the monthly list of each employee\'s wages and PF, sent to the PF office). PF for staff who join only because of the new limit starts from 17 September. PF on September 2026 salaries is due by 31 October 2026. PF on October 2026 salaries is still due by 15 November 2026. The amounts above use the ₹25,000 limit for the whole month: this tool does not do the split. ' + CALL + ' to check your staff.'
