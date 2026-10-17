@@ -177,7 +177,10 @@ the first wrong field.
   Takeover "once you share the documents we need".
 - Joining PF above ₹25,000: "if you and they both agree in writing". 50% rule: "PF/ESI wages must be at
   least half the total pay. If they come to less, the difference is added to PF/ESI wages."
-- PF wages = basic pay plus DA (dearness allowance), not the full salary. ESI uses "ESI wages", never
+- PF wages = basic pay plus DA (dearness allowance), not the full salary. Where PF wages are defined, follow with "Other
+  allowances, like a special allowance, may also count as PF wages. Call us to check." (KN "ವಿಶೇಷ ಭತ್ಯೆಯಂತಹ ಬೇರೆ
+  ಭತ್ಯೆಗಳು ಸಹ PF ವೇತನಕ್ಕೆ ಲೆಕ್ಕಕ್ಕೆ ಬರಬಹುದು. ಪರಿಶೀಲಿಸಲು ನಮಗೆ ಕರೆ ಮಾಡಿ."; EPF Scheme 2026 para 18(2) uses Code
+  s.2(88) wages). The 50% check names "the parts left out of PF wages, like HRA and overtime", never "other allowances". ESI uses "ESI wages", never
   "gross wages" or "total pay".
 - Who counts towards 20/10: all staff incl. casual, contractor-sent and high-salary staff; not
   apprentices, the proprietor or partners; directors: "call us to check how to count them". "Once PF/ESI
@@ -264,10 +267,9 @@ build with `build_posts.py` → checks → owner approval → branch, commit, pu
     the 17 Oct s.2(88) reading, owner). industries/it-companies FAQ now says "statutory bonus" (live 17 Oct 2026).
   - PF calculator and payslip compute September 2026 on ₹25,000 for the whole month (EPFO: pro-rated split,
     FAQ Q7); the notes disclose it.
-  - PF wages under s.2(88) (owner decision): the EPF Scheme 2026 doesn't define wages (para 2(2): Code meaning;
-    para 18(2): 12% "of the wages payable"), so by its words allowances not excluded (e.g. special allowance) are PF
-    wages; EPFO FAQ Q25 says s.2(88), Q26's example says Basic + DA + RA; the site says basic + DA (29 files). Options
-    and recommendation (add "other allowances paid to everyone may count; call us"): `audit/proposals/pf-wages-epf-scheme-2026.md`.
+  - PF wages under s.2(88): owner chose option 1 (17 Oct 2026): keep "basic pay plus DA" and add "Other allowances, like
+    a special allowance, may also count as PF wages" on 14 pages (EN + KN), tool help 50% sentence reworded, payslip
+    help explains its PF wages box (`audit/proposals/pf-wages-other-allowances.md`). No tool logic change.
   - Smaller: (done 17 Oct 2026: calculator's "PF is due by the 15th" line now has the September exception); checker's "already in
     PF" result now shows its own September note (`sepNoteMember`, live 17 Oct 2026: don't reduce higher-wage PF; EPS
     from 17 Sept at ₹25,000 or less).

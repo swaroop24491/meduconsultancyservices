@@ -17,7 +17,7 @@ faq:
   - q: Does an employee with PF wages above ₹25,000 need PF?
     a: 'Only in some cases. If they were in PF in an old job, they usually stay in PF. A new employee can join if you and they both agree in writing. International workers usually must be in PF too. <a href="tel:+918217542975" data-call-location="faq">Call us</a> to check.'
   - q: What are PF wages?
-    a: PF wages are basic pay plus DA (dearness allowance), not the full salary. But PF wages must be at least half the total pay. If they come to less, the difference is added to PF wages. We work this out for you.
+    a: PF wages are basic pay plus DA (dearness allowance), not the full salary. Other allowances, like a special allowance, may also count as PF wages. <a href="tel:+918217542975" data-call-location="faq">Call us</a> to check. But PF wages must be at least half the total pay. If they come to less, the difference is added to PF wages. We work this out for you.
 ---
 {%- assign epf = site.data.facts.epf -%}
 <section class="section section--stacked tool-section" aria-labelledby="tool-heading">
@@ -175,7 +175,7 @@ faq:
           id: 'basic-da',
           type: 'number',
           label: "What are this employee's PF wages? (₹ a month)",
-          help: 'PF wages are basic pay plus DA (dearness allowance), not the full salary. Are other allowances, like HRA (house rent allowance), more than half the salary? Then add the amount above half to PF wages. Not sure? ' + CALL + '.',
+          help: 'PF wages are basic pay plus DA (dearness allowance), not the full salary. Other allowances, like a special allowance, may also count as PF wages. Are the parts left out of PF wages, like HRA (house rent allowance) and overtime, more than half the salary? Then add the amount above half to PF wages. Not sure? ' + CALL + '.',
           min: 1,
           errorRequired: 'Enter the PF wages.',
           errorMin: 'Enter a number more than 0.'
