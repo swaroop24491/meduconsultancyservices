@@ -2,7 +2,8 @@
 layout: base
 lang: en
 page_type: tool
-last_modified: 2026-10-10
+last_modified: 2026-10-17
+rules_checked: 2026-10-17
 title: "PF Eligibility Checker (EPF) 2026 | Medu Consultancy"
 description: "Does PF apply to your business or an employee? Free PF eligibility checker, updated for the ₹25,000 wage limit from 17 September 2026."
 scripts: [/eligibility-checker.js]
@@ -56,9 +57,9 @@ faq:
       <p>Your business must register for PF when it has <strong>{{ epf.min_employees }} or more employees</strong>, in any industry. Count all your staff, including casual staff, workers a contractor sends and staff on high salaries. Don't count apprentices, the owner or partners. Is your business a company? <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a> to check how to count directors.</p>
       <p><strong>Once PF applies, it stays</strong>, even if your staff later drop below {{ epf.min_employees }}.</p>
       <h3>For each employee</h3>
-      <p>An employee must be in PF when their PF wages are <strong>{{ epf.wage_ceiling_text }} a month or less</strong>. This limit went up from {{ epf.wage_ceiling_old_text }} on {{ epf.wage_ceiling_from }}.</p>
-      <p>Above {{ epf.wage_ceiling_text }}: an employee who was in PF in an old job usually stays in PF. A new employee who was never in PF can join if you and they both agree in writing. International workers usually must be in PF, whatever their salary. Some are left out under an agreement between India and their home country. <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a> to check.</p>
-      <p class="note"><strong>Note:</strong> This checker is a guide based on the general PF rules. It is not a final answer for your business. Some cases need a closer look, like staff in more than one state, contract workers or apprentices. <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a> and we'll check. Checked against the rules as of {{ site.data.facts.tools_checked }}.</p>
+      <p>An employee must be in PF when their PF wages are <strong>{{ epf.wage_ceiling_text }} a month or less</strong>. This limit went up from {{ epf.wage_ceiling_old_text }} on {{ epf.wage_ceiling_from }}. Staff with PF wages above {{ epf.wage_ceiling_old_text }} and up to {{ epf.wage_ceiling_text }} who were left out of PF before must be in PF from {{ epf.wage_ceiling_from }}.</p>
+      <p>Above {{ epf.wage_ceiling_text }}: an employee who was in PF in an old job usually stays in PF. A new employee who was never in PF can join if you and they both agree in writing. Whether they also get the pension part of PF (EPS) depends on when they joined PF and their PF wages then. International workers usually must be in PF, whatever their salary. Some are left out under an agreement between India and their home country. <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a> to check.</p>
+      <p class="note"><strong>Note:</strong> This checker is a guide based on the general PF rules. It is not a final answer for your business. Some cases need a closer look, like staff in more than one state, contract workers or apprentices. <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a> and we'll check. Rules checked on {{ page.rules_checked | date: "%-d %B %Y" }}.</p>
     </div>
   </div>
 </section>
@@ -102,7 +103,7 @@ faq:
     var EPF_HEADCOUNT_THRESHOLD = 20;
     var CALL = '<a href="tel:+918217542975" data-call-location="result">Call us</a>';
     // Shown only when the September 2026 limit change matters (PF wages above ₹15,000, up to ₹25,000).
-    var SEPT_NOTE = 'Calculating September 2026 pay? ' + CALL + ' first. The PF office has not yet said which limit (₹15,000 or ₹25,000) to use for that month.';
+    var SEPT_NOTE = 'September 2026 is a split month. If this employee was left out of PF because their PF wages were above ₹15,000, they must be in PF from 17 September 2026. EPFO\'s FAQs (answers to common questions) on the new limit say to work out PF for 1 to 16 September on the old ₹15,000 limit, and for 17 to 30 September on the new ₹25,000 limit, in one ECR (the monthly list of each employee\'s wages and PF, sent to the PF office). PF for staff who join only because of the new limit starts from 17 September. PF on September 2026 salaries is due by 31 October 2026. PF on October 2026 salaries is still due by 15 November 2026. This tool does not do the split. ' + CALL + ' to check your staff.';
     var ceilingText = '₹' + EPF_WAGE_CEILING.toLocaleString('en-IN');
 
     initEligibilityCalculator('business-eligibility', {
@@ -209,7 +210,7 @@ faq:
           return {
             kind: 'positive',
             headline: 'Usually must stay in PF.',
-            reason: 'This employee was in PF before, so they usually stay in PF with you, even if their PF wages are above ' + ceilingText + '.',
+            reason: 'This employee was in PF before, so they usually stay in PF with you, even if their PF wages are above ' + ceilingText + '. Whether they also get the pension part of PF (EPS) depends on when they joined PF and their PF wages then.',
             crosslink: CALL + " if you're not sure."
           };
         }
@@ -236,7 +237,7 @@ faq:
         return {
           kind: 'neutral',
           headline: 'PF is optional for this employee.',
-          reason: 'PF wages of ₹' + a['basic-da'].toLocaleString('en-IN') + ' are above ' + ceilingText + ', and they were not in PF before. They can join PF if you and they both agree in writing. It is not required.',
+          reason: 'PF wages of ₹' + a['basic-da'].toLocaleString('en-IN') + ' are above ' + ceilingText + ', and they were not in PF before. They can join PF if you and they both agree in writing. It is not required. If they join, the pension part (EPS) doesn\'t apply to them, because their PF wages are above ₹25,000.',
           crosslink: 'See what PF would cost: <a href="/epf-contribution-calculator">PF contribution calculator</a>.'
         };
       }

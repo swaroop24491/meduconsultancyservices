@@ -64,7 +64,8 @@ The watcher misses files added in a new folder and deleted data: restart the con
   `service: { type, name, offers, area }`, `faq: [{ q, a }]` (answers may hold simple links),
   `redirect_from:` (jekyll-redirect-from), `scripts:` and `tool: { name }` (tools),
   `headline` and `date_published` (posts; not `published`, which Jekyll reserves), optional `rules_checked:
-  YYYY-MM-DD` (posts whose facts are newer than `tools_checked`: the "Rules checked on" note uses it).
+  YYYY-MM-DD` (posts and tool pages whose facts are newer than `tools_checked`: the "Rules checked on" note uses it;
+  the payslip generator shows PF from `rules_checked` and ESI from `tools_checked`).
 - `_data/site.yml`: business details (address, geo, map, founder, languages, cities, proof numbers,
   `gbp_url`, `founder_photo`, `bengaluru.phone` (10 digits) and `bengaluru.gbp_url`; `_includes/phone.html`
   builds the tel:, shown and JSON-LD forms from the page's `phone_city`). `_data/facts.yml`: legal facts (with `_kn` versions for Kannada; its
@@ -244,7 +245,9 @@ build with `build_posts.py` → checks → owner approval → branch, commit, pu
   being notified), L17 `staff-leaving-pf-esi-exit-date` (EN only, 13 EPFO/ESIC portal items; slug not yet
   in `slug-map.csv`). When one goes live, remove its slug from `UNLIVE` and restore the links other posts dropped.
 - Monthly (first week): refresh L24's "This month" block (EN + KN) after checking EPFO/ESIC circulars;
-  in November drop the September/31 October lines once that date has passed. Fixed dates: 20 Nov 2026
+  in November drop the September/31 October lines once that date has passed, and the September note in the PF
+  calculator and PF eligibility checker (EN + KN; it shows for any wage above ₹15,000, not only September; the
+  payslip's note shows only for September 2026). Fixed dates: 20 Nov 2026
   recheck ESI Reg 31-C; January 2027 tool titles to 2027.
 - Open owner decisions: the EPFO circular of 13 October 2026 (September wages due 31 October) is still only
   a third-party copy; epfindia.gov.in's circulars page listed nothing newer on 17 October 2026, so recheck

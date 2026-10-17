@@ -193,7 +193,7 @@
     logoSize: 'Choose an image of 1 MB or less.',
     checkErrors: 'Some details are missing. Check the fields marked above.',
     // Notes under the PF/ESI auto-fill. CALL is replaced by the call link.
-    pfSeptNote: 'Calculating September 2026 pay? CALL first. The PF office has not yet said which limit (₹15,000 or ₹25,000) to use for that month.',
+    pfSeptNote: 'September 2026 is a split month. EPFO\'s FAQs (answers to common questions) on the new limit say to work out PF for 1 to 16 September on the old ₹15,000 limit, and for 17 to 30 September on the new ₹25,000 limit, in one ECR (the monthly list of each employee\'s wages and PF, sent to the PF office). PF for staff who join only because of the new limit starts from 17 September. PF on September 2026 salaries is due by 31 October 2026. PF on October 2026 salaries is still due by 15 November 2026. The PF amount on this payslip uses the ₹25,000 limit for the whole month: this tool does not do the split. CALL to check your staff.',
     esiAboveNote: function (limit) {
       return 'ESI wages are above ' + limit + ', so we left ESI blank. Was this employee already in ESI, and their pay went above the limit during the period? They may stay in ESI until the period ends (end of September or end of March). CALL to check.';
     },

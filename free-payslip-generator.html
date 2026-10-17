@@ -2,7 +2,8 @@
 layout: base
 lang: en
 page_type: tool
-last_modified: 2026-10-10
+last_modified: 2026-10-17
+rules_checked: 2026-10-17
 title: "Free Payslip Generator: Salary Slip PDF | Medu Consultancy"
 description: "Free payslip generator: make a salary slip for your employee in minutes and save it as a PDF. No sign-up, and nothing you type leaves your computer."
 scripts: [/payslip-generator.js]
@@ -189,7 +190,7 @@ faq:
       <h2 id="shows-heading">What a payslip shows</h2>
       <p>A payslip usually shows the company's name, the employee's name and ID, the month, the paid days, each earning and each deduction, and the net pay (what the employee gets).</p>
       <p>PF (Provident Fund, also called EPF) gives your staff savings and a pension. ESI (Employees' State Insurance) gives your staff medical care and sick pay. If the rules cover an employee, their share of PF and ESI is taken from their salary and shown as a deduction.</p>
-      <p class="note"><strong>Note:</strong> The PF and ESI amounts are an estimate. Checked against the rules as of {{ site.data.facts.tools_checked }}.</p>
+      <p class="note"><strong>Note:</strong> The PF and ESI amounts are an estimate. PF rules checked on {{ page.rules_checked | date: "%-d %B %Y" }}. ESI rules checked on {{ site.data.facts.tools_checked }}.</p>
     </div>
   </div>
 </section>
