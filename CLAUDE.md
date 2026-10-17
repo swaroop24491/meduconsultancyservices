@@ -209,7 +209,7 @@ the first wrong field.
 - Build: every page-text link through `link.html` (`arrow=false` inside a sentence); links between
   Kannada pages go to `/kn/...`; facts from the `_kn` keys. Call-button digits use `--font-body`.
 
-## Blog programme (status 17 October 2026)
+## Blog programme (status 17 October 2026, end of day)
 
 Plan and working files are local only (git-ignored, excluded from the build): `reports/blog-plan.md`
 (ranked topics, outlines, section 6 rules, calendar), `reports/slug-map.csv`, `reports/drafts-summary.md`
@@ -232,14 +232,35 @@ build with `build_posts.py` → checks → owner approval → branch, commit, pu
   B1 on posts: the 3 ESI posts say "Some pay is left out, such as house rent allowance (HRA) and overtime".
   R8 (ECR guide linked from converter, PF monthly filing, PF mistakes, PF inspection) and R9 ("All free
   tools" on every guide) done; R4 was already done.
-- Next (agreed order): (1) tool text: the PF contribution calculator, PF eligibility checker and payslip
-  generator (EN + KN) still say EPFO hasn't given the September method; text-only reviewed change, old/new
-  text, compliance reviewer, tool cases unchanged. (2) ESI wages list in the ESI contribution calculator,
-  ESI eligibility checker and payslip generator (logic: `esiOut` in `payslip-generator.js`): first read
-  Code s.2(88) from the official text (it may also leave out commission, conveyance, statutory bonus) and
-  add the list to brief s11; only then decide whether tools change (test cases in
-  `audit/proposals/accuracy-2026-10-17.md`). Same unverified list for PF wages on industries/it-companies.
-  (3) L17 sources (below).
+- Done 17 Oct 2026, tools (live, commits df2b629, 3631c8a, bdd51c4):
+  - September note in the PF calculator, PF eligibility checker and payslip generator (EN + KN): split month,
+    1-16 Sept on ₹15,000, 17-30 Sept on ₹25,000, one ECR, PF for newly covered staff from 17 Sept, due 31 Oct
+    2026, October due 15 Nov 2026, "this tool does not do the split". Checker adds: ₹15,001-₹25,000 staff left
+    out before are in PF from 17 Sept; EPS "depends on when they joined PF and their PF wages then"; new to PF
+    above ₹25,000: no EPS. These 3 tools show `rules_checked: 2026-10-17` (payslip: "PF rules checked on 17
+    October 2026. ESI rules checked on 27 September 2026.").
+  - PF calculator logic (reviewed): above ₹25,000 it asks "Was this employee in PF before?" (default "Yes
+    ... (EPS may apply)", results unchanged); "No" puts EPS at ₹0, all employer share to EPF (FAQ Q13).
+  - ESI wages text (ESI calculator, ESI checker, payslip help, EN + KN): "HRA, overtime, commission, travel
+    allowance and statutory bonus (bonus paid under the bonus law). A bonus that is part of the agreed pay
+    stays in ESI wages." KN "ಕಾನೂನು ಪ್ರಕಾರ ಕೊಡಬೇಕಾದ ಬೋನಸ್". Code s.2(88) read from the Gazette text
+    (PRS copy, `docs/sources/Code-on-Social-Security-2020-gazette.pdf`); full list in brief s11 "Wages definition".
+  - Brief s11 EPF row now cites FAQ Q1, Q5, Q10-Q13, Q22, Q26, Q28, Q29, Q45; "in writing" for joining above
+    ₹25,000 marked unverified (site keeps it, owner decision, until EPF Scheme 2026 para 9(4) is checked).
+  Proposals: `audit/proposals/tool-text-september-2026.md`, `pf-calculator-eps-above-limit.md`,
+  `esi-wages-2026-10-17.md`.
+- Next (agreed order): (1) L17 sources (13 EPFO/ESIC portal items; logged-in screens need owner screenshots).
+  Then, open tool work (each a separate reviewed change with before/after cases):
+  - Payslip proposal B: rename the preset "Bonus" row to "Statutory bonus" so a typed "Bonus" counts in ESI
+    wages (cases T1/T2/T4 in `esi-wages-2026-10-17.md`; T4 moves an employee above ₹21,000).
+  - PF calculator and payslip compute September 2026 on ₹25,000 for the whole month (EPFO: pro-rated split,
+    FAQ Q7); the notes disclose it.
+  - PF wages under s.2(88): by the Code's words allowances not excluded (e.g. special allowance) are wages;
+    EPFO FAQ Q26 and the site say basic + DA (+ retaining allowance). Needs the EPF Scheme 2026 text before
+    changing anything; industries/it-companies FAQ (EN + KN) still lists "bonus" as left out of PF wages.
+  - Smaller: calculator's always-on "PF is due by the 15th" has no September exception; checker's "already in
+    PF" result comes before the wage test (existing members never see the September note).
+  - Check for any ESIC instruction on bonus under the Code, and later amendments to s.2(88) (indiacode).
 - Drafted, blocked on sources: L15 `new-staff-uan-umang-face-scan` (5 EPFO items), L16
   `esi-ip-number-new-employee` (2 ESIC items), L04 `code-on-social-security-pf-esi` (7 items, rules still
   being notified), L17 `staff-leaving-pf-esi-exit-date` (EN only, 13 EPFO/ESIC portal items; slug not yet
@@ -251,11 +272,14 @@ build with `build_posts.py` → checks → owner approval → branch, commit, pu
   recheck ESI Reg 31-C; January 2027 tool titles to 2027.
 - Open owner decisions: the EPFO circular of 13 October 2026 (September wages due 31 October) is still only
   a third-party copy; epfindia.gov.in's circulars page listed nothing newer on 17 October 2026, so recheck
-  there and on the employer portal. `tools_checked` stays 27 September 2026 (owner); posts using newer facts
-  get `rules_checked`. Source for "staff who already have a UAN/IP number keep it" (on about 10 live pages);
+  there and on the employer portal. `tools_checked` stays 27 September 2026 (owner); posts and tool pages
+  using newer facts get `rules_checked`. Source for "staff who already have a UAN/IP number keep it" (on about 10 live pages);
   plan fixes E5 (not-legal-advice line), F1 (privacy policy); ECR guide line "new ECR system from
   September 2025 wages" is not in s11.
-- Kannada for a fluent speaker: L26 closing line ("ನಾವೇ ಮಾಡಬೇಕೇ?"); ESIನಲ್ಲಿ vs ESIಯಲ್ಲಿ across pages.
+- Kannada for a fluent speaker: L26 closing line ("ನಾವೇ ಮಾಡಬೇಕೇ?"); ESIನಲ್ಲಿ vs ESIಯಲ್ಲಿ across pages;
+  "ಕಾನೂನು ಪ್ರಕಾರ ಕೊಡಬೇಕಾದ ಬೋನಸ್" (ESI tools).
+- Screenshots: Playwright shots of a Kannada element's parent container can come out garbled (font
+  artifact); check with an element-only or viewport shot before treating it as a bug.
 
 ## Reviews
 
