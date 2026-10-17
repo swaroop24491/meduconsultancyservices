@@ -227,7 +227,8 @@ build with `build_posts.py` → checks → owner approval → branch, commit, pu
   `drafts/staff-leaving-pf-esi-exit-date/sources.md` (S1-S10; key: EPFO revamped ECR circular 26 Sep 2025 and FAQs 8 Oct
   2025) and brief s11 "Exit dates". Built from comment-free copies of the drafts (the drafts carry `<!-- S.. -->` source
   comments that `build_posts.py` would publish). Optional owner screenshots (EPFO exit screen: date field, reasons;
-  ESIC exit steps) would add detail. Proposal for inbound links: `audit/proposals/l17-inbound-links.md`.
+  ESIC exit steps) would add detail. Inbound links (approved, on the branch): ECR errors guide number 9 and the monthly checklist's
+  "Mark the date when staff leave" item (EN + KN), `audit/proposals/l17-inbound-links.md`.
 - Done 17 Oct 2026 (live): September 2026 PF method from EPFO's official wage-ceiling FAQs
   (`docs/sources/EPFO-wage-ceiling-FAQ-2026.pdf`, from the EPFO employer portal home page): one ECR,
   1-16 Sept on ₹15,000, 17-30 Sept on ₹25,000, ₹25,000 also for EPS/EDLI, higher-wage members needn't
@@ -255,7 +256,7 @@ build with `build_posts.py` → checks → owner approval → branch, commit, pu
     ₹25,000 marked unverified (site keeps it, owner decision, until EPF Scheme 2026 para 9(4) is checked).
   Proposals: `audit/proposals/tool-text-september-2026.md`, `pf-calculator-eps-above-limit.md`,
   `esi-wages-2026-10-17.md`.
-- Next (agreed order): (1) push L17 when the owner asks; L17 inbound links (proposal). Then, open tool work (each a separate reviewed change with before/after cases):
+- Next (agreed order): (1) push the L17 branch when the owner asks. Then, open tool work (each a separate reviewed change with before/after cases):
   - Payslip proposal B: rename the preset "Bonus" row to "Statutory bonus" so a typed "Bonus" counts in ESI
     wages (cases T1/T2/T4 in `esi-wages-2026-10-17.md`; T4 moves an employee above ₹21,000).
   - PF calculator and payslip compute September 2026 on ₹25,000 for the whole month (EPFO: pro-rated split,
