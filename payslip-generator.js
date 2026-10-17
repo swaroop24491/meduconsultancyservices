@@ -233,8 +233,10 @@
   };
 
   // Starting rows and suggested names. pf: counts towards PF wages (basic pay
-  // plus DA); esiOut: left out of ESI wages (HRA, overtime, bonus, commission,
-  // travel allowance), as the ESI calculator's help text says.
+  // plus DA); esiOut: left out of ESI wages (HRA, overtime, commission, travel
+  // allowance; a "Bonus" row is treated as statutory bonus, Code s.2(88)(a)).
+  // Open: a bonus that is part of the agreed pay is wages (proposal B, rename to
+  // "Statutory bonus", not done).
   var ROW_NAMES = {
     en: {
       basic: 'Basic pay', da: 'DA (dearness allowance)', hra: 'HRA (house rent allowance)',
