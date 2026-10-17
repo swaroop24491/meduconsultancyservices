@@ -253,7 +253,8 @@ build with `build_posts.py` → checks → owner approval → branch, commit, pu
     stays in ESI wages." KN "ಕಾನೂನು ಪ್ರಕಾರ ಕೊಡಬೇಕಾದ ಬೋನಸ್". Code s.2(88) read from the Gazette text
     (PRS copy, `docs/sources/Code-on-Social-Security-2020-gazette.pdf`); full list in brief s11 "Wages definition".
   - Brief s11 EPF row now cites FAQ Q1, Q5, Q10-Q13, Q22, Q26, Q28, Q29, Q45; "in writing" for joining above
-    ₹25,000 marked unverified (site keeps it, owner decision, until EPF Scheme 2026 para 9(4) is checked).
+    ₹25,000 verified 17 Oct 2026 in the egazette EPF Scheme 2026 para 9(4) (`docs/sources/EPF-Scheme-2026-gazette-273957.pdf`;
+    para 23 damages also confirmed).
   Proposals: `audit/proposals/tool-text-september-2026.md`, `pf-calculator-eps-above-limit.md`,
   `esi-wages-2026-10-17.md`.
 - Next (agreed order): open tool work (each a separate reviewed change with before/after cases):
@@ -263,9 +264,10 @@ build with `build_posts.py` → checks → owner approval → branch, commit, pu
     the 17 Oct s.2(88) reading, owner). industries/it-companies FAQ now says "statutory bonus" (live 17 Oct 2026).
   - PF calculator and payslip compute September 2026 on ₹25,000 for the whole month (EPFO: pro-rated split,
     FAQ Q7); the notes disclose it.
-  - PF wages under s.2(88): by the Code's words allowances not excluded (e.g. special allowance) are wages;
-    EPFO FAQ Q26 and the site say basic + DA (+ retaining allowance). Needs the EPF Scheme 2026 text before
-    changing anything.
+  - PF wages under s.2(88) (owner decision): the EPF Scheme 2026 doesn't define wages (para 2(2): Code meaning;
+    para 18(2): 12% "of the wages payable"), so by its words allowances not excluded (e.g. special allowance) are PF
+    wages; EPFO FAQ Q25 says s.2(88), Q26's example says Basic + DA + RA; the site says basic + DA (29 files). Options
+    and recommendation (add "other allowances paid to everyone may count; call us"): `audit/proposals/pf-wages-epf-scheme-2026.md`.
   - Smaller: (done 17 Oct 2026: calculator's "PF is due by the 15th" line now has the September exception); checker's "already in
     PF" result now shows its own September note (`sepNoteMember`, live 17 Oct 2026: don't reduce higher-wage PF; EPS
     from 17 Sept at ₹25,000 or less).
