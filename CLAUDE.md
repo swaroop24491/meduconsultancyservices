@@ -287,8 +287,8 @@ build with `build_posts.py` → checks → owner approval → branch, commit, pu
   Code text (India Code copy as on 21 Nov 2025, `docs/sources/a2020-36.pdf`) and EPF Scheme paras 20/21/27 recorded in brief
   s11; ESI notified areas: all 31 Karnataka districts, 36 districts in India not yet (ESIC circular 28 Sep 2026), so never
   "ESI covers all of India" ("the same in every state" means the 10-staff rule). L03 unblocked; L18/L21 plan rows re-reviewed
-  (`audit/proposals/code-wording-2026-10-17.md`). Open: payslip PF wages floor (T2), IT page "Some other allowances may count
-  in full" vs the settled PF wages line.
+  (`audit/proposals/code-wording-2026-10-17.md`). Also live 17 Oct 2026 (10223ea, 336ab6d): IT FAQ uses the settled PF wages line (body keeps "in full"); payslip PF wages box fills
+  max(basic + DA, half the total pay) and says so (cases `audit/check/payslip-pf-floor-cases.mjs`).
 - Drafted, blocked on sources: L04 `code-on-social-security-pf-esi` (7 items, rules still
   being notified). When one goes live, remove its slug from `UNLIVE` and restore the links other posts dropped.
 - Monthly (first week): refresh L24's "This month" block (EN + KN) after checking EPFO/ESIC circulars;
