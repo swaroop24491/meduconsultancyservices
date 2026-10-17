@@ -281,6 +281,14 @@ build with `build_posts.py` → checks → owner approval → branch, commit, pu
   `build_posts.py` UNLIVE is now only L04. ESI disability wage ceiling checked 17 Oct 2026: ₹25,000 stands (ESI Central
   Rules r.50, ESIC copy as on 26.04.2024; the FAQ's "no ceiling" is about the employer-share waiver). Owner A4 decided 17 Oct 2026: ESI new staff are added
   "when they join, or before" (ESIC FAQ Q27); live on L16 and ESI mistakes post #7 (EN + KN).
+- Live 17 Oct 2026 (commits 00c24c5, 5a51a09): Code s.2(88)(d) wording "conveyance (travel) allowance" (KN "ಸಾರಿಗೆ
+  (ಪ್ರಯಾಣ) ಭತ್ಯೆ") on the ESI calculator, ESI checker, payslip, IT industry FAQ, L01; payslip ESI wages box applies the 50%
+  add-back itself (cases `audit/check/payslip-addback-cases.mjs`; a row typed "Travel allowance" still counts as conveyance).
+  Code text (India Code copy as on 21 Nov 2025, `docs/sources/a2020-36.pdf`) and EPF Scheme paras 20/21/27 recorded in brief
+  s11; ESI notified areas: all 31 Karnataka districts, 36 districts in India not yet (ESIC circular 28 Sep 2026), so never
+  "ESI covers all of India" ("the same in every state" means the 10-staff rule). L03 unblocked; L18/L21 plan rows re-reviewed
+  (`audit/proposals/code-wording-2026-10-17.md`). Open: payslip PF wages floor (T2), IT page "Some other allowances may count
+  in full" vs the settled PF wages line.
 - Drafted, blocked on sources: L04 `code-on-social-security-pf-esi` (7 items, rules still
   being notified). When one goes live, remove its slug from `UNLIVE` and restore the links other posts dropped.
 - Monthly (first week): refresh L24's "This month" block (EN + KN) after checking EPFO/ESIC circulars;
@@ -299,7 +307,7 @@ build with `build_posts.py` → checks → owner approval → branch, commit, pu
   September 2025 wages" is not in s11.
 - Kannada reviewed by a fluent speaker 17 Oct 2026: everything live approved as it is (incl. L26 "ನಾವೇ ಮಾಡಬೇಕೇ?",
   ESIನಲ್ಲಿ/ESIಯಲ್ಲಿ as used, "ಕಾನೂನು ಪ್ರಕಾರ ಕೊಡಬೇಕಾದ ಬೋನಸ್", payslip "ಕಾನೂನು ಪ್ರಕಾರದ ಬೋನಸ್", "“ಬೋನಸ್” ನಂತಹ",
-  "ಬಾಕ್ಸ್", the PF wages lines, L15/L16/L17). Reuse these forms as settled.
+  "ಬಾಕ್ಸ್", the PF wages lines, L15/L16/L17; "ಸಾರಿಗೆ (ಪ್ರಯಾಣ) ಭತ್ಯೆ" checked 17 Oct 2026). Reuse these forms as settled.
 - Screenshots: Playwright shots of a Kannada element's parent container can come out garbled (font
   artifact); check with an element-only or viewport shot before treating it as a bug.
 
