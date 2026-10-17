@@ -279,8 +279,8 @@ build with `build_posts.py` → checks → owner approval → branch, commit, pu
   (ESIC FAQ Q27/Q29/Q30: IP number for life; family details, Aadhaar, e-Pehchan; TIC/one month/photo left out until a
   current ESIC screenshot). Sources in each `drafts/<slug>/sources.md`. Links restored on L25, L40, L24, L39; hub cards.
   `build_posts.py` UNLIVE is now only L04. ESI disability wage ceiling checked 17 Oct 2026: ₹25,000 stands (ESI Central
-  Rules r.50, ESIC copy as on 26.04.2024; the FAQ's "no ceiling" is about the employer-share waiver). Open: ESIC FAQ Q27 "register before taking into employment" vs the
-  site's "as soon as they join" (owner A4).
+  Rules r.50, ESIC copy as on 26.04.2024; the FAQ's "no ceiling" is about the employer-share waiver). Owner A4 decided 17 Oct 2026: ESI new staff are added
+  "when they join, or before" (ESIC FAQ Q27); live on L16 and ESI mistakes post #7 (EN + KN).
 - Drafted, blocked on sources: L04 `code-on-social-security-pf-esi` (7 items, rules still
   being notified). When one goes live, remove its slug from `UNLIVE` and restore the links other posts dropped.
 - Monthly (first week): refresh L24's "This month" block (EN + KN) after checking EPFO/ESIC circulars;
