@@ -297,8 +297,9 @@ build with `build_posts.py` → checks → owner approval → branch, commit, pu
   using newer facts get `rules_checked`. Source for "staff who already have a UAN/IP number keep it" (on about 10 live pages);
   plan fixes E5 (not-legal-advice line), F1 (privacy policy); ECR guide line "new ECR system from
   September 2025 wages" is not in s11.
-- Kannada for a fluent speaker: L26 closing line ("ನಾವೇ ಮಾಡಬೇಕೇ?"); ESIನಲ್ಲಿ vs ESIಯಲ್ಲಿ across pages;
-  "ಕಾನೂನು ಪ್ರಕಾರ ಕೊಡಬೇಕಾದ ಬೋನಸ್" (ESI tools); payslip row "ಕಾನೂನು ಪ್ರಕಾರದ ಬೋನಸ್" and "“ಬೋನಸ್” ನಂತಹ" (space?).
+- Kannada reviewed by a fluent speaker 17 Oct 2026: everything live approved as it is (incl. L26 "ನಾವೇ ಮಾಡಬೇಕೇ?",
+  ESIನಲ್ಲಿ/ESIಯಲ್ಲಿ as used, "ಕಾನೂನು ಪ್ರಕಾರ ಕೊಡಬೇಕಾದ ಬೋನಸ್", payslip "ಕಾನೂನು ಪ್ರಕಾರದ ಬೋನಸ್", "“ಬೋನಸ್” ನಂತಹ",
+  "ಬಾಕ್ಸ್", the PF wages lines, L15/L16/L17). Reuse these forms as settled.
 - Screenshots: Playwright shots of a Kannada element's parent container can come out garbled (font
   artifact); check with an element-only or viewport shot before treating it as a bug.
 
