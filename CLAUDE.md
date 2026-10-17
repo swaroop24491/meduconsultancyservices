@@ -274,14 +274,20 @@ build with `build_posts.py` → checks → owner approval → branch, commit, pu
     PF" result now shows its own September note (`sepNoteMember`, live 17 Oct 2026: don't reduce higher-wage PF; EPS
     from 17 Sept at ₹25,000 or less).
   - Check for any ESIC instruction on bonus under the Code, and later amendments to s.2(88) (indiacode).
-- Drafted, blocked on sources: L15 `new-staff-uan-umang-face-scan` (5 EPFO items), L16
-  `esi-ip-number-new-employee` (2 ESIC items), L04 `code-on-social-security-pf-esi` (7 items, rules still
+- Live 17 Oct 2026 (EN + KN): L15 `new-staff-uan-umang-face-scan` (EPFO circulars 30 Jul and 8 Apr 2025 + UMANG manual:
+  only the face scan makes a UAN, except international workers / Nepal / Bhutan) and L16 `esi-ip-number-new-employee`
+  (ESIC FAQ Q27/Q29/Q30: IP number for life; family details, Aadhaar, e-Pehchan; TIC/one month/photo left out until a
+  current ESIC screenshot). Sources in each `drafts/<slug>/sources.md`. Links restored on L25, L40, L24, L39; hub cards.
+  `build_posts.py` UNLIVE is now only L04. Open: ESI disability wage ceiling (ESIC FAQ says "no wage ceiling" from
+  1.4.2016 vs the site's ₹25,000; brief open items); ESIC FAQ Q27 "register before taking into employment" vs the
+  site's "as soon as they join" (owner A4).
+- Drafted, blocked on sources: L04 `code-on-social-security-pf-esi` (7 items, rules still
   being notified). When one goes live, remove its slug from `UNLIVE` and restore the links other posts dropped.
 - Monthly (first week): refresh L24's "This month" block (EN + KN) after checking EPFO/ESIC circulars;
   in November drop the September/31 October lines once that date has passed, and the September note in the PF
   calculator and PF eligibility checker (both checker results: SEPT_NOTE and sepNoteMember) (EN + KN; it shows for any wage above ₹15,000, not only September; the
   payslip's note shows only for September 2026), and L17's "(For September 2026 wages, PF is due by 31 October
-  2026.)" line (EN + KN), and the PF calculator's "For September 2026 salaries only, it is due by 31 October 2026." (EN + KN). Fixed dates: 20 Nov 2026
+  2026.)" line (EN + KN), and the PF calculator's "For September 2026 salaries only, it is due by 31 October 2026." (EN + KN), and L15's September line (EN + KN, once live). Fixed dates: 20 Nov 2026
   recheck ESI Reg 31-C; January 2027 tool titles to 2027.
 - Open owner decisions: the EPFO circular of 13 October 2026 (September wages due 31 October) is still only
   a third-party copy. EPFO's site moved to **epfo.gov.in** (old epfindia.gov.in PDF links land on the home page;
