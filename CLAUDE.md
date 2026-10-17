@@ -278,8 +278,8 @@ build with `build_posts.py` → checks → owner approval → branch, commit, pu
   only the face scan makes a UAN, except international workers / Nepal / Bhutan) and L16 `esi-ip-number-new-employee`
   (ESIC FAQ Q27/Q29/Q30: IP number for life; family details, Aadhaar, e-Pehchan; TIC/one month/photo left out until a
   current ESIC screenshot). Sources in each `drafts/<slug>/sources.md`. Links restored on L25, L40, L24, L39; hub cards.
-  `build_posts.py` UNLIVE is now only L04. Open: ESI disability wage ceiling (ESIC FAQ says "no wage ceiling" from
-  1.4.2016 vs the site's ₹25,000; brief open items); ESIC FAQ Q27 "register before taking into employment" vs the
+  `build_posts.py` UNLIVE is now only L04. ESI disability wage ceiling checked 17 Oct 2026: ₹25,000 stands (ESI Central
+  Rules r.50, ESIC copy as on 26.04.2024; the FAQ's "no ceiling" is about the employer-share waiver). Open: ESIC FAQ Q27 "register before taking into employment" vs the
   site's "as soon as they join" (owner A4).
 - Drafted, blocked on sources: L04 `code-on-social-security-pf-esi` (7 items, rules still
   being notified). When one goes live, remove its slug from `UNLIVE` and restore the links other posts dropped.
