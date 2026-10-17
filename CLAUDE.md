@@ -223,7 +223,7 @@ build with `build_posts.py` → checks → owner approval → branch, commit, pu
   `employee-does-not-want-pf-esi`, L26 `pf-esi-in-house-or-consultant`, L23 `pf-vs-esi`, L24
   `pf-esi-monthly-checklist`, L25 `changing-pf-esi-consultant`. Guides hub group "Doing PF and ESI each month".
 - L17 `staff-leaving-pf-esi-exit-date` (EN + KN): built, checked and approved 17 Oct 2026, committed on branch
-  `l17-staff-leaving-exit-date` (8efb094), **not pushed**. Hub card in "Doing PF and ESI each month". Sources in
+  `l17-staff-leaving-exit-date` (8efb094), live 17 Oct 2026. Hub card in "Doing PF and ESI each month". Sources in
   `drafts/staff-leaving-pf-esi-exit-date/sources.md` (S1-S10; key: EPFO revamped ECR circular 26 Sep 2025 and FAQs 8 Oct
   2025) and brief s11 "Exit dates". Built from comment-free copies of the drafts (the drafts carry `<!-- S.. -->` source
   comments that `build_posts.py` would publish). Optional owner screenshots (EPFO exit screen: date field, reasons;
@@ -256,16 +256,16 @@ build with `build_posts.py` → checks → owner approval → branch, commit, pu
     ₹25,000 marked unverified (site keeps it, owner decision, until EPF Scheme 2026 para 9(4) is checked).
   Proposals: `audit/proposals/tool-text-september-2026.md`, `pf-calculator-eps-above-limit.md`,
   `esi-wages-2026-10-17.md`.
-- Next (agreed order): (1) push the L17 branch when the owner asks. Then, open tool work (each a separate reviewed change with before/after cases):
-  - Payslip proposal B done 17 Oct 2026 on branch `payslip-statutory-bonus` (not pushed): preset row "Statutory bonus"
+- Next (agreed order): open tool work (each a separate reviewed change with before/after cases):
+  - Payslip proposal B done and live 17 Oct 2026: preset row "Statutory bonus"
     (KN "ಕಾನೂನು ಪ್ರಕಾರದ ಬೋನಸ್"), a typed "Bonus" counts in ESI wages; help asks to call about a monthly statutory bonus.
     Cases: `audit/check/payslip-bonus-cases.mjs`. Still open: ESI "rules checked" date on payslip/ESI tools (27 Sep vs
-    the 17 Oct s.2(88) reading, owner); industries/it-companies FAQ "bonus" -> "statutory bonus" (copy proposal).
+    the 17 Oct s.2(88) reading, owner). industries/it-companies FAQ now says "statutory bonus" (live 17 Oct 2026).
   - PF calculator and payslip compute September 2026 on ₹25,000 for the whole month (EPFO: pro-rated split,
     FAQ Q7); the notes disclose it.
   - PF wages under s.2(88): by the Code's words allowances not excluded (e.g. special allowance) are wages;
     EPFO FAQ Q26 and the site say basic + DA (+ retaining allowance). Needs the EPF Scheme 2026 text before
-    changing anything; industries/it-companies FAQ (EN + KN) still lists "bonus" as left out of PF wages.
+    changing anything.
   - Smaller: calculator's always-on "PF is due by the 15th" has no September exception; checker's "already in
     PF" result comes before the wage test (existing members never see the September note).
   - Check for any ESIC instruction on bonus under the Code, and later amendments to s.2(88) (indiacode).
