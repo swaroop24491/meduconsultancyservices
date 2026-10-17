@@ -47,7 +47,8 @@ The watcher misses files added in a new folder and deleted data: restart the con
   - `node audit/check/sweep.mjs`: every page at 5 widths, axe, JSON-LD, console.
   - `python3 audit/check/jsonld.py _site/<page>.html ...`: JSON-LD parses.
   - Tool cases: `*-cases.js`, `converter-compare.js`, `use-*.mjs`; `tool-text.mjs en|kn`.
-  - `shot-sections.mjs <path> <name> <sg-id,...>` for section close-ups; `shot-contact.mjs` for the map.
+  - `shot-sections.mjs <path> <name> <sg-id,...>` for section close-ups; `shot-el.mjs <outdir> <path> <name>
+    <css-selector,...>` for any element at 390/1440; `shot-contact.mjs` for the map.
   - `python3 audit/check/build_posts.py . <slug> ...`: turns a reviewed `drafts/<slug>/en.md` + `kn.md` into
     `blogs/<slug>.html` + `kn/blogs/<slug>.html` (L01 pattern; drops links to slugs in its `UNLIVE` list).
     After it: remove the hand-typed proof-line paragraph (the call box shows it), swap the law name, dates
@@ -62,7 +63,8 @@ The watcher misses files added in a new folder and deleted data: restart the con
   `last_modified: YYYY-MM-DD` (update when content changes), `breadcrumb: [{ name }]`, optional
   `service: { type, name, offers, area }`, `faq: [{ q, a }]` (answers may hold simple links),
   `redirect_from:` (jekyll-redirect-from), `scripts:` and `tool: { name }` (tools),
-  `headline` and `date_published` (posts; not `published`, which Jekyll reserves).
+  `headline` and `date_published` (posts; not `published`, which Jekyll reserves), optional `rules_checked:
+  YYYY-MM-DD` (posts whose facts are newer than `tools_checked`: the "Rules checked on" note uses it).
 - `_data/site.yml`: business details (address, geo, map, founder, languages, cities, proof numbers,
   `gbp_url`, `founder_photo`, `bengaluru.phone` (10 digits) and `bengaluru.gbp_url`; `_includes/phone.html`
   builds the tel:, shown and JSON-LD forms from the page's `phone_city`). `_data/facts.yml`: legal facts (with `_kn` versions for Kannada; its
@@ -206,29 +208,50 @@ the first wrong field.
 - Build: every page-text link through `link.html` (`arrow=false` inside a sentence); links between
   Kannada pages go to `/kn/...`; facts from the `_kn` keys. Call-button digits use `--font-body`.
 
-## Blog programme (status 16 October 2026)
+## Blog programme (status 17 October 2026)
 
 Plan and working files are local only (git-ignored, excluded from the build): `reports/blog-plan.md`
 (ranked topics, outlines, section 6 rules, calendar), `reports/slug-map.csv`, `reports/drafts-summary.md`
 (open [VERIFY] items by source, owner decisions), `drafts/<slug>/` (en.md, kn.md, review.md) and
 `drafts/drafting-brief.md` (the brief given to drafting agents, with the reviewers' lessons).
+Official source copies go in `docs/sources/` (git-ignored). Proposals with old/new text: `audit/proposals/`.
 Process per post: draft EN → separate compliance review → fix every Red/Amber → KN from the final EN →
 build with `build_posts.py` → checks → owner approval → branch, commit, push only when asked.
 
 - Live (EN + KN): L01 `pf-wage-limit-25000`, L39 `pf-esi-reached-10-or-20-staff`, L40
   `employee-does-not-want-pf-esi`, L26 `pf-esi-in-house-or-consultant`, L23 `pf-vs-esi`, L24
   `pf-esi-monthly-checklist`, L25 `changing-pf-esi-consultant`. Guides hub group "Doing PF and ESI each month".
+- Done 17 Oct 2026 (live): September 2026 PF method from EPFO's official wage-ceiling FAQs
+  (`docs/sources/EPFO-wage-ceiling-FAQ-2026.pdf`, from the EPFO employer portal home page): one ECR,
+  1-16 Sept on ₹15,000, 17-30 Sept on ₹25,000, ₹25,000 also for EPS/EDLI, higher-wage members needn't
+  reduce, PF for staff newly covered by the new limit starts 17 Sept. Pages say "EPFO's FAQs (answers to
+  common questions) on the new limit say..." (KN "(ಸಾಮಾನ್ಯ ಪ್ರಶ್ನೆಗಳಿಗೆ ಉತ್ತರಗಳು)"), no worked
+  calculation, "call us ... for your staff": L01, L24, ECR errors guide (these 3 have `rules_checked:
+  2026-10-17`), and the FAQs on epf-consultancy-service, pf-registration, industries/it-companies.
+  B1 on posts: the 3 ESI posts say "Some pay is left out, such as house rent allowance (HRA) and overtime".
+  R8 (ECR guide linked from converter, PF monthly filing, PF mistakes, PF inspection) and R9 ("All free
+  tools" on every guide) done; R4 was already done.
+- Next (agreed order): (1) tool text: the PF contribution calculator, PF eligibility checker and payslip
+  generator (EN + KN) still say EPFO hasn't given the September method; text-only reviewed change, old/new
+  text, compliance reviewer, tool cases unchanged. (2) ESI wages list in the ESI contribution calculator,
+  ESI eligibility checker and payslip generator (logic: `esiOut` in `payslip-generator.js`): first read
+  Code s.2(88) from the official text (it may also leave out commission, conveyance, statutory bonus) and
+  add the list to brief s11; only then decide whether tools change (test cases in
+  `audit/proposals/accuracy-2026-10-17.md`). Same unverified list for PF wages on industries/it-companies.
+  (3) L17 sources (below).
 - Drafted, blocked on sources: L15 `new-staff-uan-umang-face-scan` (5 EPFO items), L16
   `esi-ip-number-new-employee` (2 ESIC items), L04 `code-on-social-security-pf-esi` (7 items, rules still
-  being notified). When one goes live, remove its slug from `UNLIVE` and restore the links other posts dropped.
-- Monthly (first week): refresh L24's "This month" block (EN + KN) after checking EPFO/ESIC circulars. Fixed dates: 20 Nov 2026 recheck ESI Reg 31-C;
-  January 2027 tool titles to 2027.
-- Open owner decisions: "Rules checked on" date (`tools_checked` is 27 September 2026, older than the
-  3 October rows and the 13 October circular now on L01/L24/L25: recheck and update, or a date per post);
-  get the EPFO circular of 13 October 2026 (September wages due 31 October) from epfindia.gov.in and read
-  page 2; EPS/EDLI ₹25,000 into section 11 with a notification reference; source for "staff who already
-  have a UAN/IP number keep it" (on about 10 live pages); plan fixes B1 (ESI wage exclusions beyond HRA and
-  overtime on 3 posts and the payslip generator), E5 (not-legal-advice line), F1 (privacy policy).
+  being notified), L17 `staff-leaving-pf-esi-exit-date` (EN only, 13 EPFO/ESIC portal items; slug not yet
+  in `slug-map.csv`). When one goes live, remove its slug from `UNLIVE` and restore the links other posts dropped.
+- Monthly (first week): refresh L24's "This month" block (EN + KN) after checking EPFO/ESIC circulars;
+  in November drop the September/31 October lines once that date has passed. Fixed dates: 20 Nov 2026
+  recheck ESI Reg 31-C; January 2027 tool titles to 2027.
+- Open owner decisions: the EPFO circular of 13 October 2026 (September wages due 31 October) is still only
+  a third-party copy; epfindia.gov.in's circulars page listed nothing newer on 17 October 2026, so recheck
+  there and on the employer portal. `tools_checked` stays 27 September 2026 (owner); posts using newer facts
+  get `rules_checked`. Source for "staff who already have a UAN/IP number keep it" (on about 10 live pages);
+  plan fixes E5 (not-legal-advice line), F1 (privacy policy); ECR guide line "new ECR system from
+  September 2025 wages" is not in s11.
 - Kannada for a fluent speaker: L26 closing line ("ನಾವೇ ಮಾಡಬೇಕೇ?"); ESIನಲ್ಲಿ vs ESIಯಲ್ಲಿ across pages.
 
 ## Reviews
