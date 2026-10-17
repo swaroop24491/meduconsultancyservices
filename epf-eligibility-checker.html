@@ -104,6 +104,13 @@ faq:
     var CALL = '<a href="tel:+918217542975" data-call-location="result">Call us</a>';
     // Shown only when the September 2026 limit change matters (PF wages above ₹15,000, up to ₹25,000).
     var SEPT_NOTE = 'September 2026 is a split month. If this employee was left out of PF because their PF wages were above ₹15,000, they must be in PF from 17 September 2026. EPFO\'s FAQs (answers to common questions) on the new limit say to work out PF for 1 to 16 September on the old ₹15,000 limit, and for 17 to 30 September on the new ₹25,000 limit, in one ECR (the monthly list of each employee\'s wages and PF, sent to the PF office). PF for staff who join only because of the new limit starts from 17 September. PF on September 2026 salaries is due by 31 October 2026. PF on October 2026 salaries is still due by 15 November 2026. This tool does not do the split. ' + CALL + ' to check your staff.';
+    // Shown on the "was in PF in an old job" result (reviewed change, 17 October 2026): the September note
+    // for staff already in PF. The EPS sentence only for PF wages up to the new limit (EPFO FAQs Q9, Q12, Q22).
+    function sepNoteMember(w) {
+      return 'September 2026 is a split month. EPFO\'s FAQs (answers to common questions) on the new limit say to work out PF for 1 to 16 September on the old ₹15,000 limit, and for 17 to 30 September on the new ₹25,000 limit, in one ECR (the monthly list of each employee\'s wages and PF, sent to the PF office). If this employee already pays PF on their full PF wages, above the limit, they don\'t have to reduce it. ' +
+        (w <= 25000 ? 'If they are in PF but not in the pension part (EPS), they must join EPS from 17 September 2026. ' : '') +
+        'PF on September 2026 salaries is due by 31 October 2026. PF on October 2026 salaries is still due by 15 November 2026. This tool does not do the split. ' + CALL + ' to check your staff.';
+    }
     var ceilingText = '₹' + EPF_WAGE_CEILING.toLocaleString('en-IN');
 
     initEligibilityCalculator('business-eligibility', {
@@ -211,6 +218,7 @@ faq:
             kind: 'positive',
             headline: 'Usually must stay in PF.',
             reason: 'This employee was in PF before, so they usually stay in PF with you, even if their PF wages are above ' + ceilingText + '. Whether they also get the pension part of PF (EPS) depends on when they joined PF and their PF wages then.',
+            note: a['basic-da'] > 15000 ? sepNoteMember(a['basic-da']) : null,
             crosslink: CALL + " if you're not sure."
           };
         }

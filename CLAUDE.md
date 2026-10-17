@@ -267,14 +267,15 @@ build with `build_posts.py` → checks → owner approval → branch, commit, pu
     EPFO FAQ Q26 and the site say basic + DA (+ retaining allowance). Needs the EPF Scheme 2026 text before
     changing anything.
   - Smaller: (done 17 Oct 2026: calculator's "PF is due by the 15th" line now has the September exception); checker's "already in
-    PF" result comes before the wage test (existing members never see the September note).
+    PF" result now shows its own September note (`sepNoteMember`, live 17 Oct 2026: don't reduce higher-wage PF; EPS
+    from 17 Sept at ₹25,000 or less).
   - Check for any ESIC instruction on bonus under the Code, and later amendments to s.2(88) (indiacode).
 - Drafted, blocked on sources: L15 `new-staff-uan-umang-face-scan` (5 EPFO items), L16
   `esi-ip-number-new-employee` (2 ESIC items), L04 `code-on-social-security-pf-esi` (7 items, rules still
   being notified). When one goes live, remove its slug from `UNLIVE` and restore the links other posts dropped.
 - Monthly (first week): refresh L24's "This month" block (EN + KN) after checking EPFO/ESIC circulars;
   in November drop the September/31 October lines once that date has passed, and the September note in the PF
-  calculator and PF eligibility checker (EN + KN; it shows for any wage above ₹15,000, not only September; the
+  calculator and PF eligibility checker (both checker results: SEPT_NOTE and sepNoteMember) (EN + KN; it shows for any wage above ₹15,000, not only September; the
   payslip's note shows only for September 2026), and L17's "(For September 2026 wages, PF is due by 31 October
   2026.)" line (EN + KN), and the PF calculator's "For September 2026 salaries only, it is due by 31 October 2026." (EN + KN). Fixed dates: 20 Nov 2026
   recheck ESI Reg 31-C; January 2027 tool titles to 2027.
