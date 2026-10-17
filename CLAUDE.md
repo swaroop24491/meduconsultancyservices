@@ -222,6 +222,12 @@ build with `build_posts.py` → checks → owner approval → branch, commit, pu
 - Live (EN + KN): L01 `pf-wage-limit-25000`, L39 `pf-esi-reached-10-or-20-staff`, L40
   `employee-does-not-want-pf-esi`, L26 `pf-esi-in-house-or-consultant`, L23 `pf-vs-esi`, L24
   `pf-esi-monthly-checklist`, L25 `changing-pf-esi-consultant`. Guides hub group "Doing PF and ESI each month".
+- L17 `staff-leaving-pf-esi-exit-date` (EN + KN): built, checked and approved 17 Oct 2026, committed on branch
+  `l17-staff-leaving-exit-date` (8efb094), **not pushed**. Hub card in "Doing PF and ESI each month". Sources in
+  `drafts/staff-leaving-pf-esi-exit-date/sources.md` (S1-S10; key: EPFO revamped ECR circular 26 Sep 2025 and FAQs 8 Oct
+  2025) and brief s11 "Exit dates". Built from comment-free copies of the drafts (the drafts carry `<!-- S.. -->` source
+  comments that `build_posts.py` would publish). Optional owner screenshots (EPFO exit screen: date field, reasons;
+  ESIC exit steps) would add detail. Proposal for inbound links: `audit/proposals/l17-inbound-links.md`.
 - Done 17 Oct 2026 (live): September 2026 PF method from EPFO's official wage-ceiling FAQs
   (`docs/sources/EPFO-wage-ceiling-FAQ-2026.pdf`, from the EPFO employer portal home page): one ECR,
   1-16 Sept on ₹15,000, 17-30 Sept on ₹25,000, ₹25,000 also for EPS/EDLI, higher-wage members needn't
@@ -249,8 +255,7 @@ build with `build_posts.py` → checks → owner approval → branch, commit, pu
     ₹25,000 marked unverified (site keeps it, owner decision, until EPF Scheme 2026 para 9(4) is checked).
   Proposals: `audit/proposals/tool-text-september-2026.md`, `pf-calculator-eps-above-limit.md`,
   `esi-wages-2026-10-17.md`.
-- Next (agreed order): (1) L17 sources (13 EPFO/ESIC portal items; logged-in screens need owner screenshots).
-  Then, open tool work (each a separate reviewed change with before/after cases):
+- Next (agreed order): (1) push L17 when the owner asks; L17 inbound links (proposal). Then, open tool work (each a separate reviewed change with before/after cases):
   - Payslip proposal B: rename the preset "Bonus" row to "Statutory bonus" so a typed "Bonus" counts in ESI
     wages (cases T1/T2/T4 in `esi-wages-2026-10-17.md`; T4 moves an employee above ₹21,000).
   - PF calculator and payslip compute September 2026 on ₹25,000 for the whole month (EPFO: pro-rated split,
@@ -263,16 +268,18 @@ build with `build_posts.py` → checks → owner approval → branch, commit, pu
   - Check for any ESIC instruction on bonus under the Code, and later amendments to s.2(88) (indiacode).
 - Drafted, blocked on sources: L15 `new-staff-uan-umang-face-scan` (5 EPFO items), L16
   `esi-ip-number-new-employee` (2 ESIC items), L04 `code-on-social-security-pf-esi` (7 items, rules still
-  being notified), L17 `staff-leaving-pf-esi-exit-date` (EN only, 13 EPFO/ESIC portal items; slug not yet
-  in `slug-map.csv`). When one goes live, remove its slug from `UNLIVE` and restore the links other posts dropped.
+  being notified). When one goes live, remove its slug from `UNLIVE` and restore the links other posts dropped.
 - Monthly (first week): refresh L24's "This month" block (EN + KN) after checking EPFO/ESIC circulars;
   in November drop the September/31 October lines once that date has passed, and the September note in the PF
   calculator and PF eligibility checker (EN + KN; it shows for any wage above ₹15,000, not only September; the
-  payslip's note shows only for September 2026). Fixed dates: 20 Nov 2026
+  payslip's note shows only for September 2026), and L17's "(For September 2026 wages, PF is due by 31 October
+  2026.)" line (EN + KN, once live). Fixed dates: 20 Nov 2026
   recheck ESI Reg 31-C; January 2027 tool titles to 2027.
 - Open owner decisions: the EPFO circular of 13 October 2026 (September wages due 31 October) is still only
-  a third-party copy; epfindia.gov.in's circulars page listed nothing newer on 17 October 2026, so recheck
-  there and on the employer portal. `tools_checked` stays 27 September 2026 (owner); posts and tool pages
+  a third-party copy. EPFO's site moved to **epfo.gov.in** (old epfindia.gov.in PDF links land on the home page;
+  circulars list at epfo.gov.in/circulars/, PDFs on pmvbry-cdn.epfindia.gov.in; old PDFs via the Wayback Machine). Its
+  circulars list and notices showed nothing after 28 September 2026 on 17 October 2026, so recheck there and on the
+  employer portal. `tools_checked` stays 27 September 2026 (owner); posts and tool pages
   using newer facts get `rules_checked`. Source for "staff who already have a UAN/IP number keep it" (on about 10 live pages);
   plan fixes E5 (not-legal-advice line), F1 (privacy policy); ECR guide line "new ECR system from
   September 2025 wages" is not in s11.
