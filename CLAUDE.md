@@ -257,8 +257,10 @@ build with `build_posts.py` → checks → owner approval → branch, commit, pu
   Proposals: `audit/proposals/tool-text-september-2026.md`, `pf-calculator-eps-above-limit.md`,
   `esi-wages-2026-10-17.md`.
 - Next (agreed order): (1) push the L17 branch when the owner asks. Then, open tool work (each a separate reviewed change with before/after cases):
-  - Payslip proposal B: rename the preset "Bonus" row to "Statutory bonus" so a typed "Bonus" counts in ESI
-    wages (cases T1/T2/T4 in `esi-wages-2026-10-17.md`; T4 moves an employee above ₹21,000).
+  - Payslip proposal B done 17 Oct 2026 on branch `payslip-statutory-bonus` (not pushed): preset row "Statutory bonus"
+    (KN "ಕಾನೂನು ಪ್ರಕಾರದ ಬೋನಸ್"), a typed "Bonus" counts in ESI wages; help asks to call about a monthly statutory bonus.
+    Cases: `audit/check/payslip-bonus-cases.mjs`. Still open: ESI "rules checked" date on payslip/ESI tools (27 Sep vs
+    the 17 Oct s.2(88) reading, owner); industries/it-companies FAQ "bonus" -> "statutory bonus" (copy proposal).
   - PF calculator and payslip compute September 2026 on ₹25,000 for the whole month (EPFO: pro-rated split,
     FAQ Q7); the notes disclose it.
   - PF wages under s.2(88): by the Code's words allowances not excluded (e.g. special allowance) are wages;
@@ -285,7 +287,7 @@ build with `build_posts.py` → checks → owner approval → branch, commit, pu
   plan fixes E5 (not-legal-advice line), F1 (privacy policy); ECR guide line "new ECR system from
   September 2025 wages" is not in s11.
 - Kannada for a fluent speaker: L26 closing line ("ನಾವೇ ಮಾಡಬೇಕೇ?"); ESIನಲ್ಲಿ vs ESIಯಲ್ಲಿ across pages;
-  "ಕಾನೂನು ಪ್ರಕಾರ ಕೊಡಬೇಕಾದ ಬೋನಸ್" (ESI tools).
+  "ಕಾನೂನು ಪ್ರಕಾರ ಕೊಡಬೇಕಾದ ಬೋನಸ್" (ESI tools); payslip row "ಕಾನೂನು ಪ್ರಕಾರದ ಬೋನಸ್" and "“ಬೋನಸ್” ನಂತಹ" (space?).
 - Screenshots: Playwright shots of a Kannada element's parent container can come out garbled (font
   artifact); check with an element-only or viewport shot before treating it as a bug.
 

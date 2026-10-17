@@ -234,14 +234,14 @@
 
   // Starting rows and suggested names. pf: counts towards PF wages (basic pay
   // plus DA); esiOut: left out of ESI wages (HRA, overtime, commission, travel
-  // allowance; a "Bonus" row is treated as statutory bonus, Code s.2(88)(a)).
-  // Open: a bonus that is part of the agreed pay is wages (proposal B, rename to
-  // "Statutory bonus", not done).
+  // allowance, and statutory bonus: Code s.2(88)(a)). Only a row named
+  // "Statutory bonus" is left out; a row typed "Bonus" counts in ESI wages, as a
+  // bonus that is part of the agreed pay is wages (proposal B, 17 October 2026).
   var ROW_NAMES = {
     en: {
       basic: 'Basic pay', da: 'DA (dearness allowance)', hra: 'HRA (house rent allowance)',
       special: 'Special allowance', overtime: 'Overtime',
-      bonus: 'Bonus', commission: 'Commission', travel: 'Travel allowance',
+      bonus: 'Statutory bonus', commission: 'Commission', travel: 'Travel allowance',
       pf: 'PF', esi: 'ESI', pt: 'Professional tax', tds: 'Income tax (TDS)', advance: 'Advance', loan: 'Loan'
     }
   };
