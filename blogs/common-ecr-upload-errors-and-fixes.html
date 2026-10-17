@@ -2,7 +2,8 @@
 layout: base
 lang: en
 page_type: post
-last_modified: 2026-10-10
+last_modified: 2026-10-17
+rules_checked: 2026-10-17
 date_published: 2026-10-10
 title: "ECR Upload Errors and How to Fix Them | Medu Consultancy"
 headline: "Common ECR upload errors, and how to fix them"
@@ -27,7 +28,7 @@ faq:
   <div class="container">
     <h1 id="post-heading">Common ECR upload errors, and how to fix them</h1>
     <p class="tool-lead">The ECR (Electronic Challan cum Return) is the monthly list of each employee's wages and PF, sent to the PF office. You upload it as a text file on the EPFO employer portal. Most uploads fail for a few simple reasons. Here they are, each with a fix.</p>
-    <p class="note">Last updated {{ page.last_modified | date: "%-d %B %Y" }} · Rules checked on {{ site.data.facts.tools_checked }}</p>
+    <p class="note">Last updated {{ page.last_modified | date: "%-d %B %Y" }} · Rules checked on {{ page.rules_checked | date: "%-d %B %Y" }}</p>
   </div>
 </section>
 
@@ -82,7 +83,7 @@ faq:
         <li><strong>EDLI wages:</strong> wages for EDLI (Employees' Deposit Linked Insurance), the staff insurance part. These also stop at the PF wage limit.</li>
       </ul>
       <p>The PF wage limit went up from {{ f.wage_ceiling_old_text }} to {{ f.wage_ceiling_text }} a month on {{ f.wage_ceiling_from }}. Payroll software that still uses the old limit gives wrong EPS and EDLI wages. Some staff are not in the pension scheme, for example most staff aged 58 or more. Their EPS wages are usually 0.</p>
-      <p><strong>The fix:</strong> check that your software uses the new limit for wages from October 2026. Earlier months use the old limit. Check who is in the pension scheme. For September 2026 wages, EPFO has not yet confirmed how to treat the change in the middle of the month. <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a> to check.</p>
+      <p><strong>The fix:</strong> check that your software uses the new limit for wages from October 2026. August 2026 and earlier months use the old limit. For September 2026, EPFO's FAQs (answers to common questions) on the new limit say to use the old limit for 1 to 16 September and the new limit for 17 to 30 September, in one ECR. PF on September 2026 salaries is due by 31 October 2026. Check who is in the pension scheme. <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a> to check your September file.</p>
 
       <h3 id="e6-heading">6. PF amounts don't match the wages</h3>
       <p><strong>What's wrong:</strong> the amounts in a row don't add up from the wages.</p>

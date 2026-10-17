@@ -221,8 +221,7 @@ build with `build_posts.py` → checks → owner approval → branch, commit, pu
 - Drafted, blocked on sources: L15 `new-staff-uan-umang-face-scan` (5 EPFO items), L16
   `esi-ip-number-new-employee` (2 ESIC items), L04 `code-on-social-security-pf-esi` (7 items, rules still
   being notified). When one goes live, remove its slug from `UNLIVE` and restore the links other posts dropped.
-- Monthly (first week): refresh L24's "This month" block (EN + KN) after checking EPFO/ESIC circulars;
-  from 1 November drop the 31 October 2026 line. Fixed dates: 20 Nov 2026 recheck ESI Reg 31-C;
+- Monthly (first week): refresh L24's "This month" block (EN + KN) after checking EPFO/ESIC circulars. Fixed dates: 20 Nov 2026 recheck ESI Reg 31-C;
   January 2027 tool titles to 2027.
 - Open owner decisions: "Rules checked on" date (`tools_checked` is 27 September 2026, older than the
   3 October rows and the 13 October circular now on L01/L24/L25: recheck and update, or a date per post);

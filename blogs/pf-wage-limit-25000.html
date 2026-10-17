@@ -2,7 +2,8 @@
 layout: base
 lang: en
 page_type: post
-last_modified: 2026-10-16
+last_modified: 2026-10-17
+rules_checked: 2026-10-17
 date_published: 2026-10-16
 title: "PF Wage Limit Is Now ₹25,000 | Medu Consultancy"
 headline: "PF wage limit is now ₹25,000: what employers must change"
@@ -18,7 +19,7 @@ faq:
   - q: Is the ₹25,000 limit based on the full salary?
     a: No. It is based on PF wages. PF wages are basic pay plus DA (dearness allowance), not the full salary. But PF wages must be at least half the total pay. If they come to less, the difference is added to PF wages.
   - q: Which limit do I use for September 2026 salaries?
-    a: "EPFO (the government PF office) has moved the due date for September 2026 salaries to 31 October 2026. It has not yet said how to work out PF for September 2026 salaries. <a href=\"tel:+918217542975\" data-call-location=\"faq\">Call us</a> and we will tell you what to do."
+    a: "The FAQs (answers to common questions) on the new limit from EPFO (the government PF office) say to use both. They say to send one ECR (the monthly list of each employee's wages and PF, sent to the PF office) for September 2026, and to work out PF on the old ₹15,000 limit for 1 to 16 September and on the new ₹25,000 limit for 17 to 30 September. PF on September 2026 salaries is due by 31 October 2026. <a href=\"tel:+918217542975\" data-call-location=\"faq\">Call us</a> and we will tell you what to do for your staff."
   - q: Does the new limit change how I count my staff for the 20-staff rule?
     a: "No. Staff whose PF wages are above ₹25,000 still count. Count all your staff, including casual staff and staff sent by a contractor. Don't count apprentices. For the full rules on who counts, read <a href=\"/blogs/epf-applicability-threshold\">PF: who must register</a>. PF applies to a business with 20 or more staff."
 ---
@@ -27,7 +28,7 @@ faq:
   <div class="container">
     <h1 id="post-heading">PF wage limit is now ₹25,000: what employers must change</h1>
     <p class="tool-lead">From {{ epf.wage_ceiling_from }}, the PF wage limit is {{ epf.wage_ceiling_text }} a month. It was {{ epf.wage_ceiling_old_text }}. So more of your staff may now need to be in PF. Here is who, and what to change.</p>
-    <p class="note">Last updated {{ page.last_modified | date: "%-d %B %Y" }} · Rules checked on {{ site.data.facts.tools_checked }}</p>
+    <p class="note">Last updated {{ page.last_modified | date: "%-d %B %Y" }} · Rules checked on {{ page.rules_checked | date: "%-d %B %Y" }}</p>
   </div>
 </section>
 
@@ -67,8 +68,14 @@ faq:
       </ol>
       <p>Do you run an IT company? Read <a href="/industries/it-companies">PF and ESI for IT companies</a>. It covers the {{ epf.wage_ceiling_text }} limit for IT salaries.</p>
 
-      <h2 id="sept-heading">September 2026 salaries: call us</h2>
-      <p>The new limit started on {{ epf.wage_ceiling_from }}, in the middle of the month. EPFO (the government PF office) has moved the due date for September 2026 salaries to 31 October 2026. It has not yet said how to work out PF for September 2026 salaries. <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a> and we will tell you what to do.</p>
+      <h2 id="sept-heading">September 2026 salaries: what EPFO's FAQs say</h2>
+      <p>The new limit started on {{ epf.wage_ceiling_from }}, in the middle of the month. The FAQs (answers to common questions) on the new limit from EPFO (the government PF office) say to send one ECR (the monthly list of each employee's wages and PF, sent to the PF office) for September 2026, with PF worked out in two parts:</p>
+      <ul>
+        <li>1 to 16 September: on the old {{ epf.wage_ceiling_old_text }} limit</li>
+        <li>17 to 30 September: on the new {{ epf.wage_ceiling_text }} limit</li>
+      </ul>
+      <p>The FAQs also say the new {{ epf.wage_ceiling_text }} limit applies to EPS (pension) wages too. Staff who already pay PF on wages above {{ epf.wage_ceiling_text }} don't have to bring it down to {{ epf.wage_ceiling_text }}.</p>
+      <p>EPFO moved the due date for September 2026 salaries to 31 October 2026. This is for September only. PF on October 2026 salaries is due by 15 November 2026. <a href="tel:{{ site.data.site.phone_tel }}" data-call-location="inline">Call us</a> and we will tell you what to do for your staff.</p>
 
       <h2 id="tools-heading">Check an employee with our free tools</h2>
       <p>Use the <a href="/epf-eligibility-checker">PF eligibility checker</a> to see if PF applies to your business or to one employee. Use the <a href="/epf-contribution-calculator">PF contribution calculator</a> to see what you and your employee pay. See <a href="/epf-esi-tools-calculators">all our free PF and ESI tools</a>.</p>
