@@ -200,6 +200,7 @@
     beforeNote: 'This tool calculates PF and ESI from September 2026. For earlier months, enter the amounts yourself, or CALL.',
     pfHalfNote: 'PF wages must be at least half the total pay. If they come to less, the difference is added to PF wages. Check the PF wages above. Not sure? CALL.',
     esiHalfNote: 'ESI wages must be at least half the total pay. If they come to less, the difference is added to ESI wages. Check the ESI wages above. Not sure? CALL.',
+    pfAddedNote: 'PF wages must be at least half the total pay. Basic pay and DA come to less, so the PF wages above are half the total pay. If another allowance counts as PF wages, change the amount. Not sure? CALL.',
     esiAddedNote: 'The items left out of ESI wages are more than half the total pay. So the amount above half has been added to the ESI wages above. Not sure? CALL.',
     printTitle: function (name, month) { return 'Payslip - ' + name + ' - ' + month; },
     callUs: 'call us',
@@ -435,7 +436,10 @@
         if (kind.pf) pfBase += r.value;
         if (kind.esiOut) esiOut += r.value;
       });
-      if (!state.pfWagesEdited) els.pfWages.value = pfBase ? round2(pfBase) : '';
+      // PF wages are at least half the total pay (same proviso). The box adds
+      // only Basic pay and DA, so it fills in the larger of those and half.
+      var pfAdded = !state.pfWagesEdited && pfBase > 0 && pfBase < gross / 2;
+      if (!state.pfWagesEdited) els.pfWages.value = pfBase ? round2(Math.max(pfBase, gross / 2)) : '';
       // 50% rule (Code s.2(88), first proviso): if the left-out rows are more
       // than half the total pay, the amount above half is added back, so ESI
       // wages are never below half the total pay.
@@ -482,10 +486,11 @@
       }
 
       if (pfWages > PF_OLD_CEILING && els.month.value === '2026-09') notes.push(T.pfSeptNote.replace('CALL', call(true)));
-      // 50% rule: PF/ESI wages must be at least half the total pay. For PF, and
-      // for ESI wages the user typed, the tool points it out; for the ESI wages it
-      // fills in, it adds the difference itself and says so.
-      if (gross && pfWages && pfWages < gross / 2) notes.push(T.pfHalfNote.replace('CALL', call(true)));
+      // 50% rule: PF/ESI wages must be at least half the total pay. For wages
+      // the user typed, the tool points it out; for the wages it fills in, it
+      // adds the difference itself and says so.
+      if (pfAdded) notes.push(T.pfAddedNote.replace('CALL', call(true)));
+      else if (gross && pfWages && pfWages < gross / 2) notes.push(T.pfHalfNote.replace('CALL', call(true)));
       if (esiAdded) notes.push(T.esiAddedNote.replace('CALL', call(true)));
       else if (gross && esiWages && esiWages <= limit && esiWages < gross / 2) notes.push(T.esiHalfNote.replace('CALL', call(true)));
       if (esiWages > limit) notes.push(T.esiAboveNote('₹' + limit.toLocaleString('en-IN')).replace('CALL', call(true)));
